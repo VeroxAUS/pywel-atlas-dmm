@@ -1,0 +1,17 @@
+0x17e9170: sub rsp, 0x78
+0x17e9174: vmovups xmm0, xmmword ptr [rcx + 0xa4]
+0x17e917c: mov rax, qword ptr [rcx + 0xc8]
+0x17e9183: lea r8, [rsp + 0x48]
+0x17e9188: vmovups xmm1, xmmword ptr [rcx + 0xfc]
+0x17e9190: vmovups xmmword ptr [rsp + 0x30], xmm0
+0x17e9196: vmovups xmm0, xmmword ptr [rcx + 0xdc]
+0x17e919e: lea rcx, [rsp + 0x30]
+0x17e91a3: mov qword ptr [rsp + 0x40], rax
+0x17e91a8: lea rdx, [rsp + 0x20]
+0x17e91ad: vmovups xmmword ptr [rsp + 0x48], xmm0
+0x17e91b3: vmovups xmmword ptr [rsp + 0x58], xmm1
+0x17e91b9: call 0x1403936e0
+0x17e91be: lea rcx, [rsp + 0x20]
+0x17e91c3: call 0x140393bb0
+0x17e91c8: add rsp, 0x78
+0x17e91cc: ret 

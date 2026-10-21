@@ -1066,4 +1066,152 @@ User choice: bundle the two quirk fixes with eight Bell markers.
 
 Compiled with MSVC `/W4` without warnings, and both standalone builds too. No
 automated tests added or run. Package: `archive/releases/PywelAtlas-v0.52.zip`.
-Runtime pending (test in the packaged README).
+The user confirmed at runtime that it works. Remaining problem: markers are
+hard to see depending on the main-map zoom.
+
+## Next-phase static research (2026-10-22, three parallel read-only studies)
+
+All static; nothing is runtime-confirmed. Full reports:
+
+- `research/analysis/map-zoom-visibility.md`. Each icon's UI template sets
+  zoom windows (`changePoint` etc., stored at icon +0x1f8/+0x20c/+0x220 with
+  an enabled byte at +0x10). The projection (`d94040` → `dabae0`) hides the
+  icon outside [p0,p3]. Options: (1) use an icon type whose template has no
+  window; (2) clear the enabled bytes on our own verified icons only, which
+  writes game memory and needs user approval; (3) clamp the scale for our
+  icons. A logging build should confirm the window values and zoomT first.
+- `research/analysis/player-position.md`. Recommended source: the minimap
+  controller's own update `0xe13cf0` (vtable 0x5674e00, slot 0x118) writes
+  the player's world xyz to controller +0x330 every update. A new guarded
+  hook reads 12 bytes after the original returns. The world-map projection's
+  5th argument also carries the player xyz, but only while the map is open.
+  The ActorFocus icon (type 0, key changes per world session) is a
+  cross-check only. Reading the actor transform directly is not recommended
+  (lock plus parent-relative). Units are metres. Minimap markers use the same
+  creator through the minimap controller, need minimap removal `0xe09fc0`
+  (new guard), and may be created lazily.
+- `research/analysis/collectible-categories.md`. `poi-data.js` has 11,342
+  POIs in 117 categories; only the 8 Bells have scene UUIDs. The Bell record
+  type covers discoverable landmarks. Shortlist: Abyss Nexus, small landmark
+  sets (Shrine/Spire/Sanctum/Constellation/Witch Hideout), Cresset, Treasure
+  Chest (save location unknown; needs a before/after save diff). The blocker
+  is an asset reader (pycrimson) to build POI → UUID tables. Filter UI: in-game
+  Dear ImGui panel (see CLAUDE.md).
+
+User decision: keep the game's own matching icons (Bells use Bell icons and
+so on); fix zoom visibility on our markers rather than switching icon types.
+
+## Combined v0.53: zoom and player-position observation (logging only)
+
+The marker behaviour is identical to v0.52. Added in the marker part
+(combined build only), as log lines in `native-map-categories.log`:
+
+- `zoom-type`: once per icon type, after `ObserveInitialize` returns. It logs
+  type, category, template, the three zoom windows (icon +0x1f8/+0x20c/
+  +0x220: four floats plus enabled and fade bytes), icon +0x2b0..+0x2bf, and
+  record +0x60/+0x61, the size curve +0x8c..+0xa4, +0xa8, +0xb0, +0xb1,
+  +0xb4..+0xb6 and +0xbc.
+- `zoom-frame` / `zoom-marker`: during F8, every 250 ms from
+  `ObserveWorldProjection`. It logs controller +0xaa0/+0xabc/+0xa9c/+0xae4/
+  +0xbf8/+0xace, globals 0x6cab9e8/0x6caba88, the computed zoomT, and per
+  present Bell marker icon +0x2b9, +0x1eb and (icon+8)+0xb4 (bit 8 = hidden).
+- `position`: a new guarded watch hook on the minimap update `0xe13cf0`
+  copies minimap controller +0x330 xyz and +0x569 after the original returns.
+  `ObserveWorldProjection` copies its 5th/6th arguments (player xyz and
+  heading). The worker logs every 2 s while moving (every 10 s when still)
+  and at F8, with the nearest Bell's X/Z distance. It also logs the runtime
+  settings 0x6cad108/0x6cad158/0x6cae808/0x6cde048 once. If the minimap
+  guard fails, only position logging is skipped.
+
+Compiled with MSVC `/W4` without warnings (combined and standalone marker).
+No automated tests added or run. Package:
+`archive/releases/PywelAtlas-v0.53.zip`.
+
+### v0.53 runtime result (traces `research/traces/pywel-atlas-v0.53-*.log`)
+
+User report: at the Demeniss Bell Tower the marker was visible fully zoomed
+in, gone at middle zoom (a notch or two out from full zoom it was faint),
+and gone fully zoomed out.
+
+- Zoom windows (`zoom-type`, 24 types logged):
+  - 226 `MapIcon_Gimmick_LevelTreasureBox` (our markers): `[0.88 0.93 1 1]`,
+    enabled, fade on. Visible only when zoomT >= 0.88, fading over
+    0.88..0.93.
+  - 360 `MapIcon_Gimmick_Bell_01` (the game's Bell icon) and 336 Campfire:
+    the same `[0.88 0.93 1 1]`. Native Bell icons vanish at the same zooms.
+  - 234 `MapIcon_Abyss_Ruins`: `[0.25 0.3 0.9 1]` (hidden only near full
+    zoom-out).
+  - 1 `MapIcon_Pin_Marker`: window disabled (visible at every zoom).
+  - Image and text sub-windows were disabled for all of these.
+- zoomT (`zoom-frame`): camera distance 0.2..9.5 maps to zoomT 1..0.
+  Full in = 1, the middle sample = 0.74, full out = 0. The Demeniss marker's
+  window result (icon +0x2b9) was 1 at zoomT 1 and 0 at 0.74 and below,
+  matching the user's view exactly. The element hidden bit stayed 0 (the
+  controller's first-update flag +0xace read 1 throughout), so +0x2b9 is the
+  reliable visibility signal, not bit 8.
+- Size curve: type 226 has rec+0x60 = 1, max 1.0, min 0.7. Size is not the
+  problem; the window is.
+- Position: the minimap hook (`0xe13cf0`, MH_OK) updated every frame on the
+  game thread. Walking and riding moved the position smoothly (metres; the
+  Hernand Bell distance went 78 → 5.6 → 107 m). The map-view copy only
+  changes while the map is open, so the minimap is the radius-filter source.
+
+Conclusion: static research section 1 is confirmed. The fix that keeps the
+native icon is turning off the zoom window on our own icons only (research
+`map-zoom-visibility.md` option 2). It writes three bytes in each of our own
+icon objects, so it needs the user's approval.
+
+## Combined v0.54: native Bell icon, no zoom limit on our markers
+
+User-approved (2026-10-22): switch the markers to the native Bell icon and
+turn off the zoom window on our own markers only.
+
+- Bell markers use type 360 (`MapIcon_Gimmick_Bell_01`). Before creating or
+  removing one, `MarkerDefinitionReady(360)` requires template type 29084,
+  that template name and category 0xffffffff (the same exact checks the
+  chest had, now in `IconDefinitionReady`). `ResolveIndependentParent` and
+  `ResolvePresentation` use type 360's own record; container selection still
+  copies the pin's traced configuration (type 360's own selector is also 1).
+  Keys, kind 0x15, positions, the private-key routing and the removal rules
+  are unchanged. `OwnMarkerType` keeps the proof chest on 226.
+- `DisableZoomWindows(icon)` writes 0 over each zoom-window enabled byte
+  (icon +0x208, +0x21c, +0x230) that reads exactly 1, using
+  WriteProcessMemory on our own process. It runs on the map thread only,
+  right after a creation passes the exact readback (`IsBellMarker` plus the
+  container routing), and again on every update for a present, verified,
+  wanted marker, in case the game re-initialises it. Counts are logged as
+  `zoomLimitOff` / `zoomLimitRefused`.
+- Static check of the one type 360 difference: record +0xb0 = 1 (type 226
+  has 0). In `d94040` (`d94262`) and `dabd10` (`dada5a`) that byte makes the
+  game look up the actor whose id is at icon +0x1c0 (`64f570`) and move the
+  icon to it. +0x1c0 is set to 0 in icon set-up (`dec9e5`) and only set by
+  the actor listener (`decc49`), which our icons never use; d8a970 treats 0
+  as "no actor". So our markers should stay at their Bell position. Static
+  only: F8 `zoom-marker` lines now log `actorId` and `zoomLimitEnabled`, and
+  `IsBellMarker` would stop recognising a marker whose position changed.
+- Type 360 has rec+0x60 = 0, so its size is a constant 1.0 at every zoom.
+- The v0.53 observation logging is kept.
+
+Compiled with MSVC `/W4` without warnings (combined and standalone marker;
+the standalone build needed a `(void)key` for the new helper). No automated
+tests added or run. Package: `archive/releases/PywelAtlas-v0.54.zip`.
+
+### v0.54 runtime result (traces `research/traces/pywel-atlas-v0.54-*.log`)
+
+User-confirmed: every not-completed Bell shows the native Bell icon at every
+zoom level. Where the game already marks a Bell (completed ones), only the
+game's own icon is shown, and it still hides when zoomed out as normal.
+
+- Save serial 1, slot 103: Calphade and Hernand completed (hidden), the
+  other six shown. 6 creations, 0 failures, `zoomLimitOff=6`,
+  `zoomLimitRefused=0`, no removals or stuck markers.
+- F8 samples covered zoomT 1, 0.98–0.93 (the old fade band), 0.69–0.54 and 0.
+  Every sample showed `zoomLimitEnabled=0` and `actorId=0` for all six
+  markers. On-screen markers kept window result 1 at every zoom, so the
+  game no longer hid them.
+- The actor-follow risk did not occur: the ids stayed 0 and `IsBellMarker`
+  (exact position) recognised every marker each update.
+
+Zoom visibility on our own markers is solved with the native icon. Next
+per CLAUDE.md: the Dear ImGui filter panel on its own, then a second
+category and the radius filter (minimap position source).

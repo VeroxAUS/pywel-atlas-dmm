@@ -233,9 +233,10 @@ unsigned visibilitySeenCount = 0;
 
 // Forward declarations: these functions are defined further down the file.
 bool ChestDefinitionReady();
+bool MarkerDefinitionReady(WORD type);
 void CreateIndependentChest(void* controller, void* parent, const void* presentation,
     const MarkerDefinition& definition);
-bool ResolveIndependentParent(void* controller, const float (&position)[3],
+bool ResolveIndependentParent(void* controller, WORD type, const float (&position)[3],
     void*& parent, uintptr_t& chestRecord);
 bool ResolvePresentation(uintptr_t record, const void*& presentation);
 void ServiceCreation(void* controller);
@@ -243,6 +244,9 @@ void Queue(const Sample& sample);
 void ServiceRemoval(void* controller);
 #ifdef PYWEL_ATLAS_COMBINED
 void ServiceBellMarkers(void* controller);
+void RecordIconZoomType(void* icon);
+void RecordZoomFrame(void* controller);
+void RecordMapViewPosition(const void* playerXyz, float heading);
 #endif
 
 // ===========================================================================
@@ -272,6 +276,12 @@ MarkerDefinition CopyDefinition(bool active) {
 constexpr uint64_t kBellMarkerKeyBase = 0x5059415400000100ULL;
 constexpr unsigned kBellMarkerCount = _countof(kBellLinks);
 static_assert(kBellMarkerCount <= 31, "Bell marker masks hold at most 31 markers");
+// v0.54: Bell markers use the game's own Bell map icon (type 360), so they
+// look native. Its definition must still match exactly what was traced:
+// template type 29084 named "MapIcon_Gimmick_Bell_01", category 0xffffffff.
+constexpr WORD bellMarkerType = 360;
+constexpr WORD kBellTemplateType = 29084;
+constexpr const char* kBellTemplateName = "MapIcon_Gimmick_Bell_01";
 
 // Returns which Bell marker a private key belongs to, or -1 if none.
 int BellMarkerIndex(uint64_t key) {
@@ -287,7 +297,7 @@ bool IsBellMarker(void* icon, unsigned index) {
     float position[3] = {};
     auto* bytes = static_cast<const BYTE*>(icon);
     return icon && index < kBellMarkerCount &&
-        Read(bytes + 0xde, &type, sizeof(type)) && type == chestType &&
+        Read(bytes + 0xde, &type, sizeof(type)) && type == bellMarkerType &&
         Read(bytes + 0xc8, &tag, sizeof(tag)) &&
         tag.key == kBellMarkerKeyBase + index && tag.kind == 0x15 &&
         Read(bytes + 0xe0, position, sizeof(position)) &&
@@ -304,6 +314,19 @@ bool IsOwnMarkerKey(uint64_t key) {
     }
 #endif
     return key == chestKey;
+}
+
+// The icon type this mod creates for one of its private keys: the native Bell
+// icon for a Bell marker (combined build), the chest for the proof chest.
+WORD OwnMarkerType(uint64_t key) {
+#ifdef PYWEL_ATLAS_COMBINED
+    if (BellMarkerIndex(key) >= 0) {
+        return bellMarkerType;
+    }
+#else
+    (void)key; // Standalone build: only the proof chest exists.
+#endif
+    return chestType;
 }
 
 // True only if `icon` is our own chest: right type (+0xde), our private tag
@@ -357,8 +380,8 @@ uintptr_t RouteWorldContainer(void* controller, const WORD* type, const void* ta
         Read(tag, &actualTag, sizeof(actualTag)) &&
         Read(position, actualPosition, sizeof(actualPosition));
     if (readable && creatingChest && requestedChestContainer &&
-        activeSample->generated && actualType == chestType &&
-        IsOwnMarkerKey(actualTag.key) && actualTag.kind == 0x15 &&
+        activeSample->generated && IsOwnMarkerKey(actualTag.key) &&
+        actualType == OwnMarkerType(actualTag.key) && actualTag.kind == 0x15 &&
         memcmp(actualPosition, activeSample->position, sizeof(actualPosition)) == 0) {
         container = requestedChestContainer;
         activeSample->containerRouted = true;
@@ -401,6 +424,10 @@ BYTE ObserveInitialize(void* icon, const void* description, BYTE flag) {
         activeSample->initializationResult = result;
         CaptureIconState(icon, *activeSample);
     }
+#ifdef PYWEL_ATLAS_COMBINED
+    // v0.53 observation: log this icon type's zoom window once.
+    RecordIconZoomType(icon);
+#endif
     return result;
 }
 
@@ -424,10 +451,11 @@ void QueueRenderState(void* icon, BYTE phase, float scale) {
     nextCapture[phase] = GetTickCount64() + 100;
     Sample sample = {};
     sample.controller = 0x566ff50;
-    sample.type = chestType;
     sample.generated = true;
     sample.iconVerified = true;
     sample.phase = phase;
+    // The proof chest or a Bell marker (native Bell icon): log the real type.
+    Read(static_cast<const BYTE*>(icon) + 0xde, &sample.type, sizeof(sample.type));
     sample.calculatedScale = scale;
     Read(static_cast<const BYTE*>(icon) + 0xc8, sample.tag, sizeof(sample.tag));
     sample.positionRead = Read(static_cast<const BYTE*>(icon) + 0xe0,
@@ -466,6 +494,13 @@ uintptr_t ObserveWorldProjection(void* controller, BYTE flag, void* layer,
             void* icon = worldLookup(controller, &chestType, &tag, &index);
             QueueRenderState(icon, 2, 0);
         }
+#ifdef PYWEL_ATLAS_COMBINED
+        // v0.53 observation: `optional` points at the player's xyz and
+        // `value` is the heading (static research); copy them, and during F8
+        // record the map zoom state.
+        RecordMapViewPosition(optional, value);
+        RecordZoomFrame(controller);
+#endif
     }
     return result;
 }
@@ -510,7 +545,7 @@ void ServiceCreation(void* controller) {
     uintptr_t record = 0;
     MarkerDefinition definition = CopyDefinition(false);
     if (!definition.enabled
-        || !ResolveIndependentParent(controller, definition.position, parent, record)) {
+        || !ResolveIndependentParent(controller, chestType, definition.position, parent, record)) {
         InterlockedExchange(&creationRequested, 0);
         InterlockedExchange(&creationOutcome, 3);
         InterlockedIncrement(&definitionRejected);
@@ -954,6 +989,39 @@ volatile LONG bellMarkerCreations = 0; // Successful creations (diagnostic count
 volatile LONG bellMarkerRemovals = 0; // Native removal calls (diagnostic count).
 volatile LONG bellMarkerFailures = 0; // Creations that could not be completed.
 volatile LONG bellMarkerStuck = 0; // Markers still present 3 s after removal.
+volatile LONG bellZoomWindowWrites = 0; // Zoom-limit bytes switched off (diagnostic count).
+volatile LONG bellZoomWindowFailures = 0; // Writes the system refused (diagnostic count).
+
+// Each map icon copies up to three "zoom windows" from its UI template when it
+// is set up: a zoom range in which the icon is shown (main icon at +0x1f8,
+// image at +0x20c, text at +0x220; 0x14 bytes each, the byte at +0x10 of each
+// = enabled). Outside that range the game hides the icon. The native Bell icon
+// is only shown near full zoom-in (v0.53 runtime log). With the user's
+// approval, this switches the enabled bytes off on OUR OWN Bell markers only,
+// so the game treats them like personal pins (no zoom limit). It never touches
+// the shared icon type, the template, or any icon the caller has not just
+// verified as ours (IsBellMarker), and runs only on the game's map thread.
+void DisableZoomWindows(void* icon) {
+    static constexpr unsigned kEnabledOffsets[3] = {0x1f8 + 0x10, 0x20c + 0x10, 0x220 + 0x10};
+    for (unsigned offset : kEnabledOffsets) {
+        BYTE* enabled = static_cast<BYTE*>(icon) + offset;
+        BYTE value = 0;
+        // Only an "enabled" byte (exactly 1) is changed; anything else is left as is.
+        if (!Read(enabled, &value, sizeof(value)) || value != 1) {
+            continue;
+        }
+        const BYTE off = 0;
+        SIZE_T written = 0;
+        // WriteProcessMemory on our own process fails cleanly instead of
+        // crashing if the memory is not writable.
+        if (WriteProcessMemory(GetCurrentProcess(), enabled, &off, sizeof(off), &written) &&
+            written == sizeof(off)) {
+            InterlockedIncrement(&bellZoomWindowWrites);
+        } else {
+            InterlockedIncrement(&bellZoomWindowFailures);
+        }
+    }
+}
 
 // Ask the game to create Bell marker `index` at that Bell's position, then
 // look it up again to confirm it exists with our identity. Returns true only
@@ -967,7 +1035,7 @@ bool CreateBellMarker(void* controller, unsigned index) {
     void* parent = nullptr;
     uintptr_t record = 0;
     const void* presentation = nullptr;
-    if (!ResolveIndependentParent(controller, place, parent, record) ||
+    if (!ResolveIndependentParent(controller, bellMarkerType, place, parent, record) ||
         !ResolvePresentation(record, presentation)) {
         return false;
     }
@@ -977,7 +1045,7 @@ bool CreateBellMarker(void* controller, unsigned index) {
     DWORD lookupIndex = 0;
     Sample generated = {};
     generated.controller = 0x566ff50;
-    generated.type = chestType;
+    generated.type = bellMarkerType;
     generated.generated = true;
     generated.finalFlag = 1;
     generated.positionRead = true;
@@ -993,18 +1061,23 @@ bool CreateBellMarker(void* controller, unsigned index) {
     // CreateIndependentChest for why it is safe).
     alignas(8) BYTE emptyProperties[0x28] = {};
     float scalar = 0;
-    originalCreate(controller, &chestType, &tag, &lookupIndex, &scalar,
+    originalCreate(controller, &bellMarkerType, &tag, &lookupIndex, &scalar,
         place, presentation, 0, emptyProperties, 1);
     creatingChest = false;
     activeSample = previous;
     requestedChestContainer = previousRequestedContainer;
     // Read back: it must exist with our type, key and exact position, and our
     // parent-container routing must have happened.
-    void* icon = worldLookup(controller, &chestType, &tag, &lookupIndex);
+    void* icon = worldLookup(controller, &bellMarkerType, &tag, &lookupIndex);
     CaptureIconState(icon, generated);
     generated.iconVerified = IsBellMarker(icon, index);
     Queue(generated);
-    return generated.iconVerified && generated.containerRouted;
+    if (!generated.iconVerified || !generated.containerRouted) {
+        return false;
+    }
+    // Ours and confirmed: remove its zoom limit straight away.
+    DisableZoomWindows(icon);
+    return true;
 }
 
 // Runs on the game's map thread after each world-map update: makes the Bell
@@ -1023,7 +1096,7 @@ void ServiceBellMarkers(void* controller) {
         tag.key = kBellMarkerKeyBase + index;
         tag.kind = 0x15;
         DWORD lookupIndex = 0;
-        void* icon = worldLookup(controller, &chestType, &tag, &lookupIndex);
+        void* icon = worldLookup(controller, &bellMarkerType, &tag, &lookupIndex);
         if (!icon) {
             // Gone: removed by us, or the map was rebuilt (e.g. after a load).
             present &= ~bit;
@@ -1045,19 +1118,22 @@ void ServiceBellMarkers(void* controller) {
             continue;
         }
         if (wanted & bit) {
-            continue; // Wanted and present: nothing to do.
+            // Wanted and present: keep its zoom limit off (see
+            // DisableZoomWindows; this also covers a re-initialised icon).
+            DisableZoomWindows(icon);
+            continue;
         }
         // Present but no longer wanted (e.g. its Bell is now completed).
         if (!removalIssued[index]) {
-            if (!ChestDefinitionReady()) {
+            if (!MarkerDefinitionReady(bellMarkerType)) {
                 continue; // Icon definitions changed: refuse to remove.
             }
             removalIssued[index] = GetTickCount64();
             InterlockedIncrement(&bellMarkerRemovals);
             // Native removal: type and index by value, like the proof chest.
-            removeWorldIcon(controller, chestType, &tag, lookupIndex);
+            removeWorldIcon(controller, bellMarkerType, &tag, lookupIndex);
             // The old icon may be freed now; inspect only a fresh lookup.
-            if (!worldLookup(controller, &chestType, &tag, &lookupIndex)) {
+            if (!worldLookup(controller, &bellMarkerType, &tag, &lookupIndex)) {
                 present &= ~bit;
                 removalIssued[index] = 0;
             }
@@ -1133,10 +1209,12 @@ void UpdateBellMarkers(BellMarkerState& state) {
     LONG present = InterlockedCompareExchange(&bellMarkerPresent, 0, 0);
     if (present != state.present) {
         BellNames(present, names);
-        sprintf_s(line, "Bell markers on the map now: [%s] (creations=%ld removals=%ld failures=%ld)",
+        sprintf_s(line, "Bell markers on the map now: [%s] (creations=%ld removals=%ld failures=%ld zoomLimitOff=%ld zoomLimitRefused=%ld)",
             names, InterlockedCompareExchange(&bellMarkerCreations, 0, 0),
             InterlockedCompareExchange(&bellMarkerRemovals, 0, 0),
-            InterlockedCompareExchange(&bellMarkerFailures, 0, 0));
+            InterlockedCompareExchange(&bellMarkerFailures, 0, 0),
+            InterlockedCompareExchange(&bellZoomWindowWrites, 0, 0),
+            InterlockedCompareExchange(&bellZoomWindowFailures, 0, 0));
         Log(line);
         state.present = present;
     }
@@ -1181,9 +1259,9 @@ bool SameTable(const TableView& left, const TableView& right) {
     return left.table == right.table && left.count == right.count && left.cache == right.cache;
 }
 
-// True only if icon type 226 is already loaded and matches the verified chest:
-// template type 28852, category 0xffffffff, template "MapIcon_Gimmick_LevelTreasureBox".
-bool ChestDefinitionReady() {
+// True only if icon `type` is already loaded with exactly the expected
+// template type id and template name, and category 0xffffffff.
+bool IconDefinitionReady(WORD type, WORD expectedTemplate, const char* expectedName) {
     TableView icons = {};
     TableView templates = {};
     uintptr_t record = 0;
@@ -1191,25 +1269,43 @@ bool ChestDefinitionReady() {
     WORD secondary = 0;
     DWORD category = 0;
     char name[128] = {};
-    return ReadTable(kIconTablePointerRva, 4096, icons) && chestType < icons.count &&
+    return ReadTable(kIconTablePointerRva, 4096, icons) && type < icons.count &&
         ReadTable(kTemplateTablePointerRva, 65536, templates) &&
-        Read(reinterpret_cast<const void*>(icons.cache + chestType * sizeof(uintptr_t)),
+        Read(reinterpret_cast<const void*>(icons.cache + type * sizeof(uintptr_t)),
             &record, sizeof(record)) && record &&
         Read(reinterpret_cast<const void*>(record + 0x20), &secondary, sizeof(secondary)) &&
-        secondary == 28852 && secondary < templates.count &&
+        secondary == expectedTemplate && secondary < templates.count &&
         Read(reinterpret_cast<const void*>(record + 0x2c), &category, sizeof(category)) &&
         category == 0xffffffff &&
         Read(reinterpret_cast<const void*>(templates.cache + secondary * sizeof(uintptr_t)),
             &templateRecord, sizeof(templateRecord)) &&
         ReadTemplateName(reinterpret_cast<const void*>(templateRecord), name) &&
-        strcmp(name, "MapIcon_Gimmick_LevelTreasureBox") == 0;
+        strcmp(name, expectedName) == 0;
+}
+
+// True only if icon type 226 is already loaded and matches the verified chest:
+// template type 28852, category 0xffffffff, template "MapIcon_Gimmick_LevelTreasureBox".
+bool ChestDefinitionReady() {
+    return IconDefinitionReady(chestType, 28852, "MapIcon_Gimmick_LevelTreasureBox");
+}
+
+// True only if `type` is one this mod creates and its definition is loaded
+// and matches: the chest (226), or in the combined build the native Bell (360).
+bool MarkerDefinitionReady(WORD type) {
+#ifdef PYWEL_ATLAS_COMBINED
+    if (type == bellMarkerType) {
+        return IconDefinitionReady(bellMarkerType, kBellTemplateType, kBellTemplateName);
+    }
+#endif
+    return type == chestType && ChestDefinitionReady();
 }
 
 // Choose which map layer ("parent container") the chest is created in, the
 // same way the game's own code chooses (as traced). Uses icon type 1's
 // definition as configuration, plus the game's live altitude threshold: at or
-// above it, container 3 is used instead.
-bool ResolveIndependentParent(void* controller, const float (&position)[3],
+// above it, container 3 is used instead. `type` is the icon type being created
+// (chest or native Bell); its record is returned for the presentation lookup.
+bool ResolveIndependentParent(void* controller, WORD type, const float (&position)[3],
     void*& parent, uintptr_t& chestRecord) {
     TableView icons = {};
     uintptr_t pinRecord = 0;
@@ -1220,9 +1316,9 @@ bool ResolveIndependentParent(void* controller, const float (&position)[3],
     uintptr_t containers = 0;
     DWORD containerCount = 0;
     uintptr_t parentTable = 0;
-    if (!ChestDefinitionReady() || !ReadTable(kIconTablePointerRva, 4096, icons) ||
-        !Read(reinterpret_cast<const void*>(icons.cache + chestType * sizeof(uintptr_t)),
-            &chestRecord, sizeof(chestRecord)) ||
+    if (!MarkerDefinitionReady(type) || !ReadTable(kIconTablePointerRva, 4096, icons) ||
+        !Read(reinterpret_cast<const void*>(icons.cache + type * sizeof(uintptr_t)),
+            &chestRecord, sizeof(chestRecord)) || !chestRecord ||
         !Read(reinterpret_cast<const void*>(icons.cache + sizeof(uintptr_t)),
             &pinRecord, sizeof(pinRecord)) || !pinRecord ||
         !Read(reinterpret_cast<const void*>(pinRecord + 0x2c), &category, sizeof(category)) ||
@@ -1364,6 +1460,382 @@ void SnapshotCachedDefinitions() {
     Log(line);
 }
 
+#ifdef PYWEL_ATLAS_COMBINED
+// ===========================================================================
+// Section: combined build v0.53 - zoom and player-position observation
+// ---------------------------------------------------------------------------
+// Logging only: nothing here changes any icon or game value. It answers two
+// questions from the static research (research/analysis/map-zoom-visibility.md
+// and player-position.md):
+//   1. Why do our Bell markers fade or vanish at some map zooms? Each icon's
+//      UI template can set a "zoom window" (changePoint): outside it, the game
+//      hides the icon. We log each icon type's window values once, and while
+//      F8 is active, the map's current zoom and whether our markers were hidden.
+//   2. Where can the mod read the player's position (for a radius filter)?
+//      The minimap's own update stores it at minimap controller +0x330. We hook
+//      that update (watch only) and log it, next to the position the world map
+//      passes to its drawing step, and the distance to the nearest Bell.
+// All reads are bounded copies on the game's own thread; the worker only
+// receives the copies.
+// ===========================================================================
+
+// --- 1. Zoom windows, once per icon type -----------------------------------
+
+// One icon type's zoom-related values, copied when the game set up an icon.
+struct ZoomTypeRecord {
+    WORD type;
+    DWORD category;
+    bool categoryRead;
+    char templateName[128];
+    BYTE windows[0x3c]; // icon+0x1f8..+0x233: three 0x14-byte zoom windows.
+    bool windowsRead;
+    BYTE iconFlags[0x10]; // icon+0x2b0..+0x2bf: exemption/scale flags.
+    bool iconFlagsRead;
+    BYTE record[0x60]; // type record +0x60..+0xbf: size curve and exemptions.
+    bool recordRead;
+};
+
+SRWLOCK zoomLock = SRWLOCK_INIT;
+ZoomTypeRecord zoomTypes[64] = {}; // Waiting to be logged by the worker.
+unsigned zoomTypeCount = 0;
+volatile LONG zoomTypeSeen[4096 / 32] = {}; // One bit per icon type already queued.
+volatile LONG zoomTypeDropped = 0;
+
+// Called from ObserveInitialize after the game set up an icon: queues that
+// icon type's zoom values the first time the type is seen.
+void RecordIconZoomType(void* icon) {
+    WORD type = 0;
+    auto* bytes = static_cast<const BYTE*>(icon);
+    if (!icon || !Read(bytes + 0xde, &type, sizeof(type)) || type >= 4096 ||
+        InterlockedBitTestAndSet(&zoomTypeSeen[type / 32], type % 32)) {
+        return;
+    }
+    ZoomTypeRecord record = {};
+    record.type = type;
+    record.windowsRead = Read(bytes + 0x1f8, record.windows, sizeof(record.windows));
+    record.iconFlagsRead = Read(bytes + 0x2b0, record.iconFlags, sizeof(record.iconFlags));
+    // The type's definition record, from the same table ChestDefinitionReady reads.
+    TableView icons = {};
+    TableView templates = {};
+    uintptr_t definition = 0;
+    WORD templateType = 0;
+    uintptr_t templateRecord = 0;
+    if (ReadTable(kIconTablePointerRva, 4096, icons) && type < icons.count &&
+        Read(reinterpret_cast<const void*>(icons.cache + type * sizeof(uintptr_t)),
+            &definition, sizeof(definition)) && definition) {
+        record.categoryRead = Read(reinterpret_cast<const void*>(definition + 0x2c),
+            &record.category, sizeof(record.category));
+        record.recordRead = Read(reinterpret_cast<const void*>(definition + 0x60),
+            record.record, sizeof(record.record));
+        if (Read(reinterpret_cast<const void*>(definition + 0x20), &templateType, sizeof(templateType)) &&
+            ReadTable(kTemplateTablePointerRva, 65536, templates) && templateType < templates.count &&
+            Read(reinterpret_cast<const void*>(templates.cache + templateType * sizeof(uintptr_t)),
+                &templateRecord, sizeof(templateRecord))) {
+            ReadTemplateName(reinterpret_cast<const void*>(templateRecord), record.templateName);
+        }
+    }
+    // Never wait on the game's thread: if busy or full, count it as dropped.
+    if (!TryAcquireSRWLockExclusive(&zoomLock)) {
+        InterlockedIncrement(&zoomTypeDropped);
+        return;
+    }
+    if (zoomTypeCount < _countof(zoomTypes)) {
+        zoomTypes[zoomTypeCount++] = record;
+    } else {
+        InterlockedIncrement(&zoomTypeDropped);
+    }
+    ReleaseSRWLockExclusive(&zoomLock);
+}
+
+// --- 2. Map zoom state while F8 is active ----------------------------------
+
+// The world map's zoom values and our markers' visibility at one moment.
+struct ZoomFrameRecord {
+    float cameraDistance; // ctrl+0xaa0
+    float sizeInput; // ctrl+0xabc (input to the icon size curve)
+    float valueA9c; // ctrl+0xa9c
+    float valueAe4; // ctrl+0xae4
+    DWORD mode; // ctrl+0xbf8 (map mode)
+    BYTE firstUpdate; // ctrl+0xace
+    float nearDistance; // global 0x6cab9e8
+    float farDistance; // global 0x6caba88
+    float zoomT; // 1 - (distance - near) / (far - near), as the game computes it
+    LONG markers; // Bell markers inspected (bit per Bell)
+    BYTE windowResult[32]; // icon+0x2b9 per Bell
+    BYTE onScreen[32]; // icon+0x1eb per Bell
+    DWORD elementFlags[32]; // (icon+8)->+0xb4 per Bell; bit 8 = hidden
+    BYTE windowEnabled[32]; // icon+0x208 per Bell (main zoom window enabled)
+    DWORD actorId[32]; // icon+0x1c0 per Bell (actor the icon follows; 0 = none)
+};
+
+ZoomFrameRecord zoomFrames[16] = {};
+unsigned zoomFrameCount = 0;
+
+// Called from ObserveWorldProjection (world map, map thread) during F8:
+// records the zoom state and our markers' window result at most every 250 ms.
+void RecordZoomFrame(void* controller) {
+    static thread_local ULONGLONG nextFrame = 0;
+    if (!RenderCaptureActive() || GetTickCount64() < nextFrame) {
+        return;
+    }
+    nextFrame = GetTickCount64() + 250;
+    auto* bytes = static_cast<const BYTE*>(controller);
+    ZoomFrameRecord record = {};
+    Read(bytes + 0xaa0, &record.cameraDistance, sizeof(float));
+    Read(bytes + 0xabc, &record.sizeInput, sizeof(float));
+    Read(bytes + 0xa9c, &record.valueA9c, sizeof(float));
+    Read(bytes + 0xae4, &record.valueAe4, sizeof(float));
+    Read(bytes + 0xbf8, &record.mode, sizeof(record.mode));
+    Read(bytes + 0xace, &record.firstUpdate, sizeof(record.firstUpdate));
+    Read(reinterpret_cast<const void*>(imageBase + 0x6cab9e8), &record.nearDistance, sizeof(float));
+    Read(reinterpret_cast<const void*>(imageBase + 0x6caba88), &record.farDistance, sizeof(float));
+    float span = record.farDistance - record.nearDistance;
+    record.zoomT = span != 0 ? 1.0f - (record.cameraDistance - record.nearDistance) / span : -1.0f;
+    LONG present = InterlockedCompareExchange(&bellMarkerPresent, 0, 0);
+    for (unsigned index = 0; index < kBellMarkerCount; ++index) {
+        if (!(present & (1L << index))) {
+            continue;
+        }
+        NumericTag tag = {};
+        tag.key = kBellMarkerKeyBase + index;
+        tag.kind = 0x15;
+        DWORD lookupIndex = 0;
+        void* icon = worldLookup(controller, &bellMarkerType, &tag, &lookupIndex);
+        if (!IsBellMarker(icon, index)) {
+            continue;
+        }
+        auto* iconBytes = static_cast<const BYTE*>(icon);
+        uintptr_t element = 0;
+        Read(iconBytes + 0x2b9, &record.windowResult[index], 1);
+        // v0.54: the main zoom window's enabled byte (0 = our limit is off),
+        // and the actor id the native Bell type may follow (0 = none).
+        Read(iconBytes + 0x1f8 + 0x10, &record.windowEnabled[index], 1);
+        Read(iconBytes + 0x1c0, &record.actorId[index], sizeof(DWORD));
+        Read(iconBytes + 0x1eb, &record.onScreen[index], 1);
+        if (Read(iconBytes + 8, &element, sizeof(element)) && element) {
+            Read(reinterpret_cast<const void*>(element + 0xb4), &record.elementFlags[index], sizeof(DWORD));
+        }
+        record.markers |= 1L << index;
+    }
+    if (!TryAcquireSRWLockExclusive(&zoomLock)) {
+        return;
+    }
+    if (zoomFrameCount < _countof(zoomFrames)) {
+        zoomFrames[zoomFrameCount++] = record;
+    }
+    ReleaseSRWLockExclusive(&zoomLock);
+}
+
+// --- 3. Player position ----------------------------------------------------
+
+// 0xe13cf0: the minimap controller's own update (vtable 0x5674e00, slot
+// 0x118). RCX controller, XMM1 elapsed time, like the world update 0xdabd10.
+using UpdateMinimap = uintptr_t (*)(void*, float);
+UpdateMinimap originalMinimapUpdate = nullptr;
+// Its first 24 bytes in the supported build (checked before hooking; verified
+// against the installed executable with pefile on 2026-10-22).
+constexpr uintptr_t kMinimapUpdateRva = 0xe13cf0;
+constexpr BYTE kMinimapUpdateGuard[24] = {
+    0x48, 0x8b, 0xc4, 0x48, 0x89, 0x58, 0x08, 0x55,
+    0x56, 0x57, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56,
+    0x41, 0x57, 0x48, 0x8d, 0xa8, 0x08, 0xff, 0xff,
+};
+
+// Latest copied positions, guarded by positionLock.
+struct PlayerPosition {
+    float minimap[3]; // Minimap controller +0x330 (player world X, Y, Z).
+    BYTE abyssLayer; // Minimap controller +0x569 (player above the altitude threshold).
+    ULONGLONG minimapTick;
+    DWORD minimapThread;
+    LONG minimapUpdates;
+    float mapView[3]; // Player xyz the world map passes to its drawing step.
+    float heading; // Heading in degrees, from the same call.
+    ULONGLONG mapViewTick;
+};
+SRWLOCK positionLock = SRWLOCK_INIT;
+PlayerPosition playerPosition = {};
+
+// Hook on the minimap update: calls it unchanged, then copies the player
+// position it just stored. Watch only.
+uintptr_t ObserveMinimapUpdate(void* controller, float elapsed) {
+    uintptr_t result = originalMinimapUpdate(controller, elapsed);
+    uintptr_t table = 0;
+    float position[3] = {};
+    BYTE abyss = 0;
+    if (Read(controller, &table, sizeof(table)) && table == imageBase + 0x5674e00 &&
+        Read(static_cast<const BYTE*>(controller) + 0x330, position, sizeof(position)) &&
+        Read(static_cast<const BYTE*>(controller) + 0x569, &abyss, sizeof(abyss)) &&
+        TryAcquireSRWLockExclusive(&positionLock)) {
+        memcpy(playerPosition.minimap, position, sizeof(position));
+        playerPosition.abyssLayer = abyss;
+        playerPosition.minimapTick = GetTickCount64();
+        playerPosition.minimapThread = GetCurrentThreadId();
+        ++playerPosition.minimapUpdates;
+        ReleaseSRWLockExclusive(&positionLock);
+    }
+    return result;
+}
+
+// Called from ObserveWorldProjection: copies the player xyz and heading the
+// world map passes to its drawing step (only while the map is open).
+void RecordMapViewPosition(const void* playerXyz, float heading) {
+    static thread_local ULONGLONG nextCopy = 0;
+    float position[3] = {};
+    if (GetTickCount64() < nextCopy || !Read(playerXyz, position, sizeof(position))) {
+        return;
+    }
+    nextCopy = GetTickCount64() + 200;
+    if (TryAcquireSRWLockExclusive(&positionLock)) {
+        memcpy(playerPosition.mapView, position, sizeof(position));
+        playerPosition.heading = heading;
+        playerPosition.mapViewTick = GetTickCount64();
+        ReleaseSRWLockExclusive(&positionLock);
+    }
+}
+
+// Installs the minimap watch hook, after checking its guard bytes. A failure
+// only disables position logging; the markers keep working.
+void InstallMinimapHook(BYTE* base) {
+    if (memcmp(base + kMinimapUpdateRva, kMinimapUpdateGuard, sizeof(kMinimapUpdateGuard)) != 0) {
+        Log("Minimap update entry changed; position observation not installed.");
+        return;
+    }
+    MH_STATUS status = MH_CreateHook(base + kMinimapUpdateRva,
+        reinterpret_cast<void*>(&ObserveMinimapUpdate), reinterpret_cast<void**>(&originalMinimapUpdate));
+    if (status == MH_OK) {
+        status = MH_EnableHook(base + kMinimapUpdateRva);
+    }
+    char line[160];
+    sprintf_s(line, "Minimap position watch hook rva=0x%llx: %s",
+        static_cast<unsigned long long>(kMinimapUpdateRva), MH_StatusToString(status));
+    Log(line);
+}
+
+// --- 4. Worker: write the observations to the log --------------------------
+
+// Formats one 0x14-byte zoom window: 4 floats, enabled byte, fade byte.
+void FormatWindow(const BYTE* window, char (&text)[128]) {
+    float points[4] = {};
+    memcpy(points, window, sizeof(points));
+    sprintf_s(text, "[%g %g %g %g en=%u fade=%u]", points[0], points[1], points[2], points[3],
+        window[0x10], window[0x11]);
+}
+
+// Called every worker loop: logs queued zoom records, the player position
+// about every 2 seconds (or at once when `now` is true, e.g. on F8), and the
+// position-related game settings once.
+void LogZoomAndPosition(bool now) {
+    static bool settingsLogged = false;
+    static ULONGLONG nextPosition = 0;
+    static float lastLogged[3] = {};
+    char line[1024];
+    if (!settingsLogged) {
+        settingsLogged = true;
+        int cellSize = 0;
+        int cellWindow = 0;
+        float nativeRadius = 0;
+        float altitude = 0;
+        Read(reinterpret_cast<const void*>(imageBase + 0x6cad108), &cellSize, sizeof(cellSize));
+        Read(reinterpret_cast<const void*>(imageBase + 0x6cad158), &cellWindow, sizeof(cellWindow));
+        Read(reinterpret_cast<const void*>(imageBase + 0x6cae808), &nativeRadius, sizeof(nativeRadius));
+        Read(reinterpret_cast<const void*>(imageBase + 0x6cde048), &altitude, sizeof(altitude));
+        sprintf_s(line, "position settings at start: cellSize=%d cellWindow=%d nativeRadius=%g altitudeThreshold=%g",
+            cellSize, cellWindow, nativeRadius, altitude);
+        Log(line);
+    }
+    // Take the queued zoom records out under the lock, then log them.
+    ZoomTypeRecord types[_countof(zoomTypes)];
+    ZoomFrameRecord frames[_countof(zoomFrames)];
+    AcquireSRWLockExclusive(&zoomLock);
+    unsigned typeCount = zoomTypeCount;
+    unsigned frameCount = zoomFrameCount;
+    memcpy(types, zoomTypes, typeCount * sizeof(ZoomTypeRecord));
+    memcpy(frames, zoomFrames, frameCount * sizeof(ZoomFrameRecord));
+    zoomTypeCount = 0;
+    zoomFrameCount = 0;
+    ReleaseSRWLockExclusive(&zoomLock);
+    for (unsigned index = 0; index < typeCount; ++index) {
+        const ZoomTypeRecord& type = types[index];
+        char window[128];
+        char image[128];
+        char text[128];
+        FormatWindow(type.windows, window);
+        FormatWindow(type.windows + 0x14, image);
+        FormatWindow(type.windows + 0x28, text);
+        float curve[7] = {}; // record +0x8c..+0xa4 (size curve)
+        memcpy(curve, type.record + 0x2c, sizeof(curve));
+        DWORD exemption = 0; // record +0xbc
+        memcpy(&exemption, type.record + 0x5c, sizeof(exemption));
+        sprintf_s(line, "zoom-type type=%u category=0x%lx template=%s windowsRead=%u window=%s image=%s text=%s "
+            "icon2b0..2bf=%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x "
+            "rec60=%u rec61=%u curve8c..a4=[%g %g %g %g %g %g %g] recA8=%u recB0=%u recB1=%u recB4=%u recB5=%u recB6=%u recBC=0x%lx",
+            type.type, type.categoryRead ? type.category : 0xffffffffUL,
+            type.templateName[0] ? type.templateName : "-", type.windowsRead ? 1u : 0u, window, image, text,
+            type.iconFlags[0], type.iconFlags[1], type.iconFlags[2], type.iconFlags[3], type.iconFlags[4],
+            type.iconFlags[5], type.iconFlags[6], type.iconFlags[7], type.iconFlags[8], type.iconFlags[9],
+            type.iconFlags[10], type.iconFlags[11], type.iconFlags[12], type.iconFlags[13],
+            type.iconFlags[14], type.iconFlags[15],
+            type.record[0], type.record[1], curve[0], curve[1], curve[2], curve[3], curve[4], curve[5], curve[6],
+            type.record[0x48], type.record[0x50], type.record[0x51], type.record[0x54], type.record[0x55],
+            type.record[0x56], exemption);
+        Log(line);
+    }
+    for (unsigned index = 0; index < frameCount; ++index) {
+        const ZoomFrameRecord& frame = frames[index];
+        sprintf_s(line, "zoom-frame cameraDistance=%g near=%g far=%g zoomT=%g sizeInput=%g a9c=%g ae4=%g mode=%lu firstUpdate=%u",
+            frame.cameraDistance, frame.nearDistance, frame.farDistance, frame.zoomT, frame.sizeInput,
+            frame.valueA9c, frame.valueAe4, frame.mode, frame.firstUpdate);
+        Log(line);
+        for (unsigned bell = 0; bell < kBellMarkerCount; ++bell) {
+            if (frame.markers & (1L << bell)) {
+                sprintf_s(line, "  zoom-marker %s windowResult=0x%02x onScreen=%u elementFlags=0x%lx hidden=%u zoomLimitEnabled=%u actorId=%lu",
+                    kBellLinks[bell].name, frame.windowResult[bell], frame.onScreen[bell],
+                    frame.elementFlags[bell], (frame.elementFlags[bell] & 8) ? 1u : 0u,
+                    frame.windowEnabled[bell], frame.actorId[bell]);
+                Log(line);
+            }
+        }
+    }
+    // Player position, compared with the nearest Bell.
+    PlayerPosition position = {};
+    AcquireSRWLockShared(&positionLock);
+    position = playerPosition;
+    ReleaseSRWLockShared(&positionLock);
+    float dx = position.minimap[0] - lastLogged[0];
+    float dz = position.minimap[2] - lastLogged[2];
+    bool moved = dx * dx + dz * dz > 1.0f;
+    if (!now && (GetTickCount64() < nextPosition || (!moved && position.minimapUpdates == 0))) {
+        return;
+    }
+    if (!now && !moved) {
+        nextPosition = GetTickCount64() + 10000; // Standing still: log only every 10 s.
+    } else {
+        nextPosition = GetTickCount64() + 2000;
+    }
+    memcpy(lastLogged, position.minimap, sizeof(lastLogged));
+    int nearest = -1;
+    float nearestDistance = 0;
+    for (unsigned bell = 0; bell < kBellMarkerCount; ++bell) {
+        float bx = kBellLinks[bell].position[0] - position.minimap[0];
+        float bz = kBellLinks[bell].position[2] - position.minimap[2];
+        float distance = sqrtf(bx * bx + bz * bz);
+        if (nearest < 0 || distance < nearestDistance) {
+            nearest = static_cast<int>(bell);
+            nearestDistance = distance;
+        }
+    }
+    ULONGLONG tick = GetTickCount64();
+    sprintf_s(line, "position%s minimap=(%.2f, %.2f, %.2f) abyssLayer=%u age=%llums updates=%ld thread=%lu "
+        "| mapView=(%.2f, %.2f, %.2f) heading=%.1f age=%llums | nearest Bell %s %.1f m",
+        now ? " (F8)" : "", position.minimap[0], position.minimap[1], position.minimap[2], position.abyssLayer,
+        position.minimapTick ? tick - position.minimapTick : 0ULL, position.minimapUpdates, position.minimapThread,
+        position.mapView[0], position.mapView[1], position.mapView[2], position.heading,
+        position.mapViewTick ? tick - position.mapViewTick : 0ULL,
+        nearest >= 0 ? kBellLinks[nearest].name : "-", nearestDistance);
+    Log(line);
+}
+#endif
+
 // ===========================================================================
 // Section: the worker thread
 // ===========================================================================
@@ -1448,7 +1920,7 @@ DWORD WINAPI Run(void* address) {
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
 #ifdef PYWEL_ATLAS_COMBINED
-    Log("Pywel Atlas combined v0.52 map markers - one marker per Bell, shown while the detected save has it not completed; F10 hides all, F6 shows again");
+    Log("Pywel Atlas combined v0.54 map markers - one native Bell icon (type 360) per Bell, shown at every map zoom (zoom limit off on our own markers only) while the detected save has it not completed; F10 hides all, F6 shows again. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap");
 #else
     Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
 #endif
@@ -1535,6 +2007,10 @@ DWORD WINAPI Run(void* address) {
         Log(MH_StatusToString(status));
         return 0;
     }
+#ifdef PYWEL_ATLAS_COMBINED
+    // v0.53 observation: watch the minimap update for the player position.
+    InstallMinimapHook(base);
+#endif
     Log("F6 requests one private chest for 3 minutes; open Pywel. No reload or saved pin is needed.");
     Log("F8 captures state. F10 disables and requests removal; keep/open Pywel to service it. Save identity is manual.");
     // previousFx: was the key down on the last loop? A key "press" is down now
@@ -1567,6 +2043,9 @@ DWORD WINAPI Run(void* address) {
         Drain();
 #ifdef PYWEL_ATLAS_COMBINED
         UpdateBellMarkers(bellMarkers);
+        // v0.53 observation: zoom records and player position (F8 also logs
+        // the position at once; see the F8 block below).
+        LogZoomAndPosition(false);
 #endif
         // Hotkeys count only while the game window is in front.
         DWORD foreground = 0;
@@ -1797,6 +2276,9 @@ DWORD WINAPI Run(void* address) {
         if (f8 && !previousF8 && focused) {
             InterlockedExchange64(&renderCaptureDeadline, static_cast<LONG64>(GetTickCount64() + 2000));
             renderWindowPending = true;
+#ifdef PYWEL_ATLAS_COMBINED
+            LogZoomAndPosition(true);
+#endif
             char line[320];
             sprintf_s(line,
                 "snapshot creates=%ld sampled=%ld dropped=%ld named=%ld enabled=%ld generated=%ld occupied=%ld definitionRejected=%ld readbackMask=%ld",
