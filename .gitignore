@@ -1,5 +1,6 @@
-# Compiler intermediates
-work/native-map-build/
+# Compiler intermediates and rebuildable mod output
+build/
+dist/
 *.obj
 *.lib
 *.exp
@@ -10,5 +11,8 @@ work/native-map-build/
 __pycache__/
 *.pyc
 
-# Duplicate of the extracted outputs/claude-max-handoff/ directory
-outputs/Claude-Max-Pywel-Atlas-Handoff.zip
+# Packaged archives and binary dependencies anywhere in the tree
+*.zip
+*.whl
+*.dll
+deps/
