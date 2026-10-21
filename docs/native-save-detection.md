@@ -865,3 +865,65 @@ Zero drops; no stale, superseded or failed reads.
 The selection plus save-write following now covers load, title return, retry,
 in-game loads, autosave and manual save. This completes the "which save, and
 where is its progress" question for diagnostics.
+
+## v0.43 end-to-end result: a newly completed Bell is detected
+
+Trace: `research/traces/save-detection-v0.43-calphade-end-to-end.log` (pid
+21632). User-reported sequence: load Manual 2 (slot 101)/F7 → travel to
+Calphade and ring its Bell → autosave → manual save to "Manual 4"/F7 → exit.
+Zero drops; no stale or failed reads.
+
+- Before: slot 101 read with recorded 1 / completed 1 (Hernand only).
+- The autosave wrote slot 0 (linked); slot 206 was `instance-slot`. The
+  slot 0 read gave **recorded 2 / completed 2** (save time 23:39:31), and
+  two more autosaves to slot 0 read the same.
+- The manual save wrote slot 103 ("Manual 4" = 99+4, linked). Its read gave
+  recorded 2 / completed 2 (23:40:20). The F7 popup showed 2 completed from
+  slot 103.
+- This is the first end-to-end confirmation: the user completed the Calphade
+  Bell in game, the game saved, and the reader saw the count rise only
+  through the save file the game wrote.
+
+Issue found: during travel, the selection retired and re-formed twice
+(serials 2 and 3) without any load. Each time an unrelated context was
+cleaned up (other server children `...0300` and `...0400`, client actor key
+`0xb0100003`). Fresh key lookups and a phase-24 snapshot then re-matched the
+same load scope 2778 and the same server child. This is correct by design,
+but a re-formed selection restarts `readSlot` at the loaded slot (101). If
+the game had already saved to slot 0, the reader would fall back to the
+older slot 101 and show stale progress. In this run the autosave came after
+serial 3, so it did not show. Fix for v0.44: when a selection re-forms with
+the same load scope and server child as the one just retired (same world, no
+new load), carry over its `readSlot` and linked-write count.
+
+## v0.44 observation build: last saved slot survives same-world re-formation
+
+- `UpdateSelection` keeps a copy of the retired record. If the new selection
+  has the same load scope, server child and storage root
+  (`sameWorld=1`, no load in between), `readSlot` and `linkedWrites` are
+  carried over. The SELECTION formed line now prints `readSlot` and
+  `sameWorld`.
+- `LinkSaveWrite`: a successful file-slot write by the retired record's
+  server child while no selection is active is stored on the retired record
+  (`reason=linked-to-retired`). It takes effect only if the next selection
+  is the same world. SAVE_WRITE now prints `selectionActive`.
+- Unchanged: a new load (new scope), title return or different root starts
+  from the loaded slot.
+
+Compiled with MSVC `/W4` without warnings. No automated tests added or run.
+Package: `archive/releases/PywelAtlas-Save-Detection-Observation-v0.44.zip`.
+
+## v0.44 runtime result: carry-over path not triggered
+
+Trace: `research/traces/save-detection-v0.44-same-world.log` (pid 35152).
+User-reported: loaded and saved to "Manual 1". The log shows the load
+requested slot 103 (the "Manual 4" save made in the Calphade run) and the
+manual save wrote slot 100 ("Manual 1").
+
+- Serial 1 formed on slot 103 (completed 2). The write to slot 100 was linked
+  and the reader moved to slot 100 (completed 2). Two F7 reads accepted.
+  Zero drops; no stale or failed reads.
+- No re-formation happened before exit (one retirement only), so
+  `sameWorld=1` and `linked-to-retired` were not exercised. The carry-over is
+  still runtime-untested. It appears in a later log only when travel cleanups
+  occur; check SELECTION formed lines for `sameWorld=1`.

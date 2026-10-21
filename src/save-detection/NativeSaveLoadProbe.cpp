@@ -1135,6 +1135,8 @@ void RetireSelection(Summary& summary, const char* reason) {
 // - Is deliberately NOT retired by later loading stages or a phase below 24
 //   alone: v0.36 showed death/retry reusing the loaded world without a disk
 //   load or cleanup, so save identity outlives player-control transitions.
+// - A re-formation in the same world (same load scope, server child and
+//   root) keeps the retired record's last-saved read slot (v0.44).
 void UpdateSelection(Summary& summary) {
     Selection& selection = summary.selection;
     if (selection.active && selection.generation != summary.generation) {
@@ -1160,6 +1162,16 @@ void UpdateSelection(Summary& summary) {
         return;
     }
     // All checks passed: record a new selection with a fresh serial number.
+    // Keep a copy of the retired record: if this is the same world (same
+    // load scope, server child and storage root, so no load happened in
+    // between), the slot the game last saved to still holds its progress.
+    // v0.43 showed unrelated cleanups during travel re-forming the selection
+    // this way, which reset the read slot to the older loaded slot.
+    const Selection previous = selection;
+    bool sameWorld = previous.serial != 0 &&
+        previous.loadScope == summary.lastLoad.scope &&
+        previous.serverChild == summary.lastLoad.object &&
+        strcmp(previous.root, storage.root) == 0;
     selection = {};
     selection.active = true;
     selection.serial = ++summary.selectionSerial;
@@ -1172,9 +1184,14 @@ void UpdateSelection(Summary& summary) {
     selection.clientChild = summary.lastController.object;
     strcpy_s(selection.account, account);
     strcpy_s(selection.root, storage.root);
+    if (sameWorld) {
+        selection.readSlot = previous.readSlot;
+        selection.linkedWrites = previous.linkedWrites;
+    }
     char line[768];
-    sprintf_s(line, "SELECTION formed serial=%u generation=%ld loadScope=%ld slot=%u account=%s userKey=0x%08x serverChild=0x%llx clientChild=0x%llx root=%s diagnostic=1 automaticLoadedSaveTrusted=0",
-        selection.serial, selection.generation, selection.loadScope, selection.slot, selection.account,
+    sprintf_s(line, "SELECTION formed serial=%u generation=%ld loadScope=%ld slot=%u readSlot=%u sameWorld=%u account=%s userKey=0x%08x serverChild=0x%llx clientChild=0x%llx root=%s diagnostic=1 automaticLoadedSaveTrusted=0",
+        selection.serial, selection.generation, selection.loadScope, selection.slot, selection.readSlot,
+        sameWorld ? 1u : 0u, selection.account,
         selection.userKey, static_cast<unsigned long long>(selection.serverChild),
         static_cast<unsigned long long>(selection.clientChild), selection.root);
     Log(line);
@@ -1192,7 +1209,13 @@ void LinkSaveWrite(const Event& event, Summary& summary) {
     summary.lastWrite = event;
     Selection& selection = summary.selection;
     const char* reason = "linked";
-    if (!selection.active) {
+    // Between a retirement and the next formation there is briefly no active
+    // selection. A save by the same server child in that gap is kept on the
+    // retired record, and is carried over only if the next selection turns
+    // out to be the same world (see UpdateSelection).
+    bool retiredSameObject = !selection.active && selection.serial != 0 &&
+        event.object == selection.serverChild;
+    if (!selection.active && !retiredSameObject) {
         reason = "no-selection";
     } else if (!event.statusRead || event.status != 0) {
         reason = "write-failed";
@@ -1205,21 +1228,24 @@ void LinkSaveWrite(const Event& event, Summary& summary) {
         reason = "instance-slot";
     } else if (event.vtableRva != 0x5b1e2b0 || event.object != selection.serverChild) {
         reason = "different-object";
+    } else if (retiredSameObject) {
+        reason = "linked-to-retired";
     } else if (event.epoch != selection.generation) {
         reason = "different-generation";
     }
-    bool linked = strcmp(reason, "linked") == 0;
+    bool linked = strcmp(reason, "linked") == 0 || strcmp(reason, "linked-to-retired") == 0;
     if (linked) {
         selection.readSlot = event.requestedSlot;
         ++selection.linkedWrites;
     }
     char line[384];
-    sprintf_s(line, "SAVE_WRITE seq=%ld slot=%u statusRead=%u status=%lu object=0x%llx vtableRva=0x%llx actorKeyRead=%u actorKey=0x%08x epoch=%ld callerRva=0x%llx linked=%u reason=%s selectionSerial=%u readSlot=%u",
+    sprintf_s(line, "SAVE_WRITE seq=%ld slot=%u statusRead=%u status=%lu object=0x%llx vtableRva=0x%llx actorKeyRead=%u actorKey=0x%08x epoch=%ld callerRva=0x%llx linked=%u reason=%s selectionSerial=%u selectionActive=%u readSlot=%u",
         event.sequence, event.requestedSlot, event.statusRead ? 1u : 0u, event.status,
         static_cast<unsigned long long>(event.object), static_cast<unsigned long long>(event.vtableRva),
         event.actorKeyRead ? 1u : 0u, event.actorKey, event.epoch,
         static_cast<unsigned long long>(event.callerRva), linked ? 1u : 0u, reason,
-        selection.active ? selection.serial : 0u, selection.active ? selection.readSlot : 0xffffffffu);
+        selection.serial, selection.active ? 1u : 0u,
+        selection.serial ? selection.readSlot : 0xffffffffu);
     Log(line);
 }
 
@@ -1663,7 +1689,7 @@ DWORD WINAPI Run(void* address) {
         return 0;
     }
     char line[192];
-    sprintf_s(line, "SESSION native save-load observation v0.43 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
+    sprintf_s(line, "SESSION native save-load observation v0.44 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
         GetCurrentProcessId(), GetTickCount64());
     Log(line);
     // Check this is the exact supported game build (timestamp and size).
@@ -1747,7 +1773,7 @@ DWORD WINAPI Run(void* address) {
     } else {
         Log("Bell reader thread unavailable; observation continues without Bell reads.");
     }
-    Log("READY v0.43: fourteen guarded hooks; 200-range save writes ignored; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. Diagnostic read-only Bell reads tagged with the selection serial; stale results discarded. Save writes by the selection's server child retarget Bell reads to the written slot. F7 foreground confirmation retained. No marker hooks or save writes.");
+    Log("READY v0.44: fourteen guarded hooks; 200-range save writes ignored; last saved slot carried over when the selection re-forms in the same world; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. Diagnostic read-only Bell reads tagged with the selection serial; stale results discarded. Save writes by the selection's server child retarget Bell reads to the written slot. F7 foreground confirmation retained. No marker hooks or save writes.");
     Summary summary = {};
     summary.generation = 1;
     LONG observedDrops = 0;

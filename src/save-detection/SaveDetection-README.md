@@ -1,9 +1,17 @@
-# Diagnostic loaded-save Bell read that follows game saves — v0.43
+# Diagnostic loaded-save Bell read that follows game saves — v0.44
 
-The v0.36–v0.42 observation runs are complete and preserved. Do not repeat
-them.
+The v0.36–v0.43 observation runs are complete and preserved, including the
+Calphade end-to-end check. Do not repeat them.
 
-v0.43 changes one rule from v0.42: in v0.42 every autosave also wrote slot
+v0.44 fixes one gap found in the Calphade run. Travelling can unload
+unrelated objects, which makes the selection retire and re-form for the same
+loaded world. v0.43 then went back to reading the slot that was loaded,
+forgetting the slot the game had saved to since. v0.44 keeps the last-saved
+slot when the new selection has the same load scope, server child and
+storage root (no load in between). A save made in the short gap between
+retirement and re-formation is also kept (reason "linked-to-retired").
+
+Earlier, v0.43 changed one rule from v0.42: in v0.42 every autosave also wrote slot
 206 (range 200–207) about 50 ms after the real autosave slot, and no slot206
 file exists. Following it moved the reader off the real autosave. v0.43 links
 only writes to save-file slots 0–3 (autosave) and 100–108 (manual); 200–207
@@ -12,7 +20,7 @@ writes are logged with reason "instance-slot" and ignored.
 ## Observation
 
 1. Close the game and replace the Save Detection observation entry in DMM with
-   PywelAtlas-Save-Detection-Observation-v0.43.zip. Keep other Atlas ASIs disabled.
+   PywelAtlas-Save-Detection-Observation-v0.44.zip. Keep other Atlas ASIs disabled.
 2. Load a save. Move briefly, wait a few seconds, press F7 and dismiss OK.
 3. Trigger an autosave (for example sleep, or wait for the autosave icon).
    Wait a few seconds, press F7 and dismiss OK.
@@ -54,5 +62,5 @@ No native getter is invoked by the probe. Worker, reader and dialog threads
 never dereference captured game pointers.
 
 Compiled with MSVC /W4 without warnings. No automated tests added or run.
-Runtime evidence for v0.43 is pending. MinHook BSD and pycrimson licenses are
+Runtime evidence for v0.44 is pending. MinHook BSD and pycrimson licenses are
 included.
