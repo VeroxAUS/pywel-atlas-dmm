@@ -849,7 +849,8 @@ bool SupportedSlot(unsigned slot) {
 // user actors storing that key at +60. The match therefore requires full-key
 // equality and each user's own +60 equal to that key; a masked 20-bit index
 // is not used (it is 0 for this key and would match unrelated keys). The key
-// is a constant local-user identity, not a save identity. Every component must
+// is a local-user identity, not a save identity; v0.39 showed it changes when
+// the world is rebuilt after a title return. Every component must
 // carry the current epoch; millisecond ticks are not used for ordering.
 void RefreshBoundary(Summary& summary) {
     const Event& controller = summary.lastController;
@@ -887,6 +888,11 @@ void Correlate(const Event& event, Summary& summary) {
     // even when queue order differs from capture order across threads.
     if (event.epoch > summary.generation) {
         summary.generation = event.epoch;
+        // Recheck the boundary right away. Otherwise its cached "matched"
+        // result from the old generation lingers until the next key lookup
+        // or controller snapshot, and UpdateSelection could re-form a
+        // selection from stale evidence (seen in the v0.39 title teardown).
+        RefreshBoundary(summary);
     }
     if (event.stage == Stage::ActorLink) {
         ++summary.actorLinks;
@@ -1303,7 +1309,7 @@ DWORD WINAPI Run(void* address) {
         return 0;
     }
     char line[192];
-    sprintf_s(line, "SESSION native save-load observation v0.39 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
+    sprintf_s(line, "SESSION native save-load observation v0.40 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
         GetCurrentProcessId(), GetTickCount64());
     Log(line);
     // Check this is the exact supported game build (timestamp and size).
@@ -1376,7 +1382,7 @@ DWORD WINAPI Run(void* address) {
         Log(MH_StatusToString(status));
         return 0;
     }
-    Log("READY v0.39: thirteen guarded hooks; full user-key identity match and worker-owned diagnostic account/slot selection. F7 foreground confirmation retained. Selection is not consumed; no Bell reads, marker hooks or save writes.");
+    Log("READY v0.40: thirteen guarded hooks; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. F7 foreground confirmation retained. Selection is not consumed; no Bell reads, marker hooks or save writes.");
     Summary summary = {};
     summary.generation = 1;
     LONG observedDrops = 0;

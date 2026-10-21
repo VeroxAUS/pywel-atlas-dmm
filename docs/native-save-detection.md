@@ -1,11 +1,20 @@
 # Automatic loaded-save identity investigation
 
-## Current continuation — 2026-10-21, v0.39
+## Current continuation — 2026-10-21, v0.40
+
+v0.40's save-switching run is complete (see "v0.40 runtime result" at the
+end). Recomputing the boundary on every generation change removed the stale
+re-formation: each selection formed only after a fresh match and stayed
+retired otherwise. Death/retry and autosave retirement remain untested.
+
+Previous status (v0.39):
 
 v0.39's normal-load/F7 run is complete; see "v0.39 runtime result" at the end.
 The full-key match held, and the diagnostic selection formed once for slot 2,
-account 60062761, with zero drops. Retirement across later loads is still
-runtime-untested. The earlier paragraphs below are kept as history.
+account 60062761, with zero drops. The save-switching run (slot 101, title,
+slot 100, slot 101) retired and re-formed correctly, except for one stale
+re-formation after an unrelated cleanup; see "v0.39 runtime result: save
+switching". The earlier paragraphs below are kept as history.
 
 The confirmed v0.35 baseline is preserved in this workspace at
 `research/traces/save-detection-v0.35-continue-title-confirmed.log`.
@@ -561,3 +570,86 @@ User-reported run: load a save normally, then F7. Trace:
 
 Still runtime-untested: retirement and re-formation across title/Continue,
 death/retry, autosave load and a second load in the same process.
+
+## v0.39 runtime result: save switching
+
+The same process (pid 33488) continued after the run above. Trace:
+`research/traces/save-detection-v0.39-save-switching.log` (822 lines; the
+first 182 are the normal-load run). User sequence: slot 2 loaded → in-game
+load of slot 101/F7 → title/F7 → slot 100/F7 → in-game load of slot 101/F7 →
+exit. Zero drops throughout.
+
+| Step | Selection | Checkpoint |
+| --- | --- | --- |
+| slot 2 (earlier) | serial 1 formed, gen 2 | active, slot 2 |
+| teardown | serial 1 retired at gen 4 | — |
+| in-game load slot 101 | serial 2 formed, gen 7 | active, slot 101 |
+| quit to title | serial 2 retired; **serial 3 formed** (gen 8); serial 3 retired at gen 9 | inactive |
+| slot 100 | serial 4 formed, gen 12 | active, slot 100 |
+| in-game load slot 101 | serial 4 retired; serial 5 formed, gen 17 | active, slot 101 |
+| exit | serial 5 retired | — |
+
+- Every load got a new serial with the correct slot, and the title screen
+  had no active selection.
+- **Bug: stale re-formation.** At the title teardown, the cleanup of an
+  unrelated server object (seq 167155) raised the generation to 8.
+  UpdateSelection retired serial 2, then immediately formed serial 3 from the
+  cached `clientBoundaryCandidate` flag. That flag is recomputed only on key
+  lookups and controller snapshots, so it still held the generation-7
+  result. The next controller snapshot (seq 167156) recomputed it as
+  `matched=0`, and serial 3 retired at the next cleanup. Serial 3 was live for
+  about 30 ms without fresh evidence. Fix: recompute the boundary whenever the
+  generation advances, before UpdateSelection runs.
+- **The user key is not constant.** After the title return, new user actors
+  used key `0x90100865` (previously `0x90100000`). The key is stable within one
+  world session and changes when the game rebuilds its user actors. Both sides
+  still matched, so the full-key rule held.
+- The title-screen checkpoint showed `lastRequestedSlot=2` with no load. The
+  title screen apparently reads a save without loading it (hypothesis). No
+  selection formed.
+
+## v0.40 observation build: boundary rechecked on generation change
+
+- One change. When Correlate adopts a newer epoch, it now calls
+  `RefreshBoundary` immediately. Every boundary component must carry the
+  current epoch, so the cached `keyIdentityMatch`/`clientBoundaryCandidate`
+  from the old generation become false before UpdateSelection runs. A new
+  selection can form only after fresh key lookups and a phase-24 controller
+  snapshot in the new generation. (The queue-drop path already cleared the
+  candidate.)
+- Version strings and README updated; comment on the user key corrected.
+- Requested run: load, F7; title, F7; a different save, F7; exit. Expected:
+  each retirement is followed by a formation only after a new
+  `CLIENT_BOUNDARY ... matched=1`.
+
+Compiled with MSVC `/W4` without warnings. No automated tests added or run.
+Package: `archive/releases/PywelAtlas-Save-Detection-Observation-v0.40.zip`.
+
+## v0.40 runtime result: no stale re-formation
+
+Trace: `research/traces/save-detection-v0.40-save-switching.log` (new process,
+pid 31396). User sequence: slot 101/F7 → title/F7 → slot 100/F7 → exit. Zero
+drops throughout.
+
+- Slot 101: serial 1 formed (gen 2) after `matched=1`; checkpoint active,
+  slot 101.
+- Title teardown: four cleanups. Serial 1 retired at gen 4, and nothing formed
+  afterwards. The title checkpoint shows `selectionActive=0
+  keyIdentityMatch=0 clientBoundary=0`. In v0.39 this same teardown
+  re-formed a selection.
+- Slot 100: serial 2 formed (gen 7) only after a fresh `matched=1`, with new
+  key `0x90100338`. Checkpoint active, slot 100.
+- Exit teardown: serial 2 retired at gen 9; nothing formed afterwards.
+- Every formation followed a new-generation boundary match; every retirement
+  stayed retired until the next one.
+
+The v0.39 stale case depended on timing, so seeing no stale case in one run
+supports the fix but doesn't prove it on its own. The guarantee comes from the
+code: every boundary component must carry the current epoch, and the boundary
+is now recomputed as soon as the epoch advances.
+
+The user key was `0x90100000` for the first world in both processes and
+changed (`0x90100865`, `0x90100338`) for later worlds. That fits a per-world
+counter-like identity (hypothesis).
+
+Still runtime-untested for the selection: death/retry and autosave loads.
