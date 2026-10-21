@@ -1,6 +1,27 @@
+// NativeSaveReader.cpp - read the game's save file (never write it) and report Bells.
+//
+// What this file does, in order:
+// 1. Finds the save file: %LOCALAPPDATA%\Pearl Abyss\CD\save\<steam id>\slot<N>\save.save.
+// 2. Reads it twice, a moment apart, and only continues if both copies match
+//    (so we never decode a file the game is in the middle of writing).
+// 3. Decodes the file "envelope": decrypts it (ChaCha20, a standard cipher),
+//    verifies it was not altered or corrupted (HMAC-SHA256, a keyed checksum),
+//    and decompresses it (LZ4, a fast compression format).
+// 4. Walks the decoded "reflection" data. Reflection data here means the save
+//    describes its own layout: it first lists every type name and field name,
+//    then stores objects using that list. We use the list to find one specific
+//    container of discovered "level gimmick" records and skip everything else.
+// 5. Matches those records against the known Bells (from bell-proof-links.h) by
+//    their UUID (a 16-byte unique ID for each object placed in the game world)
+//    and a numeric type key, and notes which are recorded and which completed.
+// 6. Writes a small JSON report and a diagnostic copy of the save into the mod's
+//    own folder, and returns a summary to NativeMapCategoryProbe.cpp.
+// It also contains the F9 save-slot chooser and the remembered-slot loader.
+//
 // Native read-only save envelope/reflection reader, scoped to verified Bells.
 // Save format interpretation is adapted from LukeFZ/pycrimson (MIT; bundled
 // license). Only authenticated snapshots can produce completion confirmations.
+// (If the HMAC check fails, nothing is reported as completed.)
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include "NativeSaveReader.h"
@@ -18,10 +39,16 @@
 #include "bell-proof-links.h"
 
 namespace {
-using Bytes = std::vector<uint8_t>;
-constexpr size_t kMaximumSave = 32 * 1024 * 1024;
-constexpr size_t kMaximumPlain = 128 * 1024 * 1024;
+// ===========================================================================
+// Section: basic helpers and limits
+// ===========================================================================
 
+using Bytes = std::vector<uint8_t>;
+constexpr size_t kMaximumSave = 32 * 1024 * 1024; // Largest save file accepted on disk (32 MiB).
+constexpr size_t kMaximumPlain = 128 * 1024 * 1024; // Largest decompressed size accepted (128 MiB).
+
+// Stop with an error message if `condition` is false. The message is thrown as
+// an exception and caught at the public entry points, which copy it to `error`.
 void Require(bool condition, const char* message) {
     if (!condition) {
         throw std::runtime_error(message);
@@ -30,20 +57,25 @@ void Require(bool condition, const char* message) {
 
 // Bounds-checked little-endian cursor. Every seek and length is validated;
 // unsupported reflection versions/types fail rather than guessing completion.
+// (A cursor is a read position that moves forward through a byte buffer.
+// "Little-endian" means multi-byte numbers are stored lowest byte first.)
 struct Cursor {
     const Bytes& bytes;
-    size_t offset = 0;
-    size_t limit;
+    size_t offset = 0; // Current read position.
+    size_t limit; // Reads may not go past this position.
     explicit Cursor(const Bytes& input) : bytes(input), limit(input.size()) {}
+    // Fail unless `count` more bytes are available before `limit`.
     void Need(size_t count) const {
         Require(offset <= limit && count <= limit - offset, "Truncated save structure.");
     }
+    // Return a pointer to the next `count` bytes and move past them.
     const uint8_t* Take(size_t count) {
         Need(count);
         const uint8_t* result = bytes.data() + offset;
         offset += count;
         return result;
     }
+    // Read a 1-, 2- or 4-byte unsigned number.
     uint8_t U8() { return *Take(1); }
     uint16_t U16() {
         const uint8_t* value = Take(2);
@@ -54,28 +86,41 @@ struct Cursor {
         return static_cast<uint32_t>(value[0]) | (static_cast<uint32_t>(value[1]) << 8) |
             (static_cast<uint32_t>(value[2]) << 16) | (static_cast<uint32_t>(value[3]) << 24);
     }
+    // Move past `count` bytes without looking at them.
     void Skip(size_t count) { Take(count); }
+    // Read a text string stored as a 4-byte length followed by that many bytes.
     std::string String() {
         uint32_t size = U32();
         Require(size <= 1024 * 1024, "Reflection string exceeds limit.");
         const auto* text = Take(size);
         return std::string(reinterpret_cast<const char*>(text), size);
     }
+    // Jump forward (never backward) to `target`, which must stay within `limit`.
     void SeekForward(size_t target) {
         Require(target >= offset && target <= limit, "Invalid reflection object offset.");
         offset = target;
     }
 };
 
+// Read a little-endian 4-byte number from raw memory.
 uint32_t Load32(const uint8_t* value) {
     return static_cast<uint32_t>(value[0]) | (static_cast<uint32_t>(value[1]) << 8) |
         (static_cast<uint32_t>(value[2]) << 16) | (static_cast<uint32_t>(value[3]) << 24);
 }
 
+// ===========================================================================
+// Section: decrypt (ChaCha20)
+// ChaCha20 is a standard stream cipher: it turns a 32-byte key and a nonce
+// (a per-file "number used once") into a stream of pseudo-random bytes, which
+// are XOR-ed with the encrypted bytes to recover the original bytes.
+// ===========================================================================
+
+// Rotate the bits of a 32-bit number left by `bits` (a ChaCha20 building block).
 uint32_t Rotate(uint32_t value, unsigned bits) {
     return (value << bits) | (value >> (32 - bits));
 }
 
+// The ChaCha20 "quarter round": mixes four 32-bit words together.
 void Quarter(uint32_t& a, uint32_t& b, uint32_t& c, uint32_t& d) {
     a += b;
     d = Rotate(d ^ a, 16);
@@ -87,10 +132,15 @@ void Quarter(uint32_t& a, uint32_t& b, uint32_t& c, uint32_t& d) {
     b = Rotate(b ^ c, 7);
 }
 
+// Decrypt `size` bytes from `input` using `key` and the 16-byte `nonce`.
+// Works in 64-byte blocks; the block counter increases by one per block.
 Bytes Decrypt(const uint8_t* input, size_t size, const uint8_t* nonce,
     const std::array<uint8_t, 32>& key) {
     // Original ChaCha20: 64-bit counter then 64-bit nonce, as used by the
     // existing reader's cryptography.ChaCha20 16-byte nonce ABI (not IETF AEAD).
+    // (The 16 nonce bytes fill state words 12..15. Words 12..13 act as the block
+    // counter, matching the Python "cryptography" library's ChaCha20 layout.
+    // The first four constants spell "expand 32-byte k", as the standard requires.)
     uint32_t state[16] = {0x61707865, 0x3320646e, 0x79622d32, 0x6b206574};
     for (unsigned word = 0; word < 8; ++word) {
         state[4 + word] = Load32(key.data() + word * 4);
@@ -102,6 +152,7 @@ Bytes Decrypt(const uint8_t* input, size_t size, const uint8_t* nonce,
     for (size_t start = 0; start < size; start += 64) {
         uint32_t block[16];
         memcpy(block, state, sizeof(block));
+        // 10 double rounds = the standard 20 rounds of ChaCha20.
         for (unsigned round = 0; round < 10; ++round) {
             Quarter(block[0], block[4], block[8], block[12]);
             Quarter(block[1], block[5], block[9], block[13]);
@@ -119,6 +170,7 @@ Bytes Decrypt(const uint8_t* input, size_t size, const uint8_t* nonce,
             uint8_t stream = static_cast<uint8_t>(block[index / 4] >> ((index % 4) * 8));
             output[start + index] = input[start + index] ^ stream;
         }
+        // Advance the 64-bit block counter (low word, then carry into high word).
         if (++state[12] == 0) {
             ++state[13];
         }
@@ -126,6 +178,14 @@ Bytes Decrypt(const uint8_t* input, size_t size, const uint8_t* nonce,
     return output;
 }
 
+// ===========================================================================
+// Section: verify (HMAC-SHA256)
+// An HMAC is a checksum that can only be computed with the key. If our
+// checksum of the decrypted bytes matches the one stored in the file, the
+// data is genuine and complete. Windows' own crypto library (BCrypt) does it.
+// ===========================================================================
+
+// Throw unless HMAC-SHA256(key, plain) equals the 32-byte `signature`.
 void Authenticate(const Bytes& plain, const std::array<uint8_t, 32>& key,
     const uint8_t* signature) {
     BCRYPT_ALG_HANDLE algorithm = nullptr;
@@ -137,7 +197,8 @@ void Authenticate(const Bytes& plain, const std::array<uint8_t, 32>& key,
     status = BCryptCreateHash(algorithm, &hash, nullptr, 0,
         const_cast<PUCHAR>(key.data()), static_cast<ULONG>(key.size()), 0);
     if (status >= 0) {
-        status = BCryptHashData(hash, const_cast<PUCHAR>(plain.data()), static_cast<ULONG>(plain.size()), 0);
+        status = BCryptHashData(hash, const_cast<PUCHAR>(plain.data()),
+            static_cast<ULONG>(plain.size()), 0);
     }
     if (status >= 0) {
         status = BCryptFinishHash(hash, digest.data(), static_cast<ULONG>(digest.size()), 0);
@@ -147,6 +208,7 @@ void Authenticate(const Bytes& plain, const std::array<uint8_t, 32>& key,
     }
     BCryptCloseAlgorithmProvider(algorithm, 0);
     Require(status >= 0, "Windows HMAC calculation failed.");
+    // Compare all 32 bytes without stopping early at the first difference.
     unsigned different = 0;
     for (unsigned index = 0; index < digest.size(); ++index) {
         different |= digest[index] ^ signature[index];
@@ -154,12 +216,23 @@ void Authenticate(const Bytes& plain, const std::array<uint8_t, 32>& key,
     Require(different == 0, "Save authentication failed; no progress confirmed.");
 }
 
+// ===========================================================================
+// Section: decompress (LZ4)
+// LZ4 stores data as "literals" (bytes copied as-is) and "matches" (copy N
+// bytes from earlier in the output). Every length is checked against limits.
+// ===========================================================================
+
+// Decompress LZ4 block data in `input`; the result must be exactly `expected` bytes.
 Bytes Expand(const Bytes& input, size_t expected) {
     // Independent bounded decoder of the LZ4 block format. Match copying must
     // permit overlap. Format: https://github.com/lz4/lz4/blob/dev/doc/lz4_Block_format.md
+    // ("Overlap" = a match may copy bytes it has only just written, so copy one
+    // byte at a time rather than with memcpy.)
     Cursor reader(input);
     Bytes output;
     output.reserve(expected);
+    // LZ4 length rule: a 4-bit value of 15 means "keep adding the following
+    // bytes until one is not 255".
     auto length = [&](size_t initial) {
         size_t result = initial;
         if (initial == 15) {
@@ -193,9 +266,17 @@ Bytes Expand(const Bytes& input, size_t expected) {
     return output;
 }
 
+// ===========================================================================
+// Section: the save "envelope" (128-byte header + encrypted body)
+// ===========================================================================
+
+// Turn the raw save file bytes into the decoded (plain) reflection data.
+// Header layout as read below: "SAVE", version (2), header size (128),
+// 10 skipped bytes, decompressed size, stored size, 16-byte nonce, 32-byte HMAC.
 Bytes Decode(const Bytes& file) {
     Cursor header(file);
-    Require(file.size() >= 128 && memcmp(header.Take(4), "SAVE", 4) == 0, "Unsupported save magic.");
+    Require(file.size() >= 128 && memcmp(header.Take(4), "SAVE", 4) == 0,
+        "Unsupported save magic.");
     uint16_t version = header.U16();
     uint16_t size = header.U16();
     Require(version == 2 && size == 128, "Native proof supports save envelope version 2 only.");
@@ -206,6 +287,10 @@ Bytes Decode(const Bytes& file) {
     const uint8_t* signature = header.Take(32);
     Require(expanded > 0 && expanded <= kMaximumPlain && compressed > 0 &&
         compressed == file.size() - size, "Save payload size is outside supported bounds.");
+    // The key is built by XOR-ing these 31 fixed bytes with the first 31
+    // characters of the text below; the 32nd key byte stays zero. The same key
+    // is used for both decryption and the HMAC check. (Format adapted from the
+    // pycrimson reader credited at the top of this file.)
     constexpr uint8_t base[31] = {
         0xc4,0x1b,0x8e,0x73,0x0d,0xf2,0x59,0xa6,0x37,0xcc,0x04,0xe9,0xb1,0x2f,0x96,0x68,
         0xda,0x10,0x7a,0x85,0x3e,0x61,0xf9,0x22,0x4d,0xb8,0x0a,0xd7,0x5c,0x13,0xef
@@ -215,55 +300,78 @@ Bytes Decode(const Bytes& file) {
     for (unsigned index = 0; index < 31; ++index) {
         key[index] = base[index] ^ static_cast<uint8_t>(material[index]);
     }
+    // Decrypt, then verify, then decompress (only if the sizes say it is compressed).
     Bytes plain = Decrypt(file.data() + size, compressed, nonce, key);
     Authenticate(plain, key, signature);
     return compressed == expanded ? plain : Expand(plain, expanded);
 }
 
+// ===========================================================================
+// Section: reflection data model
+// These structs hold the save's own description of its types, plus what we
+// collect about each Bell.
+// ===========================================================================
+
+// One field of a reflected type, as described by the save itself.
 struct Property {
-    std::string name;
-    std::string typeName;
-    uint16_t kind;
-    uint16_t size;
-    uint32_t flags;
+    std::string name; // Field name, e.g. "_isCompleted".
+    std::string typeName; // Field's type name, e.g. "bool" or "uint4".
+    uint16_t kind; // How the value is stored (scalar, array, nested object...).
+    uint16_t size; // Byte size of one value, for fixed-size kinds.
+    uint32_t flags; // Format flags; some values mean "not stored" (see Object()).
 };
+// One reflected type: its name and its list of fields.
 struct Type {
     std::string name;
     std::vector<Property> properties;
 };
+// One entry of the top-level object table: which type, and where its bytes are.
 struct ObjectInfo {
     uint16_t type;
     uint32_t offset;
     uint32_t size;
 };
+// The fields we pick out of one discovered record while parsing it.
 struct Record {
-    std::array<uint32_t, 4> uuid = {};
-    uint32_t key = 0;
+    std::array<uint32_t, 4> uuid = {}; // _sceneObjectUuid (16 bytes).
+    uint32_t key = 0; // _levelGimmickSceneObjectInfoKey.
     bool uuidKnown = false;
     bool keyKnown = false;
-    bool completed = false;
+    bool completed = false; // _isCompleted.
 };
+// What the save says about one known Bell.
 struct BellState {
-    bool recorded = false;
-    bool completed = false;
+    bool recorded = false; // A matching record exists in the save.
+    bool completed = false; // That record explicitly says completed.
 };
 
+// ===========================================================================
+// Section: reflection parser
+// Walks the decoded data, but descends into only one container type
+// ("DiscoveredLevelGimmickSceneObjectSaveData"). Everything else is skipped.
+// ===========================================================================
+
+// Parses one decoded save and returns one BellState per entry in kBellLinks.
 class Reflection {
     Cursor reader;
-    uint32_t metadata = 0;
-    uint32_t version = 0;
-    std::vector<Type> types;
+    uint32_t metadata = 0; // Reflection metadata version (3 or 4 supported).
+    uint32_t version = 0; // Serialization version (11..15 supported).
+    std::vector<Type> types; // The save's type table.
     std::array<BellState, _countof(kBellLinks)> states = {};
-    size_t objectsVisited = 0;
-    bool bellListVisited = false;
+    size_t objectsVisited = 0; // Safety counter against huge or looping data.
+    bool bellListVisited = false; // Did we actually see the Bell list field?
 
+    // Read a 4-byte element count and reject anything above `maximum`.
     uint32_t Count(uint32_t maximum = 1000000) {
         uint32_t count = reader.U32();
         Require(count <= maximum, "Reflection collection exceeds limit.");
         return count;
     }
+    // True for property kinds that are stored as arrays (lists of values).
     bool Array(uint16_t kind) { return kind == 3 || kind == 6 || kind == 7 || kind == 9 || kind == 10; }
 
+    // If this record's UUID and type key both match a known Bell, mark that Bell
+    // as recorded, and as completed if the record says so.
     void Match(const Record& record) {
         if (!record.uuidKnown || !record.keyKnown) {
             return;
@@ -271,13 +379,17 @@ class Reflection {
         for (unsigned index = 0; index < _countof(kBellLinks); ++index) {
             const auto& link = kBellLinks[index];
             if (memcmp(link.uuid, record.uuid.data(), sizeof(link.uuid)) == 0 &&
-                std::find(std::begin(link.keys), std::end(link.keys), record.key) != std::end(link.keys)) {
+                std::find(std::begin(link.keys), std::end(link.keys), record.key)
+                    != std::end(link.keys)) {
                 states[index].recorded = true;
                 states[index].completed |= record.completed;
             }
         }
     }
 
+    // Read one plain value of `size` bytes. If we are inside a Bell record,
+    // keep the three fields we care about; each must have the exact expected
+    // shape or parsing stops with an error.
     void Scalar(const Property& property, size_t size, Record* record) {
         const uint8_t* value = reader.Take(size);
         if (!record) {
@@ -300,8 +412,15 @@ class Reflection {
         }
     }
 
+    // Parse one reflected object (and, recursively, any objects inside it).
+    // depth: nesting level (limited to 64). record: collect Bell fields from
+    // this object. top: a top-level object, whose header was in the object
+    // table. knownType: type index for top-level objects. named: whether array
+    // entries carry 4 extra header bytes (only skipped; format version 14+).
     void Object(unsigned depth, bool record, bool top, uint16_t knownType = 0, bool named = false) {
-        Require(depth <= 64 && ++objectsVisited <= 1000000, "Reflection nesting/object limit exceeded.");
+        Require(depth <= 64 && ++objectsVisited <= 1000000,
+            "Reflection nesting/object limit exceeded.");
+        // A bitmap: one bit per field, saying whether that field is present.
         uint16_t bitmapSize = reader.U16();
         const uint8_t* bitmap = reader.Take(bitmapSize);
         uint16_t typeIndex = knownType;
@@ -318,6 +437,7 @@ class Reflection {
         Require(bitmapSize >= (type.properties.size() + 7) / 8, "Property bitmap too short.");
         size_t start = reader.offset;
         reader.Skip(1); // Version >=10 object flag.
+        // Optional list of property "tags" (index + text); read and ignored.
         bool noTags = reader.U8() == 1;
         if (!noTags) {
             uint16_t tags = reader.U16();
@@ -331,40 +451,52 @@ class Reflection {
             const Property& property = type.properties[index];
             bool array = Array(property.kind);
             bool present = ((bitmap[index / 8] >> (index & 7)) & 1) != 0;
+            // Fields with flag bits 0x02 or 0x80 are not read here, nor are
+            // absent non-array fields (literal description of the format rule).
             if ((property.flags & 0x82) != 0 || (!array && !present)) {
                 continue;
             }
+            // The one list we care about: the discovered-gimmick records list.
             bool bellList = type.name == "DiscoveredLevelGimmickSceneObjectSaveData" &&
                 property.name == "_discoveredLevelGimmickSceneObjectSaveDataList";
             if (bellList) {
                 Require(property.kind == 6 || property.kind == 7, "Unsupported Bell list representation.");
                 bellListVisited = true;
             }
+            // Version 15+: arrays start with a 1-byte marker; 1 means "nothing stored".
             if (version >= 15 && array && reader.U8() == 1) {
                 continue;
             }
             Record* capture = record ? &item : nullptr;
+            // Read (or skip) the field according to its storage kind.
             switch (property.kind) {
             case 0:
             case 2:
+                // Fixed-size value.
                 Scalar(property, property.size, capture);
                 break;
             case 1:
+                // Variable-size value with a 4-byte length prefix.
                 Scalar(property, Count(static_cast<uint32_t>(kMaximumPlain)), capture);
                 break;
             case 3: {
+                // Array of fixed-size values: skipped.
                 uint32_t count = Count();
                 reader.Skip(static_cast<size_t>(count) * property.size);
                 break;
             }
             case 4:
+                // Nested object.
                 Object(depth + 1, false, false);
                 break;
             case 5:
+                // Optional nested object (1-byte "present" flag first).
                 if (reader.U8() != 0) { Object(depth + 1, false, false); }
                 break;
             case 6:
             case 7: {
+                // Array of objects. Entries are Bell records only when this is
+                // the Bell list found above.
                 uint32_t count = Count();
                 bool hasNames = version >= 14 && reader.U8() == 1;
                 reader.Skip(8);
@@ -379,6 +511,7 @@ class Reflection {
                 break;
             }
             case 10: {
+                // Array of arrays of fixed-size values: skipped.
                 uint32_t count = Count();
                 for (uint32_t entry = 0; entry < count; ++entry) {
                     reader.Skip(static_cast<size_t>(Count()) * property.size);
@@ -386,9 +519,11 @@ class Reflection {
                 break;
             }
             default:
+                // Any other kind (including 9) is refused rather than guessed.
                 throw std::runtime_error("Unsupported reflected property kind in Bell container.");
             }
         }
+        // Nested objects end with their own byte size; it must match what we read.
         if (!top) {
             size_t end = reader.offset;
             uint32_t declared = reader.U32();
@@ -401,17 +536,23 @@ class Reflection {
 
 public:
     explicit Reflection(const Bytes& plain) : reader(plain) {}
+    // Parse the whole decoded save and return the per-Bell results.
+    // Order: header and versions, type table, optional name table, object
+    // table, then the single Bell container object.
     auto Read() {
         Require(reader.U16() == 0xffff, "Unsupported legacy reflection header.");
         metadata = reader.U32();
         if (metadata < 3 || metadata > 4) {
-            throw std::runtime_error("Unsupported native reflection metadata version: " + std::to_string(metadata));
+            throw std::runtime_error("Unsupported native reflection metadata version: "
+                + std::to_string(metadata));
         }
         if (metadata >= 4) { reader.Skip(8); }
         version = reader.U32();
         if (version < 11 || version > 15) {
-            throw std::runtime_error("Unsupported native reflection serialization version: " + std::to_string(version));
+            throw std::runtime_error("Unsupported native reflection serialization version: "
+                + std::to_string(version));
         }
+        // Type table: every type name with its fields.
         uint16_t count = reader.U16();
         Require(count > 0 && count <= 16384, "Reflection type count exceeds limit.");
         for (unsigned index = 0; index < count; ++index) {
@@ -430,10 +571,12 @@ public:
             }
             types.push_back(std::move(type));
         }
+        // Version 14+: a list of strings (read and ignored).
         if (version > 13) {
             uint32_t names = Count();
             for (uint32_t index = 0; index < names; ++index) { reader.String(); }
         }
+        // Object table: type, position and size of each top-level object.
         uint32_t objects = Count();
         reader.U32(); // Metadata end offset, retained by the format but not needed for selective parsing.
         std::vector<ObjectInfo> entries;
@@ -444,9 +587,12 @@ public:
             info.offset = reader.U32();
             info.size = reader.U32();
             Require(info.type < types.size() && info.offset <= reader.bytes.size() &&
-                info.size <= reader.bytes.size() - info.offset, "Invalid reflection object table entry.");
+                info.size <= reader.bytes.size() - info.offset,
+                "Invalid reflection object table entry.");
             entries.push_back(info);
         }
+        // Parse only the Bell container; there must be exactly one, and it must
+        // contain the Bell list, or the whole read is rejected.
         unsigned containers = 0;
         for (const auto& info : entries) {
             if (types[info.type].name != "DiscoveredLevelGimmickSceneObjectSaveData") { continue; }
@@ -455,21 +601,31 @@ public:
             reader.limit = info.offset + info.size;
             Object(0, false, true, info.type);
         }
-        Require(containers == 1 && bellListVisited, "Save has no unique supported Bell discovery container/list.");
+        Require(containers == 1 && bellListVisited,
+            "Save has no unique supported Bell discovery container/list.");
         return states;
     }
 };
 
+// ===========================================================================
+// Section: finding and reading save files (read-only), writing our own files
+// ===========================================================================
+
+// True if `name` is non-empty and made only of digits 0-9 (a Steam account folder).
 bool Digits(const wchar_t* name) {
     if (!*name) { return false; }
     for (; *name; ++name) { if (*name < L'0' || *name > L'9') { return false; } }
     return true;
 }
 
+// Build the full path of slot `slot`'s save.save. Requires exactly one numeric
+// Steam account folder (it never guesses between several). Also fills
+// summary.profile with "<account>:slot<N>".
 std::wstring SavePath(NativeSaveSummary& summary, unsigned slot) {
     Require(slot <= 999, "Selected save slot exceeds supported range.");
     wchar_t local[MAX_PATH] = {};
-    Require(SUCCEEDED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, local)), "Local AppData unavailable.");
+    Require(SUCCEEDED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, local)),
+        "Local AppData unavailable.");
     std::wstring root = std::wstring(local) + L"\\Pearl Abyss\\CD\\save";
     WIN32_FIND_DATAW entry = {};
     HANDLE search = FindFirstFileW((root + L"\\*").c_str(), &entry);
@@ -493,10 +649,13 @@ std::wstring SavePath(NativeSaveSummary& summary, unsigned slot) {
     return root + L"\\" + account + L"\\slot" + std::to_wstring(slot) + L"\\save.save";
 }
 
+// The bytes of one save file read plus its last-modified time.
 struct FileRead {
     Bytes bytes;
     FILETIME modified;
 };
+// Read a whole save file. Opened for reading only, and with full sharing so the
+// game can keep writing/replacing it meanwhile (we never block the game).
 FileRead ReadSource(const std::wstring& path) {
     HANDLE file = CreateFileW(path.c_str(), GENERIC_READ,
         FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, nullptr,
@@ -511,12 +670,16 @@ FileRead ReadSource(const std::wstring& path) {
     }
     Bytes bytes(static_cast<size_t>(size.QuadPart));
     DWORD count = 0;
-    bool complete = ReadFile(file, bytes.data(), static_cast<DWORD>(bytes.size()), &count, nullptr) && count == bytes.size();
+    bool complete = ReadFile(file, bytes.data(), static_cast<DWORD>(bytes.size()), &count, nullptr)
+        && count == bytes.size();
     CloseHandle(file);
     Require(complete, "Save changed or could not be read completely.");
     return {std::move(bytes), modified};
 }
 
+// Write one of the mod's OWN output files (never a game file). Writes to a
+// ".tmp" file first, then swaps it into place, so a half-written file is never
+// left behind under the real name.
 void WriteLocal(const std::wstring& path, const void* data, size_t size) {
     std::wstring temporary = path + L".tmp";
     HANDLE file = CreateFileW(temporary.c_str(), GENERIC_WRITE, FILE_SHARE_READ,
@@ -531,12 +694,20 @@ void WriteLocal(const std::wstring& path, const void* data, size_t size) {
 }
 } // namespace
 
+// ===========================================================================
+// Section: public entry points (declared in NativeSaveReader.h)
+// ===========================================================================
+
+// Read the selected slot, decode it, check the Bells, and write a JSON report
+// (native-save-progress.json) plus a copy of the save into the mod's folder.
 bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, NativeSaveSummary& summary,
     char (&error)[256]) {
     summary = {};
     error[0] = 0;
     try {
         std::wstring source = SavePath(summary, slot);
+        // Read twice, 120 ms apart; accept only if bytes and timestamp match.
+        // Up to 4 attempts.
         FileRead snapshot;
         bool stable = false;
         for (unsigned attempt = 0; attempt < 4; ++attempt) {
@@ -561,9 +732,11 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
         Bytes plain = Decode(snapshot.bytes);
         auto states = Reflection(plain).Read();
         summary.coverage = static_cast<unsigned>(states.size());
+        // Build the JSON report text by hand.
         std::ostringstream report;
         FILETIME now = {};
         GetSystemTimeAsFileTime(&now);
+        // Convert a Windows FILETIME (100 ns ticks since 1601) to Unix seconds (since 1970).
         auto unixTime = [](FILETIME value) {
             uint64_t ticks = (static_cast<uint64_t>(value.dwHighDateTime) << 32) | value.dwLowDateTime;
             return (ticks - 116444736000000000ULL) / 10000000ULL;
@@ -577,11 +750,13 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
             const auto& state = states[index];
             summary.recorded += state.recorded ? 1 : 0;
             summary.completed += state.completed ? 1 : 0;
+            // "mg:543894" is the id of the Hernand Bell in kBellLinks.
             if (strcmp(kBellLinks[index].id, "mg:543894") == 0) {
                 summary.hernandCompleted = state.completed;
             }
             report << "    {\"id\":\"" << kBellLinks[index].id << "\",\"name\":\"" << kBellLinks[index].name
-                   << "\",\"state\":\"" << (state.completed ? "completed" : state.recorded ? "recorded" : "unrecorded")
+                   << "\",\"state\":\""
+                   << (state.completed ? "completed" : state.recorded ? "recorded" : "unrecorded")
                    << "\",\"confirmed\":" << (state.completed ? "true" : "false") << "}"
                    << (index + 1 < states.size() ? "," : "") << "\n";
         }
@@ -590,24 +765,31 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
         WriteLocal(runtime + L"\\native-save-progress.json", output.data(), output.size());
         return true;
     } catch (const std::exception& exception) {
+        // Any failure above lands here; its message becomes the error text.
         strncpy_s(error, exception.what(), _TRUNCATE);
         return false;
     }
 }
 
+// Read the remembered slot from native-save-selection.ini in the mod's folder.
+// Defaults to 101 if nothing is stored or the stored value is out of range.
 unsigned LoadNativeSaveSlot(const wchar_t* runtimeDirectory) {
     std::wstring path = std::wstring(runtimeDirectory) + L"\\native-save-selection.ini";
     unsigned slot = GetPrivateProfileIntW(L"Save", L"Slot", 101, path.c_str());
     return slot <= 999 ? slot : 101;
 }
 
+// Let the user pick a save slot with a series of Yes/No/Cancel message boxes,
+// one per existing save. On "Yes" the choice is stored in the mod's .ini file.
 bool ChooseNativeSaveSlot(const wchar_t* runtimeDirectory, unsigned& slot, char (&error)[256]) {
     error[0] = 0;
     try {
+        // Reuse SavePath() to find the account folder, then strip "\slotN\save.save".
         NativeSaveSummary summary = {};
         std::wstring source = SavePath(summary, slot);
         std::wstring accountPath = source.substr(0, source.find_last_of(L'\\'));
         accountPath.resize(accountPath.find_last_of(L'\\'));
+        // One existing save: its slot number and last-modified time.
         struct SlotEntry { unsigned number; FILETIME modified; };
         SlotEntry slots[128] = {};
         unsigned count = 0;
@@ -623,10 +805,13 @@ bool ChooseNativeSaveSlot(const wchar_t* runtimeDirectory, unsigned& slot, char 
             }
         }
         Require(count != 0, "No existing save files are available for selection.");
+        // Start the dialog at the currently selected slot, if it exists.
         unsigned current = 0;
         for (unsigned index = 0; index < count; ++index) {
             if (slots[index].number == slot) { current = index; }
         }
+        // Show one save at a time: Yes selects it, No moves to the next one
+        // (wrapping around), Cancel stops without changing anything.
         for (;;) {
             const SlotEntry& candidate = slots[current];
             FILETIME local = {};
@@ -634,16 +819,19 @@ bool ChooseNativeSaveSlot(const wchar_t* runtimeDirectory, unsigned& slot, char 
             Require(FileTimeToLocalFileTime(&candidate.modified, &local) &&
                 FileTimeToSystemTime(&local, &time), "Save timestamp unavailable.");
             wchar_t label[64];
+            // Slots 100 and 101 are shown as "Manual save 1/2" (a labelling choice).
             if (candidate.number == 100 || candidate.number == 101) {
                 swprintf_s(label, L"Manual save %u (slot%u)", candidate.number - 99, candidate.number);
             } else {
                 swprintf_s(label, L"Save slot%u", candidate.number);
             }
             wchar_t message[640];
-            swprintf_s(message, L"%ls\nLast modified: %04u-%02u-%02u %02u:%02u:%02u (local)\n\nSave %u of %u\n\nYes: select this save\nNo: show next save\nCancel: keep current selection\n\nChoose the slot you loaded in the game.\nLoaded-slot detection is not implemented.",
+            swprintf_s(message,
+                L"%ls\nLast modified: %04u-%02u-%02u %02u:%02u:%02u (local)\n\nSave %u of %u\n\nYes: select this save\nNo: show next save\nCancel: keep current selection\n\nChoose the slot you loaded in the game.\nLoaded-slot detection is not implemented.",
                 label, time.wYear, time.wMonth, time.wDay, time.wHour, time.wMinute,
                 time.wSecond, current + 1, count);
-            int response = MessageBoxW(nullptr, message, L"Pywel Atlas - select save", MB_YESNOCANCEL | MB_ICONQUESTION);
+            int response = MessageBoxW(nullptr, message, L"Pywel Atlas - select save",
+                MB_YESNOCANCEL | MB_ICONQUESTION);
             if (response == IDCANCEL || response == 0) { return false; }
             if (response == IDYES) {
                 std::wstring path = std::wstring(runtimeDirectory) + L"\\native-save-selection.ini";

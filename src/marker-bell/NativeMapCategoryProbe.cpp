@@ -1,3 +1,49 @@
+// NativeMapCategoryProbe.cpp - the main file of the Pywel Atlas native mod.
+//
+// What this file does, in short:
+// - It is compiled into an ASI file (a DLL that a mod loader injects into the
+//   game Crimson Desert). DllMain at the bottom starts one background thread,
+//   called "the worker" in these comments, which runs Run().
+// - Run() checks that the game executable is exactly the build this mod was
+//   made for, then installs "hooks". A hook redirects one of the game's own
+//   functions to a function in this file. Our function usually calls the
+//   original game function unchanged, then looks at what happened. The hooks
+//   use the MinHook library (vendor/minhook).
+// - Most hooks only OBSERVE: they record diagnostic samples about map icons
+//   (type, category, template name, visibility bits) into a small queue that
+//   the worker writes to a log file.
+// - One hook (ObserveWorldMapUpdate) runs on the game's own map/UI thread
+//   after each world-map update. That is the only place where this mod asks
+//   the game to CREATE its one test marker (the "proof chest") or REMOVE it.
+// - Keys handled by the worker (only while the game window is focused):
+//     F6  load the marker JSON (NativeMarkerDefinition.cpp) and request creation.
+//     F7  read the selected save (NativeSaveReader.cpp) and enable Bell tracking.
+//     F8  write a diagnostic snapshot and briefly capture render state.
+//     F9  choose which save slot to read.
+//     F10 stop generation and request removal.
+// - If the save says the Hernand Bell is completed, the worker requests removal
+//   of the proof chest (HideCompletedProof()).
+//
+// Words used below:
+// - RVA ("relative virtual address"): an offset inside the game executable,
+//   counted from where the executable is loaded in memory (imageBase).
+//   Real address = imageBase + RVA. Hex numbers such as 0xdf88c0 in comments
+//   are RVAs of game code that was studied (traced) offline.
+// - vtable: the hidden table of function pointers at the start of many C++
+//   objects. Comparing an object's first 8 bytes with a known vtable address
+//   (e.g. imageBase + 0x566ff50) is how this file checks what kind of object it is.
+// - Guard bytes: before hooking, the first 24 bytes at each target address are
+//   compared with the bytes expected for this game build (category-profile.h).
+//   Any difference means the game changed, so no hooks are installed.
+// - Offsets such as "+0xde" or "+0x1e8": a field at that many bytes from the
+//   start of a game object, found by studying the game's code.
+// - ABI: the exact way a function receives its arguments and returns results.
+//   Our replacement functions must match the game's ABI exactly.
+// - "Interlocked..." calls: thread-safe reads/writes of a shared number.
+//   SRWLOCK: a simple Windows lock that lets one thread at a time change data.
+// - thread_local: a variable that has a separate copy on every thread.
+//
+// Original header notes:
 // Observe native marker metadata and suppression-bit changes; optionally create
 // one chest-type display from an armed live world-map update. Original
 // events are unchanged. Save snapshots are read on the worker; only explicit
@@ -17,6 +63,13 @@
 #include "NativeSaveReader.h"
 
 namespace {
+// ===========================================================================
+// Section: shapes (signatures) of the game functions we call or hook
+// Each "using X = ..." line describes the arguments and return type of one game
+// function so that C++ can call it. Argument meanings are only what was traced;
+// "opaque" means passed through untouched without knowing what it is.
+// ===========================================================================
+
 // The ten-argument creation ABI is traced from 0xdf88c0 and the shared callee's
 // stack reads. Opaque arguments remain opaque; only optional XYZ is sampled.
 using CreateIcon = uintptr_t (*)(void*, const WORD*, const void*, const DWORD*,
@@ -35,25 +88,35 @@ using UpdateWorldMap = uintptr_t (*)(void*, float);
 using CreateWorldIcon = uintptr_t (*)(void*, const WORD*, const void*, const DWORD*,
     const float*, void*, uintptr_t, float, uintptr_t, const void*, const char*,
     const void*, const void*, BYTE);
+
+// ===========================================================================
+// Section: shared state
+// "original..." pointers: after hooking, these let us call the real game
+// function. Other function pointers are game functions we only call.
+// The volatile LONG values are counters and request/outcome flags shared
+// between the worker and the game's map thread (always via Interlocked calls).
+// ===========================================================================
+
 CreateIcon originalCreate = nullptr;
 LookupType originalType = nullptr;
 LookupType originalTemplate = nullptr;
-LookupIcon worldLookup = nullptr;
-LookupIcon minimapLookup = nullptr;
+LookupIcon worldLookup = nullptr; // Find an existing world-map icon by type + tag.
+LookupIcon minimapLookup = nullptr; // Same, for the minimap controller.
 SetVisibility originalVisibility = nullptr;
 CreateWorldIcon originalWorldCreate = nullptr;
 InitializeIcon originalInitialize = nullptr;
 ProjectWorld originalProjectWorld = nullptr;
 CalculateIconScale originalCalculateScale = nullptr;
-RemoveWorldIcon removeWorldIcon = nullptr;
+RemoveWorldIcon removeWorldIcon = nullptr; // Native world-map icon removal.
 UpdateWorldMap originalUpdateWorldMap = nullptr;
-uintptr_t imageBase = 0;
+uintptr_t imageBase = 0; // Where the game executable is loaded in memory.
 HANDLE logFile = INVALID_HANDLE_VALUE;
+// Diagnostic counters (reported by F8).
 volatile LONG creationCalls = 0;
 volatile LONG sampledCalls = 0;
 volatile LONG droppedSamples = 0;
 volatile LONG namedSamples = 0;
-volatile LONG generationEnabled = 0;
+volatile LONG generationEnabled = 0; // 1 while F6 creation is armed (up to 3 minutes).
 volatile LONG generatedCalls = 0;
 volatile LONG occupiedKeys = 0;
 volatile LONG definitionRejected = 0;
@@ -61,8 +124,11 @@ volatile LONG generatedReadbackMask = 0;
 volatile LONG worldProjectionCalls = 0;
 volatile LONG worldMapUpdateCalls = 0;
 volatile LONG privateScaleCalls = 0;
-alignas(8) volatile LONG64 renderCaptureDeadline = 0;
-volatile LONG ownedChest = 0;
+alignas(8) volatile LONG64 renderCaptureDeadline = 0; // F8 render capture ends at this tick.
+// Removal state. removalRequested: 0 = none, 1 = requested, 2 = native removal
+// called and waiting for the icon to disappear. removalOutcome indexes the
+// "lifecycle outcome" messages logged in Run().
+volatile LONG ownedChest = 0; // 1 once this session created and verified its chest.
 volatile LONG removalRequested = 0;
 volatile LONG removalServicing = 0;
 volatile LONG removalAttempts = 0;
@@ -70,17 +136,22 @@ volatile LONG removalConfirmed = 0;
 volatile LONG removalAbsent = 0;
 volatile LONG removalRejected = 0;
 volatile LONG removalOutcome = 0;
+// Creation state. creationRequested: 0 = none, 1 = requested, 2 = being serviced.
+// creationOutcome indexes the "independent outcome" messages logged in Run().
 volatile LONG creationRequested = 0;
 volatile LONG creationOutcome = 0;
 alignas(8) volatile LONG64 removalWaitStarted = 0;
-constexpr WORD chestType = 226;
+constexpr WORD chestType = 226; // Map icon type id this mod uses for its chest.
+// Private numeric key for our chest. Read as ASCII, the high bytes spell "PYAT".
 constexpr uint64_t chestKey = 0x5059415400000002ULL;
 // The worker stages validated file values. The UI commits active identity only
 // when no private object exists, so editing cannot change removal's coordinates
 // beneath an already owned object. Locks protect copies only, never file I/O.
 SRWLOCK definitionLock = SRWLOCK_INIT;
-MarkerDefinition stagedDefinition = {};
-MarkerDefinition activeDefinition = {};
+MarkerDefinition stagedDefinition = {}; // Latest F6 values, waiting to be used.
+MarkerDefinition activeDefinition = {}; // Values of the chest actually created.
+// The 16-byte identity "tag" the game uses to key a map icon: a number plus a
+// kind byte. This mod always uses chestKey with kind 0x15.
 struct NumericTag {
     uint64_t key;
     BYTE kind;
@@ -88,8 +159,15 @@ struct NumericTag {
 };
 static_assert(sizeof(NumericTag) == 16, "Native numeric tag must remain 16 bytes");
 
+// ===========================================================================
+// Section: diagnostic samples
+// A Sample is a copy of facts about one icon creation (or render moment) that
+// is queued for the log. It holds plain values only, never game pointers.
+// ===========================================================================
+
+// Everything logged about one icon. Field names match the log line in Drain().
 struct Sample {
-    uintptr_t controller;
+    uintptr_t controller; // Controller vtable as an RVA (world map or minimap).
     WORD type;
     DWORD category;
     bool categoryRead;
@@ -99,10 +177,10 @@ struct Sample {
     char templateName[128];
     BYTE tag[16];
     float position[3];
-    bool generated;
+    bool generated; // True for this mod's own chest.
     bool iconVerified;
     bool visibilityRead;
-    BYTE visibility[3];
+    BYTE visibility[3]; // The 24 suppression bits (see ObserveVisibility).
     bool ownerControllerPresent;
     BYTE creationFlag;
     BYTE finalFlag;
@@ -113,13 +191,14 @@ struct Sample {
     bool baseIconPresent;
     bool sizeRead;
     float size[2];
-    BYTE phase;
+    BYTE phase; // 0 = creation, 1 = scale calculation, 2 = world projection.
     float calculatedScale;
     char markerName[128];
 };
 
+// One observed change of a suppression bit on our own chest.
 struct VisibilityEvent {
-    uintptr_t caller;
+    uintptr_t caller; // RVA of the game code that made the call.
     BYTE bit;
     BYTE enabled;
     BYTE before[3];
@@ -134,6 +213,8 @@ thread_local bool creatingChest = false;
 // The requested parent is freshly resolved for one synchronous UI creation.
 // Nested contexts restore it; no controller or parent reaches the worker.
 thread_local void* requestedChestContainer = nullptr;
+// Queues shared with the worker, protected by sampleLock. "pending" waits to be
+// logged; "seen" remembers what was already queued so duplicates are skipped.
 SRWLOCK sampleLock = SRWLOCK_INIT;
 Sample pending[128] = {};
 unsigned pendingCount = 0;
@@ -144,6 +225,7 @@ unsigned visibilityPendingCount = 0;
 VisibilityEvent visibilitySeen[256] = {};
 unsigned visibilitySeenCount = 0;
 
+// Forward declarations: these functions are defined further down the file.
 bool ChestDefinitionReady();
 void CreateIndependentChest(void* controller, void* parent, const void* presentation,
     const MarkerDefinition& definition);
@@ -154,12 +236,19 @@ void ServiceCreation(void* controller);
 void Queue(const Sample& sample);
 void ServiceRemoval(void* controller);
 
+// ===========================================================================
+// Section: small helpers
+// ===========================================================================
+
+// Safely copy `size` bytes from game memory. Returns false instead of crashing
+// if the address is null or not readable (ReadProcessMemory on our own process).
 bool Read(const void* address, void* destination, SIZE_T size) {
     SIZE_T read = 0;
     return address && ReadProcessMemory(GetCurrentProcess(), address,
         destination, size, &read) && read == size;
 }
 
+// Take a locked copy of the active (true) or staged (false) marker definition.
 MarkerDefinition CopyDefinition(bool active) {
     AcquireSRWLockShared(&definitionLock);
     MarkerDefinition copy = active ? activeDefinition : stagedDefinition;
@@ -167,6 +256,8 @@ MarkerDefinition CopyDefinition(bool active) {
     return copy;
 }
 
+// True only if `icon` is our own chest: right type (+0xde), our private tag
+// (+0xc8) and exactly the active definition's position (+0xe0).
 bool IsPrivateChest(void* icon) {
     WORD type = 0;
     NumericTag tag = {};
@@ -181,6 +272,16 @@ bool IsPrivateChest(void* icon) {
     return memcmp(position, definition.position, sizeof(position)) == 0;
 }
 
+// ===========================================================================
+// Section: hooks on icon creation, initialization and rendering
+// Each Observe.../Route... function replaces a game function. It calls the
+// original (originalX) and returns its result, so the game behaves as before.
+// ===========================================================================
+
+// Hook on the world-map icon constructor. For every other icon it passes all
+// arguments through. Only while our own chest is being created (and its type,
+// tag and position match exactly) does it swap in the parent container that
+// ResolveIndependentParent() chose.
 uintptr_t RouteWorldContainer(void* controller, const WORD* type, const void* tag,
     const DWORD* index, const float* position, void* container, uintptr_t slot7,
     float scalar, uintptr_t slot9, const void* appearance, const char* templateName,
@@ -206,6 +307,8 @@ uintptr_t RouteWorldContainer(void* controller, const WORD* type, const void* ta
         slot7, scalar, slot9, appearance, templateName, optional12, optional13, finalFlag);
 }
 
+// Copy a few fields of a live icon into `sample` (visibility bits, size, and
+// whether certain pointers are non-null). Only reads; keeps no pointers.
 void CaptureIconState(void* icon, Sample& sample) {
     auto* bytes = static_cast<const BYTE*>(icon);
     uintptr_t control = 0;
@@ -221,6 +324,8 @@ void CaptureIconState(void* icon, Sample& sample) {
     }
 }
 
+// Hook on the game's icon initialization. Records its result for the icon
+// currently being sampled; the result itself is returned unchanged.
 BYTE ObserveInitialize(void* icon, const void* description, BYTE flag) {
     BYTE result = originalInitialize(icon, description, flag);
     WORD type = 0;
@@ -239,11 +344,14 @@ BYTE ObserveInitialize(void* icon, const void* description, BYTE flag) {
     return result;
 }
 
+// True during the short (2 second) window opened by F8.
 bool RenderCaptureActive() {
     LONG64 deadline = InterlockedCompareExchange64(&renderCaptureDeadline, 0, 0);
     return deadline > 0 && GetTickCount64() < static_cast<ULONGLONG>(deadline);
 }
 
+// Queue a render-time sample of our chest (phase 1 = scale, 2 = projection),
+// at most once per 100 ms per phase.
 void QueueRenderState(void* icon, BYTE phase, float scale) {
     // Capture on the game's own UI callback thread, with no retained object
     // pointers. F8 opens a short observation window; throttle each phase so an
@@ -268,6 +376,7 @@ void QueueRenderState(void* icon, BYTE phase, float scale) {
     Queue(sample);
 }
 
+// Hook on the icon scale calculation: records the scale computed for our chest.
 float ObserveScale(void* icon, float zoom, BYTE mode, float mapScale) {
     float result = originalCalculateScale(icon, zoom, mode, mapScale);
     if (RenderCaptureActive() && IsPrivateChest(icon)) {
@@ -277,6 +386,8 @@ float ObserveScale(void* icon, float zoom, BYTE mode, float mapScale) {
     return result;
 }
 
+// Hook on the per-frame world projection (placing icons on the map). During an
+// F8 window it looks up our chest and samples its state.
 uintptr_t ObserveWorldProjection(void* controller, BYTE flag, void* layer,
     const void* data, const void* optional, float value) {
     // Six arguments are established by the frame function's saved registers
@@ -299,11 +410,15 @@ uintptr_t ObserveWorldProjection(void* controller, BYTE flag, void* layer,
     return result;
 }
 
+// Hook on the world-map update. This is the one safe moment, on the game's own
+// map thread, where pending removal and creation requests are carried out.
 uintptr_t ObserveWorldMapUpdate(void* controller, float elapsed) {
     // dabd10 consumes RCX and scalar XMM1. It owns the entire layer loop and
     // clears its update flag at dadc12. Service changes only after it returns,
     // so no per-layer callback is required and its finalizer cannot clear a
     // flag set by our newly created icon. No controller is cached on the worker.
+    // (RCX and XMM1 are the CPU registers that carry the 1st argument and a
+    // float 2nd argument in the Windows x64 calling convention.)
     uintptr_t result = originalUpdateWorldMap(controller, elapsed);
     InterlockedIncrement(&worldMapUpdateCalls);
     uintptr_t table = 0;
@@ -314,6 +429,12 @@ uintptr_t ObserveWorldMapUpdate(void* controller, float elapsed) {
     return result;
 }
 
+// ===========================================================================
+// Section: carrying out creation and removal (runs on the game's map thread)
+// ===========================================================================
+
+// If F6 requested a chest (and no removal is pending), resolve where it should
+// go and create it. Each failure sets creationOutcome and gives up.
 void ServiceCreation(void* controller) {
     if (InterlockedCompareExchange(&generationEnabled, 0, 0) != 1 ||
         InterlockedCompareExchange(&removalRequested, 0, 0) != 0 ||
@@ -323,7 +444,8 @@ void ServiceCreation(void* controller) {
     void* parent = nullptr;
     uintptr_t record = 0;
     MarkerDefinition definition = CopyDefinition(false);
-    if (!definition.enabled || !ResolveIndependentParent(controller, definition.position, parent, record)) {
+    if (!definition.enabled
+        || !ResolveIndependentParent(controller, definition.position, parent, record)) {
         InterlockedExchange(&creationRequested, 0);
         InterlockedExchange(&creationOutcome, 3);
         InterlockedIncrement(&definitionRejected);
@@ -339,6 +461,10 @@ void ServiceCreation(void* controller) {
     InterlockedExchange(&creationRequested, 0);
 }
 
+// Remove our chest if removal was requested. Only an icon that this session
+// owns and that still matches our exact identity is ever removed.
+// Step 1 (request == 1): call the game's removal once. Step 2 (request == 2):
+// on later updates, wait up to 3 seconds for the icon to disappear.
 void ServiceRemovalInternal(void* controller) {
     LONG request = InterlockedCompareExchange(&removalRequested, 0, 0);
     if (!request || InterlockedCompareExchange(&generationEnabled, 0, 0) != 0) {
@@ -397,6 +523,7 @@ void ServiceRemovalInternal(void* controller) {
     }
 }
 
+// Wrapper that makes sure only one removal attempt runs at a time.
 void ServiceRemoval(void* controller) {
     // Native removal may re-enter UI callbacks. Serialize requests across any
     // nested callbacks without blocking the game's thread or retrying a call.
@@ -407,6 +534,12 @@ void ServiceRemoval(void* controller) {
     InterlockedExchange(&removalServicing, 0);
 }
 
+// ===========================================================================
+// Section: more observation hooks and the diagnostic queue
+// ===========================================================================
+
+// Hook on the game's "set one suppression bit" helper. Records before/after
+// bits for our own chest only, and changes nothing.
 uintptr_t ObserveVisibility(void* icon, BYTE bit, BYTE enabled) {
     // The native helper sets one of 24 suppression bits, then toggles the UI
     // only if their combined zero/nonzero state changed. Observe its arguments
@@ -425,6 +558,7 @@ uintptr_t ObserveVisibility(void* icon, BYTE bit, BYTE enabled) {
     // the worker or assume a UI callback guarantees the object's lifetime.
     event.afterRead = IsPrivateChest(icon) &&
         Read(static_cast<const BYTE*>(icon) + 0x1e8, event.after, sizeof(event.after));
+    // Never wait for the lock on the game's thread: if busy, drop the event.
     if (!TryAcquireSRWLockExclusive(&sampleLock)) {
         InterlockedIncrement(&droppedSamples);
         return result;
@@ -453,6 +587,8 @@ uintptr_t ObserveVisibility(void* icon, BYTE bit, BYTE enabled) {
     return result;
 }
 
+// Read the name of a map-icon template (e.g. "MapIcon_Gimmick_LevelTreasureBox")
+// from game memory. Accepts only letters, digits, '_' and '-', up to 127 chars.
 bool ReadTemplateName(const void* record, char (&name)[128]) {
     const void* stringField = nullptr;
     const char* text = nullptr;
@@ -478,6 +614,7 @@ bool ReadTemplateName(const void* record, char (&name)[128]) {
     return false;
 }
 
+// Add a sample to the log queue unless an identical one was already queued.
 void Queue(const Sample& sample) {
     // Do not block the game's map thread on diagnostic disk I/O or the worker.
     if (!TryAcquireSRWLockExclusive(&sampleLock)) {
@@ -499,7 +636,8 @@ void Queue(const Sample& sample) {
             prior.initializationResult == sample.initializationResult &&
             prior.baseIconPresent == sample.baseIconPresent &&
             prior.phase == sample.phase && prior.calculatedScale == sample.calculatedScale &&
-            (!sample.generated || memcmp(prior.position, sample.position, sizeof(sample.position)) == 0) &&
+            (!sample.generated
+                || memcmp(prior.position, sample.position, sizeof(sample.position)) == 0) &&
             strcmp(prior.markerName, sample.markerName) == 0 &&
             strcmp(prior.templateName, sample.templateName) == 0) {
             duplicate = true;
@@ -517,6 +655,8 @@ void Queue(const Sample& sample) {
     ReleaseSRWLockExclusive(&sampleLock);
 }
 
+// Hook on the "look up icon type definition" function. During a sampled
+// creation, records the type's category (+0x2c) and template type (+0x20).
 void* ObserveType(const WORD* type) {
     void* result = originalType(type);
     WORD requested = 0;
@@ -536,6 +676,8 @@ void* ObserveType(const WORD* type) {
     return result;
 }
 
+// Hook on the "look up icon template" function. During a sampled creation,
+// records the template's name.
 void* ObserveTemplate(const WORD* type) {
     void* result = originalTemplate(type);
     WORD requested = 0;
@@ -554,6 +696,9 @@ void* ObserveTemplate(const WORD* type) {
     return result;
 }
 
+// Hook on the shared icon-creation function used by the world map (vtable
+// RVA 0x566ff50) and the minimap (0x5674e00). It samples each creation for the
+// log; calls from any other controller are passed straight through.
 uintptr_t ObserveCreate(void* controller, const WORD* type, const void* tag,
     const DWORD* index, const void* scale, const float* position,
     const void* appearance, BYTE flag, const void* data, BYTE finalFlag) {
@@ -575,6 +720,7 @@ uintptr_t ObserveCreate(void* controller, const WORD* type, const void* tag,
     sample.finalFlag = finalFlag;
     Read(tag, sample.tag, sizeof(sample.tag));
     sample.positionRead = Read(position, sample.position, sizeof(sample.position));
+    // While the original runs, the other hooks fill in this sample.
     Sample* previous = activeSample;
     activeSample = &sample;
     uintptr_t result = originalCreate(controller, type, tag, index, scale,
@@ -593,6 +739,13 @@ uintptr_t ObserveCreate(void* controller, const WORD* type, const void* tag,
     return result;
 }
 
+// ===========================================================================
+// Section: creating the proof chest (map thread, called by ServiceCreation)
+// ===========================================================================
+
+// Ask the game to create our chest at the definition's position, then look it
+// up again to confirm it really exists with our identity. Ownership (and thus
+// permission to remove it later) is taken only after that confirmation.
 void CreateIndependentChest(void* controller, void* parent, const void* presentation,
     const MarkerDefinition& definition) {
     if (creatingChest || InterlockedCompareExchange(&generationEnabled, 0, 0) != 1) {
@@ -642,6 +795,7 @@ void CreateIndependentChest(void* controller, void* parent, const void* presenta
     requestedChestContainer = previousRequestedContainer;
     InterlockedIncrement(&generatedCalls);
 
+    // Read back: find the icon again and check type, tag and position.
     void* icon = lookup(controller, &chestType, &tag, &lookupIndex);
     CaptureIconState(icon, generated);
     WORD actualType = 0;
@@ -672,6 +826,11 @@ void CreateIndependentChest(void* controller, void* parent, const void* presenta
     Queue(generated);
 }
 
+// ===========================================================================
+// Section: logging and the "Bell completed" action
+// ===========================================================================
+
+// Append one line to native-map-categories.log (worker thread only).
 void Log(const char* line) {
     if (logFile == INVALID_HANDLE_VALUE) {
         return;
@@ -684,6 +843,7 @@ void Log(const char* line) {
 
 // Called only by the worker. Native removal stays on the map thread and uses
 // its existing ownership/identity checks; this never touches built-in pins.
+// (It only sets flags; ServiceRemoval() does the actual work on the map thread.)
 void HideCompletedProof() {
     InterlockedExchange(&generationEnabled, 0);
     InterlockedExchange(&creationRequested, 0);
@@ -692,12 +852,21 @@ void HideCompletedProof() {
     Log("Hernand Bell explicitly completed in selected save; proof creation blocked and scoped removal requested.");
 }
 
+// ===========================================================================
+// Section: reading the game's icon definition tables (read-only)
+// The game keeps arrays ("tables") of icon type definitions and templates.
+// These helpers read them to confirm the chest type looks exactly as expected.
+// ===========================================================================
+
+// A snapshot of one table header: table address, entry count, entry array.
 struct TableView {
     uintptr_t table;
     DWORD count;
     uintptr_t cache;
 };
 
+// Read the table whose pointer is stored at `pointerRva`. Fails if anything is
+// missing or the count is 0 or above `maximum`.
 bool ReadTable(uintptr_t pointerRva, DWORD maximum, TableView& view) {
     if (!Read(reinterpret_cast<const void*>(imageBase + pointerRva),
         &view.table, sizeof(view.table)) || !view.table ||
@@ -709,10 +878,13 @@ bool ReadTable(uintptr_t pointerRva, DWORD maximum, TableView& view) {
     return view.cache != 0;
 }
 
+// True if two table snapshots are identical (the table did not change between them).
 bool SameTable(const TableView& left, const TableView& right) {
     return left.table == right.table && left.count == right.count && left.cache == right.cache;
 }
 
+// True only if icon type 226 is already loaded and matches the verified chest:
+// template type 28852, category 0xffffffff, template "MapIcon_Gimmick_LevelTreasureBox".
 bool ChestDefinitionReady() {
     TableView icons = {};
     TableView templates = {};
@@ -735,6 +907,10 @@ bool ChestDefinitionReady() {
         strcmp(name, "MapIcon_Gimmick_LevelTreasureBox") == 0;
 }
 
+// Choose which map layer ("parent container") the chest is created in, the
+// same way the game's own code chooses (as traced). Uses icon type 1's
+// definition as configuration, plus the game's live altitude threshold: at or
+// above it, container 3 is used instead.
 bool ResolveIndependentParent(void* controller, const float (&position)[3],
     void*& parent, uintptr_t& chestRecord) {
     TableView icons = {};
@@ -755,7 +931,8 @@ bool ResolveIndependentParent(void* controller, const float (&position)[3],
         category != 0x25 ||
         !Read(reinterpret_cast<const void*>(pinRecord + 0x2a), &selector, sizeof(selector)) ||
         selector != 1 ||
-        !Read(reinterpret_cast<const void*>(pinRecord + 0xb7), &altitudeBranch, sizeof(altitudeBranch)) ||
+        !Read(reinterpret_cast<const void*>(pinRecord + 0xb7),
+            &altitudeBranch, sizeof(altitudeBranch)) ||
         altitudeBranch != 1 ||
         !Read(reinterpret_cast<const void*>(imageBase + kParentAltitudeThresholdRva),
             &threshold, sizeof(threshold)) || !std::isfinite(threshold)) {
@@ -767,6 +944,8 @@ bool ResolveIndependentParent(void* controller, const float (&position)[3],
     if (position[1] >= threshold) {
         selector = 3;
     }
+    // Pick container[selector] from the controller (+0x398 array, +0x3a0 count)
+    // and check that its vtable lies inside the game executable.
     return Read(static_cast<const BYTE*>(controller) + 0x3a0,
             &containerCount, sizeof(containerCount)) &&
         containerCount > selector && containerCount <= 16 &&
@@ -778,6 +957,9 @@ bool ResolveIndependentParent(void* controller, const float (&position)[3],
         parentTable >= imageBase && parentTable < imageBase + kExpectedImageSize;
 }
 
+// Get the chest's "presentation" value by calling the provider object found at
+// record+0x68 (2nd vtable entry). Before calling, checks that the target is
+// inside the game executable and in committed, executable, non-guard memory.
 bool ResolvePresentation(uintptr_t record, const void*& presentation) {
     void* provider = nullptr;
     uintptr_t table = 0;
@@ -802,6 +984,9 @@ bool ResolvePresentation(uintptr_t record, const void*& presentation) {
     return presentation != nullptr;
 }
 
+// F8 diagnostic (only while generation is off): log already-loaded icon
+// definitions whose template names look relevant, plus raw bytes for a few
+// selected type ids (1, 226-229, 360).
 void SnapshotCachedDefinitions() {
     // This reads only existing metadata cache entries. It never calls the lazy
     // loaders for missing IDs. The worker touches no scene/controller objects.
@@ -881,6 +1066,12 @@ void SnapshotCachedDefinitions() {
     Log(line);
 }
 
+// ===========================================================================
+// Section: the worker thread
+// ===========================================================================
+
+// Move all queued samples and visibility events out (under the lock), then
+// write them to the log (outside the lock, so the game is never kept waiting).
 void Drain() {
     Sample batch[128];
     VisibilityEvent visibilityBatch[128];
@@ -934,10 +1125,16 @@ void Drain() {
     }
 }
 
+// The worker thread's main function. Part 1: set up the log, check the game
+// build and guard bytes, install hooks. Part 2: loop forever every 30 ms,
+// handling hotkeys, periodic save refresh, outcome messages and the log queue.
 DWORD WINAPI Run(void* address) {
+    // Keep this DLL loaded for the life of the game ("pin" it), because hooks
+    // point into it.
     HMODULE pinned = nullptr;
     GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
         GET_MODULE_HANDLE_EX_FLAG_PIN, reinterpret_cast<LPCWSTR>(address), &pinned);
+    // All mod files live in %LOCALAPPDATA%\PywelAtlas.
     wchar_t path[MAX_PATH] = {};
     if (FAILED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, path))) {
         return 0;
@@ -953,6 +1150,8 @@ DWORD WINAPI Run(void* address) {
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
     Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
+    // Check the game executable's build timestamp and size from its PE header
+    // (the standard header at the start of every Windows .exe).
     auto* base = reinterpret_cast<BYTE*>(GetModuleHandleW(nullptr));
     imageBase = reinterpret_cast<uintptr_t>(base);
     const auto* dos = reinterpret_cast<IMAGE_DOS_HEADER*>(base);
@@ -962,6 +1161,7 @@ DWORD WINAPI Run(void* address) {
         Log("Unsupported executable; no hooks installed.");
         return 0;
     }
+    // Guard bytes: every hooked or called site must still contain the expected code.
     for (const auto& site : kInspectSites) {
         if (memcmp(base + site.rva, site.context, sizeof(site.context)) != 0) {
             Log("Native entry changed; no hooks installed.");
@@ -972,10 +1172,16 @@ DWORD WINAPI Run(void* address) {
         Log("Could not initialize observation hooks.");
         return 0;
     }
-    static_assert(_countof(kInspectSites) == 13, "Nine hooks, three guarded calls and one parent-selection guard required");
+    // kInspectSites index map (category-profile.h): 0-2, 5-9 and 12 are hooked
+    // (see hookSites below); 3, 4 and 10 are game functions we call (world
+    // lookup, minimap lookup, removal); 11 is only checked as a guard.
+    static_assert(_countof(kInspectSites) == 13,
+        "Nine hooks, three guarded calls and one parent-selection guard required");
     worldLookup = reinterpret_cast<LookupIcon>(base + kInspectSites[3].rva);
     minimapLookup = reinterpret_cast<LookupIcon>(base + kInspectSites[4].rva);
     removeWorldIcon = reinterpret_cast<RemoveWorldIcon>(base + kInspectSites[10].rva);
+    // hooks[i] is our replacement; originals[i] receives the address to call the
+    // real game function; hookSites[i] says which kInspectSites entry it hooks.
     void* hooks[] = {reinterpret_cast<void*>(&ObserveCreate),
         reinterpret_cast<void*>(&ObserveType), reinterpret_cast<void*>(&ObserveTemplate),
         reinterpret_cast<void*>(&ObserveVisibility), reinterpret_cast<void*>(&RouteWorldContainer),
@@ -985,7 +1191,8 @@ DWORD WINAPI Run(void* address) {
         reinterpret_cast<void**>(&originalType), reinterpret_cast<void**>(&originalTemplate),
         reinterpret_cast<void**>(&originalVisibility), reinterpret_cast<void**>(&originalWorldCreate),
         reinterpret_cast<void**>(&originalInitialize), reinterpret_cast<void**>(&originalProjectWorld),
-        reinterpret_cast<void**>(&originalCalculateScale), reinterpret_cast<void**>(&originalUpdateWorldMap)};
+        reinterpret_cast<void**>(&originalCalculateScale),
+        reinterpret_cast<void**>(&originalUpdateWorldMap)};
     constexpr unsigned hookSites[] = {0, 1, 2, 5, 6, 7, 8, 9, 12};
     static_assert(_countof(hookSites) == _countof(hooks), "Every hook needs an explicit site");
     for (unsigned index = 0; index < _countof(hooks); ++index) {
@@ -1001,6 +1208,7 @@ DWORD WINAPI Run(void* address) {
             return 0;
         }
     }
+    // Switch all hooks on at once.
     MH_STATUS status = MH_EnableHook(MH_ALL_HOOKS);
     if (status != MH_OK) {
         Log(MH_StatusToString(status));
@@ -1008,6 +1216,8 @@ DWORD WINAPI Run(void* address) {
     }
     Log("F6 requests one private chest for 3 minutes; open Pywel. No reload or saved pin is needed.");
     Log("F8 captures state. F10 disables and requests removal; keep/open Pywel to service it. Save identity is manual.");
+    // previousFx: was the key down on the last loop? A key "press" is down now
+    // but not before, so holding a key does not repeat its action.
     bool previousF6 = false;
     bool previousF8 = false;
     bool previousF7 = false;
@@ -1026,6 +1236,7 @@ DWORD WINAPI Run(void* address) {
     ULONGLONG nextSaveRefresh = 0;
     while (true) {
         Drain();
+        // Hotkeys count only while the game window is in front.
         DWORD foreground = 0;
         GetWindowThreadProcessId(GetForegroundWindow(), &foreground);
         bool focused = foreground == GetCurrentProcessId();
@@ -1034,6 +1245,8 @@ DWORD WINAPI Run(void* address) {
         bool f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
         bool f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
         bool f10 = (GetAsyncKeyState(VK_F10) & 0x8000) != 0;
+        // --- F6: (if Bell tracking is on, re-check the save first) then load
+        // the marker JSON and request creation for up to 3 minutes. ---
         if (focused && f6 && !previousF6) {
             bool visibilityAllowed = true;
             if (bellLinkEnabled) {
@@ -1041,7 +1254,8 @@ DWORD WINAPI Run(void* address) {
                 char error[256] = {};
                 if (!ReadSelectedBellSave(runtimeDirectory, selectedSlot, summary, error)) {
                     char line[384];
-                    sprintf_s(line, "F6 save refresh failed; creation withheld, existing state retained: %s", error);
+                    sprintf_s(line, "F6 save refresh failed; creation withheld, existing state retained: %s",
+                        error);
                     Log(line);
                     MessageBeep(MB_ICONWARNING);
                     visibilityAllowed = false;
@@ -1080,13 +1294,17 @@ DWORD WINAPI Run(void* address) {
                     InterlockedExchange(&creationOutcome, 0);
                     InterlockedExchange(&creationRequested, 1);
                     char line[320];
-                    sprintf_s(line, "Definition loaded name=%s XYZ=(%.6f,%.6f,%.6f); independent creation requested.",
-                        definition.name, definition.position[0], definition.position[1], definition.position[2]);
+                    sprintf_s(line,
+                        "Definition loaded name=%s XYZ=(%.6f,%.6f,%.6f); independent creation requested.",
+                        definition.name, definition.position[0], definition.position[1],
+                        definition.position[2]);
                     Log(line);
                     MessageBeep(MB_OK);
                 }
             }
         }
+        // --- F7: read the selected save now, enable Bell tracking, and show
+        // the result in a message box. ---
         if (focused && f7 && !previousF7) {
             Log("Selected-slot save refresh requested; selection does not detect the loaded slot.");
             NativeSaveSummary summary = {};
@@ -1099,29 +1317,36 @@ DWORD WINAPI Run(void* address) {
                     HideCompletedProof();
                 }
                 char line[384];
-                sprintf_s(line, "Native save ready profile=%s coverage=%u recorded=%u completed=%u hernandConfirmed=%u; loadedSaveDetected=0",
+                sprintf_s(line,
+                    "Native save ready profile=%s coverage=%u recorded=%u completed=%u hernandConfirmed=%u; loadedSaveDetected=0",
                     summary.profile, summary.coverage, summary.recorded, summary.completed,
                     summary.hernandCompleted ? 1u : 0u);
                 Log(line);
                 wchar_t message[768];
-                swprintf_s(message, L"Selected slot%u read inside the mod.\n\nBells recorded: %u of %u\nExplicitly completed: %u\nHernand Bell: %ls\n\nSession proof link enabled: chest -> Hernand Bell.\n%ls\n\nOpen Pywel after dismissing this dialog to apply removal.\nF6 re-reads this slot; tracking refreshes every 5 seconds.\nLoaded-slot detection is not implemented.",
+                swprintf_s(message,
+                    L"Selected slot%u read inside the mod.\n\nBells recorded: %u of %u\nExplicitly completed: %u\nHernand Bell: %ls\n\nSession proof link enabled: chest -> Hernand Bell.\n%ls\n\nOpen Pywel after dismissing this dialog to apply removal.\nF6 re-reads this slot; tracking refreshes every 5 seconds.\nLoaded-slot detection is not implemented.",
                     selectedSlot, summary.recorded, summary.coverage, summary.completed,
                     summary.hernandCompleted ? L"Save confirmed" : L"No explicit completion confirmed",
-                    summary.hernandCompleted ? L"Completed: proof chest removal requested; recreation blocked." :
+                    summary.hernandCompleted
+                        ? L"Completed: proof chest removal requested; recreation blocked." :
                         L"Unconfirmed: no completion removal requested; F6 may show the chest.");
-                MessageBoxW(nullptr, message, L"Pywel Atlas - native save proof", MB_OK | MB_ICONINFORMATION);
+                MessageBoxW(nullptr, message, L"Pywel Atlas - native save proof",
+                    MB_OK | MB_ICONINFORMATION);
             } else {
                 char line[320];
                 sprintf_s(line, "Native save proof rejected: %s", error);
                 Log(line);
                 wchar_t message[512] = {};
                 MultiByteToWideChar(CP_UTF8, 0, error, -1, message, _countof(message));
-                MessageBoxW(nullptr, message, L"Pywel Atlas - native save proof unavailable", MB_OK | MB_ICONWARNING);
+                MessageBoxW(nullptr, message, L"Pywel Atlas - native save proof unavailable",
+                    MB_OK | MB_ICONWARNING);
             }
             // The dialog runs on this worker, never the game's map thread.
             // Holding the hotkey while dismissing it must not repeat a read.
             f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
         }
+        // --- F9: choose a save slot. Changing slot turns Bell tracking off and
+        // requests removal of the old chest. ---
         if (focused && f9 && !previousF9) {
             unsigned previousSlot = selectedSlot;
             char error[256] = {};
@@ -1142,10 +1367,13 @@ DWORD WINAPI Run(void* address) {
                 Log(error);
                 wchar_t message[512] = {};
                 MultiByteToWideChar(CP_UTF8, 0, error, -1, message, _countof(message));
-                MessageBoxW(nullptr, message, L"Pywel Atlas - save selection unavailable", MB_OK | MB_ICONWARNING);
+                MessageBoxW(nullptr, message, L"Pywel Atlas - save selection unavailable",
+                    MB_OK | MB_ICONWARNING);
             }
             f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
         }
+        // --- Every 5 seconds while Bell tracking is on: re-read the save and
+        // request removal when the Hernand Bell newly reads as completed. ---
         // Serialized worker reads cannot finish against a newer selection:
         // selection and refresh never run concurrently. Failed reads supply no
         // completion decision and cannot consume the previous report as input.
@@ -1164,6 +1392,8 @@ DWORD WINAPI Run(void* address) {
             }
             nextSaveRefresh = GetTickCount64() + 5000;
         }
+        // --- F10, loss of game focus, or the 3-minute timeout: stop generation
+        // and request removal. ---
         bool stopRequested = focused && f10 && !previousF10;
         if (stopRequested || (InterlockedCompareExchange(&generationEnabled, 0, 0) == 1 &&
             (!focused || GetTickCount64() >= generationDeadline))) {
@@ -1177,6 +1407,9 @@ DWORD WINAPI Run(void* address) {
             InterlockedExchange(&removalRequested, 1);
             InterlockedExchange(&removalOutcome, 1);
         }
+        // --- Log removal/creation outcome codes when they change.
+        // These message lists are the meaning of each removalOutcome /
+        // creationOutcome number set elsewhere in this file. ---
         LONG outcome = InterlockedCompareExchange(&removalOutcome, 0, 0);
         if (outcome != lastRemovalOutcome) {
             const char* messages[] = {"idle", "pending UI callback", "native removal called; waiting for absence",
@@ -1203,11 +1436,13 @@ DWORD WINAPI Run(void* address) {
             }
             lastCreationOutcome = creation;
         }
+        // --- F8: open a 2-second render capture window and log all counters. ---
         if (f8 && !previousF8 && focused) {
             InterlockedExchange64(&renderCaptureDeadline, static_cast<LONG64>(GetTickCount64() + 2000));
             renderWindowPending = true;
             char line[320];
-            sprintf_s(line, "snapshot creates=%ld sampled=%ld dropped=%ld named=%ld enabled=%ld generated=%ld occupied=%ld definitionRejected=%ld readbackMask=%ld",
+            sprintf_s(line,
+                "snapshot creates=%ld sampled=%ld dropped=%ld named=%ld enabled=%ld generated=%ld occupied=%ld definitionRejected=%ld readbackMask=%ld",
                 InterlockedCompareExchange(&creationCalls, 0, 0),
                 InterlockedCompareExchange(&sampledCalls, 0, 0),
                 InterlockedCompareExchange(&droppedSamples, 0, 0),
@@ -1218,7 +1453,8 @@ DWORD WINAPI Run(void* address) {
                 InterlockedCompareExchange(&definitionRejected, 0, 0),
                 InterlockedCompareExchange(&generatedReadbackMask, 0, 0));
             Log(line);
-            sprintf_s(line, "lifecycle owned=%ld request=%ld attempts=%ld confirmedAbsent=%ld alreadyAbsent=%ld rejected=%ld outcome=%ld",
+            sprintf_s(line,
+                "lifecycle owned=%ld request=%ld attempts=%ld confirmedAbsent=%ld alreadyAbsent=%ld rejected=%ld outcome=%ld",
                 InterlockedCompareExchange(&ownedChest, 0, 0),
                 InterlockedCompareExchange(&removalRequested, 0, 0),
                 InterlockedCompareExchange(&removalAttempts, 0, 0),
@@ -1236,6 +1472,7 @@ DWORD WINAPI Run(void* address) {
                 SnapshotCachedDefinitions();
             }
         }
+        // When the F8 window has closed, log how many render calls it saw.
         if (renderWindowPending && !RenderCaptureActive()) {
             renderWindowPending = false;
             char line[192];
@@ -1254,6 +1491,13 @@ DWORD WINAPI Run(void* address) {
 }
 } // namespace
 
+// ===========================================================================
+// Section: DLL entry point
+// ===========================================================================
+
+// Windows calls this when the mod DLL is loaded. It does as little as possible
+// here (Windows restricts what is safe inside DllMain) and starts the worker
+// thread, which runs Run().
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID) {
     if (reason == DLL_PROCESS_ATTACH) {
         DisableThreadLibraryCalls(instance);

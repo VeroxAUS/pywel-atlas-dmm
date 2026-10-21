@@ -1,5 +1,20 @@
+// NativeMarkerDefinition.cpp - load the test marker's settings from a JSON file.
+//
+// What this file does, in short:
+// - Opens the user's marker file (native-map-marker.json). If it does not exist
+//   yet, it writes a default copy first (the text comes from marker-default.h).
+// - Reads the whole file while briefly stopping anyone else from editing it.
+// - Checks the text is valid UTF-8 and parses it with Windows' built-in JSON parser.
+// - Checks every field strictly (fixed id, region, icon, a name, finite XYZ).
+// - On success, hands back a MarkerDefinition (see NativeMarkerDefinition.h).
+// - On any problem, returns a short reason and leaves the old marker untouched.
+// It is called from the worker thread in NativeMapCategoryProbe.cpp when F6 is pressed.
+//
 // Parse one explicit proof definition with Windows' JSON runtime. Disk work
 // happens on the plugin worker only; the game UI receives copied values.
+// ("Windows JSON runtime" = the Windows.Data.Json component that ships with
+// Windows. It is used through WRL/COM helper types such as ComPtr and HString,
+// which are just smart wrappers that free Windows objects and strings for us.)
 #define NOMINMAX
 #include "NativeMarkerDefinition.h"
 #include "marker-default.h"
@@ -20,11 +35,19 @@ using Microsoft::WRL::Wrappers::HString;
 using Microsoft::WRL::Wrappers::HStringReference;
 
 namespace {
+// Helper: copy a failure reason into `error` and return false, so callers can
+// write `return Reject(error, "...")` in one line.
 bool Reject(char (&error)[256], const char* reason) {
     strcpy_s(error, reason);
     return false;
 }
 
+// ---------------------------------------------------------------------------
+// Step 1: read the file from disk and turn its bytes into wide (UTF-16) text.
+// ---------------------------------------------------------------------------
+
+// Read the marker file into `text`. Creates a default file only if none exists.
+// Rejects empty files, files over 64 KiB, and anything that is not valid UTF-8.
 bool ReadJson(const wchar_t* path, std::wstring& text, char (&error)[256]) {
     HANDLE file = CreateFileW(path, GENERIC_READ, FILE_SHARE_READ, nullptr,
         OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
@@ -40,7 +63,8 @@ bool ReadJson(const wchar_t* path, std::wstring& text, char (&error)[256]) {
                 nullptr) && written == length;
             CloseHandle(seed);
             if (!complete) {
-                return Reject(error, "Could not finish the default definition; file preserved for inspection.");
+                return Reject(error,
+                    "Could not finish the default definition; file preserved for inspection.");
             }
         }
         file = CreateFileW(path, GENERIC_READ, FILE_SHARE_READ, nullptr,
@@ -51,6 +75,7 @@ bool ReadJson(const wchar_t* path, std::wstring& text, char (&error)[256]) {
     }
     // Denying write/delete sharing prevents a partial edit or replacement
     // during this short read. No lock is held while parsing or touching UI.
+    // (FILE_SHARE_READ alone means: others may read meanwhile, but not write.)
     LARGE_INTEGER size = {};
     if (!GetFileSizeEx(file, &size) || size.QuadPart < 1 || size.QuadPart > 65536) {
         CloseHandle(file);
@@ -64,9 +89,13 @@ bool ReadJson(const wchar_t* path, std::wstring& text, char (&error)[256]) {
     if (!complete) {
         return Reject(error, "Could not read a complete marker definition.");
     }
+    // Skip an optional UTF-8 "byte order mark" (the 3 bytes EF BB BF that some
+    // editors put at the start of a text file).
     unsigned start = length >= 3 && static_cast<unsigned char>(bytes[0]) == 0xef &&
         static_cast<unsigned char>(bytes[1]) == 0xbb &&
         static_cast<unsigned char>(bytes[2]) == 0xbf ? 3u : 0u;
+    // Convert UTF-8 to Windows wide text. First call asks "how many characters?",
+    // second call does the conversion. MB_ERR_INVALID_CHARS rejects broken UTF-8.
     int characters = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS,
         bytes.data() + start, length - start, nullptr, 0);
     if (characters <= 0) {
@@ -80,6 +109,11 @@ bool ReadJson(const wchar_t* path, std::wstring& text, char (&error)[256]) {
     return true;
 }
 
+// ---------------------------------------------------------------------------
+// Step 2: parse the JSON text and validate every field.
+// ---------------------------------------------------------------------------
+
+// True only if JSON field `key` exists, is a string, and equals `expected` exactly.
 bool Equals(IJsonObject* object, const wchar_t* key, const wchar_t* expected) {
     HString value;
     if (FAILED(object->GetNamedString(HStringReference(key).Get(), value.GetAddressOf()))) {
@@ -90,7 +124,13 @@ bool Equals(IJsonObject* object, const wchar_t* key, const wchar_t* expected) {
     return length == wcslen(expected) && wmemcmp(text, expected, length) == 0;
 }
 
+// Parse `text` as JSON and fill `output`. The expected file looks roughly like:
+//   { "schemaVersion": 1, "id": "atlas-chest-proof", "region": "pywel",
+//     "icon": "chest", "enabled": true, "name": "...",
+//     "completion": { "source": "none" }, "position": { "x":.., "y":.., "z":.. } }
+// Any missing or different field is rejected with a reason.
 bool Parse(const std::wstring& text, MarkerDefinition& output, char (&error)[256]) {
+    // Ask Windows for the JSON object "factory" (the entry point that can parse text).
     ComPtr<IJsonObjectStatics> factory;
     HRESULT status = RoGetActivationFactory(
         HStringReference(RuntimeClass_Windows_Data_Json_JsonObject).Get(),
@@ -101,23 +141,29 @@ bool Parse(const std::wstring& text, MarkerDefinition& output, char (&error)[256
         FAILED(factory->Parse(input.Get(), &root))) {
         return Reject(error, "Invalid JSON or Windows JSON runtime unavailable.");
     }
+    // Fixed identity fields: this loader supports exactly one kind of marker.
     double version = 0;
     if (FAILED(root->GetNamedNumber(HStringReference(L"schemaVersion").Get(), &version)) ||
         version != 1 || !Equals(root.Get(), L"id", L"atlas-chest-proof") ||
         !Equals(root.Get(), L"region", L"pywel") || !Equals(root.Get(), L"icon", L"chest")) {
         return Reject(error, "Expected schemaVersion 1, atlas-chest-proof, pywel and chest.");
     }
+    // "completion.source" must be "none": the file itself never claims the
+    // marker is done. Completion comes only from the save reader.
     ComPtr<IJsonObject> completion;
     if (FAILED(root->GetNamedObject(HStringReference(L"completion").Get(), &completion)) ||
         !Equals(completion.Get(), L"source", L"none")) {
         return Reject(error, "Only completion.source=none is supported; no discovery is inferred.");
     }
+    // "enabled" (true/false) and "name" (text).
     boolean enabled = false;
     HString name;
     if (FAILED(root->GetNamedBoolean(HStringReference(L"enabled").Get(), &enabled)) ||
         FAILED(root->GetNamedString(HStringReference(L"name").Get(), name.GetAddressOf()))) {
         return Reject(error, "Definition needs boolean enabled and string name.");
     }
+    // Name: not empty, no control characters (codes below 0x20, e.g. newline),
+    // and it must fit in the 128-byte buffer once converted back to UTF-8.
     unsigned nameLength = 0;
     const wchar_t* nameText = name.GetRawBuffer(&nameLength);
     if (!nameLength || nameLength > 127) {
@@ -135,6 +181,7 @@ bool Parse(const std::wstring& text, MarkerDefinition& output, char (&error)[256
     }
     output.name[written] = 0;
     output.enabled = enabled != 0;
+    // Position: an object with numeric x, y and z (game world coordinates).
     ComPtr<IJsonObject> position;
     if (FAILED(root->GetNamedObject(HStringReference(L"position").Get(), &position))) {
         return Reject(error, "Definition needs a position object with game x/y/z.");
@@ -154,6 +201,13 @@ bool Parse(const std::wstring& text, MarkerDefinition& output, char (&error)[256
 }
 } // namespace
 
+// ---------------------------------------------------------------------------
+// Public entry point (declared in NativeMarkerDefinition.h).
+// ---------------------------------------------------------------------------
+
+// Read + parse the file. Only on full success is `definition` overwritten, so a
+// bad edit never replaces the last good marker. RoInitialize/RoUninitialize
+// switch the Windows runtime on and off for this thread around the parse.
 bool LoadMarkerDefinition(const wchar_t* path, MarkerDefinition& definition,
     char (&error)[256]) {
     error[0] = 0;
