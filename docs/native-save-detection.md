@@ -1036,3 +1036,34 @@ expected. Zero drops.
 - Quirk 2: the inherited v0.32 rule "game focus lost → generation off and
   removal" removed the chest when the game lost focus (twice in this run).
   That rule belongs to the 3-minute proof, not to a product marker.
+
+## Combined v0.52: one marker per Bell, desired-state service
+
+User choice: bundle the two quirk fixes with eight Bell markers.
+
+- `prepare_bell_links.py` adds each Bell's `gamePosition` (from
+  `data/bell-save-links.json`) to `BellLink.position` in
+  `bell-proof-links.h`.
+- Marker i uses private key `0x5059415400000100 + i` (kind 0x15, chest type
+  226) at that Bell's exact position. `IsBellMarker` checks type, key, kind
+  and position. `IsOwnMarkerKey` lets `RouteWorldContainer` route the parent
+  for any own key; `IsPrivateChest` (diagnostic hooks) accepts Bell markers.
+- Worker (`UpdateBellMarkers`): wanted = all Bells not in `completedMask` of a
+  valid result (0 when disabled). On an invalid result, wanted is unchanged
+  and creation is not allowed. It logs the shown/hidden sets and changes in
+  the present set.
+- Map thread (`ServiceBellMarkers`, from `ObserveWorldMapUpdate` instead of
+  ServiceRemoval/ServiceCreation): for each Bell, look up its key. If absent
+  → clear present, and create if wanted and allowed (at most one per update,
+  verified by readback and routing). If present and created this session but
+  unwanted → one native removal (needs `ChestDefinitionReady`), then fresh
+  lookup. If still present after 3 s → reported as stuck, never re-issued.
+  Icons not created and verified this session are never touched.
+- Quirk fixes: no pending-removal flag can block creation, because removal
+  with nothing present is a no-op. The 3-minute and focus-loss rules are
+  compiled out of the combined build. F10 = all off, F6 = on again. The
+  single JSON proof chest is not used in the combined build.
+
+Compiled with MSVC `/W4` without warnings, and both standalone builds too. No
+automated tests added or run. Package: `archive/releases/PywelAtlas-v0.52.zip`.
+Runtime pending (test in the packaged README).

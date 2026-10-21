@@ -64,6 +64,8 @@
 #ifdef PYWEL_ATLAS_COMBINED
 // The detected loaded save, published by the save-detection part.
 #include "../pywel-atlas/LoadedSave.h"
+// The verified Bell list (ids, names, game positions) for one marker per Bell.
+#include "bell-proof-links.h"
 #endif
 
 namespace {
@@ -239,6 +241,9 @@ bool ResolvePresentation(uintptr_t record, const void*& presentation);
 void ServiceCreation(void* controller);
 void Queue(const Sample& sample);
 void ServiceRemoval(void* controller);
+#ifdef PYWEL_ATLAS_COMBINED
+void ServiceBellMarkers(void* controller);
+#endif
 
 // ===========================================================================
 // Section: small helpers
@@ -260,9 +265,60 @@ MarkerDefinition CopyDefinition(bool active) {
     return copy;
 }
 
+#ifdef PYWEL_ATLAS_COMBINED
+// Combined build: one map marker per known Bell. Marker i uses private key
+// kBellMarkerKeyBase + i (high bytes spell "PYAT", like the proof chest) and
+// sits exactly at that Bell's game position from bell-proof-links.h.
+constexpr uint64_t kBellMarkerKeyBase = 0x5059415400000100ULL;
+constexpr unsigned kBellMarkerCount = _countof(kBellLinks);
+static_assert(kBellMarkerCount <= 31, "Bell marker masks hold at most 31 markers");
+
+// Returns which Bell marker a private key belongs to, or -1 if none.
+int BellMarkerIndex(uint64_t key) {
+    return key >= kBellMarkerKeyBase && key < kBellMarkerKeyBase + kBellMarkerCount
+        ? static_cast<int>(key - kBellMarkerKeyBase) : -1;
+}
+
+// True only if `icon` is our Bell marker `index`: right type, its private key
+// and kind, and exactly that Bell's position. Anything else is never touched.
+bool IsBellMarker(void* icon, unsigned index) {
+    WORD type = 0;
+    NumericTag tag = {};
+    float position[3] = {};
+    auto* bytes = static_cast<const BYTE*>(icon);
+    return icon && index < kBellMarkerCount &&
+        Read(bytes + 0xde, &type, sizeof(type)) && type == chestType &&
+        Read(bytes + 0xc8, &tag, sizeof(tag)) &&
+        tag.key == kBellMarkerKeyBase + index && tag.kind == 0x15 &&
+        Read(bytes + 0xe0, position, sizeof(position)) &&
+        memcmp(position, kBellLinks[index].position, sizeof(position)) == 0;
+}
+#endif
+
+// True for a private key this mod uses: the proof chest's, or (combined
+// build) one of the Bell markers'.
+bool IsOwnMarkerKey(uint64_t key) {
+#ifdef PYWEL_ATLAS_COMBINED
+    if (BellMarkerIndex(key) >= 0) {
+        return true;
+    }
+#endif
+    return key == chestKey;
+}
+
 // True only if `icon` is our own chest: right type (+0xde), our private tag
-// (+0xc8) and exactly the active definition's position (+0xe0).
+// (+0xc8) and exactly the active definition's position (+0xe0). In the
+// combined build a Bell marker counts too (diagnostic hooks use this).
 bool IsPrivateChest(void* icon) {
+#ifdef PYWEL_ATLAS_COMBINED
+    NumericTag probe = {};
+    if (icon && Read(static_cast<const BYTE*>(icon) + 0xc8, &probe, sizeof(probe))) {
+        int bell = BellMarkerIndex(probe.key);
+        if (bell >= 0) {
+            return IsBellMarker(icon, static_cast<unsigned>(bell));
+        }
+    }
+#endif
     WORD type = 0;
     NumericTag tag = {};
     float position[3] = {};
@@ -302,7 +358,7 @@ uintptr_t RouteWorldContainer(void* controller, const WORD* type, const void* ta
         Read(position, actualPosition, sizeof(actualPosition));
     if (readable && creatingChest && requestedChestContainer &&
         activeSample->generated && actualType == chestType &&
-        actualTag.key == chestKey && actualTag.kind == 0x15 &&
+        IsOwnMarkerKey(actualTag.key) && actualTag.kind == 0x15 &&
         memcmp(actualPosition, activeSample->position, sizeof(actualPosition)) == 0) {
         container = requestedChestContainer;
         activeSample->containerRouted = true;
@@ -427,8 +483,13 @@ uintptr_t ObserveWorldMapUpdate(void* controller, float elapsed) {
     InterlockedIncrement(&worldMapUpdateCalls);
     uintptr_t table = 0;
     if (Read(controller, &table, sizeof(table)) && table == imageBase + 0x566ff50) {
+#ifdef PYWEL_ATLAS_COMBINED
+        // Combined build: keep the Bell markers matching what the worker wants.
+        ServiceBellMarkers(controller);
+#else
         ServiceRemoval(controller);
         ServiceCreation(controller);
+#endif
     }
     return result;
 }
@@ -858,134 +919,234 @@ void HideCompletedProof() {
 
 #ifdef PYWEL_ATLAS_COMBINED
 // ===========================================================================
-// Section: combined build - the marker follows the detected loaded save
+// Section: combined build - one map marker per Bell, following the loaded save
 // ---------------------------------------------------------------------------
 // In the combined Pywel Atlas mod, the save-detection part says which save is
 // loaded and publishes the Bells read from the slot the game last saved it to
-// (see src/pywel-atlas/LoadedSave.h). This replaces the hand-picked slot
-// (F9) and the manual read (F7). Rules:
-//   - Only an accepted ("valid") result can decide anything. While nothing
-//     is known (just after a load, or if a read failed), F6 is withheld and
-//     no "completed" decision is made: unknown never means "not completed".
-//   - If the linked Bell is completed in the loaded save, the proof chest is
-//     removed and cannot be created again for that save.
-//   - When a different save is loaded (a new load scope), the old save's
-//     chest is removed, and the new save's result decides from then on.
+// (see src/pywel-atlas/LoadedSave.h). This part shows one marker at each known
+// Bell whose save record is NOT completed, and removes it once it is.
+//
+// How it works ("desired state"):
+//   - The worker decides which markers SHOULD exist (bellMarkerWanted, one bit
+//     per Bell) and whether new ones may be created (bellMarkerCreateAllowed).
+//   - On every world-map update (the game's map thread), ServiceBellMarkers
+//     compares that with what is really on the map and fixes the difference:
+//     it creates at most one missing marker per update and removes unwanted
+//     ones. A removal with nothing to remove is simply nothing to do, so it
+//     can never block a later creation (the v0.51 "press F6 twice" quirk).
+//   - Markers stay until they are unwanted. There is no 3-minute limit and
+//     losing game focus does nothing (the v0.51 focus-loss quirk).
+// Safety rules:
+//   - Only an accepted ("valid") detected result can make a marker appear.
+//     While nothing is known (just after loading, or if a read failed),
+//     existing markers are kept but no new ones are created. Unknown never
+//     means "not completed".
+//   - Only icons with our own private key, type and exact Bell position are
+//     ever removed; anything else is left alone.
 // ===========================================================================
 
-// Same flags as HideCompletedProof, with a caller-specific log line.
-void RequestProofRemoval(const char* reason) {
-    InterlockedExchange(&generationEnabled, 0);
-    InterlockedExchange(&creationRequested, 0);
-    InterlockedExchange(&removalRequested, 1);
-    InterlockedExchange(&removalOutcome, 1);
-    Log(reason);
+// Shared between the worker (writes wanted/allowed) and the map thread
+// (writes present). One bit per Bell, in kBellLinks order.
+volatile LONG bellMarkerWanted = 0;
+volatile LONG bellMarkerCreateAllowed = 0;
+volatile LONG bellMarkerPresent = 0; // Markers this session created and still sees.
+volatile LONG bellMarkerCreations = 0; // Successful creations (diagnostic count).
+volatile LONG bellMarkerRemovals = 0; // Native removal calls (diagnostic count).
+volatile LONG bellMarkerFailures = 0; // Creations that could not be completed.
+volatile LONG bellMarkerStuck = 0; // Markers still present 3 s after removal.
+
+// Ask the game to create Bell marker `index` at that Bell's position, then
+// look it up again to confirm it exists with our identity. Returns true only
+// after that confirmation (same steps as CreateIndependentChest).
+bool CreateBellMarker(void* controller, unsigned index) {
+    if (creatingChest) {
+        return false;
+    }
+    const float* position = kBellLinks[index].position;
+    float place[3] = {position[0], position[1], position[2]};
+    void* parent = nullptr;
+    uintptr_t record = 0;
+    const void* presentation = nullptr;
+    if (!ResolveIndependentParent(controller, place, parent, record) ||
+        !ResolvePresentation(record, presentation)) {
+        return false;
+    }
+    NumericTag tag = {};
+    tag.key = kBellMarkerKeyBase + index;
+    tag.kind = 0x15;
+    DWORD lookupIndex = 0;
+    Sample generated = {};
+    generated.controller = 0x566ff50;
+    generated.type = chestType;
+    generated.generated = true;
+    generated.finalFlag = 1;
+    generated.positionRead = true;
+    memcpy(generated.tag, &tag, sizeof(tag));
+    memcpy(generated.position, place, sizeof(place));
+    strcpy_s(generated.markerName, kBellLinks[index].name);
+    Sample* previous = activeSample;
+    void* previousRequestedContainer = requestedChestContainer;
+    requestedChestContainer = parent;
+    activeSample = &generated;
+    creatingChest = true;
+    // Same empty property collection as the proof chest (see
+    // CreateIndependentChest for why it is safe).
+    alignas(8) BYTE emptyProperties[0x28] = {};
+    float scalar = 0;
+    originalCreate(controller, &chestType, &tag, &lookupIndex, &scalar,
+        place, presentation, 0, emptyProperties, 1);
+    creatingChest = false;
+    activeSample = previous;
+    requestedChestContainer = previousRequestedContainer;
+    // Read back: it must exist with our type, key and exact position, and our
+    // parent-container routing must have happened.
+    void* icon = worldLookup(controller, &chestType, &tag, &lookupIndex);
+    CaptureIconState(icon, generated);
+    generated.iconVerified = IsBellMarker(icon, index);
+    Queue(generated);
+    return generated.iconVerified && generated.containerRouted;
 }
 
-// The worker's memory of the last decision it made from a detected result.
-struct DetectedLink {
-    int bell; // Index of the linked Bell (FindBellIndex); Hernand until F6 loads a definition.
-    bool known; // A valid detected result has been applied at least once.
-    LONG loadScope; // Load the last decision belonged to.
-    unsigned serial; // Selection serial of that result.
-    unsigned readSlot; // Slot it was read from.
-    bool completed; // Whether the linked Bell was completed in it.
+// Runs on the game's map thread after each world-map update: makes the Bell
+// markers on the map match what the worker wants.
+void ServiceBellMarkers(void* controller) {
+    // Remember when each removal was issued (map thread only), so a removal
+    // the game defers is checked again instead of being issued repeatedly.
+    static ULONGLONG removalIssued[kBellMarkerCount] = {};
+    LONG wanted = InterlockedCompareExchange(&bellMarkerWanted, 0, 0);
+    bool createAllowed = InterlockedCompareExchange(&bellMarkerCreateAllowed, 0, 0) != 0;
+    LONG present = InterlockedCompareExchange(&bellMarkerPresent, 0, 0);
+    bool createdThisUpdate = false;
+    for (unsigned index = 0; index < kBellMarkerCount; ++index) {
+        LONG bit = 1L << index;
+        NumericTag tag = {};
+        tag.key = kBellMarkerKeyBase + index;
+        tag.kind = 0x15;
+        DWORD lookupIndex = 0;
+        void* icon = worldLookup(controller, &chestType, &tag, &lookupIndex);
+        if (!icon) {
+            // Gone: removed by us, or the map was rebuilt (e.g. after a load).
+            present &= ~bit;
+            removalIssued[index] = 0;
+            if ((wanted & bit) && createAllowed && !createdThisUpdate) {
+                // At most one creation per update keeps each frame light.
+                createdThisUpdate = true;
+                if (CreateBellMarker(controller, index)) {
+                    present |= bit;
+                    InterlockedIncrement(&bellMarkerCreations);
+                } else {
+                    InterlockedIncrement(&bellMarkerFailures);
+                }
+            }
+            continue;
+        }
+        if (!(present & bit) || !IsBellMarker(icon, index)) {
+            // Not one we created and verified this session: never touch it.
+            continue;
+        }
+        if (wanted & bit) {
+            continue; // Wanted and present: nothing to do.
+        }
+        // Present but no longer wanted (e.g. its Bell is now completed).
+        if (!removalIssued[index]) {
+            if (!ChestDefinitionReady()) {
+                continue; // Icon definitions changed: refuse to remove.
+            }
+            removalIssued[index] = GetTickCount64();
+            InterlockedIncrement(&bellMarkerRemovals);
+            // Native removal: type and index by value, like the proof chest.
+            removeWorldIcon(controller, chestType, &tag, lookupIndex);
+            // The old icon may be freed now; inspect only a fresh lookup.
+            if (!worldLookup(controller, &chestType, &tag, &lookupIndex)) {
+                present &= ~bit;
+                removalIssued[index] = 0;
+            }
+        } else if (GetTickCount64() - removalIssued[index] >= 3000) {
+            // The game deferred removal and it is still there after 3 s.
+            // Do not call removal again; report it and leave reload as fallback.
+            InterlockedOr(&bellMarkerStuck, bit);
+        }
+    }
+    InterlockedExchange(&bellMarkerPresent, present);
+}
+
+// Lists the Bell names whose bit is set in `mask`, e.g. "Calphade, Varnia".
+void BellNames(LONG mask, char (&text)[256]) {
+    text[0] = 0;
+    for (unsigned index = 0; index < kBellMarkerCount; ++index) {
+        if (mask & (1L << index)) {
+            if (text[0]) {
+                strcat_s(text, ", ");
+            }
+            strcat_s(text, kBellLinks[index].name);
+        }
+    }
+    if (!text[0]) {
+        strcpy_s(text, "none");
+    }
+}
+
+// The worker's view of the Bell markers.
+struct BellMarkerState {
+    bool enabled; // F10 turns all markers off; F6 turns them back on.
+    bool known; // A valid detected result has been seen at least once.
+    unsigned serial; // Selection serial of the last result logged.
+    unsigned readSlot; // Slot of the last result logged.
+    LONG wanted; // Last wanted mask sent to the map thread.
+    LONG present; // Last present mask logged.
+    LONG stuck; // Last stuck mask logged.
 };
 
-// Is the linked Bell explicitly completed in this detected result?
-bool LinkedBellCompleted(const LoadedSaveBell& loaded, const DetectedLink& link) {
-    return link.bell >= 0 && ((loaded.bell.completedMask >> link.bell) & 1u) != 0;
-}
-
-// Called every worker loop: applies a new detected result to the marker.
-void FollowLoadedSave(DetectedLink& link) {
+// Called every worker loop: works out which markers should exist from the
+// detected save, tells the map thread, and logs changes.
+void UpdateBellMarkers(BellMarkerState& state) {
     LoadedSaveBell loaded = {};
-    if (!PywelGetLoadedSaveBell(loaded)) {
-        return; // Not known right now: keep the last decision; F6 checks again.
+    bool valid = PywelGetLoadedSaveBell(loaded);
+    LONG all = static_cast<LONG>((1UL << kBellMarkerCount) - 1);
+    LONG wanted = state.wanted;
+    if (!state.enabled) {
+        wanted = 0;
+    } else if (valid) {
+        // Show every Bell the save does NOT explicitly mark as completed.
+        wanted = all & ~static_cast<LONG>(loaded.bell.completedMask);
     }
-    bool completed = LinkedBellCompleted(loaded, link);
-    bool newLoad = link.known && loaded.loadScope != link.loadScope;
-    if (link.known && !newLoad && loaded.serial == link.serial &&
-        loaded.readSlot == link.readSlot && completed == link.completed) {
-        return; // Nothing new.
-    }
-    char line[256];
-    sprintf_s(line, "Detected save: serial=%u loadScope=%ld loadedSlot=%u readSlot=%u bell=%s completed=%u newLoad=%u",
-        loaded.serial, loaded.loadScope, loaded.loadedSlot, loaded.readSlot, BellName(link.bell),
-        completed ? 1u : 0u, newLoad ? 1u : 0u);
-    Log(line);
-    if (newLoad && !completed) {
-        RequestProofRemoval("A different save was loaded; the previous save's proof chest is removed.");
-    }
-    if (completed && (!link.known || !link.completed || newLoad)) {
-        sprintf_s(line, "%s is explicitly completed in the loaded save; proof creation blocked and scoped removal requested.",
-            BellName(link.bell));
-        RequestProofRemoval(line);
-    }
-    link.known = true;
-    link.loadScope = loaded.loadScope;
-    link.serial = loaded.serial;
-    link.readSlot = loaded.readSlot;
-    link.completed = completed;
-}
-
-// F6 in the combined build: load the marker JSON (which names its Bell), then
-// show the chest only if the detected loaded save says that Bell is not
-// completed. `generationDeadline` is the worker's 3-minute display limit.
-void ShowMarkerFromDetectedSave(const wchar_t* definitionPath, DetectedLink& link,
-    ULONGLONG& generationDeadline) {
-    if (InterlockedCompareExchange(&removalRequested, 0, 0) != 0) {
-        Log("F6 skipped: removal pending. Keep/open Pywel so its UI callback can finish cleanup.");
-        return;
-    }
-    MarkerDefinition definition = {};
-    char error[256] = {};
-    if (!LoadMarkerDefinition(definitionPath, definition, error)) {
-        char line[320];
-        sprintf_s(line, "Definition rejected; existing state retained: %s", error);
+    // While nothing is known, keep the current markers but create no new ones.
+    InterlockedExchange(&bellMarkerCreateAllowed, state.enabled && valid ? 1 : 0);
+    InterlockedExchange(&bellMarkerWanted, wanted);
+    char names[256];
+    char line[512];
+    if (valid && (!state.known || loaded.serial != state.serial ||
+        loaded.readSlot != state.readSlot || wanted != state.wanted)) {
+        char hidden[256];
+        BellNames(wanted, names);
+        BellNames(all & static_cast<LONG>(loaded.bell.completedMask), hidden);
+        sprintf_s(line, "Detected save serial=%u loadedSlot=%u readSlot=%u: show [%s]; completed (hidden) [%s]",
+            loaded.serial, loaded.loadedSlot, loaded.readSlot, names, hidden);
         Log(line);
-        MessageBeep(MB_ICONWARNING);
-        return;
+        state.known = true;
+        state.serial = loaded.serial;
+        state.readSlot = loaded.readSlot;
+    } else if (!state.enabled && wanted != state.wanted) {
+        Log("Bell markers turned off (F10); all are being removed.");
     }
-    // The definition names its Bell; "none" keeps the original Hernand link.
-    int bell = FindBellIndex(definition.completionBell[0] ? definition.completionBell : "mg:543894");
-    if (bell != link.bell) {
-        link.bell = bell;
-        link.known = false; // Re-decide from the next detected result for the new Bell.
+    state.wanted = wanted;
+    LONG present = InterlockedCompareExchange(&bellMarkerPresent, 0, 0);
+    if (present != state.present) {
+        BellNames(present, names);
+        sprintf_s(line, "Bell markers on the map now: [%s] (creations=%ld removals=%ld failures=%ld)",
+            names, InterlockedCompareExchange(&bellMarkerCreations, 0, 0),
+            InterlockedCompareExchange(&bellMarkerRemovals, 0, 0),
+            InterlockedCompareExchange(&bellMarkerFailures, 0, 0));
+        Log(line);
+        state.present = present;
     }
-    if (!definition.enabled) {
-        RequestProofRemoval("Definition enabled=false; generation OFF and scoped removal requested.");
-        return;
+    LONG stuck = InterlockedCompareExchange(&bellMarkerStuck, 0, 0);
+    if (stuck != state.stuck) {
+        BellNames(stuck, names);
+        sprintf_s(line, "Bell markers still present 3 s after removal (reload clears them): [%s]", names);
+        Log(line);
+        state.stuck = stuck;
     }
-    LoadedSaveBell loaded = {};
-    if (!PywelGetLoadedSaveBell(loaded)) {
-        Log("F6 withheld: the loaded save is not confirmed yet (no accepted Bell read). Try again in a few seconds.");
-        MessageBeep(MB_ICONWARNING);
-        return;
-    }
-    if (LinkedBellCompleted(loaded, link)) {
-        char line[256];
-        sprintf_s(line, "F6 withheld: %s is explicitly completed in the loaded save (slot %u).",
-            BellName(link.bell), loaded.readSlot);
-        RequestProofRemoval(line);
-        MessageBeep(MB_OK);
-        return;
-    }
-    AcquireSRWLockExclusive(&definitionLock);
-    stagedDefinition = definition;
-    ReleaseSRWLockExclusive(&definitionLock);
-    generationDeadline = GetTickCount64() + 180000;
-    InterlockedExchange(&generatedReadbackMask, 0);
-    InterlockedExchange(&generationEnabled, 1);
-    InterlockedExchange(&creationOutcome, 0);
-    InterlockedExchange(&creationRequested, 1);
-    char line[384];
-    sprintf_s(line,
-        "Definition loaded name=%s XYZ=(%.6f,%.6f,%.6f); %s not completed in loaded save slot %u (serial %u); creation requested.",
-        definition.name, definition.position[0], definition.position[1], definition.position[2],
-        BellName(link.bell), loaded.readSlot, loaded.serial);
-    Log(line);
-    MessageBeep(MB_OK);
 }
 #endif
 
@@ -1287,7 +1448,7 @@ DWORD WINAPI Run(void* address) {
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
 #ifdef PYWEL_ATLAS_COMBINED
-    Log("Pywel Atlas combined v0.51 map marker - follows the detected loaded save; F9 and the manual save read are off");
+    Log("Pywel Atlas combined v0.52 map markers - one marker per Bell, shown while the detected save has it not completed; F10 hides all, F6 shows again");
 #else
     Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
 #endif
@@ -1383,7 +1544,9 @@ DWORD WINAPI Run(void* address) {
     bool previousF7 = false;
     bool previousF9 = false;
     bool previousF10 = false;
-    ULONGLONG generationDeadline = 0;
+#ifndef PYWEL_ATLAS_COMBINED
+    ULONGLONG generationDeadline = 0; // Proof chest's 3-minute limit (not used combined).
+#endif
     bool renderWindowPending = false;
     LONG lastRemovalOutcome = 0;
     LONG lastCreationOutcome = 0;
@@ -1395,14 +1558,15 @@ DWORD WINAPI Run(void* address) {
     bool lastRefreshCompleted = false;
     ULONGLONG nextSaveRefresh = 0;
 #ifdef PYWEL_ATLAS_COMBINED
-    // Combined build: the marker's Bell decision follows the detected save.
-    DetectedLink link = {};
-    link.bell = FindBellIndex("mg:543894"); // Hernand until F6 loads a definition.
+    // Combined build: one marker per Bell, following the detected save.
+    // Markers are on from the start; F10 turns them off, F6 back on.
+    BellMarkerState bellMarkers = {};
+    bellMarkers.enabled = true;
 #endif
     while (true) {
         Drain();
 #ifdef PYWEL_ATLAS_COMBINED
-        FollowLoadedSave(link);
+        UpdateBellMarkers(bellMarkers);
 #endif
         // Hotkeys count only while the game window is in front.
         DWORD foreground = 0;
@@ -1419,9 +1583,15 @@ DWORD WINAPI Run(void* address) {
         bool f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
         bool f10 = (GetAsyncKeyState(VK_F10) & 0x8000) != 0;
 #ifdef PYWEL_ATLAS_COMBINED
-        // --- F6 (combined build): decide from the detected loaded save. ---
-        if (focused && f6 && !previousF6) {
-            ShowMarkerFromDetectedSave(definitionPath, link, generationDeadline);
+        // --- F6 / F10 (combined build): turn the Bell markers on / off. ---
+        if (focused && f6 && !previousF6 && !bellMarkers.enabled) {
+            bellMarkers.enabled = true;
+            Log("Bell markers turned on (F6); they follow the detected save.");
+            MessageBeep(MB_OK);
+        }
+        if (focused && f10 && !previousF10 && bellMarkers.enabled) {
+            bellMarkers.enabled = false;
+            MessageBeep(MB_OK);
         }
 #else
         // --- F6: (if Bell tracking is on, re-check the save first) then load
@@ -1575,6 +1745,9 @@ DWORD WINAPI Run(void* address) {
             }
             nextSaveRefresh = GetTickCount64() + 5000;
         }
+#ifndef PYWEL_ATLAS_COMBINED
+        // (Not in the combined build: its Bell markers have no time limit,
+        // ignore focus loss, and use F10 above.)
         // --- F10, loss of game focus, or the 3-minute timeout: stop generation
         // and request removal. ---
         bool stopRequested = focused && f10 && !previousF10;
@@ -1590,6 +1763,7 @@ DWORD WINAPI Run(void* address) {
             InterlockedExchange(&removalRequested, 1);
             InterlockedExchange(&removalOutcome, 1);
         }
+#endif
         // --- Log removal/creation outcome codes when they change.
         // These message lists are the meaning of each removalOutcome /
         // creationOutcome number set elsewhere in this file. ---

@@ -1,40 +1,36 @@
-# Pywel Atlas — combined mod v0.51 (phase 2)
+# Pywel Atlas — combined mod v0.52
 
-One mod file, PywelAtlas.asi. The map marker now follows the save the mod
-detects, not a slot picked by hand:
+One mod file, PywelAtlas.asi. It now shows **one map marker at each of the
+8 known Bells** and hides each one automatically once the detected save
+records that Bell as completed.
 
 - **Save detection** (as in Save Detection v0.44) works out which save is
   loaded and which slot the game last saved it to, reads that slot's Bells,
-  and shares the accepted result with the marker.
-- **Map marker** (based on Map Proof v0.32) shows the test marker ("proof
-  chest") only if its linked Bell is NOT completed in the detected save.
-  - If that Bell is completed, the chest is removed and cannot be shown
-    again for that save.
-  - Loading a different save removes the old save's chest.
+  and shares the accepted result with the markers.
+- **Bell markers** are shown on the world map at each Bell whose save record
+  is not completed. After the game saves a newly completed Bell, its marker
+  is removed. Loading another save updates the markers to that save.
+  - Markers appear without pressing anything once the save is confirmed
+    (open the world map to see them).
   - While the loaded save is not confirmed yet (just after loading, or if a
-    read failed), F6 is withheld. Unknown never counts as "not completed".
+    read failed), existing markers stay but no new ones appear. Unknown
+    never counts as "not completed".
+  - There is no time limit, and switching away from the game does not remove
+    them (both were rules of the earlier 3-minute test chest).
+  - The markers currently use the treasure-chest map icon.
+
+Known Bells: Calphade, Delesyia, Demeniss, Hernand, Pailune, Scholastone,
+Tommaso, Varnia. The single test chest from native-map-marker.json is not
+used in this build.
 
 Logs (in %LOCALAPPDATA%\PywelAtlas): native-save-detection.log and
 native-map-categories.log.
-
-## Linking the marker to a Bell
-
-In %LOCALAPPDATA%\PywelAtlas\native-map-marker.json, the "completion" object
-names the Bell:
-
-    "completion": { "source": "bell", "id": "mg:545680" }
-
-That example is the Calphade Bell. Known ids: Calphade mg:545680, Delesyia
-mg:549762, Demeniss mg:549777, Hernand mg:543894, Pailune mg:549990,
-Scholastone mg:545847, Tommaso mg:549727, Varnia mg:549675.
-`{ "source": "none" }` keeps the original Hernand Bell link. The file is
-read when F6 is pressed.
 
 ## Install
 
 1. Close the game.
 2. In DMM, keep the separate "Save Detection" and "Map Proof" entries
-   disabled, and replace PywelAtlas v0.50 with PywelAtlas-v0.51.zip.
+   disabled, and replace PywelAtlas v0.51 with PywelAtlas-v0.52.zip.
 
 Close the game before replacing or disabling the ASI; live unload is
 unsupported.
@@ -43,23 +39,20 @@ unsupported.
 
 | Key | Action |
 | --- | --- |
-| F6 | Show the proof chest for 3 minutes, if the detected save allows it |
+| F6 | Turn the Bell markers back on (after F10) |
 | F7 | Save-detection checkpoint popup (loaded save, slot being read, Bells) |
 | F8 | Diagnostic snapshot |
-| F10 | Remove the proof chest |
+| F10 | Turn all Bell markers off |
 
-F9 (pick a slot) and Shift+F7 (manual save read) are off in this build.
+## v0.52 test
 
-## Phase 2 test (link the marker to Calphade first)
-
-1. Load "Manual 2" (before Calphade was rung). Wait a few seconds, press F6
-   and open the map: the chest should show.
-2. From the in-game menu, load "Manual 4" (after Calphade). The chest should
-   be gone. Press F6: it should stay hidden (Calphade completed).
-3. Load "Manual 2" again and press F6: the chest shows. Ring the Calphade
-   Bell and let the game save (autosave or manual). The chest should then
-   disappear by itself.
-4. Close the game normally and tell Claude.
+1. Load "Manual 2" (only Hernand completed). Wait a few seconds, open the
+   world map: markers at the 7 other Bells, none at Hernand.
+2. Switch away from the game (Alt+Tab) and back. The markers should stay.
+3. Press F10 once: all markers go. Press F6 once: they come back.
+4. From the in-game menu, load "Manual 4" (Hernand and Calphade completed).
+   Open the map: the Calphade marker is gone; 6 remain.
+5. Close the game normally and tell Claude.
 
 Nothing writes to the game's saves. Compiled with MSVC /W4. No automated
 tests added or run. MinHook BSD and pycrimson licenses are included.
