@@ -1,0 +1,276 @@
+﻿SESSION native save-load observation v0.43 pid=21968 tick=30716640; automaticLoadedSaveTrusted=0
+READY v0.43: fourteen guarded hooks; 200-range save writes ignored; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. Diagnostic read-only Bell reads tagged with the selection serial; stale results discarded. Save writes by the selection's server child retarget Bell reads to the written slot. F7 foreground confirmation retained. No marker hooks or save writes.
+stage=storage-start seq=1 scope=0 thread=21184 tick=30717265 callerRva=0xef51131 object=0x5345a8b7080 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+stage=storage-end seq=1 scope=0 thread=21184 tick=30717265 callerRva=0xef51131 object=0x5345a8b7080 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=1 status=1
+STORAGE_ROOT copied=1 booleanResult=1 root=C:/Users/Thomas/AppData/Local/Pearl Abyss/CD/save/60062761
+stage=client-reset-start seq=2 scope=0 thread=21184 tick=30727562 callerRva=0x779997 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+FIELD_STATE seq=2 stage=client-reset-start fieldFlagRead=0 fieldFlag=0 manager=0x0 selectedChildRead=0 selectedChild=0x0 selectedSelf=0 drops=0
+stage=client-reset-end seq=2 scope=0 thread=21184 tick=30727562 callerRva=0x779997 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=1 status=1
+FIELD_STATE seq=2 stage=client-reset-end fieldFlagRead=0 fieldFlag=0 manager=0x0 selectedChildRead=0 selectedChild=0x0 selectedSelf=0 drops=0
+stage=controller-snapshot seq=3 scope=0 thread=21184 tick=30727562 callerRva=0x0 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+CONTROLLER seq=3 controller=0x5347ff46200 phaseRead=1 before=1 after=3 object=0x0
+CLIENT_BOUNDARY seq=3 loadScope=0 slot=0 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=6 scope=0 thread=21184 tick=30728296 callerRva=0x0 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+CONTROLLER seq=6 controller=0x5347ff46200 phaseRead=1 before=3 after=21 object=0x0
+CLIENT_BOUNDARY seq=6 loadScope=0 slot=0 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=45 scope=0 thread=21184 tick=30728953 callerRva=0x0 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+CONTROLLER seq=45 controller=0x5347ff46200 phaseRead=1 before=21 after=24 object=0x0
+CLIENT_BOUNDARY seq=45 loadScope=0 slot=0 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=read-start seq=1749 scope=0 thread=15260 tick=30741656 callerRva=0x2c17886 object=0x535381a0000 requestedSlot=102 vtableRva=0x5b257a8 lifecycleRead=1 lifecycleBits=0x1 statusRead=0 status=0
+stage=read-end seq=1749 scope=0 thread=15260 tick=30741656 callerRva=0x2c17886 object=0x535381a0000 requestedSlot=102 vtableRva=0x5b257a8 lifecycleRead=1 lifecycleBits=0x1 statusRead=1 status=0
+stage=client-reset-start seq=3569 scope=0 thread=21184 tick=30755343 callerRva=0x779997 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+FIELD_STATE seq=3569 stage=client-reset-start fieldFlagRead=0 fieldFlag=0 manager=0x0 selectedChildRead=0 selectedChild=0x0 selectedSelf=0 drops=0
+stage=client-reset-end seq=3569 scope=0 thread=21184 tick=30755343 callerRva=0x779997 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=1 status=1
+FIELD_STATE seq=3569 stage=client-reset-end fieldFlagRead=0 fieldFlag=0 manager=0x0 selectedChildRead=0 selectedChild=0x0 selectedSelf=0 drops=0
+stage=controller-snapshot seq=3570 scope=0 thread=21184 tick=30755343 callerRva=0x0 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+CONTROLLER seq=3570 controller=0x5347ff46200 phaseRead=1 before=1 after=4 object=0x0
+CLIENT_BOUNDARY seq=3570 loadScope=0 slot=0 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=read-start seq=3572 scope=0 thread=15260 tick=30755343 callerRva=0x2c3e1d3 object=0x535381a0000 requestedSlot=101 vtableRva=0x5b257a8 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+stage=read-end seq=3572 scope=0 thread=15260 tick=30755343 callerRva=0x2c3e1d3 object=0x535381a0000 requestedSlot=101 vtableRva=0x5b257a8 lifecycleRead=1 lifecycleBits=0x4 statusRead=1 status=0
+stage=load-start seq=3573 scope=3573 thread=15260 tick=30755343 callerRva=0x2c3e4b2 object=0x535380f0200 requestedSlot=101 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x1 statusRead=0 status=0
+FIELD_STATE seq=3573 stage=load-start fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=read-start seq=3574 scope=3573 thread=15260 tick=30755343 callerRva=0x1042abf8 object=0x535380f0200 requestedSlot=101 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x1 statusRead=0 status=0
+FIELD_STATE seq=3574 stage=read-start fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=controller-snapshot seq=3575 scope=0 thread=21184 tick=30755359 callerRva=0x0 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+CONTROLLER seq=3575 controller=0x5347ff46200 phaseRead=1 before=4 after=4 object=0x0
+CLIENT_BOUNDARY seq=3575 loadScope=0 slot=0 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=read-end seq=3574 scope=3573 thread=15260 tick=30755406 callerRva=0x1042abf8 object=0x535380f0200 requestedSlot=101 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x1 statusRead=1 status=0
+FIELD_STATE seq=3574 stage=read-end fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=apply-start seq=3582 scope=3573 thread=15260 tick=30755406 callerRva=0x1042ac11 object=0x535380f0200 requestedSlot=101 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x1 statusRead=0 status=0
+FIELD_STATE seq=3582 stage=apply-start fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=controller-snapshot seq=3609 scope=0 thread=21184 tick=30755609 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x1 statusRead=0 status=0
+CONTROLLER seq=3609 controller=0x5347ff46200 phaseRead=1 before=4 after=4 object=0x534a27344c0
+FIELD_STATE seq=3609 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=3609 loadScope=0 slot=0 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=apply-end seq=3582 scope=3573 thread=15260 tick=30756078 callerRva=0x1042ac11 object=0x535380f0200 requestedSlot=101 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+FIELD_STATE seq=3582 stage=apply-end fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=load-end seq=3573 scope=3573 thread=15260 tick=30756078 callerRva=0x2c3e4b2 object=0x535380f0200 requestedSlot=101 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+FIELD_STATE seq=3573 stage=load-end fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+LOAD_CHAIN scope=3573 slot=101 correlated=1 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=4834 scope=0 thread=21184 tick=30764312 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=4834 controller=0x5347ff46200 phaseRead=1 before=4 after=10 object=0x534a27344c0
+FIELD_STATE seq=4834 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=4834 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=4835 scope=0 thread=21184 tick=30764312 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=4835 controller=0x5347ff46200 phaseRead=1 before=10 after=11 object=0x534a27344c0
+FIELD_STATE seq=4835 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=4835 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=4836 scope=0 thread=21184 tick=30764312 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=4836 controller=0x5347ff46200 phaseRead=1 before=11 after=12 object=0x534a27344c0
+FIELD_STATE seq=4836 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=4836 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=5066 scope=0 thread=21184 tick=30766265 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=5066 controller=0x5347ff46200 phaseRead=1 before=12 after=14 object=0x534a27344c0
+FIELD_STATE seq=5066 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=5066 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=5067 scope=0 thread=21184 tick=30766281 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=5067 controller=0x5347ff46200 phaseRead=1 before=14 after=15 object=0x534a27344c0
+FIELD_STATE seq=5067 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=5067 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=5168 scope=0 thread=21184 tick=30767500 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=5168 controller=0x5347ff46200 phaseRead=1 before=15 after=16 object=0x534a27344c0
+FIELD_STATE seq=5168 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=5168 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=5170 scope=0 thread=21184 tick=30767515 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=5170 controller=0x5347ff46200 phaseRead=1 before=16 after=20 object=0x534a27344c0
+FIELD_STATE seq=5170 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=5170 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=key-lookup seq=5172 scope=0 thread=15260 tick=30767531 callerRva=0x17efaa3 object=0x535381a0000 requestedSlot=4294967295 vtableRva=0x5b257a8 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=5172 side=server key=0x90100000 user=0x535381a0000 userVtable=0x5b257a8 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x535380f0200 epoch=2 generation=2 keyMatch=0 drops=0
+stage=actor-link seq=5173 scope=0 thread=15260 tick=30767531 callerRva=0x28ad1b5 object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+ACTOR_LINK seq=5173 source=0x535380f0200 sourceVtable=0x5b1e2b0 sourceKeyRead=1 sourceKey=0xa0100001 peer=0x535380f0200 peerVtable=0x5b1e2b0 valid=1 manager=0x535381a0000 serverChild=0x535380f0200 nativeLinkRead=0 epoch=2 drops=0
+FIELD_STATE seq=5173 stage=actor-link fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=controller-snapshot seq=6796 scope=0 thread=21184 tick=30783843 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=6796 controller=0x5347ff46200 phaseRead=1 before=20 after=21 object=0x534a27344c0
+FIELD_STATE seq=6796 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=6796 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=7054 scope=0 thread=21184 tick=30786156 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=7054 controller=0x5347ff46200 phaseRead=1 before=21 after=23 object=0x534a27344c0
+FIELD_STATE seq=7054 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=7054 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=field-begin-start seq=7055 scope=0 thread=15260 tick=30786171 callerRva=0x2bcb0cf object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=7055 stage=field-begin-start fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=field-begin-end seq=7055 scope=0 thread=15260 tick=30786171 callerRva=0x2bcb0cf object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+ACTOR_LINK seq=7055 source=0x535380f0200 sourceVtable=0x5b1e2b0 sourceKeyRead=0 sourceKey=0x00000000 peer=0x535380f0200 peerVtable=0x5b1e2b0 valid=0 manager=0x0 serverChild=0x0 nativeLinkRead=0 epoch=2 drops=0
+FIELD_STATE seq=7055 stage=field-begin-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=field-begin-start seq=7056 scope=0 thread=21184 tick=30786171 callerRva=0x9cead25 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=7056 stage=field-begin-start fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+stage=field-begin-end seq=7056 scope=0 thread=21184 tick=30786171 callerRva=0x9cead25 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+ACTOR_LINK seq=7056 source=0x534a27344c0 sourceVtable=0x5585c40 sourceKeyRead=0 sourceKey=0x00000000 peer=0x534a27344c0 peerVtable=0x5585c40 valid=0 manager=0x0 serverChild=0x0 nativeLinkRead=0 epoch=2 drops=0
+FIELD_STATE seq=7056 stage=field-begin-end fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+stage=controller-snapshot seq=7057 scope=0 thread=21184 tick=30786171 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=7057 controller=0x5347ff46200 phaseRead=1 before=23 after=24 object=0x534a27344c0
+FIELD_STATE seq=7057 stage=controller-snapshot fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=7057 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=client-reset-start seq=7058 scope=0 thread=21184 tick=30786187 callerRva=0x779997 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=7058 stage=client-reset-start fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+stage=client-reset-end seq=7058 scope=0 thread=21184 tick=30786187 callerRva=0x779997 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=1
+FIELD_STATE seq=7058 stage=client-reset-end fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+stage=controller-snapshot seq=7059 scope=0 thread=21184 tick=30786187 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=7059 controller=0x5347ff46200 phaseRead=1 before=1 after=4 object=0x534a27344c0
+FIELD_STATE seq=7059 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=7059 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=7518 scope=0 thread=21184 tick=30790187 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=7518 controller=0x5347ff46200 phaseRead=1 before=4 after=6 object=0x534a27344c0
+FIELD_STATE seq=7518 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=7518 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=7521 scope=0 thread=21184 tick=30790234 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=7521 controller=0x5347ff46200 phaseRead=1 before=6 after=10 object=0x534a27344c0
+FIELD_STATE seq=7521 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=7521 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=actor-link seq=7523 scope=0 thread=15260 tick=30790250 callerRva=0x28ad1b5 object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+ACTOR_LINK seq=7523 source=0x535380f0200 sourceVtable=0x5b1e2b0 sourceKeyRead=1 sourceKey=0xa0100001 peer=0x0 peerVtable=0x0 valid=0 manager=0x0 serverChild=0x0 nativeLinkRead=0 epoch=2 drops=0
+FIELD_STATE seq=7523 stage=actor-link fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=controller-snapshot seq=8137 scope=0 thread=21184 tick=30795703 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=8137 controller=0x5347ff46200 phaseRead=1 before=10 after=11 object=0x534a27344c0
+FIELD_STATE seq=8137 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=8137 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=8138 scope=0 thread=21184 tick=30795703 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=8138 controller=0x5347ff46200 phaseRead=1 before=11 after=14 object=0x534a27344c0
+FIELD_STATE seq=8138 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=8138 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=8140 scope=0 thread=21184 tick=30795734 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=8140 controller=0x5347ff46200 phaseRead=1 before=14 after=15 object=0x534a27344c0
+FIELD_STATE seq=8140 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=8140 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=key-lookup seq=8152 scope=0 thread=23544 tick=30795906 callerRva=0x17efaa3 object=0x534a2359d80 requestedSlot=4294967295 vtableRva=0x55b59f0 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=8152 side=client key=0x90100000 user=0x534a2359d80 userVtable=0x55b59f0 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x534a27344c0 epoch=2 generation=2 keyMatch=1 drops=0
+stage=actor-link seq=8153 scope=0 thread=23544 tick=30795906 callerRva=0x207ce69 object=0x534d89efb40 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+ACTOR_LINK seq=8153 source=0x534d89efb40 sourceVtable=0x5585c40 sourceKeyRead=1 sourceKey=0xb0100002 peer=0x534a27344c0 peerVtable=0x5585c40 valid=1 manager=0x534a2359d80 serverChild=0x0 nativeLinkRead=0 epoch=2 drops=0
+FIELD_STATE seq=8153 stage=actor-link fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=0 drops=0
+stage=key-lookup seq=9520 scope=0 thread=21140 tick=30796921 callerRva=0x17efaa3 object=0x534a2359d80 requestedSlot=4294967295 vtableRva=0x55b59f0 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=9520 side=client key=0x90100000 user=0x534a2359d80 userVtable=0x55b59f0 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x534a27344c0 epoch=2 generation=2 keyMatch=1 drops=0
+stage=actor-link seq=10008 scope=0 thread=15260 tick=30797203 callerRva=0x28ad1b5 object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+ACTOR_LINK seq=10008 source=0x535380f0200 sourceVtable=0x5b1e2b0 sourceKeyRead=1 sourceKey=0xa0100001 peer=0x535380f0200 peerVtable=0x5b1e2b0 valid=1 manager=0x535381a0000 serverChild=0x535380f0200 nativeLinkRead=0 epoch=2 drops=0
+FIELD_STATE seq=10008 stage=actor-link fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=controller-snapshot seq=10463 scope=0 thread=21184 tick=30797406 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=10463 controller=0x5347ff46200 phaseRead=1 before=15 after=16 object=0x534a27344c0
+FIELD_STATE seq=10463 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=10463 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=10488 scope=0 thread=21184 tick=30797703 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=10488 controller=0x5347ff46200 phaseRead=1 before=16 after=18 object=0x534a27344c0
+FIELD_STATE seq=10488 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=10488 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=10489 scope=0 thread=21184 tick=30797718 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=10489 controller=0x5347ff46200 phaseRead=1 before=18 after=20 object=0x534a27344c0
+FIELD_STATE seq=10489 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=10489 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=10835 scope=0 thread=21184 tick=30801875 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=10835 controller=0x5347ff46200 phaseRead=1 before=20 after=21 object=0x534a27344c0
+FIELD_STATE seq=10835 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=10835 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=controller-snapshot seq=13183 scope=0 thread=21184 tick=30807781 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=13183 controller=0x5347ff46200 phaseRead=1 before=21 after=23 object=0x534a27344c0
+FIELD_STATE seq=13183 stage=controller-snapshot fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=13183 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=field-begin-start seq=13211 scope=0 thread=15260 tick=30807796 callerRva=0x2bcb0cf object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=13211 stage=field-begin-start fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=field-begin-end seq=13211 scope=0 thread=15260 tick=30807796 callerRva=0x2bcb0cf object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+ACTOR_LINK seq=13211 source=0x535380f0200 sourceVtable=0x5b1e2b0 sourceKeyRead=0 sourceKey=0x00000000 peer=0x535380f0200 peerVtable=0x5b1e2b0 valid=0 manager=0x0 serverChild=0x0 nativeLinkRead=0 epoch=2 drops=0
+FIELD_STATE seq=13211 stage=field-begin-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=field-begin-start seq=13212 scope=0 thread=21184 tick=30807812 callerRva=0x9cead25 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=13212 stage=field-begin-start fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+stage=field-begin-end seq=13212 scope=0 thread=21184 tick=30807812 callerRva=0x9cead25 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+ACTOR_LINK seq=13212 source=0x534a27344c0 sourceVtable=0x5585c40 sourceKeyRead=0 sourceKey=0x00000000 peer=0x534a27344c0 peerVtable=0x5585c40 valid=0 manager=0x0 serverChild=0x0 nativeLinkRead=0 epoch=2 drops=0
+FIELD_STATE seq=13212 stage=field-begin-end fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+stage=controller-snapshot seq=13213 scope=0 thread=21184 tick=30807812 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=13213 controller=0x5347ff46200 phaseRead=1 before=23 after=24 object=0x534a27344c0
+FIELD_STATE seq=13213 stage=controller-snapshot fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=13213 loadScope=3573 slot=101 matched=1 worldReadyTrusted=0 accountTrusted=0
+SELECTION formed serial=1 generation=2 loadScope=3573 slot=101 account=60062761 userKey=0x90100000 serverChild=0x535380f0200 clientChild=0x534a27344c0 root=C:/Users/Thomas/AppData/Local/Pearl Abyss/CD/save/60062761 diagnostic=1 automaticLoadedSaveTrusted=0
+BELL_REQUEST serial=1 slot=101 trigger=selection-formed
+BELL_READ serial=1 slot=101 trigger=selection-formed outcome=accepted profile=60062761:slot101 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 05:36:59 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+stage=key-lookup seq=19273 scope=0 thread=32356 tick=30821921 callerRva=0x17efaa3 object=0x534a2359d80 requestedSlot=4294967295 vtableRva=0x55b59f0 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=19273 side=client key=0x90100000 user=0x534a2359d80 userVtable=0x55b59f0 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x534a27344c0 epoch=2 generation=2 keyMatch=1 drops=0
+CHECKPOINT F7 readCount=3 applyCount=1 sameObject=1 dropped=0 lastRequestedSlot=101 readStatusReadable=1 readStatus=0 applyStatusReadable=1 applyStatus=0 loadCount=1 cleanupCount=0 correlated=1 storageRootCopied=1 clientResetCount=3 clientBoundary=1 fieldBeginCount=4 fieldTransitionCount=0 fieldReloadCount=0 controllerChanges=28 phaseReadable=1 controllerPhase=24 actorLinkCount=4 nativeLinkRead=0 keyLookupCount=4 clientKey=0x90100000 clientKeyEpoch=2 clientUser=0x534a2359d80 clientSelected=0x534a27344c0 serverKey=0x90100000 serverKeyEpoch=2 serverUser=0x535381a0000 serverSelected=0x535380f0200 keyIdentityMatch=1 generation=2 loadEpoch=2 selectionActive=1 selectionSerial=1 selectionGeneration=2 selectionScope=3573 selectionSlot=101 selectionAccount=60062761 readSlot=101 linkedWrites=0 saveWrites=0 lastWriteSlot=4294967295 bellValid=1 bellSerial=1 bellSlot=101 bellCoverage=8 bellRecorded=1 bellCompleted=1 hernandCompleted=1 bellRequests=1 bellAccepted=1 bellStale=0 bellFailed=0 boundaryObject=0x534a27344c0 loadedObject=0x535380f0200 worldReadyTrusted=0 accountTrusted=0 bellTrusted=0
+BELL_REQUEST serial=1 slot=101 trigger=f7
+BELL_READ serial=1 slot=101 trigger=f7 outcome=accepted profile=60062761:slot101 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 05:36:59 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+stage=key-lookup seq=25635 scope=0 thread=23544 tick=30836343 callerRva=0x17efaa3 object=0x534a2359d80 requestedSlot=4294967295 vtableRva=0x55b59f0 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=25635 side=client key=0x90100000 user=0x534a2359d80 userVtable=0x55b59f0 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x534a27344c0 epoch=2 generation=2 keyMatch=1 drops=0
+stage=key-lookup seq=33240 scope=0 thread=21140 tick=30851921 callerRva=0x17efaa3 object=0x534a2359d80 requestedSlot=4294967295 vtableRva=0x55b59f0 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=33240 side=client key=0x90100000 user=0x534a2359d80 userVtable=0x55b59f0 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x534a27344c0 epoch=2 generation=2 keyMatch=1 drops=0
+stage=write-start seq=36600 scope=0 thread=15260 tick=30862328 callerRva=0xcbd86d3 object=0x535380f0200 requestedSlot=2 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=36600 stage=write-start fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=write-end seq=36600 scope=0 thread=15260 tick=30862390 callerRva=0xcbd86d3 object=0x535380f0200 requestedSlot=2 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+FIELD_STATE seq=36600 stage=write-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+SAVE_WRITE seq=36600 slot=2 statusRead=1 status=0 object=0x535380f0200 vtableRva=0x5b1e2b0 actorKeyRead=1 actorKey=0xa0100001 epoch=2 callerRva=0xcbd86d3 linked=1 reason=linked selectionSerial=1 readSlot=2
+stage=write-start seq=36615 scope=0 thread=15260 tick=30862390 callerRva=0x103be99f object=0x535380f0200 requestedSlot=206 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=36615 stage=write-start fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+BELL_REQUEST serial=1 slot=2 trigger=save-write
+stage=write-end seq=36615 scope=0 thread=15260 tick=30862421 callerRva=0x103be99f object=0x535380f0200 requestedSlot=206 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+FIELD_STATE seq=36615 stage=write-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+SAVE_WRITE seq=36615 slot=206 statusRead=1 status=0 object=0x535380f0200 vtableRva=0x5b1e2b0 actorKeyRead=1 actorKey=0xa0100001 epoch=2 callerRva=0x103be99f linked=0 reason=instance-slot selectionSerial=1 readSlot=2
+BELL_READ serial=1 slot=2 trigger=save-write outcome=accepted profile=60062761:slot2 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 22:26:41 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+stage=write-start seq=46605 scope=0 thread=15260 tick=30888968 callerRva=0xcbd86d3 object=0x535380f0200 requestedSlot=2 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=46605 stage=write-start fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=write-end seq=46605 scope=0 thread=15260 tick=30889031 callerRva=0xcbd86d3 object=0x535380f0200 requestedSlot=2 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+FIELD_STATE seq=46605 stage=write-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+SAVE_WRITE seq=46605 slot=2 statusRead=1 status=0 object=0x535380f0200 vtableRva=0x5b1e2b0 actorKeyRead=1 actorKey=0xa0100001 epoch=2 callerRva=0xcbd86d3 linked=1 reason=linked selectionSerial=1 readSlot=2
+BELL_REQUEST serial=1 slot=2 trigger=save-write
+stage=write-start seq=46633 scope=0 thread=15260 tick=30889093 callerRva=0xcbd86d3 object=0x535380f0200 requestedSlot=2 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=46633 stage=write-start fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=write-end seq=46633 scope=0 thread=15260 tick=30889156 callerRva=0xcbd86d3 object=0x535380f0200 requestedSlot=2 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+FIELD_STATE seq=46633 stage=write-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+SAVE_WRITE seq=46633 slot=2 statusRead=1 status=0 object=0x535380f0200 vtableRva=0x5b1e2b0 actorKeyRead=1 actorKey=0xa0100001 epoch=2 callerRva=0xcbd86d3 linked=1 reason=linked selectionSerial=1 readSlot=2
+BELL_REQUEST serial=1 slot=2 trigger=save-write
+BELL_READ serial=1 slot=2 trigger=save-write outcome=accepted profile=60062761:slot2 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 22:27:08 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+BELL_READ serial=1 slot=2 trigger=save-write outcome=accepted profile=60062761:slot2 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 22:27:08 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+CHECKPOINT F7 readCount=3 applyCount=1 sameObject=1 dropped=0 lastRequestedSlot=101 readStatusReadable=1 readStatus=0 applyStatusReadable=1 applyStatus=0 loadCount=1 cleanupCount=0 correlated=1 storageRootCopied=1 clientResetCount=3 clientBoundary=1 fieldBeginCount=4 fieldTransitionCount=0 fieldReloadCount=0 controllerChanges=28 phaseReadable=1 controllerPhase=24 actorLinkCount=4 nativeLinkRead=0 keyLookupCount=6 clientKey=0x90100000 clientKeyEpoch=2 clientUser=0x534a2359d80 clientSelected=0x534a27344c0 serverKey=0x90100000 serverKeyEpoch=2 serverUser=0x535381a0000 serverSelected=0x535380f0200 keyIdentityMatch=1 generation=2 loadEpoch=2 selectionActive=1 selectionSerial=1 selectionGeneration=2 selectionScope=3573 selectionSlot=101 selectionAccount=60062761 readSlot=2 linkedWrites=3 saveWrites=4 lastWriteSlot=2 bellValid=1 bellSerial=1 bellSlot=2 bellCoverage=8 bellRecorded=1 bellCompleted=1 hernandCompleted=1 bellRequests=5 bellAccepted=5 bellStale=0 bellFailed=0 boundaryObject=0x534a27344c0 loadedObject=0x535380f0200 worldReadyTrusted=0 accountTrusted=0 bellTrusted=0
+BELL_REQUEST serial=1 slot=2 trigger=f7
+BELL_READ serial=1 slot=2 trigger=f7 outcome=accepted profile=60062761:slot2 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 22:27:08 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+stage=write-start seq=53798 scope=0 thread=15260 tick=30919859 callerRva=0x103be99f object=0x535380f0200 requestedSlot=102 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=53798 stage=write-start fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=write-end seq=53798 scope=0 thread=15260 tick=30919921 callerRva=0x103be99f object=0x535380f0200 requestedSlot=102 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+FIELD_STATE seq=53798 stage=write-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+SAVE_WRITE seq=53798 slot=102 statusRead=1 status=0 object=0x535380f0200 vtableRva=0x5b1e2b0 actorKeyRead=1 actorKey=0xa0100001 epoch=2 callerRva=0x103be99f linked=1 reason=linked selectionSerial=1 readSlot=102
+BELL_REQUEST serial=1 slot=102 trigger=save-write
+BELL_READ serial=1 slot=102 trigger=save-write outcome=accepted profile=60062761:slot102 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 22:27:39 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+stage=key-lookup seq=54628 scope=0 thread=32356 tick=30924406 callerRva=0x17efaa3 object=0x534a2359d80 requestedSlot=4294967295 vtableRva=0x55b59f0 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=54628 side=client key=0x90100000 user=0x534a2359d80 userVtable=0x55b59f0 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x534a27344c0 epoch=2 generation=2 keyMatch=1 drops=0
+stage=write-start seq=55362 scope=0 thread=15260 tick=30926890 callerRva=0xcbd86d3 object=0x535380f0200 requestedSlot=2 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+FIELD_STATE seq=55362 stage=write-start fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=write-end seq=55362 scope=0 thread=15260 tick=30926953 callerRva=0xcbd86d3 object=0x535380f0200 requestedSlot=2 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x10 statusRead=1 status=0
+FIELD_STATE seq=55362 stage=write-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+SAVE_WRITE seq=55362 slot=2 statusRead=1 status=0 object=0x535380f0200 vtableRva=0x5b1e2b0 actorKeyRead=1 actorKey=0xa0100001 epoch=2 callerRva=0xcbd86d3 linked=1 reason=linked selectionSerial=1 readSlot=2
+BELL_REQUEST serial=1 slot=2 trigger=save-write
+BELL_READ serial=1 slot=2 trigger=save-write outcome=accepted profile=60062761:slot2 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 22:27:46 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+stage=key-lookup seq=55991 scope=0 thread=32356 tick=30928843 callerRva=0x17efaa3 object=0x534a2359d80 requestedSlot=4294967295 vtableRva=0x55b59f0 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=55991 side=client key=0x90100000 user=0x534a2359d80 userVtable=0x55b59f0 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x534a27344c0 epoch=2 generation=2 keyMatch=1 drops=0
+CHECKPOINT F7 readCount=3 applyCount=1 sameObject=1 dropped=0 lastRequestedSlot=101 readStatusReadable=1 readStatus=0 applyStatusReadable=1 applyStatus=0 loadCount=1 cleanupCount=0 correlated=1 storageRootCopied=1 clientResetCount=3 clientBoundary=1 fieldBeginCount=4 fieldTransitionCount=0 fieldReloadCount=0 controllerChanges=28 phaseReadable=1 controllerPhase=24 actorLinkCount=4 nativeLinkRead=0 keyLookupCount=8 clientKey=0x90100000 clientKeyEpoch=2 clientUser=0x534a2359d80 clientSelected=0x534a27344c0 serverKey=0x90100000 serverKeyEpoch=2 serverUser=0x535381a0000 serverSelected=0x535380f0200 keyIdentityMatch=1 generation=2 loadEpoch=2 selectionActive=1 selectionSerial=1 selectionGeneration=2 selectionScope=3573 selectionSlot=101 selectionAccount=60062761 readSlot=2 linkedWrites=5 saveWrites=6 lastWriteSlot=2 bellValid=1 bellSerial=1 bellSlot=2 bellCoverage=8 bellRecorded=1 bellCompleted=1 hernandCompleted=1 bellRequests=8 bellAccepted=8 bellStale=0 bellFailed=0 boundaryObject=0x534a27344c0 loadedObject=0x535380f0200 worldReadyTrusted=0 accountTrusted=0 bellTrusted=0
+BELL_REQUEST serial=1 slot=2 trigger=f7
+BELL_READ serial=1 slot=2 trigger=f7 outcome=accepted profile=60062761:slot2 coverage=8 recorded=1 completed=1 hernandCompleted=1 saveModified=2026-10-21 22:27:46 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+stage=cleanup-start seq=57722 scope=0 thread=15260 tick=30937406 callerRva=0x14369c6 object=0x535380f0300 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x40 statusRead=0 status=0
+FIELD_STATE seq=57722 stage=cleanup-start fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=0 drops=0
+stage=cleanup-end seq=57722 scope=0 thread=15260 tick=30937406 callerRva=0x14369c6 object=0x535380f0300 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x40 statusRead=0 status=0
+FIELD_STATE seq=57722 stage=cleanup-end fieldFlagRead=1 fieldFlag=0 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=0 drops=0
+stage=controller-snapshot seq=57723 scope=0 thread=21184 tick=30937406 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=57723 controller=0x5347ff46200 phaseRead=1 before=24 after=24 object=0x534a27344c0
+FIELD_STATE seq=57723 stage=controller-snapshot fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=57723 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+SELECTION retired serial=1 generation=2 currentGeneration=3 reason=generation-changed
+stage=cleanup-start seq=57724 scope=0 thread=21184 tick=30937421 callerRva=0x4fa461 object=0x534d89efb40 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x40 statusRead=0 status=0
+FIELD_STATE seq=57724 stage=cleanup-start fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=0 drops=0
+stage=cleanup-end seq=57724 scope=0 thread=21184 tick=30937421 callerRva=0x4fa461 object=0x534d89efb40 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x40 statusRead=0 status=0
+FIELD_STATE seq=57724 stage=cleanup-end fieldFlagRead=1 fieldFlag=0 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=0 drops=0
+stage=controller-snapshot seq=57725 scope=0 thread=21184 tick=30937421 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x10 statusRead=0 status=0
+CONTROLLER seq=57725 controller=0x5347ff46200 phaseRead=1 before=24 after=24 object=0x534a27344c0
+FIELD_STATE seq=57725 stage=controller-snapshot fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=57725 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=cleanup-start seq=57728 scope=0 thread=15260 tick=30937453 callerRva=0x14369c6 object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x40 statusRead=0 status=0
+FIELD_STATE seq=57728 stage=cleanup-start fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+Last load object entered context cleanup; diagnostic candidate cleared.
+stage=cleanup-end seq=57728 scope=0 thread=15260 tick=30937453 callerRva=0x14369c6 object=0x535380f0200 requestedSlot=4294967295 vtableRva=0x5b1e2b0 lifecycleRead=1 lifecycleBits=0x40 statusRead=0 status=0
+FIELD_STATE seq=57728 stage=cleanup-end fieldFlagRead=1 fieldFlag=1 manager=0x535381a0000 selectedChildRead=1 selectedChild=0x535380f0200 selectedSelf=1 drops=0
+stage=key-lookup seq=57729 scope=0 thread=21184 tick=30937453 callerRva=0x17efaa3 object=0x534a2359d80 requestedSlot=4294967295 vtableRva=0x55b59f0 lifecycleRead=1 lifecycleBits=0x4 statusRead=0 status=0
+KEY_LINK seq=57729 side=client key=0x90100000 user=0x534a2359d80 userVtable=0x55b59f0 valid=1 userKeyRead=1 userKey=0x90100000 selectedChild=0x534a27344c0 epoch=5 generation=5 keyMatch=0 drops=0
+stage=controller-snapshot seq=57731 scope=0 thread=21184 tick=30937468 callerRva=0x0 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x20 statusRead=0 status=0
+CONTROLLER seq=57731 controller=0x5347ff46200 phaseRead=1 before=24 after=24 object=0x534a27344c0
+FIELD_STATE seq=57731 stage=controller-snapshot fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+CLIENT_BOUNDARY seq=57731 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0
+stage=cleanup-start seq=57732 scope=0 thread=21184 tick=30937468 callerRva=0x4fa461 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x40 statusRead=0 status=0
+FIELD_STATE seq=57732 stage=cleanup-start fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+stage=cleanup-end seq=57732 scope=0 thread=21184 tick=30937468 callerRva=0x4fa461 object=0x534a27344c0 requestedSlot=4294967295 vtableRva=0x5585c40 lifecycleRead=1 lifecycleBits=0x40 statusRead=0 status=0
+FIELD_STATE seq=57732 stage=cleanup-end fieldFlagRead=1 fieldFlag=1 manager=0x534a2359d80 selectedChildRead=1 selectedChild=0x534a27344c0 selectedSelf=1 drops=0
+stage=controller-snapshot seq=57733 scope=0 thread=21184 tick=30937468 callerRva=0x0 object=0x0 requestedSlot=4294967295 vtableRva=0x0 lifecycleRead=0 lifecycleBits=0x0 statusRead=0 status=0
+CONTROLLER seq=57733 controller=0x5347ff46200 phaseRead=1 before=24 after=24 object=0x0
+CLIENT_BOUNDARY seq=57733 loadScope=3573 slot=101 matched=0 worldReadyTrusted=0 accountTrusted=0

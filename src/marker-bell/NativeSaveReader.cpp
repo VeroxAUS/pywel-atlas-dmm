@@ -692,6 +692,21 @@ void WriteLocal(const std::wstring& path, const void* data, size_t size) {
     Require(complete && MoveFileExW(temporary.c_str(), path.c_str(),
         MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH), "Cannot finish native diagnostic output.");
 }
+
+// Read the save twice, 120 ms apart, and accept it only if the bytes and the
+// timestamp match both times. Up to 4 attempts. This avoids decoding a file
+// the game is half-way through rewriting.
+FileRead ReadStable(const std::wstring& source) {
+    for (unsigned attempt = 0; attempt < 4; ++attempt) {
+        FileRead first = ReadSource(source);
+        Sleep(120);
+        FileRead second = ReadSource(source);
+        if (CompareFileTime(&first.modified, &second.modified) == 0 && first.bytes == second.bytes) {
+            return second;
+        }
+    }
+    throw std::runtime_error("Save is still changing; no completion was inferred.");
+}
 } // namespace
 
 // ===========================================================================
@@ -706,21 +721,7 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
     error[0] = 0;
     try {
         std::wstring source = SavePath(summary, slot);
-        // Read twice, 120 ms apart; accept only if bytes and timestamp match.
-        // Up to 4 attempts.
-        FileRead snapshot;
-        bool stable = false;
-        for (unsigned attempt = 0; attempt < 4; ++attempt) {
-            FileRead first = ReadSource(source);
-            Sleep(120);
-            FileRead second = ReadSource(source);
-            if (CompareFileTime(&first.modified, &second.modified) == 0 && first.bytes == second.bytes) {
-                snapshot = std::move(second);
-                stable = true;
-                break;
-            }
-        }
-        Require(stable, "Save is still changing; no completion was inferred.");
+        FileRead snapshot = ReadStable(source);
         // Only the stable copied bytes are decoded. The game's save directory
         // is never opened for write. Diagnostic files live under mod AppData.
         std::wstring runtime(runtimeDirectory);
@@ -766,6 +767,42 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
         return true;
     } catch (const std::exception& exception) {
         // Any failure above lands here; its message becomes the error text.
+        strncpy_s(error, exception.what(), _TRUNCATE);
+        return false;
+    }
+}
+
+// Read one slot inside an exact account folder that the caller already
+// validated (the save-detection selection). Unlike ReadSelectedBellSave it
+// never searches for an account and writes no files at all.
+bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned slot,
+    NativeSaveSummary& summary, FILETIME& modified, char (&error)[256]) {
+    summary = {};
+    modified = {};
+    error[0] = 0;
+    try {
+        Require(slot <= 999, "Selected save slot exceeds supported range.");
+        Require(strlen(account) < 40, "Account identifier exceeds supported length.");
+        sprintf_s(summary.profile, "%s:slot%u", account, slot);
+        std::wstring source = std::wstring(accountFolder) + L"\\slot" + std::to_wstring(slot) +
+            L"\\save.save";
+        FileRead snapshot = ReadStable(source);
+        // Only the stable copied bytes are decoded; the game's file is never
+        // opened for write.
+        Bytes plain = Decode(snapshot.bytes);
+        auto states = Reflection(plain).Read();
+        summary.coverage = static_cast<unsigned>(states.size());
+        for (unsigned index = 0; index < states.size(); ++index) {
+            summary.recorded += states[index].recorded ? 1 : 0;
+            summary.completed += states[index].completed ? 1 : 0;
+            // "mg:543894" is the id of the Hernand Bell in kBellLinks.
+            if (strcmp(kBellLinks[index].id, "mg:543894") == 0) {
+                summary.hernandCompleted = states[index].completed;
+            }
+        }
+        modified = snapshot.modified;
+        return true;
+    } catch (const std::exception& exception) {
         strncpy_s(error, exception.what(), _TRUNCATE);
         return false;
     }

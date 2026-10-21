@@ -1,8 +1,8 @@
-"""Embed entry guards for thirteen statically traced lifecycle observation sites.
+"""Embed entry guards for fourteen statically traced lifecycle observation sites.
 
 What it does:
     Generates the C++ header src/save-detection/save-load-profile.h, which is
-    compiled into the save-detection mod. For each of 13 function entry RVAs
+    compiled into the save-detection mod. For each of 14 function entry RVAs
     it copies the first 24 bytes found there in the installed executable,
     and it also records the executable's build timestamp and image size.
 
@@ -51,11 +51,13 @@ lines = [
     'struct SaveLoadSite { uintptr_t rva; BYTE bytes[24]; };',
     'constexpr SaveLoadSite kSaveLoadSites[] = {',
 ]
-# The 13 function entry RVAs to guard.
+# The 14 function entry RVAs to guard.
 for address in (0x186f570, 0x2941020, 0x1042aaf0, 0x206b750, 0xef62160,
                 0x219d7f0, 0x77a220, 0x28f82a0, 0x294d5b0, 0x7797f0, 0x17ef9c0,
                 # ClientActorManager / ServerActorManager virtual +0x30 key lookups.
-                0x8ae390, 0x2a82590):
+                0x8ae390, 0x2a82590,
+                # Save game data to a slot (counterpart of the 0x186f570 read).
+                0x186e450):
     # Copy 24 bytes at that RVA and write them as C hex bytes, 8 per line.
     # ("{{" and "}}" inside the f-strings produce literal braces.)
     raw = pe.get_data(address, 24)

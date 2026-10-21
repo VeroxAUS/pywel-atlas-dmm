@@ -5,7 +5,10 @@
 v0.40's save-switching run is complete (see "v0.40 runtime result" at the
 end). Recomputing the boundary on every generation change removed the stale
 re-formation: each selection formed only after a fresh match and stayed
-retired otherwise. Death/retry and autosave retirement remain untested.
+retired otherwise. The death/retry/autosave run kept the selection through
+death and retry and replaced it on the in-game autosave load. The selection
+lifecycle is complete for diagnostics; the next step is a diagnostic Bell read
+tagged with the selection serial.
 
 Previous status (v0.39):
 
@@ -653,3 +656,212 @@ changed (`0x90100865`, `0x90100338`) for later worlds. That fits a per-world
 counter-like identity (hypothesis).
 
 Still runtime-untested for the selection: death/retry and autosave loads.
+
+## v0.40 runtime result: death/retry and in-game autosave load
+
+Trace: `research/traces/save-detection-v0.40-death-retry-autosave.log` (pid
+37920). User sequence: load/F7 → death screen/F7 → retry/F7 → in-game load
+of an autosave/F7 → exit. Zero drops throughout.
+
+| Step | Native events | Selection | Checkpoint |
+| --- | --- | --- | --- |
+| load | load slot 2, field begins, `matched=1` | serial 1 formed, gen 2 | active, serial 1, slot 2 |
+| death screen | none (phase still 24) | serial 1 kept | active, serial 1 |
+| retry | field-begin pair, `matched=1` again, no load/cleanup | serial 1 kept | active, serial 1, gen 2 |
+| autosave load | 4 cleanups, load slot 2, `matched=1` | serial 1 retired (gen 4); serial 2 formed, gen 7 | active, serial 2, slot 2 |
+| exit | cleanups | serial 2 retired | — |
+
+- Death/retry keeps the selection, as designed. The world and save identity
+  are reused without a disk load (matching v0.36).
+- The in-game autosave load retired the old selection and formed a new
+  serial only after a fresh match.
+- The autosave load requested slot 2, the same slot as the first load, so
+  slot 2 is likely an autosave slot (hypothesis; v0.35 Continue loaded
+  slot 1). The new serial still tells a future reader that a new load
+  happened, even though the slot number is the same.
+- The user key stayed `0x90100000` across the in-game reload (both sides).
+  After the title return in the earlier run it changed, so the world rebuild
+  at the title is what changes it.
+
+Implication for the Bell reader: the selection names a slot, not a file
+version. The game can rewrite `slot<N>\save.save` (autosave) while a
+selection is active. A reader must copy the file to a stable snapshot, tag
+results with the selection serial, and treat a newer file as a re-read of
+the same selection, not a new one.
+
+Selection lifecycle now observed across: normal load, in-game load of a
+different slot, title return, load after title, death screen, retry, and
+in-game autosave load. The activation/invalidation and account/slot ownership
+step is complete for diagnostic purposes.
+
+## v0.41 observation build: diagnostic Bell read tied to the selection
+
+- Reader: `src/marker-bell/NativeSaveReader.cpp` gains `ReadBellSaveAt`
+  (exact validated account folder + slot; never searches for an account;
+  writes no files; returns the decoded bytes' modified time). The stable
+  double read is factored into `ReadStable`, which `ReadSelectedBellSave` also
+  uses (marker-bell behaviour unchanged; it still builds without warnings).
+  The save-detection build compiles this file directly and ships the
+  pycrimson license.
+- Thread: a below-normal-priority reader thread holds one pending request and
+  one result under an SRW lock, woken by an auto-reset event. The worker never
+  blocks on it and keeps draining hook records.
+- Tagging: requests copy {serial, slot, account, folder}. The worker accepts a
+  result only if `selection.active && selection.serial == result.serial`.
+  Otherwise it logs `outcome=stale` and discards the result. The accepted
+  result is dropped from the summary as soon as its selection is no longer
+  active.
+- Triggers: a new selection serial (`selection-formed`), F7 (`f7`), and a
+  slot-file last-write-time change seen by an attribute poll about every 3 s
+  (`file-changed`). A failed read is retried up to 3 times through the poll
+  (`retry`). The file time only triggers a read; it is never evidence of
+  progress.
+- Output: `BELL_REQUEST` and `BELL_READ` (outcome, coverage, recorded,
+  completed, hernandCompleted, saveModified, error, activeSerial,
+  `bellTrusted=0`). CHECKPOINT gains bell fields, and the popup shows the
+  latest accepted result.
+- Limitation: a Bell completed in game appears only after the game writes the
+  slot file.
+
+Compiled with MSVC `/W4` without warnings (both builds). No automated tests
+added or run. Package:
+`archive/releases/PywelAtlas-Save-Detection-Observation-v0.41.zip`.
+
+## v0.41 runtime result: Bell read works; game saves go to another slot
+
+Trace: `research/traces/save-detection-v0.41-bell-read.log` (pid 25276).
+User sequence: load/F7 → make the game save/F7 → in-game load of another
+save/F7 → exit. Zero drops. The user reported that the popup showed Hernand
+Bell completed for both saves.
+
+- Slot 2 (selection 1): `selection-formed` and both F7 reads were accepted,
+  with coverage 8, recorded 1, completed 1, `hernandCompleted=1`, and save
+  time 2026-10-21 19:26:45.
+- Slot 100 (selection 2): `selection-formed` and F7 reads were accepted with
+  the same counts, and save time 2026-09-02 19:25:43.
+- No stale or failed reads. Each accepted result named the active serial;
+  the slot 2 result stopped counting when selection 1 retired.
+- **The game's save during step 3 went to `slot0`, not `slot2`.** A read-only
+  attribute listing after the run showed slot0 modified at 21:58:01, while
+  slot2 kept 19:26:45. So the file watch never fired: the loaded slot was not
+  rewritten. A save made while playing a loaded slot can go to a different
+  (autosave) slot (captured; why slot0 was chosen is unknown).
+
+Implication: the selected loaded slot holds the progress as of load time, not
+the session's latest save. To follow progress after an in-game save, the
+probe needs native evidence of which slot the game writes for this world
+(a save-write hook tied to the current generation). Picking the newest file
+is not allowed (file recency is not evidence).
+
+## Save-write static research (for v0.42)
+
+New read-only scripts: `research/scripts/find_save_write_strings.py`,
+`find_slot_path_strings.py`, `find_file_api_callers.py` and
+`read_string_at.py`. Disassembly is in `research/disasm/save-load-186e450.asm`,
+`-1871930`, `-2358750`, `-103be8e0` and `-cbd84d0`.
+
+| Site | Evidence (static) |
+| --- | --- |
+| `0x57db790` | UTF-8 Korean "single-play game data save failed. ActorKey:%#, SlotNo:%#" |
+| `0x186e450` | Sole owner of that string (two references). Its prologue spills RCX/RDX/R8D/R9 like load `0x186f570`. Signature: manager RCX, result storage RDX, slot R8D, save object R9, plus a fifth stack argument (both callers pass it at `[rsp+0x20]`). Formats a name from the slot and calls lower write routine `0x2069640` (the read routine is `0x20688a0`) twice: first for the object at `[R9+0xa0]`, then for R9. A non-zero DWORD result is stored in result storage and logged with ActorKey = `[object+0x60]` and SlotNo. Slot 3 takes an extra branch (`0x2355ec0`). |
+| `0x186e450` guard | `4c 89 4c 24 20 44 89 44 24 18 48 89 54 24 10 48 89 4c 24 08 55 53 56 57` |
+| Callers | `0x103be99a` in `0x103be8e0` (R8D = r13d, R9 = r15) and `0xcbd86ce` in `0xcbd84d0` (R8D = `[rdi+4]`, R9 = r13). Which one is autosave and which is manual is unknown. |
+| `0x2358750` | Storage-layer file writer near Steam storage init `0x235ab00`. It builds a path, serializes, writes, `FlushFileBuffers`, closes. It is generic and has no slot argument. |
+| `0x1871930` | "gamePlaySaveData[%#] commit"; an in-memory commit, not the slot write. |
+
+Hypothesis: `0x186e450` is "save game data to slot", the counterpart of
+`0x186f570`. The `+0x60` ActorKey matches the v0.38 finding that actors store
+their key at `+60`. Whether R9 is the server child (the same object the load
+hooks report) is unproven; v0.42 compares the copied address and vtable.
+
+## v0.42 observation build: save-write hook retargets Bell reads
+
+- Fourteenth guarded hook: `0x186e450` (profile regenerated by
+  `prepare_save_load_profile.py`). Five arguments are forwarded, including
+  the stack argument, and the result pointer and LastError are preserved.
+  WriteStart/WriteEnd records carry slot, object, vtable, status and, for the
+  exact server child type, its `+60` key. Writes do not advance the epoch.
+- `LinkSaveWrite` (worker) links a WriteEnd only if a selection is active,
+  status is 0, the slot is supported, the vtable is `0x5b1e2b0` and the
+  object equals `selection.serverChild`, and the event epoch equals the
+  selection generation. Otherwise it logs a reason (`no-selection`,
+  `write-failed`, `unsupported-slot`, `different-object`,
+  `different-generation`).
+- `Selection.readSlot` starts at the loaded slot and follows linked writes.
+  Bell requests use it, the file watch follows it, and a result for another
+  slot is `superseded`. The popup and CHECKPOINT show the loaded slot,
+  `readSlot`, linked writes, all writes and the last write slot.
+- Known limit: if the file is finished after `0x186e450` returns, the
+  immediate `save-write` read may see the old file; the 3 s watch re-reads.
+
+Compiled with MSVC `/W4` without warnings. No automated tests added or run.
+Package: `archive/releases/PywelAtlas-Save-Detection-Observation-v0.42.zip`.
+
+## v0.42 runtime result: the save hook is the slot writer
+
+Trace: `research/traces/save-detection-v0.42-save-write.log` (pid 14680).
+User sequence: load/F7 → autosave/F7 → manual save to "Manual 3"/F7 → exit.
+Zero drops. A read-only attribute listing taken afterwards is used for
+comparison only.
+
+| Step | SAVE_WRITE (all linked, status 0, same server child, key `0xa0100001`, epoch 2) | Bell read |
+| --- | --- | --- |
+| load slot 0 | — | slot 0 accepted (Hernand completed) |
+| autosave | slot 1 from caller `0xcbd86d3`, then slot 206 from caller `0x103be99f`, 47 ms apart | slot 1 request replaced by slot 206; slot 206 failed twice ("Cannot open"), no slot206 folder exists |
+| manual save "Manual 3" | slot 102 from caller `0x103be99f` | slot 102 accepted (save time 22:21:20, Hernand completed) |
+| exit | — | selection retired |
+
+The file listing agrees: slot1 was modified at 22:20:40 (the autosave) and
+slot102 at 22:21:20 (the manual save). No slot206 file exists.
+
+Confirmed at runtime:
+- `0x186e450` is called for every save. Its R8D is the slot written, and R9 is
+  the same server child that the load produced, so the link to the selection
+  works.
+- "Manual N" = slot 99+N (Manual 3 → slot 102), as the existing chooser
+  labels assume.
+- Caller `0xcbd84d0` wrote the autosave slot. Caller `0x103be8e0` wrote both
+  slot 206 and the manual slot.
+
+Problem: an autosave also writes slot 206 (range 200–207), which has no file
+in the account folder. Possibly an in-memory or "instance" slot (the
+executable has `_useInstanceSaveSlot`; hypothesis). Linking it moved the
+reader off the real autosave file. Fix for v0.43: link only writes to file
+slots 0–3 and 100–108, and log 200–207 writes with reason `instance-slot`.
+
+## v0.43 observation build: 200-range writes ignored
+
+One rule change in `LinkSaveWrite`: a supported slot of 200 or above is not
+linked (`reason=instance-slot`). Everything else is unchanged from v0.42.
+Compiled with MSVC `/W4` without warnings. No automated tests added or run.
+Package: `archive/releases/PywelAtlas-Save-Detection-Observation-v0.43.zip`.
+
+## v0.43 runtime result: Bell reads follow every real save
+
+Trace: `research/traces/save-detection-v0.43-save-write.log` (pid 21968).
+User sequence: load/F7 → autosave/F7 → manual save to "Manual 3"/F7 → exit.
+Zero drops; no stale, superseded or failed reads.
+
+| Step | SAVE_WRITE | Bell read |
+| --- | --- | --- |
+| load slot 101 (Manual 2) | — | slot 101 accepted |
+| autosave | slot 2 linked (caller `0xcbd86d3`); slot 206 `instance-slot`, not linked | slot 2 accepted (save time 22:26:41) |
+| further autosaves | slot 2 linked twice (22:27:08) | slot 2 accepted |
+| manual save "Manual 3" | slot 102 linked (caller `0x103be99f`) | slot 102 accepted (22:27:39) |
+| autosave 7 s later | slot 2 linked | slot 2 accepted (22:27:46) |
+| exit | — | selection retired |
+
+- The file listing agrees with every linked write (slot2 22:27:46, slot102
+  22:27:39). Only slot 206 lacked a file, as in v0.42.
+- Autosave slots rotated across runs (slot 0 at 21:58, slot 1 at 22:20, slot
+  2 at 22:26–22:27). The reader followed the game's own slot number each
+  time, without guessing.
+- The reader always follows the latest successful write by the loaded world.
+  After the manual save, a follow-up autosave moved it back to slot 2; both
+  files hold that world's progress.
+- Hernand stayed completed throughout; no Bell state changed during the
+  run, so a change in Bell completion has not been observed end to end yet.
+
+The selection plus save-write following now covers load, title return, retry,
+in-game loads, autosave and manual save. This completes the "which save, and
+where is its progress" question for diagnostics.

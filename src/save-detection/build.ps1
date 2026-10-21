@@ -4,7 +4,8 @@ Compiler intermediates stay under build/; the distributable goes under dist/.
 
 What this script does
 ---------------------
-Turns NativeSaveLoadProbe.cpp into PywelAtlasSaveDetectionProbe.asi, the mod
+Turns NativeSaveLoadProbe.cpp (plus the shared Bell reader
+src/marker-bell/NativeSaveReader.cpp) into PywelAtlasSaveDetectionProbe.asi, the mod
 file DMM loads into Crimson Desert. An ".asi" is just a Windows DLL (a code
 library) with a different file extension so mod loaders pick it up.
 
@@ -12,7 +13,7 @@ Steps:
   1. Load the Visual Studio 64-bit C++ compiler settings into this window.
   2. Compile MinHook (the small library that installs our hooks).
   3. Compile the probe and link everything into one .asi file.
-  4. Copy the MinHook license and the README next to the .asi.
+  4. Copy the MinHook and pycrimson licenses and the README next to the .asi.
 
 Output:  dist/native-save-detection/  (temporary compiler files: build/save-detection/)
 Usage:   .\src\save-detection\build.ps1
@@ -63,7 +64,11 @@ try {
     # /W4 high warning level, /LD build a DLL. The .lib names at the end are
     # standard Windows libraries the probe uses.
     $outputPath = Join-Path $destination 'PywelAtlasSaveDetectionProbe.asi'
-    $applicationSources = @((Join-Path $sourceDirectory 'NativeSaveLoadProbe.cpp'))
+    # The probe plus the shared read-only Bell save reader from src/marker-bell
+    # (it uses that folder's generated bell-proof-links.h).
+    $applicationSources = @(
+        (Join-Path $sourceDirectory 'NativeSaveLoadProbe.cpp'),
+        (Join-Path $workspace 'src/marker-bell/NativeSaveReader.cpp'))
     & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W4 /LD @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj /link "/OUT:$outputPath" /IMPLIB:NativeMapProbe.lib shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib
     if ($LASTEXITCODE -ne 0) { throw 'Could not build the native map probe' }
 
@@ -72,6 +77,8 @@ try {
     # after a user removes/reimports the staging folder through their manager.
     $licenseName = 'SaveDetection-MinHook-LICENSE.txt'
     Copy-Item -LiteralPath (Join-Path $sourceDirectory 'vendor/minhook/LICENSE.txt') -Destination (Join-Path $destination $licenseName) -Force
+    # The save decoding in NativeSaveReader.cpp is based on pycrimson.
+    Copy-Item -LiteralPath (Join-Path $workspace 'third_party/python/pycrimson-LICENSE.txt') -Destination (Join-Path $destination 'pycrimson-LICENSE.txt') -Force
     # The README is maintained beside the source; dist/ is rebuildable output.
     Copy-Item -LiteralPath (Join-Path $sourceDirectory 'SaveDetection-README.md') -Destination $destination -Force
     Write-Output "Built $outputPath"

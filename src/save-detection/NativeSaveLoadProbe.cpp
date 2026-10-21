@@ -33,8 +33,9 @@
 //                 loaded save). We need to prove they belong together.
 //   User key    - A number (seen as 0x90100000) the game uses to look up the
 //                 player's "user" record on each side. Both sides use the same
-//                 key, which links them. It identifies the local player, NOT a
-//                 particular save.
+//                 key, which links them. It identifies the local player in one
+//                 loaded world, NOT a particular save (it changes after a
+//                 return to the title screen).
 //   Load scope  - A number we give each save-load call, so the read, apply and
 //                 finish steps of one load can be matched up.
 //   Epoch / generation - A counter that goes up on every load, cleanup or lost
@@ -52,10 +53,18 @@
 //      the evidence together (load chain, client/server link, selection).
 //   5. Pressing F7 in the game writes a CHECKPOINT line and shows a popup on a
 //      separate thread, so logging never stops while the popup is open.
+//   6. While a selection exists, a separate low-priority "Bell reader" thread
+//      reads that slot's save file (read-only) and counts completed Bells.
+//      Each result carries the selection serial and is thrown away if the
+//      selection changed meanwhile (section 5b).
+//   7. When the game saves (hook on its save-to-slot function), a save by the
+//      same loaded world moves the Bell reads to the slot just written, since
+//      autosaves usually go to a different slot than the one loaded.
 //
 // SAFETY RULES THIS FILE FOLLOWS
 //   - Never loads saves, never calls game functions on its own, never writes
-//     game data. It only writes its own log:
+//     game data. Save files are only opened for reading. It only writes its
+//     own log:
 //     %LOCALAPPDATA%\PywelAtlas\native-save-detection.log
 //   - Every hook passes all inputs through unchanged, returns the game's own
 //     result, and preserves the Windows "last error" value.
@@ -74,6 +83,8 @@
 #include <cstring>
 #include "vendor/minhook/include/MinHook.h"
 #include "save-load-profile.h"
+// The existing read-only Bell save reader, shared with src/marker-bell.
+#include "../marker-bell/NativeSaveReader.h"
 
 namespace {
 
@@ -116,6 +127,12 @@ using ResolveGameplayActor = void* (*)(void*, void*, uintptr_t, uintptr_t);
 // RCX manager, RDX output reference wrapper, R8D tagged actor key. Neither
 // consumes R9; it is forwarded opaquely. Both return the output wrapper.
 using LookupUserActor = void* (*)(void*, void*, unsigned, uintptr_t);
+// 186e450: save game data to a slot (counterpart of read 186f570). RCX
+// manager, RDX result storage, R8D slot, R9 save object (its +a0 user and its
+// own +60 ActorKey are logged by the game on failure). Callers also pass a
+// fifth stack argument, forwarded opaquely. Returns result storage; its DWORD
+// is zero on success.
+using WriteSave = void* (*)(void*, void*, unsigned, void*, uintptr_t);
 
 // =============================================================================
 // 2. Shared state
@@ -137,6 +154,7 @@ UpdateLoadingController originalControllerUpdate = nullptr;
 ResolveGameplayActor originalResolveActor = nullptr;
 LookupUserActor originalClientLookup = nullptr;
 LookupUserActor originalServerLookup = nullptr;
+WriteSave originalWrite = nullptr;
 // Where the game's .exe starts in memory (RVA 0). Every RVA is added to this.
 uintptr_t imageBase = 0;
 // Our append-only log file, written by the worker thread only.
@@ -164,7 +182,7 @@ enum class Stage {
     CleanupStart, CleanupEnd, StorageStart, StorageEnd,
     FieldBeginStart, FieldBeginEnd, ClientResetStart, ClientResetEnd,
     FieldTransitionStart, FieldTransitionEnd, FieldReloadStart, FieldReloadEnd,
-    ControllerSnapshot, ActorLink, KeyLookup };
+    ControllerSnapshot, ActorLink, KeyLookup, WriteStart, WriteEnd };
 // Correlation belongs to this synchronous native call chain only. Restoring
 // outer scope handles nested loads; no thread-local game pointer is retained.
 // (thread_local = each game thread has its own copy.)
@@ -631,6 +649,28 @@ void* ObserveRead(void* manager, void* result, unsigned slot, void* object) {
     return returned;
 }
 
+// Hook for 186e450: the game saves game data to a slot (autosave or manual
+// save). Records the slot it writes, the save object, and whether the write
+// succeeded (result 0 = success). It does not change the epoch: saving does
+// not replace the loaded world.
+void* ObserveWrite(void* manager, void* result, unsigned slot, void* object, uintptr_t extra) {
+    DWORD incomingError = GetLastError();
+    Event event = Begin(Stage::WriteStart, reinterpret_cast<uintptr_t>(_ReturnAddress()),
+        reinterpret_cast<uintptr_t>(object), slot);
+    // For the known server child type, also copy its +60 key (the game's own
+    // failure message calls it ActorKey).
+    if (event.vtableRva == 0x5b1e2b0) {
+        event.actorKeyRead = ReadMemory(event.object + 0x60, &event.actorKey, sizeof(event.actorKey));
+    }
+    Queue(event);
+    SetLastError(incomingError);
+    void* returned = originalWrite(manager, result, slot, object, extra);
+    DWORD originalError = GetLastError();
+    Finish(event, Stage::WriteEnd, returned);
+    SetLastError(originalError);
+    return returned;
+}
+
 // Hook for 2941020: the game applies the save it just read to the world.
 void* ObserveApply(void* wrapper, void* result, uintptr_t opaque3, uintptr_t opaque4) {
     DWORD incomingError = GetLastError();
@@ -768,10 +808,10 @@ void Log(const char* text) {
 
 // Worker-owned loaded-save selection: an immutable snapshot formed only from a
 // matched boundary in the current epoch plus a validated Steam account root.
-// A future Bell reader would tag each read with `serial` and discard results
-// whose serial is no longer active. Actor addresses are diagnostic copies and
-// are never dereferenced. Still diagnostic: nothing reads saves or changes
-// markers from it, and the trusted-state flags remain zero.
+// The diagnostic Bell reader (section 5b) tags each read with `serial` and
+// discards results whose serial is no longer active. Actor addresses are
+// diagnostic copies and are never dereferenced. Still diagnostic: nothing
+// changes markers from it, and the trusted-state flags remain zero.
 // (In short: "which account and slot we think is loaded", plus when we decided.)
 struct Selection {
     bool active;
@@ -784,6 +824,11 @@ struct Selection {
     uintptr_t clientChild;
     char account[24];
     char root[512];
+    // Save writes linked to this selection (v0.42). `readSlot` starts as the
+    // loaded slot and follows each successful write by the same server child,
+    // because the game can save the loaded world to a different slot.
+    unsigned readSlot;
+    unsigned linkedWrites;
 };
 
 // Everything the worker has learned so far: counts, the latest record of each
@@ -819,6 +864,23 @@ struct Summary {
     Selection selection;
     unsigned selectionSerial;
     LONG withheldGeneration; // Generation whose withheld reason was logged.
+    unsigned saveWrites; // Completed save-write calls seen (any object).
+    Event lastWrite;
+    // Diagnostic Bell reads (see section 5b).
+    unsigned watchSerial; // Selection serial the file watch below belongs to.
+    unsigned watchSlot; // Slot the watch path points at.
+    unsigned watchWrites; // selection.linkedWrites when the watch was last updated.
+    wchar_t watchPath[700]; // That selection's slot<N>\save.save path.
+    FILETIME watchModified; // File time when the last read was requested.
+    unsigned watchRetries; // Retries used after failed reads for watchSerial.
+    unsigned bellRequests;
+    unsigned bellAccepted;
+    unsigned bellStale;
+    unsigned bellFailed;
+    bool bellValid; // True once a read for the current selection was accepted.
+    unsigned bellSerial; // Selection serial of the accepted result below.
+    unsigned bellSlot;
+    NativeSaveSummary bell; // Latest accepted result.
 };
 
 // Tracks one load in progress: did its read succeed, then its apply, for the
@@ -1104,6 +1166,7 @@ void UpdateSelection(Summary& summary) {
     selection.generation = summary.generation;
     selection.loadScope = summary.lastLoad.scope;
     selection.slot = summary.lastLoad.requestedSlot;
+    selection.readSlot = selection.slot;
     selection.userKey = summary.lastServerKey.lookupKey;
     selection.serverChild = summary.lastLoad.object;
     selection.clientChild = summary.lastController.object;
@@ -1114,6 +1177,275 @@ void UpdateSelection(Summary& summary) {
         selection.serial, selection.generation, selection.loadScope, selection.slot, selection.account,
         selection.userKey, static_cast<unsigned long long>(selection.serverChild),
         static_cast<unsigned long long>(selection.clientChild), selection.root);
+    Log(line);
+}
+
+// Decides whether a finished save write belongs to the active selection and,
+// if so, points the selection's Bell reads at the slot that was written.
+// Linked only when ALL hold: a selection is active; the write succeeded
+// (result 0) for a save-file slot (0-3 or 100-108); the saved object is the exact server
+// child type and the same (copied) address the selection's load produced; and
+// the write was captured in the selection's generation (no load or cleanup in
+// between). Addresses are compared as numbers and never dereferenced.
+void LinkSaveWrite(const Event& event, Summary& summary) {
+    ++summary.saveWrites;
+    summary.lastWrite = event;
+    Selection& selection = summary.selection;
+    const char* reason = "linked";
+    if (!selection.active) {
+        reason = "no-selection";
+    } else if (!event.statusRead || event.status != 0) {
+        reason = "write-failed";
+    } else if (!SupportedSlot(event.requestedSlot)) {
+        reason = "unsupported-slot";
+    } else if (event.requestedSlot >= 200) {
+        // v0.42: every autosave also wrote slot 206 about 50 ms after the real
+        // autosave slot, and no slot206 file exists. Only slots 0-3
+        // (autosave) and 100-108 (manual) are save files we can read.
+        reason = "instance-slot";
+    } else if (event.vtableRva != 0x5b1e2b0 || event.object != selection.serverChild) {
+        reason = "different-object";
+    } else if (event.epoch != selection.generation) {
+        reason = "different-generation";
+    }
+    bool linked = strcmp(reason, "linked") == 0;
+    if (linked) {
+        selection.readSlot = event.requestedSlot;
+        ++selection.linkedWrites;
+    }
+    char line[384];
+    sprintf_s(line, "SAVE_WRITE seq=%ld slot=%u statusRead=%u status=%lu object=0x%llx vtableRva=0x%llx actorKeyRead=%u actorKey=0x%08x epoch=%ld callerRva=0x%llx linked=%u reason=%s selectionSerial=%u readSlot=%u",
+        event.sequence, event.requestedSlot, event.statusRead ? 1u : 0u, event.status,
+        static_cast<unsigned long long>(event.object), static_cast<unsigned long long>(event.vtableRva),
+        event.actorKeyRead ? 1u : 0u, event.actorKey, event.epoch,
+        static_cast<unsigned long long>(event.callerRva), linked ? 1u : 0u, reason,
+        selection.active ? selection.serial : 0u, selection.active ? selection.readSlot : 0xffffffffu);
+    Log(line);
+}
+
+// =============================================================================
+// 5b. Diagnostic Bell reads tied to the selection
+// =============================================================================
+//
+// When a selection exists, a separate "Bell reader" thread reads that slot's
+// save file (read-only) with the existing marker-bell reader and counts the
+// Bells it records as completed.
+// - Reading and decoding takes a while, so it runs on its own thread; the
+//   worker keeps draining hook records meanwhile.
+// - Every request carries the selection serial. A finished read only counts
+//   if that same selection is still active; otherwise it is logged as stale
+//   and thrown away.
+// - Reads happen when a selection forms, on F7, and when the slot file's
+//   last-modified time changes (for example after an autosave). A changed
+//   time only triggers a re-read; it never counts as progress on its own.
+// - The reader thread never touches game memory and writes no files; only the
+//   worker writes log lines.
+
+// One read request (a copy of the selection's identity).
+struct BellRequest {
+    unsigned serial;
+    unsigned slot;
+    char account[24];
+    wchar_t folder[600];
+    const char* trigger; // Why it was asked for (a constant string).
+};
+
+// One finished read, handed back to the worker.
+struct BellResult {
+    unsigned serial;
+    unsigned slot;
+    bool succeeded;
+    NativeSaveSummary summary;
+    FILETIME modified;
+    char error[256];
+    const char* trigger;
+};
+
+// Shared between the worker and the reader thread, guarded by bellLock.
+// Only the newest request is kept: an older unstarted request is replaced.
+SRWLOCK bellLock = SRWLOCK_INIT;
+bool bellRequestPending = false;
+BellRequest bellRequest = {};
+bool bellResultReady = false;
+BellResult bellResult = {};
+HANDLE bellWake = nullptr; // Auto-reset event: "a new request is waiting".
+
+// The reader thread: waits for a request, reads the save, posts the result.
+DWORD WINAPI RunBellReader(void*) {
+    // Lower priority so decoding never competes with the game for the CPU.
+    SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_BELOW_NORMAL);
+    while (true) {
+        WaitForSingleObject(bellWake, INFINITE);
+        while (true) {
+            // Take the waiting request, if any.
+            BellRequest request = {};
+            AcquireSRWLockExclusive(&bellLock);
+            bool have = bellRequestPending;
+            if (have) {
+                request = bellRequest;
+                bellRequestPending = false;
+            }
+            ReleaseSRWLockExclusive(&bellLock);
+            if (!have) {
+                break;
+            }
+            // The slow part: read, check stability, decrypt and count Bells.
+            BellResult result = {};
+            result.serial = request.serial;
+            result.slot = request.slot;
+            result.trigger = request.trigger;
+            result.succeeded = ReadBellSaveAt(request.folder, request.account, request.slot,
+                result.summary, result.modified, result.error);
+            // Hand it back. If the worker has not collected the previous
+            // result yet, this newer one replaces it (the worker counts it).
+            AcquireSRWLockExclusive(&bellLock);
+            bellResult = result;
+            bellResultReady = true;
+            ReleaseSRWLockExclusive(&bellLock);
+        }
+    }
+}
+
+// Converts a selection root ("C:/Users/.../save/<digits>", UTF-8) into a
+// Windows path with backslashes. Returns false if it cannot be converted.
+bool WideFolder(const char* root, wchar_t (&folder)[600]) {
+    if (!MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, root, -1, folder, _countof(folder))) {
+        return false;
+    }
+    for (wchar_t& character : folder) {
+        if (character == L'/') {
+            character = L'\\';
+        }
+    }
+    return true;
+}
+
+// Reads the slot file's last-modified time (an attribute query; the file is
+// not opened). Returns a zero time if it is unavailable.
+FILETIME SlotFileTime(const wchar_t* path) {
+    WIN32_FILE_ATTRIBUTE_DATA data = {};
+    if (!GetFileAttributesExW(path, GetFileExInfoStandard, &data)) {
+        return {};
+    }
+    return data.ftLastWriteTime;
+}
+
+// Asks the reader thread to read the active selection's slot.
+void RequestBellRead(Summary& summary, const char* trigger) {
+    const Selection& selection = summary.selection;
+    if (!selection.active) {
+        return;
+    }
+    BellRequest request = {};
+    request.serial = selection.serial;
+    // The loaded slot, or the slot of the latest linked save write.
+    request.slot = selection.readSlot;
+    request.trigger = trigger;
+    strcpy_s(request.account, selection.account);
+    if (!WideFolder(selection.root, request.folder)) {
+        Log("BELL_READ request skipped: selection root could not be converted.");
+        return;
+    }
+    AcquireSRWLockExclusive(&bellLock);
+    bellRequest = request;
+    bellRequestPending = true;
+    ReleaseSRWLockExclusive(&bellLock);
+    SetEvent(bellWake);
+    ++summary.bellRequests;
+    // Remember the file time now, so the watch only re-reads after a newer write.
+    summary.watchModified = SlotFileTime(summary.watchPath);
+    char line[160];
+    sprintf_s(line, "BELL_REQUEST serial=%u slot=%u trigger=%s", request.serial, request.slot, trigger);
+    Log(line);
+}
+
+// Called by the worker every loop: starts reads for a new selection, re-reads
+// when the slot file changes, and collects finished results.
+// `pollFile` is true roughly every 3 seconds.
+void UpdateBellReads(Summary& summary, bool pollFile) {
+    const Selection& selection = summary.selection;
+    // A result from an older or retired selection no longer describes the
+    // loaded save.
+    if (summary.bellValid && (!selection.active || selection.serial != summary.bellSerial ||
+        selection.readSlot != summary.bellSlot)) {
+        summary.bellValid = false;
+    }
+    // A new selection, or a linked save write: point the watch at the slot
+    // to read and read it now.
+    if (selection.active && (selection.serial != summary.watchSerial ||
+        selection.readSlot != summary.watchSlot || selection.linkedWrites != summary.watchWrites)) {
+        const char* trigger = selection.serial != summary.watchSerial ? "selection-formed" : "save-write";
+        summary.watchSerial = selection.serial;
+        summary.watchSlot = selection.readSlot;
+        summary.watchWrites = selection.linkedWrites;
+        summary.watchRetries = 0;
+        summary.watchPath[0] = 0;
+        wchar_t folder[600] = {};
+        if (WideFolder(selection.root, folder)) {
+            swprintf_s(summary.watchPath, L"%ls\\slot%u\\save.save", folder, selection.readSlot);
+        }
+        RequestBellRead(summary, trigger);
+    }
+    // The slot file was rewritten (e.g. an autosave): read it again.
+    if (pollFile && selection.active && selection.serial == summary.watchSerial &&
+        summary.watchPath[0]) {
+        FILETIME now = SlotFileTime(summary.watchPath);
+        if (CompareFileTime(&now, &summary.watchModified) != 0) {
+            RequestBellRead(summary, summary.watchModified.dwLowDateTime ||
+                summary.watchModified.dwHighDateTime ? "file-changed" : "retry");
+        }
+    }
+    // Collect a finished read, if any.
+    BellResult result = {};
+    AcquireSRWLockExclusive(&bellLock);
+    bool have = bellResultReady;
+    if (have) {
+        result = bellResult;
+        bellResultReady = false;
+    }
+    ReleaseSRWLockExclusive(&bellLock);
+    if (!have) {
+        return;
+    }
+    // Accept it only if the selection it was read for is still the active one
+    // and the slot is still the one to read (a later save write may have
+    // moved it; the older slot's result is then "superseded").
+    bool current = selection.active && selection.serial == result.serial;
+    bool sameSlot = current && selection.readSlot == result.slot;
+    const char* outcome = !current ? "stale" : !sameSlot ? "superseded"
+        : result.succeeded ? "accepted" : "failed";
+    if (!sameSlot) {
+        ++summary.bellStale;
+    } else if (result.succeeded) {
+        ++summary.bellAccepted;
+        summary.bellValid = true;
+        summary.bellSerial = result.serial;
+        summary.bellSlot = result.slot;
+        summary.bell = result.summary;
+        summary.watchRetries = 0;
+    } else {
+        ++summary.bellFailed;
+        // A failed read (often "still changing" during a save) is retried a
+        // few times: clearing the remembered time makes the next poll re-read.
+        if (summary.watchRetries < 3) {
+            ++summary.watchRetries;
+            summary.watchModified = {};
+        }
+    }
+    // Convert the decoded file's time to readable local time for the log.
+    SYSTEMTIME utc = {};
+    SYSTEMTIME local = {};
+    FileTimeToSystemTime(&result.modified, &utc);
+    SystemTimeToTzSpecificLocalTime(nullptr, &utc, &local);
+    // sprintf_s aborts on overflow; the error text alone can be 255 characters.
+    char line[1024];
+    sprintf_s(line, "BELL_READ serial=%u slot=%u trigger=%s outcome=%s profile=%s coverage=%u recorded=%u completed=%u hernandCompleted=%u saveModified=%04u-%02u-%02u %02u:%02u:%02u error=%s activeSerial=%u diagnostic=1 bellTrusted=0",
+        result.serial, result.slot, result.trigger, outcome,
+        result.summary.profile[0] ? result.summary.profile : "-",
+        result.summary.coverage, result.summary.recorded, result.summary.completed,
+        result.summary.hernandCompleted ? 1u : 0u,
+        local.wYear, local.wMonth, local.wDay, local.wHour, local.wMinute, local.wSecond,
+        result.error[0] ? result.error : "none", selection.active ? selection.serial : 0u);
     Log(line);
 }
 
@@ -1145,8 +1477,22 @@ void NotifyCheckpoint(const Summary& summary) {
         Log("Checkpoint recorded; existing confirmation still open, no duplicate popup created.");
         return;
     }
+    // The latest accepted Bell result for the current selection, if any.
+    wchar_t bellLine[256] = {};
+    if (summary.bellValid) {
+        swprintf_s(bellLine, L"slot %u, serial %u: %u of %u Bells recorded, %u completed; Hernand Bell %ls",
+            summary.bellSlot, summary.bellSerial, summary.bell.recorded, summary.bell.coverage,
+            summary.bell.completed, summary.bell.hernandCompleted ? L"completed" : L"not completed");
+    } else {
+        swprintf_s(bellLine, L"none accepted yet for this selection");
+    }
     swprintf_s(popupText,
-        L"F7 checkpoint recorded.\n\nRead completions: %u\nLast requested slot: %u\n"
+        L"F7 checkpoint recorded.\n\n"
+        L"Bell read (diagnostic): %ls\n"
+        L"Loaded slot %u; reading slot %u; linked save writes %u (all save writes seen %u, last slot %u)\n"
+        L"Bell reads requested / accepted / stale / failed: %u / %u / %u / %u\n"
+        L"(A new read was also requested now; it is written to the log.)\n\n"
+        L"Read completions: %u\nLast requested slot: %u\n"
         L"Apply completions: %u\nOuter load completions: %u\n"
         L"Correlated read/apply/load: %ls\nClient reset calls: %u\n"
         L"Controller phase: %u (24 is the late boundary candidate)\n"
@@ -1159,6 +1505,12 @@ void NotifyCheckpoint(const Summary& summary) {
         L"Logging continues while this confirmation is open.\n"
         L"Press OK, then continue the loading sequence.\n\n"
         L"Observation only; loaded-save detection is not yet trusted.",
+        bellLine,
+        summary.selection.active ? summary.selection.slot : 0xffffffffu,
+        summary.selection.active ? summary.selection.readSlot : 0xffffffffu,
+        summary.selection.active ? summary.selection.linkedWrites : 0u, summary.saveWrites,
+        summary.saveWrites ? summary.lastWrite.requestedSlot : 0xffffffffu,
+        summary.bellRequests, summary.bellAccepted, summary.bellStale, summary.bellFailed,
         summary.reads, summary.reads ? summary.lastRead.requestedSlot : 0xffffffffu,
         summary.applies, summary.loads, summary.correlatedCandidate ? L"yes" : L"no",
         summary.clientResets,
@@ -1194,8 +1546,8 @@ void Drain(Summary& summary) {
         "load-start", "load-end", "cleanup-start", "cleanup-end", "storage-start", "storage-end",
         "field-begin-start", "field-begin-end", "client-reset-start", "client-reset-end",
         "field-transition-start", "field-transition-end", "field-reload-start", "field-reload-end",
-        "controller-snapshot", "actor-link", "key-lookup"};
-    static_assert(_countof(stages) == static_cast<unsigned>(Stage::KeyLookup) + 1,
+        "controller-snapshot", "actor-link", "key-lookup", "write-start", "write-end"};
+    static_assert(_countof(stages) == static_cast<unsigned>(Stage::WriteEnd) + 1,
         "Every stage needs a log name");
     for (unsigned index = 0; index < count; ++index) {
         const Event& event = events[index];
@@ -1263,6 +1615,8 @@ void Drain(Summary& summary) {
             ++summary.fieldTransitions;
         } else if (event.stage == Stage::FieldReloadEnd) {
             ++summary.fieldReloads;
+        } else if (event.stage == Stage::WriteEnd) {
+            LinkSaveWrite(event, summary);
         } else if (event.stage == Stage::StorageEnd) {
             ++summary.storageInitializations;
             // A re-initialized handler may belong to another account; the
@@ -1309,7 +1663,7 @@ DWORD WINAPI Run(void* address) {
         return 0;
     }
     char line[192];
-    sprintf_s(line, "SESSION native save-load observation v0.40 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
+    sprintf_s(line, "SESSION native save-load observation v0.43 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
         GetCurrentProcessId(), GetTickCount64());
     Log(line);
     // Check this is the exact supported game build (timestamp and size).
@@ -1349,7 +1703,8 @@ DWORD WINAPI Run(void* address) {
         reinterpret_cast<void*>(&ObserveControllerUpdate),
         reinterpret_cast<void*>(&ObserveResolveActor),
         reinterpret_cast<void*>(&ObserveClientLookup),
-        reinterpret_cast<void*>(&ObserveServerLookup)};
+        reinterpret_cast<void*>(&ObserveServerLookup),
+        reinterpret_cast<void*>(&ObserveWrite)};
     // Where MinHook stores the "call the real game function" pointers, same order.
     void** originals[] = {
         reinterpret_cast<void**>(&originalRead),
@@ -1364,7 +1719,8 @@ DWORD WINAPI Run(void* address) {
         reinterpret_cast<void**>(&originalControllerUpdate),
         reinterpret_cast<void**>(&originalResolveActor),
         reinterpret_cast<void**>(&originalClientLookup),
-        reinterpret_cast<void**>(&originalServerLookup)};
+        reinterpret_cast<void**>(&originalServerLookup),
+        reinterpret_cast<void**>(&originalWrite)};
     static_assert(_countof(callbacks) == _countof(kSaveLoadSites),
         "Every observed lifecycle site needs an explicit callback");
     // Create every hook first; if any fails, install none.
@@ -1382,14 +1738,26 @@ DWORD WINAPI Run(void* address) {
         Log(MH_StatusToString(status));
         return 0;
     }
-    Log("READY v0.40: thirteen guarded hooks; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. F7 foreground confirmation retained. Selection is not consumed; no Bell reads, marker hooks or save writes.");
+    // Start the Bell reader thread (section 5b). If it cannot start, the probe
+    // keeps observing; Bell requests then simply never complete.
+    bellWake = CreateEventW(nullptr, FALSE, FALSE, nullptr);
+    HANDLE reader = bellWake ? CreateThread(nullptr, 0, RunBellReader, nullptr, 0, nullptr) : nullptr;
+    if (reader) {
+        CloseHandle(reader);
+    } else {
+        Log("Bell reader thread unavailable; observation continues without Bell reads.");
+    }
+    Log("READY v0.43: fourteen guarded hooks; 200-range save writes ignored; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. Diagnostic read-only Bell reads tagged with the selection serial; stale results discarded. Save writes by the selection's server child retarget Bell reads to the written slot. F7 foreground confirmation retained. No marker hooks or save writes.");
     Summary summary = {};
     summary.generation = 1;
     LONG observedDrops = 0;
     bool previousF7 = false;
+    unsigned loops = 0;
     // Main loop, every 30 ms.
     while (true) {
         Drain(summary);
+        // Bell reads; check the slot file's time about every 3 s (100 loops).
+        UpdateBellReads(summary, ++loops % 100 == 0);
         // If records were lost, the evidence is incomplete: clear the matches.
         LONG currentDrops = InterlockedCompareExchange(&dropped, 0, 0);
         if (currentDrops != summary.chainDrops) {
@@ -1413,7 +1781,7 @@ DWORD WINAPI Run(void* address) {
                 summary.lastRead.object == summary.lastApply.object;
             // Record first, then notify on another thread. An undisclosed or
             // undismissed popup must never stop draining later load events.
-            char checkpoint[1280];
+            char checkpoint[2048];
             sprintf_s(checkpoint,
                 "CHECKPOINT F7 readCount=%u applyCount=%u sameObject=%u dropped=%ld "
                 "lastRequestedSlot=%u readStatusReadable=%u readStatus=%lu "
@@ -1425,7 +1793,10 @@ DWORD WINAPI Run(void* address) {
                 "keyIdentityMatch=%u generation=%ld loadEpoch=%ld "
                 "selectionActive=%u selectionSerial=%u selectionGeneration=%ld selectionScope=%ld "
                 "selectionSlot=%u selectionAccount=%s "
-                "boundaryObject=0x%llx loadedObject=0x%llx worldReadyTrusted=0 accountTrusted=0",
+                "readSlot=%u linkedWrites=%u saveWrites=%u lastWriteSlot=%u "
+                "bellValid=%u bellSerial=%u bellSlot=%u bellCoverage=%u bellRecorded=%u bellCompleted=%u "
+                "hernandCompleted=%u bellRequests=%u bellAccepted=%u bellStale=%u bellFailed=%u "
+                "boundaryObject=0x%llx loadedObject=0x%llx worldReadyTrusted=0 accountTrusted=0 bellTrusted=0",
                 summary.reads, summary.applies, sameObject ? 1u : 0u,
                 InterlockedCompareExchange(&dropped, 0, 0),
                 summary.reads ? summary.lastRead.requestedSlot : 0xffffffffu,
@@ -1448,10 +1819,19 @@ DWORD WINAPI Run(void* address) {
                 summary.selection.active ? 1u : 0u, summary.selection.serial,
                 summary.selection.generation, summary.selection.loadScope, summary.selection.slot,
                 summary.selection.active ? summary.selection.account : "none",
+                summary.selection.active ? summary.selection.readSlot : 0xffffffffu,
+                summary.selection.active ? summary.selection.linkedWrites : 0u, summary.saveWrites,
+                summary.saveWrites ? summary.lastWrite.requestedSlot : 0xffffffffu,
+                summary.bellValid ? 1u : 0u, summary.bellSerial, summary.bellSlot,
+                summary.bell.coverage, summary.bell.recorded, summary.bell.completed,
+                summary.bell.hernandCompleted ? 1u : 0u, summary.bellRequests, summary.bellAccepted,
+                summary.bellStale, summary.bellFailed,
                 static_cast<unsigned long long>(summary.lastController.object),
                 static_cast<unsigned long long>(summary.lastLoad.object));
             Log(checkpoint);
             NotifyCheckpoint(summary);
+            // Also read the save again now; the result follows in the log.
+            RequestBellRead(summary, "f7");
             f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
         }
         previousF7 = f7;

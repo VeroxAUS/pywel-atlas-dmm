@@ -31,6 +31,15 @@ struct NativeSaveSummary {
 bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, NativeSaveSummary& summary,
     char (&error)[256]);
 
+// Read slot `slot` inside one exact, already validated account folder
+// (<LOCALAPPDATA>\Pearl Abyss\CD\save\<digits>, backslashes). `account` is
+// that folder's digits, used only for summary.profile. Never searches for or
+// guesses an account and writes no files. On success, `modified` is the
+// last-modified time of the exact bytes that were decoded. Slow (at least
+// 120 ms plus decoding), so call it from a background thread.
+bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned slot,
+    NativeSaveSummary& summary, FILETIME& modified, char (&error)[256]);
+
 // Worker-only OS dialog listing existing saves with local modified timestamps.
 // Returns false on cancel/error. Persists selection only under mod AppData.
 // (A simple Windows Yes/No/Cancel message box that steps through the saves.)

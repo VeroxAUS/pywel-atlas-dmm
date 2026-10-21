@@ -1,54 +1,58 @@
-# Diagnostic loaded-save selection — v0.40
+# Diagnostic loaded-save Bell read that follows game saves — v0.43
 
-The v0.36 death/retry/autosave, v0.37 and v0.38 normal-load and v0.39
-normal-load and save-switching runs are complete and preserved. Do not
-repeat them.
+The v0.36–v0.42 observation runs are complete and preserved. Do not repeat
+them.
+
+v0.43 changes one rule from v0.42: in v0.42 every autosave also wrote slot
+206 (range 200–207) about 50 ms after the real autosave slot, and no slot206
+file exists. Following it moved the reader off the real autosave. v0.43 links
+only writes to save-file slots 0–3 (autosave) and 100–108 (manual); 200–207
+writes are logged with reason "instance-slot" and ignored.
 
 ## Observation
 
 1. Close the game and replace the Save Detection observation entry in DMM with
-   PywelAtlas-Save-Detection-Observation-v0.40.zip. Keep other Atlas ASIs disabled.
-2. Launch, load a save, move briefly, press F7 and dismiss OK.
-3. Quit to the title screen, press F7 and dismiss OK.
-4. Load a different save, move briefly, press F7 and dismiss OK.
-5. Close the game normally and tell Claude it is done.
+   PywelAtlas-Save-Detection-Observation-v0.43.zip. Keep other Atlas ASIs disabled.
+2. Load a save. Move briefly, wait a few seconds, press F7 and dismiss OK.
+3. Trigger an autosave (for example sleep, or wait for the autosave icon).
+   Wait a few seconds, press F7 and dismiss OK.
+4. Make a manual save into a manual slot. Wait a few seconds, press F7 and
+   dismiss OK.
+5. Close the game normally and tell Claude which manual slot you saved to.
 
 Close the game before replacing/disabling the ASI; live unload is unsupported.
 
 ## Purpose
 
-v0.39 formed one selection per load with the correct slot and none at the
-title screen. In the title teardown, though, an unrelated cleanup advanced the
-generation and the selection was re-formed at once from the boundary result
-cached from the previous generation. That result is recomputed only on key
-lookups and controller snapshots. v0.40 recomputes the boundary whenever the
-generation advances, so old evidence stops counting before the selection is
-re-evaluated.
+v0.41 read Bells from the loaded slot, but an in-game save went to slot0, not
+the loaded slot 2, so the reader kept reading an old file. v0.42 adds one
+observation hook on the game's own "save game data to slot" function
+(186e450, the counterpart of the load read 186f570):
 
-Expected: after any cleanup or load start, a "SELECTION retired" line with no
-"SELECTION formed" until a new CLIENT_BOUNDARY ... matched=1.
+- Each completed save logs a SAVE_WRITE line: the slot written, the result
+  (0 = success), the saved object and its key, and whether it was linked.
+- A save is linked to the current selection only if it succeeded, for a
+  save-file slot (0–3 or 100–108), by the exact server child object that the selection's
+  load produced, with no load or cleanup in between.
+- A linked save moves the Bell reads to the slot just written and reads it
+  at once. The popup shows the loaded slot, the slot being read, and the
+  linked save count.
+- A result read from the previous slot after the move is logged as
+  "superseded" and discarded. The file watch now follows the slot being read.
 
-Everything else is unchanged from v0.39:
+Limitation: if the game finishes writing the file after its save function
+returns, the immediate read may still see the previous file. The file watch
+(about every 3 s) then re-reads it.
 
-- Full-key equality plus each user's +60 equal to its lookup key. The key is
-  a local-user identity, not a save identity, and it changes when the world
-  is rebuilt after a title return.
-- A worker-owned diagnostic selection {serial, generation, load scope, slot,
-  account, user key, root}. It forms only when the matched boundary holds in
-  the current generation and the game's captured Steam storage root is exactly
-  <LOCALAPPDATA>\Pearl Abyss\CD\save\<digits>, with slot<N>\save.save present
-  (attribute queries only; nothing is opened).
-- The selection retires on any generation change (load start, context
-  cleanup, queue drop) or a storage re-initialization with a different root.
-
-This remains diagnostic. Nothing consumes the selection: no Bell reads,
-marker changes or save writes. Both trusted-state flags remain zero.
+This remains diagnostic: no marker changes or save writes. All trusted flags
+(including bellTrusted) remain zero.
 
 F7 foreground/topmost confirmations and append-only logging are retained.
 Log: C:\Users\Thomas\AppData\Local\PywelAtlas\native-save-detection.log
-Thirteen guarded hooks preserve consumed arguments/results and LastError.
-No native getter is invoked by the probe. Worker and dialog threads never
-dereference captured game pointers.
+Fourteen guarded hooks preserve consumed arguments/results and LastError.
+No native getter is invoked by the probe. Worker, reader and dialog threads
+never dereference captured game pointers.
 
 Compiled with MSVC /W4 without warnings. No automated tests added or run.
-Runtime evidence for v0.40 is pending. MinHook BSD license is included.
+Runtime evidence for v0.43 is pending. MinHook BSD and pycrimson licenses are
+included.
