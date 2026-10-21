@@ -751,6 +751,8 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
             const auto& state = states[index];
             summary.recorded += state.recorded ? 1 : 0;
             summary.completed += state.completed ? 1 : 0;
+            summary.recordedMask |= state.recorded ? 1u << index : 0u;
+            summary.completedMask |= state.completed ? 1u << index : 0u;
             // "mg:543894" is the id of the Hernand Bell in kBellLinks.
             if (strcmp(kBellLinks[index].id, "mg:543894") == 0) {
                 summary.hernandCompleted = state.completed;
@@ -792,9 +794,12 @@ bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned 
         Bytes plain = Decode(snapshot.bytes);
         auto states = Reflection(plain).Read();
         summary.coverage = static_cast<unsigned>(states.size());
+        static_assert(_countof(kBellLinks) <= 32, "Bell masks hold at most 32 Bells");
         for (unsigned index = 0; index < states.size(); ++index) {
             summary.recorded += states[index].recorded ? 1 : 0;
             summary.completed += states[index].completed ? 1 : 0;
+            summary.recordedMask |= states[index].recorded ? 1u << index : 0u;
+            summary.completedMask |= states[index].completed ? 1u << index : 0u;
             // "mg:543894" is the id of the Hernand Bell in kBellLinks.
             if (strcmp(kBellLinks[index].id, "mg:543894") == 0) {
                 summary.hernandCompleted = states[index].completed;
@@ -806,6 +811,21 @@ bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned 
         strncpy_s(error, exception.what(), _TRUNCATE);
         return false;
     }
+}
+
+// Find a Bell's position in kBellLinks by its id; -1 if unknown.
+int FindBellIndex(const char* id) {
+    for (unsigned index = 0; index < _countof(kBellLinks); ++index) {
+        if (id && strcmp(kBellLinks[index].id, id) == 0) {
+            return static_cast<int>(index);
+        }
+    }
+    return -1;
+}
+
+// A Bell's display name by index, or "" if the index is out of range.
+const char* BellName(int index) {
+    return index >= 0 && index < static_cast<int>(_countof(kBellLinks)) ? kBellLinks[index].name : "";
 }
 
 // Read the remembered slot from native-save-selection.ini in the mod's folder.

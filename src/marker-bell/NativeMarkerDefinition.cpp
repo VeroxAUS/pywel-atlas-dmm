@@ -17,6 +17,7 @@
 // which are just smart wrappers that free Windows objects and strings for us.)
 #define NOMINMAX
 #include "NativeMarkerDefinition.h"
+#include "NativeSaveReader.h" // FindBellIndex: which Bell ids are readable.
 #include "marker-default.h"
 #include <roapi.h>
 #include <windows.data.json.h>
@@ -128,6 +129,7 @@ bool Equals(IJsonObject* object, const wchar_t* key, const wchar_t* expected) {
 //   { "schemaVersion": 1, "id": "atlas-chest-proof", "region": "pywel",
 //     "icon": "chest", "enabled": true, "name": "...",
 //     "completion": { "source": "none" }, "position": { "x":.., "y":.., "z":.. } }
+// ("completion" may instead be { "source": "bell", "id": "mg:545680" }.)
 // Any missing or different field is rejected with a reason.
 bool Parse(const std::wstring& text, MarkerDefinition& output, char (&error)[256]) {
     // Ask Windows for the JSON object "factory" (the entry point that can parse text).
@@ -148,12 +150,38 @@ bool Parse(const std::wstring& text, MarkerDefinition& output, char (&error)[256
         !Equals(root.Get(), L"region", L"pywel") || !Equals(root.Get(), L"icon", L"chest")) {
         return Reject(error, "Expected schemaVersion 1, atlas-chest-proof, pywel and chest.");
     }
-    // "completion.source" must be "none": the file itself never claims the
-    // marker is done. Completion comes only from the save reader.
+    // "completion.source" is "none" or "bell". Neither lets the file claim
+    // the marker is done: "bell" only names WHICH Bell's save record decides
+    // it ("id", e.g. "mg:545680"). Completion still comes only from the save
+    // reader.
     ComPtr<IJsonObject> completion;
-    if (FAILED(root->GetNamedObject(HStringReference(L"completion").Get(), &completion)) ||
-        !Equals(completion.Get(), L"source", L"none")) {
-        return Reject(error, "Only completion.source=none is supported; no discovery is inferred.");
+    if (FAILED(root->GetNamedObject(HStringReference(L"completion").Get(), &completion))) {
+        return Reject(error, "Definition needs a completion object.");
+    }
+    output.completionBell[0] = 0;
+    if (Equals(completion.Get(), L"source", L"bell")) {
+        HString id;
+        if (FAILED(completion->GetNamedString(HStringReference(L"id").Get(), id.GetAddressOf()))) {
+            return Reject(error, "completion.source=bell needs a string id such as mg:545680.");
+        }
+        unsigned idLength = 0;
+        const wchar_t* idText = id.GetRawBuffer(&idLength);
+        if (!idLength || idLength >= sizeof(output.completionBell)) {
+            return Reject(error, "completion.id is empty or too long.");
+        }
+        // Ids are plain ASCII ("mg:" plus digits); copy and check each character.
+        for (unsigned character = 0; character < idLength; ++character) {
+            if (idText[character] < 0x21 || idText[character] > 0x7e) {
+                return Reject(error, "completion.id must be plain ASCII.");
+            }
+            output.completionBell[character] = static_cast<char>(idText[character]);
+        }
+        output.completionBell[idLength] = 0;
+        if (FindBellIndex(output.completionBell) < 0) {
+            return Reject(error, "completion.id is not a Bell this build can read.");
+        }
+    } else if (!Equals(completion.Get(), L"source", L"none")) {
+        return Reject(error, "completion.source must be none or bell; no discovery is inferred.");
     }
     // "enabled" (true/false) and "name" (text).
     boolean enabled = false;

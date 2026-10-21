@@ -21,7 +21,18 @@ struct NativeSaveSummary {
     unsigned recorded; // How many of those Bells appear in the save at all.
     unsigned completed; // How many the save explicitly marks as completed.
     bool hernandCompleted; // True only if the save explicitly says Hernand Bell is done.
+    // One bit per known Bell, in the reader's Bell-list order (see
+    // FindBellIndex): set when the save records / explicitly completes it.
+    unsigned recordedMask;
+    unsigned completedMask;
 };
+
+// Returns the reader's index for a Bell id such as "mg:545680" (Calphade
+// Bell), or -1 if this build does not know that Bell.
+int FindBellIndex(const char* id);
+
+// Returns the display name for a Bell index ("Calphade Bell"), or "" if out of range.
+const char* BellName(int index);
 
 // Explicit selected slot in the sole numeric Steam account directory.
 // Selection never implies that this is the slot currently loaded in the game.

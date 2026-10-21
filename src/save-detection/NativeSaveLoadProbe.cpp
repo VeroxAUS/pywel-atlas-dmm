@@ -85,6 +85,10 @@
 #include "save-load-profile.h"
 // The existing read-only Bell save reader, shared with src/marker-bell.
 #include "../marker-bell/NativeSaveReader.h"
+#ifdef PYWEL_ATLAS_COMBINED
+// What this part tells the map-marker part in the combined mod.
+#include "../pywel-atlas/LoadedSave.h"
+#endif
 
 namespace {
 
@@ -1475,6 +1479,32 @@ void UpdateBellReads(Summary& summary, bool pollFile) {
     Log(line);
 }
 
+#ifdef PYWEL_ATLAS_COMBINED
+// The result shared with the map-marker part (see LoadedSave.h), guarded by
+// publishedLock. Only the worker writes it; the marker's thread copies it.
+SRWLOCK publishedLock = SRWLOCK_INIT;
+LoadedSaveBell published = {};
+
+// Called by the worker every loop, after UpdateBellReads: publishes the
+// accepted Bell result for the active selection, or "not known".
+void PublishLoadedSave(const Summary& summary) {
+    const Selection& selection = summary.selection;
+    LoadedSaveBell current = {};
+    current.valid = summary.bellValid && selection.active &&
+        summary.bellSerial == selection.serial && summary.bellSlot == selection.readSlot;
+    if (current.valid) {
+        current.serial = selection.serial;
+        current.loadScope = selection.loadScope;
+        current.loadedSlot = selection.slot;
+        current.readSlot = summary.bellSlot;
+        current.bell = summary.bell;
+    }
+    AcquireSRWLockExclusive(&publishedLock);
+    published = current;
+    ReleaseSRWLockExclusive(&publishedLock);
+}
+#endif
+
 // =============================================================================
 // 6. F7 checkpoint popup
 // =============================================================================
@@ -1803,6 +1833,10 @@ DWORD WINAPI Run(void* address) {
         Drain(summary);
         // Bell reads; check the slot file's time about every 3 s (100 loops).
         UpdateBellReads(summary, ++loops % 100 == 0);
+#ifdef PYWEL_ATLAS_COMBINED
+        // Tell the map-marker part what is known about the loaded save.
+        PublishLoadedSave(summary);
+#endif
         // If records were lost, the evidence is incomplete: clear the matches.
         LONG currentDrops = InterlockedCompareExchange(&dropped, 0, 0);
         if (currentDrops != summary.chainDrops) {
@@ -1894,6 +1928,14 @@ DWORD WINAPI Run(void* address) {
 // starts this part's worker through this entry point.
 DWORD WINAPI PywelSaveDetectionRun(void* address) {
     return Run(address);
+}
+
+// Copies the latest published loaded-save Bell result (see LoadedSave.h).
+bool PywelGetLoadedSaveBell(LoadedSaveBell& out) {
+    AcquireSRWLockShared(&publishedLock);
+    out = published;
+    ReleaseSRWLockShared(&publishedLock);
+    return out.valid;
 }
 #else
 // Windows calls this when the game loads our .asi. We only start the worker

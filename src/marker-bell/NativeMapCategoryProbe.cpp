@@ -61,6 +61,10 @@
 #include "category-profile.h"
 #include "NativeMarkerDefinition.h"
 #include "NativeSaveReader.h"
+#ifdef PYWEL_ATLAS_COMBINED
+// The detected loaded save, published by the save-detection part.
+#include "../pywel-atlas/LoadedSave.h"
+#endif
 
 namespace {
 // ===========================================================================
@@ -852,6 +856,139 @@ void HideCompletedProof() {
     Log("Hernand Bell explicitly completed in selected save; proof creation blocked and scoped removal requested.");
 }
 
+#ifdef PYWEL_ATLAS_COMBINED
+// ===========================================================================
+// Section: combined build - the marker follows the detected loaded save
+// ---------------------------------------------------------------------------
+// In the combined Pywel Atlas mod, the save-detection part says which save is
+// loaded and publishes the Bells read from the slot the game last saved it to
+// (see src/pywel-atlas/LoadedSave.h). This replaces the hand-picked slot
+// (F9) and the manual read (F7). Rules:
+//   - Only an accepted ("valid") result can decide anything. While nothing
+//     is known (just after a load, or if a read failed), F6 is withheld and
+//     no "completed" decision is made: unknown never means "not completed".
+//   - If the linked Bell is completed in the loaded save, the proof chest is
+//     removed and cannot be created again for that save.
+//   - When a different save is loaded (a new load scope), the old save's
+//     chest is removed, and the new save's result decides from then on.
+// ===========================================================================
+
+// Same flags as HideCompletedProof, with a caller-specific log line.
+void RequestProofRemoval(const char* reason) {
+    InterlockedExchange(&generationEnabled, 0);
+    InterlockedExchange(&creationRequested, 0);
+    InterlockedExchange(&removalRequested, 1);
+    InterlockedExchange(&removalOutcome, 1);
+    Log(reason);
+}
+
+// The worker's memory of the last decision it made from a detected result.
+struct DetectedLink {
+    int bell; // Index of the linked Bell (FindBellIndex); Hernand until F6 loads a definition.
+    bool known; // A valid detected result has been applied at least once.
+    LONG loadScope; // Load the last decision belonged to.
+    unsigned serial; // Selection serial of that result.
+    unsigned readSlot; // Slot it was read from.
+    bool completed; // Whether the linked Bell was completed in it.
+};
+
+// Is the linked Bell explicitly completed in this detected result?
+bool LinkedBellCompleted(const LoadedSaveBell& loaded, const DetectedLink& link) {
+    return link.bell >= 0 && ((loaded.bell.completedMask >> link.bell) & 1u) != 0;
+}
+
+// Called every worker loop: applies a new detected result to the marker.
+void FollowLoadedSave(DetectedLink& link) {
+    LoadedSaveBell loaded = {};
+    if (!PywelGetLoadedSaveBell(loaded)) {
+        return; // Not known right now: keep the last decision; F6 checks again.
+    }
+    bool completed = LinkedBellCompleted(loaded, link);
+    bool newLoad = link.known && loaded.loadScope != link.loadScope;
+    if (link.known && !newLoad && loaded.serial == link.serial &&
+        loaded.readSlot == link.readSlot && completed == link.completed) {
+        return; // Nothing new.
+    }
+    char line[256];
+    sprintf_s(line, "Detected save: serial=%u loadScope=%ld loadedSlot=%u readSlot=%u bell=%s completed=%u newLoad=%u",
+        loaded.serial, loaded.loadScope, loaded.loadedSlot, loaded.readSlot, BellName(link.bell),
+        completed ? 1u : 0u, newLoad ? 1u : 0u);
+    Log(line);
+    if (newLoad && !completed) {
+        RequestProofRemoval("A different save was loaded; the previous save's proof chest is removed.");
+    }
+    if (completed && (!link.known || !link.completed || newLoad)) {
+        sprintf_s(line, "%s is explicitly completed in the loaded save; proof creation blocked and scoped removal requested.",
+            BellName(link.bell));
+        RequestProofRemoval(line);
+    }
+    link.known = true;
+    link.loadScope = loaded.loadScope;
+    link.serial = loaded.serial;
+    link.readSlot = loaded.readSlot;
+    link.completed = completed;
+}
+
+// F6 in the combined build: load the marker JSON (which names its Bell), then
+// show the chest only if the detected loaded save says that Bell is not
+// completed. `generationDeadline` is the worker's 3-minute display limit.
+void ShowMarkerFromDetectedSave(const wchar_t* definitionPath, DetectedLink& link,
+    ULONGLONG& generationDeadline) {
+    if (InterlockedCompareExchange(&removalRequested, 0, 0) != 0) {
+        Log("F6 skipped: removal pending. Keep/open Pywel so its UI callback can finish cleanup.");
+        return;
+    }
+    MarkerDefinition definition = {};
+    char error[256] = {};
+    if (!LoadMarkerDefinition(definitionPath, definition, error)) {
+        char line[320];
+        sprintf_s(line, "Definition rejected; existing state retained: %s", error);
+        Log(line);
+        MessageBeep(MB_ICONWARNING);
+        return;
+    }
+    // The definition names its Bell; "none" keeps the original Hernand link.
+    int bell = FindBellIndex(definition.completionBell[0] ? definition.completionBell : "mg:543894");
+    if (bell != link.bell) {
+        link.bell = bell;
+        link.known = false; // Re-decide from the next detected result for the new Bell.
+    }
+    if (!definition.enabled) {
+        RequestProofRemoval("Definition enabled=false; generation OFF and scoped removal requested.");
+        return;
+    }
+    LoadedSaveBell loaded = {};
+    if (!PywelGetLoadedSaveBell(loaded)) {
+        Log("F6 withheld: the loaded save is not confirmed yet (no accepted Bell read). Try again in a few seconds.");
+        MessageBeep(MB_ICONWARNING);
+        return;
+    }
+    if (LinkedBellCompleted(loaded, link)) {
+        char line[256];
+        sprintf_s(line, "F6 withheld: %s is explicitly completed in the loaded save (slot %u).",
+            BellName(link.bell), loaded.readSlot);
+        RequestProofRemoval(line);
+        MessageBeep(MB_OK);
+        return;
+    }
+    AcquireSRWLockExclusive(&definitionLock);
+    stagedDefinition = definition;
+    ReleaseSRWLockExclusive(&definitionLock);
+    generationDeadline = GetTickCount64() + 180000;
+    InterlockedExchange(&generatedReadbackMask, 0);
+    InterlockedExchange(&generationEnabled, 1);
+    InterlockedExchange(&creationOutcome, 0);
+    InterlockedExchange(&creationRequested, 1);
+    char line[384];
+    sprintf_s(line,
+        "Definition loaded name=%s XYZ=(%.6f,%.6f,%.6f); %s not completed in loaded save slot %u (serial %u); creation requested.",
+        definition.name, definition.position[0], definition.position[1], definition.position[2],
+        BellName(link.bell), loaded.readSlot, loaded.serial);
+    Log(line);
+    MessageBeep(MB_OK);
+}
+#endif
+
 // ===========================================================================
 // Section: reading the game's icon definition tables (read-only)
 // The game keeps arrays ("tables") of icon type definitions and templates.
@@ -1149,7 +1286,11 @@ DWORD WINAPI Run(void* address) {
     wcscat_s(path, L"\\native-map-categories.log");
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+#ifdef PYWEL_ATLAS_COMBINED
+    Log("Pywel Atlas combined v0.51 map marker - follows the detected loaded save; F9 and the manual save read are off");
+#else
     Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
+#endif
     // Check the game executable's build timestamp and size from its PE header
     // (the standard header at the start of every Windows .exe).
     auto* base = reinterpret_cast<BYTE*>(GetModuleHandleW(nullptr));
@@ -1253,8 +1394,16 @@ DWORD WINAPI Run(void* address) {
     bool bellLinkEnabled = false;
     bool lastRefreshCompleted = false;
     ULONGLONG nextSaveRefresh = 0;
+#ifdef PYWEL_ATLAS_COMBINED
+    // Combined build: the marker's Bell decision follows the detected save.
+    DetectedLink link = {};
+    link.bell = FindBellIndex("mg:543894"); // Hernand until F6 loads a definition.
+#endif
     while (true) {
         Drain();
+#ifdef PYWEL_ATLAS_COMBINED
+        FollowLoadedSave(link);
+#endif
         // Hotkeys count only while the game window is in front.
         DWORD foreground = 0;
         GetWindowThreadProcessId(GetForegroundWindow(), &foreground);
@@ -1269,6 +1418,12 @@ DWORD WINAPI Run(void* address) {
 #endif
         bool f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
         bool f10 = (GetAsyncKeyState(VK_F10) & 0x8000) != 0;
+#ifdef PYWEL_ATLAS_COMBINED
+        // --- F6 (combined build): decide from the detected loaded save. ---
+        if (focused && f6 && !previousF6) {
+            ShowMarkerFromDetectedSave(definitionPath, link, generationDeadline);
+        }
+#else
         // --- F6: (if Bell tracking is on, re-check the save first) then load
         // the marker JSON and request creation for up to 3 minutes. ---
         if (focused && f6 && !previousF6) {
@@ -1396,6 +1551,10 @@ DWORD WINAPI Run(void* address) {
             }
             f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
         }
+#endif
+        // (Combined build: F6 above replaces the hand-picked F9 slot, the
+        // Shift+F7 manual read and the 5-second refresh below, which stays
+        // off because bellLinkEnabled is never set.)
         // --- Every 5 seconds while Bell tracking is on: re-read the save and
         // request removal when the Hernand Bell newly reads as completed. ---
         // Serialized worker reads cannot finish against a newer selection:

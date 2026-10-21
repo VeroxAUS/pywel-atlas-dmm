@@ -23,6 +23,11 @@ struct MarkerDefinition {
     float position[3]; // Game XYZ: X/Z horizontal, Y altitude.
     char name[128]; // UTF-8 text, at most 127 bytes plus a terminating zero.
     bool enabled; // false means "do not show; remove it if already shown".
+    // Which Bell's save record decides this marker, e.g. "mg:545680"
+    // (Calphade Bell), from "completion": {"source": "bell", "id": "..."}.
+    // Empty for "completion": {"source": "none"}; the mod then keeps its
+    // original proof link to the Hernand Bell.
+    char completionBell[32];
 };
 
 // Create a default only when absent, then parse a bounded, write-locked read.

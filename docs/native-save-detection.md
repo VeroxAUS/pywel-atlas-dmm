@@ -975,3 +975,64 @@ F7 → F9 (picked slot 1) → Shift+F7 → F6 → map → F10 → exit.
   detected slot 2 have Hernand completed.
 - The user hand-picked slot 1 while slot 2 was loaded. This is the manual
   mismatch that phase 2 removes.
+
+## Combined v0.51 (phase 2): the marker follows the detected save
+
+User-approved: detection now drives marker visibility in the combined build.
+The standalone builds are unchanged in behaviour.
+
+- Reader: `NativeSaveSummary` gains `recordedMask`/`completedMask` (one bit
+  per `kBellLinks` entry), plus `FindBellIndex(id)` and `BellName(index)`.
+- Shared result: `src/pywel-atlas/LoadedSave.h` (`LoadedSaveBell`). The
+  save-detection worker publishes it every loop under an SRW lock.
+  `valid` = bellValid && selection active && bellSerial == serial &&
+  bellSlot == readSlot. It also carries serial, loadScope, loadedSlot,
+  readSlot and the summary. `PywelGetLoadedSaveBell` copies it.
+- Marker JSON: `completion` may be `{"source":"bell","id":"mg:..."}`. The id
+  must be ASCII and a Bell known to the reader. `none` keeps the Hernand link.
+- Marker (combined only): F9, Shift+F7 and the 5 s manual refresh are off.
+  `FollowLoadedSave` runs every loop. On a valid result it decides for the
+  linked Bell: completed → scoped removal (blocked from recreation until a
+  new decision); a new load scope → removal of the previous save's chest.
+  Invalid results are ignored, so the last decision is kept. F6
+  (`ShowMarkerFromDetectedSave`) loads the JSON (which may change the linked
+  Bell), is withheld while nothing valid is published, removes instead of
+  showing when completed, and otherwise requests creation and logs the slot
+  and serial.
+- The ASI shrank from 386,048 to 293,376 bytes because the linker drops the
+  now-unused manual read and report code (strings for the slot chooser and
+  `native-save-progress.json` are absent).
+
+Compiled with MSVC `/W4` without warnings, and both standalone builds too. No
+automated tests added or run. Package: `archive/releases/PywelAtlas-v0.51.zip`.
+Test plan: link the runtime JSON to Calphade; Manual 2 (slot 101,
+pre-Calphade) → F6 shows; load Manual 4 (slot 103) → chest removed and F6
+withheld; Manual 2 → ring Calphade → after the save the chest is removed.
+
+## Combined v0.51 runtime result: detection drives the marker end to end
+
+With the user's approval, the user's runtime `native-map-marker.json` was
+changed to `completion: {source: bell, id: mg:545680}`. The backup is
+`native-map-marker.backup-before-v0.51.json` beside it. Traces:
+`research/traces/pywel-atlas-v0.51-map-marker.log` and
+`pywel-atlas-v0.51-save-detection.log`. The user reported it worked as
+expected. Zero drops.
+
+| Step | Detected save | Marker |
+| --- | --- | --- |
+| load Manual 2 (slot 101) | serial 1, Calphade completed=0 | F6 → "Calphade Bell not completed in loaded save slot 101"; chest created and read back |
+| in-game load Manual 4 (slot 103) | serial 2, newLoad=1, completed=1 | removal requested (chest already absent); F6 → "withheld: Calphade Bell is explicitly completed (slot 103)" |
+| in-game load Manual 2 | serial 3, newLoad=1, completed=0 | previous save's chest removed; F6 → chest created |
+| travel | serials 4 and 5 re-formed with `sameWorld=1` (same scope 31109) | no change (readSlot 101 carried) |
+| ring Calphade, autosave | write slot 1 linked; slot 206 ignored; read slot 1 completed=2 | "Calphade Bell is explicitly completed in the loaded save"; native removal confirmed absence |
+
+- First runtime sight of `sameWorld=1`. The carried `readSlot` equalled the
+  loaded slot here, because no save had happened yet.
+- Quirk 1: at start, the linked Bell defaults to Hernand until F6 loads the
+  JSON. That first decision ("Hernand completed") requested a removal with
+  no chest owned, so the next F6 was skipped ("removal pending") until the
+  map callback cleared it. The same happens after a new-load removal. The
+  user had to press F6 twice.
+- Quirk 2: the inherited v0.32 rule "game focus lost → generation off and
+  removal" removed the chest when the game lost focus (twice in this run).
+  That rule belongs to the 3-minute proof, not to a product marker.
