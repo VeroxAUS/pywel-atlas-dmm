@@ -1168,10 +1168,14 @@ DWORD WINAPI Run(void* address) {
             return 0;
         }
     }
+#ifndef PYWEL_ATLAS_COMBINED
     if (MH_Initialize() != MH_OK) {
         Log("Could not initialize observation hooks.");
         return 0;
     }
+#endif
+    // (In the combined Pywel Atlas build, src/pywel-atlas/PywelAtlas.cpp
+    // initializes MinHook once for both parts before starting this worker.)
     // kInspectSites index map (category-profile.h): 0-2, 5-9 and 12 are hooked
     // (see hookSites below); 3, 4 and 10 are game functions we call (world
     // lookup, minimap lookup, removal); 11 is only checked as a guard.
@@ -1204,12 +1208,27 @@ DWORD WINAPI Run(void* address) {
             static_cast<unsigned long long>(kInspectSites[siteIndex].rva), MH_StatusToString(status));
         Log(line);
         if (status != MH_OK) {
+#ifdef PYWEL_ATLAS_COMBINED
+            // Shared MinHook: remove only the hooks this part created.
+            for (unsigned created = 0; created < index; ++created) {
+                MH_RemoveHook(base + kInspectSites[hookSites[created]].rva);
+            }
+#else
             MH_Uninitialize();
+#endif
             return 0;
         }
     }
+#ifdef PYWEL_ATLAS_COMBINED
+    // Shared MinHook: switch on only this part's hooks, never the other part's.
+    MH_STATUS status = MH_OK;
+    for (unsigned index = 0; index < _countof(hooks) && status == MH_OK; ++index) {
+        status = MH_EnableHook(base + kInspectSites[hookSites[index]].rva);
+    }
+#else
     // Switch all hooks on at once.
     MH_STATUS status = MH_EnableHook(MH_ALL_HOOKS);
+#endif
     if (status != MH_OK) {
         Log(MH_StatusToString(status));
         return 0;
@@ -1243,6 +1262,11 @@ DWORD WINAPI Run(void* address) {
         bool f6 = (GetAsyncKeyState(VK_F6) & 0x8000) != 0;
         bool f8 = (GetAsyncKeyState(VK_F8) & 0x8000) != 0;
         bool f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
+#ifdef PYWEL_ATLAS_COMBINED
+        // Combined build: plain F7 is the save-detection checkpoint, so this
+        // part's "read the selected save" action moves to Shift+F7.
+        f7 = f7 && (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+#endif
         bool f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
         bool f10 = (GetAsyncKeyState(VK_F10) & 0x8000) != 0;
         // --- F6: (if Bell tracking is on, re-check the save first) then load
@@ -1495,6 +1519,13 @@ DWORD WINAPI Run(void* address) {
 // Section: DLL entry point
 // ===========================================================================
 
+#ifdef PYWEL_ATLAS_COMBINED
+// Combined Pywel Atlas build: src/pywel-atlas/PywelAtlas.cpp owns DllMain and
+// starts this part's worker through this entry point.
+DWORD WINAPI PywelMapMarkerRun(void* address) {
+    return Run(address);
+}
+#else
 // Windows calls this when the mod DLL is loaded. It does as little as possible
 // here (Windows restricts what is safe inside DllMain) and starts the worker
 // thread, which runs Run().
@@ -1508,3 +1539,4 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID) {
     }
     return TRUE;
 }
+#endif

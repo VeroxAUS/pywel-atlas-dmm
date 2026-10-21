@@ -8,6 +8,7 @@ evidence rules and current status are in [CLAUDE.md](CLAUDE.md).
 
 | Path | Contents |
 | --- | --- |
+| `src/pywel-atlas/` | Combined mod entry point (`PywelAtlas.cpp`), build script and README. It builds one `PywelAtlas.asi` from the save-detection and marker parts. |
 | `src/save-detection/` | Current loaded-save observation probe (`NativeSaveLoadProbe.cpp`), its executable guard profile, build script, README shipped with the mod, vendored MinHook. |
 | `src/marker-bell/` | v0.32 synthetic marker proof and native Bell save reader (`NativeSaveReader.cpp`). It also holds the older v0.35 save-load probe and earlier map probes. |
 | `data/` | Bell save links, marker default definition, POI dataset and import template used by `src/marker-bell`. |
@@ -28,6 +29,7 @@ evidence rules and current status are in [CLAUDE.md](CLAUDE.md).
 Requires Visual Studio 2022 Build Tools (x64 MSVC).
 
 ```powershell
+.\src\pywel-atlas\build.ps1            # -> dist/pywel-atlas/ (combined mod)
 .\src\save-detection\build.ps1          # -> dist/native-save-detection/
 .\src\marker-bell\build.ps1 -Mode Categories   # -> dist/native-map-proof/
 ```

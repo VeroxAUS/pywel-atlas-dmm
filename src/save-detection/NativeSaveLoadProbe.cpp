@@ -1709,10 +1709,14 @@ DWORD WINAPI Run(void* address) {
             return 0;
         }
     }
+#ifndef PYWEL_ATLAS_COMBINED
     if (MH_Initialize() != MH_OK) {
         Log("MinHook initialization rejected.");
         return 0;
     }
+#endif
+    // (In the combined Pywel Atlas build, src/pywel-atlas/PywelAtlas.cpp
+    // initializes MinHook once for both parts before starting this worker.)
     // Our hook functions, in the SAME order as kSaveLoadSites in
     // save-load-profile.h. The static_assert only checks the count, so keep
     // the order aligned by hand.
@@ -1755,11 +1759,26 @@ DWORD WINAPI Run(void* address) {
             callbacks[index], originals[index]);
         if (status != MH_OK) {
             Log(MH_StatusToString(status));
+#ifdef PYWEL_ATLAS_COMBINED
+            // Shared MinHook: remove only the hooks this part created.
+            for (unsigned created = 0; created < index; ++created) {
+                MH_RemoveHook(base + kSaveLoadSites[created].rva);
+            }
+#else
             MH_Uninitialize();
+#endif
             return 0;
         }
     }
+#ifdef PYWEL_ATLAS_COMBINED
+    // Shared MinHook: switch on only this part's hooks, never the other part's.
+    MH_STATUS status = MH_OK;
+    for (unsigned index = 0; index < _countof(callbacks) && status == MH_OK; ++index) {
+        status = MH_EnableHook(base + kSaveLoadSites[index].rva);
+    }
+#else
     MH_STATUS status = MH_EnableHook(MH_ALL_HOOKS);
+#endif
     if (status != MH_OK) {
         Log(MH_StatusToString(status));
         return 0;
@@ -1802,6 +1821,10 @@ DWORD WINAPI Run(void* address) {
         DWORD foreground = 0;
         GetWindowThreadProcessId(GetForegroundWindow(), &foreground);
         bool f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
+#ifdef PYWEL_ATLAS_COMBINED
+        // Combined build: Shift+F7 belongs to the map-marker part.
+        f7 = f7 && (GetAsyncKeyState(VK_SHIFT) & 0x8000) == 0;
+#endif
         if (foreground == GetCurrentProcessId() && f7 && !previousF7) {
             bool sameObject = summary.reads && summary.applies && summary.lastRead.object &&
                 summary.lastRead.object == summary.lastApply.object;
@@ -1866,6 +1889,13 @@ DWORD WINAPI Run(void* address) {
 }
 } // namespace
 
+#ifdef PYWEL_ATLAS_COMBINED
+// Combined Pywel Atlas build: src/pywel-atlas/PywelAtlas.cpp owns DllMain and
+// starts this part's worker through this entry point.
+DWORD WINAPI PywelSaveDetectionRun(void* address) {
+    return Run(address);
+}
+#else
 // Windows calls this when the game loads our .asi. We only start the worker
 // thread here; all real work happens in Run.
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID) {
@@ -1878,4 +1908,5 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID) {
     }
     return TRUE;
 }
+#endif
 

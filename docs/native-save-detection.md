@@ -927,3 +927,51 @@ manual save wrote slot 100 ("Manual 1").
   `sameWorld=1` and `linked-to-retired` were not exercised. The carry-over is
   still runtime-untested. It appears in a later log only when travel cleanups
   occur; check SELECTION formed lines for `sameWorld=1`.
+
+## Combined mod v0.50 (phase 1): one ASI, no behaviour change
+
+Integration plan (user-approved): phase 1 combines both parts into one ASI
+with no behaviour change. Phase 2 makes the marker use save detection (F9
+removed; the marker JSON names its Bell; fail closed when the selection or
+read is not accepted; acting on detection needs the user's OK). Phase 3
+tests with slot 101 (before Calphade) and slot 103 (after Calphade).
+
+Phase 1 build:
+- `src/pywel-atlas/PywelAtlas.cpp` owns DllMain. A startup thread calls
+  `MH_Initialize` once, then starts `PywelSaveDetectionRun` and
+  `PywelMapMarkerRun`.
+- Both part files compile unchanged unless `PYWEL_ATLAS_COMBINED` is defined.
+  With it, they skip their own `MH_Initialize` and DllMain, create and enable
+  only their own hooks (per target, never `MH_ALL_HOOKS`), and on failure
+  remove only their own hooks instead of `MH_Uninitialize`.
+- Key split: plain F7 = save-detection checkpoint; Shift+F7 = the marker's
+  former F7 (read the hand-picked slot). F6/F8/F9/F10 are unchanged.
+- No hooked RVAs overlap (14 save-detection + 9 marker hooks; the marker
+  also guards 3 call targets and 1 parent site). The two vendored MinHook
+  copies are byte-identical; the build compiles one.
+- `src/pywel-atlas/build.ps1` runs the marker's two build-time Python
+  generators, compiles both parts plus `NativeMarkerDefinition.cpp` and
+  `NativeSaveReader.cpp`, and outputs `dist/pywel-atlas/PywelAtlas.asi` with
+  the MinHook and pycrimson licenses and README.
+
+Compiled with MSVC `/W4` without warnings. The standalone save-detection and
+marker builds also still compile without warnings, and the regenerated
+marker headers are unchanged. No automated tests added or run. Package:
+`archive/releases/PywelAtlas-v0.50.zip`.
+
+## Combined v0.50 runtime result: both parts work in one ASI
+
+Traces: `research/traces/pywel-atlas-v0.50-save-detection.log` (pid 24572)
+and `research/traces/pywel-atlas-v0.50-map-marker.log`. User sequence: load →
+F7 → F9 (picked slot 1) → Shift+F7 → F6 → map → F10 → exit.
+
+- Save detection: READY v0.44 with 14 hooks; slot 2 loaded, selection formed,
+  Bell read accepted (Hernand completed), and one F7 checkpoint. Zero drops.
+- Map marker: all 9 hooks `MH_OK`, and live map-icon samples were logged.
+  F9 stored slot 1. Shift+F7 read slot 1 (Hernand completed, so proof
+  creation was blocked). F6 re-read and stayed blocked. F10 found no owned
+  marker. One popup per key; plain F7 and Shift+F7 did not cross-trigger.
+- No chest appeared, which is correct: both the hand-picked slot 1 and the
+  detected slot 2 have Hernand completed.
+- The user hand-picked slot 1 while slot 2 was loaded. This is the manual
+  mismatch that phase 2 removes.
