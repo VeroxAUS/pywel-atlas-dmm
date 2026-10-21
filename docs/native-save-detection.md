@@ -1215,3 +1215,318 @@ game's own icon is shown, and it still hides when zoomed out as normal.
 Zoom visibility on our own markers is solved with the native icon. Next
 per CLAUDE.md: the Dear ImGui filter panel on its own, then a second
 category and the radius filter (minimap position source).
+
+## Second category: Greymane Shrines (plan, user-chosen 2026-10-22)
+
+Proof of concept for the category filter. 12 shrines (MapGenie category
+`mg-category:15097`, e.g. Nas River Shrine `mg:544080` in Hernand). The
+radius filter is dropped (see CLAUDE.md).
+
+Known already:
+
+- Native icon: type 186 `MapIcon_Gimmick_GreyManeTemple`, template type
+  28812, category 0xffffffff (older catalogue traces). Its zoom window is not
+  logged yet; v0.54's `DisableZoomWindows` works on any of our own icons.
+- 12 markers fit the current 31-bit masks, so no capacity rework is needed.
+- Not known: whether shrines are saved in the Bell family
+  (`DiscoveredLevelGimmickSceneObjectSaveData`), which info key they use, and
+  what marks one "done". The early saves have no shrine record.
+
+### Research step (static, no game run)
+
+1. Asset reader: pycrimson (LukeFZ, MIT) is not installed and not in the
+   repository. Download it into an ignored research-only folder (needs the
+   user's OK, as a download). Never part of the mod.
+2. Find the shrines in the game data: `levelgimmicksceneobjectinfo`
+   entries and the `GreyManeTemple` levels/prefabs, with each scene-object
+   UUID, info key and world position (the Bell table came from Bell
+   mission `.palevel` assets the same way).
+3. Match each to its MapGenie POI by position (the fitted map-grid formula
+   in `research/analysis/collectible-categories.md`, under ~35 m), one to
+   one. Unmatched or ambiguous ones are left out.
+4. Write `data/greymane-shrine-links.json` in the Bell file's shape (poiId,
+   name, uuid, typeKeys, gamePosition, asset, evidence). It stays
+   unverified until the save experiment confirms the UUID and key.
+
+### In-game save experiment (user, one session)
+
+Use three separate manual slots so no save is overwritten. The mod stays
+installed; it only reads.
+
+1. Go near a shrine you have not found yet (Nas River Shrine in Hernand if
+   it is still undiscovered). Make manual save A.
+2. Walk up until the game reports it discovered. Make manual save B.
+3. Do whatever finishes a shrine (pray, activate, reward). Make manual
+   save C. Note what the game showed.
+4. Close the game. Claude copies the three slot files read-only into the
+   research folder and compares them with
+   `research/scripts/survey_save_record_lists.py --detail`.
+
+What it answers: which record appears at B and what changes at C (for
+example `_isCompleted`), with the shrine's UUID and info key. Only an
+explicit flag that changes at C can count as "completed"; record presence
+alone never does. If nothing shrine-related appears, Greymane Shrines are
+not stored like Bells and the plan switches to another small set.
+
+### Shrine research results (static, 2026-10-22)
+
+Tools: pycrimson (LukeFZ, MIT) cloned into the git-ignored
+`research/vendor/` with a Python 3.12 venv (it targets 3.14 but imports and
+lists packs). One local change: the pack language flag accepts bit 14
+(mask 0x7FFF), as the old checkout did. Extracted tables live in
+`research/vendor/work/` (ignored). Script: `research/scripts/find_greymane_shrines.py`
+→ `research/analysis/greymane-shrine-identity.json`.
+
+- **Shrines are faction nodes, not Bell-style landmarks.** The landmark
+  table (`levelgimmicksceneobjectinfo`) has no shrine entry (it does have
+  `TreasureBox`, useful later). The faction node table has exactly 12
+  `Node_*GreyManeTemple` entries, each with a `..._Repair` stage and a
+  `Ritual` step. Keys 1000262–1000585, table positions 1107–1118.
+- The faction node table has 1,119 entries in the same order as the save's
+  `FactionSaveData._factionNodeElementSaveDataList` (1,119 records). So the
+  save state is most likely record 1107–1118 of that list (inference: equal
+  count and order; the record has no key field). Its fields include
+  `_factionState`, `_enableNode`, `_isSaveEnabled` and the operation fields.
+- Each shrine also has a knowledge entry (`Knowledge_Node_<Name>_GreyManeTemple`,
+  keys 1001184–1001186 and 1001998–1002006) that stores its node key. Finding
+  a place probably adds that knowledge key to `KnowledgeSaveData._list`
+  (inference).
+- Node → knowledge → MapGenie: all 12 pair one to one. 7 match by name,
+  3 differ only in spelling (Shadow's Slope, Kingshield Mountains
+  Northern/Southern), and 2 differ in name and need the user's review:
+  `Rivercrest` → "Riverbed Terrace Shrine" (mg:552782) and `MistLake` →
+  "Lake Mistveil Shrine" (mg:553835). The user accepted both pairings on
+  the reasoning (2026-10-22), not from an in-game name check. The game's own direction labels agree
+  with the MapGenie positions for every pair (Dem South/West/East,
+  Musket East/West, Her North/South, Cal → next to the Calphade Bell).
+- **Positions not found yet.** None of these tables holds a world position.
+  The lantern prefab `gimmick_graymane_templelantern_000N` (with
+  `..._challenge` gimmick charts) appears in 142 world-sector level files,
+  but pycrimson's reflection reader fails on the current `.palevel` format
+  (a `PARC` wrapper, then a type-table mismatch), even for the Bell mission
+  level it once read. MapGenie positions converted with the Bell fit are
+  within about 35 m but have no height; planning only.
+- Native icon: type 186 `MapIcon_Gimmick_GreyManeTemple`.
+
+Effect on the save experiment: compare faction-node records 1107–1118 and
+the knowledge list, not the Bell landmark list. A shrine may only count as
+completed if one of its node fields changes explicitly at save C.
+
+### Shrine positions from the level files (static, 2026-10-22)
+
+The level reader works again without changing pycrimson: current `.palevel`
+files are `PARC` blocks whose reflection data starts 16 bytes in, and they
+need `has_shared_strings=True`. Check: the Calphade Bell mission level gives
+the Bell's verified UUID and, composing parent position + rotated child
+offset, exactly its verified game position (−11896.21, 713.94, −2027.17).
+Script: `research/scripts/find_greymane_shrine_positions.py` →
+`research/analysis/greymane-shrine-positions.json` (needs the git-ignored
+`research/vendor/work/pack-files.txt` listing).
+
+- Every shrine is one `gimmick_graymane_temple_0002` object. Its gimmick
+  data has `ChangeMinimapMarker MinimapMarkerType="Gimmick_GreyManeTemple"`,
+  so it is the object behind the game's own shrine icon. Exactly 12 are
+  placed in the world, each about 4.5 m from a `gimmick_graymane_altar_0001`
+  (which carries a chest/shelter child gimmick; 12 placed). Both are
+  registered interactive gimmicks in `gimmickinfo`. Decorative pieces near
+  shrines (totems, `cd_spot_altar_prayer_01`) have no gimmick parts.
+- 11 temples lie 8–39 m from their MapGenie point, which fits the fitted
+  formula's accuracy. This also confirms the two name reviews by position
+  (Riverbed Terrace 38.8 m, Lake Mistveil 8.1 m).
+- **Mismatch to review:** "Kingshield Mountains Northern Shrine" (mg:547335,
+  node `Node_CatchfireGreyManeTemple`, knowledge `Kingshield_North`). MapGenie
+  puts it near (−8784, −1487), where the level files have only a decorative
+  Greymane totem and a prayer-altar prop, no interactive shrine. The only
+  remaining temple+altar pair is at (−9903.8, 658.1, 244.3), about 2,060 m
+  away, near the Bronton stable / Eldred saddlery area. Its structure is
+  identical to the other 11 shrines. The game data says the 12th shrine is
+  there, so MapGenie's point is the likely error, but this needs a person to
+  confirm in game before it is trusted.
+- th.gl map comparison (user-supplied link, 2026-10-22): th.gl ids are the
+  game's knowledge keys (`greymane_shrine_<key>@z:x`), the same keys
+  `find_greymane_shrines.py` linked, so all 11 checked names agree with our
+  pairing (Silverwolf's page did not load). 10 of those 11 th.gl points lie
+  4–20 m from our temple objects. th.gl also puts Kingshield Mountains
+  Northern (key 1002001) at (−8784, −1487, height 679), agreeing with
+  MapGenie, 4 m from the decorative Greymane wood totem
+  `cd_ex_dpf_wood_totem_15_graymane` (−8788, 667, −1487) and 2,062 m from
+  the 12th temple object. th.gl describes it as an "ordinary-looking shrine,
+  easily overlooked". Still unresolved; needs an in-game check of what is
+  at each spot.
+
+## Test-only teleporter (user exception 2026-10-22): research and plan
+
+Static research: `research/analysis/teleport.md` (script
+`research/scripts/teleport_scan.py`, disassembly `research/disasm/teleport-*.asm`).
+Nothing built or run.
+
+- Best candidate: the player's movement component
+  (`ClientTransformSyncActorComponent`, vtable `0x55bf248`,
+  `T = [[actor+0x68]+0x1a0]`), virtual slot `0x198` = `0x9fe740`, called
+  with move type 4 ("Teleport"): `(T, PackedPos*, yaw xmm2, 4, 5, 0)`, where
+  PackedPos = {x, y, z offsets, int16 sectorX, sectorZ} and world X =
+  sectorX*1000 + x. The game itself uses this exact shape at four places
+  (unknown purpose). It locks the actor and queues the move (`0x9fca60`),
+  which the game applies on its next movement update.
+- Player actor: `0x64f530(&handle)` / release `0x1434880`, as the minimap
+  update `0xe13cf0` already does.
+- Second choice `0x9fea40` (the server "do teleport" apply, with a safe
+  ground search) needs a move-session value we cannot read yet.
+- Dead ends: cheat move messages are empty stubs; field move, revive and the
+  yaw setter are protected (obfuscated) code.
+- Unknowns: whether the in-process server accepts the jump or pulls the
+  player back, whether the next save keeps it, which thread the game's own
+  teleports run on, and what map fast travel actually reaches.
+
+### Plan (needs the user's OK at each phase)
+
+Phase 1, logging only (no calls, nothing moves). Same combined mod plus
+watch-only guarded hooks on `0x9fca60` (filtered to the player's component
+or move type 4, so it stays cheap), `0x9fe740`, `0x9fe840`, `0xb61640`,
+`0x9fea40`, and entry-only hooks on the field-move, revive-point and
+forced-move handlers (`0xb87360`, `0xb882a0`, `0xbcc190`, `0xb619c0`). Each
+logs arguments as copies, the return address and the thread, next to the
+minimap thread and player position. If a guard fails, only that hook is
+skipped. User run: fast travel near and far on the map, try it mounted, die
+and revive at a revive point, use any door/gimmick teleport nearby, quit.
+This answers which path the game uses, on which thread, and whether
+positions are absolute.
+
+Phase 2, the test build (only after phase 1 and the user's OK). A separate
+`PywelAtlasTest.asi` from the same sources with `PYWEL_ATLAS_TELEPORT`
+defined; the release build never contains it.
+- Targets: the 8 Bells, the 12 shrines, both Kingshield Northern spots, plus
+  an optional `%LOCALAPPDATA%\PywelAtlas\teleport-targets.json` (name, x, y,
+  z). Hotkeys: Ctrl+PageUp / Ctrl+PageDown pick a target (named in the log
+  and a short popup), Ctrl+End teleports.
+- The call runs on the game thread phase 1 confirms (expected: inside the
+  minimap update hook, after the original returns, while the player handle
+  is held), using approach 1 with the current heading and the target height
+  plus 1.5 m. It checks the guards, the component vtable and slot first, and
+  refuses across the Abyss altitude threshold.
+- After 2 s it reads the minimap position and logs whether the player
+  arrived, stayed or was pulled back.
+- First test: a short hop (about 100 m) on a test save, then farther jumps
+  with a pause for terrain to load. On foot only, not in combat or a
+  cutscene; the user checks this, since the mod cannot yet tell.
+
+### Combined v0.55: teleport observation (phase 1, logging only, user-approved)
+
+New part `src/pywel-atlas/TeleportObserve.cpp`, started by `PywelAtlas.cpp`
+after the shared MinHook init; log `teleport-observe.log`. It moves nothing
+and calls no game function. Guarded watch hooks (each skipped alone if its
+24-byte guard fails):
+
+- `0x9fca60` queued set-position, 7 arguments (rcx, rdx, r8b, r9b, then
+  stack: velocity pointer, a6, a7; checked in the disassembly: reads at
+  entry+0x28/0x30/0x38). Every call is counted per (caller, move type);
+  only move type 4 is logged in full.
+- `0x9fe740` slot 0x198 (yaw float in xmm2, two stack bytes) and `0x9fe840`
+  slot 0x1a0 (rotation pointer, two stack bytes): every call logged.
+- `0x9fea40` teleport apply (4 register arguments): position, 8-byte move
+  session, result.
+- Message handlers `0xb61640`, `0xb87360`, `0xb882a0`, `0xbcc190`,
+  `0xb619c0` (rcx, rdx, r8 used; r9 passed through): entry with the first
+  0x40 message bytes, and exit with the result.
+- Each event logs thread, return address (RVA) and the minimap player
+  position and thread, read from the marker part through the new
+  `PywelGetMinimapPlayer` (non-blocking copy). Positions are decoded from
+  the packed form (sector*1000 + offset).
+
+Compiled with MSVC `/W4` without warnings (combined and standalone marker).
+No automated tests added or run. Package:
+`archive/releases/PywelAtlas-v0.55.zip`. Runtime pending.
+
+### v0.55 runtime result (trace `research/traces/pywel-atlas-v0.55-teleport-observe.log`)
+
+User steps: discovered two Abyss Nexus points near Calphade (Southern Guard
+Post, then one to the west), fast travelled back to Southern Guard Post,
+then to the Hernand Abyss Nexus, then mounted back to Southern Guard Post,
+then died and revived at a revive point, saved to the last manual slot and
+quit normally. All nine hooks installed (MH_OK).
+
+- Every player move (both fast travels, the mounted one and the revive)
+  went through the queued move request `0x9fca60`, move type 4, on the
+  player's component (one fixed address all session), on the minimap thread
+  (32276). Each was called first from `0x77be7f` (inside `0x77b2f0`, a
+  state of the warp sequence object driven by `0x7797f0`, which sets state
+  0xa → 0xb), then again 2–5 s later from `0x8c8f703` with the same target,
+  after loading. The minimap position matched the target right after.
+  Targets: Southern Guard Post (−11793.24, 688.74, −2462.82), Hernand Nexus
+  (−10626.43, 621.21, −3813.26), revive point (−11778.63, 687.33, −2457.02).
+- Mounted fast travel worked (a `MoveForce` handler ran first).
+- Slot `0x198` (`0x9fe740`, caller `0x175a5cf`) only placed NPCs, on three
+  other threads. `0x9fea40` and the DoTeleportAck/RevivePoint handlers never
+  ran. `0xb882a0` runs every frame (routine traffic, not a field move).
+- Static follow-up: `0x8c8f660` is the game's "set actor world position"
+  helper, `(actor, const float3* world, moveType r8b, flag r9b)`. It packs
+  the position and calls `0x9fca60` on `[[actor+0x68]+0x1a0]`. It is reached
+  through the jump `0x507140`, which the game calls from 15 places with move
+  type 4, always as: lock with `0x393650(&lock, [actor+8], 1)`, call
+  `0x507140(actor, &xyz, 4, 0)`, then the inlined unlock (`[obj vtable+0x20](obj, 0)`,
+  then drop the reference). Two of those calls are inside the warp state
+  itself (`0x77b90d`, `0x77b9a9`).
+- Events from before the minimap first ran show minimapThread 0 (no copy
+  yet), not a different thread.
+
+Updated phase 2 design (needs the user's OK): on the minimap thread, inside
+the existing minimap hook after the original returns, get the player with
+`0x64f530` (release `0x1434880`), copy the game's exact lock / `0x507140(actor,
+&xyz, 4, 0)` / unlock pattern, then after about 3 s apply the same target
+once more (the game re-applies after loading). This uses the same path as
+the game's own fast travel and revive, minus the loading screen, so long
+jumps may still arrive before the ground loads.
+
+### Test teleporter build (phase 2, user-approved, built, runtime pending)
+
+`PywelAtlasTest.asi` from `build.ps1 -Test` (defines `PYWEL_ATLAS_TELEPORT`,
+adds `src/pywel-atlas/TestTeleporter.cpp`; output `dist/pywel-atlas-test/`,
+package `archive/releases/PywelAtlasTest-v0.55.zip`). The release build was
+checked not to contain it.
+
+- Targets: `src/pywel-atlas/teleport-targets.h`, generated by
+  `prepare_teleport_targets.py` (2 nexus landings from the v0.55 log, 8
+  Bells, 12 shrine temples, the th.gl Kingshield Northern point with the
+  nearby totem's ground height 667.3 instead of th.gl's 679).
+- Keys (game window in front): Ctrl+Right/Left choose (popup after
+  cycling pauses), Ctrl+Up shows, Ctrl+Down teleports (PageDown/PageUp/Home/End
+  also work; the user has no End key). Log `teleporter.log`.
+- The worker checks the build and guards of `0x64f530`, `0x1434880`,
+  `0x393650`, `0x507140` (jump), `0x8c8f660` and `0x9fca60`; any mismatch
+  leaves the teleporter off.
+- The move runs in the minimap hook after the original returns (the thread
+  the game's own teleports used): player handle via `0x64f530`, check
+  `[[actor+0x68]+0x1a0]` has vtable `0x55bf248`, lock `0x393650(&lock,
+  [actor+8], 1)`, `0x507140(actor, &xyz, 4, 0)` with xyz = target + 1.5 m
+  height, the game's inlined unlock copied step by step, handle type pointer
+  `0x5725e48` set and `0x1434880` release. The same move is applied again
+  3 s later; 2 s after that the minimap position is logged as ARRIVED
+  (within 10 m) or NOT THERE.
+- Refuses a first move whose height is on the other side of the Abyss
+  altitude threshold `[0x6cde048]` from the player (or when the player
+  position is unknown). A request the minimap thread does not pick up
+  within 5 s is dropped.
+- Compiled with MSVC `/W4` without warnings (test, release and standalone
+  marker). No automated tests added or run.
+
+### Test teleporter runtime result (traces `research/traces/pywel-atlas-test-v0.55-*.log`)
+
+User-confirmed working. All guards matched. Three jumps, every one ARRIVED
+(checked 2 s after the second apply), all on the minimap thread:
+Hernand Abyss Nexus → Hernand Bell (79 m, 0.0 m off), → game-file
+"Kingshield Northern" temple (4,121 m, 3.4 m off), → th.gl Kingshield
+Northern point (1,906 m, 0.0 m off). No fall-through or pull-back. The user
+reported a few landings stuck inside geometry (terrain, and inside the
+Hernand Bell tower, since a Bell target is the bell object itself); accepted
+as fine for testing. A possible later fix: land at a nearby open spot or
+higher above object targets.
+
+Kingshield Mountains Northern Shrine resolved by the user in game: the
+th.gl / MapGenie point (−8784, −1487) is the shrine; the 12th
+`gimmick_graymane_temple_0002` at (−9904, 658, 244) is in Pailune city and
+the user judged it a shrine-looking structure, not this collectible. So 11
+shrines are temple objects and this one is not (only a Greymane wood totem
+in the level files). `find_greymane_shrine_positions.py` now excludes that
+temple (`NOT_A_SHRINE`) and places Kingshield Northern from the user check
+(`USER_CONFIRMED`, height 667.79 where the player stood). The test build's
+target list is regenerated (22 targets; no separate th.gl entry).

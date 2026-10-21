@@ -1,10 +1,17 @@
-# Pywel Atlas — combined mod v0.54
+# Pywel Atlas — combined mod v0.55
 
 One mod file, PywelAtlas.asi. It shows **one map marker at each of the 8
 known Bells** and hides each one automatically once the detected save
 records that Bell as completed.
 
-New in v0.54:
+New in v0.55 (logging only, for the planned test teleporter):
+
+- Watches the game's own "move the player" functions while you fast
+  travel, revive or ride, and writes what it sees to
+  `teleport-observe.log`. It moves nothing and calls no game function.
+  Markers behave exactly as in v0.54.
+
+From v0.54:
 
 - The markers use the game's own **Bell map icon**, so they look native.
 - The markers stay visible at **every map zoom**. The game normally shows
@@ -34,14 +41,14 @@ Known Bells: Calphade, Delesyia, Demeniss, Hernand, Pailune, Scholastone,
 Tommaso, Varnia. The single test chest from native-map-marker.json is not
 used in this build.
 
-Logs (in %LOCALAPPDATA%\PywelAtlas): native-save-detection.log and
-native-map-categories.log.
+Logs (in %LOCALAPPDATA%\PywelAtlas): native-save-detection.log,
+native-map-categories.log and teleport-observe.log.
 
 ## Install
 
 1. Close the game.
 2. In DMM, keep the separate "Save Detection" and "Map Proof" entries
-   disabled, and replace PywelAtlas v0.53 with PywelAtlas-v0.54.zip.
+   disabled, and replace PywelAtlas v0.54 with PywelAtlas-v0.55.zip.
 
 Close the game before replacing or disabling the ASI; live unload is
 unsupported.
@@ -55,15 +62,18 @@ unsupported.
 | F8 | Diagnostic snapshot |
 | F10 | Turn all Bell markers off |
 
-## v0.54 test (one session)
+## v0.55 test (one session, about 15 minutes)
 
-1. Load a save where some Bells are not completed. Open the world map.
-2. Check the markers now show the Bell icon. Near a Bell the game already
-   marks, note whether you see one icon or two on top of each other.
-3. Zoom fully IN, press F8. Zoom to the MIDDLE, press F8. Zoom fully OUT,
-   press F8. Note at each: markers visible, faint or gone?
-4. Close the map, then reopen it once and check the markers are still there.
-5. Close the game normally and tell Claude what you saw.
+Use a save you don't mind the game autosaving. Note the rough order and
+time of each step; the log is matched to it afterwards.
+
+1. Load the save, stand still for about 10 seconds.
+2. Fast travel on the world map to a NEARBY point. Wait until you can move.
+3. Fast travel to a FAR point (another region). Wait until you can move.
+4. Get on a horse and try to fast travel (it may refuse; that is fine).
+5. If you can do so safely: die, and revive at a revive point.
+6. If there is a door, lift or gimmick that teleports you nearby, use it.
+7. Close the game normally and tell Claude what you did, in order.
 
 Nothing writes to the game's saves. Compiled with MSVC /W4. No automated
 tests added or run. MinHook BSD and pycrimson licenses are included.

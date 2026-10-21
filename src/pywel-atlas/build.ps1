@@ -19,10 +19,19 @@ Steps:
      marker-definition and Bell-reader files, and link one .asi.
   5. Copy the MinHook and pycrimson licenses and the README next to it.
 
+Test build (-Test): builds PywelAtlasTest.asi instead, the same mod plus the
+test-only teleporter (TestTeleporter.cpp, PYWEL_ATLAS_TELEPORT defined). It
+goes to dist/pywel-atlas-test/ and is never part of the normal release.
+
 Output:  dist/pywel-atlas/  (temporary compiler files: build/pywel-atlas/)
-Usage:   .\src\pywel-atlas\build.ps1
+         dist/pywel-atlas-test/ with -Test (build/pywel-atlas-test/)
+Usage:   .\src\pywel-atlas\build.ps1 [-Test]
 Requires Visual Studio 2022 (Community) with the C++ tools installed.
 #>
+param(
+    # Build the test-only teleporter build instead of the release mod.
+    [switch]$Test
+)
 # Stop at the first error instead of carrying on with a half-finished build.
 $ErrorActionPreference = 'Stop'
 
@@ -32,8 +41,17 @@ $sourceDirectory = $PSScriptRoot
 $workspace = (Resolve-Path (Join-Path $sourceDirectory '../..')).Path
 $saveDetection = Join-Path $workspace 'src/save-detection'
 $markerBell = Join-Path $workspace 'src/marker-bell'
-$buildDirectory = Join-Path $workspace 'build/pywel-atlas'
-$destination = Join-Path $workspace 'dist/pywel-atlas'
+if ($Test) {
+    $buildDirectory = Join-Path $workspace 'build/pywel-atlas-test'
+    $destination = Join-Path $workspace 'dist/pywel-atlas-test'
+    $asiName = 'PywelAtlasTest.asi'
+    $readmeName = 'PywelAtlasTest-README.md'
+} else {
+    $buildDirectory = Join-Path $workspace 'build/pywel-atlas'
+    $destination = Join-Path $workspace 'dist/pywel-atlas'
+    $asiName = 'PywelAtlas.asi'
+    $readmeName = 'PywelAtlas-README.md'
+}
 # Visual Studio's script that sets up the 64-bit C++ compiler.
 $vcvars = 'C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvars64.bat'
 
@@ -43,6 +61,11 @@ $python = 'C:/Users/Thomas/.cache/codex-runtimes/codex-primary-runtime/dependenc
 if ($LASTEXITCODE -ne 0) { throw 'Could not embed the default marker definition' }
 & $python -B (Join-Path $markerBell 'prepare_bell_links.py')
 if ($LASTEXITCODE -ne 0) { throw 'Could not embed verified Bell identities' }
+if ($Test) {
+    # Test build only: the teleporter's named target list.
+    & $python -B (Join-Path $sourceDirectory 'prepare_teleport_targets.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not build the teleport target list' }
+}
 
 # --- Step 2: prepare folders and load the compiler settings -------------------
 New-Item -ItemType Directory -Force -Path $buildDirectory, $destination | Out-Null
@@ -70,20 +93,27 @@ try {
     # --- Step 4: compile both parts and link one .asi ------------------------
     # /DPYWEL_ATLAS_COMBINED removes each part's own DllMain (PywelAtlas.cpp
     # owns it) and makes the parts share one MinHook initialization.
-    $outputPath = Join-Path $destination 'PywelAtlas.asi'
+    $outputPath = Join-Path $destination $asiName
     $applicationSources = @(
         (Join-Path $sourceDirectory 'PywelAtlas.cpp'),
+        (Join-Path $sourceDirectory 'TeleportObserve.cpp'),
         (Join-Path $saveDetection 'NativeSaveLoadProbe.cpp'),
         (Join-Path $markerBell 'NativeMapCategoryProbe.cpp'),
         (Join-Path $markerBell 'NativeMarkerDefinition.cpp'),
         (Join-Path $markerBell 'NativeSaveReader.cpp'))
-    & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W4 /LD /DPYWEL_ATLAS_COMBINED @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj /link "/OUT:$outputPath" /IMPLIB:PywelAtlas.lib shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib
-    if ($LASTEXITCODE -ne 0) { throw 'Could not build the combined Pywel Atlas mod' }
+    $defines = @('/DPYWEL_ATLAS_COMBINED')
+    if ($Test) {
+        # Test build only: add the teleporter and switch on its hook call.
+        $applicationSources += (Join-Path $sourceDirectory 'TestTeleporter.cpp')
+        $defines += '/DPYWEL_ATLAS_TELEPORT'
+    }
+    & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W4 /LD @defines @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj /link "/OUT:$outputPath" /IMPLIB:PywelAtlas.lib shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib
+    if ($LASTEXITCODE -ne 0) { throw "Could not build $asiName" }
 
     # --- Step 5: copy licenses and README next to the .asi -------------------
     Copy-Item -LiteralPath (Join-Path $saveDetection 'vendor/minhook/LICENSE.txt') -Destination (Join-Path $destination 'PywelAtlas-MinHook-LICENSE.txt') -Force
     Copy-Item -LiteralPath (Join-Path $workspace 'third_party/python/pycrimson-LICENSE.txt') -Destination (Join-Path $destination 'pycrimson-LICENSE.txt') -Force
-    Copy-Item -LiteralPath (Join-Path $sourceDirectory 'PywelAtlas-README.md') -Destination $destination -Force
+    Copy-Item -LiteralPath (Join-Path $sourceDirectory $readmeName) -Destination $destination -Force
     Write-Output "Built $outputPath"
 } finally {
     Pop-Location

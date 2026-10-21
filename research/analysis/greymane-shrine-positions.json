@@ -1,0 +1,458 @@
+{
+  "shrines": [
+    {
+      "tableIndex": 1107,
+      "nodeKey": 1000262,
+      "nodeName": "Node_Dem_SouthGreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1001184,
+          "name": "Rivercrest"
+        }
+      ],
+      "poiId": "mg:552782",
+      "poiName": "Riverbed Terrace Shrine",
+      "match": "review",
+      "region": "Demeniss",
+      "mapLat": 0.61420389284991,
+      "mapLng": -0.77079504849104,
+      "templeUuid": [
+        2987370491,
+        3222801617,
+        3945374541,
+        0
+      ],
+      "gamePosition": [
+        -8913.1777,
+        525.7499,
+        -3954.1743
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-35_-16_sub_2_2.palevel",
+      "altarUuid": [
+        1124829662,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.4,
+      "mapGenieDistance": 38.8,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1108,
+      "nodeKey": 1000263,
+      "nodeName": "Node_Dem_WestGreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1001185,
+          "name": "Kingshield_South"
+        }
+      ],
+      "poiId": "mg:557079",
+      "poiName": "Kingshield Mountains Southern Shrine",
+      "match": "close",
+      "region": "Demeniss",
+      "mapLat": 0.67339464401037,
+      "mapLng": -0.77992603182977,
+      "templeUuid": [
+        654697028,
+        3222801617,
+        131836493,
+        0
+      ],
+      "gamePosition": [
+        -9088.917,
+        660.1626,
+        -2529.5002
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-36_-10_sub_2_4.palevel",
+      "altarUuid": [
+        1114018167,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.4,
+      "mapGenieDistance": 26.3,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1109,
+      "nodeKey": 1000265,
+      "nodeName": "Node_Dem_EastGreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1001186,
+          "name": "ShadowSlope"
+        }
+      ],
+      "poiId": "mg:561888",
+      "poiName": "Shadow's Slope Shrine",
+      "match": "close",
+      "region": "Demeniss",
+      "mapLat": 0.62840486715434,
+      "mapLng": -0.68838683147646,
+      "templeUuid": [
+        1977383702,
+        3222801617,
+        3945374541,
+        0
+      ],
+      "gamePosition": [
+        -6914.5561,
+        460.2919,
+        -3624.0833
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-28_-15_sub_1_3.palevel",
+      "altarUuid": [
+        1103770729,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.6,
+      "mapGenieDistance": 22.0,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1110,
+      "nodeKey": 1000558,
+      "nodeName": "Node_Del_GreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1001998,
+          "name": "Beardtree"
+        }
+      ],
+      "poiId": "mg:555761",
+      "poiName": "Beardtree Shrine",
+      "match": "name",
+      "region": "Delesyia",
+      "mapLat": 0.64589410356908,
+      "mapLng": -0.58798613604327,
+      "templeUuid": [
+        1144254747,
+        3222801641,
+        3945374541,
+        0
+      ],
+      "gamePosition": [
+        -4465.3442,
+        404.868,
+        -3191.4658
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-18_-13_sub_2_9.palevel",
+      "altarUuid": [
+        1142235942,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.6,
+      "mapGenieDistance": 25.4,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1111,
+      "nodeKey": 1000559,
+      "nodeName": "Node_Musket_EastGreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1001999,
+          "name": "RainForest"
+        }
+      ],
+      "poiId": "mg:554143",
+      "poiName": "Rainforest Shrine",
+      "match": "name",
+      "region": "Crimson Desert",
+      "mapLat": 0.68753274319319,
+      "mapLng": -0.58595541170698,
+      "templeUuid": [
+        4292311349,
+        1450446091,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4418.6548,
+        537.7379,
+        -2180.928
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-18_-9_sub_2_6.palevel",
+      "altarUuid": [
+        1182004222,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.6,
+      "mapGenieDistance": 28.5,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1112,
+      "nodeKey": 1000560,
+      "nodeName": "Node_Musket_WestGreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1002000,
+          "name": "CrimsonWall"
+        }
+      ],
+      "poiId": "mg:561810",
+      "poiName": "Crimson Wall Shrine",
+      "match": "name",
+      "region": "Crimson Desert",
+      "mapLat": 0.69692822826907,
+      "mapLng": -0.65795992483606,
+      "templeUuid": [
+        4368410,
+        1450446092,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6179.0176,
+        537.4671,
+        -1973.0408
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-25_-8_sub_1_1.palevel",
+      "altarUuid": [
+        1249372251,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.8,
+      "mapGenieDistance": 17.9,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1113,
+      "nodeKey": 1000561,
+      "nodeName": "Node_CatchfireGreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1002001,
+          "name": "Kingshield_North"
+        }
+      ],
+      "poiId": "mg:547335",
+      "poiName": "Kingshield Mountains Northern Shrine",
+      "match": "close",
+      "region": "Demeniss",
+      "mapLat": 0.71738311922984,
+      "mapLng": -0.76659661387425,
+      "gamePosition": [
+        -8784.0,
+        667.79,
+        -1487.0
+      ],
+      "positionSource": "user in-game check",
+      "mapGenieDistance": 0.3,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1114,
+      "nodeKey": 1000578,
+      "nodeName": "Node_Her_GreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1002002,
+          "name": "NasRiver"
+        }
+      ],
+      "poiId": "mg:544080",
+      "poiName": "Nas River Shrine",
+      "match": "name",
+      "region": "Hernand",
+      "mapLat": 0.61298240110734,
+      "mapLng": -0.83133768378746,
+      "templeUuid": [
+        1613158910,
+        3222801635,
+        3945374541,
+        0
+      ],
+      "gamePosition": [
+        -10346.3047,
+        533.8214,
+        -3988.0156
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-41_-16_sub_2_6.palevel",
+      "altarUuid": [
+        691727283,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.7,
+      "mapGenieDistance": 22.3,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1115,
+      "nodeKey": 1000580,
+      "nodeName": "Node_Her_SouthGreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1002003,
+          "name": "SunrisePlain"
+        }
+      ],
+      "poiId": "mg:551449",
+      "poiName": "Sunrise Plains Shrine",
+      "match": "name",
+      "region": "Hernand",
+      "mapLat": 0.5516649792259,
+      "mapLng": -0.83467144916125,
+      "templeUuid": [
+        3972989193,
+        3222801635,
+        3945374541,
+        0
+      ],
+      "gamePosition": [
+        -10426.1992,
+        607.6848,
+        -5482.2334
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-41_-22_sub_1_2.palevel",
+      "altarUuid": [
+        1136121152,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.7,
+      "mapGenieDistance": 10.1,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1116,
+      "nodeKey": 1000582,
+      "nodeName": "Node_Her_NorthGreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1002004,
+          "name": "SilverWolf"
+        }
+      ],
+      "poiId": "mg:546435",
+      "poiName": "Silverwolf Mountain Shrine",
+      "match": "name",
+      "region": "Hernand",
+      "mapLat": 0.72854464082001,
+      "mapLng": -0.84364515380145,
+      "templeUuid": [
+        2992050668,
+        3222801601,
+        2627380557,
+        0
+      ],
+      "gamePosition": [
+        -10626.4619,
+        779.704,
+        -1194.2737
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-42_-5_sub_2_6.palevel",
+      "altarUuid": [
+        670738228,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.6,
+      "mapGenieDistance": 27.8,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1117,
+      "nodeKey": 1000583,
+      "nodeName": "Node_Odeck_GreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1002005,
+          "name": "MistLake"
+        }
+      ],
+      "poiId": "mg:553835",
+      "poiName": "Lake Mistveil Shrine",
+      "match": "review",
+      "region": "Pailune",
+      "mapLat": 0.814999275014,
+      "mapLng": -0.85375785827637,
+      "templeUuid": [
+        3879094100,
+        3222801635,
+        3945374541,
+        0
+      ],
+      "gamePosition": [
+        -10879.9678,
+        697.1751,
+        867.3259
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-43_3_sub_1_0.palevel",
+      "altarUuid": [
+        1212139101,
+        1450446868,
+        1903127100,
+        0
+      ],
+      "altarDistance": 4.9,
+      "mapGenieDistance": 8.1,
+      "positionMatch": "ok"
+    },
+    {
+      "tableIndex": 1118,
+      "nodeKey": 1000585,
+      "nodeName": "Node_Cal_GreyManeTemple",
+      "knowledge": [
+        {
+          "knowledgeKey": 1002006,
+          "name": "Deepfog"
+        }
+      ],
+      "poiId": "mg:546841",
+      "poiName": "Deepfog Basin Shrine",
+      "match": "name",
+      "region": "Hernand",
+      "mapLat": 0.69549080419319,
+      "mapLng": -0.90269610305605,
+      "templeUuid": [
+        3099932072,
+        3222801635,
+        3945374541,
+        0
+      ],
+      "gamePosition": [
+        -12073.8818,
+        716.1058,
+        -1999.9749
+      ],
+      "positionSource": "temple object in the level files",
+      "templeLevel": "leveldata/bin__/rootlevel/sectorlevel/sector_-48_-8_sub_1_1.palevel",
+      "altarUuid": [
+        707301009,
+        1450446868,
+        2637968444,
+        0
+      ],
+      "altarDistance": 4.7,
+      "mapGenieDistance": 17.6,
+      "positionMatch": "ok"
+    }
+  ]
+}

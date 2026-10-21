@@ -17,3 +17,6 @@ __pycache__/
 *.whl
 *.dll
 deps/
+
+# Research-only third-party tools (downloaded, never part of the mod)
+research/vendor/

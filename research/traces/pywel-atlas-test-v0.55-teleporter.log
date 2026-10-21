@@ -1,0 +1,38 @@
+Pywel Atlas TEST build teleporter (phase 2) - test saves only. Ctrl+Right/Left choose, Ctrl+Up shows, Ctrl+Down teleports (or PageDown/PageUp/Home/End).
+All guards matched; 23 targets loaded.
+Selected target 2: Hernand Abyss Nexus
+Selected target 3: Calphade Bell
+Selected target 4: Delesyia Bell
+Selected target 3: Calphade Bell
+Selected target 4: Delesyia Bell
+Selected target 5: Demeniss Bell
+Selected target 6: Hernand Bell
+t=52382031 teleport requested to 6: Hernand Bell
+t=52382046 attempt 1 to "Hernand Bell": applied thread=28444 result=0x1 player=(-10626.43, 621.15, -3813.26) distanceToTarget=78.8 m
+t=52385046 attempt 2 to "Hernand Bell": applied thread=28444 result=0x1 player=(-10702.50, 632.63, -3833.86) distanceToTarget=0.0 m
+t=52387046 attempt 2 to "Hernand Bell": checked thread=28444 player=(-10702.50, 632.63, -3833.86) distanceToTarget=0.0 m -> ARRIVED
+Selected target 7: Pailune Bell
+Selected target 8: Scholastone Bell
+Selected target 9: Tommaso Bell
+Selected target 10: Varnia Bell
+Selected target 11: Riverbed Terrace Shrine
+Selected target 12: Kingshield Mountains Southern Shrine
+Selected target 13: Shadow's Slope Shrine
+Selected target 14: Beardtree Shrine
+Selected target 15: Rainforest Shrine
+Selected target 16: Crimson Wall Shrine
+Selected target 17: Kingshield Mountains Northern Shrine (game-file shrine)
+t=52430328 teleport requested to 17: Kingshield Mountains Northern Shrine (game-file shrine)
+t=52430343 attempt 1 to "Kingshield Mountains Northern Shrine (game-file shrine)": applied thread=28444 result=0x1 player=(-10626.43, 621.15, -3813.26) distanceToTarget=4121.4 m
+t=52433343 attempt 2 to "Kingshield Mountains Northern Shrine (game-file shrine)": applied thread=28444 result=0x1 player=(-9903.78, 659.47, 244.31) distanceToTarget=0.0 m
+t=52435343 attempt 2 to "Kingshield Mountains Northern Shrine (game-file shrine)": checked thread=28444 player=(-9905.89, 657.44, 241.66) distanceToTarget=3.4 m -> ARRIVED
+Selected target 18: Nas River Shrine
+Selected target 19: Sunrise Plains Shrine
+Selected target 20: Silverwolf Mountain Shrine
+Selected target 21: Lake Mistveil Shrine
+Selected target 22: Deepfog Basin Shrine
+Selected target 23: Kingshield N Shrine (th.gl point)
+t=52465468 teleport requested to 23: Kingshield N Shrine (th.gl point)
+t=52465484 attempt 1 to "Kingshield N Shrine (th.gl point)": applied thread=28444 result=0x1 player=(-9967.52, 682.20, 6.44) distanceToTarget=1905.5 m
+t=52468484 attempt 2 to "Kingshield N Shrine (th.gl point)": applied thread=28444 result=0x1 player=(-8784.00, 668.80, -1487.00) distanceToTarget=0.0 m
+t=52470484 attempt 2 to "Kingshield N Shrine (th.gl point)": checked thread=28444 player=(-8784.00, 667.79, -1487.00) distanceToTarget=0.0 m -> ARRIVED

@@ -67,6 +67,10 @@
 // The verified Bell list (ids, names, game positions) for one marker per Bell.
 #include "bell-proof-links.h"
 #endif
+#ifdef PYWEL_ATLAS_TELEPORT
+// Test build only (src/pywel-atlas/TestTeleporter.cpp): runs on the minimap thread.
+void PywelTeleporterService();
+#endif
 
 namespace {
 // ===========================================================================
@@ -1656,13 +1660,15 @@ SRWLOCK positionLock = SRWLOCK_INIT;
 PlayerPosition playerPosition = {};
 
 // Hook on the minimap update: calls it unchanged, then copies the player
-// position it just stored. Watch only.
+// position it just stored. Watch only (in the test build it also gives the
+// test teleporter its turn; see src/pywel-atlas/TestTeleporter.cpp).
 uintptr_t ObserveMinimapUpdate(void* controller, float elapsed) {
     uintptr_t result = originalMinimapUpdate(controller, elapsed);
     uintptr_t table = 0;
     float position[3] = {};
     BYTE abyss = 0;
-    if (Read(controller, &table, sizeof(table)) && table == imageBase + 0x5674e00 &&
+    bool minimap = Read(controller, &table, sizeof(table)) && table == imageBase + 0x5674e00;
+    if (minimap &&
         Read(static_cast<const BYTE*>(controller) + 0x330, position, sizeof(position)) &&
         Read(static_cast<const BYTE*>(controller) + 0x569, &abyss, sizeof(abyss)) &&
         TryAcquireSRWLockExclusive(&positionLock)) {
@@ -1673,6 +1679,13 @@ uintptr_t ObserveMinimapUpdate(void* controller, float elapsed) {
         ++playerPosition.minimapUpdates;
         ReleaseSRWLockExclusive(&positionLock);
     }
+#ifdef PYWEL_ATLAS_TELEPORT
+    // Test build only: the game's own teleports run on this thread, after the
+    // minimap update. The teleporter checks its own request state.
+    if (minimap) {
+        PywelTeleporterService();
+    }
+#endif
     return result;
 }
 
@@ -1920,7 +1933,7 @@ DWORD WINAPI Run(void* address) {
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
 #ifdef PYWEL_ATLAS_COMBINED
-    Log("Pywel Atlas combined v0.54 map markers - one native Bell icon (type 360) per Bell, shown at every map zoom (zoom limit off on our own markers only) while the detected save has it not completed; F10 hides all, F6 shows again. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap");
+    Log("Pywel Atlas combined v0.55 map markers -one native Bell icon (type 360) per Bell, shown at every map zoom (zoom limit off on our own markers only) while the detected save has it not completed; F10 hides all, F6 shows again. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap");
 #else
     Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
 #endif
@@ -2339,6 +2352,22 @@ DWORD WINAPI Run(void* address) {
 // starts this part's worker through this entry point.
 DWORD WINAPI PywelMapMarkerRun(void* address) {
     return Run(address);
+}
+
+// Combined build: lets another part (the v0.55 teleport observation) read the
+// latest copy of the player position taken in the minimap update hook, and
+// which thread took it. Never waits: returns false if the copy is busy or
+// none was taken yet.
+bool PywelGetMinimapPlayer(float (&xyz)[3], DWORD& thread, ULONGLONG& tick) {
+    if (!TryAcquireSRWLockShared(&positionLock)) {
+        return false;
+    }
+    memcpy(xyz, playerPosition.minimap, sizeof(xyz));
+    thread = playerPosition.minimapThread;
+    tick = playerPosition.minimapTick;
+    bool known = playerPosition.minimapUpdates > 0;
+    ReleaseSRWLockShared(&positionLock);
+    return known;
 }
 #else
 // Windows calls this when the mod DLL is loaded. It does as little as possible

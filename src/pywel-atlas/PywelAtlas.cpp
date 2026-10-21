@@ -9,7 +9,12 @@
 //     - Save detection (src/save-detection/NativeSaveLoadProbe.cpp): works out
 //       which save is loaded and where the game saves it, and reads its Bells.
 //     - Map marker (src/marker-bell/NativeMapCategoryProbe.cpp): shows and
-//       removes the test map marker ("proof chest").
+//       removes the Bell map markers.
+//     - Teleport observation (TeleportObserve.cpp, v0.55): watch-only logging
+//       of the game's own player-move functions, for the planned test-only
+//       teleporter. It moves nothing.
+//     - Test teleporter (TestTeleporter.cpp): ONLY in the separate test build
+//       PywelAtlasTest.asi (build.ps1 -Test defines PYWEL_ATLAS_TELEPORT).
 //   Both files are compiled with PYWEL_ATLAS_COMBINED defined, which removes
 //   their own DllMain and gives each a start function instead.
 //
@@ -31,9 +36,15 @@
 #include <windows.h>
 #include "../save-detection/vendor/minhook/include/MinHook.h"
 
-// Start functions of the two parts (defined in their own files).
+// Start functions of the parts (defined in their own files).
 DWORD WINAPI PywelSaveDetectionRun(void* address);
 DWORD WINAPI PywelMapMarkerRun(void* address);
+// v0.55: watch-only teleport observation (TeleportObserve.cpp); moves nothing.
+DWORD WINAPI PywelTeleportObserveRun(void* address);
+#ifdef PYWEL_ATLAS_TELEPORT
+// Test build only (PywelAtlasTest.asi): the test teleporter's worker.
+DWORD WINAPI PywelTeleporterRun(void* address);
+#endif
 
 namespace {
 
@@ -54,6 +65,10 @@ DWORD WINAPI Start(void* address) {
     }
     StartPart(PywelSaveDetectionRun, address);
     StartPart(PywelMapMarkerRun, address);
+    StartPart(PywelTeleportObserveRun, address);
+#ifdef PYWEL_ATLAS_TELEPORT
+    StartPart(PywelTeleporterRun, address);
+#endif
     return 0;
 }
 
