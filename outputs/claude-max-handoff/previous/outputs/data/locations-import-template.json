@@ -1,0 +1,14 @@
+{
+  "locations": [
+    {
+      "id": "unique-location-id",
+      "name": "Example location",
+      "category": "Landmarks",
+      "world": "Pywel",
+      "mapLat": 0.69843,
+      "mapLng": -0.77489,
+      "description": "Example provider map-grid position; replace before importing.",
+      "color": "gold"
+    }
+  ]
+}

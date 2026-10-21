@@ -1,0 +1,892 @@
+Pywel Atlas independent chest lifecycle v0.28 - requests serviced after complete map update
+Create observation hook rva=0xdeeb60: MH_OK
+Create observation hook rva=0x537250: MH_OK
+Create observation hook rva=0x388e00: MH_OK
+Create observation hook rva=0xdeca40: MH_OK
+Create observation hook rva=0xdb3bd0: MH_OK
+Create observation hook rva=0xd8a970: MH_OK
+Create observation hook rva=0xd94040: MH_OK
+Create observation hook rva=0xd91820: MH_OK
+Create observation hook rva=0xdabd10: MH_OK
+F6 requests one private chest for 3 minutes; open Pywel. No reload or saved pin is needed.
+F8 captures state. F10 disables and requests removal; keep/open Pywel to service it. Save identity is manual.
+controller=0x566ff50 type=0 categoryKnown=1 category=0x43 tag=(0xffffffffa0100001,0xc) tagByte8=0xc xyzKnown=1 xyz=(-0.081014,1000.149963,-0.376393) templateTypeKnown=1 templateType=28650 template=MapIcon_ActorFocus generated=0 iconVerified=0 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=1 initResult=1 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=0 categoryKnown=1 category=0x43 tag=(0xffffffffa0100001,0xc) tagByte8=0xc xyzKnown=1 xyz=(-0.081014,1000.149963,-0.376393) templateTypeKnown=1 templateType=28650 template=MapIcon_ActorFocus generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=529 categoryKnown=1 category=0x5a tag=(0xffffffffffff1452,0x2) tagByte8=0x2 xyzKnown=1 xyz=(-10347.000000,537.000000,-3983.000000) templateTypeKnown=1 templateType=29231 template=MapIcon_StageFog generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=529 categoryKnown=1 category=0x5a tag=(0xffffffffffff1452,0x2) tagByte8=0x2 xyzKnown=1 xyz=(-10347.000000,537.000000,-3983.000000) templateTypeKnown=1 templateType=29231 template=MapIcon_StageFog generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=44 categoryKnown=1 category=0x13 tag=(0xffffffffb0100002,0xc) tagByte8=0xc xyzKnown=1 xyz=(-10510.183594,580.349731,-3943.832520) templateTypeKnown=1 templateType=28691 template=MapIcon_ActorVehicleHorse_Hired generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=44 categoryKnown=1 category=0x13 tag=(0xffffffffb0100002,0xc) tagByte8=0xc xyzKnown=1 xyz=(-10510.183594,580.349731,-3943.832520) templateTypeKnown=1 templateType=28691 template=MapIcon_ActorVehicleHorse_Hired generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=102 categoryKnown=1 category=0x30 tag=(0xffffffffb01000b5,0xc) tagByte8=0xc xyzKnown=1 xyz=(-10673.782227,616.410950,-3841.977051) templateTypeKnown=1 templateType=28654 template=MapIcon_ActorCharacter generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=102 categoryKnown=1 category=0x30 tag=(0xffffffffb01000b5,0xc) tagByte8=0xc xyzKnown=1 xyz=(-10673.782227,616.410950,-3841.977051) templateTypeKnown=1 templateType=28654 template=MapIcon_ActorCharacter generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=185 categoryKnown=1 category=0x27 tag=(0xffffffffb01000ce,0xc) tagByte8=0xc xyzKnown=1 xyz=(-10638.693359,608.102783,-3885.519287) templateTypeKnown=1 templateType=28811 template=MapIcon_DialogIcon_Interaction generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=185 categoryKnown=1 category=0x27 tag=(0xffffffffb01000ce,0xc) tagByte8=0xc xyzKnown=1 xyz=(-10638.693359,608.102783,-3885.519287) templateTypeKnown=1 templateType=28811 template=MapIcon_DialogIcon_Interaction generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=360 categoryKnown=1 category=0xffffffff tag=(0x1,0xe) tagByte8=0xe xyzKnown=1 xyz=(-10702.497070,631.127319,-3833.858887) templateTypeKnown=1 templateType=29084 template=MapIcon_Gimmick_Bell_01 generated=0 iconVerified=0 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=1 initResult=1 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=234 categoryKnown=1 category=0x20 tag=(0x8f00000006,0xe) tagByte8=0xe xyzKnown=1 xyz=(-10626.433594,620.716675,-3813.260742) templateTypeKnown=1 templateType=28866 template=MapIcon_Abyss_Ruins generated=0 iconVerified=0 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=1 initResult=1 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=336 categoryKnown=1 category=0xffffffff tag=(0x1d30000004a,0xe) tagByte8=0xe xyzKnown=1 xyz=(-10497.472656,576.924316,-3968.501953) templateTypeKnown=1 templateType=29058 template=MapIcon_Gimmick_Campfire generated=0 iconVerified=0 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=1 initResult=1 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=360 categoryKnown=1 category=0xffffffff tag=(0x1,0xe) tagByte8=0xe xyzKnown=1 xyz=(-10702.497070,631.127319,-3833.858887) templateTypeKnown=1 templateType=29084 template=MapIcon_Gimmick_Bell_01 generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=234 categoryKnown=1 category=0x20 tag=(0x8f00000006,0xe) tagByte8=0xe xyzKnown=1 xyz=(-10626.433594,620.716675,-3813.260742) templateTypeKnown=1 templateType=28866 template=MapIcon_Abyss_Ruins generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=336 categoryKnown=1 category=0xffffffff tag=(0x1d30000004a,0xe) tagByte8=0xe xyzKnown=1 xyz=(-10497.472656,576.924316,-3968.501953) templateTypeKnown=1 templateType=29058 template=MapIcon_Gimmick_Campfire generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=534 categoryKnown=1 category=0x60 tag=(0xffffffff0000000b,0x13) tagByte8=0x13 xyzKnown=1 xyz=(-9420.659180,653.849915,-4181.602051) templateTypeKnown=1 templateType=29231 template=unknown generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=1 categoryKnown=1 category=0x25 tag=(0x0,0x15) tagByte8=0x15 xyzKnown=1 xyz=(-10702.497070,631.127319,-3833.858887) templateTypeKnown=1 templateType=28651 template=MapIcon_Pin_Marker generated=0 iconVerified=0 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=1 initResult=1 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=1 categoryKnown=1 category=0x25 tag=(0x0,0x15) tagByte8=0x15 xyzKnown=1 xyz=(-10702.497070,631.127319,-3833.858887) templateTypeKnown=1 templateType=28651 template=MapIcon_Pin_Marker generated=0 iconVerified=0 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=456 categoryKnown=1 category=0x19 tag=(0xffffffff0000c04b,0x1) tagByte8=0x1 xyzKnown=1 xyz=(-10642.555664,614.094971,-3870.205078) templateTypeKnown=1 templateType=29182 template=MapIcon_QuestShopIcon generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=456 categoryKnown=1 category=0x19 tag=(0xffffffff0000c04b,0x1) tagByte8=0x1 xyzKnown=1 xyz=(-10642.555664,614.094971,-3870.205078) templateTypeKnown=1 templateType=29182 template=MapIcon_QuestShopIcon generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=1 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x566ff50 type=453 categoryKnown=1 category=0x1a tag=(0xffffffff0000c052,0x1) tagByte8=0x1 xyzKnown=1 xyz=(-10686.951172,635.689026,-3634.635010) templateTypeKnown=1 templateType=29177 template=MapIcon_UnknownShopIcon generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=0 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+controller=0x5674e00 type=453 categoryKnown=1 category=0x1a tag=(0xffffffff0000c052,0x1) tagByte8=0x1 xyzKnown=1 xyz=(-10686.951172,635.689026,-3634.635010) templateTypeKnown=1 templateType=29177 template=MapIcon_UnknownShopIcon generated=0 iconVerified=0 visibilityKnown=0 suppression=000000 ownerControllerPresent=0 creationFlag=0 finalFlag=0 containerRouted=0 initObserved=0 initResult=0 rootPresent=0 baseIconPresent=0 sizeKnown=0 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+Chest generation ON. Independent creation requested; open Pywel, no reload.
+controller=0x566ff50 type=226 categoryKnown=1 category=0xffffffff tag=(0x5059415400000002,0x15) tagByte8=0x15 xyzKnown=1 xyz=(-10502.497070,631.127319,-3833.858887) templateTypeKnown=1 templateType=28852 template=MapIcon_Gimmick_LevelTreasureBox generated=1 iconVerified=1 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=1 containerRouted=1 initObserved=1 initResult=1 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=0 calculatedScale=0.000000
+independent outcome=1: independent object created and read back
+snapshot creates=602 sampled=602 dropped=0 named=590 enabled=1 generated=1 occupied=0 definitionRejected=0 readbackMask=1
+lifecycle owned=1 request=0 attempts=0 confirmedAbsent=0 alreadyAbsent=0 rejected=0 outcome=0
+independent request=0 outcome=1 worldMapUpdateCalls=649
+controller=0x566ff50 type=226 categoryKnown=0 category=0x0 tag=(0x5059415400000002,0x15) tagByte8=0x15 xyzKnown=1 xyz=(-10502.497070,631.127319,-3833.858887) templateTypeKnown=0 templateType=0 template=unknown generated=1 iconVerified=1 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=0 containerRouted=0 initObserved=0 initResult=0 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=2 calculatedScale=0.000000
+controller=0x566ff50 type=226 categoryKnown=0 category=0x0 tag=(0x5059415400000002,0x15) tagByte8=0x15 xyzKnown=1 xyz=(-10502.497070,631.127319,-3833.858887) templateTypeKnown=0 templateType=0 template=unknown generated=1 iconVerified=1 visibilityKnown=1 suppression=000000 ownerControllerPresent=1 creationFlag=0 finalFlag=0 containerRouted=0 initObserved=0 initResult=0 rootPresent=1 baseIconPresent=1 sizeKnown=1 size=(0.000000,0.000000) phase=1 calculatedScale=1.000000
+render-window complete worldProjectionCalls=4026 privateScaleCalls=22
+Chest generation OFF (F10). Scoped removal requested; keep/open Pywel.
+lifecycle outcome=1: pending UI callback
+lifecycle outcome=3: typed lookup confirms absence after native removal
+snapshot creates=602 sampled=602 dropped=0 named=590 enabled=0 generated=1 occupied=0 definitionRejected=0 readbackMask=1
+lifecycle owned=0 request=0 attempts=1 confirmedAbsent=1 alreadyAbsent=0 rejected=0 outcome=3
+independent request=0 outcome=1 worldMapUpdateCalls=930
+catalogue begin: cached metadata only; entries do not imply a scene marker exists
+definition type=1 containerSelector=1 projectionBranch=0 altitudeBranch=1 raw20toBF=eb6fffffffffffffffff017225000000ffff0000ffffffffa0532da30702000090010000cc130000190000000000000080532da307020000ffff13009b0000000001010000c1872a00542da30702000091010000cc1300001900000000000000e0532da307020000000000000000000000000000000000000000000000000000000000000000803f070100000000000000000000000000010100000000000000
+catalogue type=1 category=0x25 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=2 category=0x66 templateType=28652 template=MapIcon_Pin_Marker_Trace
+catalogue type=36 category=0xc templateType=28684 template=MapIcon_TreasureBox
+catalogue type=40 category=0xffffffff templateType=28688 template=MapIcon_AbyssTreasureBox
+catalogue type=41 category=0xffffffff templateType=28689 template=MapIcon_AbyssTreasureBoxOpened
+catalogue type=186 category=0xffffffff templateType=28812 template=MapIcon_Gimmick_GreyManeTemple
+catalogue type=187 category=0xffffffff templateType=28813 template=MapIcon_Gimmick_SealedArtifact
+catalogue type=193 category=0xffffffff templateType=28821 template=MapIcon_Gimmick_Ship_Boat
+catalogue type=194 category=0xffffffff templateType=28822 template=MapIcon_Gimmick_Ship_Sailboat
+catalogue type=195 category=0xffffffff templateType=28823 template=MapIcon_Gimmick_Ship_Sailboat_Hired
+catalogue type=196 category=0xffffffff templateType=28824 template=MapIcon_Gimmick_Tesla_Coil_Pillar
+catalogue type=197 category=0xffffffff templateType=28825 template=MapIcon_Gimmick_Tesla_Coil_Holder
+catalogue type=198 category=0xffffffff templateType=28826 template=MapIcon_Gimmick_Tesla_Coil_Fusion
+catalogue type=199 category=0xffffffff templateType=28827 template=MapIcon_Gimmick_Tesla_Coil_Fusion_On
+catalogue type=200 category=0xffffffff templateType=28828 template=MapIcon_Gimmick_Tesla_Coil_Operator
+catalogue type=201 category=0xffffffff templateType=28829 template=MapIcon_Gimmick_Tesla_Coil_Operator_On
+catalogue type=205 category=0xffffffff templateType=28833 template=MapIcon_Gimmick_Transmitter_00
+catalogue type=206 category=0xffffffff templateType=28834 template=MapIcon_Gimmick_Power_Button_00
+catalogue type=207 category=0xffffffff templateType=28835 template=MapIcon_Gimmick_Controller_Platform_00
+catalogue type=208 category=0xffffffff templateType=28836 template=MapIcon_Gimmick_Push_Switch_00
+catalogue type=209 category=0xffffffff templateType=28837 template=MapIcon_Gimmick_Battery_00
+catalogue type=210 category=0xffffffff templateType=28838 template=MapIcon_Gimmick_Battery_Slot_00
+catalogue type=211 category=0xffffffff templateType=28839 template=MapIcon_Gimmick_Battery_Slot_On_00
+catalogue type=212 category=0xffffffff templateType=28840 template=MapIcon_Gimmick_Battery_01
+catalogue type=213 category=0xffffffff templateType=28841 template=MapIcon_Gimmick_Battery_Slot_01
+catalogue type=214 category=0xffffffff templateType=28842 template=MapIcon_Gimmick_Battery_Slot_On_01
+catalogue type=218 category=0xffffffff templateType=28846 template=MapIcon_Gimmick_Buddha_Hand
+catalogue type=219 category=0xffffffff templateType=28847 template=MapIcon_Gimmick_Buddha_base
+catalogue type=220 category=0xffffffff templateType=28848 template=MapIcon_Gimmick_Buddha_body
+catalogue type=221 category=0xffffffff templateType=28849 template=MapIcon_Gimmick_Buddha_fusion
+definition type=226 containerSelector=0 projectionBranch=0 altitudeBranch=1 raw20toBF=b470ffffffffb570b6700000fffffffffc160000ffffffff801f7ca60702000090010000281500001900000000000000601f7ca607020000ffff0000410000000101010000000000e01f7ca60702000091010000281500001900000000000000c01f7ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=226 category=0xffffffff templateType=28852 template=MapIcon_Gimmick_LevelTreasureBox
+definition type=227 containerSelector=0 projectionBranch=0 altitudeBranch=1 raw20toBF=b770ffffffffb570b6700000fffffffffc160000ffffffff60207ca607020000900100004c150000190000000000000020d372a607020000ffff0000410000000101010000000000c0207ca607020000910100004c1500001900000000000000a0207ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=227 category=0xffffffff templateType=28855 template=MapIcon_Gimmick_LevelTreasureBoxOpened
+definition type=228 containerSelector=3 projectionBranch=0 altitudeBranch=1 raw20toBF=b470ffffffffb570b6700300fffffffffc160000ffffffff60217ca6070200009001000050150000190000000000000040217ca607020000ffff0000410000000101010000000000c0217ca60702000091010000501500001900000000000000a0217ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=228 category=0xffffffff templateType=28852 template=MapIcon_Gimmick_LevelTreasureBox
+definition type=229 containerSelector=3 projectionBranch=0 altitudeBranch=1 raw20toBF=b770ffffffffb570b6700300fffffffffc160000ffffffff40227ca6070200009001000051150000190000000000000020227ca607020000ffff0000410000000101010000000000a0227ca6070200009101000051150000190000000000000080227ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=229 category=0xffffffff templateType=28855 template=MapIcon_Gimmick_LevelTreasureBoxOpened
+catalogue type=230 category=0xffffffff templateType=28856 template=MapIcon_Gimmick_Craft_Medicine
+catalogue type=231 category=0xffffffff templateType=28859 template=MapIcon_Gimmick_BlackSmithstone
+catalogue type=232 category=0xffffffff templateType=28862 template=MapIcon_Gimmick_Craft_Anvil
+catalogue type=233 category=0xffffffff templateType=28864 template=MapIcon_Gimmick_Well
+catalogue type=236 category=0xffffffff templateType=28868 template=MapIcon_Gimmick_Abyss_Bridge_Gate
+catalogue type=239 category=0xffffffff templateType=28872 template=MapIcon_Gimmick_MineGold
+catalogue type=240 category=0xffffffff templateType=28874 template=MapIcon_Gimmick_MineSilver
+catalogue type=241 category=0xffffffff templateType=28876 template=MapIcon_Gimmick_MineBluestone
+catalogue type=242 category=0xffffffff templateType=28878 template=MapIcon_Gimmick_MineCopper
+catalogue type=243 category=0xffffffff templateType=28880 template=MapIcon_Gimmick_MineDiamond
+catalogue type=244 category=0xffffffff templateType=28882 template=MapIcon_Gimmick_MineGreenstone
+catalogue type=245 category=0xffffffff templateType=28884 template=MapIcon_Gimmick_MineIron
+catalogue type=246 category=0xffffffff templateType=28886 template=MapIcon_Gimmick_MineRedstone
+catalogue type=247 category=0xffffffff templateType=28888 template=MapIcon_Gimmick_MineRuby
+catalogue type=248 category=0xffffffff templateType=28890 template=MapIcon_Gimmick_MineWhitestone
+catalogue type=249 category=0xffffffff templateType=28892 template=MapIcon_Gimmick_MineBismuth
+catalogue type=250 category=0xffffffff templateType=28894 template=MapIcon_Gimmick_SulfurStone
+catalogue type=251 category=0xffffffff templateType=28896 template=MapIcon_Gimmick_Mercury
+catalogue type=252 category=0xffffffff templateType=28898 template=MapIcon_Gimmick_Rubber
+catalogue type=253 category=0xffffffff templateType=28900 template=MapIcon_Gimmick_Opuntia
+catalogue type=254 category=0xffffffff templateType=28902 template=MapIcon_Gimmick_Chaya
+catalogue type=255 category=0xffffffff templateType=28904 template=MapIcon_Gimmick_Ensete
+catalogue type=256 category=0xffffffff templateType=28906 template=MapIcon_Gimmick_Chlorella
+catalogue type=257 category=0xffffffff templateType=28908 template=MapIcon_Gimmick_Jijeongta_leaf
+catalogue type=258 category=0xffffffff templateType=28910 template=MapIcon_Gimmick_Kudzu_Vine
+catalogue type=259 category=0xffffffff templateType=28912 template=MapIcon_Gimmick_Dulse
+catalogue type=260 category=0xffffffff templateType=28914 template=MapIcon_Gimmick_Amaranth
+catalogue type=261 category=0xffffffff templateType=28916 template=MapIcon_Gimmick_Taro
+catalogue type=263 category=0x64 templateType=28920 template=MapIcon_Gimmick_Clawmachine
+catalogue type=264 category=0x65 templateType=28921 template=MapIcon_Gimmick_Pinball
+catalogue type=265 category=0xffffffff templateType=28922 template=MapIcon_Gimmick_Cushionball
+catalogue type=266 category=0xffffffff templateType=28923 template=MapIcon_Gimmick_Collection_Antirrhinum
+catalogue type=267 category=0xffffffff templateType=28925 template=MapIcon_Gimmick_Collection_Apple
+catalogue type=268 category=0xffffffff templateType=28927 template=MapIcon_Gimmick_Collection_Asparagus
+catalogue type=269 category=0xffffffff templateType=28929 template=MapIcon_Gimmick_Collection_Barley
+catalogue type=270 category=0xffffffff templateType=28931 template=MapIcon_Gimmick_Collection_Bean
+catalogue type=271 category=0xffffffff templateType=28933 template=MapIcon_Gimmick_Collection_Begonia
+catalogue type=272 category=0xffffffff templateType=28935 template=MapIcon_Gimmick_Collection_Blackberry
+catalogue type=273 category=0xffffffff templateType=28937 template=MapIcon_Gimmick_Collection_Blueberry
+catalogue type=274 category=0xffffffff templateType=28939 template=MapIcon_Gimmick_Collection_Buckwheat
+catalogue type=275 category=0xffffffff templateType=28941 template=MapIcon_Gimmick_Collection_Cabbage
+catalogue type=276 category=0xffffffff templateType=28943 template=MapIcon_Gimmick_Collection_Cacao
+catalogue type=277 category=0xffffffff templateType=28945 template=MapIcon_Gimmick_Collection_Carrot
+catalogue type=278 category=0xffffffff templateType=28947 template=MapIcon_Gimmick_Collection_Coffeetree
+catalogue type=279 category=0xffffffff templateType=28949 template=MapIcon_Gimmick_Collection_Corn
+catalogue type=280 category=0xffffffff templateType=28951 template=MapIcon_Gimmick_Collection_Cotton
+catalogue type=281 category=0xffffffff templateType=28953 template=MapIcon_Gimmick_Collection_Cucumber
+catalogue type=282 category=0xffffffff templateType=28955 template=MapIcon_Gimmick_Collection_Desertwatermelon
+catalogue type=283 category=0xffffffff templateType=28957 template=MapIcon_Gimmick_Collection_Elderberry
+catalogue type=284 category=0xffffffff templateType=28959 template=MapIcon_Gimmick_Collection_Fennel
+catalogue type=285 category=0xffffffff templateType=28961 template=MapIcon_Gimmick_Collection_Figs
+catalogue type=286 category=0xffffffff templateType=28963 template=MapIcon_Gimmick_Collection_Garlic
+catalogue type=287 category=0xffffffff templateType=28965 template=MapIcon_Gimmick_Collection_Ginseng
+catalogue type=288 category=0xffffffff templateType=28965 template=MapIcon_Gimmick_Collection_Ginseng
+catalogue type=289 category=0xffffffff templateType=28967 template=MapIcon_Gimmick_Collection_Glowfruit
+catalogue type=290 category=0xffffffff templateType=28969 template=MapIcon_Gimmick_Collection_Grape
+catalogue type=291 category=0xffffffff templateType=28971 template=MapIcon_Gimmick_Collection_Heterophylla
+catalogue type=292 category=0xffffffff templateType=28973 template=MapIcon_Gimmick_Collection_Imperata
+catalogue type=293 category=0xffffffff templateType=28975 template=MapIcon_Gimmick_Collection_Lavender
+catalogue type=294 category=0xffffffff templateType=28977 template=MapIcon_Gimmick_Collection_Lavender_Blue
+catalogue type=295 category=0xffffffff templateType=28979 template=MapIcon_Gimmick_Collection_Lavender_White
+catalogue type=296 category=0xffffffff templateType=28981 template=MapIcon_Gimmick_Collection_Lavender_Yellow
+catalogue type=297 category=0xffffffff templateType=28983 template=MapIcon_Gimmick_Collection_Lentils
+catalogue type=298 category=0xffffffff templateType=28985 template=MapIcon_Gimmick_Collection_Linum
+catalogue type=299 category=0xffffffff templateType=28987 template=MapIcon_Gimmick_Collection_Marigold
+catalogue type=300 category=0xffffffff templateType=28989 template=MapIcon_Gimmick_Collection_Mushroom_Hericium
+catalogue type=301 category=0xffffffff templateType=28991 template=MapIcon_Gimmick_Collection_Mushroo_Phellinus
+catalogue type=302 category=0xffffffff templateType=28993 template=MapIcon_Gimmick_Collection_Mushroom_Shiitake
+catalogue type=303 category=0xffffffff templateType=28995 template=MapIcon_Gimmick_Collection_Navet
+catalogue type=304 category=0xffffffff templateType=28997 template=MapIcon_Gimmick_Collection_Oleander
+catalogue type=305 category=0xffffffff templateType=28999 template=MapIcon_Gimmick_Collection_Oliganthus
+catalogue type=306 category=0xffffffff templateType=29001 template=MapIcon_Gimmick_Collection_Onion
+catalogue type=307 category=0xffffffff templateType=29003 template=MapIcon_Gimmick_Collection_Orange
+catalogue type=308 category=0xffffffff templateType=29005 template=MapIcon_Gimmick_Collection_Pansy
+catalogue type=309 category=0xffffffff templateType=29007 template=MapIcon_Gimmick_Collection_Parsley
+catalogue type=310 category=0xffffffff templateType=29009 template=MapIcon_Gimmick_Collection_Peach
+catalogue type=311 category=0xffffffff templateType=29011 template=MapIcon_Gimmick_Collection_Peas
+catalogue type=312 category=0xffffffff templateType=29013 template=MapIcon_Gimmick_Collection_Peony
+catalogue type=313 category=0xffffffff templateType=29015 template=MapIcon_Gimmick_Collection_Pineapple
+catalogue type=314 category=0xffffffff templateType=29017 template=MapIcon_Gimmick_Collection_Pomegranate
+catalogue type=315 category=0xffffffff templateType=29019 template=MapIcon_Gimmick_Collection_Potato
+catalogue type=316 category=0xffffffff templateType=29021 template=MapIcon_Gimmick_Collection_Pumpkin
+catalogue type=317 category=0xffffffff templateType=29023 template=MapIcon_Gimmick_Collection_Raspberry
+catalogue type=318 category=0xffffffff templateType=29025 template=MapIcon_Gimmick_Collection_Redbeet
+catalogue type=319 category=0xffffffff templateType=29027 template=MapIcon_Gimmick_Collection_Rock_Orchids
+catalogue type=320 category=0xffffffff templateType=29029 template=MapIcon_Gimmick_Collection_Rosemary
+catalogue type=321 category=0xffffffff templateType=29031 template=MapIcon_Gimmick_Collection_Rosemary_White
+catalogue type=322 category=0xffffffff templateType=29033 template=MapIcon_Gimmick_Collection_Rosemary_Yellow
+catalogue type=323 category=0xffffffff templateType=29035 template=MapIcon_Gimmick_Collection_Rosemary_Pink
+catalogue type=324 category=0xffffffff templateType=29037 template=MapIcon_Gimmick_Collection_Sage_Red
+catalogue type=325 category=0xffffffff templateType=29039 template=MapIcon_Gimmick_Collection_Sage
+catalogue type=326 category=0xffffffff templateType=29041 template=MapIcon_Gimmick_Collection_Sophora
+catalogue type=327 category=0xffffffff templateType=29043 template=MapIcon_Gimmick_Collection_Strawberry
+catalogue type=328 category=0xffffffff templateType=29045 template=MapIcon_Gimmick_Collection_Sweetpotato
+catalogue type=329 category=0xffffffff templateType=29047 template=MapIcon_Gimmick_Collection_Tomato
+catalogue type=330 category=0xffffffff templateType=29049 template=MapIcon_Gimmick_Collection_Veratrum
+catalogue type=331 category=0xffffffff templateType=29051 template=MapIcon_Gimmick_Collection_Victorialis
+catalogue type=332 category=0xffffffff templateType=29053 template=MapIcon_Gimmick_Collection_Villosa
+catalogue type=333 category=0xffffffff templateType=29055 template=MapIcon_Gimmick_Collection_Wheat
+catalogue type=336 category=0xffffffff templateType=29058 template=MapIcon_Gimmick_Campfire
+catalogue type=337 category=0xffffffff templateType=29061 template=MapIcon_Gimmick_Bell_00
+catalogue type=338 category=0xffffffff templateType=29062 template=MapIcon_Gimmick_Craft_Cook_Oven_00
+catalogue type=339 category=0xffffffff templateType=29062 template=MapIcon_Gimmick_Craft_Cook_Oven_00
+catalogue type=342 category=0xffffffff templateType=29067 template=MapIcon_Gimmick_Sewing_Machine
+catalogue type=343 category=0xffffffff templateType=29068 template=MapIcon_Gimmick_Tool_Carpenter
+catalogue type=349 category=0xffffffff templateType=29074 template=MapIcon_Gimmick_Marni_Teleportation
+catalogue type=350 category=0xffffffff templateType=28868 template=MapIcon_Gimmick_Abyss_Bridge_Gate
+catalogue type=353 category=0xffffffff templateType=29077 template=MapIcon_GimmickFlag
+catalogue type=354 category=0xffffffff templateType=29078 template=MapIcon_GimmickFlag_Fusion
+catalogue type=355 category=0xffffffff templateType=29079 template=MapIcon_BasicGimmick
+catalogue type=356 category=0xffffffff templateType=29080 template=MapIcon_Gimmick_StoneGate_00
+catalogue type=357 category=0xffffffff templateType=29081 template=MapIcon_Gimmick_LinkBand
+catalogue type=358 category=0xffffffff templateType=29082 template=MapIcon_Gimmick_Wagon_00
+catalogue type=359 category=0xffffffff templateType=29083 template=MapIcon_Gimmick_Box_00
+definition type=360 containerSelector=1 projectionBranch=1 altitudeBranch=1 raw20toBF=9c71ffffffffffffffff0100fffffffff6160000ffffffff209e7ca60702000090010000b51400001900000000000000009e7ca607020000ffff00003c0000000001010000000000a0799fe606020000000000000000000000000000000000004059a64601000000000000000000000000000000000000000000000000000000000000000000803f070100000000000001000000000000010001000000000000
+catalogue type=360 category=0xffffffff templateType=29084 template=MapIcon_Gimmick_Bell_01
+catalogue type=361 category=0xffffffff templateType=29085 template=MapIcon_Gimmick_Pillar_00
+catalogue type=362 category=0xffffffff templateType=29086 template=MapIcon_Gimmick_TransmissionTower
+catalogue type=363 category=0xffffffff templateType=29087 template=MapIcon_Gimmick_FlagHolder
+catalogue type=364 category=0xffffffff templateType=29088 template=MapIcon_Gimmick_HexeTowerProtect
+catalogue type=365 category=0xffffffff templateType=29089 template=MapIcon_Gimmick_AbyssBattery_00
+catalogue type=366 category=0xffffffff templateType=29090 template=MapIcon_Gimmick_AbyssGate_00
+catalogue type=367 category=0xffffffff templateType=29091 template=MapIcon_Gimmick_AbyssArtifactCube_01
+catalogue type=368 category=0xffffffff templateType=29092 template=MapIcon_Gimmick_ProtectiveStone_01
+catalogue type=369 category=0xffffffff templateType=29093 template=MapIcon_Gimmick_Enemy_Raser_Core
+catalogue type=370 category=0xffffffff templateType=29094 template=MapIcon_Gimmick_Enemy_Raser_Turret
+catalogue type=371 category=0xffffffff templateType=29095 template=MapIcon_Gimmick_jail_metal_01
+catalogue type=372 category=0xffffffff templateType=29096 template=MapIcon_Gimmick_jail_metal_00
+catalogue type=373 category=0xffffffff templateType=29097 template=MapIcon_Gimmick_attach_battletower_00
+catalogue type=374 category=0xffffffff templateType=29098 template=MapIcon_Gimmick_golemdragon_generaror_00
+catalogue type=375 category=0xffffffff templateType=29099 template=MapIcon_Gimmick_railgun_turret_00
+catalogue type=376 category=0xffffffff templateType=29100 template=MapIcon_Gimmick_KuKu_Battery
+catalogue type=377 category=0xffffffff templateType=29101 template=MapIcon_Gimmick_Item_Backpack
+catalogue type=381 category=0xffffffff templateType=29105 template=MapIcon_Gimmick_Installation_Bomb
+catalogue type=382 category=0xffffffff templateType=29106 template=MapIcon_Gimmick_ATAG_tunnel
+catalogue type=383 category=0xffffffff templateType=29107 template=MapIcon_Gimmick_Musket_Railgun_Turret_00
+catalogue type=384 category=0xffffffff templateType=29108 template=MapIcon_Gimmick_Abyssmark_Part
+catalogue type=385 category=0xffffffff templateType=29109 template=MapIcon_Gimmick_Antumbra_Tokamak_00
+catalogue type=386 category=0xffffffff templateType=29110 template=MapIcon_Gimmick_Antumbra_Tokamak_01
+catalogue type=387 category=0xffffffff templateType=29111 template=MapIcon_Gimmick_Antumbra_Tokamak_Battery
+catalogue type=388 category=0xffffffff templateType=29112 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar_Part
+catalogue type=389 category=0xffffffff templateType=29113 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar_Base
+catalogue type=390 category=0xffffffff templateType=29114 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar
+catalogue type=391 category=0xffffffff templateType=29115 template=MapIcon_Gimmick_Bsecamp_Warehouse_Box
+catalogue type=394 category=0xffffffff templateType=29118 template=MapIcon_Gimmick_Map_Egg
+catalogue type=395 category=0xffffffff templateType=29119 template=MapIcon_Gimmick_Map_Nest
+catalogue type=396 category=0xffffffff templateType=29120 template=MapIcon_Gimmick_Mechanical_Powerplant
+catalogue type=397 category=0xffffffff templateType=29121 template=MapIcon_Gimmick_Knowledge_Boardpaper
+catalogue type=398 category=0xffffffff templateType=29122 template=MapIcon_TestGimmick
+catalogue type=399 category=0xffffffff templateType=29123 template=MapIcon_TestGimmick1
+catalogue type=400 category=0xffffffff templateType=29124 template=MapIcon_TestGimmick2
+catalogue type=401 category=0xffffffff templateType=29125 template=MapIcon_TestGimmick3
+catalogue type=402 category=0xffffffff templateType=29126 template=MapIcon_TestGimmick4
+catalogue type=403 category=0xffffffff templateType=29127 template=MapIcon_TestGimmick5
+catalogue type=404 category=0xffffffff templateType=29128 template=MapIcon_TestGimmick6
+catalogue type=405 category=0xffffffff templateType=29129 template=MapIcon_TestGimmick7
+catalogue type=406 category=0xffffffff templateType=29130 template=MapIcon_TestGimmick8
+catalogue type=407 category=0xffffffff templateType=29131 template=MapIcon_TestGimmick9
+catalogue type=408 category=0xffffffff templateType=29132 template=MapIcon_TestGimmick10
+catalogue type=409 category=0xffffffff templateType=29133 template=MapIcon_TestGimmick11
+catalogue type=410 category=0xffffffff templateType=29134 template=MapIcon_TestGimmick_Sticky
+catalogue type=411 category=0xffffffff templateType=29135 template=MapIcon_TestGimmick1_Sticky
+catalogue type=412 category=0xffffffff templateType=29136 template=MapIcon_TestGimmick2_Sticky
+catalogue type=413 category=0xffffffff templateType=29137 template=MapIcon_TestGimmick3_Sticky
+catalogue type=414 category=0xffffffff templateType=29138 template=MapIcon_TestGimmick4_Sticky
+catalogue type=415 category=0xffffffff templateType=29139 template=MapIcon_TestGimmick5_Sticky
+catalogue type=416 category=0xffffffff templateType=29140 template=MapIcon_TestGimmick6_Sticky
+catalogue type=417 category=0xffffffff templateType=29141 template=MapIcon_TestGimmick7_Sticky
+catalogue type=418 category=0xffffffff templateType=29142 template=MapIcon_TestGimmick8_Sticky
+catalogue type=419 category=0xffffffff templateType=29143 template=MapIcon_TestGimmick9_Sticky
+catalogue type=420 category=0xffffffff templateType=29144 template=MapIcon_TestGimmick10_Sticky
+catalogue type=421 category=0xffffffff templateType=29145 template=MapIcon_TestGimmick11_Sticky
+catalogue type=422 category=0xffffffff templateType=29146 template=MapIcon_TestGimmick_Enemy
+catalogue type=423 category=0xffffffff templateType=29147 template=MapIcon_TestGimmick1_Enemy
+catalogue type=424 category=0xffffffff templateType=29148 template=MapIcon_TestGimmick2_Enemy
+catalogue type=425 category=0xffffffff templateType=29149 template=MapIcon_TestGimmick3_Enemy
+catalogue type=426 category=0xffffffff templateType=29150 template=MapIcon_TestGimmick4_Enemy
+catalogue type=427 category=0xffffffff templateType=29151 template=MapIcon_TestGimmick5_Enemy
+catalogue type=428 category=0xffffffff templateType=29152 template=MapIcon_TestGimmick6_Enemy
+catalogue type=429 category=0xffffffff templateType=29153 template=MapIcon_TestGimmick7_Enemy
+catalogue type=430 category=0xffffffff templateType=29154 template=MapIcon_TestGimmick8_Enemy
+catalogue type=431 category=0xffffffff templateType=29155 template=MapIcon_TestGimmick9_Enemy
+catalogue type=432 category=0xffffffff templateType=29156 template=MapIcon_TestGimmick10_Enemy
+catalogue type=433 category=0xffffffff templateType=29157 template=MapIcon_TestGimmick11_Enemy
+catalogue type=434 category=0xffffffff templateType=29158 template=MapIcon_TestGimmick_EnemySticky
+catalogue type=435 category=0xffffffff templateType=29159 template=MapIcon_TestGimmick1_EnemySticky
+catalogue type=436 category=0xffffffff templateType=29160 template=MapIcon_TestGimmick2_EnemySticky
+catalogue type=437 category=0xffffffff templateType=29161 template=MapIcon_TestGimmick3_EnemySticky
+catalogue type=438 category=0xffffffff templateType=29162 template=MapIcon_TestGimmick4_EnemySticky
+catalogue type=439 category=0xffffffff templateType=29163 template=MapIcon_TestGimmick5_EnemySticky
+catalogue type=440 category=0xffffffff templateType=29164 template=MapIcon_TestGimmick6_EnemySticky
+catalogue type=441 category=0xffffffff templateType=29165 template=MapIcon_TestGimmick7_EnemySticky
+catalogue type=442 category=0xffffffff templateType=29166 template=MapIcon_TestGimmick8_EnemySticky
+catalogue type=443 category=0xffffffff templateType=29167 template=MapIcon_TestGimmick9_EnemySticky
+catalogue type=444 category=0xffffffff templateType=29168 template=MapIcon_TestGimmick10_EnemySticky
+catalogue type=445 category=0xffffffff templateType=29169 template=MapIcon_TestGimmick11_EnemySticky
+catalogue type=535 category=0x49 templateType=29233 template=MapIcon_GimmickMinimapAlertEffect
+catalogue type=536 category=0xffffffff templateType=29234 template=MapIcon_GimmickMinimapAlertRepeatEffect
+catalogue type=545 category=0xffffffff templateType=29243 template=MapIcon_Gimmick_Subinner_Armory
+catalogue type=546 category=0xffffffff templateType=29244 template=MapIcon_Gimmick_Subinner_Barracks
+catalogue type=547 category=0xffffffff templateType=29245 template=MapIcon_Gimmick_Subinner_Boss
+catalogue type=548 category=0xffffffff templateType=29246 template=MapIcon_Gimmick_Subinner_Craftspecial
+catalogue type=549 category=0xffffffff templateType=29247 template=MapIcon_Gimmick_Subinner_Food
+catalogue type=550 category=0xffffffff templateType=29248 template=MapIcon_Gimmick_Subinner_Hexetowerprotect
+catalogue type=551 category=0xffffffff templateType=29249 template=MapIcon_Gimmick_Subinner_Hospital
+catalogue type=552 category=0xffffffff templateType=29250 template=MapIcon_Gimmick_Subinner_Minigame
+catalogue type=553 category=0xffffffff templateType=29251 template=MapIcon_Gimmick_Subinner_Railgun_Turret
+catalogue type=554 category=0xffffffff templateType=29252 template=MapIcon_Gimmick_Subinner_Research
+catalogue type=555 category=0xffffffff templateType=29253 template=MapIcon_Gimmick_Subinner_Royalsupply
+catalogue type=556 category=0xffffffff templateType=29254 template=MapIcon_Gimmick_Subinner_Trade
+catalogue type=557 category=0xffffffff templateType=29255 template=MapIcon_Gimmick_Subinner_Training_Area
+catalogue type=558 category=0xffffffff templateType=29256 template=MapIcon_Gimmick_Subinner_Wood
+catalogue type=559 category=0xffffffff templateType=29257 template=MapIcon_Gimmick_Subinner_Storage
+catalogue type=560 category=0xffffffff templateType=29258 template=MapIcon_Gimmick_Subinner_Hospital_Map
+catalogue type=561 category=0xffffffff templateType=29259 template=MapIcon_Gimmick_Subinner_Barracks_Map
+catalogue type=562 category=0xffffffff templateType=29260 template=MapIcon_Gimmick_Subinner_Food_Map
+catalogue type=563 category=0xffffffff templateType=29261 template=MapIcon_Gimmick_Subinner_Wood_Map
+catalogue type=564 category=0xffffffff templateType=29262 template=MapIcon_Gimmick_Subinner_Armory_Map
+catalogue type=565 category=0xffffffff templateType=29263 template=MapIcon_Gimmick_Subinner_Training_Area_Map
+catalogue type=566 category=0xffffffff templateType=29264 template=MapIcon_Gimmick_Subinner_Artillery_Map
+catalogue type=567 category=0xffffffff templateType=29265 template=MapIcon_Gimmick_Subinner_battletower_Map
+catalogue type=568 category=0xffffffff templateType=29266 template=MapIcon_Gimmick_Subinner_Trade_Map
+catalogue type=569 category=0xffffffff templateType=29267 template=MapIcon_Gimmick_Subinner_RoyalSupply_Map
+catalogue type=570 category=0xffffffff templateType=29268 template=MapIcon_Gimmick_Subinner_Council_Map
+catalogue type=571 category=0xffffffff templateType=29269 template=MapIcon_Gimmick_Subinner_Research_Map
+catalogue type=582 category=0x8 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=583 category=0x9 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=584 category=0x7 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=585 category=0x0 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=586 category=0x1 templateType=28651 template=MapIcon_Pin_Marker
+catalogue end types=2027 cached=2027 named=2027 relevant=263 headersStable=1
+render-window complete worldProjectionCalls=5862 privateScaleCalls=22
+Chest generation ON. Independent creation requested; open Pywel, no reload.
+independent outcome=0: pending map callback
+independent outcome=1: independent object created and read back
+snapshot creates=604 sampled=604 dropped=0 named=592 enabled=1 generated=2 occupied=0 definitionRejected=0 readbackMask=1
+lifecycle owned=1 request=0 attempts=1 confirmedAbsent=1 alreadyAbsent=0 rejected=0 outcome=3
+independent request=0 outcome=1 worldMapUpdateCalls=1470
+Chest generation OFF (F10). Scoped removal requested; keep/open Pywel.
+lifecycle outcome=1: pending UI callback
+lifecycle outcome=3: typed lookup confirms absence after native removal
+render-window complete worldProjectionCalls=9168 privateScaleCalls=54
+snapshot creates=604 sampled=604 dropped=0 named=592 enabled=0 generated=2 occupied=0 definitionRejected=0 readbackMask=1
+lifecycle owned=0 request=0 attempts=2 confirmedAbsent=2 alreadyAbsent=0 rejected=0 outcome=3
+independent request=0 outcome=1 worldMapUpdateCalls=1728
+catalogue begin: cached metadata only; entries do not imply a scene marker exists
+definition type=1 containerSelector=1 projectionBranch=0 altitudeBranch=1 raw20toBF=eb6fffffffffffffffff017225000000ffff0000ffffffffa0532da30702000090010000cc130000190000000000000080532da307020000ffff13009b0000000001010000c1872a00542da30702000091010000cc1300001900000000000000e0532da307020000000000000000000000000000000000000000000000000000000000000000803f070100000000000000000000000000010100000000000000
+catalogue type=1 category=0x25 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=2 category=0x66 templateType=28652 template=MapIcon_Pin_Marker_Trace
+catalogue type=36 category=0xc templateType=28684 template=MapIcon_TreasureBox
+catalogue type=40 category=0xffffffff templateType=28688 template=MapIcon_AbyssTreasureBox
+catalogue type=41 category=0xffffffff templateType=28689 template=MapIcon_AbyssTreasureBoxOpened
+catalogue type=186 category=0xffffffff templateType=28812 template=MapIcon_Gimmick_GreyManeTemple
+catalogue type=187 category=0xffffffff templateType=28813 template=MapIcon_Gimmick_SealedArtifact
+catalogue type=193 category=0xffffffff templateType=28821 template=MapIcon_Gimmick_Ship_Boat
+catalogue type=194 category=0xffffffff templateType=28822 template=MapIcon_Gimmick_Ship_Sailboat
+catalogue type=195 category=0xffffffff templateType=28823 template=MapIcon_Gimmick_Ship_Sailboat_Hired
+catalogue type=196 category=0xffffffff templateType=28824 template=MapIcon_Gimmick_Tesla_Coil_Pillar
+catalogue type=197 category=0xffffffff templateType=28825 template=MapIcon_Gimmick_Tesla_Coil_Holder
+catalogue type=198 category=0xffffffff templateType=28826 template=MapIcon_Gimmick_Tesla_Coil_Fusion
+catalogue type=199 category=0xffffffff templateType=28827 template=MapIcon_Gimmick_Tesla_Coil_Fusion_On
+catalogue type=200 category=0xffffffff templateType=28828 template=MapIcon_Gimmick_Tesla_Coil_Operator
+catalogue type=201 category=0xffffffff templateType=28829 template=MapIcon_Gimmick_Tesla_Coil_Operator_On
+catalogue type=205 category=0xffffffff templateType=28833 template=MapIcon_Gimmick_Transmitter_00
+catalogue type=206 category=0xffffffff templateType=28834 template=MapIcon_Gimmick_Power_Button_00
+catalogue type=207 category=0xffffffff templateType=28835 template=MapIcon_Gimmick_Controller_Platform_00
+catalogue type=208 category=0xffffffff templateType=28836 template=MapIcon_Gimmick_Push_Switch_00
+catalogue type=209 category=0xffffffff templateType=28837 template=MapIcon_Gimmick_Battery_00
+catalogue type=210 category=0xffffffff templateType=28838 template=MapIcon_Gimmick_Battery_Slot_00
+catalogue type=211 category=0xffffffff templateType=28839 template=MapIcon_Gimmick_Battery_Slot_On_00
+catalogue type=212 category=0xffffffff templateType=28840 template=MapIcon_Gimmick_Battery_01
+catalogue type=213 category=0xffffffff templateType=28841 template=MapIcon_Gimmick_Battery_Slot_01
+catalogue type=214 category=0xffffffff templateType=28842 template=MapIcon_Gimmick_Battery_Slot_On_01
+catalogue type=218 category=0xffffffff templateType=28846 template=MapIcon_Gimmick_Buddha_Hand
+catalogue type=219 category=0xffffffff templateType=28847 template=MapIcon_Gimmick_Buddha_base
+catalogue type=220 category=0xffffffff templateType=28848 template=MapIcon_Gimmick_Buddha_body
+catalogue type=221 category=0xffffffff templateType=28849 template=MapIcon_Gimmick_Buddha_fusion
+definition type=226 containerSelector=0 projectionBranch=0 altitudeBranch=1 raw20toBF=b470ffffffffb570b6700000fffffffffc160000ffffffff801f7ca60702000090010000281500001900000000000000601f7ca607020000ffff0000410000000101010000000000e01f7ca60702000091010000281500001900000000000000c01f7ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=226 category=0xffffffff templateType=28852 template=MapIcon_Gimmick_LevelTreasureBox
+definition type=227 containerSelector=0 projectionBranch=0 altitudeBranch=1 raw20toBF=b770ffffffffb570b6700000fffffffffc160000ffffffff60207ca607020000900100004c150000190000000000000020d372a607020000ffff0000410000000101010000000000c0207ca607020000910100004c1500001900000000000000a0207ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=227 category=0xffffffff templateType=28855 template=MapIcon_Gimmick_LevelTreasureBoxOpened
+definition type=228 containerSelector=3 projectionBranch=0 altitudeBranch=1 raw20toBF=b470ffffffffb570b6700300fffffffffc160000ffffffff60217ca6070200009001000050150000190000000000000040217ca607020000ffff0000410000000101010000000000c0217ca60702000091010000501500001900000000000000a0217ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=228 category=0xffffffff templateType=28852 template=MapIcon_Gimmick_LevelTreasureBox
+definition type=229 containerSelector=3 projectionBranch=0 altitudeBranch=1 raw20toBF=b770ffffffffb570b6700300fffffffffc160000ffffffff40227ca6070200009001000051150000190000000000000020227ca607020000ffff0000410000000101010000000000a0227ca6070200009101000051150000190000000000000080227ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=229 category=0xffffffff templateType=28855 template=MapIcon_Gimmick_LevelTreasureBoxOpened
+catalogue type=230 category=0xffffffff templateType=28856 template=MapIcon_Gimmick_Craft_Medicine
+catalogue type=231 category=0xffffffff templateType=28859 template=MapIcon_Gimmick_BlackSmithstone
+catalogue type=232 category=0xffffffff templateType=28862 template=MapIcon_Gimmick_Craft_Anvil
+catalogue type=233 category=0xffffffff templateType=28864 template=MapIcon_Gimmick_Well
+catalogue type=236 category=0xffffffff templateType=28868 template=MapIcon_Gimmick_Abyss_Bridge_Gate
+catalogue type=239 category=0xffffffff templateType=28872 template=MapIcon_Gimmick_MineGold
+catalogue type=240 category=0xffffffff templateType=28874 template=MapIcon_Gimmick_MineSilver
+catalogue type=241 category=0xffffffff templateType=28876 template=MapIcon_Gimmick_MineBluestone
+catalogue type=242 category=0xffffffff templateType=28878 template=MapIcon_Gimmick_MineCopper
+catalogue type=243 category=0xffffffff templateType=28880 template=MapIcon_Gimmick_MineDiamond
+catalogue type=244 category=0xffffffff templateType=28882 template=MapIcon_Gimmick_MineGreenstone
+catalogue type=245 category=0xffffffff templateType=28884 template=MapIcon_Gimmick_MineIron
+catalogue type=246 category=0xffffffff templateType=28886 template=MapIcon_Gimmick_MineRedstone
+catalogue type=247 category=0xffffffff templateType=28888 template=MapIcon_Gimmick_MineRuby
+catalogue type=248 category=0xffffffff templateType=28890 template=MapIcon_Gimmick_MineWhitestone
+catalogue type=249 category=0xffffffff templateType=28892 template=MapIcon_Gimmick_MineBismuth
+catalogue type=250 category=0xffffffff templateType=28894 template=MapIcon_Gimmick_SulfurStone
+catalogue type=251 category=0xffffffff templateType=28896 template=MapIcon_Gimmick_Mercury
+catalogue type=252 category=0xffffffff templateType=28898 template=MapIcon_Gimmick_Rubber
+catalogue type=253 category=0xffffffff templateType=28900 template=MapIcon_Gimmick_Opuntia
+catalogue type=254 category=0xffffffff templateType=28902 template=MapIcon_Gimmick_Chaya
+catalogue type=255 category=0xffffffff templateType=28904 template=MapIcon_Gimmick_Ensete
+catalogue type=256 category=0xffffffff templateType=28906 template=MapIcon_Gimmick_Chlorella
+catalogue type=257 category=0xffffffff templateType=28908 template=MapIcon_Gimmick_Jijeongta_leaf
+catalogue type=258 category=0xffffffff templateType=28910 template=MapIcon_Gimmick_Kudzu_Vine
+catalogue type=259 category=0xffffffff templateType=28912 template=MapIcon_Gimmick_Dulse
+catalogue type=260 category=0xffffffff templateType=28914 template=MapIcon_Gimmick_Amaranth
+catalogue type=261 category=0xffffffff templateType=28916 template=MapIcon_Gimmick_Taro
+catalogue type=263 category=0x64 templateType=28920 template=MapIcon_Gimmick_Clawmachine
+catalogue type=264 category=0x65 templateType=28921 template=MapIcon_Gimmick_Pinball
+catalogue type=265 category=0xffffffff templateType=28922 template=MapIcon_Gimmick_Cushionball
+catalogue type=266 category=0xffffffff templateType=28923 template=MapIcon_Gimmick_Collection_Antirrhinum
+catalogue type=267 category=0xffffffff templateType=28925 template=MapIcon_Gimmick_Collection_Apple
+catalogue type=268 category=0xffffffff templateType=28927 template=MapIcon_Gimmick_Collection_Asparagus
+catalogue type=269 category=0xffffffff templateType=28929 template=MapIcon_Gimmick_Collection_Barley
+catalogue type=270 category=0xffffffff templateType=28931 template=MapIcon_Gimmick_Collection_Bean
+catalogue type=271 category=0xffffffff templateType=28933 template=MapIcon_Gimmick_Collection_Begonia
+catalogue type=272 category=0xffffffff templateType=28935 template=MapIcon_Gimmick_Collection_Blackberry
+catalogue type=273 category=0xffffffff templateType=28937 template=MapIcon_Gimmick_Collection_Blueberry
+catalogue type=274 category=0xffffffff templateType=28939 template=MapIcon_Gimmick_Collection_Buckwheat
+catalogue type=275 category=0xffffffff templateType=28941 template=MapIcon_Gimmick_Collection_Cabbage
+catalogue type=276 category=0xffffffff templateType=28943 template=MapIcon_Gimmick_Collection_Cacao
+catalogue type=277 category=0xffffffff templateType=28945 template=MapIcon_Gimmick_Collection_Carrot
+catalogue type=278 category=0xffffffff templateType=28947 template=MapIcon_Gimmick_Collection_Coffeetree
+catalogue type=279 category=0xffffffff templateType=28949 template=MapIcon_Gimmick_Collection_Corn
+catalogue type=280 category=0xffffffff templateType=28951 template=MapIcon_Gimmick_Collection_Cotton
+catalogue type=281 category=0xffffffff templateType=28953 template=MapIcon_Gimmick_Collection_Cucumber
+catalogue type=282 category=0xffffffff templateType=28955 template=MapIcon_Gimmick_Collection_Desertwatermelon
+catalogue type=283 category=0xffffffff templateType=28957 template=MapIcon_Gimmick_Collection_Elderberry
+catalogue type=284 category=0xffffffff templateType=28959 template=MapIcon_Gimmick_Collection_Fennel
+catalogue type=285 category=0xffffffff templateType=28961 template=MapIcon_Gimmick_Collection_Figs
+catalogue type=286 category=0xffffffff templateType=28963 template=MapIcon_Gimmick_Collection_Garlic
+catalogue type=287 category=0xffffffff templateType=28965 template=MapIcon_Gimmick_Collection_Ginseng
+catalogue type=288 category=0xffffffff templateType=28965 template=MapIcon_Gimmick_Collection_Ginseng
+catalogue type=289 category=0xffffffff templateType=28967 template=MapIcon_Gimmick_Collection_Glowfruit
+catalogue type=290 category=0xffffffff templateType=28969 template=MapIcon_Gimmick_Collection_Grape
+catalogue type=291 category=0xffffffff templateType=28971 template=MapIcon_Gimmick_Collection_Heterophylla
+catalogue type=292 category=0xffffffff templateType=28973 template=MapIcon_Gimmick_Collection_Imperata
+catalogue type=293 category=0xffffffff templateType=28975 template=MapIcon_Gimmick_Collection_Lavender
+catalogue type=294 category=0xffffffff templateType=28977 template=MapIcon_Gimmick_Collection_Lavender_Blue
+catalogue type=295 category=0xffffffff templateType=28979 template=MapIcon_Gimmick_Collection_Lavender_White
+catalogue type=296 category=0xffffffff templateType=28981 template=MapIcon_Gimmick_Collection_Lavender_Yellow
+catalogue type=297 category=0xffffffff templateType=28983 template=MapIcon_Gimmick_Collection_Lentils
+catalogue type=298 category=0xffffffff templateType=28985 template=MapIcon_Gimmick_Collection_Linum
+catalogue type=299 category=0xffffffff templateType=28987 template=MapIcon_Gimmick_Collection_Marigold
+catalogue type=300 category=0xffffffff templateType=28989 template=MapIcon_Gimmick_Collection_Mushroom_Hericium
+catalogue type=301 category=0xffffffff templateType=28991 template=MapIcon_Gimmick_Collection_Mushroo_Phellinus
+catalogue type=302 category=0xffffffff templateType=28993 template=MapIcon_Gimmick_Collection_Mushroom_Shiitake
+catalogue type=303 category=0xffffffff templateType=28995 template=MapIcon_Gimmick_Collection_Navet
+catalogue type=304 category=0xffffffff templateType=28997 template=MapIcon_Gimmick_Collection_Oleander
+catalogue type=305 category=0xffffffff templateType=28999 template=MapIcon_Gimmick_Collection_Oliganthus
+catalogue type=306 category=0xffffffff templateType=29001 template=MapIcon_Gimmick_Collection_Onion
+catalogue type=307 category=0xffffffff templateType=29003 template=MapIcon_Gimmick_Collection_Orange
+catalogue type=308 category=0xffffffff templateType=29005 template=MapIcon_Gimmick_Collection_Pansy
+catalogue type=309 category=0xffffffff templateType=29007 template=MapIcon_Gimmick_Collection_Parsley
+catalogue type=310 category=0xffffffff templateType=29009 template=MapIcon_Gimmick_Collection_Peach
+catalogue type=311 category=0xffffffff templateType=29011 template=MapIcon_Gimmick_Collection_Peas
+catalogue type=312 category=0xffffffff templateType=29013 template=MapIcon_Gimmick_Collection_Peony
+catalogue type=313 category=0xffffffff templateType=29015 template=MapIcon_Gimmick_Collection_Pineapple
+catalogue type=314 category=0xffffffff templateType=29017 template=MapIcon_Gimmick_Collection_Pomegranate
+catalogue type=315 category=0xffffffff templateType=29019 template=MapIcon_Gimmick_Collection_Potato
+catalogue type=316 category=0xffffffff templateType=29021 template=MapIcon_Gimmick_Collection_Pumpkin
+catalogue type=317 category=0xffffffff templateType=29023 template=MapIcon_Gimmick_Collection_Raspberry
+catalogue type=318 category=0xffffffff templateType=29025 template=MapIcon_Gimmick_Collection_Redbeet
+catalogue type=319 category=0xffffffff templateType=29027 template=MapIcon_Gimmick_Collection_Rock_Orchids
+catalogue type=320 category=0xffffffff templateType=29029 template=MapIcon_Gimmick_Collection_Rosemary
+catalogue type=321 category=0xffffffff templateType=29031 template=MapIcon_Gimmick_Collection_Rosemary_White
+catalogue type=322 category=0xffffffff templateType=29033 template=MapIcon_Gimmick_Collection_Rosemary_Yellow
+catalogue type=323 category=0xffffffff templateType=29035 template=MapIcon_Gimmick_Collection_Rosemary_Pink
+catalogue type=324 category=0xffffffff templateType=29037 template=MapIcon_Gimmick_Collection_Sage_Red
+catalogue type=325 category=0xffffffff templateType=29039 template=MapIcon_Gimmick_Collection_Sage
+catalogue type=326 category=0xffffffff templateType=29041 template=MapIcon_Gimmick_Collection_Sophora
+catalogue type=327 category=0xffffffff templateType=29043 template=MapIcon_Gimmick_Collection_Strawberry
+catalogue type=328 category=0xffffffff templateType=29045 template=MapIcon_Gimmick_Collection_Sweetpotato
+catalogue type=329 category=0xffffffff templateType=29047 template=MapIcon_Gimmick_Collection_Tomato
+catalogue type=330 category=0xffffffff templateType=29049 template=MapIcon_Gimmick_Collection_Veratrum
+catalogue type=331 category=0xffffffff templateType=29051 template=MapIcon_Gimmick_Collection_Victorialis
+catalogue type=332 category=0xffffffff templateType=29053 template=MapIcon_Gimmick_Collection_Villosa
+catalogue type=333 category=0xffffffff templateType=29055 template=MapIcon_Gimmick_Collection_Wheat
+catalogue type=336 category=0xffffffff templateType=29058 template=MapIcon_Gimmick_Campfire
+catalogue type=337 category=0xffffffff templateType=29061 template=MapIcon_Gimmick_Bell_00
+catalogue type=338 category=0xffffffff templateType=29062 template=MapIcon_Gimmick_Craft_Cook_Oven_00
+catalogue type=339 category=0xffffffff templateType=29062 template=MapIcon_Gimmick_Craft_Cook_Oven_00
+catalogue type=342 category=0xffffffff templateType=29067 template=MapIcon_Gimmick_Sewing_Machine
+catalogue type=343 category=0xffffffff templateType=29068 template=MapIcon_Gimmick_Tool_Carpenter
+catalogue type=349 category=0xffffffff templateType=29074 template=MapIcon_Gimmick_Marni_Teleportation
+catalogue type=350 category=0xffffffff templateType=28868 template=MapIcon_Gimmick_Abyss_Bridge_Gate
+catalogue type=353 category=0xffffffff templateType=29077 template=MapIcon_GimmickFlag
+catalogue type=354 category=0xffffffff templateType=29078 template=MapIcon_GimmickFlag_Fusion
+catalogue type=355 category=0xffffffff templateType=29079 template=MapIcon_BasicGimmick
+catalogue type=356 category=0xffffffff templateType=29080 template=MapIcon_Gimmick_StoneGate_00
+catalogue type=357 category=0xffffffff templateType=29081 template=MapIcon_Gimmick_LinkBand
+catalogue type=358 category=0xffffffff templateType=29082 template=MapIcon_Gimmick_Wagon_00
+catalogue type=359 category=0xffffffff templateType=29083 template=MapIcon_Gimmick_Box_00
+definition type=360 containerSelector=1 projectionBranch=1 altitudeBranch=1 raw20toBF=9c71ffffffffffffffff0100fffffffff6160000ffffffff209e7ca60702000090010000b51400001900000000000000009e7ca607020000ffff00003c0000000001010000000000a0799fe606020000000000000000000000000000000000004059a64601000000000000000000000000000000000000000000000000000000000000000000803f070100000000000001000000000000010001000000000000
+catalogue type=360 category=0xffffffff templateType=29084 template=MapIcon_Gimmick_Bell_01
+catalogue type=361 category=0xffffffff templateType=29085 template=MapIcon_Gimmick_Pillar_00
+catalogue type=362 category=0xffffffff templateType=29086 template=MapIcon_Gimmick_TransmissionTower
+catalogue type=363 category=0xffffffff templateType=29087 template=MapIcon_Gimmick_FlagHolder
+catalogue type=364 category=0xffffffff templateType=29088 template=MapIcon_Gimmick_HexeTowerProtect
+catalogue type=365 category=0xffffffff templateType=29089 template=MapIcon_Gimmick_AbyssBattery_00
+catalogue type=366 category=0xffffffff templateType=29090 template=MapIcon_Gimmick_AbyssGate_00
+catalogue type=367 category=0xffffffff templateType=29091 template=MapIcon_Gimmick_AbyssArtifactCube_01
+catalogue type=368 category=0xffffffff templateType=29092 template=MapIcon_Gimmick_ProtectiveStone_01
+catalogue type=369 category=0xffffffff templateType=29093 template=MapIcon_Gimmick_Enemy_Raser_Core
+catalogue type=370 category=0xffffffff templateType=29094 template=MapIcon_Gimmick_Enemy_Raser_Turret
+catalogue type=371 category=0xffffffff templateType=29095 template=MapIcon_Gimmick_jail_metal_01
+catalogue type=372 category=0xffffffff templateType=29096 template=MapIcon_Gimmick_jail_metal_00
+catalogue type=373 category=0xffffffff templateType=29097 template=MapIcon_Gimmick_attach_battletower_00
+catalogue type=374 category=0xffffffff templateType=29098 template=MapIcon_Gimmick_golemdragon_generaror_00
+catalogue type=375 category=0xffffffff templateType=29099 template=MapIcon_Gimmick_railgun_turret_00
+catalogue type=376 category=0xffffffff templateType=29100 template=MapIcon_Gimmick_KuKu_Battery
+catalogue type=377 category=0xffffffff templateType=29101 template=MapIcon_Gimmick_Item_Backpack
+catalogue type=381 category=0xffffffff templateType=29105 template=MapIcon_Gimmick_Installation_Bomb
+catalogue type=382 category=0xffffffff templateType=29106 template=MapIcon_Gimmick_ATAG_tunnel
+catalogue type=383 category=0xffffffff templateType=29107 template=MapIcon_Gimmick_Musket_Railgun_Turret_00
+catalogue type=384 category=0xffffffff templateType=29108 template=MapIcon_Gimmick_Abyssmark_Part
+catalogue type=385 category=0xffffffff templateType=29109 template=MapIcon_Gimmick_Antumbra_Tokamak_00
+catalogue type=386 category=0xffffffff templateType=29110 template=MapIcon_Gimmick_Antumbra_Tokamak_01
+catalogue type=387 category=0xffffffff templateType=29111 template=MapIcon_Gimmick_Antumbra_Tokamak_Battery
+catalogue type=388 category=0xffffffff templateType=29112 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar_Part
+catalogue type=389 category=0xffffffff templateType=29113 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar_Base
+catalogue type=390 category=0xffffffff templateType=29114 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar
+catalogue type=391 category=0xffffffff templateType=29115 template=MapIcon_Gimmick_Bsecamp_Warehouse_Box
+catalogue type=394 category=0xffffffff templateType=29118 template=MapIcon_Gimmick_Map_Egg
+catalogue type=395 category=0xffffffff templateType=29119 template=MapIcon_Gimmick_Map_Nest
+catalogue type=396 category=0xffffffff templateType=29120 template=MapIcon_Gimmick_Mechanical_Powerplant
+catalogue type=397 category=0xffffffff templateType=29121 template=MapIcon_Gimmick_Knowledge_Boardpaper
+catalogue type=398 category=0xffffffff templateType=29122 template=MapIcon_TestGimmick
+catalogue type=399 category=0xffffffff templateType=29123 template=MapIcon_TestGimmick1
+catalogue type=400 category=0xffffffff templateType=29124 template=MapIcon_TestGimmick2
+catalogue type=401 category=0xffffffff templateType=29125 template=MapIcon_TestGimmick3
+catalogue type=402 category=0xffffffff templateType=29126 template=MapIcon_TestGimmick4
+catalogue type=403 category=0xffffffff templateType=29127 template=MapIcon_TestGimmick5
+catalogue type=404 category=0xffffffff templateType=29128 template=MapIcon_TestGimmick6
+catalogue type=405 category=0xffffffff templateType=29129 template=MapIcon_TestGimmick7
+catalogue type=406 category=0xffffffff templateType=29130 template=MapIcon_TestGimmick8
+catalogue type=407 category=0xffffffff templateType=29131 template=MapIcon_TestGimmick9
+catalogue type=408 category=0xffffffff templateType=29132 template=MapIcon_TestGimmick10
+catalogue type=409 category=0xffffffff templateType=29133 template=MapIcon_TestGimmick11
+catalogue type=410 category=0xffffffff templateType=29134 template=MapIcon_TestGimmick_Sticky
+catalogue type=411 category=0xffffffff templateType=29135 template=MapIcon_TestGimmick1_Sticky
+catalogue type=412 category=0xffffffff templateType=29136 template=MapIcon_TestGimmick2_Sticky
+catalogue type=413 category=0xffffffff templateType=29137 template=MapIcon_TestGimmick3_Sticky
+catalogue type=414 category=0xffffffff templateType=29138 template=MapIcon_TestGimmick4_Sticky
+catalogue type=415 category=0xffffffff templateType=29139 template=MapIcon_TestGimmick5_Sticky
+catalogue type=416 category=0xffffffff templateType=29140 template=MapIcon_TestGimmick6_Sticky
+catalogue type=417 category=0xffffffff templateType=29141 template=MapIcon_TestGimmick7_Sticky
+catalogue type=418 category=0xffffffff templateType=29142 template=MapIcon_TestGimmick8_Sticky
+catalogue type=419 category=0xffffffff templateType=29143 template=MapIcon_TestGimmick9_Sticky
+catalogue type=420 category=0xffffffff templateType=29144 template=MapIcon_TestGimmick10_Sticky
+catalogue type=421 category=0xffffffff templateType=29145 template=MapIcon_TestGimmick11_Sticky
+catalogue type=422 category=0xffffffff templateType=29146 template=MapIcon_TestGimmick_Enemy
+catalogue type=423 category=0xffffffff templateType=29147 template=MapIcon_TestGimmick1_Enemy
+catalogue type=424 category=0xffffffff templateType=29148 template=MapIcon_TestGimmick2_Enemy
+catalogue type=425 category=0xffffffff templateType=29149 template=MapIcon_TestGimmick3_Enemy
+catalogue type=426 category=0xffffffff templateType=29150 template=MapIcon_TestGimmick4_Enemy
+catalogue type=427 category=0xffffffff templateType=29151 template=MapIcon_TestGimmick5_Enemy
+catalogue type=428 category=0xffffffff templateType=29152 template=MapIcon_TestGimmick6_Enemy
+catalogue type=429 category=0xffffffff templateType=29153 template=MapIcon_TestGimmick7_Enemy
+catalogue type=430 category=0xffffffff templateType=29154 template=MapIcon_TestGimmick8_Enemy
+catalogue type=431 category=0xffffffff templateType=29155 template=MapIcon_TestGimmick9_Enemy
+catalogue type=432 category=0xffffffff templateType=29156 template=MapIcon_TestGimmick10_Enemy
+catalogue type=433 category=0xffffffff templateType=29157 template=MapIcon_TestGimmick11_Enemy
+catalogue type=434 category=0xffffffff templateType=29158 template=MapIcon_TestGimmick_EnemySticky
+catalogue type=435 category=0xffffffff templateType=29159 template=MapIcon_TestGimmick1_EnemySticky
+catalogue type=436 category=0xffffffff templateType=29160 template=MapIcon_TestGimmick2_EnemySticky
+catalogue type=437 category=0xffffffff templateType=29161 template=MapIcon_TestGimmick3_EnemySticky
+catalogue type=438 category=0xffffffff templateType=29162 template=MapIcon_TestGimmick4_EnemySticky
+catalogue type=439 category=0xffffffff templateType=29163 template=MapIcon_TestGimmick5_EnemySticky
+catalogue type=440 category=0xffffffff templateType=29164 template=MapIcon_TestGimmick6_EnemySticky
+catalogue type=441 category=0xffffffff templateType=29165 template=MapIcon_TestGimmick7_EnemySticky
+catalogue type=442 category=0xffffffff templateType=29166 template=MapIcon_TestGimmick8_EnemySticky
+catalogue type=443 category=0xffffffff templateType=29167 template=MapIcon_TestGimmick9_EnemySticky
+catalogue type=444 category=0xffffffff templateType=29168 template=MapIcon_TestGimmick10_EnemySticky
+catalogue type=445 category=0xffffffff templateType=29169 template=MapIcon_TestGimmick11_EnemySticky
+catalogue type=535 category=0x49 templateType=29233 template=MapIcon_GimmickMinimapAlertEffect
+catalogue type=536 category=0xffffffff templateType=29234 template=MapIcon_GimmickMinimapAlertRepeatEffect
+catalogue type=545 category=0xffffffff templateType=29243 template=MapIcon_Gimmick_Subinner_Armory
+catalogue type=546 category=0xffffffff templateType=29244 template=MapIcon_Gimmick_Subinner_Barracks
+catalogue type=547 category=0xffffffff templateType=29245 template=MapIcon_Gimmick_Subinner_Boss
+catalogue type=548 category=0xffffffff templateType=29246 template=MapIcon_Gimmick_Subinner_Craftspecial
+catalogue type=549 category=0xffffffff templateType=29247 template=MapIcon_Gimmick_Subinner_Food
+catalogue type=550 category=0xffffffff templateType=29248 template=MapIcon_Gimmick_Subinner_Hexetowerprotect
+catalogue type=551 category=0xffffffff templateType=29249 template=MapIcon_Gimmick_Subinner_Hospital
+catalogue type=552 category=0xffffffff templateType=29250 template=MapIcon_Gimmick_Subinner_Minigame
+catalogue type=553 category=0xffffffff templateType=29251 template=MapIcon_Gimmick_Subinner_Railgun_Turret
+catalogue type=554 category=0xffffffff templateType=29252 template=MapIcon_Gimmick_Subinner_Research
+catalogue type=555 category=0xffffffff templateType=29253 template=MapIcon_Gimmick_Subinner_Royalsupply
+catalogue type=556 category=0xffffffff templateType=29254 template=MapIcon_Gimmick_Subinner_Trade
+catalogue type=557 category=0xffffffff templateType=29255 template=MapIcon_Gimmick_Subinner_Training_Area
+catalogue type=558 category=0xffffffff templateType=29256 template=MapIcon_Gimmick_Subinner_Wood
+catalogue type=559 category=0xffffffff templateType=29257 template=MapIcon_Gimmick_Subinner_Storage
+catalogue type=560 category=0xffffffff templateType=29258 template=MapIcon_Gimmick_Subinner_Hospital_Map
+catalogue type=561 category=0xffffffff templateType=29259 template=MapIcon_Gimmick_Subinner_Barracks_Map
+catalogue type=562 category=0xffffffff templateType=29260 template=MapIcon_Gimmick_Subinner_Food_Map
+catalogue type=563 category=0xffffffff templateType=29261 template=MapIcon_Gimmick_Subinner_Wood_Map
+catalogue type=564 category=0xffffffff templateType=29262 template=MapIcon_Gimmick_Subinner_Armory_Map
+catalogue type=565 category=0xffffffff templateType=29263 template=MapIcon_Gimmick_Subinner_Training_Area_Map
+catalogue type=566 category=0xffffffff templateType=29264 template=MapIcon_Gimmick_Subinner_Artillery_Map
+catalogue type=567 category=0xffffffff templateType=29265 template=MapIcon_Gimmick_Subinner_battletower_Map
+catalogue type=568 category=0xffffffff templateType=29266 template=MapIcon_Gimmick_Subinner_Trade_Map
+catalogue type=569 category=0xffffffff templateType=29267 template=MapIcon_Gimmick_Subinner_RoyalSupply_Map
+catalogue type=570 category=0xffffffff templateType=29268 template=MapIcon_Gimmick_Subinner_Council_Map
+catalogue type=571 category=0xffffffff templateType=29269 template=MapIcon_Gimmick_Subinner_Research_Map
+catalogue type=582 category=0x8 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=583 category=0x9 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=584 category=0x7 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=585 category=0x0 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=586 category=0x1 templateType=28651 template=MapIcon_Pin_Marker
+catalogue end types=2027 cached=2027 named=2027 relevant=263 headersStable=1
+Chest generation ON. Independent creation requested; open Pywel, no reload.
+independent outcome=0: pending map callback
+independent outcome=1: independent object created and read back
+render-window complete worldProjectionCalls=10686 privateScaleCalls=60
+snapshot creates=604 sampled=604 dropped=0 named=592 enabled=1 generated=3 occupied=0 definitionRejected=0 readbackMask=1
+lifecycle owned=1 request=0 attempts=2 confirmedAbsent=2 alreadyAbsent=0 rejected=0 outcome=3
+independent request=0 outcome=1 worldMapUpdateCalls=1944
+Chest generation OFF (F10). Scoped removal requested; keep/open Pywel.
+lifecycle outcome=1: pending UI callback
+lifecycle outcome=3: typed lookup confirms absence after native removal
+render-window complete worldProjectionCalls=12018 privateScaleCalls=105
+snapshot creates=604 sampled=604 dropped=0 named=592 enabled=0 generated=3 occupied=0 definitionRejected=0 readbackMask=1
+lifecycle owned=0 request=0 attempts=3 confirmedAbsent=3 alreadyAbsent=0 rejected=0 outcome=3
+independent request=0 outcome=1 worldMapUpdateCalls=2190
+catalogue begin: cached metadata only; entries do not imply a scene marker exists
+definition type=1 containerSelector=1 projectionBranch=0 altitudeBranch=1 raw20toBF=eb6fffffffffffffffff017225000000ffff0000ffffffffa0532da30702000090010000cc130000190000000000000080532da307020000ffff13009b0000000001010000c1872a00542da30702000091010000cc1300001900000000000000e0532da307020000000000000000000000000000000000000000000000000000000000000000803f070100000000000000000000000000010100000000000000
+catalogue type=1 category=0x25 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=2 category=0x66 templateType=28652 template=MapIcon_Pin_Marker_Trace
+catalogue type=36 category=0xc templateType=28684 template=MapIcon_TreasureBox
+catalogue type=40 category=0xffffffff templateType=28688 template=MapIcon_AbyssTreasureBox
+catalogue type=41 category=0xffffffff templateType=28689 template=MapIcon_AbyssTreasureBoxOpened
+catalogue type=186 category=0xffffffff templateType=28812 template=MapIcon_Gimmick_GreyManeTemple
+catalogue type=187 category=0xffffffff templateType=28813 template=MapIcon_Gimmick_SealedArtifact
+catalogue type=193 category=0xffffffff templateType=28821 template=MapIcon_Gimmick_Ship_Boat
+catalogue type=194 category=0xffffffff templateType=28822 template=MapIcon_Gimmick_Ship_Sailboat
+catalogue type=195 category=0xffffffff templateType=28823 template=MapIcon_Gimmick_Ship_Sailboat_Hired
+catalogue type=196 category=0xffffffff templateType=28824 template=MapIcon_Gimmick_Tesla_Coil_Pillar
+catalogue type=197 category=0xffffffff templateType=28825 template=MapIcon_Gimmick_Tesla_Coil_Holder
+catalogue type=198 category=0xffffffff templateType=28826 template=MapIcon_Gimmick_Tesla_Coil_Fusion
+catalogue type=199 category=0xffffffff templateType=28827 template=MapIcon_Gimmick_Tesla_Coil_Fusion_On
+catalogue type=200 category=0xffffffff templateType=28828 template=MapIcon_Gimmick_Tesla_Coil_Operator
+catalogue type=201 category=0xffffffff templateType=28829 template=MapIcon_Gimmick_Tesla_Coil_Operator_On
+catalogue type=205 category=0xffffffff templateType=28833 template=MapIcon_Gimmick_Transmitter_00
+catalogue type=206 category=0xffffffff templateType=28834 template=MapIcon_Gimmick_Power_Button_00
+catalogue type=207 category=0xffffffff templateType=28835 template=MapIcon_Gimmick_Controller_Platform_00
+catalogue type=208 category=0xffffffff templateType=28836 template=MapIcon_Gimmick_Push_Switch_00
+catalogue type=209 category=0xffffffff templateType=28837 template=MapIcon_Gimmick_Battery_00
+catalogue type=210 category=0xffffffff templateType=28838 template=MapIcon_Gimmick_Battery_Slot_00
+catalogue type=211 category=0xffffffff templateType=28839 template=MapIcon_Gimmick_Battery_Slot_On_00
+catalogue type=212 category=0xffffffff templateType=28840 template=MapIcon_Gimmick_Battery_01
+catalogue type=213 category=0xffffffff templateType=28841 template=MapIcon_Gimmick_Battery_Slot_01
+catalogue type=214 category=0xffffffff templateType=28842 template=MapIcon_Gimmick_Battery_Slot_On_01
+catalogue type=218 category=0xffffffff templateType=28846 template=MapIcon_Gimmick_Buddha_Hand
+catalogue type=219 category=0xffffffff templateType=28847 template=MapIcon_Gimmick_Buddha_base
+catalogue type=220 category=0xffffffff templateType=28848 template=MapIcon_Gimmick_Buddha_body
+catalogue type=221 category=0xffffffff templateType=28849 template=MapIcon_Gimmick_Buddha_fusion
+definition type=226 containerSelector=0 projectionBranch=0 altitudeBranch=1 raw20toBF=b470ffffffffb570b6700000fffffffffc160000ffffffff801f7ca60702000090010000281500001900000000000000601f7ca607020000ffff0000410000000101010000000000e01f7ca60702000091010000281500001900000000000000c01f7ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=226 category=0xffffffff templateType=28852 template=MapIcon_Gimmick_LevelTreasureBox
+definition type=227 containerSelector=0 projectionBranch=0 altitudeBranch=1 raw20toBF=b770ffffffffb570b6700000fffffffffc160000ffffffff60207ca607020000900100004c150000190000000000000020d372a607020000ffff0000410000000101010000000000c0207ca607020000910100004c1500001900000000000000a0207ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=227 category=0xffffffff templateType=28855 template=MapIcon_Gimmick_LevelTreasureBoxOpened
+definition type=228 containerSelector=3 projectionBranch=0 altitudeBranch=1 raw20toBF=b470ffffffffb570b6700300fffffffffc160000ffffffff60217ca6070200009001000050150000190000000000000040217ca607020000ffff0000410000000101010000000000c0217ca60702000091010000501500001900000000000000a0217ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=228 category=0xffffffff templateType=28852 template=MapIcon_Gimmick_LevelTreasureBox
+definition type=229 containerSelector=3 projectionBranch=0 altitudeBranch=1 raw20toBF=b770ffffffffb570b6700300fffffffffc160000ffffffff40227ca6070200009001000051150000190000000000000020227ca607020000ffff0000410000000101010000000000a0227ca6070200009101000051150000190000000000000080227ca607020000000000000000803f3333333f000000000000000000000000000000000000803f020100000000000000000000000000010000000001000000
+catalogue type=229 category=0xffffffff templateType=28855 template=MapIcon_Gimmick_LevelTreasureBoxOpened
+catalogue type=230 category=0xffffffff templateType=28856 template=MapIcon_Gimmick_Craft_Medicine
+catalogue type=231 category=0xffffffff templateType=28859 template=MapIcon_Gimmick_BlackSmithstone
+catalogue type=232 category=0xffffffff templateType=28862 template=MapIcon_Gimmick_Craft_Anvil
+catalogue type=233 category=0xffffffff templateType=28864 template=MapIcon_Gimmick_Well
+catalogue type=236 category=0xffffffff templateType=28868 template=MapIcon_Gimmick_Abyss_Bridge_Gate
+catalogue type=239 category=0xffffffff templateType=28872 template=MapIcon_Gimmick_MineGold
+catalogue type=240 category=0xffffffff templateType=28874 template=MapIcon_Gimmick_MineSilver
+catalogue type=241 category=0xffffffff templateType=28876 template=MapIcon_Gimmick_MineBluestone
+catalogue type=242 category=0xffffffff templateType=28878 template=MapIcon_Gimmick_MineCopper
+catalogue type=243 category=0xffffffff templateType=28880 template=MapIcon_Gimmick_MineDiamond
+catalogue type=244 category=0xffffffff templateType=28882 template=MapIcon_Gimmick_MineGreenstone
+catalogue type=245 category=0xffffffff templateType=28884 template=MapIcon_Gimmick_MineIron
+catalogue type=246 category=0xffffffff templateType=28886 template=MapIcon_Gimmick_MineRedstone
+catalogue type=247 category=0xffffffff templateType=28888 template=MapIcon_Gimmick_MineRuby
+catalogue type=248 category=0xffffffff templateType=28890 template=MapIcon_Gimmick_MineWhitestone
+catalogue type=249 category=0xffffffff templateType=28892 template=MapIcon_Gimmick_MineBismuth
+catalogue type=250 category=0xffffffff templateType=28894 template=MapIcon_Gimmick_SulfurStone
+catalogue type=251 category=0xffffffff templateType=28896 template=MapIcon_Gimmick_Mercury
+catalogue type=252 category=0xffffffff templateType=28898 template=MapIcon_Gimmick_Rubber
+catalogue type=253 category=0xffffffff templateType=28900 template=MapIcon_Gimmick_Opuntia
+catalogue type=254 category=0xffffffff templateType=28902 template=MapIcon_Gimmick_Chaya
+catalogue type=255 category=0xffffffff templateType=28904 template=MapIcon_Gimmick_Ensete
+catalogue type=256 category=0xffffffff templateType=28906 template=MapIcon_Gimmick_Chlorella
+catalogue type=257 category=0xffffffff templateType=28908 template=MapIcon_Gimmick_Jijeongta_leaf
+catalogue type=258 category=0xffffffff templateType=28910 template=MapIcon_Gimmick_Kudzu_Vine
+catalogue type=259 category=0xffffffff templateType=28912 template=MapIcon_Gimmick_Dulse
+catalogue type=260 category=0xffffffff templateType=28914 template=MapIcon_Gimmick_Amaranth
+catalogue type=261 category=0xffffffff templateType=28916 template=MapIcon_Gimmick_Taro
+catalogue type=263 category=0x64 templateType=28920 template=MapIcon_Gimmick_Clawmachine
+catalogue type=264 category=0x65 templateType=28921 template=MapIcon_Gimmick_Pinball
+catalogue type=265 category=0xffffffff templateType=28922 template=MapIcon_Gimmick_Cushionball
+catalogue type=266 category=0xffffffff templateType=28923 template=MapIcon_Gimmick_Collection_Antirrhinum
+catalogue type=267 category=0xffffffff templateType=28925 template=MapIcon_Gimmick_Collection_Apple
+catalogue type=268 category=0xffffffff templateType=28927 template=MapIcon_Gimmick_Collection_Asparagus
+catalogue type=269 category=0xffffffff templateType=28929 template=MapIcon_Gimmick_Collection_Barley
+catalogue type=270 category=0xffffffff templateType=28931 template=MapIcon_Gimmick_Collection_Bean
+catalogue type=271 category=0xffffffff templateType=28933 template=MapIcon_Gimmick_Collection_Begonia
+catalogue type=272 category=0xffffffff templateType=28935 template=MapIcon_Gimmick_Collection_Blackberry
+catalogue type=273 category=0xffffffff templateType=28937 template=MapIcon_Gimmick_Collection_Blueberry
+catalogue type=274 category=0xffffffff templateType=28939 template=MapIcon_Gimmick_Collection_Buckwheat
+catalogue type=275 category=0xffffffff templateType=28941 template=MapIcon_Gimmick_Collection_Cabbage
+catalogue type=276 category=0xffffffff templateType=28943 template=MapIcon_Gimmick_Collection_Cacao
+catalogue type=277 category=0xffffffff templateType=28945 template=MapIcon_Gimmick_Collection_Carrot
+catalogue type=278 category=0xffffffff templateType=28947 template=MapIcon_Gimmick_Collection_Coffeetree
+catalogue type=279 category=0xffffffff templateType=28949 template=MapIcon_Gimmick_Collection_Corn
+catalogue type=280 category=0xffffffff templateType=28951 template=MapIcon_Gimmick_Collection_Cotton
+catalogue type=281 category=0xffffffff templateType=28953 template=MapIcon_Gimmick_Collection_Cucumber
+catalogue type=282 category=0xffffffff templateType=28955 template=MapIcon_Gimmick_Collection_Desertwatermelon
+catalogue type=283 category=0xffffffff templateType=28957 template=MapIcon_Gimmick_Collection_Elderberry
+catalogue type=284 category=0xffffffff templateType=28959 template=MapIcon_Gimmick_Collection_Fennel
+catalogue type=285 category=0xffffffff templateType=28961 template=MapIcon_Gimmick_Collection_Figs
+catalogue type=286 category=0xffffffff templateType=28963 template=MapIcon_Gimmick_Collection_Garlic
+catalogue type=287 category=0xffffffff templateType=28965 template=MapIcon_Gimmick_Collection_Ginseng
+catalogue type=288 category=0xffffffff templateType=28965 template=MapIcon_Gimmick_Collection_Ginseng
+catalogue type=289 category=0xffffffff templateType=28967 template=MapIcon_Gimmick_Collection_Glowfruit
+catalogue type=290 category=0xffffffff templateType=28969 template=MapIcon_Gimmick_Collection_Grape
+catalogue type=291 category=0xffffffff templateType=28971 template=MapIcon_Gimmick_Collection_Heterophylla
+catalogue type=292 category=0xffffffff templateType=28973 template=MapIcon_Gimmick_Collection_Imperata
+catalogue type=293 category=0xffffffff templateType=28975 template=MapIcon_Gimmick_Collection_Lavender
+catalogue type=294 category=0xffffffff templateType=28977 template=MapIcon_Gimmick_Collection_Lavender_Blue
+catalogue type=295 category=0xffffffff templateType=28979 template=MapIcon_Gimmick_Collection_Lavender_White
+catalogue type=296 category=0xffffffff templateType=28981 template=MapIcon_Gimmick_Collection_Lavender_Yellow
+catalogue type=297 category=0xffffffff templateType=28983 template=MapIcon_Gimmick_Collection_Lentils
+catalogue type=298 category=0xffffffff templateType=28985 template=MapIcon_Gimmick_Collection_Linum
+catalogue type=299 category=0xffffffff templateType=28987 template=MapIcon_Gimmick_Collection_Marigold
+catalogue type=300 category=0xffffffff templateType=28989 template=MapIcon_Gimmick_Collection_Mushroom_Hericium
+catalogue type=301 category=0xffffffff templateType=28991 template=MapIcon_Gimmick_Collection_Mushroo_Phellinus
+catalogue type=302 category=0xffffffff templateType=28993 template=MapIcon_Gimmick_Collection_Mushroom_Shiitake
+catalogue type=303 category=0xffffffff templateType=28995 template=MapIcon_Gimmick_Collection_Navet
+catalogue type=304 category=0xffffffff templateType=28997 template=MapIcon_Gimmick_Collection_Oleander
+catalogue type=305 category=0xffffffff templateType=28999 template=MapIcon_Gimmick_Collection_Oliganthus
+catalogue type=306 category=0xffffffff templateType=29001 template=MapIcon_Gimmick_Collection_Onion
+catalogue type=307 category=0xffffffff templateType=29003 template=MapIcon_Gimmick_Collection_Orange
+catalogue type=308 category=0xffffffff templateType=29005 template=MapIcon_Gimmick_Collection_Pansy
+catalogue type=309 category=0xffffffff templateType=29007 template=MapIcon_Gimmick_Collection_Parsley
+catalogue type=310 category=0xffffffff templateType=29009 template=MapIcon_Gimmick_Collection_Peach
+catalogue type=311 category=0xffffffff templateType=29011 template=MapIcon_Gimmick_Collection_Peas
+catalogue type=312 category=0xffffffff templateType=29013 template=MapIcon_Gimmick_Collection_Peony
+catalogue type=313 category=0xffffffff templateType=29015 template=MapIcon_Gimmick_Collection_Pineapple
+catalogue type=314 category=0xffffffff templateType=29017 template=MapIcon_Gimmick_Collection_Pomegranate
+catalogue type=315 category=0xffffffff templateType=29019 template=MapIcon_Gimmick_Collection_Potato
+catalogue type=316 category=0xffffffff templateType=29021 template=MapIcon_Gimmick_Collection_Pumpkin
+catalogue type=317 category=0xffffffff templateType=29023 template=MapIcon_Gimmick_Collection_Raspberry
+catalogue type=318 category=0xffffffff templateType=29025 template=MapIcon_Gimmick_Collection_Redbeet
+catalogue type=319 category=0xffffffff templateType=29027 template=MapIcon_Gimmick_Collection_Rock_Orchids
+catalogue type=320 category=0xffffffff templateType=29029 template=MapIcon_Gimmick_Collection_Rosemary
+catalogue type=321 category=0xffffffff templateType=29031 template=MapIcon_Gimmick_Collection_Rosemary_White
+catalogue type=322 category=0xffffffff templateType=29033 template=MapIcon_Gimmick_Collection_Rosemary_Yellow
+catalogue type=323 category=0xffffffff templateType=29035 template=MapIcon_Gimmick_Collection_Rosemary_Pink
+catalogue type=324 category=0xffffffff templateType=29037 template=MapIcon_Gimmick_Collection_Sage_Red
+catalogue type=325 category=0xffffffff templateType=29039 template=MapIcon_Gimmick_Collection_Sage
+catalogue type=326 category=0xffffffff templateType=29041 template=MapIcon_Gimmick_Collection_Sophora
+catalogue type=327 category=0xffffffff templateType=29043 template=MapIcon_Gimmick_Collection_Strawberry
+catalogue type=328 category=0xffffffff templateType=29045 template=MapIcon_Gimmick_Collection_Sweetpotato
+catalogue type=329 category=0xffffffff templateType=29047 template=MapIcon_Gimmick_Collection_Tomato
+catalogue type=330 category=0xffffffff templateType=29049 template=MapIcon_Gimmick_Collection_Veratrum
+catalogue type=331 category=0xffffffff templateType=29051 template=MapIcon_Gimmick_Collection_Victorialis
+catalogue type=332 category=0xffffffff templateType=29053 template=MapIcon_Gimmick_Collection_Villosa
+catalogue type=333 category=0xffffffff templateType=29055 template=MapIcon_Gimmick_Collection_Wheat
+catalogue type=336 category=0xffffffff templateType=29058 template=MapIcon_Gimmick_Campfire
+catalogue type=337 category=0xffffffff templateType=29061 template=MapIcon_Gimmick_Bell_00
+catalogue type=338 category=0xffffffff templateType=29062 template=MapIcon_Gimmick_Craft_Cook_Oven_00
+catalogue type=339 category=0xffffffff templateType=29062 template=MapIcon_Gimmick_Craft_Cook_Oven_00
+catalogue type=342 category=0xffffffff templateType=29067 template=MapIcon_Gimmick_Sewing_Machine
+catalogue type=343 category=0xffffffff templateType=29068 template=MapIcon_Gimmick_Tool_Carpenter
+catalogue type=349 category=0xffffffff templateType=29074 template=MapIcon_Gimmick_Marni_Teleportation
+catalogue type=350 category=0xffffffff templateType=28868 template=MapIcon_Gimmick_Abyss_Bridge_Gate
+catalogue type=353 category=0xffffffff templateType=29077 template=MapIcon_GimmickFlag
+catalogue type=354 category=0xffffffff templateType=29078 template=MapIcon_GimmickFlag_Fusion
+catalogue type=355 category=0xffffffff templateType=29079 template=MapIcon_BasicGimmick
+catalogue type=356 category=0xffffffff templateType=29080 template=MapIcon_Gimmick_StoneGate_00
+catalogue type=357 category=0xffffffff templateType=29081 template=MapIcon_Gimmick_LinkBand
+catalogue type=358 category=0xffffffff templateType=29082 template=MapIcon_Gimmick_Wagon_00
+catalogue type=359 category=0xffffffff templateType=29083 template=MapIcon_Gimmick_Box_00
+definition type=360 containerSelector=1 projectionBranch=1 altitudeBranch=1 raw20toBF=9c71ffffffffffffffff0100fffffffff6160000ffffffff209e7ca60702000090010000b51400001900000000000000009e7ca607020000ffff00003c0000000001010000000000a0799fe606020000000000000000000000000000000000004059a64601000000000000000000000000000000000000000000000000000000000000000000803f070100000000000001000000000000010001000000000000
+catalogue type=360 category=0xffffffff templateType=29084 template=MapIcon_Gimmick_Bell_01
+catalogue type=361 category=0xffffffff templateType=29085 template=MapIcon_Gimmick_Pillar_00
+catalogue type=362 category=0xffffffff templateType=29086 template=MapIcon_Gimmick_TransmissionTower
+catalogue type=363 category=0xffffffff templateType=29087 template=MapIcon_Gimmick_FlagHolder
+catalogue type=364 category=0xffffffff templateType=29088 template=MapIcon_Gimmick_HexeTowerProtect
+catalogue type=365 category=0xffffffff templateType=29089 template=MapIcon_Gimmick_AbyssBattery_00
+catalogue type=366 category=0xffffffff templateType=29090 template=MapIcon_Gimmick_AbyssGate_00
+catalogue type=367 category=0xffffffff templateType=29091 template=MapIcon_Gimmick_AbyssArtifactCube_01
+catalogue type=368 category=0xffffffff templateType=29092 template=MapIcon_Gimmick_ProtectiveStone_01
+catalogue type=369 category=0xffffffff templateType=29093 template=MapIcon_Gimmick_Enemy_Raser_Core
+catalogue type=370 category=0xffffffff templateType=29094 template=MapIcon_Gimmick_Enemy_Raser_Turret
+catalogue type=371 category=0xffffffff templateType=29095 template=MapIcon_Gimmick_jail_metal_01
+catalogue type=372 category=0xffffffff templateType=29096 template=MapIcon_Gimmick_jail_metal_00
+catalogue type=373 category=0xffffffff templateType=29097 template=MapIcon_Gimmick_attach_battletower_00
+catalogue type=374 category=0xffffffff templateType=29098 template=MapIcon_Gimmick_golemdragon_generaror_00
+catalogue type=375 category=0xffffffff templateType=29099 template=MapIcon_Gimmick_railgun_turret_00
+catalogue type=376 category=0xffffffff templateType=29100 template=MapIcon_Gimmick_KuKu_Battery
+catalogue type=377 category=0xffffffff templateType=29101 template=MapIcon_Gimmick_Item_Backpack
+catalogue type=381 category=0xffffffff templateType=29105 template=MapIcon_Gimmick_Installation_Bomb
+catalogue type=382 category=0xffffffff templateType=29106 template=MapIcon_Gimmick_ATAG_tunnel
+catalogue type=383 category=0xffffffff templateType=29107 template=MapIcon_Gimmick_Musket_Railgun_Turret_00
+catalogue type=384 category=0xffffffff templateType=29108 template=MapIcon_Gimmick_Abyssmark_Part
+catalogue type=385 category=0xffffffff templateType=29109 template=MapIcon_Gimmick_Antumbra_Tokamak_00
+catalogue type=386 category=0xffffffff templateType=29110 template=MapIcon_Gimmick_Antumbra_Tokamak_01
+catalogue type=387 category=0xffffffff templateType=29111 template=MapIcon_Gimmick_Antumbra_Tokamak_Battery
+catalogue type=388 category=0xffffffff templateType=29112 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar_Part
+catalogue type=389 category=0xffffffff templateType=29113 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar_Base
+catalogue type=390 category=0xffffffff templateType=29114 template=MapIcon_Gimmick_Antumbra_Tokamak_Pillar
+catalogue type=391 category=0xffffffff templateType=29115 template=MapIcon_Gimmick_Bsecamp_Warehouse_Box
+catalogue type=394 category=0xffffffff templateType=29118 template=MapIcon_Gimmick_Map_Egg
+catalogue type=395 category=0xffffffff templateType=29119 template=MapIcon_Gimmick_Map_Nest
+catalogue type=396 category=0xffffffff templateType=29120 template=MapIcon_Gimmick_Mechanical_Powerplant
+catalogue type=397 category=0xffffffff templateType=29121 template=MapIcon_Gimmick_Knowledge_Boardpaper
+catalogue type=398 category=0xffffffff templateType=29122 template=MapIcon_TestGimmick
+catalogue type=399 category=0xffffffff templateType=29123 template=MapIcon_TestGimmick1
+catalogue type=400 category=0xffffffff templateType=29124 template=MapIcon_TestGimmick2
+catalogue type=401 category=0xffffffff templateType=29125 template=MapIcon_TestGimmick3
+catalogue type=402 category=0xffffffff templateType=29126 template=MapIcon_TestGimmick4
+catalogue type=403 category=0xffffffff templateType=29127 template=MapIcon_TestGimmick5
+catalogue type=404 category=0xffffffff templateType=29128 template=MapIcon_TestGimmick6
+catalogue type=405 category=0xffffffff templateType=29129 template=MapIcon_TestGimmick7
+catalogue type=406 category=0xffffffff templateType=29130 template=MapIcon_TestGimmick8
+catalogue type=407 category=0xffffffff templateType=29131 template=MapIcon_TestGimmick9
+catalogue type=408 category=0xffffffff templateType=29132 template=MapIcon_TestGimmick10
+catalogue type=409 category=0xffffffff templateType=29133 template=MapIcon_TestGimmick11
+catalogue type=410 category=0xffffffff templateType=29134 template=MapIcon_TestGimmick_Sticky
+catalogue type=411 category=0xffffffff templateType=29135 template=MapIcon_TestGimmick1_Sticky
+catalogue type=412 category=0xffffffff templateType=29136 template=MapIcon_TestGimmick2_Sticky
+catalogue type=413 category=0xffffffff templateType=29137 template=MapIcon_TestGimmick3_Sticky
+catalogue type=414 category=0xffffffff templateType=29138 template=MapIcon_TestGimmick4_Sticky
+catalogue type=415 category=0xffffffff templateType=29139 template=MapIcon_TestGimmick5_Sticky
+catalogue type=416 category=0xffffffff templateType=29140 template=MapIcon_TestGimmick6_Sticky
+catalogue type=417 category=0xffffffff templateType=29141 template=MapIcon_TestGimmick7_Sticky
+catalogue type=418 category=0xffffffff templateType=29142 template=MapIcon_TestGimmick8_Sticky
+catalogue type=419 category=0xffffffff templateType=29143 template=MapIcon_TestGimmick9_Sticky
+catalogue type=420 category=0xffffffff templateType=29144 template=MapIcon_TestGimmick10_Sticky
+catalogue type=421 category=0xffffffff templateType=29145 template=MapIcon_TestGimmick11_Sticky
+catalogue type=422 category=0xffffffff templateType=29146 template=MapIcon_TestGimmick_Enemy
+catalogue type=423 category=0xffffffff templateType=29147 template=MapIcon_TestGimmick1_Enemy
+catalogue type=424 category=0xffffffff templateType=29148 template=MapIcon_TestGimmick2_Enemy
+catalogue type=425 category=0xffffffff templateType=29149 template=MapIcon_TestGimmick3_Enemy
+catalogue type=426 category=0xffffffff templateType=29150 template=MapIcon_TestGimmick4_Enemy
+catalogue type=427 category=0xffffffff templateType=29151 template=MapIcon_TestGimmick5_Enemy
+catalogue type=428 category=0xffffffff templateType=29152 template=MapIcon_TestGimmick6_Enemy
+catalogue type=429 category=0xffffffff templateType=29153 template=MapIcon_TestGimmick7_Enemy
+catalogue type=430 category=0xffffffff templateType=29154 template=MapIcon_TestGimmick8_Enemy
+catalogue type=431 category=0xffffffff templateType=29155 template=MapIcon_TestGimmick9_Enemy
+catalogue type=432 category=0xffffffff templateType=29156 template=MapIcon_TestGimmick10_Enemy
+catalogue type=433 category=0xffffffff templateType=29157 template=MapIcon_TestGimmick11_Enemy
+catalogue type=434 category=0xffffffff templateType=29158 template=MapIcon_TestGimmick_EnemySticky
+catalogue type=435 category=0xffffffff templateType=29159 template=MapIcon_TestGimmick1_EnemySticky
+catalogue type=436 category=0xffffffff templateType=29160 template=MapIcon_TestGimmick2_EnemySticky
+catalogue type=437 category=0xffffffff templateType=29161 template=MapIcon_TestGimmick3_EnemySticky
+catalogue type=438 category=0xffffffff templateType=29162 template=MapIcon_TestGimmick4_EnemySticky
+catalogue type=439 category=0xffffffff templateType=29163 template=MapIcon_TestGimmick5_EnemySticky
+catalogue type=440 category=0xffffffff templateType=29164 template=MapIcon_TestGimmick6_EnemySticky
+catalogue type=441 category=0xffffffff templateType=29165 template=MapIcon_TestGimmick7_EnemySticky
+catalogue type=442 category=0xffffffff templateType=29166 template=MapIcon_TestGimmick8_EnemySticky
+catalogue type=443 category=0xffffffff templateType=29167 template=MapIcon_TestGimmick9_EnemySticky
+catalogue type=444 category=0xffffffff templateType=29168 template=MapIcon_TestGimmick10_EnemySticky
+catalogue type=445 category=0xffffffff templateType=29169 template=MapIcon_TestGimmick11_EnemySticky
+catalogue type=535 category=0x49 templateType=29233 template=MapIcon_GimmickMinimapAlertEffect
+catalogue type=536 category=0xffffffff templateType=29234 template=MapIcon_GimmickMinimapAlertRepeatEffect
+catalogue type=545 category=0xffffffff templateType=29243 template=MapIcon_Gimmick_Subinner_Armory
+catalogue type=546 category=0xffffffff templateType=29244 template=MapIcon_Gimmick_Subinner_Barracks
+catalogue type=547 category=0xffffffff templateType=29245 template=MapIcon_Gimmick_Subinner_Boss
+catalogue type=548 category=0xffffffff templateType=29246 template=MapIcon_Gimmick_Subinner_Craftspecial
+catalogue type=549 category=0xffffffff templateType=29247 template=MapIcon_Gimmick_Subinner_Food
+catalogue type=550 category=0xffffffff templateType=29248 template=MapIcon_Gimmick_Subinner_Hexetowerprotect
+catalogue type=551 category=0xffffffff templateType=29249 template=MapIcon_Gimmick_Subinner_Hospital
+catalogue type=552 category=0xffffffff templateType=29250 template=MapIcon_Gimmick_Subinner_Minigame
+catalogue type=553 category=0xffffffff templateType=29251 template=MapIcon_Gimmick_Subinner_Railgun_Turret
+catalogue type=554 category=0xffffffff templateType=29252 template=MapIcon_Gimmick_Subinner_Research
+catalogue type=555 category=0xffffffff templateType=29253 template=MapIcon_Gimmick_Subinner_Royalsupply
+catalogue type=556 category=0xffffffff templateType=29254 template=MapIcon_Gimmick_Subinner_Trade
+catalogue type=557 category=0xffffffff templateType=29255 template=MapIcon_Gimmick_Subinner_Training_Area
+catalogue type=558 category=0xffffffff templateType=29256 template=MapIcon_Gimmick_Subinner_Wood
+catalogue type=559 category=0xffffffff templateType=29257 template=MapIcon_Gimmick_Subinner_Storage
+catalogue type=560 category=0xffffffff templateType=29258 template=MapIcon_Gimmick_Subinner_Hospital_Map
+catalogue type=561 category=0xffffffff templateType=29259 template=MapIcon_Gimmick_Subinner_Barracks_Map
+catalogue type=562 category=0xffffffff templateType=29260 template=MapIcon_Gimmick_Subinner_Food_Map
+catalogue type=563 category=0xffffffff templateType=29261 template=MapIcon_Gimmick_Subinner_Wood_Map
+catalogue type=564 category=0xffffffff templateType=29262 template=MapIcon_Gimmick_Subinner_Armory_Map
+catalogue type=565 category=0xffffffff templateType=29263 template=MapIcon_Gimmick_Subinner_Training_Area_Map
+catalogue type=566 category=0xffffffff templateType=29264 template=MapIcon_Gimmick_Subinner_Artillery_Map
+catalogue type=567 category=0xffffffff templateType=29265 template=MapIcon_Gimmick_Subinner_battletower_Map
+catalogue type=568 category=0xffffffff templateType=29266 template=MapIcon_Gimmick_Subinner_Trade_Map
+catalogue type=569 category=0xffffffff templateType=29267 template=MapIcon_Gimmick_Subinner_RoyalSupply_Map
+catalogue type=570 category=0xffffffff templateType=29268 template=MapIcon_Gimmick_Subinner_Council_Map
+catalogue type=571 category=0xffffffff templateType=29269 template=MapIcon_Gimmick_Subinner_Research_Map
+catalogue type=582 category=0x8 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=583 category=0x9 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=584 category=0x7 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=585 category=0x0 templateType=28651 template=MapIcon_Pin_Marker
+catalogue type=586 category=0x1 templateType=28651 template=MapIcon_Pin_Marker
+catalogue end types=2027 cached=2027 named=2027 relevant=263 headersStable=1
+render-window complete worldProjectionCalls=13602 privateScaleCalls=105

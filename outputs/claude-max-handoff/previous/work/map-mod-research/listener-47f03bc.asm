@@ -1,0 +1,19 @@
+0x47f03bc: sub rsp, 0x28
+0x47f03c0: mov r9, rcx
+0x47f03c3: test rcx, rcx
+0x47f03c6: je 0x1447f03fc
+0x47f03c8: dec rcx
+0x47f03cb: mov rax, r9
+0x47f03ce: and rcx, 0xfffffffffe000000
+0x47f03d5: xor r8d, r8d
+0x47f03d8: sub rax, rcx
+0x47f03db: shr rax, 0x10
+0x47f03df: lea rdx, [rcx + 0x108]
+0x47f03e6: lea rax, [rax + rax*4]
+0x47f03ea: shl rax, 4
+0x47f03ee: add rdx, rax
+0x47f03f1: mov eax, dword ptr [rdx + 4]
+0x47f03f4: sub rdx, rax
+0x47f03f7: call 0x1447efff4
+0x47f03fc: add rsp, 0x28
+0x47f0400: ret 

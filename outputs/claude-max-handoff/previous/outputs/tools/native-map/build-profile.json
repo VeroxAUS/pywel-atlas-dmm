@@ -1,0 +1,29 @@
+{
+  "steamBuildId": "25474236",
+  "sha256": "57da440d72f4db974f25fef047cf84c4dadd999a88cb2a3c5af4c9bd67fde1e7",
+  "peTimestamp": 1790086912,
+  "imageSize": 389722112,
+  "functions": [
+    {
+      "name": "find-path-action",
+      "rva": "0xdc32e0"
+    },
+    {
+      "name": "destination-handoff",
+      "rva": "0xdef810"
+    },
+    {
+      "name": "saved-pin-action",
+      "rva": "0xd91ef0"
+    },
+    {
+      "name": "saved-pin-handoff",
+      "rva": "0xb84320"
+    },
+    {
+      "name": "new-pin-insert",
+      "rva": "0x4955a9"
+    }
+  ],
+  "purpose": "Controlled Bell placement and observation of newly acknowledged native pin keys."
+}

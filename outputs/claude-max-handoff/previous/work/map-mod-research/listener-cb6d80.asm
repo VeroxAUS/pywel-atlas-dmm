@@ -1,0 +1,7 @@
+0xcb6d80: push rsi
+0xcb6d82: sub rsp, 0x30
+0xcb6d86: cmp byte ptr [rcx + 0xbe], 0
+0xcb6d8d: mov rsi, rcx
+0xcb6d90: mov byte ptr [rcx + 0xbd], 0
+0xcb6d97: jne 0x140cb6f5c
+0xcb6d9d: mov rax, qword ptr [rcx + 8]

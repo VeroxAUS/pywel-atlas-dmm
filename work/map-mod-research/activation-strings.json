@@ -1,0 +1,78 @@
+[
+  {
+    "rva": "0x55adc28",
+    "text": "ChangeGamePlayState"
+  },
+  {
+    "rva": "0x55b63d0",
+    "text": "ActorEnterToFieldProcess"
+  },
+  {
+    "rva": "0x57cb930",
+    "text": "OnGamePlayStateExit"
+  },
+  {
+    "rva": "0x57cb948",
+    "text": "OnGamePlayStateEnter"
+  },
+  {
+    "rva": "0x57cc470",
+    "text": "OnHideEndByGamePlayState"
+  },
+  {
+    "rva": "0x57cc490",
+    "text": "OnHideStartByGamePlayState"
+  },
+  {
+    "rva": "0x5922828",
+    "text": "eErrNoPlayerMoveLoadingStateNoAlert"
+  },
+  {
+    "rva": "0x5922850",
+    "text": "eErrNoPlayerMoveLoadingState"
+  },
+  {
+    "rva": "0x59264a8",
+    "text": "eErrNoBeforeEnterToField"
+  },
+  {
+    "rva": "0x59321d8",
+    "text": "eErrNoCantEnterToField"
+  },
+  {
+    "rva": "0x59602c0",
+    "text": "IsEnterToFieldLoadingComplete"
+  },
+  {
+    "rva": "0x59b88b0",
+    "text": "GamePlayState"
+  },
+  {
+    "rva": "0x6aa18d8",
+    "text": ".?AVCommonGamePlayStateActorComponent@pa@@"
+  },
+  {
+    "rva": "0x6aa1918",
+    "text": ".?AVClientGamePlayStateActorComponent@pa@@"
+  },
+  {
+    "rva": "0x6ab4ed0",
+    "text": ".?AV?$UIEventWrap@$$CBW4GamePlayStateType@pa@@$$CB_NXXXXXXX@pa@@"
+  },
+  {
+    "rva": "0x6b7bc70",
+    "text": ".?AVConditionData_IsEnterToFieldLoadingComplete@pa@@"
+  },
+  {
+    "rva": "0x6be0920",
+    "text": ".?AVServerGamePlayStateActorComponent@pa@@"
+  },
+  {
+    "rva": "0x6be9e10",
+    "text": ".?AV?$ActorComponentPool@VServerGamePlayStateActorComponent@pa@@@pa@@"
+  },
+  {
+    "rva": "0x6be9f20",
+    "text": ".?AV?$Pool@VServerGamePlayStateActorComponent@pa@@@pa@@"
+  }
+]

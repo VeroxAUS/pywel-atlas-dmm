@@ -1,0 +1,33 @@
+0x3d5f10: push rbx
+0x3d5f12: sub rsp, 0x20
+0x3d5f16: mov rbx, qword ptr [rcx]
+0x3d5f19: mov eax, dword ptr [rbx + 0xc]
+0x3d5f1c: cmp eax, -1
+0x3d5f1f: jne 0x1403d5f68
+0x3d5f21: mov rcx, qword ptr [rbx]
+0x3d5f24: test rcx, rcx
+0x3d5f27: je 0x1403d5f5c
+0x3d5f29: cmp byte ptr [rcx], 0
+0x3d5f2c: je 0x1403d5f5c
+0x3d5f2e: mov eax, dword ptr [rbx + 8]
+0x3d5f31: cmp eax, -1
+0x3d5f34: jne 0x1403d5f5e
+0x3d5f36: mov rax, 0xffffffffffffffff
+0x3d5f3d: nop dword ptr [rax]
+0x3d5f40: inc rax
+0x3d5f43: cmp byte ptr [rcx + rax], 0
+0x3d5f47: jne 0x1403d5f40
+0x3d5f49: mov edx, eax
+0x3d5f4b: mov dword ptr [rbx + 8], eax
+0x3d5f4e: call 0x141364780
+0x3d5f53: mov dword ptr [rbx + 0xc], eax
+0x3d5f56: add rsp, 0x20
+0x3d5f5a: pop rbx
+0x3d5f5b: ret 
+0x3d5f5c: xor eax, eax
+0x3d5f5e: mov edx, eax
+0x3d5f60: call 0x141364780
+0x3d5f65: mov dword ptr [rbx + 0xc], eax
+0x3d5f68: add rsp, 0x20
+0x3d5f6c: pop rbx
+0x3d5f6d: ret 

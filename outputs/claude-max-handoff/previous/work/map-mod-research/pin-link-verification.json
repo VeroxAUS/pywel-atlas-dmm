@@ -1,0 +1,24 @@
+{
+  "poiId": "mg:543894",
+  "pinKey": "2",
+  "pinGroup": 0,
+  "savedPinMatch": true,
+  "position": [
+    -10702.4970703125,
+    631.1273193359375,
+    -3833.85888671875
+  ],
+  "shapeIndex": 4,
+  "colorIndex": 14,
+  "bellState": "completed",
+  "completionConfirmed": true,
+  "recommendedDisplay": "completed",
+  "loadedSaveDetected": false,
+  "automaticGameChangesEnabled": false,
+  "schemaVersion": 1,
+  "selectedSaveProfile": "60062761:slot101",
+  "saveSha256": "d593f0d7651218cc7d145d0224e1ec07ef3593928583067e5b74381c4790bc33",
+  "receiptSha256": "41afb12e84b63b201d58f8dfa5b1c12f586fb7aa7dc104a4f7b9a9d2a433bc4d",
+  "saveModifiedTime": 1792521419.9314046,
+  "note": "Selected-save verification only. Runtime ownership, key reuse and loaded-save detection must be handled before automatic changes."
+}

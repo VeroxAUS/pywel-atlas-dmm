@@ -1,0 +1,15 @@
+Pywel Atlas native icon inspection v0.11 - observation only
+Create observation hook rva=0xdf88c0: MH_OK
+Create observation hook rva=0xdb8a00: MH_OK
+Create observation hook rva=0xdeffa0: MH_OK
+Observation active. Load Manual save 2, open both maps, then press F8.
+No preview or placement hotkeys; no game arguments or data are changed.
+callback=1 path=0 controller_vtable=0x566ff50 icon=0 type=0 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1
+callback=1 path=2 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1
+callback=1 path=1 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1
+callback=1 path=2 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224
+callback=1 path=1 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224
+callback=2 path=0 controller_vtable=0x5674e00 icon=0 type=0 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1
+callback=2 path=2 controller_vtable=0x5674e00 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1
+callback=2 path=2 controller_vtable=0x5674e00 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224
+snapshot callbacks=2 lookups=6 dropped=0

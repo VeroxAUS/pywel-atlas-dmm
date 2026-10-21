@@ -1,0 +1,23 @@
+SESSION native save-load observation v0.33 pid=7112 tick=10535937; automaticLoadedSaveTrusted=0
+READY: read/apply observation installed. F7 reports candidates. No marker hooks or save writes.
+stage=read-start seq=1 thread=21004 tick=10560156 callerRva=0x2c17886 object=0x2dd421a0000 requestedSlot=1 objectSlotRead=1 objectSlot=2416967680 statusRead=0 status=0
+stage=read-end seq=1 thread=21004 tick=10560171 callerRva=0x2c17886 object=0x2dd421a0000 requestedSlot=1 objectSlotRead=1 objectSlot=2416967680 statusRead=1 status=0
+stage=read-start seq=2 thread=21004 tick=10567953 callerRva=0x2c3e1d3 object=0x2dd421a0000 requestedSlot=101 objectSlotRead=1 objectSlot=2416967680 statusRead=0 status=0
+stage=read-end seq=2 thread=21004 tick=10567968 callerRva=0x2c3e1d3 object=0x2dd421a0000 requestedSlot=101 objectSlotRead=1 objectSlot=2416967680 statusRead=1 status=0
+stage=read-start seq=3 thread=21004 tick=10567968 callerRva=0x1042abf8 object=0x2dd420f0200 requestedSlot=101 objectSlotRead=1 objectSlot=2685403137 statusRead=0 status=0
+stage=read-end seq=3 thread=21004 tick=10568015 callerRva=0x1042abf8 object=0x2dd420f0200 requestedSlot=101 objectSlotRead=1 objectSlot=2685403137 statusRead=1 status=0
+stage=apply-start seq=4 thread=21004 tick=10568015 callerRva=0x1042ac11 object=0x2dd420f0200 requestedSlot=4294967295 objectSlotRead=1 objectSlot=2685403137 statusRead=0 status=0
+stage=apply-end seq=4 thread=21004 tick=10568687 callerRva=0x1042ac11 object=0x2dd420f0200 requestedSlot=4294967295 objectSlotRead=1 objectSlot=2685403137 statusRead=1 status=0
+CHECKPOINT F7 readCount=3 applyCount=1 sameObject=1 dropped=0
+stage=read-start seq=5 thread=21004 tick=10645546 callerRva=0x2c3e1d3 object=0x2dd421a0000 requestedSlot=100 objectSlotRead=1 objectSlot=2416967680 statusRead=0 status=0
+stage=read-end seq=5 thread=21004 tick=10645546 callerRva=0x2c3e1d3 object=0x2dd421a0000 requestedSlot=100 objectSlotRead=1 objectSlot=2416967680 statusRead=1 status=0
+stage=read-start seq=6 thread=21004 tick=10645546 callerRva=0x1042abf8 object=0x2dd420f0400 requestedSlot=100 objectSlotRead=1 objectSlot=2685403139 statusRead=0 status=0
+stage=read-end seq=6 thread=21004 tick=10645609 callerRva=0x1042abf8 object=0x2dd420f0400 requestedSlot=100 objectSlotRead=1 objectSlot=2685403139 statusRead=1 status=0
+stage=apply-start seq=7 thread=21004 tick=10645609 callerRva=0x1042ac11 object=0x2dd420f0400 requestedSlot=4294967295 objectSlotRead=1 objectSlot=2685403139 statusRead=0 status=0
+stage=apply-end seq=7 thread=21004 tick=10645640 callerRva=0x1042ac11 object=0x2dd420f0400 requestedSlot=4294967295 objectSlotRead=1 objectSlot=2685403139 statusRead=1 status=0
+stage=read-start seq=8 thread=21004 tick=10696656 callerRva=0x2c3e1d3 object=0x2dd421a0000 requestedSlot=101 objectSlotRead=1 objectSlot=2416967680 statusRead=0 status=0
+stage=read-end seq=8 thread=21004 tick=10696671 callerRva=0x2c3e1d3 object=0x2dd421a0000 requestedSlot=101 objectSlotRead=1 objectSlot=2416967680 statusRead=1 status=0
+stage=read-start seq=9 thread=21004 tick=10696671 callerRva=0x1042abf8 object=0x2dd420f0600 requestedSlot=101 objectSlotRead=1 objectSlot=2685403141 statusRead=0 status=0
+stage=read-end seq=9 thread=21004 tick=10696734 callerRva=0x1042abf8 object=0x2dd420f0600 requestedSlot=101 objectSlotRead=1 objectSlot=2685403141 statusRead=1 status=0
+stage=apply-start seq=10 thread=21004 tick=10696734 callerRva=0x1042ac11 object=0x2dd420f0600 requestedSlot=4294967295 objectSlotRead=1 objectSlot=2685403141 statusRead=0 status=0
+stage=apply-end seq=10 thread=21004 tick=10696750 callerRva=0x1042ac11 object=0x2dd420f0600 requestedSlot=4294967295 objectSlotRead=1 objectSlot=2685403141 statusRead=1 status=0

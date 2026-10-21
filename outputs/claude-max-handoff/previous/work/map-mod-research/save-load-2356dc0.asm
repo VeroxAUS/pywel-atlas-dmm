@@ -1,0 +1,21 @@
+0x2356dc0: sub rsp, 0x28
+0x2356dc4: mov byte ptr [rcx + 8], 0
+0x2356dc8: lea rdx, [rip + 0x321c6dd]
+0x2356dcf: mov r8, qword ptr [rcx + 0x128]
+0x2356dd6: add rcx, 0x20
+0x2356dda: test r8, r8
+0x2356ddd: mov rax, rcx
+0x2356de0: cmovne rax, r8
+0x2356de4: mov dword ptr [rcx + 0x114], 0xffffffff
+0x2356dee: cmp rdx, rax
+0x2356df1: je 0x142356e11
+0x2356df3: mov dword ptr [rcx + 0x114], 0
+0x2356dfd: mov byte ptr [rcx], 0
+0x2356e00: test r8, r8
+0x2356e03: je 0x142356e09
+0x2356e05: mov byte ptr [r8], 0
+0x2356e09: xor r8d, r8d
+0x2356e0c: call 0x140393f50
+0x2356e11: mov al, 1
+0x2356e13: add rsp, 0x28
+0x2356e17: ret 

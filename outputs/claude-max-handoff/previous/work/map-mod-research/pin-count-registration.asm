@@ -1,0 +1,5 @@
+0xdb85a0: push rbp
+0xdb85a2: push rdi
+0xdb85a3: push r14
+0xdb85a5: sub rsp, 0x40
+0xdb85a9: mov rbp, rcx

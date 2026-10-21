@@ -1,0 +1,3 @@
+0x235ab00: jmp 0x14ef62160
+0x235ab05: jnp 0x14235ab53
+0x235ab07: fcomp dword ptr [rsp + riz*2 - 0x2c]

@@ -1,0 +1,10 @@
+Pywel Atlas native display preview v0.9 - subscriber dispatch boundary
+Display hook active. F6 enables a 3-minute preview; reload Manual save 2.
+F10 disables preview; reload Manual save 2 to refresh normal appearance. F8 logs state.
+Ownership is manually scoped to this proof save. Loaded-save detection is not implemented.
+Display preview ON. Reload Manual save 2; do not create more pins.
+Owned-pin subscriber arguments substituted: +200 display X, style 0/0. Check visible result.
+dispatch enabled=1 total=9 keySeen=3 matched=3 styled=1 listeners=2 caller_rva=0x7ec21a callbacks_rva=(0xe016b0,0xe016b0) pinKey=2
+Display preview OFF. Reload Manual save 2 to restore queued appearance.
+dispatch enabled=0 total=12 keySeen=4 matched=4 styled=1 listeners=2 caller_rva=0x7ec21a callbacks_rva=(0xe016b0,0xe016b0) pinKey=2
+dispatch enabled=0 total=18 keySeen=6 matched=6 styled=1 listeners=2 caller_rva=0x7ec21a callbacks_rva=(0xe016b0,0xe016b0) pinKey=2

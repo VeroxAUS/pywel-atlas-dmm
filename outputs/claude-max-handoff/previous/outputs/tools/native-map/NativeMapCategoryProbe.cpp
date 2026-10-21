@@ -1,0 +1,1266 @@
+// Observe native marker metadata and suppression-bit changes; optionally create
+// one chest-type display from an armed live world-map update. Original
+// events are unchanged. Save snapshots are read on the worker; only explicit
+// completion may request removal of the session-owned proof object on the UI.
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
+#include <shlobj.h>
+#include <cstdint>
+#include <cstdio>
+#include <cstring>
+#include <intrin.h>
+#include <cmath>
+#include "vendor/minhook/include/MinHook.h"
+#include "category-profile.h"
+#include "NativeMarkerDefinition.h"
+#include "NativeSaveReader.h"
+
+namespace {
+// The ten-argument creation ABI is traced from 0xdf88c0 and the shared callee's
+// stack reads. Opaque arguments remain opaque; only optional XYZ is sampled.
+using CreateIcon = uintptr_t (*)(void*, const WORD*, const void*, const DWORD*,
+    const void*, const float*, const void*, BYTE, const void*, BYTE);
+using LookupType = void* (*)(const WORD*);
+using LookupIcon = void* (*)(void*, const WORD*, const void*, const DWORD*);
+using SetVisibility = uintptr_t (*)(void*, BYTE, BYTE);
+using InitializeIcon = BYTE (*)(void*, const void*, BYTE);
+using ProjectWorld = uintptr_t (*)(void*, BYTE, void*, const void*, const void*, float);
+using CalculateIconScale = float (*)(void*, float, BYTE, float);
+using RemoveWorldIcon = void (*)(void*, WORD, const void*, DWORD);
+using GetPresentation = const void* (*)(void*, DWORD);
+using UpdateWorldMap = uintptr_t (*)(void*, float);
+// World constructor's stack arguments are traced at 0xdb84a4..0xdb84ed.
+// Slots 7/9 are unused by this entry; preserve them without assigning meaning.
+using CreateWorldIcon = uintptr_t (*)(void*, const WORD*, const void*, const DWORD*,
+    const float*, void*, uintptr_t, float, uintptr_t, const void*, const char*,
+    const void*, const void*, BYTE);
+CreateIcon originalCreate = nullptr;
+LookupType originalType = nullptr;
+LookupType originalTemplate = nullptr;
+LookupIcon worldLookup = nullptr;
+LookupIcon minimapLookup = nullptr;
+SetVisibility originalVisibility = nullptr;
+CreateWorldIcon originalWorldCreate = nullptr;
+InitializeIcon originalInitialize = nullptr;
+ProjectWorld originalProjectWorld = nullptr;
+CalculateIconScale originalCalculateScale = nullptr;
+RemoveWorldIcon removeWorldIcon = nullptr;
+UpdateWorldMap originalUpdateWorldMap = nullptr;
+uintptr_t imageBase = 0;
+HANDLE logFile = INVALID_HANDLE_VALUE;
+volatile LONG creationCalls = 0;
+volatile LONG sampledCalls = 0;
+volatile LONG droppedSamples = 0;
+volatile LONG namedSamples = 0;
+volatile LONG generationEnabled = 0;
+volatile LONG generatedCalls = 0;
+volatile LONG occupiedKeys = 0;
+volatile LONG definitionRejected = 0;
+volatile LONG generatedReadbackMask = 0;
+volatile LONG worldProjectionCalls = 0;
+volatile LONG worldMapUpdateCalls = 0;
+volatile LONG privateScaleCalls = 0;
+alignas(8) volatile LONG64 renderCaptureDeadline = 0;
+volatile LONG ownedChest = 0;
+volatile LONG removalRequested = 0;
+volatile LONG removalServicing = 0;
+volatile LONG removalAttempts = 0;
+volatile LONG removalConfirmed = 0;
+volatile LONG removalAbsent = 0;
+volatile LONG removalRejected = 0;
+volatile LONG removalOutcome = 0;
+volatile LONG creationRequested = 0;
+volatile LONG creationOutcome = 0;
+alignas(8) volatile LONG64 removalWaitStarted = 0;
+constexpr WORD chestType = 226;
+constexpr uint64_t chestKey = 0x5059415400000002ULL;
+// The worker stages validated file values. The UI commits active identity only
+// when no private object exists, so editing cannot change removal's coordinates
+// beneath an already owned object. Locks protect copies only, never file I/O.
+SRWLOCK definitionLock = SRWLOCK_INIT;
+MarkerDefinition stagedDefinition = {};
+MarkerDefinition activeDefinition = {};
+struct NumericTag {
+    uint64_t key;
+    BYTE kind;
+    BYTE padding[7];
+};
+static_assert(sizeof(NumericTag) == 16, "Native numeric tag must remain 16 bytes");
+
+struct Sample {
+    uintptr_t controller;
+    WORD type;
+    DWORD category;
+    bool categoryRead;
+    bool positionRead;
+    WORD templateType;
+    bool templateTypeRead;
+    char templateName[128];
+    BYTE tag[16];
+    float position[3];
+    bool generated;
+    bool iconVerified;
+    bool visibilityRead;
+    BYTE visibility[3];
+    bool ownerControllerPresent;
+    BYTE creationFlag;
+    BYTE finalFlag;
+    bool containerRouted;
+    bool initializationObserved;
+    BYTE initializationResult;
+    bool rootPresent;
+    bool baseIconPresent;
+    bool sizeRead;
+    float size[2];
+    BYTE phase;
+    float calculatedScale;
+    char markerName[128];
+};
+
+struct VisibilityEvent {
+    uintptr_t caller;
+    BYTE bit;
+    BYTE enabled;
+    BYTE before[3];
+    BYTE after[3];
+    bool afterRead;
+};
+
+// Associate only synchronous type queries with the live creation call. Nested
+// calls restore the previous context; no controller/object pointer is retained.
+thread_local Sample* activeSample = nullptr;
+thread_local bool creatingChest = false;
+// The requested parent is freshly resolved for one synchronous UI creation.
+// Nested contexts restore it; no controller or parent reaches the worker.
+thread_local void* requestedChestContainer = nullptr;
+SRWLOCK sampleLock = SRWLOCK_INIT;
+Sample pending[128] = {};
+unsigned pendingCount = 0;
+Sample seen[256] = {};
+unsigned seenCount = 0;
+VisibilityEvent visibilityPending[128] = {};
+unsigned visibilityPendingCount = 0;
+VisibilityEvent visibilitySeen[256] = {};
+unsigned visibilitySeenCount = 0;
+
+bool ChestDefinitionReady();
+void CreateIndependentChest(void* controller, void* parent, const void* presentation,
+    const MarkerDefinition& definition);
+bool ResolveIndependentParent(void* controller, const float (&position)[3],
+    void*& parent, uintptr_t& chestRecord);
+bool ResolvePresentation(uintptr_t record, const void*& presentation);
+void ServiceCreation(void* controller);
+void Queue(const Sample& sample);
+void ServiceRemoval(void* controller);
+
+bool Read(const void* address, void* destination, SIZE_T size) {
+    SIZE_T read = 0;
+    return address && ReadProcessMemory(GetCurrentProcess(), address,
+        destination, size, &read) && read == size;
+}
+
+MarkerDefinition CopyDefinition(bool active) {
+    AcquireSRWLockShared(&definitionLock);
+    MarkerDefinition copy = active ? activeDefinition : stagedDefinition;
+    ReleaseSRWLockShared(&definitionLock);
+    return copy;
+}
+
+bool IsPrivateChest(void* icon) {
+    WORD type = 0;
+    NumericTag tag = {};
+    float position[3] = {};
+    auto* bytes = static_cast<const BYTE*>(icon);
+    if (!icon || !Read(bytes + 0xde, &type, sizeof(type)) || type != chestType ||
+        !Read(bytes + 0xc8, &tag, sizeof(tag)) || tag.key != chestKey || tag.kind != 0x15 ||
+        !Read(bytes + 0xe0, position, sizeof(position))) {
+        return false;
+    }
+    MarkerDefinition definition = CopyDefinition(true);
+    return memcmp(position, definition.position, sizeof(position)) == 0;
+}
+
+uintptr_t RouteWorldContainer(void* controller, const WORD* type, const void* tag,
+    const DWORD* index, const float* position, void* container, uintptr_t slot7,
+    float scalar, uintptr_t slot9, const void* appearance, const char* templateName,
+    const void* optional12, const void* optional13, BYTE finalFlag) {
+    WORD actualType = 0;
+    NumericTag actualTag = {};
+    float actualPosition[3] = {};
+    uintptr_t controllerTable = 0;
+    bool readable = activeSample &&
+        Read(controller, &controllerTable, sizeof(controllerTable)) &&
+        controllerTable == imageBase + 0x566ff50 &&
+        Read(type, &actualType, sizeof(actualType)) &&
+        Read(tag, &actualTag, sizeof(actualTag)) &&
+        Read(position, actualPosition, sizeof(actualPosition));
+    if (readable && creatingChest && requestedChestContainer &&
+        activeSample->generated && actualType == chestType &&
+        actualTag.key == chestKey && actualTag.kind == 0x15 &&
+        memcmp(actualPosition, activeSample->position, sizeof(actualPosition)) == 0) {
+        container = requestedChestContainer;
+        activeSample->containerRouted = true;
+    }
+    return originalWorldCreate(controller, type, tag, index, position, container,
+        slot7, scalar, slot9, appearance, templateName, optional12, optional13, finalFlag);
+}
+
+void CaptureIconState(void* icon, Sample& sample) {
+    auto* bytes = static_cast<const BYTE*>(icon);
+    uintptr_t control = 0;
+    if (icon) {
+        sample.visibilityRead = Read(bytes + 0x1e8, sample.visibility,
+            sizeof(sample.visibility));
+        // db4420 writes its controller into descriptor+0x28; common init
+        // copies that to +0x110. It is not the presentation field or UI root.
+        sample.ownerControllerPresent = Read(bytes + 0x110, &control, sizeof(control)) && control;
+        sample.rootPresent = Read(bytes + 8, &control, sizeof(control)) && control;
+        sample.baseIconPresent = Read(bytes + 0x118, &control, sizeof(control)) && control;
+        sample.sizeRead = Read(bytes + 0x104, sample.size, sizeof(sample.size));
+    }
+}
+
+BYTE ObserveInitialize(void* icon, const void* description, BYTE flag) {
+    BYTE result = originalInitialize(icon, description, flag);
+    WORD type = 0;
+    NumericTag tag = {};
+    // Read identity only after native initialization assigns it. A matching
+    // partial object may explain failure; never turn a failure into success.
+    if (activeSample &&
+        Read(static_cast<const BYTE*>(icon) + 0xde, &type, sizeof(type)) &&
+        Read(static_cast<const BYTE*>(icon) + 0xc8, &tag, sizeof(tag)) &&
+        type == activeSample->type &&
+        memcmp(&tag, activeSample->tag, sizeof(tag)) == 0) {
+        activeSample->initializationObserved = true;
+        activeSample->initializationResult = result;
+        CaptureIconState(icon, *activeSample);
+    }
+    return result;
+}
+
+bool RenderCaptureActive() {
+    LONG64 deadline = InterlockedCompareExchange64(&renderCaptureDeadline, 0, 0);
+    return deadline > 0 && GetTickCount64() < static_cast<ULONGLONG>(deadline);
+}
+
+void QueueRenderState(void* icon, BYTE phase, float scale) {
+    // Capture on the game's own UI callback thread, with no retained object
+    // pointers. F8 opens a short observation window; throttle each phase so an
+    // animated zoom cannot exhaust the bounded diagnostic queue in one frame.
+    static thread_local ULONGLONG nextCapture[3] = {};
+    if (!RenderCaptureActive() || phase < 1 || phase > 2 ||
+        GetTickCount64() < nextCapture[phase] || !IsPrivateChest(icon)) {
+        return;
+    }
+    nextCapture[phase] = GetTickCount64() + 100;
+    Sample sample = {};
+    sample.controller = 0x566ff50;
+    sample.type = chestType;
+    sample.generated = true;
+    sample.iconVerified = true;
+    sample.phase = phase;
+    sample.calculatedScale = scale;
+    Read(static_cast<const BYTE*>(icon) + 0xc8, sample.tag, sizeof(sample.tag));
+    sample.positionRead = Read(static_cast<const BYTE*>(icon) + 0xe0,
+        sample.position, sizeof(sample.position));
+    CaptureIconState(icon, sample);
+    Queue(sample);
+}
+
+float ObserveScale(void* icon, float zoom, BYTE mode, float mapScale) {
+    float result = originalCalculateScale(icon, zoom, mode, mapScale);
+    if (RenderCaptureActive() && IsPrivateChest(icon)) {
+        InterlockedIncrement(&privateScaleCalls);
+        QueueRenderState(icon, 1, result);
+    }
+    return result;
+}
+
+uintptr_t ObserveWorldProjection(void* controller, BYTE flag, void* layer,
+    const void* data, const void* optional, float value) {
+    // Six arguments are established by the frame function's saved registers
+    // and its only incoming stack reads (+0x28 pointer, +0x30 float). Preserve
+    // native results, scale calculations and direct visibility writes.
+    uintptr_t result = originalProjectWorld(controller, flag, layer, data, optional, value);
+    InterlockedIncrement(&worldProjectionCalls);
+    uintptr_t table = 0;
+    if (Read(controller, &table, sizeof(table)) &&
+        table == imageBase + 0x566ff50) {
+        if (RenderCaptureActive()) {
+            NumericTag tag = {};
+            tag.key = chestKey;
+            tag.kind = 0x15;
+            DWORD index = 0;
+            void* icon = worldLookup(controller, &chestType, &tag, &index);
+            QueueRenderState(icon, 2, 0);
+        }
+    }
+    return result;
+}
+
+uintptr_t ObserveWorldMapUpdate(void* controller, float elapsed) {
+    // dabd10 consumes RCX and scalar XMM1. It owns the entire layer loop and
+    // clears its update flag at dadc12. Service changes only after it returns,
+    // so no per-layer callback is required and its finalizer cannot clear a
+    // flag set by our newly created icon. No controller is cached on the worker.
+    uintptr_t result = originalUpdateWorldMap(controller, elapsed);
+    InterlockedIncrement(&worldMapUpdateCalls);
+    uintptr_t table = 0;
+    if (Read(controller, &table, sizeof(table)) && table == imageBase + 0x566ff50) {
+        ServiceRemoval(controller);
+        ServiceCreation(controller);
+    }
+    return result;
+}
+
+void ServiceCreation(void* controller) {
+    if (InterlockedCompareExchange(&generationEnabled, 0, 0) != 1 ||
+        InterlockedCompareExchange(&removalRequested, 0, 0) != 0 ||
+        InterlockedCompareExchange(&creationRequested, 2, 1) != 1) {
+        return;
+    }
+    void* parent = nullptr;
+    uintptr_t record = 0;
+    MarkerDefinition definition = CopyDefinition(false);
+    if (!definition.enabled || !ResolveIndependentParent(controller, definition.position, parent, record)) {
+        InterlockedExchange(&creationRequested, 0);
+        InterlockedExchange(&creationOutcome, 3);
+        InterlockedIncrement(&definitionRejected);
+        return;
+    }
+    const void* presentation = nullptr;
+    if (!ResolvePresentation(record, presentation)) {
+        InterlockedExchange(&creationRequested, 0);
+        InterlockedExchange(&creationOutcome, 5);
+        return;
+    }
+    CreateIndependentChest(controller, parent, presentation, definition);
+    InterlockedExchange(&creationRequested, 0);
+}
+
+void ServiceRemovalInternal(void* controller) {
+    LONG request = InterlockedCompareExchange(&removalRequested, 0, 0);
+    if (!request || InterlockedCompareExchange(&generationEnabled, 0, 0) != 0) {
+        return;
+    }
+    if (InterlockedCompareExchange(&ownedChest, 0, 0) != 1) {
+        InterlockedExchange(&removalRequested, 0);
+        InterlockedExchange(&removalOutcome, 5);
+        return;
+    }
+    NumericTag tag = {};
+    tag.key = chestKey;
+    tag.kind = 0x15;
+    DWORD index = 0;
+    void* icon = worldLookup(controller, &chestType, &tag, &index);
+    if (!icon) {
+        InterlockedExchange(&ownedChest, 0);
+        InterlockedExchange(&removalRequested, 0);
+        InterlockedIncrement(request == 2 ? &removalConfirmed : &removalAbsent);
+        InterlockedExchange(&removalOutcome, request == 2 ? 3 : 4);
+        return;
+    }
+    if (!IsPrivateChest(icon) || !ChestDefinitionReady()) {
+        // A key alone is not sufficient authority to remove a native object.
+        // Refuse changed identity/definition; never adopt or rewrite that icon.
+        InterlockedExchange(&ownedChest, 0);
+        InterlockedExchange(&removalRequested, 0);
+        InterlockedIncrement(&removalRejected);
+        InterlockedExchange(&removalOutcome, 6);
+        return;
+    }
+    if (request == 1) {
+        InterlockedIncrement(&removalAttempts);
+        InterlockedExchange64(&removalWaitStarted, static_cast<LONG64>(GetTickCount64()));
+        InterlockedExchange(&removalRequested, 2);
+        InterlockedExchange(&removalOutcome, 2);
+        // This is the native UI removal entry used by the shared creator.
+        // Type and index are passed by value, unlike the lookup ABI. Do not
+        // bypass its native deferred-removal or registry cleanup branches.
+        removeWorldIcon(controller, chestType, &tag, index);
+        // The old icon may be freed now. Inspect only a fresh lookup result.
+        if (!worldLookup(controller, &chestType, &tag, &index)) {
+            InterlockedExchange(&ownedChest, 0);
+            InterlockedExchange(&removalRequested, 0);
+            InterlockedIncrement(&removalConfirmed);
+            InterlockedExchange(&removalOutcome, 3);
+        }
+    } else {
+        LONG64 started = InterlockedCompareExchange64(&removalWaitStarted, 0, 0);
+        if (GetTickCount64() - static_cast<ULONGLONG>(started) >= 3000) {
+            // A native call can defer removal. Poll rather than issuing it
+            // repeatedly; if still present, report and leave reload as fallback.
+            InterlockedExchange(&removalRequested, 0);
+            InterlockedExchange(&removalOutcome, 7);
+        }
+    }
+}
+
+void ServiceRemoval(void* controller) {
+    // Native removal may re-enter UI callbacks. Serialize requests across any
+    // nested callbacks without blocking the game's thread or retrying a call.
+    if (InterlockedCompareExchange(&removalServicing, 1, 0) != 0) {
+        return;
+    }
+    ServiceRemovalInternal(controller);
+    InterlockedExchange(&removalServicing, 0);
+}
+
+uintptr_t ObserveVisibility(void* icon, BYTE bit, BYTE enabled) {
+    // The native helper sets one of 24 suppression bits, then toggles the UI
+    // only if their combined zero/nonzero state changed. Observe its arguments
+    // and return value unchanged; never clear a bit to force an icon visible.
+    VisibilityEvent event = {};
+    event.caller = reinterpret_cast<uintptr_t>(_ReturnAddress()) - imageBase;
+    event.bit = bit;
+    event.enabled = enabled;
+    bool watched = IsPrivateChest(icon) &&
+        Read(static_cast<const BYTE*>(icon) + 0x1e8, event.before, sizeof(event.before));
+    uintptr_t result = originalVisibility(icon, bit, enabled);
+    if (!watched) {
+        return result;
+    }
+    // Recheck identity after the native callback; do not retain its pointer on
+    // the worker or assume a UI callback guarantees the object's lifetime.
+    event.afterRead = IsPrivateChest(icon) &&
+        Read(static_cast<const BYTE*>(icon) + 0x1e8, event.after, sizeof(event.after));
+    if (!TryAcquireSRWLockExclusive(&sampleLock)) {
+        InterlockedIncrement(&droppedSamples);
+        return result;
+    }
+    bool duplicate = false;
+    for (unsigned index = 0; index < visibilitySeenCount; ++index) {
+        const auto& prior = visibilitySeen[index];
+        if (prior.caller == event.caller && prior.bit == event.bit &&
+            prior.enabled == event.enabled && prior.afterRead == event.afterRead &&
+            memcmp(prior.before, event.before, sizeof(event.before)) == 0 &&
+            memcmp(prior.after, event.after, sizeof(event.after)) == 0) {
+            duplicate = true;
+            break;
+        }
+    }
+    if (!duplicate) {
+        if (visibilitySeenCount < _countof(visibilitySeen) &&
+            visibilityPendingCount < _countof(visibilityPending)) {
+            visibilitySeen[visibilitySeenCount++] = event;
+            visibilityPending[visibilityPendingCount++] = event;
+        } else {
+            InterlockedIncrement(&droppedSamples);
+        }
+    }
+    ReleaseSRWLockExclusive(&sampleLock);
+    return result;
+}
+
+bool ReadTemplateName(const void* record, char (&name)[128]) {
+    const void* stringField = nullptr;
+    const char* text = nullptr;
+    if (!record || !Read(static_cast<const BYTE*>(record) + 0x18,
+        &stringField, sizeof(stringField)) ||
+        !Read(stringField, &text, sizeof(text)) || !text) {
+        return false;
+    }
+    for (unsigned index = 0; index < sizeof(name); ++index) {
+        char value = 0;
+        if (!Read(text + index, &value, sizeof(value))) {
+            return false;
+        }
+        if (value == '\0') {
+            return index != 0;
+        }
+        if (!((value >= 'a' && value <= 'z') || (value >= 'A' && value <= 'Z') ||
+              (value >= '0' && value <= '9') || value == '_' || value == '-')) {
+            return false;
+        }
+        name[index] = value;
+    }
+    return false;
+}
+
+void Queue(const Sample& sample) {
+    // Do not block the game's map thread on diagnostic disk I/O or the worker.
+    if (!TryAcquireSRWLockExclusive(&sampleLock)) {
+        InterlockedIncrement(&droppedSamples);
+        return;
+    }
+    bool duplicate = false;
+    for (unsigned index = 0; index < seenCount; ++index) {
+        const Sample& prior = seen[index];
+        if (prior.controller == sample.controller && prior.type == sample.type &&
+            prior.categoryRead == sample.categoryRead && prior.category == sample.category &&
+            prior.tag[8] == sample.tag[8] &&
+            prior.templateTypeRead == sample.templateTypeRead &&
+            prior.templateType == sample.templateType &&
+            prior.generated == sample.generated && prior.iconVerified == sample.iconVerified &&
+            prior.visibilityRead == sample.visibilityRead &&
+            memcmp(prior.visibility, sample.visibility, sizeof(sample.visibility)) == 0 &&
+            prior.initializationObserved == sample.initializationObserved &&
+            prior.initializationResult == sample.initializationResult &&
+            prior.baseIconPresent == sample.baseIconPresent &&
+            prior.phase == sample.phase && prior.calculatedScale == sample.calculatedScale &&
+            (!sample.generated || memcmp(prior.position, sample.position, sizeof(sample.position)) == 0) &&
+            strcmp(prior.markerName, sample.markerName) == 0 &&
+            strcmp(prior.templateName, sample.templateName) == 0) {
+            duplicate = true;
+            break;
+        }
+    }
+    if (!duplicate) {
+        if (seenCount < _countof(seen) && pendingCount < _countof(pending)) {
+            seen[seenCount++] = sample;
+            pending[pendingCount++] = sample;
+        } else {
+            InterlockedIncrement(&droppedSamples);
+        }
+    }
+    ReleaseSRWLockExclusive(&sampleLock);
+}
+
+void* ObserveType(const WORD* type) {
+    void* result = originalType(type);
+    WORD requested = 0;
+    if (activeSample && Read(type, &requested, sizeof(requested)) &&
+        requested == activeSample->type && result) {
+        // Native pin-selection code independently reads category at info+0x2c.
+        // A failed read stays unknown; no category is inferred from a texture.
+        DWORD category = 0;
+        if (Read(static_cast<const BYTE*>(result) + 0x2c,
+            &category, sizeof(category))) {
+            activeSample->category = category;
+            activeSample->categoryRead = true;
+        }
+        activeSample->templateTypeRead = Read(static_cast<const BYTE*>(result) + 0x20,
+            &activeSample->templateType, sizeof(activeSample->templateType));
+    }
+    return result;
+}
+
+void* ObserveTemplate(const WORD* type) {
+    void* result = originalTemplate(type);
+    WORD requested = 0;
+    if (!activeSample || !activeSample->templateTypeRead || !result ||
+        !Read(type, &requested, sizeof(requested)) || requested != activeSample->templateType) {
+        return result;
+    }
+
+    // The shared native creator reads [template record+0x18], then dereferences
+    // that field to obtain its template name. Follow only these two traced
+    // pointers using bounded self-process reads, without invoking native code.
+    char name[128] = {};
+    if (ReadTemplateName(result, name)) {
+        memcpy(activeSample->templateName, name, sizeof(name));
+    }
+    return result;
+}
+
+uintptr_t ObserveCreate(void* controller, const WORD* type, const void* tag,
+    const DWORD* index, const void* scale, const float* position,
+    const void* appearance, BYTE flag, const void* data, BYTE finalFlag) {
+    InterlockedIncrement(&creationCalls);
+    uintptr_t table = 0;
+    WORD typeValue = 0;
+    bool supported = Read(controller, &table, sizeof(table)) &&
+        (table == imageBase + 0x566ff50 || table == imageBase + 0x5674e00) &&
+        Read(type, &typeValue, sizeof(typeValue));
+    if (!supported) {
+        return originalCreate(controller, type, tag, index, scale, position,
+            appearance, flag, data, finalFlag);
+    }
+
+    Sample sample = {};
+    sample.controller = table - imageBase;
+    sample.type = typeValue;
+    sample.creationFlag = flag;
+    sample.finalFlag = finalFlag;
+    Read(tag, sample.tag, sizeof(sample.tag));
+    sample.positionRead = Read(position, sample.position, sizeof(sample.position));
+    Sample* previous = activeSample;
+    activeSample = &sample;
+    uintptr_t result = originalCreate(controller, type, tag, index, scale,
+        position, appearance, flag, data, finalFlag);
+    activeSample = previous;
+    DWORD actualIndex = 0;
+    if (Read(index, &actualIndex, sizeof(actualIndex))) {
+        LookupIcon lookup = sample.controller == 0x566ff50 ? worldLookup : minimapLookup;
+        CaptureIconState(lookup(controller, type, tag, index), sample);
+    }
+    InterlockedIncrement(&sampledCalls);
+    if (sample.templateName[0]) {
+        InterlockedIncrement(&namedSamples);
+    }
+    Queue(sample);
+    return result;
+}
+
+void CreateIndependentChest(void* controller, void* parent, const void* presentation,
+    const MarkerDefinition& definition) {
+    if (creatingChest || InterlockedCompareExchange(&generationEnabled, 0, 0) != 1) {
+        return;
+    }
+
+    // Keep a private numeric identity, not an invented scene-object UUID.
+    // Its category/template is now the verified chest definition, not a pin.
+    NumericTag tag = {};
+    tag.key = chestKey;
+    tag.kind = 0x15;
+    DWORD lookupIndex = 0;
+    LookupIcon lookup = worldLookup;
+    if (lookup(controller, &chestType, &tag, &lookupIndex)) {
+        InterlockedIncrement(&occupiedKeys);
+        InterlockedExchange(&creationOutcome, 2);
+        return;
+    }
+    AcquireSRWLockExclusive(&definitionLock);
+    activeDefinition = definition;
+    ReleaseSRWLockExclusive(&definitionLock);
+
+    Sample generated = {};
+    generated.controller = 0x566ff50;
+    generated.type = chestType;
+    generated.generated = true;
+    generated.finalFlag = 1;
+    generated.positionRead = true;
+    memcpy(generated.tag, &tag, sizeof(tag));
+    memcpy(generated.position, definition.position, sizeof(definition.position));
+    strcpy_s(generated.markerName, definition.name);
+    Sample* previous = activeSample;
+    void* previousRequestedContainer = requestedChestContainer;
+    requestedChestContainer = parent;
+    activeSample = &generated;
+    creatingChest = true;
+    // The native pin callback zero-initializes this 0x28-byte collection before
+    // adding an optional property. An empty collection has no allocation or
+    // element vtables to invent and count/entries stay zero. No borrowed pin
+    // property, pin identity, saved record or capture hook is needed here.
+    alignas(8) BYTE emptyProperties[0x28] = {};
+    float scalar = 0;
+    originalCreate(controller, &chestType, &tag, &lookupIndex, &scalar,
+        definition.position, presentation, 0, emptyProperties, 1);
+    creatingChest = false;
+    activeSample = previous;
+    requestedChestContainer = previousRequestedContainer;
+    InterlockedIncrement(&generatedCalls);
+
+    void* icon = lookup(controller, &chestType, &tag, &lookupIndex);
+    CaptureIconState(icon, generated);
+    WORD actualType = 0;
+    NumericTag actualTag = {};
+    float actualPosition[3] = {};
+    if (icon && Read(static_cast<const BYTE*>(icon) + 0xde, &actualType, sizeof(actualType)) &&
+        Read(static_cast<const BYTE*>(icon) + 0xc8, &actualTag, sizeof(actualTag)) &&
+        Read(static_cast<const BYTE*>(icon) + 0xe0, actualPosition, sizeof(actualPosition)) &&
+        actualType == chestType && actualTag.key == chestKey && actualTag.kind == 0x15 &&
+        memcmp(actualPosition, definition.position, sizeof(definition.position)) == 0) {
+        generated.iconVerified = true;
+        InterlockedOr(&generatedReadbackMask, 1);
+        if (generated.containerRouted) {
+            // Ownership is acquired only after our own creation/readback,
+            // never by discovering an already occupied private key.
+            InterlockedExchange(&ownedChest, 1);
+            InterlockedExchange(&creationOutcome, 1);
+            if (InterlockedCompareExchange(&generationEnabled, 0, 0) == 0) {
+                // F10/focus loss can race an in-flight native creation.
+                InterlockedExchange(&removalRequested, 1);
+                InterlockedExchange(&removalOutcome, 1);
+            }
+        }
+    }
+    if (!generated.iconVerified || !generated.containerRouted) {
+        InterlockedExchange(&creationOutcome, 6);
+    }
+    Queue(generated);
+}
+
+void Log(const char* line) {
+    if (logFile == INVALID_HANDLE_VALUE) {
+        return;
+    }
+    DWORD written = 0;
+    WriteFile(logFile, line, static_cast<DWORD>(strlen(line)), &written, nullptr);
+    WriteFile(logFile, "\r\n", 2, &written, nullptr);
+    FlushFileBuffers(logFile);
+}
+
+// Called only by the worker. Native removal stays on the map thread and uses
+// its existing ownership/identity checks; this never touches built-in pins.
+void HideCompletedProof() {
+    InterlockedExchange(&generationEnabled, 0);
+    InterlockedExchange(&creationRequested, 0);
+    InterlockedExchange(&removalRequested, 1);
+    InterlockedExchange(&removalOutcome, 1);
+    Log("Hernand Bell explicitly completed in selected save; proof creation blocked and scoped removal requested.");
+}
+
+struct TableView {
+    uintptr_t table;
+    DWORD count;
+    uintptr_t cache;
+};
+
+bool ReadTable(uintptr_t pointerRva, DWORD maximum, TableView& view) {
+    if (!Read(reinterpret_cast<const void*>(imageBase + pointerRva),
+        &view.table, sizeof(view.table)) || !view.table ||
+        !Read(reinterpret_cast<const void*>(view.table + 8), &view.count, sizeof(view.count)) ||
+        !view.count || view.count > maximum ||
+        !Read(reinterpret_cast<const void*>(view.table + 0x58), &view.cache, sizeof(view.cache))) {
+        return false;
+    }
+    return view.cache != 0;
+}
+
+bool SameTable(const TableView& left, const TableView& right) {
+    return left.table == right.table && left.count == right.count && left.cache == right.cache;
+}
+
+bool ChestDefinitionReady() {
+    TableView icons = {};
+    TableView templates = {};
+    uintptr_t record = 0;
+    uintptr_t templateRecord = 0;
+    WORD secondary = 0;
+    DWORD category = 0;
+    char name[128] = {};
+    return ReadTable(kIconTablePointerRva, 4096, icons) && chestType < icons.count &&
+        ReadTable(kTemplateTablePointerRva, 65536, templates) &&
+        Read(reinterpret_cast<const void*>(icons.cache + chestType * sizeof(uintptr_t)),
+            &record, sizeof(record)) && record &&
+        Read(reinterpret_cast<const void*>(record + 0x20), &secondary, sizeof(secondary)) &&
+        secondary == 28852 && secondary < templates.count &&
+        Read(reinterpret_cast<const void*>(record + 0x2c), &category, sizeof(category)) &&
+        category == 0xffffffff &&
+        Read(reinterpret_cast<const void*>(templates.cache + secondary * sizeof(uintptr_t)),
+            &templateRecord, sizeof(templateRecord)) &&
+        ReadTemplateName(reinterpret_cast<const void*>(templateRecord), name) &&
+        strcmp(name, "MapIcon_Gimmick_LevelTreasureBox") == 0;
+}
+
+bool ResolveIndependentParent(void* controller, const float (&position)[3],
+    void*& parent, uintptr_t& chestRecord) {
+    TableView icons = {};
+    uintptr_t pinRecord = 0;
+    BYTE selector = 0;
+    BYTE altitudeBranch = 0;
+    DWORD category = 0;
+    float threshold = 0;
+    uintptr_t containers = 0;
+    DWORD containerCount = 0;
+    uintptr_t parentTable = 0;
+    if (!ChestDefinitionReady() || !ReadTable(kIconTablePointerRva, 4096, icons) ||
+        !Read(reinterpret_cast<const void*>(icons.cache + chestType * sizeof(uintptr_t)),
+            &chestRecord, sizeof(chestRecord)) ||
+        !Read(reinterpret_cast<const void*>(icons.cache + sizeof(uintptr_t)),
+            &pinRecord, sizeof(pinRecord)) || !pinRecord ||
+        !Read(reinterpret_cast<const void*>(pinRecord + 0x2c), &category, sizeof(category)) ||
+        category != 0x25 ||
+        !Read(reinterpret_cast<const void*>(pinRecord + 0x2a), &selector, sizeof(selector)) ||
+        selector != 1 ||
+        !Read(reinterpret_cast<const void*>(pinRecord + 0xb7), &altitudeBranch, sizeof(altitudeBranch)) ||
+        altitudeBranch != 1 ||
+        !Read(reinterpret_cast<const void*>(imageBase + kParentAltitudeThresholdRva),
+            &threshold, sizeof(threshold)) || !std::isfinite(threshold)) {
+        return false;
+    }
+    // Replicate the traced native parent selection, using cached definition 1
+    // as configuration only. No saved pin, Bell callback or position is read.
+    // The threshold is a live native value, not a guessed Pywel/Abyss boundary.
+    if (position[1] >= threshold) {
+        selector = 3;
+    }
+    return Read(static_cast<const BYTE*>(controller) + 0x3a0,
+            &containerCount, sizeof(containerCount)) &&
+        containerCount > selector && containerCount <= 16 &&
+        Read(static_cast<const BYTE*>(controller) + 0x398,
+            &containers, sizeof(containers)) && containers &&
+        Read(reinterpret_cast<const void*>(containers + selector * sizeof(uintptr_t)),
+            &parent, sizeof(parent)) && parent &&
+        Read(parent, &parentTable, sizeof(parentTable)) &&
+        parentTable >= imageBase && parentTable < imageBase + kExpectedImageSize;
+}
+
+bool ResolvePresentation(uintptr_t record, const void*& presentation) {
+    void* provider = nullptr;
+    uintptr_t table = 0;
+    uintptr_t method = 0;
+    if (!Read(reinterpret_cast<const void*>(record + 0x68), &provider, sizeof(provider)) ||
+        !provider || !Read(provider, &table, sizeof(table)) ||
+        !Read(reinterpret_cast<const void*>(table + 8), &method, sizeof(method)) ||
+        method < imageBase || method >= imageBase + kExpectedImageSize) {
+        return false;
+    }
+    MEMORY_BASIC_INFORMATION memory = {};
+    if (!VirtualQuery(reinterpret_cast<const void*>(method), &memory, sizeof(memory)) ||
+        memory.State != MEM_COMMIT || (memory.Protect & (PAGE_GUARD | PAGE_NOACCESS)) ||
+        !(memory.Protect & (PAGE_EXECUTE | PAGE_EXECUTE_READ |
+            PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY))) {
+        return false;
+    }
+    // Native df88c0 and common init both use this exact provider ABI. Resolve
+    // the chest's own stable metadata field on the UI thread; never retain a
+    // value borrowed from a personal-pin callback across events.
+    presentation = reinterpret_cast<GetPresentation>(method)(provider, 0);
+    return presentation != nullptr;
+}
+
+void SnapshotCachedDefinitions() {
+    // This reads only existing metadata cache entries. It never calls the lazy
+    // loaders for missing IDs. The worker touches no scene/controller objects.
+    // Recheck table headers to flag a snapshot that overlapped a cache change.
+    TableView icons = {};
+    TableView templates = {};
+    if (!ReadTable(kIconTablePointerRva, 4096, icons) ||
+        !ReadTable(kTemplateTablePointerRva, 65536, templates)) {
+        Log("catalogue unavailable: metadata caches not ready or outside supported bounds");
+        return;
+    }
+    Log("catalogue begin: cached metadata only; entries do not imply a scene marker exists");
+    unsigned loaded = 0;
+    unsigned named = 0;
+    unsigned relevant = 0;
+    for (DWORD index = 0; index < icons.count; ++index) {
+        uintptr_t record = 0;
+        if (!Read(reinterpret_cast<const void*>(icons.cache + index * sizeof(uintptr_t)),
+            &record, sizeof(record)) || !record) {
+            continue;
+        }
+        ++loaded;
+        WORD templateType = 0;
+        DWORD category = 0;
+        uintptr_t templateRecord = 0;
+        char name[128] = {};
+        if (!Read(reinterpret_cast<const void*>(record + 0x20), &templateType, sizeof(templateType)) ||
+            !Read(reinterpret_cast<const void*>(record + 0x2c), &category, sizeof(category)) ||
+            templateType >= templates.count ||
+            !Read(reinterpret_cast<const void*>(templates.cache + templateType * sizeof(uintptr_t)),
+                &templateRecord, sizeof(templateRecord)) ||
+            !ReadTemplateName(reinterpret_cast<const void*>(templateRecord), name)) {
+            continue;
+        }
+        ++named;
+        if (index == 1 || (index >= 226 && index <= 229) || index == 360) {
+            // Equal template names do not imply equal map placement behaviour.
+            // World creation selects a container with byte +0x2a; projection
+            // branches on +0xb0 and altitude placement on +0xb7. Preserve the
+            // bounded raw definition bytes to examine other fields offline.
+            BYTE definition[0xa0] = {};
+            if (Read(reinterpret_cast<const void*>(record + 0x20),
+                definition, sizeof(definition))) {
+                char details[512];
+                sprintf_s(details, "definition type=%lu containerSelector=%u "
+                    "projectionBranch=%u altitudeBranch=%u raw20toBF=",
+                    index, definition[0x0a], definition[0x90], definition[0x97]);
+                size_t length = strlen(details);
+                for (unsigned byte = 0; byte < sizeof(definition); ++byte) {
+                    sprintf_s(details + length, sizeof(details) - length,
+                        "%02x", definition[byte]);
+                    length += 2;
+                }
+                Log(details);
+            } else {
+                Log("definition bytes unavailable; no native loader invoked");
+            }
+        }
+        if (!strstr(name, "Gimmick") && !strstr(name, "Treasure") &&
+            !strstr(name, "Pin_Marker")) {
+            continue;
+        }
+        ++relevant;
+        char line[256];
+        sprintf_s(line, "catalogue type=%lu category=0x%lx templateType=%u template=%s",
+            index, category, static_cast<unsigned>(templateType), name);
+        Log(line);
+    }
+    TableView afterIcons = {};
+    TableView afterTemplates = {};
+    bool stable = ReadTable(kIconTablePointerRva, 4096, afterIcons) &&
+        ReadTable(kTemplateTablePointerRva, 65536, afterTemplates) &&
+        SameTable(icons, afterIcons) && SameTable(templates, afterTemplates);
+    char line[256];
+    sprintf_s(line, "catalogue end types=%lu cached=%u named=%u relevant=%u headersStable=%u",
+        icons.count, loaded, named, relevant, stable ? 1u : 0u);
+    Log(line);
+}
+
+void Drain() {
+    Sample batch[128];
+    VisibilityEvent visibilityBatch[128];
+    AcquireSRWLockExclusive(&sampleLock);
+    unsigned count = pendingCount;
+    memcpy(batch, pending, count * sizeof(Sample));
+    pendingCount = 0;
+    unsigned visibilityCount = visibilityPendingCount;
+    memcpy(visibilityBatch, visibilityPending, visibilityCount * sizeof(VisibilityEvent));
+    visibilityPendingCount = 0;
+    ReleaseSRWLockExclusive(&sampleLock);
+    for (unsigned index = 0; index < count; ++index) {
+        const Sample& sample = batch[index];
+        uint64_t rawTag[2];
+        memcpy(rawTag, sample.tag, sizeof(rawTag));
+        char line[1024];
+        sprintf_s(line,
+            "controller=0x%llx type=%u categoryKnown=%u category=0x%lx "
+            "tag=(0x%llx,0x%llx) tagByte8=0x%x xyzKnown=%u xyz=(%.6f,%.6f,%.6f) "
+            "templateTypeKnown=%u templateType=%u template=%s generated=%u iconVerified=%u "
+            "visibilityKnown=%u suppression=%02x%02x%02x ownerControllerPresent=%u creationFlag=%u finalFlag=%u containerRouted=%u "
+            "initObserved=%u initResult=%u rootPresent=%u baseIconPresent=%u sizeKnown=%u size=(%.6f,%.6f) "
+            "phase=%u calculatedScale=%.6f markerName=%s",
+            static_cast<unsigned long long>(sample.controller),
+            static_cast<unsigned>(sample.type), sample.categoryRead ? 1u : 0u,
+            sample.category, static_cast<unsigned long long>(rawTag[0]),
+            static_cast<unsigned long long>(rawTag[1]),
+            static_cast<unsigned>(sample.tag[8]), sample.positionRead ? 1u : 0u,
+            sample.position[0], sample.position[1], sample.position[2],
+            sample.templateTypeRead ? 1u : 0u, static_cast<unsigned>(sample.templateType),
+            sample.templateName[0] ? sample.templateName : "unknown",
+            sample.generated ? 1u : 0u, sample.iconVerified ? 1u : 0u,
+            sample.visibilityRead ? 1u : 0u, sample.visibility[0], sample.visibility[1],
+            sample.visibility[2], sample.ownerControllerPresent ? 1u : 0u,
+            sample.creationFlag, sample.finalFlag, sample.containerRouted ? 1u : 0u,
+            sample.initializationObserved ? 1u : 0u, sample.initializationResult,
+            sample.rootPresent ? 1u : 0u, sample.baseIconPresent ? 1u : 0u,
+            sample.sizeRead ? 1u : 0u, sample.size[0], sample.size[1],
+            sample.phase, sample.calculatedScale, sample.markerName);
+        Log(line);
+    }
+    for (unsigned index = 0; index < visibilityCount; ++index) {
+        const auto& event = visibilityBatch[index];
+        char line[256];
+        sprintf_s(line, "private-chest visibility caller=0x%llx bit=%u enabled=%u "
+            "before=%02x%02x%02x afterKnown=%u after=%02x%02x%02x",
+            static_cast<unsigned long long>(event.caller), event.bit, event.enabled,
+            event.before[0], event.before[1], event.before[2], event.afterRead ? 1u : 0u,
+            event.after[0], event.after[1], event.after[2]);
+        Log(line);
+    }
+}
+
+DWORD WINAPI Run(void* address) {
+    HMODULE pinned = nullptr;
+    GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+        GET_MODULE_HANDLE_EX_FLAG_PIN, reinterpret_cast<LPCWSTR>(address), &pinned);
+    wchar_t path[MAX_PATH] = {};
+    if (FAILED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, path))) {
+        return 0;
+    }
+    wcscat_s(path, L"\\PywelAtlas");
+    CreateDirectoryW(path, nullptr);
+    wchar_t definitionPath[MAX_PATH] = {};
+    wcscpy_s(definitionPath, path);
+    wcscat_s(definitionPath, L"\\native-map-marker.json");
+    wchar_t runtimeDirectory[MAX_PATH] = {};
+    wcscpy_s(runtimeDirectory, path);
+    wcscat_s(path, L"\\native-map-categories.log");
+    logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
+        CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+    Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
+    auto* base = reinterpret_cast<BYTE*>(GetModuleHandleW(nullptr));
+    imageBase = reinterpret_cast<uintptr_t>(base);
+    const auto* dos = reinterpret_cast<IMAGE_DOS_HEADER*>(base);
+    const auto* pe = reinterpret_cast<IMAGE_NT_HEADERS64*>(base + dos->e_lfanew);
+    if (pe->FileHeader.TimeDateStamp != kExpectedTimestamp ||
+        pe->OptionalHeader.SizeOfImage != kExpectedImageSize) {
+        Log("Unsupported executable; no hooks installed.");
+        return 0;
+    }
+    for (const auto& site : kInspectSites) {
+        if (memcmp(base + site.rva, site.context, sizeof(site.context)) != 0) {
+            Log("Native entry changed; no hooks installed.");
+            return 0;
+        }
+    }
+    if (MH_Initialize() != MH_OK) {
+        Log("Could not initialize observation hooks.");
+        return 0;
+    }
+    static_assert(_countof(kInspectSites) == 13, "Nine hooks, three guarded calls and one parent-selection guard required");
+    worldLookup = reinterpret_cast<LookupIcon>(base + kInspectSites[3].rva);
+    minimapLookup = reinterpret_cast<LookupIcon>(base + kInspectSites[4].rva);
+    removeWorldIcon = reinterpret_cast<RemoveWorldIcon>(base + kInspectSites[10].rva);
+    void* hooks[] = {reinterpret_cast<void*>(&ObserveCreate),
+        reinterpret_cast<void*>(&ObserveType), reinterpret_cast<void*>(&ObserveTemplate),
+        reinterpret_cast<void*>(&ObserveVisibility), reinterpret_cast<void*>(&RouteWorldContainer),
+        reinterpret_cast<void*>(&ObserveInitialize), reinterpret_cast<void*>(&ObserveWorldProjection),
+        reinterpret_cast<void*>(&ObserveScale), reinterpret_cast<void*>(&ObserveWorldMapUpdate)};
+    void** originals[] = {reinterpret_cast<void**>(&originalCreate),
+        reinterpret_cast<void**>(&originalType), reinterpret_cast<void**>(&originalTemplate),
+        reinterpret_cast<void**>(&originalVisibility), reinterpret_cast<void**>(&originalWorldCreate),
+        reinterpret_cast<void**>(&originalInitialize), reinterpret_cast<void**>(&originalProjectWorld),
+        reinterpret_cast<void**>(&originalCalculateScale), reinterpret_cast<void**>(&originalUpdateWorldMap)};
+    constexpr unsigned hookSites[] = {0, 1, 2, 5, 6, 7, 8, 9, 12};
+    static_assert(_countof(hookSites) == _countof(hooks), "Every hook needs an explicit site");
+    for (unsigned index = 0; index < _countof(hooks); ++index) {
+        unsigned siteIndex = hookSites[index];
+        MH_STATUS status = MH_CreateHook(base + kInspectSites[siteIndex].rva,
+            hooks[index], originals[index]);
+        char line[160];
+        sprintf_s(line, "Create observation hook rva=0x%llx: %s",
+            static_cast<unsigned long long>(kInspectSites[siteIndex].rva), MH_StatusToString(status));
+        Log(line);
+        if (status != MH_OK) {
+            MH_Uninitialize();
+            return 0;
+        }
+    }
+    MH_STATUS status = MH_EnableHook(MH_ALL_HOOKS);
+    if (status != MH_OK) {
+        Log(MH_StatusToString(status));
+        return 0;
+    }
+    Log("F6 requests one private chest for 3 minutes; open Pywel. No reload or saved pin is needed.");
+    Log("F8 captures state. F10 disables and requests removal; keep/open Pywel to service it. Save identity is manual.");
+    bool previousF6 = false;
+    bool previousF8 = false;
+    bool previousF7 = false;
+    bool previousF9 = false;
+    bool previousF10 = false;
+    ULONGLONG generationDeadline = 0;
+    bool renderWindowPending = false;
+    LONG lastRemovalOutcome = 0;
+    LONG lastCreationOutcome = 0;
+    // All selection/reader state belongs to this worker. Slot changes disable
+    // the link and remove the old session object before any new-slot creation.
+    // Only copied marker/removal requests cross to the map thread.
+    unsigned selectedSlot = LoadNativeSaveSlot(runtimeDirectory);
+    bool bellLinkEnabled = false;
+    bool lastRefreshCompleted = false;
+    ULONGLONG nextSaveRefresh = 0;
+    while (true) {
+        Drain();
+        DWORD foreground = 0;
+        GetWindowThreadProcessId(GetForegroundWindow(), &foreground);
+        bool focused = foreground == GetCurrentProcessId();
+        bool f6 = (GetAsyncKeyState(VK_F6) & 0x8000) != 0;
+        bool f8 = (GetAsyncKeyState(VK_F8) & 0x8000) != 0;
+        bool f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
+        bool f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
+        bool f10 = (GetAsyncKeyState(VK_F10) & 0x8000) != 0;
+        if (focused && f6 && !previousF6) {
+            bool visibilityAllowed = true;
+            if (bellLinkEnabled) {
+                NativeSaveSummary summary = {};
+                char error[256] = {};
+                if (!ReadSelectedBellSave(runtimeDirectory, selectedSlot, summary, error)) {
+                    char line[384];
+                    sprintf_s(line, "F6 save refresh failed; creation withheld, existing state retained: %s", error);
+                    Log(line);
+                    MessageBeep(MB_ICONWARNING);
+                    visibilityAllowed = false;
+                } else {
+                    lastRefreshCompleted = summary.hernandCompleted;
+                    if (summary.hernandCompleted) {
+                        HideCompletedProof();
+                        MessageBeep(MB_OK);
+                        visibilityAllowed = false;
+                    }
+                }
+            }
+            if (visibilityAllowed && InterlockedCompareExchange(&removalRequested, 0, 0) != 0) {
+                Log("F6 skipped: removal pending. Keep/open Pywel so its UI callback can finish cleanup.");
+            } else if (visibilityAllowed) {
+                MarkerDefinition definition = {};
+                char error[256] = {};
+                if (!LoadMarkerDefinition(definitionPath, definition, error)) {
+                    char line[320];
+                    sprintf_s(line, "Definition rejected; existing state retained: %s", error);
+                    Log(line);
+                    MessageBeep(MB_ICONWARNING);
+                } else if (!definition.enabled) {
+                    InterlockedExchange(&generationEnabled, 0);
+                    InterlockedExchange(&creationRequested, 0);
+                    InterlockedExchange(&removalRequested, 1);
+                    InterlockedExchange(&removalOutcome, 1);
+                    Log("Definition enabled=false; generation OFF and scoped removal requested.");
+                } else {
+                    AcquireSRWLockExclusive(&definitionLock);
+                    stagedDefinition = definition;
+                    ReleaseSRWLockExclusive(&definitionLock);
+                    generationDeadline = GetTickCount64() + 180000;
+                    InterlockedExchange(&generatedReadbackMask, 0);
+                    InterlockedExchange(&generationEnabled, 1);
+                    InterlockedExchange(&creationOutcome, 0);
+                    InterlockedExchange(&creationRequested, 1);
+                    char line[320];
+                    sprintf_s(line, "Definition loaded name=%s XYZ=(%.6f,%.6f,%.6f); independent creation requested.",
+                        definition.name, definition.position[0], definition.position[1], definition.position[2]);
+                    Log(line);
+                    MessageBeep(MB_OK);
+                }
+            }
+        }
+        if (focused && f7 && !previousF7) {
+            Log("Selected-slot save refresh requested; selection does not detect the loaded slot.");
+            NativeSaveSummary summary = {};
+            char error[256] = {};
+            if (ReadSelectedBellSave(runtimeDirectory, selectedSlot, summary, error)) {
+                bellLinkEnabled = true;
+                lastRefreshCompleted = summary.hernandCompleted;
+                nextSaveRefresh = GetTickCount64() + 5000;
+                if (summary.hernandCompleted) {
+                    HideCompletedProof();
+                }
+                char line[384];
+                sprintf_s(line, "Native save ready profile=%s coverage=%u recorded=%u completed=%u hernandConfirmed=%u; loadedSaveDetected=0",
+                    summary.profile, summary.coverage, summary.recorded, summary.completed,
+                    summary.hernandCompleted ? 1u : 0u);
+                Log(line);
+                wchar_t message[768];
+                swprintf_s(message, L"Selected slot%u read inside the mod.\n\nBells recorded: %u of %u\nExplicitly completed: %u\nHernand Bell: %ls\n\nSession proof link enabled: chest -> Hernand Bell.\n%ls\n\nOpen Pywel after dismissing this dialog to apply removal.\nF6 re-reads this slot; tracking refreshes every 5 seconds.\nLoaded-slot detection is not implemented.",
+                    selectedSlot, summary.recorded, summary.coverage, summary.completed,
+                    summary.hernandCompleted ? L"Save confirmed" : L"No explicit completion confirmed",
+                    summary.hernandCompleted ? L"Completed: proof chest removal requested; recreation blocked." :
+                        L"Unconfirmed: no completion removal requested; F6 may show the chest.");
+                MessageBoxW(nullptr, message, L"Pywel Atlas - native save proof", MB_OK | MB_ICONINFORMATION);
+            } else {
+                char line[320];
+                sprintf_s(line, "Native save proof rejected: %s", error);
+                Log(line);
+                wchar_t message[512] = {};
+                MultiByteToWideChar(CP_UTF8, 0, error, -1, message, _countof(message));
+                MessageBoxW(nullptr, message, L"Pywel Atlas - native save proof unavailable", MB_OK | MB_ICONWARNING);
+            }
+            // The dialog runs on this worker, never the game's map thread.
+            // Holding the hotkey while dismissing it must not repeat a read.
+            f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
+        }
+        if (focused && f9 && !previousF9) {
+            unsigned previousSlot = selectedSlot;
+            char error[256] = {};
+            if (ChooseNativeSaveSlot(runtimeDirectory, selectedSlot, error)) {
+                if (selectedSlot != previousSlot) {
+                    bellLinkEnabled = false;
+                    lastRefreshCompleted = false;
+                    InterlockedExchange(&generationEnabled, 0);
+                    InterlockedExchange(&creationRequested, 0);
+                    InterlockedExchange(&removalRequested, 1);
+                    InterlockedExchange(&removalOutcome, 1);
+                    Log("Slot changed: old link cleared; old owned marker cleanup requested. F7 enables the new slot.");
+                }
+                char line[160];
+                sprintf_s(line, "Selected slot%u persisted locally; loadedSaveDetected=0.", selectedSlot);
+                Log(line);
+            } else if (error[0]) {
+                Log(error);
+                wchar_t message[512] = {};
+                MultiByteToWideChar(CP_UTF8, 0, error, -1, message, _countof(message));
+                MessageBoxW(nullptr, message, L"Pywel Atlas - save selection unavailable", MB_OK | MB_ICONWARNING);
+            }
+            f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
+        }
+        // Serialized worker reads cannot finish against a newer selection:
+        // selection and refresh never run concurrently. Failed reads supply no
+        // completion decision and cannot consume the previous report as input.
+        if (bellLinkEnabled && GetTickCount64() >= nextSaveRefresh) {
+            NativeSaveSummary summary = {};
+            char error[256] = {};
+            if (ReadSelectedBellSave(runtimeDirectory, selectedSlot, summary, error)) {
+                if (summary.hernandCompleted && !lastRefreshCompleted) {
+                    HideCompletedProof();
+                }
+                lastRefreshCompleted = summary.hernandCompleted;
+            } else {
+                char line[384];
+                sprintf_s(line, "Periodic save refresh unavailable; no visibility decision: %s", error);
+                Log(line);
+            }
+            nextSaveRefresh = GetTickCount64() + 5000;
+        }
+        bool stopRequested = focused && f10 && !previousF10;
+        if (stopRequested || (InterlockedCompareExchange(&generationEnabled, 0, 0) == 1 &&
+            (!focused || GetTickCount64() >= generationDeadline))) {
+            InterlockedExchange(&generationEnabled, 0);
+            InterlockedExchange(&creationRequested, 0);
+            const char* reason = !focused ? "game focus lost" :
+                ((f10 && !previousF10) ? "F10" : "three-minute timeout");
+            char line[192];
+            sprintf_s(line, "Chest generation OFF (%s). Scoped removal requested; keep/open Pywel.", reason);
+            Log(line);
+            InterlockedExchange(&removalRequested, 1);
+            InterlockedExchange(&removalOutcome, 1);
+        }
+        LONG outcome = InterlockedCompareExchange(&removalOutcome, 0, 0);
+        if (outcome != lastRemovalOutcome) {
+            const char* messages[] = {"idle", "pending UI callback", "native removal called; waiting for absence",
+                "typed lookup confirms absence after native removal", "already absent; no removal called",
+                "no marker owned by this session; no removal called", "identity/definition rejected; no removal called",
+                "still present after three seconds of UI callbacks; use reload fallback"};
+            if (outcome >= 0 && outcome < static_cast<LONG>(_countof(messages))) {
+                char line[256];
+                sprintf_s(line, "lifecycle outcome=%ld: %s", outcome, messages[outcome]);
+                Log(line);
+            }
+            lastRemovalOutcome = outcome;
+        }
+        LONG creation = InterlockedCompareExchange(&creationOutcome, 0, 0);
+        if (creation != lastCreationOutcome) {
+            const char* messages[] = {"pending map callback", "independent object created and read back",
+                "private key occupied; no creation or adoption", "definition/parent resolution rejected",
+                "reserved previous layer-wait outcome", "native presentation provider rejected",
+                "creation attempted but route/readback incomplete"};
+            if (creation >= 0 && creation < static_cast<LONG>(_countof(messages))) {
+                char line[256];
+                sprintf_s(line, "independent outcome=%ld: %s", creation, messages[creation]);
+                Log(line);
+            }
+            lastCreationOutcome = creation;
+        }
+        if (f8 && !previousF8 && focused) {
+            InterlockedExchange64(&renderCaptureDeadline, static_cast<LONG64>(GetTickCount64() + 2000));
+            renderWindowPending = true;
+            char line[320];
+            sprintf_s(line, "snapshot creates=%ld sampled=%ld dropped=%ld named=%ld enabled=%ld generated=%ld occupied=%ld definitionRejected=%ld readbackMask=%ld",
+                InterlockedCompareExchange(&creationCalls, 0, 0),
+                InterlockedCompareExchange(&sampledCalls, 0, 0),
+                InterlockedCompareExchange(&droppedSamples, 0, 0),
+                InterlockedCompareExchange(&namedSamples, 0, 0),
+                InterlockedCompareExchange(&generationEnabled, 0, 0),
+                InterlockedCompareExchange(&generatedCalls, 0, 0),
+                InterlockedCompareExchange(&occupiedKeys, 0, 0),
+                InterlockedCompareExchange(&definitionRejected, 0, 0),
+                InterlockedCompareExchange(&generatedReadbackMask, 0, 0));
+            Log(line);
+            sprintf_s(line, "lifecycle owned=%ld request=%ld attempts=%ld confirmedAbsent=%ld alreadyAbsent=%ld rejected=%ld outcome=%ld",
+                InterlockedCompareExchange(&ownedChest, 0, 0),
+                InterlockedCompareExchange(&removalRequested, 0, 0),
+                InterlockedCompareExchange(&removalAttempts, 0, 0),
+                InterlockedCompareExchange(&removalConfirmed, 0, 0),
+                InterlockedCompareExchange(&removalAbsent, 0, 0),
+                InterlockedCompareExchange(&removalRejected, 0, 0),
+                InterlockedCompareExchange(&removalOutcome, 0, 0));
+            Log(line);
+            sprintf_s(line, "independent request=%ld outcome=%ld worldMapUpdateCalls=%ld",
+                InterlockedCompareExchange(&creationRequested, 0, 0),
+                InterlockedCompareExchange(&creationOutcome, 0, 0),
+                InterlockedCompareExchange(&worldMapUpdateCalls, 0, 0));
+            Log(line);
+            if (InterlockedCompareExchange(&generationEnabled, 0, 0) == 0) {
+                SnapshotCachedDefinitions();
+            }
+        }
+        if (renderWindowPending && !RenderCaptureActive()) {
+            renderWindowPending = false;
+            char line[192];
+            sprintf_s(line, "render-window complete worldProjectionCalls=%ld privateScaleCalls=%ld",
+                InterlockedCompareExchange(&worldProjectionCalls, 0, 0),
+                InterlockedCompareExchange(&privateScaleCalls, 0, 0));
+            Log(line);
+        }
+        previousF6 = f6;
+        previousF8 = f8;
+        previousF7 = f7;
+        previousF9 = f9;
+        previousF10 = f10;
+        Sleep(30);
+    }
+}
+} // namespace
+
+BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID) {
+    if (reason == DLL_PROCESS_ATTACH) {
+        DisableThreadLibraryCalls(instance);
+        HANDLE worker = CreateThread(nullptr, 0, Run, instance, 0, nullptr);
+        if (worker) {
+            CloseHandle(worker);
+        }
+    }
+    return TRUE;
+}

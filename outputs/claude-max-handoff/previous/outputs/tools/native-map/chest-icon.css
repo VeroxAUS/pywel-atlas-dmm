@@ -1,0 +1,12 @@
+/*
+ * Appended to the shared native pin stylesheet by the DMM style package.
+ * Compound selectors outrank the normal single-class pin texture rule.
+ * The ASI assigns this unique class only within the linked test pin callback.
+ */
+.worldmap-pin-marker-icon-texture.pywel-atlas-chest-proof {
+  background-image: textureid(cd_Icon_worldmap_treasurebox_00);
+}
+
+.minimap-pin-marker-icon-texture.pywel-atlas-chest-proof {
+  background-image: textureid(cd_Icon_map_treasurebox);
+}

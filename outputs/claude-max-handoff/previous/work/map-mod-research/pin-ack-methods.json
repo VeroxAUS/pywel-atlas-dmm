@@ -1,0 +1,46 @@
+[
+  {
+    "name": "TrocTrCreateOrChangePinMarkerAck",
+    "subobject": 0,
+    "vtable": "0x560a9f0",
+    "methods": [
+      {
+        "slot": 0,
+        "rva": "0xb541a0",
+        "size": 82
+      },
+      {
+        "slot": 1,
+        "rva": "0xb54130",
+        "size": 111
+      },
+      {
+        "slot": 2,
+        "rva": "0xb9d9d0",
+        "size": 1411
+      }
+    ]
+  },
+  {
+    "name": "TrocTrRemovePinMarkerAck",
+    "subobject": 0,
+    "vtable": "0x560a990",
+    "methods": [
+      {
+        "slot": 0,
+        "rva": "0xb541a0",
+        "size": 82
+      },
+      {
+        "slot": 1,
+        "rva": "0xb54130",
+        "size": 111
+      },
+      {
+        "slot": 2,
+        "rva": "0xb9df60",
+        "size": 831
+      }
+    ]
+  }
+]

@@ -1,0 +1,970 @@
+[
+  {
+    "fileOffset": "0x5226ef8",
+    "text": "MappingScheme"
+  },
+  {
+    "fileOffset": "0x5275170",
+    "text": "policyMappings"
+  },
+  {
+    "fileOffset": "0x5275180",
+    "text": "X509v3 Policy Mappings"
+  },
+  {
+    "fileOffset": "0x528ac58",
+    "text": "v2i_POLICY_MAPPINGS"
+  },
+  {
+    "fileOffset": "0x52b8718",
+    "text": "inhibitPolicyMapping"
+  },
+  {
+    "fileOffset": "0x52b8760",
+    "text": "Inhibit Policy Mapping"
+  },
+  {
+    "fileOffset": "0x52ba550",
+    "text": "POLICY_MAPPING"
+  },
+  {
+    "fileOffset": "0x52ba560",
+    "text": "POLICY_MAPPINGS"
+  },
+  {
+    "fileOffset": "0x52c6c10",
+    "text": "HK_JOB_TYPE_ANIMATION_MAPPING"
+  },
+  {
+    "fileOffset": "0x52cf828",
+    "text": "TtAnimation Mapping"
+  },
+  {
+    "fileOffset": "0x52d74f0",
+    "text": "hkMeshBoneIndexMapping"
+  },
+  {
+    "fileOffset": "0x52d7e00",
+    "text": "mapping"
+  },
+  {
+    "fileOffset": "0x52f3c58",
+    "text": "hknpMeshShapePrimitiveMapping"
+  },
+  {
+    "fileOffset": "0x52f3d00",
+    "text": "primitiveMapping"
+  },
+  {
+    "fileOffset": "0x53105d0",
+    "text": "Stored primitive mapping  : %d KiB (%.3f bytes/tri)"
+  },
+  {
+    "fileOffset": "0x53163f0",
+    "text": "StUpdateBroadphaseIdMapping"
+  },
+  {
+    "fileOffset": "0x5316508",
+    "text": "TtUpdateBroadphaseIdMapping"
+  },
+  {
+    "fileOffset": "0x531d798",
+    "text": "Generate mapping to points buffer"
+  },
+  {
+    "fileOffset": "0x531d7c0",
+    "text": "TtGenerateMappingToPointsBuffer"
+  },
+  {
+    "fileOffset": "0x5344b60",
+    "text": "extractedMotionMapping"
+  },
+  {
+    "fileOffset": "0x5344bb0",
+    "text": "mappingType"
+  },
+  {
+    "fileOffset": "0x53547c8",
+    "text": "mappings"
+  },
+  {
+    "fileOffset": "0x53547d8",
+    "text": "old_mappings"
+  },
+  {
+    "fileOffset": "0x5355b60",
+    "text": "hkaMeshBindingMapping"
+  },
+  {
+    "fileOffset": "0x5366178",
+    "text": "startMappingIndex"
+  },
+  {
+    "fileOffset": "0x53661c8",
+    "text": "numMappings"
+  },
+  {
+    "fileOffset": "0x5366258",
+    "text": "simpleMappingPartitionRanges"
+  },
+  {
+    "fileOffset": "0x5366278",
+    "text": "hkaSkeletonMapperDataPartitionMappingRange"
+  },
+  {
+    "fileOffset": "0x53662e0",
+    "text": "chainMappingPartitionRanges"
+  },
+  {
+    "fileOffset": "0x5386b70",
+    "text": "hkaSkeletonMapperData::PartitionMappingRange"
+  },
+  {
+    "fileOffset": "0x5386be8",
+    "text": "hkaSkeletonMapperDataChainMapping"
+  },
+  {
+    "fileOffset": "0x5386c10",
+    "text": "hkaSkeletonMapperData::ChainMapping"
+  },
+  {
+    "fileOffset": "0x5386c80",
+    "text": "hkaSkeletonMapperDataSimpleMapping"
+  },
+  {
+    "fileOffset": "0x5386ca8",
+    "text": "hkaSkeletonMapperData::SimpleMapping"
+  },
+  {
+    "fileOffset": "0x5386d18",
+    "text": "hkaMeshBinding::Mapping"
+  },
+  {
+    "fileOffset": "0x5397768",
+    "text": "hkeInputMapping"
+  },
+  {
+    "fileOffset": "0x5397790",
+    "text": "hkeInputMappingRule_0_to_1"
+  },
+  {
+    "fileOffset": "0x53977e0",
+    "text": "hkRefPtr<hkeInputMapping>"
+  },
+  {
+    "fileOffset": "0x5398b98",
+    "text": "hkeInputMappingRule"
+  },
+  {
+    "fileOffset": "0x539adb8",
+    "text": "hknpMeshShapePrimitiveMapping*"
+  },
+  {
+    "fileOffset": "0x539ec70",
+    "text": "hknpMeshShapePrimitiveMapping_1_to_2"
+  },
+  {
+    "fileOffset": "0x53b9b30",
+    "text": "StsimpleMappings"
+  },
+  {
+    "fileOffset": "0x53b9b48",
+    "text": "StchainMappings"
+  },
+  {
+    "fileOffset": "0x53bc6b8",
+    "text": "simpleMappings"
+  },
+  {
+    "fileOffset": "0x53bcac0",
+    "text": "chainMappings"
+  },
+  {
+    "fileOffset": "0x53bcf18",
+    "text": "hkaSkeletonMapperData::MappingType"
+  },
+  {
+    "fileOffset": "0x53bcf68",
+    "text": "HK_RAGDOLL_MAPPING"
+  },
+  {
+    "fileOffset": "0x53bcf80",
+    "text": "HK_RETARGETING_MAPPING"
+  },
+  {
+    "fileOffset": "0x54ccb41",
+    "text": "mapping"
+  },
+  {
+    "fileOffset": "0x54ccbac",
+    "text": "ppercasemapping"
+  },
+  {
+    "fileOffset": "0x54ccbcd",
+    "text": "owercasemapping"
+  },
+  {
+    "fileOffset": "0x54ccbe0",
+    "text": "itlecasemapping"
+  },
+  {
+    "fileOffset": "0x54ccca9",
+    "text": "tlecasemapping"
+  },
+  {
+    "fileOffset": "0x54cceb6",
+    "text": "mapping"
+  },
+  {
+    "fileOffset": "0x54d6872",
+    "text": "Lowercase_Mapping"
+  },
+  {
+    "fileOffset": "0x54d68af",
+    "text": "Simple_Lowercase_Mapping"
+  },
+  {
+    "fileOffset": "0x54d68cd",
+    "text": "Simple_Titlecase_Mapping"
+  },
+  {
+    "fileOffset": "0x54d68eb",
+    "text": "Simple_Uppercase_Mapping"
+  },
+  {
+    "fileOffset": "0x54d6908",
+    "text": "Titlecase_Mapping"
+  },
+  {
+    "fileOffset": "0x54d6932",
+    "text": "Uppercase_Mapping"
+  },
+  {
+    "fileOffset": "0x5534420",
+    "text": "hkxMaterial::UVMappingAlgorithm"
+  },
+  {
+    "fileOffset": "0x5574e68",
+    "text": "Tone Mapping"
+  },
+  {
+    "fileOffset": "0x55acc40",
+    "text": "MoveToMissionWorldPosition"
+  },
+  {
+    "fileOffset": "0x5656418",
+    "text": "WorldMapIcon"
+  },
+  {
+    "fileOffset": "0x5667ed8",
+    "text": "UIGamePlayControlCommon_WorldMapIcon_Faction"
+  },
+  {
+    "fileOffset": "0x5667f08",
+    "text": "UIGamePlayControlCommon_WorldMapIcon"
+  },
+  {
+    "fileOffset": "0x5667f30",
+    "text": "UIGamePlayControlCommon_WorldMapIconCanvas"
+  },
+  {
+    "fileOffset": "0x5669bf0",
+    "text": "WorldmapIcon"
+  },
+  {
+    "fileOffset": "0x566a1b8",
+    "text": "WorldmapIcon_RegionTitle_2048x256_09"
+  },
+  {
+    "fileOffset": "0x566a1e0",
+    "text": "WorldmapIcon_RegionTitle_1024x1024_04_sea"
+  },
+  {
+    "fileOffset": "0x566a210",
+    "text": "WorldmapIcon_RegionTitle_1024x128_04_sea"
+  },
+  {
+    "fileOffset": "0x566a240",
+    "text": "WorldmapIcon_RegionTitle_1024x512_04_sea"
+  },
+  {
+    "fileOffset": "0x566a270",
+    "text": "WorldmapIcon_RegionTitle_2048x256_04"
+  },
+  {
+    "fileOffset": "0x566a298",
+    "text": "WorldmapIcon_RegionTitle_1024x2048_04"
+  },
+  {
+    "fileOffset": "0x566a2c0",
+    "text": "WorldmapIcon_RegionTitle_1024x512_04"
+  },
+  {
+    "fileOffset": "0x566a2e8",
+    "text": "WorldmapIcon_RegionTitle_2048x512_04"
+  },
+  {
+    "fileOffset": "0x566a310",
+    "text": "WorldmapIcon_Setting_Faction_70x46"
+  },
+  {
+    "fileOffset": "0x566a338",
+    "text": "WorldmapIcon_Setting_Faction_50x50"
+  },
+  {
+    "fileOffset": "0x566a360",
+    "text": "WorldmapIcon_Setting_Faction_60x40"
+  },
+  {
+    "fileOffset": "0x566a388",
+    "text": "WorldmapIcon_Setting_Faction_70x70"
+  },
+  {
+    "fileOffset": "0x566a3b0",
+    "text": "WorldmapIcon_Setting_Faction_40x27"
+  },
+  {
+    "fileOffset": "0x566a3d8",
+    "text": "WorldmapIcon_Setting_Faction_50x33"
+  },
+  {
+    "fileOffset": "0x566a400",
+    "text": "WorldmapIcon_Setting_Faction_120x80"
+  },
+  {
+    "fileOffset": "0x566a428",
+    "text": "WorldmapIcon_RegionTitle_512x1024_04"
+  },
+  {
+    "fileOffset": "0x566a498",
+    "text": "WorldmapIcon_Setting_Faction_Sub"
+  },
+  {
+    "fileOffset": "0x566a4c0",
+    "text": "WorldmapIcon_Setting_Faction_Country"
+  },
+  {
+    "fileOffset": "0x566a4e8",
+    "text": "WorldmapIcon_Setting_Faction_40x40"
+  },
+  {
+    "fileOffset": "0x566a510",
+    "text": "WorldmapIcon_Setting_Faction_80x53"
+  },
+  {
+    "fileOffset": "0x566a538",
+    "text": "WorldmapIcon_Setting_Faction_60x60"
+  },
+  {
+    "fileOffset": "0x566a560",
+    "text": "WorldmapIcon_Setting_Faction_80x80"
+  },
+  {
+    "fileOffset": "0x566a830",
+    "text": "WorldmapIcon_RegionTitle_1024x128_04"
+  },
+  {
+    "fileOffset": "0x566a858",
+    "text": "WorldmapIcon_RegionTitle_2048x256_14"
+  },
+  {
+    "fileOffset": "0x566a880",
+    "text": "WorldmapIcon_RegionTitle_1024x1024_22"
+  },
+  {
+    "fileOffset": "0x566a8a8",
+    "text": "WorldmapIcon_RegionTitle_2048x256_22"
+  },
+  {
+    "fileOffset": "0x566a8d0",
+    "text": "WorldmapIcon_RegionTitle_2048x2048_22"
+  },
+  {
+    "fileOffset": "0x566a948",
+    "text": "WorldmapIcon_RegionTitle_1024x2048_09"
+  },
+  {
+    "fileOffset": "0x566a970",
+    "text": "WorldmapIcon_RegionTitle_2048x512_09_sea"
+  },
+  {
+    "fileOffset": "0x566a9a0",
+    "text": "WorldmapIcon_RegionTitle_1024x512_09_sea"
+  },
+  {
+    "fileOffset": "0x566a9d0",
+    "text": "WorldmapIcon_RegionTitle_1024x1024_04"
+  },
+  {
+    "fileOffset": "0x566a9f8",
+    "text": "WorldmapIcon_RegionTitle_2048x512_09"
+  },
+  {
+    "fileOffset": "0x566aa20",
+    "text": "WorldmapIcon_RegionTitle_1024x256_04_sea"
+  },
+  {
+    "fileOffset": "0x566aa50",
+    "text": "WorldmapIcon_RegionTitle_1024x256_04"
+  },
+  {
+    "fileOffset": "0x566aa78",
+    "text": "WorldmapIcon_RegionTitle_512x2048_04"
+  },
+  {
+    "fileOffset": "0x5671500",
+    "text": "_questGuideWorldPosition"
+  },
+  {
+    "fileOffset": "0x56af020",
+    "text": "world-position-offset-y"
+  },
+  {
+    "fileOffset": "0x56af038",
+    "text": "world-position-offset-z"
+  },
+  {
+    "fileOffset": "0x56af068",
+    "text": "world-position-offset-x"
+  },
+  {
+    "fileOffset": "0x56d6d70",
+    "text": "selector-character-world-position-tracker"
+  },
+  {
+    "fileOffset": "0x56d7128",
+    "text": "selector-character-world-position-gauge"
+  },
+  {
+    "fileOffset": "0x5734d68",
+    "text": "MapMarkerGroupKey"
+  },
+  {
+    "fileOffset": "0x5734e98",
+    "text": "MapMarkerGroupKey"
+  },
+  {
+    "fileOffset": "0x5734ec0",
+    "text": "MapMarkerGroupKey"
+  },
+  {
+    "fileOffset": "0x5768e22",
+    "text": " _worldPosition"
+  },
+  {
+    "fileOffset": "0x5773063",
+    "text": " _localToneMappingShadows"
+  },
+  {
+    "fileOffset": "0x57730d3",
+    "text": " _localToneMappingHighlights"
+  },
+  {
+    "fileOffset": "0x5773143",
+    "text": " _localToneMappingSigma"
+  },
+  {
+    "fileOffset": "0x57a0553",
+    "text": " _worldPosition"
+  },
+  {
+    "fileOffset": "0x57adfb8",
+    "text": "ChangeMinimapMarker"
+  },
+  {
+    "fileOffset": "0x57c3358",
+    "text": "GimmickEventHandlerData_ChangeMinimapMarker"
+  },
+  {
+    "fileOffset": "0x5a67998",
+    "text": "PascriptComponentProperty_MapMarkerGroupKey"
+  },
+  {
+    "fileOffset": "0x5b9a328",
+    "text": "worldPositionAdditionalDataBuffer"
+  },
+  {
+    "fileOffset": "0x5b9a520",
+    "text": "worldPositionSpawnBuffer"
+  },
+  {
+    "fileOffset": "0x5bb6de8",
+    "text": "_gpuParticleWorldPositionCopyBuffer"
+  },
+  {
+    "fileOffset": "0x5bb6e10",
+    "text": "_worldPositionAdditionalDataBuffer"
+  },
+  {
+    "fileOffset": "0x5bc7c60",
+    "text": "OptionDependencyMapping"
+  },
+  {
+    "fileOffset": "0x5bc7c88",
+    "text": "Platforms to apply the mapping"
+  },
+  {
+    "fileOffset": "0x5bc81f0",
+    "text": "Unique ID for this mapping"
+  },
+  {
+    "fileOffset": "0x5bc8220",
+    "text": "GPU Vendors to apply the mapping"
+  },
+  {
+    "fileOffset": "0x5bcf9d8",
+    "text": "_parallaxOcclusionMapping"
+  },
+  {
+    "fileOffset": "0x5bcfa70",
+    "text": "_screenSpaceDisplacementMapping"
+  },
+  {
+    "fileOffset": "0x5bd0070",
+    "text": "_useLocalToneMappingCheapMode"
+  },
+  {
+    "fileOffset": "0x5bd0090",
+    "text": "_useLocalToneMapping"
+  },
+  {
+    "fileOffset": "0x5bd0230",
+    "text": "_mergeShapenWithToneMapping"
+  },
+  {
+    "fileOffset": "0x5bd1378",
+    "text": "_worldPositionTestEffect"
+  },
+  {
+    "fileOffset": "0x5bd1398",
+    "text": "_resetWorldPositionEffectBuffer"
+  },
+  {
+    "fileOffset": "0x5bd13e0",
+    "text": "_enableWorldPositionEffectTest"
+  },
+  {
+    "fileOffset": "0x5bd1b20",
+    "text": "_showToneMappingGraph"
+  },
+  {
+    "fileOffset": "0x5bd2830",
+    "text": "ParallaxOcclusionMapping"
+  },
+  {
+    "fileOffset": "0x5bd28e8",
+    "text": "SSDisplacementMapping"
+  },
+  {
+    "fileOffset": "0x5bd2a78",
+    "text": "_useLargeScaleDetailMapping"
+  },
+  {
+    "fileOffset": "0x5bd3090",
+    "text": "mergeShapenWithToneMapping"
+  },
+  {
+    "fileOffset": "0x5bd35b0",
+    "text": "useLocalToneMappingCheapMode"
+  },
+  {
+    "fileOffset": "0x5bd35d0",
+    "text": "useLocalToneMapping"
+  },
+  {
+    "fileOffset": "0x5bd40a8",
+    "text": "showToneMappingGraph"
+  },
+  {
+    "fileOffset": "0x5bd5070",
+    "text": "worldPositionTestEffect"
+  },
+  {
+    "fileOffset": "0x5bd5088",
+    "text": "ResetWorldPositionEffectBuffer"
+  },
+  {
+    "fileOffset": "0x5bd50d0",
+    "text": "enableWorldPositionEffectTest"
+  },
+  {
+    "fileOffset": "0x5bd5320",
+    "text": "WorldPositionError"
+  },
+  {
+    "fileOffset": "0x5bd54b0",
+    "text": "UseLargeScaleDetailMapping"
+  },
+  {
+    "fileOffset": "0x5bd87c8",
+    "text": "    enableParallaxOcclusionMapping         : %d"
+  },
+  {
+    "fileOffset": "0x5c248e0",
+    "text": "_enableParallaxOcclusionMapping"
+  },
+  {
+    "fileOffset": "0x5c24900",
+    "text": "Parallax Occlusion Mapping "
+  },
+  {
+    "fileOffset": "0x5c25700",
+    "text": "Engine option dependency mappings"
+  },
+  {
+    "fileOffset": "0x5c257a8",
+    "text": "_optionDependencyMappings"
+  },
+  {
+    "fileOffset": "0x5c5de50",
+    "text": "_worldPosition"
+  },
+  {
+    "fileOffset": "0x5c9d338",
+    "text": "Pbd_StaticMeshPbdTriangleMappingTable"
+  },
+  {
+    "fileOffset": "0x5c9d3a8",
+    "text": "Pbd_SkinnedMeshPbdTriangleMappingTable"
+  },
+  {
+    "fileOffset": "0x5c9f620",
+    "text": "_localToneMappingParams"
+  },
+  {
+    "fileOffset": "0x5c9f6e0",
+    "text": "UseLocalToneMapping"
+  },
+  {
+    "fileOffset": "0x5cbe540",
+    "text": "PearlAbyssEngine.Debug.ToggleRenderingFeature.LargeScaleDetailMapping"
+  },
+  {
+    "fileOffset": "0x5cbf6f0",
+    "text": "PearlAbyssEngine.Debug.ToggleRenderingFeature.ScreenSpaceDisplacementMapping"
+  },
+  {
+    "fileOffset": "0x5cf64e8",
+    "text": "Large Scale Detail Mapping is enabled"
+  },
+  {
+    "fileOffset": "0x5cf6548",
+    "text": "Screen Space Displacement Mapping is disabled"
+  },
+  {
+    "fileOffset": "0x5cf6598",
+    "text": "Large Scale Detail Mapping is disabled"
+  },
+  {
+    "fileOffset": "0x5cf65c0",
+    "text": "Screen Space Displacement Mapping is enabled"
+  },
+  {
+    "fileOffset": "0x5cfa0af",
+    "text": " 'Create Mapping -> Unmapped bones in B' "
+  },
+  {
+    "fileOffset": "0x5cfa189",
+    "text": " 'Create Mapping' "
+  },
+  {
+    "fileOffset": "0x5cfe170",
+    "text": "CursorWorldPosition"
+  },
+  {
+    "fileOffset": "0x5cfe1a8",
+    "text": "CrosshairWorldPosition"
+  },
+  {
+    "fileOffset": "0x5d1a680",
+    "text": "LargeScaleDetailMapping"
+  },
+  {
+    "fileOffset": "0x5d1bb98",
+    "text": "g_particleWorldPositionBufferUAV"
+  },
+  {
+    "fileOffset": "0x5d1bc80",
+    "text": "g_particleWorldPositionBuffer"
+  },
+  {
+    "fileOffset": "0x5d1c0a8",
+    "text": "_particleWorldPositionBuffer"
+  },
+  {
+    "fileOffset": "0x5d20d10",
+    "text": "ToneMappingParamsBase"
+  },
+  {
+    "fileOffset": "0x5d20d70",
+    "text": "_gtToneMappingParams"
+  },
+  {
+    "fileOffset": "0x5d20d88",
+    "text": "GT Tone Mapping Params"
+  },
+  {
+    "fileOffset": "0x5d20da0",
+    "text": "_acesFilmicToneMappingParams"
+  },
+  {
+    "fileOffset": "0x5d20dc0",
+    "text": "Aces Filmic Tone Mapping Params"
+  },
+  {
+    "fileOffset": "0x5d20de0",
+    "text": "_toneMappingParamsBase"
+  },
+  {
+    "fileOffset": "0x5d20df8",
+    "text": "Tone Mapping Params"
+  },
+  {
+    "fileOffset": "0x5d20e10",
+    "text": "_hableFilmicToneMappingParams"
+  },
+  {
+    "fileOffset": "0x5d20e30",
+    "text": "Hable Filmic Tone Mapping Params"
+  },
+  {
+    "fileOffset": "0x5d21248",
+    "text": "_localToneMappingShadows"
+  },
+  {
+    "fileOffset": "0x5d21268",
+    "text": "Local Tone Mapping Shadows"
+  },
+  {
+    "fileOffset": "0x5d21288",
+    "text": "_localToneMappingHighlights"
+  },
+  {
+    "fileOffset": "0x5d212a8",
+    "text": "Local Tone Mapping Highlights"
+  },
+  {
+    "fileOffset": "0x5d21318",
+    "text": "_localToneMappingDisplayMip"
+  },
+  {
+    "fileOffset": "0x5d21338",
+    "text": "Local Tone Mapping Display Mip"
+  },
+  {
+    "fileOffset": "0x5d21368",
+    "text": "Tone Mapping Mode"
+  },
+  {
+    "fileOffset": "0x5d21380",
+    "text": "_localToneMappingSigma"
+  },
+  {
+    "fileOffset": "0x5d21398",
+    "text": "Local Tone Mapping Sigma"
+  },
+  {
+    "fileOffset": "0x5d213b8",
+    "text": "_localToneMappingMip"
+  },
+  {
+    "fileOffset": "0x5d213d0",
+    "text": "Local Tone Mapping Mip"
+  },
+  {
+    "fileOffset": "0x5d214f8",
+    "text": "HableFilmicToneMappingParam"
+  },
+  {
+    "fileOffset": "0x5d21550",
+    "text": "AcesFilmicToneMappingParam"
+  },
+  {
+    "fileOffset": "0x5d21580",
+    "text": "GTToneMappingParam"
+  },
+  {
+    "fileOffset": "0x5d21f90",
+    "text": "_gaussianBlurWorldPosition"
+  },
+  {
+    "fileOffset": "0x5d21fc8",
+    "text": "_useGaussianBlurWorldPosition"
+  },
+  {
+    "fileOffset": "0x5d21fe8",
+    "text": "Use Gaussian Blur WorldPosition"
+  },
+  {
+    "fileOffset": "0x5d223f0",
+    "text": "_blurWorldPosition"
+  },
+  {
+    "fileOffset": "0x5d22440",
+    "text": "_useBlurWorldPosition"
+  },
+  {
+    "fileOffset": "0x5d22458",
+    "text": "Use Blur WorldPosition"
+  },
+  {
+    "fileOffset": "0x5d2b280",
+    "text": "ScreenSpaceDisplacementMapping"
+  },
+  {
+    "fileOffset": "0x5d2b2f0",
+    "text": "ScreenSpaceDisplacementMappingCopyBackBackground"
+  },
+  {
+    "fileOffset": "0x5d2b328",
+    "text": "ScreenSpaceDisplacementMappingCopyBackCharacter"
+  },
+  {
+    "fileOffset": "0x5d2b358",
+    "text": "ScreenSpaceDisplacementMappingCopyBack"
+  },
+  {
+    "fileOffset": "0x5d2b380",
+    "text": "ScreenSpaceDisplacementMappingTextrueCoordinate"
+  },
+  {
+    "fileOffset": "0x5d2b3b0",
+    "text": "ScreenSpaceDisplacementMappingTessellation"
+  },
+  {
+    "fileOffset": "0x5d2b3e0",
+    "text": "ScreenSpaceDisplacementMappingTile"
+  },
+  {
+    "fileOffset": "0x5d2b408",
+    "text": "ScreenSpaceDisplacementMappingTileCharacter"
+  },
+  {
+    "fileOffset": "0x5d2b438",
+    "text": "ScreenSpaceDisplacementMappingInstancing"
+  },
+  {
+    "fileOffset": "0x5d2c7c0",
+    "text": "EnableParallaxOcclusionMapping"
+  },
+  {
+    "fileOffset": "0x5d2ca68",
+    "text": "ApplyToneMappingHDR"
+  },
+  {
+    "fileOffset": "0x5d2ca80",
+    "text": "ApplyToneMapping"
+  },
+  {
+    "fileOffset": "0x5d2ced8",
+    "text": "VisualizeToneMappingGraph"
+  },
+  {
+    "fileOffset": "0x5d2edf0",
+    "text": "SceneAfterToneMapping"
+  },
+  {
+    "fileOffset": "0x5d31360",
+    "text": "PostProcessingToneMappingWeight"
+  },
+  {
+    "fileOffset": "0x5d31380",
+    "text": "PostProcessingToneMappingLuminance"
+  },
+  {
+    "fileOffset": "0x5d313d8",
+    "text": "PostProcessingToneMappingBlendedWeight"
+  },
+  {
+    "fileOffset": "0x5d35068",
+    "text": "ScreenSpaceDisplacementMappingBackground"
+  },
+  {
+    "fileOffset": "0x5d35128",
+    "text": "ScreenSpaceDisplacementMappingRasterizer"
+  },
+  {
+    "fileOffset": "0x5d35410",
+    "text": "ScreenSpaceDisplacementMappingTileMask"
+  },
+  {
+    "fileOffset": "0x688e59c",
+    "text": "CreateFileMappingW"
+  },
+  {
+    "fileOffset": "0x6a8e7b8",
+    "text": ".?AVhknpMeshShapePrimitiveMapping@@"
+  },
+  {
+    "fileOffset": "0x6a99c20",
+    "text": ".?AUGenerateMappingToPointsBufferTask@hknpParticlesTasksImpl@@"
+  },
+  {
+    "fileOffset": "0x6aacc30",
+    "text": ".?AVUIPhaseData_GoToWorldPosition@pa@@"
+  },
+  {
+    "fileOffset": "0x6ae4440",
+    "text": ".?AVUIGamePlayControlCommon_WorldMapIconCanvasDesc@uiCommonScript@pa@@"
+  },
+  {
+    "fileOffset": "0x6ae4560",
+    "text": ".?AVUIGamePlayControlCommon_WorldMapIconCanvas@uiCommonScript@pa@@"
+  },
+  {
+    "fileOffset": "0x6ae48e0",
+    "text": ".?AVUIGamePlayControlCommon_WorldMapIcon_Faction@uiCommonScript@pa@@"
+  },
+  {
+    "fileOffset": "0x6ae4990",
+    "text": ".?AVUIGamePlayControlCommon_WorldMapIcon@uiCommonScript@pa@@"
+  },
+  {
+    "fileOffset": "0x6b00790",
+    "text": ".?AV?$GameMeta_ClassFunctionTemplate@_NVMapMarkerGroupKey@pa@@AEBV12@XXXX@pa@@"
+  },
+  {
+    "fileOffset": "0x6b00c00",
+    "text": ".?AV?$GameMeta_ClassFunctionTemplate@VstaticstringA@pa@@VMapMarkerGroupKey@2@XXXXX@pa@@"
+  },
+  {
+    "fileOffset": "0x6b09520",
+    "text": ".?AV?$GameMeta_ClassTemplate@VMapMarkerGroupKey@pa@@@pa@@"
+  },
+  {
+    "fileOffset": "0x6b0da10",
+    "text": ".?AV?$GameValue_ObjectTemplate@VMapMarkerGroupKey@pa@@@pa@@"
+  },
+  {
+    "fileOffset": "0x6b1a4b0",
+    "text": ".?AV?$CompressedObjectMemoryPool@VGimmickEventHandlerData_ChangeMinimapMarker@pa@@W4GimmickChartObjectType@2@@pa@@"
+  },
+  {
+    "fileOffset": "0x6b1d3f0",
+    "text": ".?AVGimmickEventHandlerData_ChangeMinimapMarker@pa@@"
+  },
+  {
+    "fileOffset": "0x6ba53a0",
+    "text": ".?AV?$SimpleReflectPropertyBind@V?$PascriptComponentProperty_TYPE@VMapMarkerGroupKey@pa@@$0A@@pascriptComponent@pa@@VMapMarkerGroupKey@3@AEBV43@AEBV43@@pa@@"
+  },
+  {
+    "fileOffset": "0x6ba5450",
+    "text": ".?AV?$ReflectPropertyBase@VMapMarkerGroupKey@pa@@AEBV12@AEBV12@@pa@@"
+  },
+  {
+    "fileOffset": "0x6ba54b0",
+    "text": ".?AV?$SimpleReflectProperty@VMapMarkerGroupKey@pa@@AEBV12@AEBV12@@pa@@"
+  },
+  {
+    "fileOffset": "0x6ba5510",
+    "text": ".?AV?$PropertyCheckable@V?$PascriptComponentProperty_TYPE@VMapMarkerGroupKey@pa@@$0A@@pascriptComponent@pa@@@pa@@"
+  },
+  {
+    "fileOffset": "0x6bb0a40",
+    "text": ".?AV?$ReflectMetaObjectBind@V?$PascriptComponentProperty_TYPE@VMapMarkerGroupKey@pa@@$0A@@pascriptComponent@pa@@$0A@@pa@@"
+  },
+  {
+    "fileOffset": "0x6bb95e0",
+    "text": ".?AV?$PascriptComponentProperty_TYPE@VMapMarkerGroupKey@pa@@$0A@@pascriptComponent@pa@@"
+  }
+]

@@ -1,0 +1,4 @@
+0x3d6210: sub rsp, 8
+0x3d6214: lea r9, [rcx + rdx]
+0x3d6218: cmp rdx, 0x10
+0x3d621c: jb 0x1403d62cb

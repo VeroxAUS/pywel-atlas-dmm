@@ -1,0 +1,57 @@
+Pywel Atlas native icon preview v0.13 - callback style 0/0 plus proven offset
+Create observation hook rva=0xdf88c0: MH_OK
+Create observation hook rva=0xdb8a00: MH_OK
+Create observation hook rva=0xdeffa0: MH_OK
+Hooks active. F6 enables +200 X and style 0/0 preview for 3 minutes; reload Manual save 2.
+F8 captures state; F10 disables, then reload Manual save 2 for normal display.
+Loaded-save identity is manually scoped. No placement hotkeys or save access.
+callback=1 path=0 controller_vtable=0x566ff50 icon=0 type=0 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=1 path=2 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=1 path=1 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=1 path=2 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=1 path=1 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=2 path=0 controller_vtable=0x5674e00 icon=0 type=0 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=2 path=2 controller_vtable=0x5674e00 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=2 path=2 controller_vtable=0x5674e00 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+Preview ON. Reload Manual save 2 within 3 minutes; no new pins needed.
+callback=3 path=0 controller_vtable=0x566ff50 icon=0 type=0 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=3 path=2 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=3 path=1 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=3 path=2 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+callback=3 path=1 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+callback=4 path=0 controller_vtable=0x5674e00 icon=0 type=0 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=4 path=2 controller_vtable=0x5674e00 icon=0 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=4 path=2 controller_vtable=0x5674e00 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+callback=5 path=0 controller_vtable=0x566ff50 icon=0 type=0 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=5 path=2 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+callback=5 path=1 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+callback=5 path=2 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=5 path=1 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=5 path=2 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+callback=5 path=1 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+callback=6 path=0 controller_vtable=0x5674e00 icon=0 type=0 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=6 path=2 controller_vtable=0x5674e00 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+callback=6 path=2 controller_vtable=0x5674e00 icon=0 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(0.000000,0.000000,0.000000)
+callback=6 path=2 controller_vtable=0x5674e00 icon=1 type=1 xyz=(-10502.497070,631.127319,-3833.858887) style=0/0 group=0 bell_xyz_offset=-1 preview=1 icon_xyz=(-10502.497070,631.127319,-3833.858887)
+snapshot callbacks=6 lookups=21 dropped=0 enabled=1 applied=4 readbackMask=3
+Preview OFF. Reload Manual save 2 to restore normal icon coordinates.
+callback=7 path=0 controller_vtable=0x566ff50 icon=0 type=0 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=7 path=2 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=7 path=1 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=7 path=2 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=7 path=1 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=8 path=0 controller_vtable=0x5674e00 icon=0 type=0 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=8 path=2 controller_vtable=0x5674e00 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=8 path=2 controller_vtable=0x5674e00 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=9 path=0 controller_vtable=0x566ff50 icon=0 type=0 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=9 path=2 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=9 path=1 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=9 path=2 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=9 path=1 controller_vtable=0x566ff50 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=9 path=2 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=9 path=1 controller_vtable=0x566ff50 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=10 path=0 controller_vtable=0x5674e00 icon=0 type=0 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=10 path=2 controller_vtable=0x5674e00 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+callback=10 path=2 controller_vtable=0x5674e00 icon=0 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=-1 preview=0 icon_xyz=(0.000000,0.000000,0.000000)
+callback=10 path=2 controller_vtable=0x5674e00 icon=1 type=1 xyz=(-10702.497070,631.127319,-3833.858887) style=4/14 group=0 bell_xyz_offset=224 preview=0 icon_xyz=(-10702.497070,631.127319,-3833.858887)
+snapshot callbacks=10 lookups=36 dropped=0 enabled=0 applied=4 readbackMask=3

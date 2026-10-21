@@ -1,0 +1,14 @@
+# Compiler intermediates
+work/native-map-build/
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Duplicate of the extracted outputs/claude-max-handoff/ directory
+outputs/Claude-Max-Pywel-Atlas-Handoff.zip

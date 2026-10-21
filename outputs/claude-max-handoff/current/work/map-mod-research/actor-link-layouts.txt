@@ -1,0 +1,21 @@
+0x5585c40 .?AVClientChildOnlyInGameActor@pa@@
+virtual +c0 -> 0x4f8ff0
+virtual +130 -> 0x17ea310
+virtual +140 -> 0x17e94e0
+virtual +158 -> 0x50d120
+virtual +178 -> 0x4fe260
+virtual +180 -> 0x4fa530
+0x5b1e2b0 .?AVServerChildOnlyInGameActor@pa@@
+virtual +c0 -> 0x4f8ff0
+virtual +130 -> 0x17ea310
+virtual +140 -> 0x28f2550
+virtual +158 -> 0x28fdc40
+virtual +178 -> 0x8a67d0
+virtual +180 -> 0x359b50
+0x5b257a8 .?AVServerUserActor@pa@@
+virtual +c0 -> 0x8a67b0
+virtual +130 -> 0x206a6e0
+virtual +140 -> 0x206a4a0
+virtual +158 -> 0x206a880
+virtual +178 -> 0x8a67d0
+virtual +180 -> 0x359b50

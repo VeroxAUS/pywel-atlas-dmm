@@ -1,0 +1,36 @@
+0x47f02bc: sub rsp, 0x28
+0x47f02c0: mov r9, rcx
+0x47f02c3: test rcx, rcx
+0x47f02c6: je 0x1447f033d
+0x47f02c8: mov r8, qword ptr gs:[0x30]
+0x47f02d1: lea r10, [rcx - 1]
+0x47f02d5: and r10, 0xfffffffffe000000
+0x47f02dc: mov rax, rcx
+0x47f02df: sub rax, r10
+0x47f02e2: shr rax, 0x10
+0x47f02e6: mov rdx, qword ptr [r10 + 0x100]
+0x47f02ed: lea rcx, [r10 + 0x108]
+0x47f02f4: lea rax, [rax + rax*4]
+0x47f02f8: shl rax, 4
+0x47f02fc: add rcx, rax
+0x47f02ff: mov eax, dword ptr [rcx + 4]
+0x47f0302: sub rcx, rax
+0x47f0305: cmp r8, rdx
+0x47f0308: jne 0x1447f032f
+0x47f030a: cmp byte ptr [rcx + 0xe], 0
+0x47f030e: jne 0x1447f032a
+0x47f0310: mov rax, qword ptr [rcx + 0x20]
+0x47f0314: mov qword ptr [r9], rax
+0x47f0317: add dword ptr [rcx + 0x18], -1
+0x47f031b: mov qword ptr [rcx + 0x20], r9
+0x47f031f: jne 0x1447f033d
+0x47f0321: add rsp, 0x28
+0x47f0325: jmp 0x1447f41e0
+0x47f032a: mov r8b, 1
+0x47f032d: jmp 0x1447f0332
+0x47f032f: xor r8d, r8d
+0x47f0332: mov rdx, rcx
+0x47f0335: mov rcx, r10
+0x47f0338: call 0x1447efff4
+0x47f033d: add rsp, 0x28
+0x47f0341: ret 

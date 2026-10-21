@@ -1,0 +1,15 @@
+0xdabae0: mov qword ptr [rsp + 0x10], rbx
+0xdabae5: push rsi
+0xdabae6: sub rsp, 0x50
+0xdabaea: cmp byte ptr [r8 + 0x10], 0
+0xdabaef: mov rbx, rdx
+0xdabaf2: mov rsi, rcx
+0xdabaf5: jne 0x140dabb04
+0xdabaf7: mov al, 1
+0xdabaf9: mov rbx, qword ptr [rsp + 0x68]
+0xdabafe: add rsp, 0x50
+0xdabb02: pop rsi
+0xdabb03: ret 
+0xdabb04: cmp byte ptr [r8 + 0x10], 0
+0xdabb09: vmovups xmm0, xmmword ptr [r8]
+0xdabb0e: mov qword ptr [rsp + 0x60], rdi

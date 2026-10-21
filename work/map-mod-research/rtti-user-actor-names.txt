@@ -1,0 +1,13 @@
+﻿.?AVCommonActorContainer@pa@@ 0x58ff398@0x0
+.?AVClientActorContainer@pa@@ 0x557c690@0x0
+.?AVClientUserActor@pa@@ 0x55b59f0@0x0
+.?AVCommonUserActor@pa@@ 0x590eac0@0x0
+.?AVDestroyClientActorAsyncTask@?1??collectGarbageActor@ClientActorManager@pa@@QEAA_N_N@Z@ 0x55b5fa0@0x0
+.?AVLoadGimmickSceneObjectsInLevelWork@?1??onProcessPendingLoadGimmickSceneObjectsInLevel@ClientActorManager@pa@@QEAAXXZ@ 0x55b5f60@0x0
+.?AV?$ScopeAttacher@VClientUserActor@pa@@@pa@@ 0x55b5f10@0x0
+.?AVCommonActorManager@pa@@ 0x58ff348@0x0
+.?AVClientActorManager@pa@@ 0x55b62c8@0x0
+.?AV?$ScopeAttacher@VCommonUserActor@pa@@@pa@@ 0x55b5e50@0x0
+.?AVServerUserActor@pa@@ 0x5b257a8@0x0
+.?AVServerActorManager@pa@@ 0x5b25988@0x0
+.?AV?$ScopeAttacher@VServerUserActor@pa@@@pa@@ 0x5b25b40@0x0

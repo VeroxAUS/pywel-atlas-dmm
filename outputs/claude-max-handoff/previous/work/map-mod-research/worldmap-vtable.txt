@@ -1,0 +1,370 @@
+slot 0 RVA 0xd90680
+  mov qword ptr [rsp + 8], rbx
+  push rdi
+  sub rsp, 0x20
+  mov ebx, edx
+  mov rdi, rcx
+  call 0x140d90750
+  test bl, 1
+  je 0x140d906cb
+  mov rax, qword ptr gs:[0x58]
+  mov ecx, 0x1fd
+slot 1 RVA 0xda18f0
+  mov rax, rsp
+  mov qword ptr [rax + 0x10], rdx
+  mov qword ptr [rax + 8], rcx
+  push rbp
+  push rbx
+  push rsi
+  push rdi
+  push r12
+  push r13
+  push r14
+slot 2 RVA 0xda81d0
+  mov qword ptr [rsp + 8], rbx
+  mov qword ptr [rsp + 0x10], rsi
+  mov qword ptr [rsp + 0x20], rdi
+  push r12
+  push r14
+  push r15
+  sub rsp, 0x30
+  mov r15, rdx
+  mov rsi, rcx
+  lea rdx, [rsp + 0x60]
+slot 3 RVA 0x63da10
+slot 4 RVA 0xe427a0
+slot 5 RVA 0xe42830
+slot 6 RVA 0xd4b070
+slot 7 RVA 0x3600c0
+slot 8 RVA 0xcb6f70
+slot 9 RVA 0x359ba0
+slot 10 RVA 0xda9ea0
+  mov qword ptr [rsp + 0x10], rbx
+  push rbp
+  push rsi
+  push rdi
+  push r12
+  push r13
+  push r14
+  push r15
+  lea rbp, [rsp - 0x27]
+  sub rsp, 0xb0
+slot 11 RVA 0xdaa120
+  push rbx
+  sub rsp, 0x20
+  cmp byte ptr [rcx + 0xc13], 0
+  mov rbx, rcx
+  je 0x140daa137
+  call 0x140d92c60
+  mov rcx, rbx
+  add rsp, 0x20
+  pop rbx
+  jmp 0x140d939e0
+slot 12 RVA 0xdaa150
+  mov r11, rsp
+  mov qword ptr [r11 + 0x10], rbx
+  push rbp
+  push rsi
+  push rdi
+  push r12
+  push r13
+  push r14
+  push r15
+  sub rsp, 0x60
+slot 13 RVA 0xdab3d0
+  jmp 0x14aada8e0
+  adc ch, cl
+  lea r12d, [rip - 0x62bc0400]
+  wait 
+  push 0x12e9b176
+  jb 0x140dab3be
+  std 
+  add ebx, dword ptr [rsi + rcx*4 - 0x165c5a7b]
+  int 0xb6
+  jo 0x140dab3ee
+slot 14 RVA 0x359b50
+slot 15 RVA 0xdab5e0
+  jmp 0x14aade7b0
+  jmp 0x140326a5f
+  ja 0x13f3f7a4a
+  mov byte ptr [rdi], cl
+  add byte ptr [rcx + 0x5cffcaeb], 0xf7
+  stosd dword ptr [rdi], eax
+  mov dword ptr [rdi + riz*8 - 0x6cbf79cf], ebp
+  xor eax, 0x97a3a98a
+  jp 0x140dab5cd
+  jo 0x140dab65e
+slot 16 RVA 0xdaa5c0
+  jmp 0x14aad4e10
+  int3 
+  nop 
+  jae 0x140daa566
+  insd dword ptr [rdi], dx
+  xor al, 0x91
+  ret 0x18ab
+  sbb edx, ebp
+  shr esi, 0xf
+  and dword ptr [rbx], 0xe90066a4
+slot 17 RVA 0xdaa7c0
+  jmp 0x14aad74a0
+  stosb byte ptr [rdi], al
+  xchg ecx, eax
+slot 18 RVA 0xdaa880
+  push rdi
+  sub rsp, 0x40
+  mov rax, qword ptr [rcx + 0x5c0]
+  mov rdi, rcx
+  mov qword ptr [rsp + 0x58], rbx
+  mov qword ptr [rsp + 0x68], rsi
+  mov qword ptr [rsp + 0x30], r15
+  mov r15d, 0xffff
+  test rax, rax
+  je 0x140daaa26
+slot 19 RVA 0xdaad10
+  mov qword ptr [rsp + 0x10], rbx
+  push rbp
+  push rsi
+  push rdi
+  push r12
+  push r13
+  push r14
+  push r15
+  sub rsp, 0x40
+  mov rdi, rcx
+slot 20 RVA 0xcb8b80
+slot 21 RVA 0x359b50
+slot 22 RVA 0x359b50
+slot 23 RVA 0x359b50
+slot 24 RVA 0xcb7670
+slot 25 RVA 0xcb7680
+slot 26 RVA 0x359b50
+slot 27 RVA 0xcb6bc0
+slot 28 RVA 0x359b50
+slot 29 RVA 0xdbdc20
+  mov qword ptr [rsp + 8], rbx
+  push rdi
+  sub rsp, 0x50
+  mov rdi, rcx
+  mov dword ptr [rsp + 0x20], 0
+  call 0x140daba20
+  mov byte ptr [rdi + 0x801], 1
+  lea rdx, [rsp + 0x28]
+  mov rcx, qword ptr [rip + 0x5fab543]
+  mov rcx, qword ptr [rcx + 0x30]
+slot 30 RVA 0xe41560
+slot 31 RVA 0xdbd420
+  mov qword ptr [rsp + 0x18], rbx
+  mov qword ptr [rsp + 0x10], rdx
+  push rbp
+  push rsi
+  push rdi
+  push r12
+  push r13
+  push r14
+  push r15
+  lea rbp, [rsp - 0x90]
+slot 32 RVA 0x359b50
+slot 33 RVA 0xdab750
+  jmp 0x14aae2cf0
+  jl 0x140f02100
+  test eax, 0xe23bd5cc
+  add eax, esp
+  jnp 0x1410640ea
+  lahf 
+  mov ecx, ebp
+  mov gs, edx
+  cmp eax, dword ptr [rax]
+  mov ebx, 0x1c870f12
+slot 34 RVA 0x3e72bb0
+slot 35 RVA 0xda8f60
+  mov rax, rsp
+  mov qword ptr [rax + 8], rbx
+  mov qword ptr [rax + 0x10], rbp
+  push rsi
+  push rdi
+  push r14
+  sub rsp, 0xd0
+  vmovaps xmmword ptr [rax - 0x28], xmm6
+  vmovaps xmmword ptr [rax - 0x38], xmm7
+  vmovaps xmmword ptr [rax - 0x48], xmm8
+slot 36 RVA 0xda9770
+  push rsi
+  sub rsp, 0x20
+  cmp byte ptr [rcx + 0xc11], 0
+  mov rsi, rcx
+  je 0x140da97bb
+  vaddss xmm0, xmm1, dword ptr [rcx + 0xc1c]
+  vmovss dword ptr [rcx + 0xc1c], xmm0
+  vdivss xmm1, xmm0, dword ptr [rip + 0x5f04e3e]
+  vmovss xmm3, dword ptr [rip + 0x5f04de6]
+  vxorps xmm2, xmm2, xmm2
+slot 37 RVA 0x359b50
+slot 38 RVA 0x359b50
+slot 39 RVA 0xcb8ce0
+slot 40 RVA 0x63da60
+slot 41 RVA 0xda9900
+  mov qword ptr [rsp + 8], rcx
+  push rbp
+  push rbx
+  push rsi
+  push rdi
+  push r12
+  push r13
+  push r14
+  push r15
+  lea rbp, [rsp - 0x38]
+slot 42 RVA 0x359b50
+slot 43 RVA 0x359ba0
+slot 44 RVA 0x3600b0
+slot 45 RVA 0x63da70
+slot 46 RVA 0xcb6910
+slot 47 RVA 0x359b50
+slot 48 RVA 0xcb6b90
+slot 49 RVA 0xd87770
+slot 50 RVA 0xd87710
+slot 51 RVA 0xd87760
+slot 52 RVA 0xdaba20
+  mov qword ptr [rsp + 8], rbx
+  mov qword ptr [rsp + 0x10], rsi
+  push rdi
+  sub rsp, 0x20
+  mov rdi, rcx
+  mov rcx, qword ptr [rcx + 0x660]
+  mov rax, qword ptr [rcx]
+  call qword ptr [rax + 0x20]
+  mov rax, qword ptr [rdi]
+  mov rcx, rdi
+slot 53 RVA 0x3600c0
+slot 54 RVA 0x3600c0
+slot 55 RVA 0x3600c0
+slot 56 RVA 0x3600c0
+slot 57 RVA 0x359ba0
+slot 58 RVA 0x359b50
+slot 59 RVA 0x359ba0
+slot 60 RVA 0x3e74e70
+slot 61 RVA 0x3600c0
+slot 62 RVA 0x359b50
+slot 63 RVA 0x359b50
+slot 64 RVA 0x3600c0
+slot 65 RVA 0x359b50
+slot 66 RVA 0x359b50
+slot 67 RVA 0x359b50
+slot 68 RVA 0x359b50
+slot 69 RVA 0x359b50
+slot 70 RVA 0x359b50
+slot 71 RVA 0x359b50
+slot 72 RVA 0x359b50
+slot 73 RVA 0x359b50
+slot 74 RVA 0x359b50
+slot 75 RVA 0x359b50
+slot 76 RVA 0x359b50
+slot 77 RVA 0x359b50
+slot 78 RVA 0x359b50
+slot 79 RVA 0x359b50
+slot 80 RVA 0x359b50
+slot 81 RVA 0x359b50
+slot 82 RVA 0x359b50
+slot 83 RVA 0x359b50
+slot 84 RVA 0x359b50
+slot 85 RVA 0x359b50
+slot 86 RVA 0x359b50
+slot 87 RVA 0x359b50
+slot 88 RVA 0x359b50
+slot 89 RVA 0x359b50
+slot 90 RVA 0x359b50
+slot 91 RVA 0x359b50
+slot 92 RVA 0x359b50
+slot 93 RVA 0x359b50
+slot 94 RVA 0x359b50
+slot 95 RVA 0x359b50
+slot 96 RVA 0x359b50
+slot 97 RVA 0x359b50
+slot 98 RVA 0x359b50
+slot 99 RVA 0x359b50
+slot 100 RVA 0x359b50
+slot 101 RVA 0x359b50
+slot 102 RVA 0x359b50
+slot 103 RVA 0x359b50
+slot 104 RVA 0x359b50
+slot 105 RVA 0x359b50
+slot 106 RVA 0x359b50
+slot 107 RVA 0x359b50
+slot 108 RVA 0x359b50
+slot 109 RVA 0x359ba0
+slot 110 RVA 0x3e73100
+slot 111 RVA 0x3e736e0
+slot 112 RVA 0x359b50
+slot 113 RVA 0xdbaba0
+  mov qword ptr [rsp + 0x20], rbx
+  push rbp
+  push rsi
+  push rdi
+  push r12
+  push r13
+  push r14
+  push r15
+  lea rbp, [rsp - 0x12e0]
+  mov eax, 0x13e0
+slot 114 RVA 0x359b50
+slot 115 RVA 0x359b50
+slot 116 RVA 0xdbc640
+  push rbx
+  sub rsp, 0x20
+  mov rbx, rcx
+  cmp qword ptr [rcx + 0x958], rdx
+  jne 0x140dbc795
+  mov qword ptr [rsp + 0x38], rdi
+  mov qword ptr [rcx + 0x958], 0
+  cmp dword ptr [rcx + 0x960], -1
+  mov qword ptr [rsp + 0x30], rsi
+  lea rsi, [rcx + 0x960]
+slot 117 RVA 0x359b50
+slot 118 RVA 0x359b50
+slot 119 RVA 0xdbd270
+  jmp 0x14aaf01b0
+  test byte ptr [rbp + 0x6f578e0f], bh
+slot 120 RVA 0xdbd400
+  jmp 0x14aaf0890
+  mov bl, 0x2a
+  sub esp, dword ptr [rsi]
+  scasb al, byte ptr [rdi]
+  xchg ebp, eax
+slot 121 RVA 0x359b50
+slot 122 RVA 0x359b50
+slot 123 RVA 0x359b50
+slot 124 RVA 0x359b50
+slot 125 RVA 0x359b50
+slot 126 RVA 0x359b50
+slot 127 RVA 0x359b50
+slot 128 RVA 0x359b50
+slot 129 RVA 0x359b50
+slot 130 RVA 0x359b50
+slot 131 RVA 0x359b50
+slot 132 RVA 0x359b50
+slot 133 RVA 0x359b50
+slot 134 RVA 0xdbcbe0
+  mov qword ptr [rsp + 0x18], rbx
+  push rbp
+  push rsi
+  push rdi
+  push r12
+  push r13
+  push r14
+  push r15
+  sub rsp, 0x50
+  mov rsi, r9
+slot 135 RVA 0xdbc7a0
+  push rbx
+  push rsi
+  push rdi
+  push r14
+  sub rsp, 0x48
+  mov rbx, rcx
+  cmp rdx, qword ptr [rcx + 0x610]
+  jne 0x140dbca4c
+  test r8b, r8b
+  jne 0x140dbca18
+slot 136 RVA 0x359b50
+slot 137 RVA 0x359b50
+slot 138 RVA 0x359b50
+slot 139 RVA 0x359b50

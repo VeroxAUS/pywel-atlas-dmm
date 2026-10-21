@@ -1,0 +1,10 @@
+0x156e8f0: push rbx
+0x156e8f2: sub rsp, 0x20
+0x156e8f6: mov rbx, rdx
+0x156e8f9: mov rdx, r8
+0x156e8fc: call 0x14156e910
+0x156e901: mov rax, rbx
+0x156e904: mov dword ptr [rbx], 0
+0x156e90a: add rsp, 0x20
+0x156e90e: pop rbx
+0x156e90f: ret 

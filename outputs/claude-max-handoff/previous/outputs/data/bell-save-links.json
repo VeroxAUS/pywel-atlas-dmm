@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "categoryId": "mg-category:15059",
+  "category": "Bell",
+  "saveType": "DiscoveredLevelGimmickSceneObjectSaveData",
+  "saveList": "_discoveredLevelGimmickSceneObjectSaveDataList",
+  "locations": [
+    {
+      "poiId": "mg:545680",
+      "name": "Calphade Bell",
+      "uuid": [198322616, 1450447108, 1461444668, 0],
+      "typeKeys": [1000115, 1000116, 1000117, 1000118, 1000119],
+      "asset": "leveldata/bin__/rootlevel/mission_pororinvillage_bell_all_calphade.palevel",
+      "prefab": "/object/cd_gimmick/00_common/bell/gimmick_bell_0003.prefab",
+      "gamePosition": [
+        -11896.21093775006, 713.9373168945312, -2027.1716305874288
+      ],
+      "evidence": "Exact scene object UUID from bell mission asset; marker identity checked against location and game coordinates. Completion requires _isCompleted=true."
+    },
+    {
+      "poiId": "mg:549762",
+      "name": "Delesyia Bell",
+      "uuid": [237711481, 1450447108, 1461444668, 0],
+      "typeKeys": [1000115, 1000116, 1000117, 1000118, 1000119],
+      "asset": "leveldata/bin__/rootlevel/mission_pororinvillage_bell_all_delesyia.palevel",
+      "prefab": "/object/cd_gimmick/00_common/bell/gimmick_bell_0003.prefab",
+      "gamePosition": [
+        -4442.704101324081, 410.38897705078125, -3879.209473133087
+      ],
+      "evidence": "Exact scene object UUID from bell mission asset; marker identity checked against location and game coordinates. Completion requires _isCompleted=true."
+    },
+    {
+      "poiId": "mg:549777",
+      "name": "Demeniss Bell",
+      "uuid": [1762851470, 1450447103, 3472670780, 0],
+      "typeKeys": [1000115, 1000116, 1000117, 1000118, 1000119],
+      "asset": "leveldata/bin__/rootlevel/mission_pororinvillage_bell_all_demeniss.palevel",
+      "prefab": "/object/cd_gimmick/00_common/bell/gimmick_bell_0001.prefab",
+      "gamePosition": [
+        -7874.206543250009, 620.7166140377522, -3521.8542475937866
+      ],
+      "evidence": "Exact scene object UUID from bell mission asset; marker identity checked against location and game coordinates. Completion requires _isCompleted=true."
+    },
+    {
+      "poiId": "mg:543894",
+      "name": "Hernand Bell",
+      "uuid": [1601869702, 1450446765, 1450142268, 0],
+      "typeKeys": [1000115, 1000116, 1000117, 1000118, 1000119],
+      "asset": "leveldata/bin__/rootlevel/mission_pororinvillage_bell_all_hernand.palevel",
+      "prefab": "/object/cd_gimmick/00_common/bell/gimmick_bell_04.prefab",
+      "gamePosition": [
+        -10702.497070133686, 631.1273190975189, -3833.858887091279
+      ],
+      "evidence": "Exact scene object UUID from bell mission asset; marker identity checked against location and game coordinates. Completion requires _isCompleted=true."
+    },
+    {
+      "poiId": "mg:549990",
+      "name": "Pailune Bell",
+      "uuid": [1628590903, 4279242700, 164962784, 0],
+      "typeKeys": [1000115, 1000116, 1000117, 1000118, 1000119],
+      "asset": "leveldata/bin__/rootlevel/mission_pororinvillage_bell_all_pailune.palevel",
+      "prefab": "/object/cd_gimmick/00_common/bell/gimmick_bell_04.prefab",
+      "gamePosition": [
+        -9767.482421812601, 653.2872922420502, 98.73815114237368
+      ],
+      "evidence": "Exact scene object UUID from bell mission asset; marker identity checked against location and game coordinates. Completion requires _isCompleted=true."
+    },
+    {
+      "poiId": "mg:545847",
+      "name": "Scholastone Bell",
+      "uuid": [222227931, 1450447108, 1461444668, 0],
+      "typeKeys": [1000115, 1000116, 1000117, 1000118, 1000119],
+      "asset": "leveldata/bin__/rootlevel/mission_pororinvillage_bell_all_scholastoneinstitute.palevel",
+      "prefab": "/object/cd_gimmick/00_common/bell/gimmick_bell_0003.prefab",
+      "gamePosition": [
+        -11968.671118438244, 879.2481689453125, -4963.252905346453
+      ],
+      "evidence": "Exact scene object UUID from bell mission asset; marker identity checked against location and game coordinates. Completion requires _isCompleted=true."
+    },
+    {
+      "poiId": "mg:549727",
+      "name": "Tommaso Bell",
+      "uuid": [1834274304, 4279242700, 164962784, 0],
+      "typeKeys": [1000115, 1000116, 1000117, 1000118, 1000119],
+      "asset": "leveldata/bin__/rootlevel/mission_pororinvillage_bell_all_tashkalp.palevel",
+      "prefab": "/object/cd_gimmick/00_common/bell/gimmick_bell_04.prefab",
+      "gamePosition": [-6031.048828125, 641.1539920568466, -852.1469116210938],
+      "evidence": "Exact scene object UUID from bell mission asset; marker identity checked against location and game coordinates. Completion requires _isCompleted=true."
+    },
+    {
+      "poiId": "mg:549675",
+      "name": "Varnia Bell",
+      "uuid": [196626156, 1450447106, 1461444668, 1],
+      "typeKeys": [1000115, 1000116, 1000117, 1000118, 1000119],
+      "asset": "leveldata/bin__/rootlevel/mission_pororinvillage_bell_all_varnia.palevel",
+      "prefab": "/object/cd_gimmick/00_common/bell/gimmick_bell_0002.prefab",
+      "gamePosition": [-3737.561034962535, 739.79052734375, 3417.2827150523663],
+      "evidence": "Exact scene object UUID from bell mission asset; marker identity checked against location and game coordinates. Completion requires _isCompleted=true."
+    }
+  ]
+}

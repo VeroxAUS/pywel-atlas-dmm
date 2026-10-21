@@ -1,0 +1,90 @@
+[
+  {
+    "offset": "0x55ac5f0",
+    "text": "CreateOrUpdatePinMarkerIcon"
+  },
+  {
+    "offset": "0x57e01f0",
+    "text": "PinMarkerIconSaveData"
+  },
+  {
+    "offset": "0x57e0b80",
+    "text": "_tracePinMarkerDataList"
+  },
+  {
+    "offset": "0x57e0be8",
+    "text": "_pinMarkerDataList"
+  },
+  {
+    "offset": "0x5927cf8",
+    "text": "eErrNoNotFoundPinMarkerIcon"
+  },
+  {
+    "offset": "0x592cc40",
+    "text": "eErrNoOverflowMaximumPinMarker"
+  },
+  {
+    "offset": "0x6ad3a40",
+    "text": ".?AVTrocTrRemovePinMarkerAck@pa@@"
+  },
+  {
+    "offset": "0x6ad3a78",
+    "text": ".?AVTrocTrCreateOrChangePinMarkerAck@pa@@"
+  },
+  {
+    "offset": "0x6b22510",
+    "text": ".?AV?$ReflectMetaObjectBind@VPinMarkerIconSaveData@pa@@$0A@@pa@@"
+  },
+  {
+    "offset": "0x6b26500",
+    "text": ".?AVConstIteratorImplements@?$VectorReflectPropertyBind@VContentsMiscSaveData@pa@@VPinMarkerIconSaveData@2@$0A@@pa@@"
+  },
+  {
+    "offset": "0x6b26590",
+    "text": ".?AVIteratorImplements@?$VectorReflectPropertyBind@VContentsMiscSaveData@pa@@VPinMarkerIconSaveData@2@$0A@@pa@@"
+  },
+  {
+    "offset": "0x6b26610",
+    "text": ".?AV?$VectorReflectProperty@VPinMarkerIconSaveData@pa@@$0A@$0A@@pa@@"
+  },
+  {
+    "offset": "0x6b26670",
+    "text": ".?AV?$VectorReflectPropertyBind@VContentsMiscSaveData@pa@@VPinMarkerIconSaveData@2@$0A@@pa@@"
+  },
+  {
+    "offset": "0x6b2bfc0",
+    "text": ".?AV?$SimpleReflectPropertyBind@VPinMarkerIconSaveData@pa@@EAEBEAEBE@pa@@"
+  },
+  {
+    "offset": "0x6b2c020",
+    "text": ".?AV?$SimpleReflectPropertyBind@VPinMarkerIconSaveData@pa@@Vfloat3@2@AEBV32@AEBV32@@pa@@"
+  },
+  {
+    "offset": "0x6b2c090",
+    "text": ".?AV?$PropertyCheckable@VPinMarkerIconSaveData@pa@@@pa@@"
+  },
+  {
+    "offset": "0x6b2c0e0",
+    "text": ".?AV?$SimpleReflectPropertyBind@VPinMarkerIconSaveData@pa@@_KAEB_KAEB_K@pa@@"
+  },
+  {
+    "offset": "0x6b47c80",
+    "text": ".?AV?$ReflectDerive@VPinMarkerIconSaveData@pa@@VReflectObjectExtension@2@@pa@@"
+  },
+  {
+    "offset": "0x6b47ce0",
+    "text": ".?AV?$MemoryProfilableType@VPinMarkerIconSaveData@pa@@@pa@@"
+  },
+  {
+    "offset": "0x6b47d30",
+    "text": ".?AVPinMarkerIconSaveData@pa@@"
+  },
+  {
+    "offset": "0x6be4418",
+    "text": ".?AVTrocTrCreateOrChangePinMarkerReq@pa@@"
+  },
+  {
+    "offset": "0x6be44c8",
+    "text": ".?AVTrocTrRemovePinMarkerReq@pa@@"
+  }
+]
