@@ -1,6 +1,11 @@
 # Automatic loaded-save identity investigation
 
-## Current continuation — 2026-10-21, v0.37
+## Current continuation — 2026-10-21, v0.39
+
+v0.39's normal-load/F7 run is complete; see "v0.39 runtime result" at the end.
+The full-key match held, and the diagnostic selection formed once for slot 2,
+account 60062761, with zero drops. Retirement across later loads is still
+runtime-untested. The earlier paragraphs below are kept as history.
 
 The confirmed v0.35 baseline is preserved in this workspace at
 `research/traces/save-detection-v0.35-continue-title-confirmed.log`.
@@ -366,3 +371,193 @@ Compiled with MSVC `/W4` without warnings. No automated tests added or run.
 Package: `archive/releases/PywelAtlas-Save-Detection-Observation-v0.37.zip`.
 Next runtime observation: enter gameplay normally, move briefly, F7/OK once.
 Do not request repetition of death/retry or explicit autosave loading.
+
+## v0.37 runtime result: resolver is side-local
+
+Session PID 26908, extracted to
+`research/traces/save-detection-v0.37-normal-load-f7.log` (the complete session;
+the game was closed and the live log unchanged afterwards). One F7 checkpoint.
+
+- Disk load: scope13902, slot2, read/apply/outer success, `correlated=1` at
+  LOAD_CHAIN. Steam root again ends `60062761`. Controller phase24.
+- 105,972 ACTOR_LINK records from ~1000 distinct sources. Every valid result
+  stayed on its own side: client sources (vtables `55857b0`, `5585c40`)
+  returned the controller's client child `0x541c048bf40` via client manager
+  `0x54211517fc0`; server sources (`5b1de20`, `5b1e2b0`) returned the loaded
+  server child `0x542420f0200` via ServerUserActor `0x542421a0000`, whose `+d0`
+  is that child. `nativeLinkRead` stayed 0, correctly: no record had a client
+  source and a server result. The controller child resolving itself returned
+  `valid=0`; another ClientChildOnlyInGameActor resolved to it.
+- **The probe defeated itself:** alternating sources thrashed the thread-local
+  change cache, causing `dropped=449`, which cleared the correlated candidate.
+  F7 therefore showed `correlated=0`. This is a probe defect, not a user error.
+
+Conclusion: `17ef9c0` cannot provide a client-to-server relationship.
+
+## v0.38 static basis: tagged keys in per-side actor managers
+
+Static analysis (`research/scripts/find_registry_globals.py`,
+`find_rtti_names.py`; output in `research/analysis/registry-global-references.json`,
+`rtti-user-actor-names.txt`; disassembly `acf580`, `27c0450`, `8ae390`,
+`2a82590`, `464290`):
+
+- The resolver's TLS-selected roots are written once each: `6d694d8` by
+  `acf580` (root `+0x90` byte = 0) and `6d694e0` by `27c0450` (`+0x90` = 1).
+  This confirms client/server root selection.
+- RTTI: `ClientActorManager` vtable `55b62c8`, `ServerActorManager` `5b25988`.
+  Their virtual `+0x30` are `8ae390` and `2a82590`. HYPOTHESIS (to be confirmed
+  by the return-address filter at runtime): the registry at root `+0x10` is
+  the respective ActorManager.
+- `8ae390` requires `(key & 0x30000000) == 0x10000000`, looks up the full key
+  via `464290` (entries: key at `+4`, actor at `+8`), and requires actor
+  `+5e & 4`. `2a82590` accepts bit30-clear keys with any tag, or requires tag
+  `0x20000000` when bit30 is set. It looks up `key & 0xfffff`.
+- The earlier "+60 is not a slot" values decode as `0x90100000` and
+  `0xA0100001`, consistent with client- and server-tagged actor keys.
+  HYPOTHESIS: the same player shares the 20-bit index across sides.
+
+## v0.38 observation build
+
+Thirteen guarded hooks. Added `8ae390` (client) and `2a82590` (server): RCX
+manager, RDX output wrapper, R8D key; R9 is not consumed and is forwarded
+opaquely; both return the wrapper. Only calls returning to `17efaa3` (the
+resolver's registry call) are sampled; all others pass straight through
+without reads. Sampled calls copy the key, wrapper validity, the exact-typed
+user actor, its `+d0` selected child and its `+60` DWORD. KEY_LINK lines are
+change-only per side, globally.
+
+Other changes:
+
+- Resolver records are queued only for exact client/server child sources,
+  which also log their `+60` DWORD (`sourceKey`).
+- Observation epoch: load and cleanup hooks advance it on the game thread, and
+  the worker advances it once per drop-count change. Every event carries it.
+  Change-only caches (resolver, key lookups, controller) re-emit when it
+  changes. This addresses the v0.37 limitation that unchanged associations
+  were never re-emitted after invalidation.
+- The boundary no longer uses the refuted resolver link or tick ordering. It
+  requires: a correlated load; a current-epoch controller at phase24 with
+  `+c3=1` and the controller child as client-manager selection; a current-
+  epoch client key lookup whose ClientUserActor selects the controller child;
+  a current-epoch server key lookup whose ServerUserActor selects the loaded
+  server child; equal `key & 0xfffff` with client tag `0x10000000`; and
+  unchanged drop counts. `keyIndexMatch` and the boundary remain diagnostic;
+  both trusted flags stay zero.
+- CHECKPOINT adds key lookup count, per-side key/epoch/user/selected child,
+  `keyIndexMatch`, generation and load epoch.
+
+Compiled with MSVC `/W4` without warnings. No automated tests added or run.
+Runtime key evidence is pending.
+
+Reading the v0.38 trace: check `READY v0.38` with thirteen hooks and zero
+drops. Check KEY_LINK records exist for both sides. They are absent if the
+registry is not the ActorManager. Compare client vs server `key & 0xfffff`,
+and whether user `+60` equals its own lookup key. A mismatch or absence is
+evidence to inspect, not a reason to relax guards.
+
+## v0.38 runtime result: shared user key links the sides
+
+Session PID 30208, `research/traces/save-detection-v0.38-normal-load-f7.log`
+(184 lines through the single F7; the game was still running when copied).
+READY v0.38 with thirteen hooks, **zero drops throughout**.
+
+- Disk load: scope2468, slot2, read/apply/outer success, `correlated=1`, and it
+  stayed correlated at F7. Steam root ends `60062761`. One load, no cleanup,
+  epoch/generation 2 throughout (load-start advanced it from 1).
+- KEY_LINK (resolver call site only; three records):
+  - server: key `0x90100000` -> ServerUserActor `0x273741a0000`, `+60` =
+    `0x90100000`, selected child `0x273740f0200` = the loaded server child.
+  - client: key `0x90100000` -> ClientUserActor `0x27305c82840`, `+60` =
+    `0x90100000`, selected child `0x2731e01e880` = the controller's client child.
+- **Both sides query their registry with the identical full key, and both user
+  actors store that same key at `+60`.** This is a native relationship:
+  controller client child <- client user (key K) = server user (key K) ->
+  selected server child = the object the save wrapper loaded from slot2.
+- CLIENT_BOUNDARY `matched=1` at seq11187: phase 23->24, `+c3=1`, client
+  selection = controller child, all components at the current epoch, drops 0.
+- Resolver `sourceKey` values: server child `0xa0100001`, another client child
+  (`0x273051b8e80`, resolves to the player client child) `0xb0100002`.
+  (ACTOR_LINK lines with `valid=0`/`sourceKeyRead=0` are field-begin events,
+  which share that log format and carry no resolver data.)
+
+Interpretation and corrections:
+
+- Key layout is consistent with bit31 + a 2-bit category in bits 28-29 +
+  bit20 + a 20-bit index: users `0x9.../index0`, server child `0xA.../1`,
+  other client child `0xB.../2`. The earlier static reading of bits 28-29 as a
+  client/server side tag was wrong: the same tag-1 key is accepted by both
+  registries. Tag 1 is more likely the user-actor category (HYPOTHESIS).
+- v0.38's `keyIndexMatch` compared `key & 0xfffff`, which is 0 for the user
+  key. Equal zero indexes are weak evidence. The real evidence is full-key
+  equality plus `+60` equal to the lookup key on both users. Tighten the check
+  to that before any production use.
+- `0x90100000` also appeared in v0.33 (`objectSlot=2416967680` on object
+  `...1a0000`, a different process). The user key is a constant local-user
+  identity, not a save or account identity. Account/slot ownership must still
+  come from the correlated load chain and the storage root.
+
+Not yet observed with v0.38: boundary clearing/re-forming across title,
+Continue, death/retry or autosave load (the epoch invalidation is runtime
+untested). Earlier versions' observations of those sequences remain valid for
+the load/cleanup hooks themselves.
+
+## v0.39 observation build: full-key match and diagnostic selection
+
+- Key match: `keyIdentityMatch` requires the current-epoch client and server
+  lookups to use the identical full key, with each exact-typed user actor's
+  `+60` equal to that key. The masked 20-bit comparison is removed. KEY_LINK
+  prints `keyMatch`.
+- Worker-owned `Selection` {active, serial, generation, loadScope, slot,
+  userKey, serverChild, clientChild, account, root}. It is an immutable
+  snapshot. A future Bell reader would tag reads with `serial` and discard
+  results whose serial is no longer active. Actor addresses are copies that
+  are never dereferenced.
+- Formation: the matched boundary holds in the current generation, the last
+  storage init returned AL=1 with a copied root, and the root is exactly
+  `<LOCALAPPDATA>\Pearl Abyss\CD\save\<digits>` (case-insensitive, `/`
+  normalized, UTF-8 checked). The account folder must exist, and
+  `slot<N>\save.save` must exist for the correlated load's slot. These are
+  attribute queries only, never used to choose an account or slot. Failure
+  logs `SELECTION withheld ... reason=` once per generation.
+- Retirement: any generation change (load start, any context cleanup, queue
+  drop), or a StorageEnd whose root differs or is unreadable. Later loading
+  stages and phase<24 alone do not retire it (v0.36 retry evidence). Every
+  formation gets a new serial, even for an identity equal to a retired one.
+- CHECKPOINT adds `selectionActive/Serial/Generation/Scope/Slot/Account`;
+  the popup shows the selection. Both trusted flags stay zero; nothing
+  consumes the selection.
+
+Known limits: one captured storage root per handler init; multiple-account
+switching without a storage re-init is unobserved. A cleanup of an unrelated
+context retires and re-forms the selection with a new serial (conservative).
+Retirement/re-formation across title, Continue, retry and autosave load is
+runtime-untested in v0.38/v0.39.
+
+Compiled with MSVC `/W4` without warnings. No automated tests added or run.
+Package: `archive/releases/PywelAtlas-Save-Detection-Observation-v0.39.zip`.
+
+## v0.39 runtime result: selection formed on a normal load
+
+User-reported run: load a save normally, then F7. Trace:
+`research/traces/save-detection-v0.39-normal-load-f7.log` (182 lines, pid
+33488).
+
+- Storage root `.../CD/save/60062761`. One load, scope 4028, requested slot 2,
+  correlated. Zero drops for the whole session.
+- Both KEY_LINK sides used key `0x90100000`, user `+60` was equal and both
+  were in epoch 2. The server lookup (seq 5771) printed `keyMatch=0` because
+  the client lookup had not happened yet. The client lookup (seq 8385)
+  printed `keyMatch=1`.
+- The controller reached phase 24 twice. The first time (seq 7453) came
+  before any client key lookup, so `matched=0`. A field begin, client reset
+  and a second phase run 1→24 followed. The second phase 24 (seq 12914)
+  matched. The full-key rule correctly withheld the earlier boundary.
+- `SELECTION formed serial=1 generation=2 loadScope=4028 slot=2
+  account=60062761` with the server child equal to the loaded object and the
+  client child equal to the controller child. No withheld or retired lines.
+- The F7 CHECKPOINT agrees: `keyIdentityMatch=1 selectionActive=1
+  selectionSerial=1 selectionSlot=2 selectionAccount=60062761`. Both trusted
+  flags are 0.
+
+Still runtime-untested: retirement and re-formation across title/Continue,
+death/retry, autosave load and a second load in the same process.

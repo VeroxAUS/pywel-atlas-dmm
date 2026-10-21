@@ -1,6 +1,7 @@
-# Compiler intermediates and rebuildable mod output
+# Compiler intermediates, rebuildable mod output, released builds
 build/
 dist/
+archive/releases/
 *.obj
 *.lib
 *.exp

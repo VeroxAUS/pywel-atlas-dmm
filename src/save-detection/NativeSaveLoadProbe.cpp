@@ -1,7 +1,69 @@
-// Passive observation of native save reads and the later apply candidate.
-// Hooks preserve every argument/result. They never invoke loads, create pins,
-// change progress, or write game data. The worker owns file writes; a separate
-// notification thread shows copied confirmation text without blocking logging.
+// =============================================================================
+// Pywel Atlas - save-detection observation probe (NativeSaveLoadProbe.cpp)
+// =============================================================================
+//
+// WHAT THIS FILE IS
+//   The source for a small mod file (an ".asi") that the game loads at startup
+//   through DMM. Its only job is to WATCH how Crimson Desert loads a save, and
+//   write what it sees to a log file. It never changes the game.
+//
+// WHY IT EXISTS
+//   The finished mod must know which account and which save slot is actually
+//   loaded, so it can read the right save and show the right map markers.
+//   This probe collects evidence about how to work that out safely.
+//
+// KEY IDEAS (plain-language definitions)
+//   Hook        - We ask the game to call one of our functions first whenever it
+//                 calls a particular game function. Our function copies a few
+//                 values, then calls the real game function with exactly the
+//                 same inputs and hands back exactly the same result. The game
+//                 behaves as if we were not there. (The MinHook library does the
+//                 redirecting.)
+//   RVA         - "Relative virtual address": where something sits inside the
+//                 game's .exe, counted from the start of the .exe in memory.
+//                 Written as hex numbers like 0x186f570.
+//   Guard bytes - The first 24 bytes of each game function we hook, copied from
+//                 the installed .exe (see save-load-profile.h). If a game update
+//                 changes them, the probe refuses to install anything.
+//   vtable      - A hidden pointer at the start of a C++ object that says what
+//                 type it is. We compare it with known values so we only read
+//                 fields from objects whose type we are sure of.
+//   Client/server actors - The game keeps two copies of the player: a "client"
+//                 copy (what you see) and a "server" copy (the game rules and the
+//                 loaded save). We need to prove they belong together.
+//   User key    - A number (seen as 0x90100000) the game uses to look up the
+//                 player's "user" record on each side. Both sides use the same
+//                 key, which links them. It identifies the local player, NOT a
+//                 particular save.
+//   Load scope  - A number we give each save-load call, so the read, apply and
+//                 finish steps of one load can be matched up.
+//   Epoch / generation - A counter that goes up on every load, cleanup or lost
+//                 record. Evidence from an older epoch no longer counts.
+//   Queue drop  - If our small in-memory queue is busy or full, a record is
+//                 thrown away and counted, rather than slowing the game down.
+//
+// HOW IT RUNS
+//   1. When the game starts, DllMain starts our own "worker" thread (Run).
+//   2. The worker checks the .exe is the exact supported version, checks every
+//      guard, then installs the hooks.
+//   3. Hooks run on the game's threads. They only copy small values into a
+//      queue. They never write files or wait.
+//   4. Every 30 ms the worker empties the queue, writes log lines, and matches
+//      the evidence together (load chain, client/server link, selection).
+//   5. Pressing F7 in the game writes a CHECKPOINT line and shows a popup on a
+//      separate thread, so logging never stops while the popup is open.
+//
+// SAFETY RULES THIS FILE FOLLOWS
+//   - Never loads saves, never calls game functions on its own, never writes
+//     game data. It only writes its own log:
+//     %LOCALAPPDATA%\PywelAtlas\native-save-detection.log
+//   - Every hook passes all inputs through unchanged, returns the game's own
+//     result, and preserves the Windows "last error" value.
+//   - The worker and popup threads never follow (dereference) game pointers;
+//     they only see copies made while the game objects were alive.
+//   - Nothing here is trusted yet: every "trusted" flag in the log stays 0.
+// =============================================================================
+
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <windows.h>
@@ -14,6 +76,17 @@
 #include "save-load-profile.h"
 
 namespace {
+
+// =============================================================================
+// 1. Native function types
+// -----------------------------------------------------------------------------
+// Each "using" line describes the exact inputs and output of one game function
+// we hook, so we can call the real one with identical arguments. The comments
+// use Windows x64 register names (RCX, RDX, R8, R9 = arguments 1-4; extra
+// arguments go on the stack; RAX/AL = the result). "Opaque" means we do not
+// know what the value is, so we just pass it along untouched.
+// =============================================================================
+
 // RVA 186f570: RCX manager, RDX result storage, R8D requested slot, R9 save object.
 // Returns result storage; callers branch on its DWORD (zero follows success).
 using ReadSave = void* (*)(void*, void*, unsigned, void*);
@@ -30,16 +103,27 @@ using InitializeStorage = BYTE (*)(void*, void*, uintptr_t, uintptr_t);
 // 219d7f0 consumes a fifth byte and sixth pointer; 28f82a0 consumes two
 // additional stack bytes. 294d5b0 consumes four integer/pointer arguments.
 // 77a220 consumes RCX/RDX, returns AL. 7797f0 consumes RCX and XMM1 (float).
+// (The float matters: replacing it with an integer would corrupt the call.)
 using BeginFieldLoad = void* (*)(void*, void*, uintptr_t, uintptr_t, BYTE, uintptr_t);
 using TransitionFieldSix = void* (*)(void*, void*, uintptr_t, uintptr_t, BYTE, BYTE);
 using TransitionField = void* (*)(void*, void*, uintptr_t, uintptr_t);
 using ResetClientLoading = BYTE (*)(void*, void*, uintptr_t, uintptr_t);
 using UpdateLoadingController = void (*)(void*, float, uintptr_t, uintptr_t);
+// 17ef9c0: actor resolver. RCX source actor, RDX output reference wrapper.
+// Returns the wrapper pointer, NOT a status code.
 using ResolveGameplayActor = void* (*)(void*, void*, uintptr_t, uintptr_t);
 // ClientActorManager 8ae390 / ServerActorManager 2a82590 (virtual +0x30):
 // RCX manager, RDX output reference wrapper, R8D tagged actor key. Neither
 // consumes R9; it is forwarded opaquely. Both return the output wrapper.
 using LookupUserActor = void* (*)(void*, void*, unsigned, uintptr_t);
+
+// =============================================================================
+// 2. Shared state
+// -----------------------------------------------------------------------------
+// "original..." pointers: MinHook fills these in. Calling one runs the real
+// game function (our hook calls it to pass the call through).
+// =============================================================================
+
 ReadSave originalRead = nullptr;
 ApplySave originalApply = nullptr;
 LoadSave originalLoad = nullptr;
@@ -53,10 +137,15 @@ UpdateLoadingController originalControllerUpdate = nullptr;
 ResolveGameplayActor originalResolveActor = nullptr;
 LookupUserActor originalClientLookup = nullptr;
 LookupUserActor originalServerLookup = nullptr;
+// Where the game's .exe starts in memory (RVA 0). Every RVA is added to this.
 uintptr_t imageBase = 0;
+// Our append-only log file, written by the worker thread only.
 HANDLE logFile = INVALID_HANDLE_VALUE;
+// Lock protecting the event queue below.
 SRWLOCK eventLock = SRWLOCK_INIT;
+// Count of records thrown away (queue busy or full).
 volatile LONG dropped = 0;
+// Running number given to each record, so log lines can be put in order.
 volatile LONG nextSequence = 0;
 // Observation epoch. Load and cleanup hooks advance it on the game thread;
 // the worker advances it when records were dropped. Every event carries the
@@ -64,15 +153,27 @@ volatile LONG nextSequence = 0;
 // values cannot be resurrected into a later load generation.
 volatile LONG epoch = 1;
 
-enum class Stage { ReadStart, ReadEnd, ApplyStart, ApplyEnd, LoadStart, LoadEnd,
+// =============================================================================
+// 3. Event records and the queue
+// =============================================================================
+
+// Which step a record describes. Most hooks produce a "Start" record before
+// calling the game and an "End" record after it returns.
+enum class Stage {
+    ReadStart, ReadEnd, ApplyStart, ApplyEnd, LoadStart, LoadEnd,
     CleanupStart, CleanupEnd, StorageStart, StorageEnd,
     FieldBeginStart, FieldBeginEnd, ClientResetStart, ClientResetEnd,
     FieldTransitionStart, FieldTransitionEnd, FieldReloadStart, FieldReloadEnd,
     ControllerSnapshot, ActorLink, KeyLookup };
 // Correlation belongs to this synchronous native call chain only. Restoring
 // outer scope handles nested loads; no thread-local game pointer is retained.
+// (thread_local = each game thread has its own copy.)
 thread_local LONG loadScope = 0;
 thread_local unsigned scopeSlot = 0xffffffffu;
+
+// One observation, copied while the game objects were still alive. The worker
+// only ever reads these copies. Addresses inside are for the log only and are
+// never followed by the worker.
 struct Event {
     Stage stage;
     LONG sequence;
@@ -111,15 +212,20 @@ struct Event {
     bool actorKeyRead;
     char root[512];
 };
+// The queue: hooks add records here; the worker empties it every 30 ms.
 Event pending[128] = {};
 unsigned pendingCount = 0;
 
+// Safely copies `size` bytes from a game address. Returns false instead of
+// crashing if the memory cannot be read.
 bool ReadMemory(uintptr_t address, void* output, SIZE_T size) {
     SIZE_T read = 0;
     return address && ReadProcessMemory(GetCurrentProcess(),
         reinterpret_cast<const void*>(address), output, size, &read) && read == size;
 }
 
+// Copies the player actor's "field loading done" flag (+c3) and which actor
+// its user record has selected (+d0), but only for actor types we recognise.
 void CaptureFieldState(Event& event) {
     // Both child layouts are identified through RTTI. Their native shared
     // getters use c3/a0, but their client/server addresses are never equated.
@@ -143,6 +249,7 @@ void CaptureFieldState(Event& event) {
     }
 }
 
+// Adds a record to the queue without ever making the game wait.
 // Callbacks copy bounded values while their objects are live. The worker never
 // dereferences these diagnostic addresses. Contention drops a record instead of
 // blocking a game thread; the drop counter makes incomplete traces explicit.
@@ -159,13 +266,18 @@ void Queue(const Event& event) {
     ReleaseSRWLockExclusive(&eventLock);
 }
 
+// Starts a new record: numbers it, stamps the thread/time/caller, and copies
+// the object's type (vtable) and basic state.
 Event Begin(Stage stage, uintptr_t caller, uintptr_t object, unsigned slot) {
     Event event = {};
     event.stage = stage;
     event.sequence = InterlockedIncrement(&nextSequence);
     event.thread = GetCurrentThreadId();
     event.tick = GetTickCount64();
-    event.callerRva = caller >= imageBase && caller - imageBase < kLoadImageSize ? caller - imageBase : 0;
+    // Record who called the game function, as an RVA (0 if outside the .exe).
+    event.callerRva = caller >= imageBase && caller - imageBase < kLoadImageSize
+        ? caller - imageBase
+        : 0;
     event.object = object;
     event.requestedSlot = slot;
     event.scope = loadScope;
@@ -179,16 +291,20 @@ Event Begin(Stage stage, uintptr_t caller, uintptr_t object, unsigned slot) {
         }
         // Raw entity lifecycle bits, not a world-ready claim. +60 was an
         // unrelated identity in v0.33 and is deliberately no longer sampled.
-        event.lifecycleRead = ReadMemory(object + 0x5e, &event.lifecycleBits, sizeof(event.lifecycleBits));
+        event.lifecycleRead = ReadMemory(object + 0x5e,
+            &event.lifecycleBits, sizeof(event.lifecycleBits));
     }
     CaptureFieldState(event);
     return event;
 }
 
+// Completes a record after the game function returned: copies its result code
+// and the object's updated state, then queues it.
 void Finish(Event& event, Stage stage, void* result) {
     event.stage = stage;
     event.tick = GetTickCount64();
-    event.statusRead = ReadMemory(reinterpret_cast<uintptr_t>(result), &event.status, sizeof(event.status));
+    event.statusRead = ReadMemory(reinterpret_cast<uintptr_t>(result),
+        &event.status, sizeof(event.status));
     event.lifecycleRead = event.object && ReadMemory(event.object + 0x5e,
         &event.lifecycleBits, sizeof(event.lifecycleBits));
     event.droppedAtCapture = InterlockedCompareExchange(&dropped, 0, 0);
@@ -196,6 +312,7 @@ void Finish(Event& event, Stage stage, void* result) {
     Queue(event);
 }
 
+// Many game "wrapper" objects keep the real object at offset +8; this reads it.
 uintptr_t WrappedObject(void* wrapper) {
     uintptr_t object = 0;
     if (wrapper) {
@@ -204,6 +321,18 @@ uintptr_t WrappedObject(void* wrapper) {
     return object;
 }
 
+// =============================================================================
+// 4. Hook callbacks
+// -----------------------------------------------------------------------------
+// Every hook follows the same pattern:
+//   save Windows' last-error value -> copy a few values -> restore last-error
+//   -> call the real game function with the same arguments -> copy results
+//   -> restore the game's last-error value -> return the game's own result.
+// =============================================================================
+
+// Hook for 219d7f0: a "field ready" step during world loading. Also records
+// the actor passed as the 4th argument. (The name "FieldBegin" is a legacy
+// label; it is not proof of when loading starts.)
 void* ObserveFieldBegin(void* component, void* result, uintptr_t context,
     uintptr_t actor, BYTE flag, uintptr_t extra) {
     DWORD incomingError = GetLastError();
@@ -224,6 +353,9 @@ void* ObserveFieldBegin(void* component, void* result, uintptr_t context,
     return returned;
 }
 
+// Hook for 17ef9c0: the game's "find the player actor for this actor" lookup.
+// v0.37 proved it stays on one side (client->client, server->server), so it
+// cannot link the two sides by itself. We still log the player's own lookups.
 void* ObserveResolveActor(void* actor, void* result, uintptr_t opaque3, uintptr_t opaque4) {
     DWORD incomingError = GetLastError();
     SetLastError(incomingError);
@@ -245,6 +377,8 @@ void* ObserveResolveActor(void* actor, void* result, uintptr_t opaque3, uintptr_
         uintptr_t managerTable = 0;
         uintptr_t childTable = 0;
         uintptr_t childManager = 0;
+        // Follow peer -> its server user record -> that record's selected
+        // server actor, checking each object's exact type on the way.
         if (ReadMemory(event.peerActor + 0xa0, &event.resolvedManager, sizeof(uintptr_t)) &&
             ReadMemory(event.resolvedManager, &managerTable, sizeof(uintptr_t)) &&
             managerTable == imageBase + 0x5b257a8 &&
@@ -262,7 +396,8 @@ void* ObserveResolveActor(void* actor, void* result, uintptr_t opaque3, uintptr_
     // resolved to the same side-local child and add no relationship evidence.
     bool childSource = event.vtableRva == 0x5585c40 || event.vtableRva == 0x5b1e2b0;
     if (childSource) {
-        event.actorKeyRead = ReadMemory(event.object + 0x60, &event.actorKey, sizeof(event.actorKey));
+        event.actorKeyRead = ReadMemory(event.object + 0x60,
+            &event.actorKey, sizeof(event.actorKey));
     }
     // Native conditions can query every frame. Omit unchanged resolver output;
     // each changing association is still tied to a native call, never timing.
@@ -285,11 +420,26 @@ void* ObserveResolveActor(void* actor, void* result, uintptr_t opaque3, uintptr_
     return returned;
 }
 
+// Remembers the last user-key result per side (index 0 = client, 1 = server),
+// so the same answer is only logged once per epoch.
 // Per-side change cache for user-key lookups. The lock is only try-acquired;
 // contention emits a duplicate record rather than blocking or missing a change.
-struct KeyCache { SRWLOCK lock; LONG epoch; unsigned key; uintptr_t user; uintptr_t child; BYTE valid; };
-KeyCache keyCaches[2] = {{SRWLOCK_INIT, 0, 0, 0, 0, 0xff}, {SRWLOCK_INIT, 0, 0, 0, 0, 0xff}};
+struct KeyCache {
+    SRWLOCK lock;
+    LONG epoch;
+    unsigned key;
+    uintptr_t user;
+    uintptr_t child;
+    BYTE valid;
+};
+KeyCache keyCaches[2] = {
+    {SRWLOCK_INIT, 0, 0, 0, 0, 0xff},
+    {SRWLOCK_INIT, 0, 0, 0, 0, 0xff}};
 
+// Shared body of the two user-key hooks below. When the resolver asks a
+// side's actor manager "which user record has this key?", we copy the key,
+// the user record found, which actor it has selected, and the key stored in
+// the user record itself (+60).
 void* ObserveKeyLookup(BYTE side, void* manager, void* result, unsigned key,
     uintptr_t opaque4, uintptr_t caller) {
     LookupUserActor original = side == 1 ? originalClientLookup : originalServerLookup;
@@ -307,6 +457,8 @@ void* ObserveKeyLookup(BYTE side, void* manager, void* result, unsigned key,
     uintptr_t user = 0;
     uintptr_t table = 0;
     uintptr_t child = 0;
+    // The user record must be exactly ClientUserActor (client) or
+    // ServerUserActor (server), checked by its vtable.
     uintptr_t expected = imageBase + (side == 1 ? 0x55b59f0 : 0x5b257a8);
     bool exactUser = ReadMemory(output + 0x10, &valid, 1) && valid == 1 &&
         ReadMemory(output + 8, &user, sizeof(user)) && user &&
@@ -314,6 +466,7 @@ void* ObserveKeyLookup(BYTE side, void* manager, void* result, unsigned key,
     if (exactUser) {
         ReadMemory(user + 0xd0, &child, sizeof(child));
     }
+    // Only queue a record if something changed since the last one.
     LONG currentEpoch = InterlockedCompareExchange(&epoch, 0, 0);
     KeyCache& cache = keyCaches[side - 1];
     bool changed = true;
@@ -336,7 +489,8 @@ void* ObserveKeyLookup(BYTE side, void* manager, void* result, unsigned key,
         event.resolvedManager = reinterpret_cast<uintptr_t>(manager);
         event.resolvedChild = child;
         if (exactUser) {
-            event.actorKeyRead = ReadMemory(user + 0x60, &event.actorKey, sizeof(event.actorKey));
+            event.actorKeyRead = ReadMemory(user + 0x60,
+                &event.actorKey, sizeof(event.actorKey));
         }
         Queue(event);
     }
@@ -344,16 +498,20 @@ void* ObserveKeyLookup(BYTE side, void* manager, void* result, unsigned key,
     return returned;
 }
 
+// Hook for 8ae390: the client-side actor manager's user lookup.
 void* ObserveClientLookup(void* manager, void* result, unsigned key, uintptr_t opaque4) {
     return ObserveKeyLookup(1, manager, result, key, opaque4,
         reinterpret_cast<uintptr_t>(_ReturnAddress()));
 }
 
+// Hook for 2a82590: the server-side actor manager's user lookup.
 void* ObserveServerLookup(void* manager, void* result, unsigned key, uintptr_t opaque4) {
     return ObserveKeyLookup(2, manager, result, key, opaque4,
         reinterpret_cast<uintptr_t>(_ReturnAddress()));
 }
 
+// Hook for 77a220: an early loading step that resets the client actor's
+// "field loading done" flag. Early in loading, not a sign loading finished.
 BYTE ObserveClientReset(void* controller, void* object, uintptr_t opaque3, uintptr_t opaque4) {
     DWORD incomingError = GetLastError();
     Event event = Begin(Stage::ClientResetStart, reinterpret_cast<uintptr_t>(_ReturnAddress()),
@@ -373,10 +531,13 @@ BYTE ObserveClientReset(void* controller, void* object, uintptr_t opaque3, uintp
     return returned;
 }
 
+// Hook for 28f82a0: a world/field transition step. Takes six arguments; the
+// two extra byte arguments must be passed through.
 void* ObserveFieldTransition(void* object, void* result, uintptr_t context,
     uintptr_t extra, BYTE flag5, BYTE flag6) {
     DWORD incomingError = GetLastError();
-    Event event = Begin(Stage::FieldTransitionStart, reinterpret_cast<uintptr_t>(_ReturnAddress()),
+    Event event = Begin(Stage::FieldTransitionStart,
+        reinterpret_cast<uintptr_t>(_ReturnAddress()),
         reinterpret_cast<uintptr_t>(object), 0xffffffffu);
     Queue(event);
     SetLastError(incomingError);
@@ -387,6 +548,8 @@ void* ObserveFieldTransition(void* object, void* result, uintptr_t context,
     return returned;
 }
 
+// Takes a snapshot of the loading controller: its current loading phase
+// (+15c; phase 24 = loading sequence finished) and its client player actor.
 Event ControllerState(void* controller) {
     uintptr_t address = reinterpret_cast<uintptr_t>(controller);
     uintptr_t component = 0;
@@ -404,6 +567,8 @@ Event ControllerState(void* controller) {
     return event;
 }
 
+// Hook for 7797f0: the loading controller's per-frame update. Its second
+// argument is a float (elapsed time) and must stay a float.
 void ObserveControllerUpdate(void* controller, float elapsed, uintptr_t opaque3, uintptr_t opaque4) {
     DWORD incomingError = GetLastError();
     BYTE before = 0;
@@ -437,6 +602,7 @@ void ObserveControllerUpdate(void* controller, float elapsed, uintptr_t opaque3,
     SetLastError(originalError);
 }
 
+// Hook for 294d5b0: a field reload step.
 void* ObserveFieldReload(void* wrapper, void* result, uintptr_t context, uintptr_t extra) {
     DWORD incomingError = GetLastError();
     Event event = Begin(Stage::FieldReloadStart, reinterpret_cast<uintptr_t>(_ReturnAddress()),
@@ -450,6 +616,8 @@ void* ObserveFieldReload(void* wrapper, void* result, uintptr_t context, uintptr
     return returned;
 }
 
+// Hook for 186f570: the game reads a save slot from disk. Records the slot
+// number requested and whether the read succeeded (result 0 = success).
 void* ObserveRead(void* manager, void* result, unsigned slot, void* object) {
     DWORD incomingError = GetLastError();
     Event event = Begin(Stage::ReadStart, reinterpret_cast<uintptr_t>(_ReturnAddress()),
@@ -463,13 +631,15 @@ void* ObserveRead(void* manager, void* result, unsigned slot, void* object) {
     return returned;
 }
 
+// Hook for 2941020: the game applies the save it just read to the world.
 void* ObserveApply(void* wrapper, void* result, uintptr_t opaque3, uintptr_t opaque4) {
     DWORD incomingError = GetLastError();
     uintptr_t object = 0;
     if (wrapper) {
         ReadMemory(reinterpret_cast<uintptr_t>(wrapper) + 8, &object, sizeof(object));
     }
-    Event event = Begin(Stage::ApplyStart, reinterpret_cast<uintptr_t>(_ReturnAddress()), object, scopeSlot);
+    Event event = Begin(Stage::ApplyStart, reinterpret_cast<uintptr_t>(_ReturnAddress()),
+        object, scopeSlot);
     Queue(event);
     SetLastError(incomingError);
     void* returned = originalApply(wrapper, result, opaque3, opaque4);
@@ -479,6 +649,8 @@ void* ObserveApply(void* wrapper, void* result, uintptr_t opaque3, uintptr_t opa
     return returned;
 }
 
+// Hook for 1042aaf0: the outer "load this slot" call that contains the read
+// and apply steps. Starts a new load scope and a new epoch.
 void* ObserveLoad(void* wrapper, void* result, uintptr_t context, unsigned slot) {
     DWORD incomingError = GetLastError();
     uintptr_t object = 0;
@@ -486,7 +658,9 @@ void* ObserveLoad(void* wrapper, void* result, uintptr_t context, unsigned slot)
         ReadMemory(reinterpret_cast<uintptr_t>(wrapper) + 8, &object, sizeof(object));
     }
     InterlockedIncrement(&epoch); // New load generation; carried by load-start.
-    Event event = Begin(Stage::LoadStart, reinterpret_cast<uintptr_t>(_ReturnAddress()), object, slot);
+    Event event = Begin(Stage::LoadStart, reinterpret_cast<uintptr_t>(_ReturnAddress()),
+        object, slot);
+    // Remember the outer scope so a nested load restores it afterwards.
     LONG previousScope = loadScope;
     unsigned previousSlot = scopeSlot;
     event.scope = event.sequence;
@@ -503,6 +677,8 @@ void* ObserveLoad(void* wrapper, void* result, uintptr_t context, unsigned slot)
     return returned;
 }
 
+// Hook for 206b750: the game cleans up (unloads) an actor context, e.g. when
+// returning to the title screen or loading another save.
 uintptr_t ObserveCleanup(void* manager, void* object, uintptr_t opaque3, uintptr_t opaque4) {
     DWORD incomingError = GetLastError();
     // Conservative: any context cleanup invalidates cached associations.
@@ -522,6 +698,8 @@ uintptr_t ObserveCleanup(void* manager, void* object, uintptr_t opaque3, uintptr
     return returned;
 }
 
+// Copies the save folder path (e.g. ".../CD/save/60062761") out of the game's
+// Steam storage object, character by character, stopping at bad data.
 bool CopyStorageRoot(uintptr_t handler, char (&text)[512]) {
     uintptr_t table = 0;
     uintptr_t pointer = 0;
@@ -551,6 +729,8 @@ bool CopyStorageRoot(uintptr_t handler, char (&text)[512]) {
     return false;
 }
 
+// Hook for ef62160: Steam save storage start-up. Records success (1) and the
+// account save folder the game uses.
 BYTE ObserveStorage(void* handler, void* context, uintptr_t opaque3, uintptr_t opaque4) {
     DWORD incomingError = GetLastError();
     Event event = Begin(Stage::StorageStart, reinterpret_cast<uintptr_t>(_ReturnAddress()),
@@ -569,6 +749,14 @@ BYTE ObserveStorage(void* handler, void* context, uintptr_t opaque3, uintptr_t o
     return returned;
 }
 
+// =============================================================================
+// 5. Worker: logging, correlation and the diagnostic selection
+// -----------------------------------------------------------------------------
+// Everything from here down runs on our own worker thread, never on the
+// game's threads, and works only on copied records.
+// =============================================================================
+
+// Writes one line to the log file and flushes it straight to disk.
 void Log(const char* text) {
     DWORD written = 0;
     if (logFile != INVALID_HANDLE_VALUE) {
@@ -578,6 +766,28 @@ void Log(const char* text) {
     }
 }
 
+// Worker-owned loaded-save selection: an immutable snapshot formed only from a
+// matched boundary in the current epoch plus a validated Steam account root.
+// A future Bell reader would tag each read with `serial` and discard results
+// whose serial is no longer active. Actor addresses are diagnostic copies and
+// are never dereferenced. Still diagnostic: nothing reads saves or changes
+// markers from it, and the trusted-state flags remain zero.
+// (In short: "which account and slot we think is loaded", plus when we decided.)
+struct Selection {
+    bool active;
+    unsigned serial;
+    LONG generation;
+    LONG loadScope;
+    unsigned slot;
+    unsigned userKey;
+    uintptr_t serverChild;
+    uintptr_t clientChild;
+    char account[24];
+    char root[512];
+};
+
+// Everything the worker has learned so far: counts, the latest record of each
+// kind, and the current match results.
 // Worker-owned summaries are observations, not a cached loaded-slot claim.
 struct Summary {
     unsigned reads;
@@ -605,9 +815,14 @@ struct Summary {
     unsigned keyLookups;
     Event lastClientKey;
     Event lastServerKey;
-    bool keyIndexMatch;
+    bool keyIdentityMatch;
+    Selection selection;
+    unsigned selectionSerial;
+    LONG withheldGeneration; // Generation whose withheld reason was logged.
 };
 
+// Tracks one load in progress: did its read succeed, then its apply, for the
+// same object and slot?
 // Worker-owned bounded correlation records. Scope IDs are captured on the
 // loading thread, so address reuse or unrelated reads cannot pair two loads.
 struct Correlation {
@@ -621,35 +836,51 @@ struct Correlation {
 };
 Correlation correlations[16] = {};
 
+// True for slot numbers the game itself accepts (0-3, 100-108, 200-207).
 bool SupportedSlot(unsigned slot) {
     return slot <= 3 || (slot >= 100 && slot <= 108) || (slot >= 200 && slot <= 207);
 }
 
+// Re-checks whether all the evidence lines up for "this client player belongs
+// to the save that was just loaded" (the late boundary).
 // v0.37 runtime showed resolver 17ef9c0 is side-local, so its client result
-// can never name the server child. v0.38 instead compares the tagged keys the
-// two side-specific registries were queried with. The 20-bit index equality
-// is a HYPOTHESIS under observation (server lookup masks keys to 0xfffff), not
-// an established identity. Every component must carry the current epoch;
-// millisecond ticks are not used for ordering.
+// can never name the server child. v0.38 runtime showed both side-specific
+// registries queried with the identical full user key (0x90100000), and both
+// user actors storing that key at +60. The match therefore requires full-key
+// equality and each user's own +60 equal to that key; a masked 20-bit index
+// is not used (it is 0 for this key and would match unrelated keys). The key
+// is a constant local-user identity, not a save identity. Every component must
+// carry the current epoch; millisecond ticks are not used for ordering.
 void RefreshBoundary(Summary& summary) {
     const Event& controller = summary.lastController;
     const Event& client = summary.lastClientKey;
     const Event& server = summary.lastServerKey;
     LONG current = summary.generation;
-    summary.keyIndexMatch = client.resolvedValid == 1 && server.resolvedValid == 1 &&
+    // Step 1: client and server user records share the same key.
+    // object is set only for an exact ClientUserActor / ServerUserActor result.
+    summary.keyIdentityMatch = client.resolvedValid == 1 && server.resolvedValid == 1 &&
         client.object && server.object && client.epoch == current && server.epoch == current &&
-        (client.lookupKey & 0x30000000u) == 0x10000000u &&
-        (client.lookupKey & 0xfffffu) == (server.lookupKey & 0xfffffu);
+        client.lookupKey == server.lookupKey &&
+        client.actorKeyRead && client.actorKey == client.lookupKey &&
+        server.actorKeyRead && server.actorKey == server.lookupKey;
+    // Step 2: plus a successful load, loading finished (phase 24, flag 1), the
+    // client user selects the controller's actor, the server user selects the
+    // loaded actor, and no records were lost along the way.
     summary.clientBoundaryCandidate = summary.correlatedCandidate &&
-        summary.lastLoad.epoch <= current && summary.keyIndexMatch &&
+        summary.lastLoad.epoch <= current && summary.keyIdentityMatch &&
         controller.epoch == current && controller.controllerPhaseRead &&
-        controller.controllerPhase == 24 && controller.fieldFlagRead && controller.fieldFlag == 1 &&
+        controller.controllerPhase == 24 &&
+        controller.fieldFlagRead && controller.fieldFlag == 1 &&
         controller.selectedChildRead && controller.selectedChild == controller.object &&
-        client.resolvedChild == controller.object && server.resolvedChild == summary.lastLoad.object &&
+        client.resolvedChild == controller.object &&
+        server.resolvedChild == summary.lastLoad.object &&
         controller.droppedAtCapture == summary.chainDrops &&
-        client.droppedAtCapture == summary.chainDrops && server.droppedAtCapture == summary.chainDrops;
+        client.droppedAtCapture == summary.chainDrops &&
+        server.droppedAtCapture == summary.chainDrops;
 }
 
+// Takes one record from the queue and updates the summary: counts it, links
+// read/apply/load steps of the same load, and logs match results.
 void Correlate(const Event& event, Summary& summary) {
     // Load/cleanup hooks and the worker's drop handling advance the epoch; any
     // record captured later reveals it, so older associations stop qualifying
@@ -666,13 +897,13 @@ void Correlate(const Event& event, Summary& summary) {
         (event.side == 1 ? summary.lastClientKey : summary.lastServerKey) = event;
         RefreshBoundary(summary);
         char line[384];
-        sprintf_s(line, "KEY_LINK seq=%ld side=%s key=0x%08x user=0x%llx userVtable=0x%llx valid=%u userKeyRead=%u userKey=0x%08x selectedChild=0x%llx epoch=%ld generation=%ld indexMatch=%u drops=%ld",
+        sprintf_s(line, "KEY_LINK seq=%ld side=%s key=0x%08x user=0x%llx userVtable=0x%llx valid=%u userKeyRead=%u userKey=0x%08x selectedChild=0x%llx epoch=%ld generation=%ld keyMatch=%u drops=%ld",
             event.sequence, event.side == 1 ? "client" : "server", event.lookupKey,
             static_cast<unsigned long long>(event.peerActor),
             static_cast<unsigned long long>(event.vtableRva), static_cast<unsigned>(event.resolvedValid),
             event.actorKeyRead ? 1u : 0u, event.actorKey,
             static_cast<unsigned long long>(event.resolvedChild), event.epoch, summary.generation,
-            summary.keyIndexMatch ? 1u : 0u, event.droppedAtCapture);
+            summary.keyIdentityMatch ? 1u : 0u, event.droppedAtCapture);
         Log(line);
     }
     // Any newly observed loading operation requires fresh boundary evidence.
@@ -697,6 +928,7 @@ void Correlate(const Event& event, Summary& summary) {
             summary.clientBoundaryCandidate ? 1u : 0u);
         Log(line);
     }
+    // A new load starts: open a tracking record for it.
     if (event.stage == Stage::LoadStart) {
         summary.lastActorLink = {};
         summary.correlatedCandidate = false;
@@ -710,12 +942,16 @@ void Correlate(const Event& event, Summary& summary) {
         Log("Load scope capacity exceeded; candidate withheld.");
         return;
     }
+    // The loaded save's actor is being unloaded: forget it.
     if (event.stage == Stage::CleanupStart && event.object == summary.lastLoad.object) {
         summary.lastActorLink = {};
         summary.correlatedCandidate = false;
         summary.clientBoundaryCandidate = false;
         Log("Last load object entered context cleanup; diagnostic candidate cleared.");
     }
+    // Read / apply / load-end records: update the matching load's tracking
+    // record. A load is "correlated" only if read and apply both succeeded for
+    // the same object and slot, the outer load succeeded, and nothing was lost.
     for (auto& record : correlations) {
         if (!event.scope || record.scope != event.scope) {
             continue;
@@ -730,7 +966,8 @@ void Correlate(const Event& event, Summary& summary) {
             record.rejected |= !success;
         } else if (event.stage == Stage::LoadEnd) {
             summary.correlatedCandidate = sameIdentity && success && record.readSucceeded &&
-                record.applySucceeded && !record.rejected && record.initialDrops == event.droppedAtCapture;
+                record.applySucceeded && !record.rejected &&
+                record.initialDrops == event.droppedAtCapture;
             summary.chainDrops = event.droppedAtCapture;
             char line[192];
             sprintf_s(line, "LOAD_CHAIN scope=%ld slot=%u correlated=%u worldReadyTrusted=0 accountTrusted=0",
@@ -742,12 +979,150 @@ void Correlate(const Event& event, Summary& summary) {
     }
 }
 
+// Checks the save folder path the game reported. On success, copies the
+// account number (the folder name) into `account`; on failure, sets `reason`.
+// Accept only <LOCALAPPDATA>\Pearl Abyss\CD\save\<digits> exactly as reported
+// by the game's own Steam storage handler, and require the loaded slot's save
+// file to exist. Attribute queries only: nothing is opened, and existence is
+// a consistency check, never a way to choose an account, slot or newest file.
+bool ValidateAccountRoot(const char* root, unsigned slot, char (&account)[24],
+    const char*& reason) {
+    // Build the expected parent folder: <LOCALAPPDATA>\Pearl Abyss\CD\save\ .
+    wchar_t base[MAX_PATH] = {};
+    if (FAILED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, base)) ||
+        wcscat_s(base, L"\\Pearl Abyss\\CD\\save\\") != 0) {
+        reason = "local-appdata-unavailable";
+        return false;
+    }
+    // Convert the reported path to Windows form (UTF-16, backslashes).
+    wchar_t path[600] = {};
+    if (!MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, root, -1, path, _countof(path))) {
+        reason = "root-not-utf8";
+        return false;
+    }
+    for (wchar_t& character : path) {
+        if (character == L'/') {
+            character = L'\\';
+        }
+    }
+    // It must sit directly inside the expected folder (case-insensitive).
+    int baseLength = static_cast<int>(wcslen(base));
+    if (static_cast<int>(wcslen(path)) <= baseLength ||
+        CompareStringOrdinal(path, baseLength, base, baseLength, TRUE) != CSTR_EQUAL) {
+        reason = "root-outside-save-folder";
+        return false;
+    }
+    // The remaining part is the account folder name: digits only.
+    const wchar_t* name = path + baseLength;
+    size_t nameLength = wcslen(name);
+    if (nameLength >= _countof(account)) {
+        reason = "account-name-too-long";
+        return false;
+    }
+    for (size_t index = 0; index < nameLength; ++index) {
+        if (name[index] < L'0' || name[index] > L'9') {
+            reason = "account-not-numeric";
+            return false;
+        }
+        account[index] = static_cast<char>(name[index]);
+    }
+    account[nameLength] = 0;
+    // The account folder, and slot<N>\save.save inside it, must exist.
+    DWORD attributes = GetFileAttributesW(path);
+    if (attributes == INVALID_FILE_ATTRIBUTES || !(attributes & FILE_ATTRIBUTE_DIRECTORY)) {
+        reason = "account-folder-missing";
+        return false;
+    }
+    wchar_t save[700] = {};
+    swprintf_s(save, L"%ls\\slot%u\\save.save", path, slot);
+    attributes = GetFileAttributesW(save);
+    if (attributes == INVALID_FILE_ATTRIBUTES || (attributes & FILE_ATTRIBUTE_DIRECTORY)) {
+        reason = "slot-save-missing";
+        return false;
+    }
+    return true;
+}
+
+// Ends the current selection (if any) and logs why.
+void RetireSelection(Summary& summary, const char* reason) {
+    Selection& selection = summary.selection;
+    if (!selection.active) {
+        return;
+    }
+    char line[256];
+    sprintf_s(line, "SELECTION retired serial=%u generation=%ld currentGeneration=%ld reason=%s",
+        selection.serial, selection.generation, summary.generation, reason);
+    Log(line);
+    selection.active = false;
+}
+
+// Decides whether to start, keep or end the "which account and slot is
+// loaded" selection.
+// Activation and invalidation policy (diagnostic):
+// - Forms when the matched boundary holds in the current generation and the
+//   captured storage root validates. Each formation gets a new serial, even
+//   for an identity equal to a retired one.
+// - Retires on any generation change (load start, any context cleanup, queue
+//   drop) or a storage re-initialization with a different/unreadable root.
+// - Is deliberately NOT retired by later loading stages or a phase below 24
+//   alone: v0.36 showed death/retry reusing the loaded world without a disk
+//   load or cleanup, so save identity outlives player-control transitions.
+void UpdateSelection(Summary& summary) {
+    Selection& selection = summary.selection;
+    if (selection.active && selection.generation != summary.generation) {
+        RetireSelection(summary, "generation-changed");
+    }
+    if (selection.active || !summary.clientBoundaryCandidate) {
+        return;
+    }
+    const Event& storage = summary.lastStorage;
+    char account[24] = {};
+    const char* reason = "storage-root-unavailable";
+    bool valid = storage.rootRead && storage.status == 1 &&
+        ValidateAccountRoot(storage.root, summary.lastLoad.requestedSlot, account, reason);
+    if (!valid) {
+        // Log the reason once per generation, not every 30 ms.
+        if (summary.withheldGeneration != summary.generation) {
+            summary.withheldGeneration = summary.generation;
+            char line[256];
+            sprintf_s(line, "SELECTION withheld generation=%ld loadScope=%ld slot=%u reason=%s",
+                summary.generation, summary.lastLoad.scope, summary.lastLoad.requestedSlot, reason);
+            Log(line);
+        }
+        return;
+    }
+    // All checks passed: record a new selection with a fresh serial number.
+    selection = {};
+    selection.active = true;
+    selection.serial = ++summary.selectionSerial;
+    selection.generation = summary.generation;
+    selection.loadScope = summary.lastLoad.scope;
+    selection.slot = summary.lastLoad.requestedSlot;
+    selection.userKey = summary.lastServerKey.lookupKey;
+    selection.serverChild = summary.lastLoad.object;
+    selection.clientChild = summary.lastController.object;
+    strcpy_s(selection.account, account);
+    strcpy_s(selection.root, storage.root);
+    char line[768];
+    sprintf_s(line, "SELECTION formed serial=%u generation=%ld loadScope=%ld slot=%u account=%s userKey=0x%08x serverChild=0x%llx clientChild=0x%llx root=%s diagnostic=1 automaticLoadedSaveTrusted=0",
+        selection.serial, selection.generation, selection.loadScope, selection.slot, selection.account,
+        selection.userKey, static_cast<unsigned long long>(selection.serverChild),
+        static_cast<unsigned long long>(selection.clientChild), selection.root);
+    Log(line);
+}
+
+// =============================================================================
+// 6. F7 checkpoint popup
+// =============================================================================
+
 // One copied notification snapshot at a time. The worker acquires ownership by
 // changing popupActive from 0 to 1; only the notification thread releases it
 // after MessageBox returns. No game object pointers reach this thread.
 volatile LONG popupActive = 0;
-wchar_t popupText[1024] = {};
+// swprintf_s aborts on overflow; keep ample room for the selection line.
+wchar_t popupText[2048] = {};
 
+// Runs on its own short-lived thread: shows the popup and waits for OK.
 DWORD WINAPI ShowCheckpointPopup(void*) {
     // Foreground and topmost flags make the confirmation visible over the game.
     // No owner avoids disabling the game window while it awaits dismissal.
@@ -757,6 +1132,8 @@ DWORD WINAPI ShowCheckpointPopup(void*) {
     return 0;
 }
 
+// Fills in the popup text from the summary and starts the popup thread
+// (unless a popup is already open).
 void NotifyCheckpoint(const Summary& summary) {
     if (InterlockedCompareExchange(&popupActive, 1, 0) != 0) {
         Log("Checkpoint recorded; existing confirmation still open, no duplicate popup created.");
@@ -768,7 +1145,10 @@ void NotifyCheckpoint(const Summary& summary) {
         L"Correlated read/apply/load: %ls\nClient reset calls: %u\n"
         L"Controller phase: %u (24 is the late boundary candidate)\n"
         L"Native actor-link observations: %u\n"
-        L"Matching late boundary: %ls\nField begin / transition / reload: %u / %u / %u\n"
+        L"User-key lookups: %u (client/server full-key match: %ls)\n"
+        L"Matching late boundary: %ls\n"
+        L"Diagnostic selection: %hs (slot %u, serial %u)\n"
+        L"Field begin / transition / reload: %u / %u / %u\n"
         L"Context cleanups: %u\nStorage root copied: %ls\nDropped records: %ld\n\n"
         L"Logging continues while this confirmation is open.\n"
         L"Press OK, then continue the loading sequence.\n\n"
@@ -778,7 +1158,10 @@ void NotifyCheckpoint(const Summary& summary) {
         summary.clientResets,
         summary.lastController.controllerPhaseRead ? summary.lastController.controllerPhase : 0xffffffffu,
         summary.actorLinks,
+        summary.keyLookups, summary.keyIdentityMatch ? L"yes" : L"no",
         summary.clientBoundaryCandidate ? L"yes" : L"no",
+        summary.selection.active ? summary.selection.account : "none",
+        summary.selection.active ? summary.selection.slot : 0xffffffffu, summary.selection.serial,
         summary.fieldBegins, summary.fieldTransitions, summary.fieldReloads,
         summary.cleanups, summary.lastStorage.rootRead ? L"yes" : L"no",
         InterlockedCompareExchange(&dropped, 0, 0));
@@ -791,6 +1174,8 @@ void NotifyCheckpoint(const Summary& summary) {
     }
 }
 
+// Empties the queue: copies all waiting records out (holding the lock only
+// briefly), writes their log lines, and feeds each one to Correlate.
 void Drain(Summary& summary) {
     Event events[128];
     AcquireSRWLockExclusive(&eventLock);
@@ -798,14 +1183,18 @@ void Drain(Summary& summary) {
     memcpy(events, pending, count * sizeof(Event));
     pendingCount = 0;
     ReleaseSRWLockExclusive(&eventLock);
+    // Log names for each Stage, in the same order as the enum.
     const char* stages[] = {"read-start", "read-end", "apply-start", "apply-end",
         "load-start", "load-end", "cleanup-start", "cleanup-end", "storage-start", "storage-end",
         "field-begin-start", "field-begin-end", "client-reset-start", "client-reset-end",
         "field-transition-start", "field-transition-end", "field-reload-start", "field-reload-end",
-        "controller-snapshot", "actor-link"};
+        "controller-snapshot", "actor-link", "key-lookup"};
+    static_assert(_countof(stages) == static_cast<unsigned>(Stage::KeyLookup) + 1,
+        "Every stage needs a log name");
     for (unsigned index = 0; index < count; ++index) {
         const Event& event = events[index];
         char line[768];
+        // The general "stage=" line written for every record.
         sprintf_s(line, "stage=%s seq=%ld scope=%ld thread=%lu tick=%llu callerRva=0x%llx object=0x%llx requestedSlot=%u vtableRva=0x%llx lifecycleRead=%u lifecycleBits=0x%x statusRead=%u status=%lu",
             stages[static_cast<unsigned>(event.stage)], event.sequence, event.scope, event.thread,
             event.tick, static_cast<unsigned long long>(event.callerRva),
@@ -814,15 +1203,19 @@ void Drain(Summary& summary) {
             static_cast<unsigned>(event.lifecycleBits),
             event.statusRead ? 1u : 0u, event.status);
         Log(line);
+        // Extra detail lines for particular kinds of record.
+        // (Field-begin records share the ACTOR_LINK format but carry no
+        // resolver data; their valid/sourceKey fields are 0.)
         if (event.stage == Stage::ActorLink || event.stage == Stage::FieldBeginEnd) {
-            sprintf_s(line, "ACTOR_LINK seq=%ld source=0x%llx sourceVtable=0x%llx peer=0x%llx peerVtable=0x%llx valid=%u manager=0x%llx serverChild=0x%llx nativeLinkRead=%u drops=%ld",
+            sprintf_s(line, "ACTOR_LINK seq=%ld source=0x%llx sourceVtable=0x%llx sourceKeyRead=%u sourceKey=0x%08x peer=0x%llx peerVtable=0x%llx valid=%u manager=0x%llx serverChild=0x%llx nativeLinkRead=%u epoch=%ld drops=%ld",
                 event.sequence, static_cast<unsigned long long>(event.object),
                 static_cast<unsigned long long>(event.vtableRva),
+                event.actorKeyRead ? 1u : 0u, event.actorKey,
                 static_cast<unsigned long long>(event.peerActor),
                 static_cast<unsigned long long>(event.peerVtable), static_cast<unsigned>(event.resolvedValid),
                 static_cast<unsigned long long>(event.resolvedManager),
                 static_cast<unsigned long long>(event.resolvedChild), event.nativeLinkRead ? 1u : 0u,
-                event.droppedAtCapture);
+                event.epoch, event.droppedAtCapture);
             Log(line);
         }
         if (event.stage == Stage::ControllerSnapshot) {
@@ -846,6 +1239,7 @@ void Drain(Summary& summary) {
             Log(line);
         }
         Correlate(event, summary);
+        // Keep simple counts and the latest record of each kind.
         if (event.stage == Stage::ReadEnd) {
             ++summary.reads;
             summary.lastRead = event;
@@ -865,14 +1259,28 @@ void Drain(Summary& summary) {
             ++summary.fieldReloads;
         } else if (event.stage == Stage::StorageEnd) {
             ++summary.storageInitializations;
+            // A re-initialized handler may belong to another account; the
+            // selection is bound to the exact root it was validated against.
+            if (summary.selection.active &&
+                (!event.rootRead || strcmp(event.root, summary.selection.root) != 0)) {
+                RetireSelection(summary, "storage-root-changed");
+            }
             summary.lastStorage = event;
             sprintf_s(line, "STORAGE_ROOT copied=%u booleanResult=%lu root=%s",
                 event.rootRead ? 1u : 0u, event.status, event.rootRead ? event.root : "<unavailable>");
             Log(line);
         }
     }
+    UpdateSelection(summary);
 }
 
+// =============================================================================
+// 7. Startup and the worker loop
+// =============================================================================
+
+// The worker thread. Opens the log, checks the game version and guard bytes,
+// installs all hooks, then loops forever: drain the queue, handle lost
+// records, and watch for F7.
 DWORD WINAPI Run(void* address) {
     // Installed detours retain code addresses for process lifetime. Live ASI
     // unloading is unsupported; pin the module before any hook is installed.
@@ -881,6 +1289,7 @@ DWORD WINAPI Run(void* address) {
         GET_MODULE_HANDLE_EX_FLAG_PIN, reinterpret_cast<LPCWSTR>(address), &pinned)) {
         return 0;
     }
+    // Open (or create) %LOCALAPPDATA%\PywelAtlas\native-save-detection.log.
     wchar_t path[MAX_PATH] = {};
     if (FAILED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, path))) {
         return 0;
@@ -890,41 +1299,72 @@ DWORD WINAPI Run(void* address) {
     wcscat_s(path, L"\\native-save-detection.log");
     logFile = CreateFileW(path, FILE_APPEND_DATA, FILE_SHARE_READ, nullptr,
         OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
-    if (logFile == INVALID_HANDLE_VALUE) { return 0; }
+    if (logFile == INVALID_HANDLE_VALUE) {
+        return 0;
+    }
     char line[192];
-    sprintf_s(line, "SESSION native save-load observation v0.37 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
+    sprintf_s(line, "SESSION native save-load observation v0.39 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
         GetCurrentProcessId(), GetTickCount64());
     Log(line);
+    // Check this is the exact supported game build (timestamp and size).
     auto* base = reinterpret_cast<BYTE*>(GetModuleHandleW(nullptr));
     imageBase = reinterpret_cast<uintptr_t>(base);
     auto* dos = reinterpret_cast<const IMAGE_DOS_HEADER*>(base);
     auto* pe = reinterpret_cast<const IMAGE_NT_HEADERS64*>(base + dos->e_lfanew);
-    if (pe->FileHeader.TimeDateStamp != kLoadTimestamp || pe->OptionalHeader.SizeOfImage != kLoadImageSize) {
+    if (pe->FileHeader.TimeDateStamp != kLoadTimestamp ||
+        pe->OptionalHeader.SizeOfImage != kLoadImageSize) {
         Log("Unsupported executable; no observation installed.");
         return 0;
     }
+    // Check every hooked function still starts with the expected guard bytes.
     for (const auto& site : kSaveLoadSites) {
         if (memcmp(base + site.rva, site.bytes, sizeof(site.bytes)) != 0) {
             Log("Save-load entry changed; no observation installed.");
             return 0;
         }
     }
-    if (MH_Initialize() != MH_OK) { Log("MinHook initialization rejected."); return 0; }
-    void* callbacks[] = {reinterpret_cast<void*>(&ObserveRead), reinterpret_cast<void*>(&ObserveApply),
-        reinterpret_cast<void*>(&ObserveLoad), reinterpret_cast<void*>(&ObserveCleanup),
-        reinterpret_cast<void*>(&ObserveStorage), reinterpret_cast<void*>(&ObserveFieldBegin),
-        reinterpret_cast<void*>(&ObserveClientReset), reinterpret_cast<void*>(&ObserveFieldTransition),
-        reinterpret_cast<void*>(&ObserveFieldReload), reinterpret_cast<void*>(&ObserveControllerUpdate),
-        reinterpret_cast<void*>(&ObserveResolveActor)};
-    void** originals[] = {reinterpret_cast<void**>(&originalRead), reinterpret_cast<void**>(&originalApply),
-        reinterpret_cast<void**>(&originalLoad), reinterpret_cast<void**>(&originalCleanup),
-        reinterpret_cast<void**>(&originalStorage), reinterpret_cast<void**>(&originalFieldBegin),
-        reinterpret_cast<void**>(&originalClientReset), reinterpret_cast<void**>(&originalFieldTransition),
-        reinterpret_cast<void**>(&originalFieldReload), reinterpret_cast<void**>(&originalControllerUpdate),
-        reinterpret_cast<void**>(&originalResolveActor)};
-    static_assert(_countof(callbacks) == _countof(kSaveLoadSites), "Every observed lifecycle site needs an explicit callback");
+    if (MH_Initialize() != MH_OK) {
+        Log("MinHook initialization rejected.");
+        return 0;
+    }
+    // Our hook functions, in the SAME order as kSaveLoadSites in
+    // save-load-profile.h. The static_assert only checks the count, so keep
+    // the order aligned by hand.
+    void* callbacks[] = {
+        reinterpret_cast<void*>(&ObserveRead),
+        reinterpret_cast<void*>(&ObserveApply),
+        reinterpret_cast<void*>(&ObserveLoad),
+        reinterpret_cast<void*>(&ObserveCleanup),
+        reinterpret_cast<void*>(&ObserveStorage),
+        reinterpret_cast<void*>(&ObserveFieldBegin),
+        reinterpret_cast<void*>(&ObserveClientReset),
+        reinterpret_cast<void*>(&ObserveFieldTransition),
+        reinterpret_cast<void*>(&ObserveFieldReload),
+        reinterpret_cast<void*>(&ObserveControllerUpdate),
+        reinterpret_cast<void*>(&ObserveResolveActor),
+        reinterpret_cast<void*>(&ObserveClientLookup),
+        reinterpret_cast<void*>(&ObserveServerLookup)};
+    // Where MinHook stores the "call the real game function" pointers, same order.
+    void** originals[] = {
+        reinterpret_cast<void**>(&originalRead),
+        reinterpret_cast<void**>(&originalApply),
+        reinterpret_cast<void**>(&originalLoad),
+        reinterpret_cast<void**>(&originalCleanup),
+        reinterpret_cast<void**>(&originalStorage),
+        reinterpret_cast<void**>(&originalFieldBegin),
+        reinterpret_cast<void**>(&originalClientReset),
+        reinterpret_cast<void**>(&originalFieldTransition),
+        reinterpret_cast<void**>(&originalFieldReload),
+        reinterpret_cast<void**>(&originalControllerUpdate),
+        reinterpret_cast<void**>(&originalResolveActor),
+        reinterpret_cast<void**>(&originalClientLookup),
+        reinterpret_cast<void**>(&originalServerLookup)};
+    static_assert(_countof(callbacks) == _countof(kSaveLoadSites),
+        "Every observed lifecycle site needs an explicit callback");
+    // Create every hook first; if any fails, install none.
     for (unsigned index = 0; index < _countof(callbacks); ++index) {
-        MH_STATUS status = MH_CreateHook(base + kSaveLoadSites[index].rva, callbacks[index], originals[index]);
+        MH_STATUS status = MH_CreateHook(base + kSaveLoadSites[index].rva,
+            callbacks[index], originals[index]);
         if (status != MH_OK) {
             Log(MH_StatusToString(status));
             MH_Uninitialize();
@@ -932,14 +1372,19 @@ DWORD WINAPI Run(void* address) {
         }
     }
     MH_STATUS status = MH_EnableHook(MH_ALL_HOOKS);
-    if (status != MH_OK) { Log(MH_StatusToString(status)); return 0; }
-    Log("READY v0.37: eleven guarded hooks including native actor resolver. F7 foreground confirmation retained. Actor links and loading boundaries remain diagnostic; no marker hooks or save writes.");
+    if (status != MH_OK) {
+        Log(MH_StatusToString(status));
+        return 0;
+    }
+    Log("READY v0.39: thirteen guarded hooks; full user-key identity match and worker-owned diagnostic account/slot selection. F7 foreground confirmation retained. Selection is not consumed; no Bell reads, marker hooks or save writes.");
     Summary summary = {};
     summary.generation = 1;
     LONG observedDrops = 0;
     bool previousF7 = false;
+    // Main loop, every 30 ms.
     while (true) {
         Drain(summary);
+        // If records were lost, the evidence is incomplete: clear the matches.
         LONG currentDrops = InterlockedCompareExchange(&dropped, 0, 0);
         if (currentDrops != summary.chainDrops) {
             summary.correlatedCandidate = false;
@@ -950,8 +1395,10 @@ DWORD WINAPI Run(void* address) {
             // once per change so cached associations must be observed again.
             observedDrops = currentDrops;
             summary.generation = InterlockedIncrement(&epoch);
-            summary.keyIndexMatch = false;
+            summary.keyIdentityMatch = false;
+            UpdateSelection(summary);
         }
+        // F7 only counts while the game window is in front, once per press.
         DWORD foreground = 0;
         GetWindowThreadProcessId(GetForegroundWindow(), &foreground);
         bool f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
@@ -960,13 +1407,18 @@ DWORD WINAPI Run(void* address) {
                 summary.lastRead.object == summary.lastApply.object;
             // Record first, then notify on another thread. An undisclosed or
             // undismissed popup must never stop draining later load events.
-            char checkpoint[768];
+            char checkpoint[1280];
             sprintf_s(checkpoint,
                 "CHECKPOINT F7 readCount=%u applyCount=%u sameObject=%u dropped=%ld "
                 "lastRequestedSlot=%u readStatusReadable=%u readStatus=%lu "
                 "applyStatusReadable=%u applyStatus=%lu loadCount=%u cleanupCount=%u correlated=%u storageRootCopied=%u "
                 "clientResetCount=%u clientBoundary=%u fieldBeginCount=%u fieldTransitionCount=%u fieldReloadCount=%u "
                 "controllerChanges=%u phaseReadable=%u controllerPhase=%u actorLinkCount=%u nativeLinkRead=%u "
+                "keyLookupCount=%u clientKey=0x%08x clientKeyEpoch=%ld clientUser=0x%llx clientSelected=0x%llx "
+                "serverKey=0x%08x serverKeyEpoch=%ld serverUser=0x%llx serverSelected=0x%llx "
+                "keyIdentityMatch=%u generation=%ld loadEpoch=%ld "
+                "selectionActive=%u selectionSerial=%u selectionGeneration=%ld selectionScope=%ld "
+                "selectionSlot=%u selectionAccount=%s "
                 "boundaryObject=0x%llx loadedObject=0x%llx worldReadyTrusted=0 accountTrusted=0",
                 summary.reads, summary.applies, sameObject ? 1u : 0u,
                 InterlockedCompareExchange(&dropped, 0, 0),
@@ -980,6 +1432,16 @@ DWORD WINAPI Run(void* address) {
                 summary.controllerChanges, summary.lastController.controllerPhaseRead ? 1u : 0u,
                 static_cast<unsigned>(summary.lastController.controllerPhase),
                 summary.actorLinks, summary.lastActorLink.nativeLinkRead ? 1u : 0u,
+                summary.keyLookups, summary.lastClientKey.lookupKey, summary.lastClientKey.epoch,
+                static_cast<unsigned long long>(summary.lastClientKey.peerActor),
+                static_cast<unsigned long long>(summary.lastClientKey.resolvedChild),
+                summary.lastServerKey.lookupKey, summary.lastServerKey.epoch,
+                static_cast<unsigned long long>(summary.lastServerKey.peerActor),
+                static_cast<unsigned long long>(summary.lastServerKey.resolvedChild),
+                summary.keyIdentityMatch ? 1u : 0u, summary.generation, summary.lastLoad.epoch,
+                summary.selection.active ? 1u : 0u, summary.selection.serial,
+                summary.selection.generation, summary.selection.loadScope, summary.selection.slot,
+                summary.selection.active ? summary.selection.account : "none",
                 static_cast<unsigned long long>(summary.lastController.object),
                 static_cast<unsigned long long>(summary.lastLoad.object));
             Log(checkpoint);
@@ -992,11 +1454,15 @@ DWORD WINAPI Run(void* address) {
 }
 } // namespace
 
+// Windows calls this when the game loads our .asi. We only start the worker
+// thread here; all real work happens in Run.
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID) {
     if (reason == DLL_PROCESS_ATTACH) {
         DisableThreadLibraryCalls(instance);
         HANDLE worker = CreateThread(nullptr, 0, Run, instance, 0, nullptr);
-        if (worker) { CloseHandle(worker); }
+        if (worker) {
+            CloseHandle(worker);
+        }
     }
     return TRUE;
 }
