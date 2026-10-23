@@ -1,5 +1,5 @@
 // =============================================================================
-// Pywel Atlas - in-game filter panel (FilterPanel.cpp, v0.62-v0.83)
+// Pywel Atlas - in-game filter panel (FilterPanel.cpp, v0.62-v0.91)
 // =============================================================================
 //
 // WHAT THIS FILE IS
@@ -1821,7 +1821,7 @@ DWORD WINAPI Run(void* address) {
     wcscat_s(path, L"\\filter-panel.log");
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
-    Log("Pywel Atlas combined v0.83 filter panel (Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui " IMGUI_VERSION);
+    Log("Pywel Atlas combined v0.91 filter panel (Sealed Abyss Artifacts row; Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui " IMGUI_VERSION);
     // (MinHook was initialized once by PywelAtlas.cpp before this part started.)
     if (!InstallFactoryHooks()) {
         return 0;

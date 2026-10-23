@@ -1687,6 +1687,12 @@ void UpdateBellReads(Summary& summary, bool pollFile) {
             result.serial, result.slot, result.summary.nexusCoverage, nexusSeen,
             result.summary.nexusesActivated, result.summary.nexusesUnknown);
         Log(line);
+        // v0.88: Sealed Abyss Artifacts (their own pass; unknown ones stay hidden).
+        sprintf_s(line, "SEALED_READ serial=%u slot=%u valid=%u coverage=%u pickedUp=%u unknown=%u error=%s",
+            result.serial, result.slot, result.summary.artifactsValid ? 1u : 0u, result.summary.artifactCoverage,
+            result.summary.artifactsPickedUp, result.summary.artifactsUnknown,
+            result.summary.artifactError[0] ? result.summary.artifactError : "none");
+        Log(line);
     }
 }
 
@@ -1745,7 +1751,7 @@ void NotifyCheckpoint(const Summary& summary) {
         return;
     }
     // The latest accepted Bell result for the current selection, if any.
-    wchar_t bellLine[384] = {};
+    wchar_t bellLine[512] = {};
     if (summary.bellValid) {
         // v0.56: shrines come from the same read ("unknown" if their pass failed).
         wchar_t shrines[64] = L"Greymane Shrines unknown";
@@ -1753,13 +1759,19 @@ void NotifyCheckpoint(const Summary& summary) {
             swprintf_s(shrines, L"%u of %u Greymane Shrines found",
                 summary.bell.shrinesFound, summary.bell.shrineCoverage);
         }
+        // v0.88: Sealed Abyss Artifacts, likewise from their own pass.
+        wchar_t artifacts[80] = L"Sealed Abyss Artifacts unknown";
+        if (summary.bell.artifactsValid) {
+            swprintf_s(artifacts, L"%u of %u Sealed Abyss Artifacts picked up",
+                summary.bell.artifactsPickedUp, summary.bell.artifactCoverage);
+        }
         swprintf_s(bellLine, L"slot %u, serial %u: %u of %u Bells recorded, %u completed; Hernand Bell %ls; %ls; "
-            L"%u of %u chests opened (%u unknown); %u of %u Abyss chests opened; %u of %u Abyss Nexuses activated",
+            L"%u of %u chests opened (%u unknown); %u of %u Abyss chests opened; %u of %u Abyss Nexuses activated; %ls",
             summary.bellSlot, summary.bellSerial, summary.bell.recorded, summary.bell.coverage,
             summary.bell.completed, summary.bell.hernandCompleted ? L"completed" : L"not completed", shrines,
             summary.bell.chestsOpened, summary.bell.chestCoverage, summary.bell.chestsUnknown,
             summary.bell.abyssChestsOpened, summary.bell.abyssChestCoverage,
-            summary.bell.nexusesActivated, summary.bell.nexusCoverage);
+            summary.bell.nexusesActivated, summary.bell.nexusCoverage, artifacts);
     } else {
         swprintf_s(bellLine, L"none accepted yet for this selection");
     }

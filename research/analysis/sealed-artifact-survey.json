@@ -1,0 +1,3960 @@
+{
+  "summary": "Sealed Abyss Artifacts: landmark type 1000002 (challenge_sealed_artifact), gimmick 1004255 (item_sealed_artifact). Offline survey of the game data and the user's save copies.",
+  "nativeIcon": {
+    "type": 187,
+    "templateType": 28813,
+    "templateName": "MapIcon_Gimmick_SealedArtifact",
+    "category": "0xffffffff",
+    "note": "Type/template from the icon catalogue in the map traces (v0.53+); the category byte is the catalogue's 0xffffffff, the same as the shrine icon 186. World-map and minimap layouts exist (worldmapicon.thtml, minimapicon.thtml); the world layout has zoom window 0.88 0.93 1 1 like the Bell icon, so it needs the same zoom-window fix."
+  },
+  "candidateRule": {
+    "pickedUp": "FieldSaveData._fieldGimmickSaveDataList record for the artifact's UUID: gimmick 1004255, reason 1, reset never, own UUID in _levelOrigin_disabledSceneObjectUuidList; the step mission Challenge_SealedArtifact_<...>_0 is at state 5 and the item is in the inventory.",
+    "unsealed": "Unknown. Probably the challenge mission Challenge_SealedArtifact_<...> moving from 2 to 5; no save has an unsealed artifact yet.",
+    "evidence": "Artifact 0001 picked up in the user's saves (older slots have none). Confirmed by a save pair on 2026-10-24 (research/vendor/work/sealed-artifact-test/): before = Manual 1 (slot100), after pickup = autosave slot2 and Manual 2 (slot101); artifact 0016 (Shield of Unchanging Will I, Hernand) gained all three signs and nothing else about the artifacts changed.",
+    "proposedDoneRule": "Done = the field-object record for the artifact's UUID with gimmick 1004255 and its own UUID in the disabled list. A record for the UUID without that = unknown (hidden)."
+  },
+  "mapGeniePairing": {
+    "points": 141,
+    "paired": 141,
+    "medianMetres": 18.2,
+    "maxMetres": 46.5
+  },
+  "artifacts": [
+    {
+      "itemName": "Sealed_Abyss_Artifact_0001",
+      "itemKey": 1000822,
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_II",
+      "missionKey": 1000594,
+      "stepMissionKey": 4294966887,
+      "uuid": [
+        2434285204,
+        3758100441,
+        2263460684,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10345.8887,
+        537.5325,
+        -3988.2859
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:543944",
+      "mapGenieName": "Sharpened Spear II",
+      "mapGenieDistance": 16.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0002",
+      "itemKey": 1000823,
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_IV",
+      "missionKey": 1000642,
+      "stepMissionKey": 4294966919,
+      "uuid": [
+        1223713014,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11250.1221,
+        701.1789,
+        -3782.6301
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546460",
+      "mapGenieName": "Sword of Trials IV",
+      "mapGenieDistance": 19.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0003",
+      "itemKey": 1000339,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_IV",
+      "missionKey": 1000739,
+      "stepMissionKey": 4294966724,
+      "uuid": [
+        670772687,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11004.8779,
+        753.1967,
+        -2896.6343
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546195",
+      "mapGenieName": "Flawless Massacre",
+      "mapGenieDistance": 27.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0004",
+      "itemKey": 1000552,
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_V",
+      "missionKey": 1000692,
+      "stepMissionKey": 4294966881,
+      "uuid": [
+        1024860736,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9663.6709,
+        677.892,
+        -2088.4839
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546383",
+      "mapGenieName": "Sharpened Spear V",
+      "mapGenieDistance": 13.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0005",
+      "itemKey": 1000693,
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_I",
+      "missionKey": 1000765,
+      "stepMissionKey": 4294966879,
+      "uuid": [
+        1033091570,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10075.3398,
+        685.5019,
+        -1750.4597
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551656",
+      "mapGenieName": "Overwhelming Slash I",
+      "mapGenieDistance": 17.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0006",
+      "itemKey": 1000721,
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_I",
+      "missionKey": 1000593,
+      "stepMissionKey": 4294966889,
+      "uuid": [
+        1039436470,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11499.0918,
+        784.4285,
+        -2983.4531
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550499",
+      "mapGenieName": "Sharpened Spear I",
+      "mapGenieDistance": 21.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0007",
+      "itemKey": 1000751,
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_VI",
+      "missionKey": 1000239,
+      "stepMissionKey": 4294966903,
+      "uuid": [
+        1091866805,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -12248.249,
+        835.8418,
+        -2683.8821
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550493",
+      "mapGenieName": "Shield of Unchanging Will VI",
+      "mapGenieDistance": 19.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0008",
+      "itemKey": 1000752,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_IV",
+      "missionKey": 1000608,
+      "stepMissionKey": 4294966781,
+      "uuid": [
+        1095732098,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11867.0088,
+        775.0007,
+        -4106.7983
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550257",
+      "mapGenieName": "Rainbow Across the Sky",
+      "mapGenieDistance": 18.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0009",
+      "itemKey": 1000423,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_VII",
+      "missionKey": 1000731,
+      "stepMissionKey": 4294966738,
+      "uuid": [
+        670772695,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11078.5508,
+        725.8885,
+        -5769.2285
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546858",
+      "mapGenieName": "Desperate Rescue",
+      "mapGenieDistance": 17.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0010",
+      "itemKey": 1000753,
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_II",
+      "missionKey": 1000924,
+      "stepMissionKey": 4294966877,
+      "uuid": [
+        1116207468,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -7308.8105,
+        547.9131,
+        -2320.179
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554923",
+      "mapGenieName": "Overwhelming Slash II",
+      "mapGenieDistance": 19.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0011",
+      "itemKey": 1000812,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_VI",
+      "missionKey": 1001048,
+      "stepMissionKey": 4294966588,
+      "uuid": [
+        604552041,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5128.5215,
+        390.5024,
+        -4394.6196
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:549902",
+      "mapGenieName": "Greymane's Vow",
+      "mapGenieDistance": 18.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0012",
+      "itemKey": 1000814,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_III",
+      "missionKey": 1000738,
+      "stepMissionKey": 4294966726,
+      "uuid": [
+        997790218,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -11380.709,
+        685.1237,
+        -1639.0797
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550576",
+      "mapGenieName": "End of the Shadow",
+      "mapGenieDistance": 14.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0013",
+      "itemKey": 1000830,
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_V",
+      "missionKey": 1000653,
+      "stepMissionKey": 4294966917,
+      "uuid": [
+        1157050778,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9404.7275,
+        611.7662,
+        -3236.0276
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550406",
+      "mapGenieName": "Sword of Trials V",
+      "mapGenieDistance": 23.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0014",
+      "itemKey": 1000831,
+      "challenge": "Challenge_SealedArtifact_Vehicle_VII",
+      "missionKey": 1000903,
+      "stepMissionKey": 4294966800,
+      "uuid": [
+        1162988277,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9202.6953,
+        537.4784,
+        -4783.4922
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:544628",
+      "mapGenieName": "Harmonious Hooves VII",
+      "mapGenieDistance": 17.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0015",
+      "itemKey": 1000832,
+      "challenge": "Challenge_SealedArtifact_Crime_VI",
+      "missionKey": 1001037,
+      "stepMissionKey": 4294966608,
+      "uuid": [
+        670772663,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11824.6182,
+        707.2255,
+        -1766.3528
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:547603",
+      "mapGenieName": "Worth its Weight",
+      "mapGenieDistance": 20.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0016",
+      "itemKey": 1000833,
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_I",
+      "missionKey": 1000599,
+      "stepMissionKey": 4294966913,
+      "uuid": [
+        1178679672,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10702.3398,
+        631.9969,
+        -3571.0212
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:543941",
+      "mapGenieName": "Shield of Unchanging Will I",
+      "mapGenieDistance": 15.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0017",
+      "itemKey": 1000834,
+      "challenge": "Challenge_SealedArtifact_Living_I",
+      "missionKey": 1000907,
+      "stepMissionKey": 4294966674,
+      "uuid": [
+        1016295232,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -9616.1348,
+        642.6708,
+        950.9352
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553957",
+      "mapGenieName": "Between Herbs and Poisons",
+      "mapGenieDistance": 13.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0018",
+      "itemKey": 1000835,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_VI",
+      "missionKey": 1000730,
+      "stepMissionKey": 4294966740,
+      "uuid": [
+        670772679,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11240.9287,
+        675.9022,
+        -2552.3396
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551569",
+      "mapGenieName": "Into The Barrage",
+      "mapGenieDistance": 12.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0019",
+      "itemKey": 1000836,
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_III",
+      "missionKey": 1000192,
+      "stepMissionKey": 4294966885,
+      "uuid": [
+        1203380356,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10285.7939,
+        651.8823,
+        -2788.3809
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551578",
+      "mapGenieName": "Sharpened Spear III",
+      "mapGenieDistance": 14.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0020",
+      "itemKey": 1000847,
+      "challenge": "Challenge_SealedArtifact_Vehicle_VI",
+      "missionKey": 1000902,
+      "stepMissionKey": 4294966802,
+      "uuid": [
+        1335151967,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8307.0049,
+        523.2076,
+        -2796.4514
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:555540",
+      "mapGenieName": "Harmonious Hooves VI",
+      "mapGenieDistance": 15.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0021",
+      "itemKey": 1000848,
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_II",
+      "missionKey": 1000600,
+      "stepMissionKey": 4294966911,
+      "uuid": [
+        1211463523,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -12171.4805,
+        768.4,
+        -5359.854
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546866",
+      "mapGenieName": "Shield of Unchanging Will II",
+      "mapGenieDistance": 16.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0022",
+      "itemKey": 1000849,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_III",
+      "missionKey": 1000607,
+      "stepMissionKey": 4294966783,
+      "uuid": [
+        1219238998,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10233.9453,
+        542.8218,
+        -4243.4116
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:544021",
+      "mapGenieName": "Sliding down the Slope",
+      "mapGenieDistance": 16.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0023",
+      "itemKey": 1000850,
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_III",
+      "missionKey": 1000217,
+      "stepMissionKey": 4294966921,
+      "uuid": [
+        2437887371,
+        3758100441,
+        2263460684,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10350.0635,
+        546.8953,
+        -4206.2271
+      ],
+      "insideParent": true,
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:543949",
+      "mapGenieName": "Sword of Trials III",
+      "mapGenieDistance": 17.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0024",
+      "itemKey": 1000851,
+      "challenge": "Challenge_SealedArtifact_Vehicle_IV",
+      "missionKey": 1000900,
+      "stepMissionKey": 4294966806,
+      "uuid": [
+        1859702199,
+        1450446808,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11268.9531,
+        762.4227,
+        -6824.9868
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:545604",
+      "mapGenieName": "Harmonious Hooves IV",
+      "mapGenieDistance": 28.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0025",
+      "itemKey": 1000852,
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_II",
+      "missionKey": 1000705,
+      "stepMissionKey": 4294966852,
+      "uuid": [
+        1292262629,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -7165.7427,
+        492.1418,
+        -2913.1484
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:555796",
+      "mapGenieName": "Dancing Blade, Shining Shield II",
+      "mapGenieDistance": 18.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0026",
+      "itemKey": 1001186,
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_V",
+      "missionKey": 1000689,
+      "stepMissionKey": 4294966893,
+      "uuid": [
+        1298705681,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -8822.1787,
+        653.243,
+        -1387.562
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551501",
+      "mapGenieName": "Bow Aimed at Fate V",
+      "mapGenieDistance": 12.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0027",
+      "itemKey": 1001430,
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_IV",
+      "missionKey": 1000713,
+      "stepMissionKey": 4294966838,
+      "uuid": [
+        1568204971,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8212.2393,
+        568.8295,
+        -1785.7305
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552805",
+      "mapGenieName": "When Lightning Strikes IV",
+      "mapGenieDistance": 21.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0028",
+      "itemKey": 1001707,
+      "challenge": "Challenge_SealedArtifact_Vehicle_III",
+      "missionKey": 1000899,
+      "stepMissionKey": 4294966808,
+      "uuid": [
+        1571438373,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8488.5566,
+        454.6075,
+        -4725.063
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554927",
+      "mapGenieName": "Harmonious Hoves III",
+      "mapGenieDistance": 22.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0029",
+      "itemKey": 1001767,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_VII",
+      "missionKey": 1000720,
+      "stepMissionKey": 4294966820,
+      "uuid": [
+        607464045,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -6101.251,
+        438.0205,
+        -2998.8503
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:557103",
+      "mapGenieName": "Special Weapon VII: Gale Shield",
+      "mapGenieDistance": 22.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0030",
+      "itemKey": 1001813,
+      "challenge": "Challenge_SealedArtifact_Vehicle_V",
+      "missionKey": 1000901,
+      "stepMissionKey": 4294966804,
+      "uuid": [
+        1577973735,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8055.0405,
+        529.2496,
+        -2399.2979
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:556144",
+      "mapGenieName": "Harmonious Hooves V",
+      "mapGenieDistance": 24.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0031",
+      "itemKey": 1001838,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_II",
+      "missionKey": 1000606,
+      "stepMissionKey": 4294966785,
+      "uuid": [
+        1311575614,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -8910.7432,
+        573.8793,
+        -6091.8569
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554018",
+      "mapGenieName": "Stepping on Clouds",
+      "mapGenieDistance": 22.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0032",
+      "itemKey": 1001960,
+      "challenge": "Challenge_SealedArtifact_Hunting_VI",
+      "missionKey": 1000891,
+      "stepMissionKey": 4294966695,
+      "uuid": [
+        607464061,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8498.7539,
+        527.3723,
+        -3453.2678
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551761",
+      "mapGenieName": "Small Predator",
+      "mapGenieDistance": 18.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0033",
+      "itemKey": 1001961,
+      "challenge": "Challenge_SealedArtifact_Trust_III",
+      "missionKey": 1001028,
+      "stepMissionKey": 4294966629,
+      "uuid": [
+        607464030,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8047.5381,
+        509.752,
+        -3611.4141
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:549905",
+      "mapGenieName": "Mysterious Accessory Shop",
+      "mapGenieDistance": 18.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0034",
+      "itemKey": 1001962,
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_V",
+      "missionKey": 1000714,
+      "stepMissionKey": 4294966836,
+      "uuid": [
+        670772653,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10143.1426,
+        595.1231,
+        -5501.9136
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:545607",
+      "mapGenieName": "When Lightning Strikes V",
+      "mapGenieDistance": 22.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0035",
+      "itemKey": 1001963,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_VIII",
+      "missionKey": 1000792,
+      "stepMissionKey": 4294966715,
+      "uuid": [
+        607463991,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8736.6953,
+        536.4327,
+        -3950.3799
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:555795",
+      "mapGenieName": "Gunshot",
+      "mapGenieDistance": 25.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0036",
+      "itemKey": 1001964,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_VI",
+      "missionKey": 1000610,
+      "stepMissionKey": 4294966777,
+      "uuid": [
+        1327364200,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -6787.1436,
+        543.0292,
+        -2472.6824
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554926",
+      "mapGenieName": "Clash of a Protector",
+      "mapGenieDistance": 17.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0037",
+      "itemKey": 1001965,
+      "challenge": "Challenge_SealedArtifact_Vehicle_I",
+      "missionKey": 1000897,
+      "stepMissionKey": 4294966812,
+      "uuid": [
+        1580871583,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9355.5098,
+        631.406,
+        -2818.7129
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552408",
+      "mapGenieName": "Harmonious Hooves I",
+      "mapGenieDistance": 15.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0038",
+      "itemKey": 1001966,
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_I",
+      "missionKey": 1000704,
+      "stepMissionKey": 4294966854,
+      "uuid": [
+        1207687951,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11283.2881,
+        619.1917,
+        -4861.3403
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550223",
+      "mapGenieName": "Dancing Blade, Shining Shield I",
+      "mapGenieDistance": 25.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0039",
+      "itemKey": 1001967,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_X",
+      "missionKey": 1000734,
+      "stepMissionKey": 4294966732,
+      "uuid": [
+        607464012,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9299.9863,
+        558.4833,
+        -5363.1221
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:544692",
+      "mapGenieName": "Bare Courage",
+      "mapGenieDistance": 18.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0040",
+      "itemKey": 1001968,
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_III",
+      "missionKey": 1000700,
+      "stepMissionKey": 4294966860,
+      "uuid": [
+        1998146809,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -4564.9233,
+        374.1234,
+        -4228.3584
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551598",
+      "mapGenieName": "Barraging Cannon III",
+      "mapGenieDistance": 17.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0041",
+      "itemKey": 1001969,
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_I",
+      "missionKey": 1000698,
+      "stepMissionKey": 4294966867,
+      "uuid": [
+        1998147043,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -4719.3062,
+        415.0973,
+        -3173.6389
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551520",
+      "mapGenieName": "Barraging Cannon I",
+      "mapGenieDistance": 24.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0042",
+      "itemKey": 1001970,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_V",
+      "missionKey": 1000740,
+      "stepMissionKey": 4294966722,
+      "uuid": [
+        604552055,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5171.5264,
+        400.273,
+        -4682.4858
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554964",
+      "mapGenieName": "Operation: Seeds of Discord",
+      "mapGenieDistance": 25.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0043",
+      "itemKey": 1001971,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_VIII",
+      "missionKey": 1000612,
+      "stepMissionKey": 4294966770,
+      "uuid": [
+        1998147050,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -3818.6013,
+        391.8767,
+        -4718.6821
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554969",
+      "mapGenieName": "Like A Butterfly, Like a Storm",
+      "mapGenieDistance": 21.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0044",
+      "itemKey": 1001972,
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_IV",
+      "missionKey": 1000707,
+      "stepMissionKey": 4294966848,
+      "uuid": [
+        1998147058,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -6714.6167,
+        504.421,
+        -5490.4888
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554429",
+      "mapGenieName": "Dancing Blade, Shining Shield IV",
+      "mapGenieDistance": 25.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0045",
+      "itemKey": 1001973,
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_IV",
+      "missionKey": 1000701,
+      "stepMissionKey": 4294966858,
+      "uuid": [
+        1998147066,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5472.979,
+        407.1608,
+        -5372.6748
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554087",
+      "mapGenieName": "Barraging Cannon IV",
+      "mapGenieDistance": 23.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0046",
+      "itemKey": 1001974,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_II",
+      "missionKey": 1000726,
+      "stepMissionKey": 4294966748,
+      "uuid": [
+        604552105,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -3586.6233,
+        407.2278,
+        -5192.6011
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553921",
+      "mapGenieName": "Flash",
+      "mapGenieDistance": 21.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0047",
+      "itemKey": 1001975,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_V",
+      "missionKey": 1000729,
+      "stepMissionKey": 4294966742,
+      "uuid": [
+        604551995,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5027.0415,
+        381.9896,
+        -4053.2742
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554960",
+      "mapGenieName": "Single Spark, Seven Strikes",
+      "mapGenieDistance": 20.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0048",
+      "itemKey": 1001976,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_VII",
+      "missionKey": 1000611,
+      "stepMissionKey": 4294966775,
+      "uuid": [
+        1998147006,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -6566.5615,
+        409.519,
+        -4584.4707
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554080",
+      "mapGenieName": "Tornado of Steel",
+      "mapGenieDistance": 21.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0049",
+      "itemKey": 1001977,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_VIII",
+      "missionKey": 1000732,
+      "stepMissionKey": 4294966736,
+      "uuid": [
+        636725337,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -11615.9053,
+        693.3823,
+        -1203.5162
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553878",
+      "mapGenieName": "Judgement Cast Upon the Sleeping",
+      "mapGenieDistance": 11.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0050",
+      "itemKey": 1001978,
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_VI",
+      "missionKey": 1000928,
+      "stepMissionKey": 4294966869,
+      "uuid": [
+        993029025,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -11078.2705,
+        679.5987,
+        -1854.5515
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553031",
+      "mapGenieName": "Ground-Shaking Impact III",
+      "mapGenieDistance": 11.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0051",
+      "itemKey": 1001979,
+      "challenge": "Challenge_SealedArtifact_Crime_I",
+      "missionKey": 1001032,
+      "stepMissionKey": 4294966620,
+      "uuid": [
+        670772429,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9715.7207,
+        567.5445,
+        -4142.7051
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:544036",
+      "mapGenieName": "Night of the Silent Banner Pike",
+      "mapGenieDistance": 19.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0052",
+      "itemKey": 1001980,
+      "challenge": "Challenge_SealedArtifact_Hunting_IV",
+      "missionKey": 1000889,
+      "stepMissionKey": 4294966699,
+      "uuid": [
+        636725352,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -9704.5381,
+        629.6953,
+        -591.0292
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551652",
+      "mapGenieName": "Mystical Ecosystem",
+      "mapGenieDistance": 7.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0053",
+      "itemKey": 1001981,
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_IV",
+      "missionKey": 1000926,
+      "stepMissionKey": 4294966873,
+      "uuid": [
+        3170660471,
+        3222802561,
+        1822861389,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11496.8223,
+        648.6979,
+        -5300.7705
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550244",
+      "mapGenieName": "Ground-Shaking Impact I",
+      "mapGenieDistance": 24.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0054",
+      "itemKey": 1001982,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_V",
+      "missionKey": 1000718,
+      "stepMissionKey": 4294966824,
+      "uuid": [
+        636725374,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -10165.5039,
+        747.329,
+        822.1328
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554920",
+      "mapGenieName": "Special Weapon V: Bismuth Spear",
+      "mapGenieDistance": 14.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0055",
+      "itemKey": 1001983,
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_III",
+      "missionKey": 1000604,
+      "stepMissionKey": 4294966897,
+      "uuid": [
+        1007405769,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -9316.8037,
+        615.451,
+        -900.0207
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552879",
+      "mapGenieName": "Bow Aimed at Fate III",
+      "mapGenieDistance": 5.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0056",
+      "itemKey": 1001984,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_X",
+      "missionKey": 1000143,
+      "stepMissionKey": 4294966766,
+      "uuid": [
+        1654136823,
+        1450446864,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -10857.3945,
+        662.1122,
+        1291.9681
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551762",
+      "mapGenieName": "On a Storm of Beasts",
+      "mapGenieDistance": 9.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0057",
+      "itemKey": 1001985,
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_VI",
+      "missionKey": 1000690,
+      "stepMissionKey": 4294966891,
+      "uuid": [
+        1011967425,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -10239.4912,
+        652.0768,
+        -1088.5682
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553033",
+      "mapGenieName": "Bow Aimed at Fate VI",
+      "mapGenieDistance": 1.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0058",
+      "itemKey": 1001986,
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_V",
+      "missionKey": 1000927,
+      "stepMissionKey": 4294966871,
+      "uuid": [
+        1014531948,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -11999.7939,
+        762.4114,
+        -578.4716
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552020",
+      "mapGenieName": "Ground-Shaking Impact II",
+      "mapGenieDistance": 14.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0059",
+      "itemKey": 1001987,
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_I",
+      "missionKey": 1000602,
+      "stepMissionKey": 4294966901,
+      "uuid": [
+        670772671,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10697.5215,
+        628.8204,
+        -5050.4541
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546477",
+      "mapGenieName": "Bow Aimed at Fate I",
+      "mapGenieDistance": 21.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0060",
+      "itemKey": 1001988,
+      "challenge": "Challenge_SealedArtifact_Vehicle_VIII",
+      "missionKey": 1000904,
+      "stepMissionKey": 4294966795,
+      "uuid": [
+        1603331231,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -11513.4961,
+        722.1321,
+        -414.0799
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553032",
+      "mapGenieName": "Harmonious Hooves VIII",
+      "mapGenieDistance": 5.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0061",
+      "itemKey": 1001989,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_VII",
+      "missionKey": 1000791,
+      "stepMissionKey": 4294966717,
+      "uuid": [
+        636725052,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -10699.4863,
+        672.2485,
+        -2308.9883
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553880",
+      "mapGenieName": "Disruption",
+      "mapGenieDistance": 10.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0062",
+      "itemKey": 1001990,
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_II",
+      "missionKey": 1000711,
+      "stepMissionKey": 4294966842,
+      "uuid": [
+        1888221249,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -5206.6953,
+        460.9092,
+        -2459.7664
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551513",
+      "mapGenieName": "When Lightning Strikes II",
+      "mapGenieDistance": 18.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0063",
+      "itemKey": 1001991,
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_IV",
+      "missionKey": 1000677,
+      "stepMissionKey": 4294966895,
+      "uuid": [
+        1358008673,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -7674.6602,
+        657.056,
+        -880.9276
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554498",
+      "mapGenieName": "Bow Aimed at Fate IV",
+      "mapGenieDistance": 16.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0064",
+      "itemKey": 1001992,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_IV",
+      "missionKey": 1000717,
+      "stepMissionKey": 4294966826,
+      "uuid": [
+        625811494,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -5720.189,
+        521.5085,
+        -1644.6312
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:558043",
+      "mapGenieName": "Special Weapon: Lightning Spear",
+      "mapGenieDistance": 13.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0065",
+      "itemKey": 1001993,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_IV",
+      "missionKey": 1000728,
+      "stepMissionKey": 4294966744,
+      "uuid": [
+        1947535182,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6008.9995,
+        650.6623,
+        -776.9189
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551508",
+      "mapGenieName": "Sinking Fort",
+      "mapGenieDistance": 12.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0066",
+      "itemKey": 1001994,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_III",
+      "missionKey": 1000716,
+      "stepMissionKey": 4294966828,
+      "uuid": [
+        625811502,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6811.7383,
+        656.9918,
+        -912.9443
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550196",
+      "mapGenieName": "Special Weapon: Knuckledrill",
+      "mapGenieDistance": 15.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0067",
+      "itemKey": 1001995,
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_V",
+      "missionKey": 1000702,
+      "stepMissionKey": 4294966856,
+      "uuid": [
+        2435419787,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6171.3018,
+        593.3994,
+        -939.0962
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551509",
+      "mapGenieName": "Barraging Cannon V",
+      "mapGenieDistance": 14.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0068",
+      "itemKey": 1001996,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_IX",
+      "missionKey": 1000613,
+      "stepMissionKey": 4294966768,
+      "uuid": [
+        1367054554,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6617.3286,
+        785.9476,
+        -76.6824
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552227",
+      "mapGenieName": "Through the Current",
+      "mapGenieDistance": 9.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0069",
+      "itemKey": 1001997,
+      "challenge": "Challenge_SealedArtifact_Vehicle_X",
+      "missionKey": 1000906,
+      "stepMissionKey": 4294966791,
+      "uuid": [
+        1612784150,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -4471.8813,
+        641.0082,
+        -1223.4584
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:555156",
+      "mapGenieName": "Harmonious Hooves X",
+      "mapGenieDistance": 19.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0070",
+      "itemKey": 1001998,
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_III",
+      "missionKey": 1000712,
+      "stepMissionKey": 4294966840,
+      "uuid": [
+        1373271745,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6489.0527,
+        694.5767,
+        467.1123
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550806",
+      "mapGenieName": "When Lightning Strikes III",
+      "mapGenieDistance": 16.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0071",
+      "itemKey": 1001999,
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_I",
+      "missionKey": 1000710,
+      "stepMissionKey": 4294966844,
+      "uuid": [
+        1376014431,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6353.978,
+        551.6947,
+        -1312.5367
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554065",
+      "mapGenieName": "When Lightning Strikes I",
+      "mapGenieDistance": 16.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0072",
+      "itemKey": 1002000,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_III",
+      "missionKey": 1000727,
+      "stepMissionKey": 4294966746,
+      "uuid": [
+        1377983459,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -5606.0146,
+        702.8053,
+        876.8929
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553060",
+      "mapGenieName": "Breathless Touch",
+      "mapGenieDistance": 9.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0073",
+      "itemKey": 1002001,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_IX",
+      "missionKey": 1000793,
+      "stepMissionKey": 4294966713,
+      "uuid": [
+        625811538,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -3845.6279,
+        590.201,
+        3053.5161
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551588",
+      "mapGenieName": "Meteor Run in the Dark",
+      "mapGenieDistance": 4.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0074",
+      "itemKey": 1002002,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_I",
+      "missionKey": 1000725,
+      "stepMissionKey": 4294966750,
+      "uuid": [
+        1975330288,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -3681.5325,
+        651.0234,
+        3574.2544
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553649",
+      "mapGenieName": "Slam Master",
+      "mapGenieDistance": 6.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0075",
+      "itemKey": 1002003,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_V",
+      "missionKey": 1000609,
+      "stepMissionKey": 4294966779,
+      "uuid": [
+        2939136963,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10105.5264,
+        545.2505,
+        -4539.8677
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546895",
+      "mapGenieName": "Keeping Balance on the Wind",
+      "mapGenieDistance": 24.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0076",
+      "itemKey": 1002004,
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_I",
+      "missionKey": 1000605,
+      "stepMissionKey": 4294966787,
+      "uuid": [
+        2932832458,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9709.708,
+        563.1569,
+        -4998.7817
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546810",
+      "mapGenieName": "Steel Grip Against the Chest",
+      "mapGenieDistance": 18.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0077",
+      "itemKey": 1002005,
+      "challenge": "Challenge_SealedArtifact_Crime_VIII",
+      "missionKey": 1001039,
+      "stepMissionKey": 4294966604,
+      "uuid": [
+        670772710,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10686.8252,
+        385.4391,
+        -6014.1938
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:544742",
+      "mapGenieName": "Trespassing",
+      "mapGenieDistance": 32.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0078",
+      "itemKey": 1002006,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_VI",
+      "missionKey": 1000790,
+      "stepMissionKey": 4294966719,
+      "uuid": [
+        670772702,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10190.2754,
+        675.9601,
+        -2213.0857
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551690",
+      "mapGenieName": "Touch of Darkness",
+      "mapGenieDistance": 16.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0079",
+      "itemKey": 1002007,
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_III",
+      "missionKey": 1000601,
+      "stepMissionKey": 4294966909,
+      "uuid": [
+        2904486606,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -12211.3965,
+        941.3493,
+        -3557.5137
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550584",
+      "mapGenieName": "Shield of Unchanging Will III",
+      "mapGenieDistance": 30.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0080",
+      "itemKey": 1002008,
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_II",
+      "missionKey": 1000214,
+      "stepMissionKey": 4294966923,
+      "uuid": [
+        2897462004,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9507.5596,
+        633.7327,
+        -6049.0513
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:545741",
+      "mapGenieName": "Sword of Trials II",
+      "mapGenieDistance": 21.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0081",
+      "itemKey": 1002009,
+      "challenge": "Challenge_SealedArtifact_Hunting_IX",
+      "missionKey": 1000894,
+      "stepMissionKey": 4294966687,
+      "uuid": [
+        607464038,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -8751.9434,
+        515.7346,
+        -5537.1855
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554006",
+      "mapGenieName": "Pine Broom",
+      "mapGenieDistance": 16.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0082",
+      "itemKey": 1002010,
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_III",
+      "missionKey": 1000706,
+      "stepMissionKey": 4294966850,
+      "uuid": [
+        2809439586,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -8448.3516,
+        459.1836,
+        -5107.5454
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552573",
+      "mapGenieName": "Dancing Blade, Shining Shield III",
+      "mapGenieDistance": 26.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0083",
+      "itemKey": 1002011,
+      "challenge": "Challenge_SealedArtifact_Vehicle_II",
+      "missionKey": 1000898,
+      "stepMissionKey": 4294966810,
+      "uuid": [
+        1584040428,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9290.7666,
+        522.2513,
+        -3985.7021
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546949",
+      "mapGenieName": "Harmonious Hooves II",
+      "mapGenieDistance": 13.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0084",
+      "itemKey": 1002012,
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_VI",
+      "missionKey": 1000672,
+      "stepMissionKey": 4294966915,
+      "uuid": [
+        2874103461,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -7433.4204,
+        444.3294,
+        -4621.3794
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552505",
+      "mapGenieName": "Sword of Trials VI",
+      "mapGenieDistance": 22.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0085",
+      "itemKey": 1002013,
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_II",
+      "missionKey": 1000699,
+      "stepMissionKey": 4294966865,
+      "uuid": [
+        2904498568,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -7115.314,
+        461.8482,
+        -3707.2622
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553672",
+      "mapGenieName": "Barraging Cannon II",
+      "mapGenieDistance": 15.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0086",
+      "itemKey": 1002014,
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_V",
+      "missionKey": 1000238,
+      "stepMissionKey": 4294966905,
+      "uuid": [
+        3065069999,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8920.7773,
+        556.4476,
+        -3495.9668
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552401",
+      "mapGenieName": "Shield of Unchanging Will V",
+      "mapGenieDistance": 23.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0087",
+      "itemKey": 1002015,
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_IV",
+      "missionKey": 1000691,
+      "stepMissionKey": 4294966883,
+      "uuid": [
+        3119833849,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -9073.29,
+        600.9672,
+        -2944.4272
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552379",
+      "mapGenieName": "Sharpened Spear IV",
+      "mapGenieDistance": 19.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0088",
+      "itemKey": 1002016,
+      "challenge": "Challenge_SealedArtifact_Hunting_V",
+      "missionKey": 1000890,
+      "stepMissionKey": 4294966697,
+      "uuid": [
+        607464054,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8854.2578,
+        577.8763,
+        -2425.7937
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552442",
+      "mapGenieName": "A Will Harder than Rock",
+      "mapGenieDistance": 20.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0089",
+      "itemKey": 1002017,
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_III",
+      "missionKey": 1000925,
+      "stepMissionKey": 4294966875,
+      "uuid": [
+        705636436,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11603.9678,
+        801.1351,
+        -3289.3225
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551644",
+      "mapGenieName": "Overwhelming Slash III",
+      "mapGenieDistance": 25.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0090",
+      "itemKey": 1002018,
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_V",
+      "missionKey": 1000708,
+      "stepMissionKey": 4294966846,
+      "uuid": [
+        3297694537,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -6442.5518,
+        531.7095,
+        -2587.6306
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554925",
+      "mapGenieName": "Dancing Blade, Shining Shield V",
+      "mapGenieDistance": 22.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0091",
+      "itemKey": 1002019,
+      "challenge": "Challenge_SealedArtifact_Vehicle_IX",
+      "missionKey": 1000905,
+      "stepMissionKey": 4294966793,
+      "uuid": [
+        1998147026,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5714.249,
+        462.3532,
+        -4711.8442
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554082",
+      "mapGenieName": "Harmonious Hooves IX",
+      "mapGenieDistance": 17.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0092",
+      "itemKey": 1002020,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_VIII",
+      "missionKey": 1000721,
+      "stepMissionKey": 4294966818,
+      "uuid": [
+        604552004,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -6512.5615,
+        507.0871,
+        -4974.9165
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554437",
+      "mapGenieName": "Special Weapon: Marni Laser Helm",
+      "mapGenieDistance": 23.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0093",
+      "itemKey": 1002021,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_II",
+      "missionKey": 1001044,
+      "stepMissionKey": 4294966596,
+      "uuid": [
+        604552012,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5586.6821,
+        520.5374,
+        -5123.1255
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554085",
+      "mapGenieName": "Well-Informed Greymane",
+      "mapGenieDistance": 20.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0094",
+      "itemKey": 1002022,
+      "challenge": "Challenge_SealedArtifact_Trust_V",
+      "missionKey": 1001030,
+      "stepMissionKey": 4294966622,
+      "uuid": [
+        604552019,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -4629.7417,
+        410.7496,
+        -4830.3203
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554975",
+      "mapGenieName": "Magnate of the Golden Desert",
+      "mapGenieDistance": 24.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0095",
+      "itemKey": 1002023,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_I",
+      "missionKey": 1000736,
+      "stepMissionKey": 4294966730,
+      "uuid": [
+        604552027,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -4168.8579,
+        468.0042,
+        -5455.314
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553930",
+      "mapGenieName": "Waves of Lightning",
+      "mapGenieDistance": 31.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0096",
+      "itemKey": 1002024,
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_IX",
+      "missionKey": 1000733,
+      "stepMissionKey": 4294966734,
+      "uuid": [
+        1998147035,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -3544.6504,
+        399.9264,
+        -5793.2168
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553924",
+      "mapGenieName": "Giant Windmill",
+      "mapGenieDistance": 41.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0097",
+      "itemKey": 1002025,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_VI",
+      "missionKey": 1000719,
+      "stepMissionKey": 4294966822,
+      "uuid": [
+        604552034,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -3362.2146,
+        381.294,
+        -4929.9575
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554972",
+      "mapGenieName": "Special Weapon VI: Lightning Bolt Plate Armor",
+      "mapGenieDistance": 17.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0098",
+      "itemKey": 1002026,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_X",
+      "missionKey": 1000723,
+      "stepMissionKey": 4294966814,
+      "uuid": [
+        636725392,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -9713.3203,
+        670.499,
+        584.2892
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553944",
+      "mapGenieName": "Special Weapon: Vessel of Dark Pursuit",
+      "mapGenieDistance": 18.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0099",
+      "itemKey": 1002027,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_II",
+      "missionKey": 1000715,
+      "stepMissionKey": 4294966830,
+      "uuid": [
+        625811509,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -4942.0645,
+        684.34,
+        1651.1025
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551592",
+      "mapGenieName": "Special Weapon: Propeller Spear",
+      "mapGenieDistance": 46.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0100",
+      "itemKey": 1002028,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_I",
+      "missionKey": 1000655,
+      "stepMissionKey": 4294966832,
+      "uuid": [
+        625811516,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -4399.7222,
+        646.2348,
+        2217.1936
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553640",
+      "mapGenieName": "Special Weapon: Flamespitter",
+      "mapGenieDistance": 35.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0101",
+      "itemKey": 1000820,
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_IX",
+      "missionKey": 1000722,
+      "stepMissionKey": 4294966816,
+      "uuid": [
+        622169490,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -6906.4141,
+        460.2655,
+        -3304.27
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:555106",
+      "mapGenieName": "Special Weapon: Shotgun Shield",
+      "mapGenieDistance": 17.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0102",
+      "itemKey": 1000824,
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_IV",
+      "missionKey": 1000234,
+      "stepMissionKey": 4294966907,
+      "uuid": [
+        4117478545,
+        1450446809,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10194.0742,
+        627.7097,
+        -3359.79
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550974",
+      "mapGenieName": "Shield of Unchanging Will IV",
+      "mapGenieDistance": 19.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0103",
+      "itemKey": 1000825,
+      "challenge": "Challenge_SealedArtifact_Hunting_I",
+      "missionKey": 1000886,
+      "stepMissionKey": 4294966705,
+      "uuid": [
+        670772634,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10431.3369,
+        677.2628,
+        -2997.5876
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550578",
+      "mapGenieName": "Feather of the Earth",
+      "mapGenieDistance": 18.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0104",
+      "itemKey": 1000826,
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_I",
+      "missionKey": 1000209,
+      "stepMissionKey": 4294966925,
+      "uuid": [
+        4108874083,
+        1450446809,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -10681.0322,
+        631.584,
+        -3442.3323
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:544016",
+      "mapGenieName": "Sword of Trials I",
+      "mapGenieDistance": 17.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0105",
+      "itemKey": 1000827,
+      "challenge": "Challenge_SealedArtifact_Living_XI",
+      "missionKey": 1001399,
+      "stepMissionKey": 4294966643,
+      "uuid": [
+        604551980,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5317.0366,
+        389.6593,
+        -4180.5449
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:549901",
+      "mapGenieName": "Rare Relics of Existence",
+      "mapGenieDistance": 39.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0106",
+      "itemKey": 1000828,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_IV",
+      "missionKey": 1001046,
+      "stepMissionKey": 4294966592,
+      "uuid": [
+        604552048,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -8627.4893,
+        615.4338,
+        -5892.6333
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553729",
+      "mapGenieName": "Return of the Greymane",
+      "mapGenieDistance": 16.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0107",
+      "itemKey": 1000829,
+      "challenge": "Challenge_SealedArtifact_Hunting_II",
+      "missionKey": 1000887,
+      "stepMissionKey": 4294966703,
+      "uuid": [
+        604552063,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5396.3877,
+        402.2431,
+        -3647.5735
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554928",
+      "mapGenieName": "Wild Showdown",
+      "mapGenieDistance": 14.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0108",
+      "itemKey": 1000929,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_V",
+      "missionKey": 1001047,
+      "stepMissionKey": 4294966590,
+      "uuid": [
+        604552070,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -5126.5908,
+        382.4274,
+        -3761.7632
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550195",
+      "mapGenieName": "A Voyage Without Wind or Sails",
+      "mapGenieDistance": 17.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0109",
+      "itemKey": 1000930,
+      "challenge": "Challenge_SealedArtifact_Crime_IX",
+      "missionKey": 1001040,
+      "stepMissionKey": 4294966602,
+      "uuid": [
+        604552077,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -8383.9414,
+        559.4537,
+        -5892.2808
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553728",
+      "mapGenieName": "The Dark Pilgrim Who Stole the Ember",
+      "mapGenieDistance": 20.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0110",
+      "itemKey": 1000931,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_X",
+      "missionKey": 1000794,
+      "stepMissionKey": 4294966709,
+      "uuid": [
+        604552084,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -4767.291,
+        381.0545,
+        -4294.7417
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551599",
+      "mapGenieName": "Dirge Beyond the Border",
+      "mapGenieDistance": 20.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0111",
+      "itemKey": 1000932,
+      "challenge": "Challenge_SealedArtifact_Living_IX",
+      "missionKey": 1000915,
+      "stepMissionKey": 4294966649,
+      "uuid": [
+        604552091,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -4936.9932,
+        408.5786,
+        -4800.2812
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554967",
+      "mapGenieName": "Little Companions",
+      "mapGenieDistance": 42.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0112",
+      "itemKey": 1000933,
+      "challenge": "Challenge_SealedArtifact_Living_X",
+      "missionKey": 1000916,
+      "stepMissionKey": 4294966647,
+      "uuid": [
+        604552098,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -4242.3281,
+        393.4375,
+        -4696.8086
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554922",
+      "mapGenieName": "Bounty of the Earth",
+      "mapGenieDistance": 26.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0113",
+      "itemKey": 1000934,
+      "challenge": "Challenge_SealedArtifact_Crime_X",
+      "missionKey": 1001041,
+      "stepMissionKey": 4294966600,
+      "uuid": [
+        604552113,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -3794.0664,
+        469.7689,
+        -5708.3872
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553926",
+      "mapGenieName": "The Crow\u2019s Crown and the Last Chivalry",
+      "mapGenieDistance": 17.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0114",
+      "itemKey": 1000935,
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_II",
+      "missionKey": 1000603,
+      "stepMissionKey": 4294966899,
+      "uuid": [
+        698154123,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11509.6426,
+        707.9228,
+        -2735.3445
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551570",
+      "mapGenieName": "Bow Aimed at Fate II",
+      "mapGenieDistance": 15.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0115",
+      "itemKey": 1000936,
+      "challenge": "Challenge_SealedArtifact_Crime_III",
+      "missionKey": 1001034,
+      "stepMissionKey": 4294966616,
+      "uuid": [
+        700764597,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11324.5625,
+        710.3642,
+        -2010.2513
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546459",
+      "mapGenieName": "The Vanished Wagon",
+      "mapGenieDistance": 11.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0116",
+      "itemKey": 1000937,
+      "challenge": "Challenge_SealedArtifact_Trust_I",
+      "missionKey": 1001026,
+      "stepMissionKey": 4294966639,
+      "uuid": [
+        636725421,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -9823.8574,
+        638.238,
+        45.987
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551647",
+      "mapGenieName": "Traveler with Oak Barrels",
+      "mapGenieDistance": 12.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0117",
+      "itemKey": 1000938,
+      "challenge": "Challenge_SealedArtifact_Crime_IV",
+      "missionKey": 1001035,
+      "stepMissionKey": 4294966614,
+      "uuid": [
+        636725399,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -11942.6094,
+        703.2385,
+        -1232.5643
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553877",
+      "mapGenieName": "Back Alley Cleanup",
+      "mapGenieDistance": 15.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0118",
+      "itemKey": 1000939,
+      "challenge": "Challenge_SealedArtifact_Living_II",
+      "missionKey": 1000908,
+      "stepMissionKey": 4294966670,
+      "uuid": [
+        3261115163,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -8699.7002,
+        549.867,
+        -2238.4285
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552444",
+      "mapGenieName": "Crystals in the Veins",
+      "mapGenieDistance": 29.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0119",
+      "itemKey": 1000940,
+      "challenge": "Challenge_SealedArtifact_Crime_II",
+      "missionKey": 1001033,
+      "stepMissionKey": 4294966618,
+      "uuid": [
+        707949213,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11165.5547,
+        827.476,
+        -3436.6587
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:550582",
+      "mapGenieName": "The Herder's Lament",
+      "mapGenieDistance": 23.0
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0120",
+      "itemKey": 1000941,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_I",
+      "missionKey": 1001043,
+      "stepMissionKey": 4294966598,
+      "uuid": [
+        707949406,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11486.2305,
+        800.1783,
+        -3531.9048
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:545457",
+      "mapGenieName": "Abyssal Star That Cleaves the Heavens",
+      "mapGenieDistance": 16.3
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0121",
+      "itemKey": 1000942,
+      "challenge": "Challenge_SealedArtifact_Living_III",
+      "missionKey": 1000909,
+      "stepMissionKey": 4294966668,
+      "uuid": [
+        636725430,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -10742.2832,
+        847.0353,
+        -1445.6104
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546427",
+      "mapGenieName": "Master of Meats",
+      "mapGenieDistance": 9.9
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0122",
+      "itemKey": 1000943,
+      "challenge": "Challenge_SealedArtifact_Living_IV",
+      "missionKey": 1000910,
+      "stepMissionKey": 4294966666,
+      "uuid": [
+        636725362,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -10529.8867,
+        686.38,
+        992.1921
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551649",
+      "mapGenieName": "Tiny Citizens of Grasslands",
+      "mapGenieDistance": 11.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0123",
+      "itemKey": 1000944,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_III",
+      "missionKey": 1001045,
+      "stepMissionKey": 4294966594,
+      "uuid": [
+        710751496,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11386.8994,
+        630.7716,
+        -4448.8818
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551259",
+      "mapGenieName": "Under the Ashen Banner Pike",
+      "mapGenieDistance": 20.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0124",
+      "itemKey": 1000945,
+      "challenge": "Challenge_SealedArtifact_Hunting_III",
+      "missionKey": 1000888,
+      "stepMissionKey": 4294966701,
+      "uuid": [
+        625811545,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6192.4761,
+        706.5197,
+        -495.0699
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:558116",
+      "mapGenieName": "Hunter's Discipline",
+      "mapGenieDistance": 15.2
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0125",
+      "itemKey": 1000946,
+      "challenge": "Challenge_SealedArtifact_Living_VII",
+      "missionKey": 1000913,
+      "stepMissionKey": 4294966655,
+      "uuid": [
+        625811523,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6058.6724,
+        698.9423,
+        736.9933
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551594",
+      "mapGenieName": "Feast for the Road",
+      "mapGenieDistance": 7.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0126",
+      "itemKey": 1000947,
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_II",
+      "missionKey": 1000737,
+      "stepMissionKey": 4294966728,
+      "uuid": [
+        625811552,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -4086.418,
+        633.1328,
+        2548.571
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551587",
+      "mapGenieName": "Hidden Banner Pike",
+      "mapGenieDistance": 11.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0127",
+      "itemKey": 1000948,
+      "challenge": "Challenge_SealedArtifact_Crime_VII",
+      "missionKey": 1001038,
+      "stepMissionKey": 4294966606,
+      "uuid": [
+        625811486,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -4662.0444,
+        669.4122,
+        1974.9353
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553632",
+      "mapGenieName": "Hands Quicker than Eyes",
+      "mapGenieDistance": 10.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0128",
+      "itemKey": 1000949,
+      "challenge": "Challenge_SealedArtifact_Hunting_X",
+      "missionKey": 1000895,
+      "stepMissionKey": 4294966685,
+      "uuid": [
+        625811559,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -5162.6489,
+        701.6857,
+        1297.379
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553059",
+      "mapGenieName": "The End of Myth",
+      "mapGenieDistance": 11.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0129",
+      "itemKey": 1000950,
+      "challenge": "Challenge_SealedArtifact_Trust_II",
+      "missionKey": 1001027,
+      "stepMissionKey": 4294966637,
+      "uuid": [
+        625811262,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -4164.4956,
+        603.5037,
+        3156.551
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553643",
+      "mapGenieName": "Rainbow mane",
+      "mapGenieDistance": 8.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0130",
+      "itemKey": 1000951,
+      "challenge": "Challenge_SealedArtifact_Living_V",
+      "missionKey": 1000911,
+      "stepMissionKey": 4294966664,
+      "uuid": [
+        625811530,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -7219.8813,
+        660.7109,
+        -884.5498
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:549800",
+      "mapGenieName": "Pillars of the Earth",
+      "mapGenieDistance": 25.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0131",
+      "itemKey": 1001550,
+      "challenge": "Challenge_SealedArtifact_Hunting_VII",
+      "missionKey": 1000892,
+      "stepMissionKey": 4294966693,
+      "uuid": [
+        625811477,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6894.0913,
+        551.3248,
+        -1292.5408
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:549801",
+      "mapGenieName": "Apex of the food chain",
+      "mapGenieDistance": 13.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0132",
+      "itemKey": 1002029,
+      "challenge": "Challenge_SealedArtifact_Living_VI",
+      "missionKey": 1000912,
+      "stepMissionKey": 4294966660,
+      "uuid": [
+        607464022,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -6422.1777,
+        541.4384,
+        -2256.5286
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:555797",
+      "mapGenieName": "Challenge 6: The Underwater Ecosystem",
+      "mapGenieDistance": 18.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0133",
+      "itemKey": 1002030,
+      "challenge": "Challenge_SealedArtifact_Trust_IV",
+      "missionKey": 1001029,
+      "stepMissionKey": 4294966627,
+      "uuid": [
+        625811573,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -6115.105,
+        499.794,
+        -1915.2705
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:551521",
+      "mapGenieName": "Contract of the Golden Crown",
+      "mapGenieDistance": 21.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0134",
+      "itemKey": 1002031,
+      "challenge": "Challenge_SealedArtifact_Hunting_VIII",
+      "missionKey": 1000893,
+      "stepMissionKey": 4294966689,
+      "uuid": [
+        625811460,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -5561.2148,
+        486.5673,
+        -2292.0042
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552376",
+      "mapGenieName": "Song of the Moon-Swallowing Sword",
+      "mapGenieDistance": 12.6
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0135",
+      "itemKey": 1002032,
+      "challenge": "Challenge_SealedArtifact_Crime_V",
+      "missionKey": 1001036,
+      "stepMissionKey": 4294966612,
+      "uuid": [
+        625811566,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -5270.9204,
+        602.6573,
+        -1189.3966
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553008",
+      "mapGenieName": "The Hand That Brushes Past All",
+      "mapGenieDistance": 14.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0136",
+      "itemKey": 1002033,
+      "challenge": "Challenge_SealedArtifact_Living_XII",
+      "missionKey": 1001400,
+      "stepMissionKey": 4294966641,
+      "uuid": [
+        1002551578,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Kwe",
+      "region": "Kweiden",
+      "gamePosition": [
+        -11395.751,
+        749.5016,
+        671.6816
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:553753",
+      "mapGenieName": "Caves Exploration Log",
+      "mapGenieDistance": 4.4
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0137",
+      "itemKey": 1002034,
+      "challenge": "Challenge_SealedArtifact_Living_VIII",
+      "missionKey": 1000914,
+      "stepMissionKey": 4294966652,
+      "uuid": [
+        3173140716,
+        3222802561,
+        1822861389,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -11328.3809,
+        768.4261,
+        -6901.229
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:545605",
+      "mapGenieName": "Artisan's Touch",
+      "mapGenieDistance": 24.8
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0138",
+      "itemKey": 1002035,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_VII",
+      "missionKey": 1000144,
+      "stepMissionKey": 4294966583,
+      "uuid": [
+        8861109,
+        1450447015,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dem",
+      "region": "Demeniss",
+      "gamePosition": [
+        -5929.3745,
+        511.8875,
+        -2496.2019
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554924",
+      "mapGenieName": "Boundless Fortune",
+      "mapGenieDistance": 19.1
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0139",
+      "itemKey": 1002036,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_VIII",
+      "missionKey": 1001202,
+      "stepMissionKey": 4294966581,
+      "uuid": [
+        72346472,
+        1450447015,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Del",
+      "region": "Delesyia",
+      "gamePosition": [
+        -6155.9624,
+        417.8835,
+        -4503.3911
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:554076",
+      "mapGenieName": "Survival of the Fittest",
+      "mapGenieDistance": 26.7
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0140",
+      "itemKey": 1002037,
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_IX",
+      "missionKey": 1001203,
+      "stepMissionKey": 4294966579,
+      "uuid": [
+        398248594,
+        1450447015,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Her",
+      "region": "Hernand",
+      "gamePosition": [
+        -9635.3057,
+        622.1623,
+        -3647.8384
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:546067",
+      "mapGenieName": "Not So Fast",
+      "mapGenieDistance": 19.5
+    },
+    {
+      "itemName": "Sealed_Abyss_Artifact_0141",
+      "itemKey": 1002038,
+      "challenge": "Challenge_SealedArtifact_Hunting_XI",
+      "missionKey": 1000138,
+      "stepMissionKey": 4294966680,
+      "uuid": [
+        447429184,
+        1450447015,
+        1681732668,
+        0
+      ],
+      "level": "Challenge_Sealed_Artifact_Dessert",
+      "region": "Crimson Desert",
+      "gamePosition": [
+        -4887.8579,
+        572.0227,
+        -1531.8572
+      ],
+      "insideParent": false,
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:552337",
+      "mapGenieName": "When Animals Die",
+      "mapGenieDistance": 14.7
+    }
+  ],
+  "saves": [
+    {
+      "save": "slot0.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 140,
+          "5": 1
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot1.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 140,
+          "5": 1
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot100.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 140,
+          "5": 1
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot101.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 140,
+          "5": 1
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot102.save",
+      "fieldRecords": [],
+      "inventory": [],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 141
+        }
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot103.save",
+      "fieldRecords": [],
+      "inventory": [],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 141
+        }
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot104.save",
+      "fieldRecords": [],
+      "inventory": [],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 141
+        }
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot105.save",
+      "fieldRecords": [],
+      "inventory": [],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 141
+        }
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot106.save",
+      "fieldRecords": [],
+      "inventory": [],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 141
+        }
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot107.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 140,
+          "5": 1
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot108.save",
+      "fieldRecords": [],
+      "inventory": [],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 141
+        }
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "slot2.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 140,
+          "5": 1
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "a0-before-slot100.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 140,
+          "5": 1
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "a1-autosave-slot2.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        },
+        {
+          "itemName": "Sealed_Abyss_Artifact_0016",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001",
+        "Sealed_Abyss_Artifact_0016"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 139,
+          "5": 2
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          },
+          {
+            "itemName": "Sealed_Abyss_Artifact_0016",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    },
+    {
+      "save": "a2-after-slot101.save",
+      "fieldRecords": [
+        {
+          "itemName": "Sealed_Abyss_Artifact_0001",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        },
+        {
+          "itemName": "Sealed_Abyss_Artifact_0016",
+          "gimmickInfoKey": 1004255,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 2255254665,
+          "ownUuidDisabled": true
+        }
+      ],
+      "inventory": [
+        "Sealed_Abyss_Artifact_0001",
+        "Sealed_Abyss_Artifact_0016"
+      ],
+      "missionStates": {
+        "challenge": {
+          "2": 141
+        },
+        "step": {
+          "2": 139,
+          "5": 2
+        },
+        "notOpen": [
+          {
+            "itemName": "Sealed_Abyss_Artifact_0001",
+            "mission": "step",
+            "state": 5
+          },
+          {
+            "itemName": "Sealed_Abyss_Artifact_0016",
+            "mission": "step",
+            "state": 5
+          }
+        ]
+      },
+      "bellsListRecords": []
+    }
+  ]
+}

@@ -73,6 +73,18 @@ struct NativeSaveSummary {
     unsigned nexusSeenMask[8]; // Discovered (or any field record exists).
     unsigned nexusActivatedMask[8];
     unsigned nexusUnknownMask[8];
+    // v0.88: Sealed Abyss Artifacts (artifact-links.h), from a fourth,
+    // independent pass over the field-object list. artifactsValid false =
+    // unknown (that pass failed; see artifactError): never treat that as "not
+    // picked up". An artifact whose field record looks unlike the studied
+    // "picked up" shape is in artifactUnknownMask. Other results are unaffected.
+    bool artifactsValid;
+    unsigned artifactCoverage; // How many known artifacts this build checks for.
+    unsigned artifactsPickedUp; // How many the save explicitly marks as picked up.
+    unsigned artifactsUnknown; // How many are in artifactUnknownMask.
+    unsigned artifactPickedUpMask[8];
+    unsigned artifactUnknownMask[8];
+    char artifactError[96]; // Why the artifact pass failed ("" when it succeeded).
 };
 
 // Returns the display name for a chest index ("Hernand chest 8"), or "" if out of range.

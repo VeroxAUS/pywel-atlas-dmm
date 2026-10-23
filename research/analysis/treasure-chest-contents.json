@@ -1,0 +1,5182 @@
+{
+ "summary": {
+  "Chest": {
+   "named": 189,
+   "no spawn reason": 1,
+   "named without item type": 10,
+   "named without description": 7
+  },
+  "Abyss Chest": {
+   "no item row": 50,
+   "no spawn reason": 24,
+   "named without item type": 0,
+   "named without description": 0
+  },
+  "itemRows": 6813,
+  "englishTexts": 13293
+ },
+ "categories": {
+  "Chest": [
+   {
+    "name": "Crimson Desert chest 1",
+    "uuid": [
+     805150262,
+     1591217937,
+     560387027,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Gloves_II"
+    ],
+    "itemKey": 2600032,
+    "itemName": "Demian_PlateArmor_Gloves_II",
+    "textId": "11167052408553584",
+    "english": "Light of the Battlefield Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "11167052408553585",
+    "description": "Plate gloves carrying the hopes for glorious victory. Polished golden plates flow seamlessly along the arm, while red cords tighten the gaps to ensure a steady fit. The pattern on the wrist flashes in the light, adding a commanding presence that stands out even on the battlefield."
+   },
+   {
+    "name": "Crimson Desert chest 2",
+    "uuid": [
+     1198678463,
+     3222802197,
+     1789175885,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Demian_Pure_White_Plate_Boots_I"
+    ],
+    "itemKey": 1000110,
+    "itemName": "Demian_Pure_White_Plate_Boots_I",
+    "textId": "4295439742402672",
+    "english": "Radiant Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4295439742402673",
+    "description": "Plate boots popular among women for their clean and neat design. The subtle sheen of the polished iron harmonizes with the golden trim, lending them a luxurious appearance. Primarily sought after by female freeswords, their high demand makes them quite expensive."
+   },
+   {
+    "name": "Crimson Desert chest 3",
+    "uuid": [
+     3178226632,
+     3222802220,
+     1789175885,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Volghan_Leather_Gloves"
+    ],
+    "itemKey": 123240,
+    "itemName": "Volghan_Leather_Gloves",
+    "textId": "529311769559152",
+    "english": "The Masked Liberator's Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "529311769559153",
+    "description": "Leather gloves once worn by the Masked Liberator. A red band wraps around thick yellow-brown leather, giving them a strong impression. Teal laces are tied into firm knots, securing the fit while adding a decorative touch."
+   },
+   {
+    "name": "Crimson Desert chest 4",
+    "uuid": [
+     2958124583,
+     3222802212,
+     1789175885,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Demian_Plate_Boots_III"
+    ],
+    "itemKey": 2600046,
+    "itemName": "Demian_Plate_Boots_III",
+    "textId": "11167112538095728",
+    "english": "Goldlight Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "11167112538095729",
+    "description": "Plate boots crafted to commemorate the construction of the Gate of Peace. These boots serve as a symbol of peace and prosperity. Polished golden plate covers the instep and calf, featuring an engraved pattern that subtly reveals itself when caught by the light."
+   },
+   {
+    "name": "Crimson Desert chest 5",
+    "uuid": [
+     3716890279,
+     3222802116,
+     1822861389,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Gaeljude_Plate_Boots"
+    ],
+    "itemKey": 131002,
+    "itemName": "Gaeljude_Plate_Boots",
+    "textId": "562649305710704",
+    "english": "Golden Greed Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "562649305710705",
+    "description": "Plate boots once worn by Merrick, the Knight of Fortune. Golden metal wraps around the shins and insteps, casting a blinding glare when caught in the sunlight. However, the uneven thickness of the plates and the crude finish suggest a vulnerability to impact, revealing that practicality was somewhat sacrificed for the sake of glamor."
+   },
+   {
+    "name": "Crimson Desert chest 6",
+    "uuid": [
+     4183623579,
+     3222802206,
+     1789175885,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Golden_PlateArmor_Armor"
+    ],
+    "itemKey": 111253,
+    "itemName": "Golden_PlateArmor_Armor",
+    "textId": "477827996582000",
+    "english": "Golden Greed Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "477827996582001",
+    "description": "A plate armor once worn by Merrick, the Knight of Fortune. Crafted from brilliant golden metal, the intricate plates encase the entire body, radiating a magnificent glow when caught by the light. The golden chain exudes both opulence and majesty."
+   },
+   {
+    "name": "Crimson Desert chest 7",
+    "uuid": [
+     3596842660,
+     1450446532,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Golden_PlateArmor_Helm"
+    ],
+    "itemKey": 1000906,
+    "itemName": "Golden_PlateArmor_Helm",
+    "textId": "4298858536370288",
+    "english": "Golden Greed Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "4298858536370289",
+    "description": "A plate helm once worn by Merrick, the Knight of Fortune. Crafted from radiant golden metal, it fully encases the head and face, casting an exaggerated, brilliant glare when caught in the light. While it appears majestic at a glance, a closer inspection reveals coarse finishing and overly soft metal, exposing it as equipment designed more for vanity than protection."
+   },
+   {
+    "name": "Crimson Desert chest 8",
+    "uuid": [
+     1555756338,
+     1591217951,
+     3947466451,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Gloves_IV"
+    ],
+    "itemKey": 2600043,
+    "itemName": "Demian_PlateArmor_Gloves_IV",
+    "textId": "11167099653193840",
+    "english": "Goldlight Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "11167099653193841",
+    "description": "Plate gloves crafted to commemorate the construction of the Gate of Peace. These gloves serve as a symbol of peace and prosperity. Red trim accents the golden plate for the signature coloring, and the wide design cover the entire wrist. They are also often used as ceremonial equipment."
+   },
+   {
+    "name": "Crimson Desert chest 9",
+    "uuid": [
+     103731873,
+     3222802199,
+     1789175885,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Regglin_Boss_Helm"
+    ],
+    "itemKey": 1000509,
+    "itemName": "Regglin_Boss_Helm",
+    "textId": "4297153434353776",
+    "english": "Leather Hat of Enlightenment",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "4297153434353777",
+    "description": "A leather hat resembling an ancient temple's tower. Its clean, unadorned design reflects discipline, mental focus, and a serene inner state."
+   },
+   {
+    "name": "Crimson Desert chest 10",
+    "uuid": [
+     351047863,
+     1591217957,
+     560387027,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Heisellen_Fabric_Cloak"
+    ],
+    "itemKey": 1000279,
+    "itemName": "Heisellen_Fabric_Cloak",
+    "textId": "4296165591875696",
+    "english": "The Masked Liberator's Cloth Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296165591875697",
+    "description": "A cloth cloak once worn by the Masked Liberator. From behind, it looks like a saint's cloak, hiding its true face until it draws near. But only dread awaits those who discover the darkness it conceals."
+   },
+   {
+    "name": "Crimson Desert chest 11",
+    "uuid": [
+     3954719244,
+     4279243045,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Cloak_III"
+    ],
+    "itemKey": 1000685,
+    "itemName": "Demian_PlateArmor_Cloak_III",
+    "textId": "4297909348597872",
+    "english": "Goldlight Plate Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4297909348597873",
+    "description": "A plate cloak crafted to commemorate the construction of the Gate of Peace. This cloak serves as a symbol of peace and prosperity. The angelic figures carved into the pauldrons depict protection, while the vivid red pattern stands out boldly across the back. Its radiant appearance commands attention even on the battlefield."
+   },
+   {
+    "name": "Crimson Desert chest 12",
+    "uuid": [
+     4042900538,
+     4279243045,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_AbyssReward_HolyEcho_OneHandBow"
+    ],
+    "itemKey": 12701,
+    "itemName": "AbyssReward_HolyEcho_OneHandBow",
+    "textId": "54550379626608",
+    "english": "Divine Echoes Bow",
+    "status": "named",
+    "equipTypeKey": 249090674,
+    "itemType": "Bow",
+    "descriptionId": "54550379626609",
+    "description": "An ornate bow used by the self-proclaimed \"Masked Liberators.\" Flashy in appearance and formidable in performance, it draws smoothly and maintains its power even in sandstorms. Contrary to their talk of salvation, in practice it's used to raid villages and butcher people."
+   },
+   {
+    "name": "Crimson Desert chest 13",
+    "uuid": [
+     4113727328,
+     4279243045,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Demian_Plate_Boots_VI"
+    ],
+    "itemKey": 1000255,
+    "itemName": "Demian_Plate_Boots_VI",
+    "textId": "4296062512660592",
+    "english": "Light of the Battlefield Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4296062512660593",
+    "description": "Plate boots carrying the hopes for glorious victory. Golden plates extend along the legs, while the eagle wings on the knees exude majesty. Leather straps connecting the plates stay snug during movement, reducing noise and instability even when sprinting or making sudden turns."
+   },
+   {
+    "name": "Crimson Desert chest 14",
+    "uuid": [
+     4167973286,
+     4279243045,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Armor_II"
+    ],
+    "itemKey": 2600012,
+    "itemName": "Demian_PlateArmor_Armor_II",
+    "textId": "11166966509207664",
+    "english": "Light of the Battlefield Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "11166966509207665",
+    "description": "A plate armor carrying the hopes for glorious victory. Polished golden plates run along the arms, their engraved patterns flashing as they catch the light. The eagles on the pauldrons rise like wings, making the wearer look like a symbol of victory."
+   },
+   {
+    "name": "Crimson Desert chest 15",
+    "uuid": [
+     4182404172,
+     4279243045,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Helm_VIII"
+    ],
+    "itemKey": 1000805,
+    "itemName": "Demian_PlateArmor_Helm_VIII",
+    "textId": "4298424744673392",
+    "english": "Light of the Battlefield Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "4298424744673393",
+    "description": "A plate helm carrying the hopes for glorious victory. Shaped like a laurel wreath woven from golden leaves, it serves as a clear symbol of victory. Donning this helm instantly elevates the prestige of any warrior on the battlefield."
+   },
+   {
+    "name": "Crimson Desert chest 16",
+    "uuid": [
+     4275545806,
+     4279243045,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxcrimsondesert",
+    "spawnReasons": [
+     "Drop_Flame_SwordMan_TwoHandHammer"
+    ],
+    "itemKey": 400002,
+    "itemName": "Flame_SwordMan_TwoHandHammer",
+    "textId": "1717995508334704",
+    "english": "Greathammer of Fire",
+    "status": "named",
+    "equipTypeKey": 604374103,
+    "itemType": "Greathammer",
+    "descriptionId": "1717995508334705",
+    "description": "A greathammer with a red handle and a peculiar head. Its design allows it to fill the head with gunpowder to make it spit flames when it's swung."
+   },
+   {
+    "name": "Delesyia chest 1",
+    "uuid": [
+     3461447009,
+     1591217934,
+     560387027,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_CraftingRecipe_Dragon_Weapon"
+    ],
+    "itemKey": 1002771,
+    "itemName": "CraftingRecipe_Dragon_Weapon",
+    "textId": "4306868650377328",
+    "english": "Aeserion Gear Blueprint",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4306868650377329",
+    "description": null
+   },
+   {
+    "name": "Delesyia chest 2",
+    "uuid": [
+     3002339217,
+     4279242500,
+     2038457056,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Scalaphynion_Fabric_Cloak"
+    ],
+    "itemKey": 1000276,
+    "itemName": "Scalaphynion_Fabric_Cloak",
+    "textId": "4296152706973808",
+    "english": "Skyblazer Cloth Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296152706973809",
+    "description": "A cloth cloak once worn by Balthazar, the Wyvernflame. Its front is tailored to hang low, shielding the chest against a wyvern's sudden thrashing. The number of studs on the clasp denotes the wearer's rank; only the commander is entitled to bear five."
+   },
+   {
+    "name": "Delesyia chest 3",
+    "uuid": [
+     484754728,
+     1450446625,
+     1494999100,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Scalaphynion_Fabric_Helm"
+    ],
+    "itemKey": 9401,
+    "itemName": "Scalaphynion_Fabric_Helm",
+    "textId": "40376987549808",
+    "english": "Skyblazer Cloth Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "40376987549809",
+    "description": "A cloth helm once worn by Balthazar, the Wyvernflame. The long metal crest is designed to catch the light, drawing the attention of wyverns lured by the glint of metal."
+   },
+   {
+    "name": "Delesyia chest 4",
+    "uuid": [
+     1089739355,
+     1450446589,
+     1083623228,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Rhinard_TwoHandCannon_I"
+    ],
+    "itemKey": 15200,
+    "itemName": "Rhinard_TwoHandCannon_I",
+    "textId": "65283502899312",
+    "english": "Finest Rhinard Cannon",
+    "status": "named",
+    "equipTypeKey": 975012496,
+    "itemType": "Two-Handed Cannon",
+    "descriptionId": "65283502899313",
+    "description": "An improved model of the Rhinard Cannon, modified and newly painted. The dark red appearance and overwhelming firepower leave a strong impression. By using components that withstand higher temperatures and shocks, it possesses immense destructive power, turning enemies into dust in an instant."
+   },
+   {
+    "name": "Delesyia chest 5",
+    "uuid": [
+     622199458,
+     1450446530,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Scalaphynion_Fabric_Armor"
+    ],
+    "itemKey": 114590,
+    "itemName": "Scalaphynion_Fabric_Armor",
+    "textId": "492160302448752",
+    "english": "Skyblazer Cloth Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "492160302448753",
+    "description": "Cloth armor once worn by Balthazar, the Wyvernflame. Crafted from a special fabric brought from across the sea, it is resilient enough to withstand even a wyvern's talons. The red knot is steeped in a scent that allows wyverns to identify their handler."
+   },
+   {
+    "name": "Delesyia chest 6",
+    "uuid": [
+     2104291283,
+     1450446538,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Carta_PlateArmor_Armor"
+    ],
+    "itemKey": 111214,
+    "itemName": "Carta_PlateArmor_Armor",
+    "textId": "477660492857456",
+    "english": "Carta Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "477660492857457",
+    "description": "A plate armor crafted by Carta, the scrap merchant of Delesyia. Had he received an education or a chance to realize his talent, he would never have ended up making this armor."
+   },
+   {
+    "name": "Delesyia chest 7",
+    "uuid": [
+     2368137256,
+     1450446625,
+     1494999100,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Lascaux_Leather_Boots"
+    ],
+    "itemKey": 133203,
+    "itemName": "Lascaux_Leather_Boots",
+    "textId": "572102528729200",
+    "english": "Lascaux Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "572102528729201",
+    "description": "Leather boots crafted from flexible dark brown leather. The naturally wrinkled ankle area enhances mobility. A blend of practicality and classic design makes them highly sought after."
+   },
+   {
+    "name": "Delesyia chest 8",
+    "uuid": [
+     2668251072,
+     1450446804,
+     1681732668,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Hard_Thorn_OneHandTowerShield"
+    ],
+    "itemKey": 290997,
+    "itemName": "Hard_Thorn_OneHandTowerShield",
+    "textId": "1249822598234224",
+    "english": "Legion Spearmen's Large Shield",
+    "status": "named",
+    "equipTypeKey": 1334259611,
+    "itemType": "Large Shield",
+    "descriptionId": "1249822598234225",
+    "description": "A large shield mainly used by spearmen to stop cavalry charges. Fitted with cast-iron spikes, it's designed to deal heavy damage to anything that rushes into it."
+   },
+   {
+    "name": "Delesyia chest 9",
+    "uuid": [
+     4018385012,
+     1450446528,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Delesian_Friend_Boss_TwoHandSword"
+    ],
+    "itemKey": 240043,
+    "itemName": "Delesian_Friend_Boss_TwoHandSword",
+    "textId": "1030976834633840",
+    "english": "Delesyian Longsword",
+    "status": "named",
+    "equipTypeKey": 1086980073,
+    "itemType": "Longsword",
+    "descriptionId": "1030976834633841",
+    "description": "A longsword defined by its hook-like blade. It is usually used to cut down foes, but the hooked section can also be used to restrain the movements of larger enemies."
+   },
+   {
+    "name": "Delesyia chest 10",
+    "uuid": [
+     4027738185,
+     1450446528,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Ancient_Shield"
+    ],
+    "itemKey": 1000266,
+    "itemName": "Ancient_Shield",
+    "textId": "4296109757300848",
+    "english": "Ancient Shield",
+    "status": "named",
+    "equipTypeKey": 257028056,
+    "itemType": "Shield",
+    "descriptionId": "4296109757300849",
+    "description": "A shield discovered in ancient ruins of unknown age. It appears to be made from a mix of different alloys, but no one knows by who or how it was forged."
+   },
+   {
+    "name": "Delesyia chest 11",
+    "uuid": [
+     3088457150,
+     1450446624,
+     1494999100,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Legendary_MarniGolem_Plate_Boots"
+    ],
+    "itemKey": 1000900,
+    "itemName": "Legendary_MarniGolem_Plate_Boots",
+    "textId": "4298832766566512",
+    "english": "Frozen Heart Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4298832766566513",
+    "description": "Silver plate boots modeled after the Machina Knight. The cold, shimmering metal extends smoothly to the shins, providing stable support for the lower body. The joints, which flex naturally even during sudden movements, are particularly impressive."
+   },
+   {
+    "name": "Delesyia chest 12",
+    "uuid": [
+     31216416,
+     1450446529,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Magnet_OneHandSword"
+    ],
+    "itemKey": 1001055,
+    "itemName": "Magnet_OneHandSword",
+    "textId": "4299498486497392",
+    "english": "Red Needle",
+    "status": "named",
+    "equipTypeKey": 1584411264,
+    "itemType": "Sword",
+    "descriptionId": "4299498486497393",
+    "description": "A sword forged from unknown material. Crafted with ancient skills now forgotten, this weapon is lighter than a standard sword. However, grappling its center of gravity is tricky, making it difficult to handle for anyone without mastery as a swordsman."
+   },
+   {
+    "name": "Delesyia chest 13",
+    "uuid": [
+     4291791801,
+     1450446622,
+     1681732668,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Legendary_Orc_Plate_Glove"
+    ],
+    "itemKey": 14304,
+    "itemName": "Legendary_Orc_Plate_Glove",
+    "textId": "61435212202096",
+    "english": "Frozen Heart Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "61435212202097",
+    "description": "Silver plate gloves modeled after the Machina Knight. The cold, shimmering metal firmly wraps around the back of the hand and wrist to deflect impact, while the smooth surface reveals mechanical precision. Red accents on the interior contrast with the silver, further heightening its cold impression."
+   },
+   {
+    "name": "Delesyia chest 14",
+    "uuid": [
+     2072025724,
+     3222802114,
+     1822861389,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Legendary_DragonSlayer_OneHandSword"
+    ],
+    "itemKey": 13809,
+    "itemName": "Legendary_DragonSlayer_OneHandSword",
+    "textId": "59309203390576",
+    "english": "Nazk Sword",
+    "status": "named",
+    "equipTypeKey": 1584411264,
+    "itemType": "Sword",
+    "descriptionId": "59309203390577",
+    "description": "A sword of a warrior who slew a legendary dragon. Its flashing edge seems capable of cutting through anything, and it is durable enough to endure a dragon's flames. To some, it is a wondrous symbol of historic achievement, to others, merely a tool that slew a noble being in pursuit of tainted fame."
+   },
+   {
+    "name": "Delesyia chest 15",
+    "uuid": [
+     2054748770,
+     1450446623,
+     1494999100,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Legendary_MarniGolem_Plate_Armor"
+    ],
+    "itemKey": 14109,
+    "itemName": "Legendary_MarniGolem_Plate_Armor",
+    "textId": "60597693579376",
+    "english": "Frozen Heart Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "60597693579377",
+    "description": "A silver plate armor modeled after the Machina Knight, crafted with inspiration from the Machina Knight's strong appearance. The cold, gleaming metal surface reveals the wearer's dignity and ruthlessness. Its unwavering defense allows the wearer to focus on attacking."
+   },
+   {
+    "name": "Delesyia chest 16",
+    "uuid": [
+     742223830,
+     4279243046,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Demian_Plate_Boots_V"
+    ],
+    "itemKey": 14200,
+    "itemName": "Demian_Plate_Boots_V",
+    "textId": "60988535603312",
+    "english": "Executioner of Darkness Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "60988535603313",
+    "description": "Plate boots awarded to those granted a title by House Thorel, the rulers of the Kingdom of Demeniss. Golden plates are set vertically over a dark brown base to create a sharp, sleek silhouette, while the thin plating on the instep flexes naturally with every step."
+   },
+   {
+    "name": "Delesyia chest 17",
+    "uuid": [
+     631964841,
+     1591217868,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Heat_PlateArmor_Helm"
+    ],
+    "itemKey": 1000236,
+    "itemName": "Heat_PlateArmor_Helm",
+    "textId": "4295980908281968",
+    "english": "Helm of Ignition",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "4295980908281969",
+    "description": "A masterpiece for adventurers who finds even flint a nuisance. It detects and ignites nearby bonfires."
+   },
+   {
+    "name": "Delesyia chest 18",
+    "uuid": [
+     2153367957,
+     1450446621,
+     1494999100,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Stugrub_Leather_Boots"
+    ],
+    "itemKey": 133172,
+    "itemName": "Stugrub_Leather_Boots",
+    "textId": "571969384743024",
+    "english": "The Masked Liberator's Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "571969384743025",
+    "description": "Leather boots once worn by the Masked Liberator. The black leather straps are etched with fine patterns. Extra leather has been reinforced across the instep and sides for greater durability. Their wide, sturdy sole helps the wearer with steady steps even across rough regions."
+   },
+   {
+    "name": "Delesyia chest 19",
+    "uuid": [
+     959734234,
+     1450446595,
+     1681732668,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Leone_OneHandRapier"
+    ],
+    "itemKey": 201005,
+    "itemName": "Leone_OneHandRapier",
+    "textId": "863309901332592",
+    "english": "Leonne Rapier",
+    "status": "named",
+    "equipTypeKey": 1187101662,
+    "itemType": "Rapiers",
+    "descriptionId": "863309901332593",
+    "description": "A rapier said to have been wielded by a renowned duelist. After Leonne announced her retirement, her rapier found its way into the black market. However, as merchants began flooding the market with counterfeits, the original became impossible to identify."
+   },
+   {
+    "name": "Delesyia chest 20",
+    "uuid": [
+     3835728638,
+     1450446622,
+     1494999100,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Helm_XI"
+    ],
+    "itemKey": 1000842,
+    "itemName": "Demian_PlateArmor_Helm_XI",
+    "textId": "4298583658463344",
+    "english": "Executioner of Darkness Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "4298583658463345",
+    "description": "A plate helm awarded to those granted a title by House Thorel, the rulers of the Kingdom of Demeniss. Adorned with a golden laurel and winged feathers, it marks the wearer as an enforcer sanctioned by the royal family."
+   },
+   {
+    "name": "Delesyia chest 21",
+    "uuid": [
+     3016528673,
+     1450446620,
+     2909694524,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_HorseShoe_HorseArmor_Shoe_III"
+    ],
+    "itemKey": 1000594,
+    "itemName": "HorseShoe_HorseArmor_Shoe_III",
+    "textId": "4297518506573936",
+    "english": "Steelheart Horseshoes",
+    "status": "named",
+    "equipTypeKey": 3747130129,
+    "itemType": "Horseshoes",
+    "descriptionId": "4297518506573937",
+    "description": "Horseshoes crafted using Delesyia's precision engineering. Their machine-refined curves ensure a perfect, seamless fit against the horse's hooves."
+   },
+   {
+    "name": "Delesyia chest 22",
+    "uuid": [
+     992893862,
+     1591217923,
+     3947466451,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Marni_MachineKnight_TwoHandSpear"
+    ],
+    "itemKey": 1000957,
+    "itemName": "Marni_MachineKnight_TwoHandSpear",
+    "textId": "4299077579702384",
+    "english": "Electro-Mecha Spear",
+    "status": "named",
+    "equipTypeKey": 2914941932,
+    "itemType": "Two-Handed Spear",
+    "descriptionId": "4299077579702385",
+    "description": "An electricity-charged spear used by Marni's Machina Knight. Rather than a standard spear, Marni fitted it with a special device to make the blade conduct electricity. Anyone struck by it suffers not only the spear's damage, but the shock from the electricity as well. A brief recharge time is required after an attack."
+   },
+   {
+    "name": "Delesyia chest 23",
+    "uuid": [
+     3618386306,
+     1591217924,
+     3947466451,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Recipe_Surasang_03"
+    ],
+    "itemKey": 1000956,
+    "itemName": "Recipe_Surasang_03",
+    "textId": "4299073284735088",
+    "english": "Recipe: Fine Meal",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4299073284735089",
+    "description": "A recipe to make a delicious fine meal.<br/><br/>[Effect] Restores Health beyond the limits<br/>※ When made with rare ingredients, the dishes gain special effects."
+   },
+   {
+    "name": "Delesyia chest 24",
+    "uuid": [
+     2813045479,
+     1591217866,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Lyfellen_TwoHandAxe"
+    ],
+    "itemKey": 250014,
+    "itemName": "Lyfellen_TwoHandAxe",
+    "textId": "1073801953542256",
+    "english": "Incomplete Masterpiece",
+    "status": "named",
+    "equipTypeKey": 585399773,
+    "itemType": "Greataxe",
+    "descriptionId": "1073801953542257",
+    "description": "A greataxe that made the name of the extraordinary blacksmith, Sydmon. It is crafted with intricate patterns and with the wielder's movements in mind. If it had been Sydmon's hand that finished sharpening it, the axe would have become not just a masterpiece but a legend."
+   },
+   {
+    "name": "Delesyia chest 25",
+    "uuid": [
+     675301335,
+     4279243046,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Cloak_V"
+    ],
+    "itemKey": 1000686,
+    "itemName": "Demian_PlateArmor_Cloak_V",
+    "textId": "4297913643565168",
+    "english": "Executioner of Darkness Plate Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4297913643565169",
+    "description": "A plate cloak awarded to those granted a title by the House Thorel, rulers of the Kingdom of Demeniss. Golden patterns are pressed into the black fabric, and the royal crest is prominently displayed on the back to provide immediate proof of one's status."
+   },
+   {
+    "name": "Delesyia chest 26",
+    "uuid": [
+     3672485500,
+     1450446751,
+     1494999100,
+     0
+    ],
+    "level": "treasureboxdelesyia",
+    "spawnReasons": [
+     "Drop_Hidden_TreasureMap_VIII"
+    ],
+    "itemKey": 1002210,
+    "itemName": "Hidden_TreasureMap_VIII",
+    "textId": "4304459173724272",
+    "english": "Hidden Treasure Map Piece 8",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4304459173724273",
+    "description": "A map showing the area around a marked location. Identifying the region will reveal the spot."
+   },
+   {
+    "name": "Demeniss chest 1",
+    "uuid": [
+     3580229536,
+     3222802584,
+     1822861389,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Helm_V"
+    ],
+    "itemKey": 14400,
+    "itemName": "Demian_PlateArmor_Helm_V",
+    "textId": "61847529062512",
+    "english": "Wanderer of Faith's Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "61847529062513",
+    "description": "A plate helm that embodies unwavering composure on long journeys. A slender golden band encircles the brow, set with a central jewel that denotes the wearer's status, while the frame is cleverly concealed beneath the hair for a refined, understated look."
+   },
+   {
+    "name": "Demeniss chest 2",
+    "uuid": [
+     77809529,
+     1591217867,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Vdure_ChainMail_Armor"
+    ],
+    "itemKey": 114521,
+    "itemName": "Vdure_ChainMail_Armor",
+    "textId": "491863949705328",
+    "english": "Bedure Chain Mail",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "491863949705329",
+    "description": "A chain mail issued only to officers of the Wells brigade. The breastplate and pauldrons are layered over the fine chainmail to increase the commander's survivability, while the red sash signifies their rank."
+   },
+   {
+    "name": "Demeniss chest 3",
+    "uuid": [
+     2982998606,
+     3222802114,
+     1822861389,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Khadiac_TwoHandAxe"
+    ],
+    "itemKey": 250019,
+    "itemName": "Khadiac_TwoHandAxe",
+    "textId": "1073823428378736",
+    "english": "Troll Hook Greataxe",
+    "status": "named",
+    "equipTypeKey": 585399773,
+    "itemType": "Greataxe",
+    "descriptionId": "1073823428378737",
+    "description": "A greataxe forged not for men, but for trolls. Though its hooked blade was meant for nonlethal restraint, the weapon's sheer destructive power overshadows the intended purpose, and it's rarely in such way."
+   },
+   {
+    "name": "Demeniss chest 4",
+    "uuid": [
+     3697270496,
+     1450446556,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Redknight_PlateArmor_Cloak"
+    ],
+    "itemKey": 1000315,
+    "itemName": "Redknight_PlateArmor_Cloak",
+    "textId": "4296320210698352",
+    "english": "Plate Cloak of Cursed Soul",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296320210698353",
+    "description": "A plate cloak of Fortain the Cursed Knight. To conquer the Wells, he embraced unfathomable power and relinquished his soul. This ornate cloak stood as a symbol of his authority."
+   },
+   {
+    "name": "Demeniss chest 5",
+    "uuid": [
+     2101378731,
+     1591217870,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Redknight_PlateArmor_Armor"
+    ],
+    "itemKey": 14101,
+    "itemName": "Redknight_PlateArmor_Armor",
+    "textId": "60563333841008",
+    "english": "Plate Armor of Cursed Soul",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "60563333841009",
+    "description": "A plate armor of Fortain the Cursed Knight. To conquer the Wells, he embraced unfathomable power and relinquished his soul. His armor is as splendid as his ambition."
+   },
+   {
+    "name": "Demeniss chest 6",
+    "uuid": [
+     2027746240,
+     1450446538,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Abyss_Surreal_Wolf_Leather_Helm"
+    ],
+    "itemKey": 104175,
+    "itemName": "Abyss_Surreal_Wolf_Leather_Helm",
+    "textId": "447428218060912",
+    "english": "Jester Leather Mask",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "447428218060913",
+    "description": "A unique mask combining the piercing gaze of a wolf with a jester hat. Small ornaments hang from the tips of its long, ear-shaped extensions, swaying gently with each step."
+   },
+   {
+    "name": "Demeniss chest 7",
+    "uuid": [
+     140365873,
+     1591217935,
+     560387027,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Witch_WingFan"
+    ],
+    "itemKey": 1000156,
+    "itemName": "Witch_WingFan",
+    "textId": "4295637310898288",
+    "english": "Eastern Witch's Fan",
+    "status": "named",
+    "equipTypeKey": 2548532496,
+    "itemType": "Fan",
+    "descriptionId": "4295637310898289",
+    "description": "A fan engraved with mysterious patterns, received from the witch of the east. When wielded as a weapon, it allows the user to borrow the witches' power to command a harmony of wind and lightning. With gusts strong enough to push even rain clouds away, it is capable of clearing overcast skies to load a bright, sunny day."
+   },
+   {
+    "name": "Demeniss chest 8",
+    "uuid": [
+     25735867,
+     1450446529,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Demian_Leather_Armor_VI"
+    ],
+    "itemKey": 1000892,
+    "itemName": "Demian_Leather_Armor_VI",
+    "textId": "4298798406828144",
+    "english": "Wanderer of Faith Leather Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "4298798406828145",
+    "description": "A leather armor that embodies unwavering composure on long journeys. Set on deep-toned leather, gilded trim and layered chains draw striking lines, while the waist belt and knotted accents shape a fitted silhouette. Long panels split at the waist flutter with each movement, leaving a resolute impression with every step."
+   },
+   {
+    "name": "Demeniss chest 9",
+    "uuid": [
+     2903737093,
+     1450446542,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Liberry_OneHandRapier"
+    ],
+    "itemKey": 201019,
+    "itemName": "Liberry_OneHandRapier",
+    "textId": "863370030874736",
+    "english": "Liberre Rapier",
+    "status": "named",
+    "equipTypeKey": 1187101662,
+    "itemType": "Rapiers",
+    "descriptionId": "863370030874737",
+    "description": "A rapier distinguished by its moonlike design. The crescent ornament where the hilt meets the blade is said to have been made for the sword's first owner, Liberre, the Moon Swordfighter."
+   },
+   {
+    "name": "Demeniss chest 10",
+    "uuid": [
+     2253253648,
+     1450446552,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Hailbrin_Leather_Boots"
+    ],
+    "itemKey": 133011,
+    "itemName": "Hailbrin_Leather_Boots",
+    "textId": "571277895008368",
+    "english": "Helfryn Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "571277895008369",
+    "description": "Leather shoes once worn by Duke Caliburn of Demeniss. A luxury garment practical even for combat. Following Caliburn's rise to power, they became so popular that even the wealthiest individuals struggled to get their hands on them."
+   },
+   {
+    "name": "Demeniss chest 11",
+    "uuid": [
+     3513304954,
+     3222802194,
+     1789175885,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_DamianOnly_Leather_Boots_VI"
+    ],
+    "itemKey": 1000895,
+    "itemName": "DamianOnly_Leather_Boots_VI",
+    "textId": "4298811291730032",
+    "english": "Wanderer of Faith Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4298811291730033",
+    "description": "Leather boots that embody unwavering composure on long journeys. Black leather rising to the shin, with tight lacing and a folded cuff for a clean silhouette, while the hard-wearing material stands up to the harsh scrape of dirt tracks and stone paths."
+   },
+   {
+    "name": "Demeniss chest 12",
+    "uuid": [
+     2764745724,
+     1450446530,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Samuel_PlateArmor_Gloves"
+    ],
+    "itemKey": 1000058,
+    "itemName": "Samuel_PlateArmor_Gloves",
+    "textId": "4295216404103280",
+    "english": "Dark Marksman's Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "4295216404103281",
+    "description": "Plate gloves once worn by Samara, the Sandwatcher. Pitch-black plate covers the back of the hand and wrist, secured by layers of leather straps and buckles to maintain its shape even against violent recoil. The scars and faint soot remaining on the metal surface are a grim reminder of the gunpowder."
+   },
+   {
+    "name": "Demeniss chest 13",
+    "uuid": [
+     1801968226,
+     1591217858,
+     3947466451,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Samuel_Plate_Boots"
+    ],
+    "itemKey": 1000059,
+    "itemName": "Samuel_Plate_Boots",
+    "textId": "4295220699070576",
+    "english": "Dark Marksman's Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4295220699070577",
+    "description": "Plate boots once worn by Samara, the Sandwatcher. The black plate extends up to the shins, shielding the wearer from sand and debris. The reinforced toes provide a solid foundation, ensuring one's balance remains steady in a shooting stance."
+   },
+   {
+    "name": "Demeniss chest 14",
+    "uuid": [
+     1579697117,
+     1450446623,
+     2909694524,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Redsentinel_ChainMail_Cloak"
+    ],
+    "itemKey": 1000287,
+    "itemName": "Redsentinel_ChainMail_Cloak",
+    "textId": "4296199951614064",
+    "english": "Crimson Chaser Chain Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296199951614065",
+    "description": "A chain cloak once worn by a former Greymane, Regina, the Crimson Warden. Golden patterns are intricately embroidered over the crimson cloth to add an air of majesty, while short layers cover the shoulders to ensure the movement of the arms and neck remains unobstructed."
+   },
+   {
+    "name": "Demeniss chest 15",
+    "uuid": [
+     3915776765,
+     1450446538,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Redsentinel_PlateArmor_Gloves"
+    ],
+    "itemKey": 14302,
+    "itemName": "Redsentinel_PlateArmor_Gloves",
+    "textId": "61426622267504",
+    "english": "Crimson Chaser Chain Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "61426622267505",
+    "description": "Chain gloves once worn by a former Greymane, Regina, the Crimson Warden. Metal plates are layered over thick leather gloves to absorb impact while allowing for fluid movement. Daggers can be equipped inside the plates, allowing them to be withdrawn and wielded instantly when needed."
+   },
+   {
+    "name": "Demeniss chest 16",
+    "uuid": [
+     2023688669,
+     1450446538,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Londel_PlateArmor_Helm"
+    ],
+    "itemKey": 101056,
+    "itemName": "Londel_PlateArmor_Helm",
+    "textId": "434032215064688",
+    "english": "Scorchflame Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "434032215064689",
+    "description": "A plate helm once worn by Tristan, the Flame Knight. Crafted in the likeness of a roaring dragon, it strikes fear into any who behold it. A subtle heat can still be felt when held close."
+   },
+   {
+    "name": "Demeniss chest 17",
+    "uuid": [
+     2970617647,
+     1450446578,
+     1681732668,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Helm_VI"
+    ],
+    "itemKey": 1000769,
+    "itemName": "Demian_PlateArmor_Helm_VI",
+    "textId": "4298270125850736",
+    "english": "Autumn Banquet Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "4298270125850737",
+    "description": "A ceremonial plate helm that captures the quiet elegance of an autumn forest. Delicate patterns are engraved into the thin golden plates encircling the head, leaving a refined impression, while the ornament at the center draws the eye to create a sense of balance. It catches the light with a subtle luster, providing the perfect finishing touch to a dignified attire."
+   },
+   {
+    "name": "Demeniss chest 18",
+    "uuid": [
+     3430000096,
+     1591217854,
+     3947466451,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Demian_Fabric_Cloak_III"
+    ],
+    "itemKey": 1001131,
+    "itemName": "Demian_Fabric_Cloak_III",
+    "textId": "4299824904011888",
+    "english": "Autumn Banquet Cloth Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4299824904011889",
+    "description": "A formal cloth cloak that captures the quiet elegance of an autumn forest. Deep-toned fabric falls in long lines to form a neat silhouette, while a subtle sheen adds the autumn mood, like falling leaves."
+   },
+   {
+    "name": "Demeniss chest 19",
+    "uuid": [
+     1038422945,
+     1450446538,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Nakmore_Leather_Boots"
+    ],
+    "itemKey": 133117,
+    "itemName": "Nakmore_Leather_Boots",
+    "textId": "571733161541744",
+    "english": "Nagmore Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "571733161541745",
+    "description": "Leather boots crafted from dark brown leather. The upper part of the boots provides stable protection for the leg, while the folded leather cover on the upper part adds both utility and style."
+   },
+   {
+    "name": "Demeniss chest 20",
+    "uuid": [
+     422233227,
+     1591217868,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Redsentinel_PlateArmor_Helm"
+    ],
+    "itemKey": 14405,
+    "itemName": "Redsentinel_PlateArmor_Helm",
+    "textId": "61869003898992",
+    "english": "Crimson Chaser Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "61869003898993",
+    "description": "A plate helm once worn by a former Greymane, Regina, who later became the Crimson Warden. The patterns engraved upon the golden plate glint in the light, while its deep-set design keeps the wearer's gaze hidden. When the slaughter begins and bloodshed sweeps in, the crimson feather rising from the crown sways softly."
+   },
+   {
+    "name": "Demeniss chest 21",
+    "uuid": [
+     4072597239,
+     1591217950,
+     3947466451,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Samuel_PlateArmor_Armor"
+    ],
+    "itemKey": 1000057,
+    "itemName": "Samuel_PlateArmor_Armor",
+    "textId": "4295212109135984",
+    "english": "Dark Marksman's Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "4295212109135985",
+    "description": "A plate armor once worn by Samara, the Sandwatcher. In the desert, tales are told of a dark marksman who appears in the sandstorm, shoots with perfect accuracy, and vanishes. Some outlaws who are inspired by the Dark Marksman dress in a similar way."
+   },
+   {
+    "name": "Demeniss chest 22",
+    "uuid": [
+     4045130986,
+     1450446530,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Demian_Leather_Armor_IV"
+    ],
+    "itemKey": 1000008,
+    "itemName": "Demian_Leather_Armor_IV",
+    "textId": "4295001655738480",
+    "english": "Autumn Banquet Leather Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "4295001655738481",
+    "description": "A formal leather armor that captures the quiet elegance of an autumn forest. It has delicate patterned detailing and a golden trim layer over dark leather, creating a neat yet vibrant look. The long, split sleeve ends fall softly like autumn leaves with every movement."
+   },
+   {
+    "name": "Demeniss chest 23",
+    "uuid": [
+     214887111,
+     1591217953,
+     3947466451,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_OrcuMer_PlateArmor_Helm"
+    ],
+    "itemKey": 1000051,
+    "itemName": "OrcuMer_PlateArmor_Helm",
+    "textId": "4295186339332208",
+    "english": "Odeck's Protector Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "4295186339332209",
+    "description": "A plate helm once worn by the Forgotten General who guarded Odeck. Long red tassels flow from the rounded crown, while an angular visor conceals the wearer's gaze. Layered plates extend down the sides to protect the neckline, and the scratches on its silver surface bear witness to battles fought as an ancient guardian."
+   },
+   {
+    "name": "Demeniss chest 24",
+    "uuid": [
+     889932553,
+     1450446621,
+     2909694524,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_SkullKnight_PlateArmor_Helm"
+    ],
+    "itemKey": 14416,
+    "itemName": "SkullKnight_PlateArmor_Helm",
+    "textId": "61916248539248",
+    "english": "Frostcursed Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "61916248539249",
+    "description": "A plate headgear once worn by Skull Knight the Frostwarden. It features crown-like spikes and a black visor that seems to swallow the wearer's face. The chain ornaments hanging from the sides emit a cold metallic ring with every movement, and a chilling frost seeps through the gaps of the helm."
+   },
+   {
+    "name": "Demeniss chest 25",
+    "uuid": [
+     336865288,
+     1450446530,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_king_LostPeople_PlateArmor_Cloak"
+    ],
+    "itemKey": 1000305,
+    "itemName": "king_LostPeople_PlateArmor_Cloak",
+    "textId": "4296277261025392",
+    "english": "Frostcursed Plate Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296277261025393",
+    "description": "A plate cloak once worn by Skull Knight the Frostwarden. The sharp seams of the layered pauldrons deflect any blade that strikes them, while the black cloak that's been frozen stiff offers protection as formidable as the armor itself."
+   },
+   {
+    "name": "Demeniss chest 26",
+    "uuid": [
+     3837276997,
+     1450446538,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Robinhood_OneHandBow"
+    ],
+    "itemKey": 301001,
+    "itemName": "Robinhood_OneHandBow",
+    "textId": "1292789451063408",
+    "english": "Crimson Warden's Bow",
+    "status": "named",
+    "equipTypeKey": 249090674,
+    "itemType": "Bow",
+    "descriptionId": "1292789451063409",
+    "description": "The Crimson Warden's bow. While fundamentally a Greymane-style bow, it was modified by reinforcing the shaft with payment received from Bastier as the price of betrayal. It was designed to suppress approaching enemies from long range for a master who seeks comfort over honor."
+   },
+   {
+    "name": "Demeniss chest 27",
+    "uuid": [
+     486074405,
+     1450446527,
+     1140703292,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Hailbrin_Leather_Gloves"
+    ],
+    "itemKey": 12410,
+    "itemName": "Hailbrin_Leather_Gloves",
+    "textId": "53300544143472",
+    "english": "Helfryn Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "53300544143473",
+    "description": "Leather gloves once worn by Gabriel Caliburn, Duke of the Kingdom of Demeniss. It is made from premium leather that's both sturdy and flexible. The seams and finishing are exceptionally refined. A small buckle can be used to adjust the wearer's hand size."
+   },
+   {
+    "name": "Demeniss chest 28",
+    "uuid": [
+     2737400151,
+     1450446536,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Hailbrin_Leather_Cloak"
+    ],
+    "itemKey": 1000291,
+    "itemName": "Hailbrin_Leather_Cloak",
+    "textId": "4296217131483248",
+    "english": "Helfryn Leather Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296217131483249",
+    "description": "A leather cloak once worn by Gabriel Caliburn, Duke of the Kingdom of Demeniss. The outer layer is made of sturdy hide and the inner lining uses soft pelt, providing the wearer warmth and safety."
+   },
+   {
+    "name": "Demeniss chest 29",
+    "uuid": [
+     930374071,
+     1450446536,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Paphneil_PlateArmor_Armor"
+    ],
+    "itemKey": 111249,
+    "itemName": "Paphneil_PlateArmor_Armor",
+    "textId": "477810816712816",
+    "english": "Scorchflame Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "477810816712817",
+    "description": "A plate armor once worn by Tristan, the Flame Knight. This sturdy breastplate, seemingly layered with dragon scales, was forged using the Order's secret Dragon's Flame. Though the surface is scorched, a faint, unyielding warmth still lingers within. Increases the wearer's Fire Resistance."
+   },
+   {
+    "name": "Demeniss chest 30",
+    "uuid": [
+     4024973329,
+     1450446536,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Bastion_OneHandShield"
+    ],
+    "itemKey": 1001211,
+    "itemName": "Bastion_OneHandShield",
+    "textId": "4300168501395568",
+    "english": "Black Sun",
+    "status": "named",
+    "equipTypeKey": 257028056,
+    "itemType": "Shield",
+    "descriptionId": "4300168501395569",
+    "description": "A shield of Bastier, the grand general of Demeniss. Thick wrought iron was rimmed with gold-toned studs. It is built to soak up the impact of any onslaught and drive the frontline forward."
+   },
+   {
+    "name": "Demeniss chest 31",
+    "uuid": [
+     241811425,
+     4279243046,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Legendary_Abyss_OneHandCannon"
+    ],
+    "itemKey": 1001039,
+    "itemName": "Legendary_Abyss_OneHandCannon",
+    "textId": "4299429767020656",
+    "english": "Sior Blaster",
+    "status": "named",
+    "equipTypeKey": 190908618,
+    "itemType": "Blaster",
+    "descriptionId": "4299429767020657",
+    "description": "A blaster that integrates the technologies of the Abyss. It is a weapon that operates on principles humanity has yet to understand. Fortunately, it can still fire even with ordinary shells."
+   },
+   {
+    "name": "Demeniss chest 32",
+    "uuid": [
+     266380066,
+     4279243046,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Wells_TwoHandGiantSpear"
+    ],
+    "itemKey": 1002123,
+    "itemName": "Wells_TwoHandGiantSpear",
+    "textId": "4304085511569520",
+    "english": "Elite Vanguard",
+    "status": "named",
+    "equipTypeKey": 2914941932,
+    "itemType": "Two-Handed Spear",
+    "descriptionId": "4304085511569521",
+    "description": "A charging lance used by the elite cavalry of the Wells Estate. Its long, slender tip is honed to slip into the seams of armor, while the petal-shaped metal leg base spreads the impact of a hit, protecting the rider's wrist and the lance's shaft."
+   },
+   {
+    "name": "Demeniss chest 33",
+    "uuid": [
+     636933163,
+     4279243046,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Legendary_Soulknight_OneHandTowerShield"
+    ],
+    "itemKey": 1001427,
+    "itemName": "Legendary_Soulknight_OneHandTowerShield",
+    "textId": "4301096214331504",
+    "english": "Shield of Sacrifice",
+    "status": "named",
+    "equipTypeKey": 1334259611,
+    "itemType": "Large Shield",
+    "descriptionId": "4301096214331505",
+    "description": "A shield of Fortain the Cursed Knight. He gained formidable power through a contract with the Antumbra Order, but in the end it was the very contract that bound him to a miserable fate."
+   },
+   {
+    "name": "Demeniss chest 34",
+    "uuid": [
+     699053055,
+     4279243046,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Gloves_V"
+    ],
+    "itemKey": 14300,
+    "itemName": "Demian_PlateArmor_Gloves_V",
+    "textId": "61418032332912",
+    "english": "Executioner of Darkness Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "61418032332913",
+    "description": "Plate gloves awarded to those granted a title by House Thorel, the rulers of the Kingdom of Demeniss. Long plates of golden metal are layered over dark brown leather to protect the arms, while the angular ornaments on the back of the hands leave a sharp impression. The interior is smoothly finished, making them well-suited for handling both a sword and paper."
+   },
+   {
+    "name": "Demeniss chest 35",
+    "uuid": [
+     931734090,
+     4279243046,
+     1617652448,
+     0
+    ],
+    "level": "treasureboxdemeniss",
+    "spawnReasons": [
+     "Drop_Demian_Leather_Gloves_III"
+    ],
+    "itemKey": 1000107,
+    "itemName": "Demian_Leather_Gloves_III",
+    "textId": "4295426857500784",
+    "english": "Autumn Banquet Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "4295426857500785",
+    "description": "Formal leather gloves that capture the quiet elegance of an autumn forest. Made from deep-toned leather, they extend to the wrist and wrap it neatly, finished with fine stitching and clean cut lines. A subtle sheen spreads softly in the light, adding a restrained sense of formality."
+   },
+   {
+    "name": "Hernand chest 1",
+    "uuid": [
+     3181687831,
+     1450446538,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Paphneil_PlateArmor_Cloak"
+    ],
+    "itemKey": 1000300,
+    "itemName": "Paphneil_PlateArmor_Cloak",
+    "textId": "4296255786188912",
+    "english": "Scorchflame Plate Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296255786188913",
+    "description": "A plate cloak once worn by Tristan, the Flame Knight. The shoulder guards, crafted in the likeness of a dragon's head and wings, are designed to deflect enemy strikes. Its scorched and tattered hem bears the memory of fierce battles, and a lingering heat still emanates from deep within the equipment."
+   },
+   {
+    "name": "Hernand chest 2",
+    "uuid": [
+     417836576,
+     1450446536,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Reeddevil_Fabric_Boots"
+    ],
+    "itemKey": 134056,
+    "itemName": "Reeddevil_Fabric_Boots",
+    "textId": "575766135832688",
+    "english": "Sunset Reed Cloth Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "575766135832689",
+    "description": "Cloth boots once worn by the Reed Devil. They carry the grudges of the devil of the reed field and his followers, who slipped free of the cycle of life and death. It tightly fastens around the feet to allow quick movements even through dense reed beds."
+   },
+   {
+    "name": "Hernand chest 3",
+    "uuid": [
+     814392345,
+     3222802115,
+     1822861389,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Camouflage_Reindeer_Cloak"
+    ],
+    "itemKey": 1000715,
+    "itemName": "Camouflage_Reindeer_Cloak",
+    "textId": "4298038197616752",
+    "english": "Reindeer Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4298038197616753",
+    "description": "A cloak made from reindeer. While heavy and cumbersome due to the scent-heavy leather, it makes the wearer look exactly like a deer."
+   },
+   {
+    "name": "Hernand chest 4",
+    "uuid": [
+     755279913,
+     1450446531,
+     1140703292,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_DarknessKing_PlateArmor_Gloves"
+    ],
+    "itemKey": 1000381,
+    "itemName": "DarknessKing_PlateArmor_Gloves",
+    "textId": "4296603678539888",
+    "english": "Plate Gloves of the Shadows",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "4296603678539889",
+    "description": "Plate gloves once worn by Beloth, the Darksworn. Black plating covers the back of the hand, extending down to the knuckles with such precision that the joints interlock like cogwheels when clenching a fist. The wrists are reinforced with thick iron to better parry attacks, while a chilling frost seeps from within the gloves, freezing even the hilts of the weapons they touch white."
+   },
+   {
+    "name": "Hernand chest 5",
+    "uuid": [
+     1541382966,
+     1450446530,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Deer_King_Leather_Helm"
+    ],
+    "itemKey": 103023,
+    "itemName": "Deer_King_Leather_Helm",
+    "textId": "442480415735920",
+    "english": "Leather Helm of the Fallen Kingdom",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "442480415735921",
+    "description": "A helm used by the last prince of the fallen kingdom. The prince waited for the return of the people until the very end. He was called the Staglord, but there were none remaining to recognize him as king."
+   },
+   {
+    "name": "Hernand chest 6",
+    "uuid": [
+     2398997509,
+     1450446538,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_DarknessKing_PlateArmor_Cloak"
+    ],
+    "itemKey": 1000383,
+    "itemName": "DarknessKing_PlateArmor_Cloak",
+    "textId": "4296612268474480",
+    "english": "Plate Cloak of the Shadows",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296612268474481",
+    "description": "A cloak once worn by Beloth, the Darksworn. Woven from pitch-black darkness, it protects the wearer from the heat."
+   },
+   {
+    "name": "Hernand chest 7",
+    "uuid": [
+     113599075,
+     1591217939,
+     560387027,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_DarknessKing_PlateArmor_Armor"
+    ],
+    "itemKey": 1000225,
+    "itemName": "DarknessKing_PlateArmor_Armor",
+    "textId": "4295933663641712",
+    "english": "Plate Armor of the Shadows",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "4295933663641713",
+    "description": "A plate armor once worn by Beloth, the Darksworn. The light-consuming, black plate tightly encases the upper body, while unyielding black frost clings to its surface, overwhelming those who face it with chilling dread."
+   },
+   {
+    "name": "Hernand chest 8",
+    "uuid": [
+     2163388933,
+     4279242571,
+     2832474592,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Stephan_Bleed_Metal_OneHandTowerShield"
+    ],
+    "itemKey": 1000086,
+    "itemName": "Stephan_Bleed_Metal_OneHandTowerShield",
+    "textId": "4295336663187568",
+    "english": "Shield of Conviction",
+    "status": "named",
+    "equipTypeKey": 1334259611,
+    "itemType": "Large Shield",
+    "descriptionId": "4295336663187569",
+    "description": "A shield that stands as the very symbol of the marquis who rules Calphade. The conviction and resolve to never fall back can be felt from this shield."
+   },
+   {
+    "name": "Hernand chest 9",
+    "uuid": [
+     1676619777,
+     1591217866,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Deerking_Leather_Cloak"
+    ],
+    "itemKey": 1000290,
+    "itemName": "Deerking_Leather_Cloak",
+    "textId": "4296212836515952",
+    "english": "Leather Cloak of the Fallen Kingdom",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296212836515953",
+    "description": "A leather cloak once worn by Saigord the Staglord, king of a forgotten kingdom. Icemoor has fallen into ruin, but the great stag still stands as a symbol of strength and duty."
+   },
+   {
+    "name": "Hernand chest 10",
+    "uuid": [
+     3891691030,
+     1450446528,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Dark_King_Metal_OneHandShield"
+    ],
+    "itemKey": 290020,
+    "itemName": "Dark_King_Metal_OneHandShield",
+    "textId": "1245626415186032",
+    "english": "Mirror of Night",
+    "status": "named",
+    "equipTypeKey": 257028056,
+    "itemType": "Shield",
+    "descriptionId": "1245626415186033",
+    "description": "A shield the Antumbra Order used in their human-sacrifice rituals. It looks like it was made more for ritual purposes than for combat."
+   },
+   {
+    "name": "Hernand chest 11",
+    "uuid": [
+     1676886854,
+     1450446538,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Lipsort_OneHandTowerShield"
+    ],
+    "itemKey": 290503,
+    "itemName": "Lipsort_OneHandTowerShield",
+    "textId": "1247700884390000",
+    "english": "Lifsoth Large Shield",
+    "status": "named",
+    "equipTypeKey": 1334259611,
+    "itemType": "Large Shield",
+    "descriptionId": "1247700884390001",
+    "description": null
+   },
+   {
+    "name": "Hernand chest 12",
+    "uuid": [
+     3595084779,
+     3222802190,
+     1789175885,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_OrcuMer_PlateArmor_Gloves"
+    ],
+    "itemKey": 1000053,
+    "itemName": "OrcuMer_PlateArmor_Gloves",
+    "textId": "4295194929266800",
+    "english": "Odeck's Protector Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "4295194929266801",
+    "description": "Plate gloves once worn by the Forgotten General who guarded Odeck. Layered square plates wrap around the forearms, providing steady support when wielding a shield and sword. The faint scratches on the silver surface speak of the years this protector endured."
+   },
+   {
+    "name": "Hernand chest 13",
+    "uuid": [
+     2859283304,
+     1591217856,
+     3947466451,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Hemon_Vindel_Leather_Cloak"
+    ],
+    "itemKey": 1000293,
+    "itemName": "Hemon_Vindel_Leather_Cloak",
+    "textId": "4296225721417840",
+    "english": "Duskfang Leather Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296225721417841",
+    "description": "A leather cloak once worn by Hemon Beindel, leader of the Hellhounds. Made from a whole hellhound hide, the sharp fangs and glaring eyes on the hood give it an intimidating presence."
+   },
+   {
+    "name": "Hernand chest 14",
+    "uuid": [
+     3249922228,
+     1450446536,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Reeddevil_Leather_Cloak"
+    ],
+    "itemKey": 1000292,
+    "itemName": "Reeddevil_Leather_Cloak",
+    "textId": "4296221426450544",
+    "english": "Sunset Reed Leather Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296221426450545",
+    "description": "A leather cloak once worn by the Reed Devil. It carries the grudges of the devil of the reed field and his followers, who slipped free of the cycle of life and death. Its two savagely twisted horns and the eye holes cut into the mask have become a symbol of terror."
+   },
+   {
+    "name": "Hernand chest 15",
+    "uuid": [
+     2190875110,
+     1591217935,
+     560387027,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Srasika_Leather_Gloves"
+    ],
+    "itemKey": 123329,
+    "itemName": "Srasika_Leather_Gloves",
+    "textId": "529694021648496",
+    "english": "Duskfang Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "529694021648497",
+    "description": "Leather gloves once worn by Hemon Beindel, leader of the Hellhounds. They allow the hands to move freely within the flexible leather, while metal guards from the wrist to the forearm protect against enemy blows."
+   },
+   {
+    "name": "Hernand chest 16",
+    "uuid": [
+     1809843147,
+     1591217937,
+     560387027,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Isilon_Leather_Boots"
+    ],
+    "itemKey": 133237,
+    "itemName": "Isilon_Leather_Boots",
+    "textId": "572248557617264",
+    "english": "Isilon Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "572248557617265",
+    "description": "Leather boots inspired by the classic work of artisan Isilon. While not an exact replica of the original, they still deliver exceptional comfort."
+   },
+   {
+    "name": "Hernand chest 17",
+    "uuid": [
+     1679880628,
+     1450446540,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Douglas_Leather_Cloak"
+    ],
+    "itemKey": 1000270,
+    "itemName": "Douglas_Leather_Cloak",
+    "textId": "4296126937170032",
+    "english": "Blackwing Leather Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296126937170033",
+    "description": "A leather cloak once worn by the Crowcaller. In some regions of Pywel, crows are often associated with dark magic or sorcery. The pure malice felt from the cloak makes it hard to ignore such superstitions."
+   },
+   {
+    "name": "Hernand chest 18",
+    "uuid": [
+     4236334860,
+     1450446538,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Legendary_Deer_Leather_Gloves"
+    ],
+    "itemKey": 1000005,
+    "itemName": "Legendary_Deer_Leather_Gloves",
+    "textId": "4294988770836592",
+    "english": "Counterweight Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "4294988770836593",
+    "description": "Gloves that combine metal and leather. The plate on the forearm balances the weight to suppress recoil, while the leather on the hand allows for precise controls. This structural harmony pushes precision of the wearer's strikes to the limit."
+   },
+   {
+    "name": "Hernand chest 19",
+    "uuid": [
+     4004310107,
+     1450446528,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_OrcuMer_Plate_Boots"
+    ],
+    "itemKey": 1000054,
+    "itemName": "OrcuMer_Plate_Boots",
+    "textId": "4295199224234096",
+    "english": "Odeck's Protector Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4295199224234097",
+    "description": "Plate boots once worn by the Forgotten General who guarded Odeck. The plate reinforcements covering the shins are layered closely like a ladder, designed to protect the legs even amidst a blizzard. Faint scars from ancient battlefields remain etched upon the silver plate."
+   },
+   {
+    "name": "Hernand chest 20",
+    "uuid": [
+     3420526367,
+     1591217900,
+     3740195795,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Legendary_Shakatu_OneHandDagger"
+    ],
+    "itemKey": 12900,
+    "itemName": "Legendary_Shakatu_OneHandDagger",
+    "textId": "55405078118512",
+    "english": "Goblin King's Treasure Dagger",
+    "status": "named",
+    "equipTypeKey": 1921528741,
+    "itemType": "Dagger",
+    "descriptionId": "55405078118513",
+    "description": "One of a goblin's collectibles. It is said to be the most prized possession of the one who amassed all the world's treasures. Legend has it that an eerie whisper of greed clings to anyone who holds it."
+   },
+   {
+    "name": "Hernand chest 21",
+    "uuid": [
+     3874648063,
+     1450446528,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Douglas_Leather_Gloves"
+    ],
+    "itemKey": 12406,
+    "itemName": "Douglas_Leather_Gloves",
+    "textId": "53283364274288",
+    "english": "Blackwing Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "53283364274289",
+    "description": "Leather gloves once worn by the Crowcaller. They are so tough that it's hard to believe they're made of leather. They seem to have undergone some kind of treatment. In some regions of Pywel, crows are often associated with dark magic or sorcery. The pure malice felt from the gloves makes it hard to ignore such superstitions."
+   },
+   {
+    "name": "Hernand chest 22",
+    "uuid": [
+     2417596809,
+     1450446538,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Bainian_Leather_Boots"
+    ],
+    "itemKey": 133348,
+    "itemName": "Bainian_Leather_Boots",
+    "textId": "572725298987120",
+    "english": "Blackwing Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "572725298987121",
+    "description": "Leather boots once worn by the Crowcaller. Crafted from soft yet durable leather, they gently wrap around the wearer's feet, helping them move with agility across any terrain. The crow's claw on the instep leaves an unsettling impression on anyone who sees it."
+   },
+   {
+    "name": "Hernand chest 23",
+    "uuid": [
+     4132777280,
+     3222802114,
+     1822861389,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Hwando_TwoHandSword"
+    ],
+    "itemKey": 1000080,
+    "itemName": "Hwando_TwoHandSword",
+    "textId": "4295310893383792",
+    "english": "Hwando",
+    "status": "named",
+    "equipTypeKey": 1086980073,
+    "itemType": "Longsword",
+    "descriptionId": "4295310893383793",
+    "description": "A longsword that appears to have been crafted in a foreign eastern land, far from the continent of Pywel. Its tip narrows to a keen point, and it seems designed for cutting."
+   },
+   {
+    "name": "Hernand chest 24",
+    "uuid": [
+     2718969801,
+     1450446528,
+     1140703292,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Ronied_OneHandTowerShield"
+    ],
+    "itemKey": 290509,
+    "itemName": "Ronied_OneHandTowerShield",
+    "textId": "1247726654193776",
+    "english": "Rhonid Large Shield",
+    "status": "named",
+    "equipTypeKey": 1334259611,
+    "itemType": "Large Shield",
+    "descriptionId": "1247726654193777",
+    "description": "A masterpiece born of imitation. Ronnie was once an obscure blacksmith who spent his days mimicking the shields of the master craftsman, Rekel. One day, dissatisfied with Rekel's latest work, he forged a shield of his own, marking the start of a new artisan's legend. Sincere imitation had ultimately given rise to another master."
+   },
+   {
+    "name": "Hernand chest 25",
+    "uuid": [
+     3086969779,
+     1450446530,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Archrika_OneHandSword"
+    ],
+    "itemKey": 200921,
+    "itemName": "Archrika_OneHandSword",
+    "textId": "862949124079728",
+    "english": "Legionary's Gladius",
+    "status": "named",
+    "equipTypeKey": 1584411264,
+    "itemType": "Sword",
+    "descriptionId": "862949124079729",
+    "description": "A sword once used by the ancient warriors. Though it appears to have been mass-produced, it remains remarkably sturdy and powerful to this day."
+   },
+   {
+    "name": "Hernand chest 26",
+    "uuid": [
+     2910497824,
+     1450446538,
+     2637968444,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Hidden_TreasureMap_VI"
+    ],
+    "itemKey": 1002208,
+    "itemName": "Hidden_TreasureMap_VI",
+    "textId": "4304450583789680",
+    "english": "Hidden Treasure Map Piece 6",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4304450583789681",
+    "description": "A map showing the area around a marked location. Identifying the region will reveal the spot."
+   },
+   {
+    "name": "Hernand chest 27",
+    "uuid": [
+     753841485,
+     1450446552,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Abyss_Surreal_Human_Leather_Helm"
+    ],
+    "itemKey": 104176,
+    "itemName": "Abyss_Surreal_Human_Leather_Helm",
+    "textId": "447432513028208",
+    "english": "Rabbit Leather Mask",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "447432513028209",
+    "description": "A rabbit head mask covered in pure white fur. Its long ears sway softly in the wind, and its round eyes gleam with a mischievous light."
+   },
+   {
+    "name": "Hernand chest 28",
+    "uuid": [
+     3627672019,
+     1450446528,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxhernand",
+    "spawnReasons": [
+     "Drop_Wolf_Chief_Leather_Helm"
+    ],
+    "itemKey": 14500,
+    "itemName": "Wolf_Chief_Leather_Helm",
+    "textId": "62277025792112",
+    "english": "Alpha Wolf Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "62277025792113",
+    "description": "A helm crafted from the hide of an alpha wolf. The coarse, uncleaned fur retains the raw scent of the wildlife."
+   },
+   {
+    "name": "Kweiden chest 1",
+    "uuid": [
+     4292864861,
+     1591217868,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Lucan_OneHandTowerShield"
+    ],
+    "itemKey": 290508,
+    "itemName": "Lucan_OneHandTowerShield",
+    "textId": "1247722359226480",
+    "english": "Lucon Large Shield",
+    "status": "named",
+    "equipTypeKey": 1334259611,
+    "itemType": "Large Shield",
+    "descriptionId": "1247722359226481",
+    "description": "An ornately decorated shield. The jewels embedded in it are all finely crafted imitations. Its overly ostentatious appearance has led many warriors to shun it."
+   },
+   {
+    "name": "Kweiden chest 2",
+    "uuid": [
+     1829405488,
+     1450446587,
+     1083623228,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Entura_PlateArmor_Helm"
+    ],
+    "itemKey": 101008,
+    "itemName": "Entura_PlateArmor_Helm",
+    "textId": "433826056634480",
+    "english": "Icewing Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "433826056634481",
+    "description": "A plate helm of Gwen Kraber, captain of the Wolf Trackers. She is Giath's loyal right hand, constantly seeking new prey for him. In some ways, she seems an unlikely fit among the Wolf Trackers. Her true origins are unknown, but her skill is beyond doubt."
+   },
+   {
+    "name": "Kweiden chest 3",
+    "uuid": [
+     502905231,
+     1591217867,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_DarkLeader_OneHandDagger"
+    ],
+    "itemKey": 230063,
+    "itemName": "DarkLeader_OneHandDagger",
+    "textId": "988113061019760",
+    "english": "Dagger of Dark Pursuit",
+    "status": "named",
+    "equipTypeKey": 1921528741,
+    "itemType": "Dagger",
+    "descriptionId": "988113061019761",
+    "description": "A dagger with a strange design. It is a weapon engraved with a somewhat ominous patterns along its blade. Its appearance suggests it is meant for unspeakable, secret rituals rather than ordinary combat."
+   },
+   {
+    "name": "Kweiden chest 4",
+    "uuid": [
+     3101910310,
+     1450446528,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Ladete_Plate_Boots"
+    ],
+    "itemKey": 131007,
+    "itemName": "Ladete_Plate_Boots",
+    "textId": "562670780547184",
+    "english": "Icewing Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "562670780547185",
+    "description": "Plate boots of Gwen Kraber, captain of the Wolf Trackers. She is Giath's loyal right hand, constantly seeking new prey for him. In some ways, she seems an unlikely fit among the Wolf Trackers. Her true origins are unknown, but her skill is beyond doubt."
+   },
+   {
+    "name": "Kweiden chest 5",
+    "uuid": [
+     1153431182,
+     1450446625,
+     1494999100,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_North_Warrior_OneHandTowerShield"
+    ],
+    "itemKey": 1001417,
+    "itemName": "North_Warrior_OneHandTowerShield",
+    "textId": "4301053264658544",
+    "english": "North Wind Shield",
+    "status": "named",
+    "equipTypeKey": 1334259611,
+    "itemType": "Large Shield",
+    "descriptionId": "4301053264658545",
+    "description": "A warrior's shield that once protected the tribes. Legend has it that a warrior carved this shield bare-handed, without the use of any tools. Its imposing presence was so overwhelming that enemies reportedly fled in terror, never daring to mount an attack."
+   },
+   {
+    "name": "Kweiden chest 6",
+    "uuid": [
+     1630562554,
+     1450446528,
+     1140703292,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_OrcuMer_PlateArmor_Armor"
+    ],
+    "itemKey": 1000052,
+    "itemName": "OrcuMer_PlateArmor_Armor",
+    "textId": "4295190634299504",
+    "english": "Odeck's Protector Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "4295190634299505",
+    "description": "A plate armor once worn by the Forgotten General who guarded Odeck. The steel plates covering the chest and waist overlap like fortress walls, firmly absorbing frontal impacts. A thick rope around the waist keeps the armor secure, providing stability when thrusting a spear."
+   },
+   {
+    "name": "Kweiden chest 7",
+    "uuid": [
+     2785882785,
+     1591217870,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Cigrymon_TwoHandAxe"
+    ],
+    "itemKey": 250028,
+    "itemName": "Cigrymon_TwoHandAxe",
+    "textId": "1073862083084400",
+    "english": "Sigremon Greataxe",
+    "status": "named",
+    "equipTypeKey": 585399773,
+    "itemType": "Greataxe",
+    "descriptionId": "1073862083084401",
+    "description": "A greataxe of tremendous weight, made to hew down massive foes larger than a man. The solid materials from haft to blade are so heavy that even lifting it, let alone swinging it, is a struggle without exceptional strength."
+   },
+   {
+    "name": "Kweiden chest 8",
+    "uuid": [
+     1793259931,
+     1450446538,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Ludvic_Leather_Gloves"
+    ],
+    "itemKey": 12408,
+    "itemName": "Ludvic_Leather_Gloves",
+    "textId": "53291954208880",
+    "english": "Hungering Fang Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "53291954208881",
+    "description": "Leather gloves once worn by Ludvig, leader of the Jackals. These gloves are designed to protect the wrist and forearm from attacks. A small iron plate is fitted to the left hand to improve defense."
+   },
+   {
+    "name": "Kweiden chest 9",
+    "uuid": [
+     2039262791,
+     1450446538,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Ludvig_OneHandSword"
+    ],
+    "itemKey": 1000742,
+    "itemName": "Ludvig_OneHandSword",
+    "textId": "4298154161733744",
+    "english": "Red Rage",
+    "status": "named",
+    "equipTypeKey": 1584411264,
+    "itemType": "Sword",
+    "descriptionId": "4298154161733745",
+    "description": "Ludvig's sword. Crafted for dual-wielding, it is relatively lightweight. Given the owner's notoriety, steeped in blood and betrayal, the weapon's appearance is surprisingly modest."
+   },
+   {
+    "name": "Kweiden chest 10",
+    "uuid": [
+     1681206263,
+     1450446538,
+     1058791484,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Ludvic_Leather_Armor"
+    ],
+    "itemKey": 12217,
+    "itemName": "Ludvic_Leather_Armor",
+    "textId": "52471615455344",
+    "english": "Hungering Fang Leather Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "52471615455345",
+    "description": "A leather armor once worn by Ludvig, leader of the Jackals. Made from fine Pailunese leather, the quality of this gear is unmatched by many others. But, the Jackals have stained the armor with irreparable dishonor."
+   },
+   {
+    "name": "Kweiden chest 11",
+    "uuid": [
+     3013125076,
+     1591217868,
+     1179029203,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Legendary_Korea_OneHandBow"
+    ],
+    "itemKey": 12702,
+    "itemName": "Legendary_Korea_OneHandBow",
+    "textId": "54554674593904",
+    "english": "Noble Man's Bow",
+    "status": "named",
+    "equipTypeKey": 249090674,
+    "itemType": "Bow",
+    "descriptionId": "54554674593905",
+    "description": "A composite bow crafted in the eastern tradition, with layered construction that creates powerful tension. It is said to have been brought to Pailune long ago, passing through the hands of numerous heroes and great leaders, including Jian."
+   },
+   {
+    "name": "Kweiden chest 12",
+    "uuid": [
+     3905097080,
+     1450446528,
+     1140703292,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Legendary_Kings_OneHandDagger"
+    ],
+    "itemKey": 1000756,
+    "itemName": "Legendary_Kings_OneHandDagger",
+    "textId": "4298214291275888",
+    "english": "King's Dagger",
+    "status": "named",
+    "equipTypeKey": 1921528741,
+    "itemType": "Dagger",
+    "descriptionId": "4298214291275889",
+    "description": "A ceremonial dagger engraved with the royal crest. Worn at the waist, it serves as a symbol of authority, but once drawn, it becomes an exceptionally fine weapon."
+   },
+   {
+    "name": "Kweiden chest 13",
+    "uuid": [
+     3037246684,
+     1450446530,
+     1056489532,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Titan_PlateArmor_Gloves"
+    ],
+    "itemKey": 1001327,
+    "itemName": "Titan_PlateArmor_Gloves",
+    "textId": "4300666717601904",
+    "english": "Lightning Bolt Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "4300666717601905",
+    "description": "Plate gloves crafted in the likeness of the massive gloves of Titan. Square overlapping plates wrap around the forearms, tightened firmly with leather straps to disperse impact and minimize wrist movement. The fingers are exposed for a better grip on weapons, while a faint blue light leaks through the gaps in the plating."
+   },
+   {
+    "name": "Kweiden chest 14",
+    "uuid": [
+     887372900,
+     1450446589,
+     1083623228,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Ashad_PlateArmor_Armor"
+    ],
+    "itemKey": 111168,
+    "itemName": "Ashad_PlateArmor_Armor",
+    "textId": "477462924361840",
+    "english": "Ashad Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "477462924361841",
+    "description": null
+   },
+   {
+    "name": "Kweiden chest 15",
+    "uuid": [
+     869419122,
+     1450446589,
+     1083623228,
+     0
+    ],
+    "level": "treasureboxkweiden",
+    "spawnReasons": [
+     "Drop_Titan_PlateArmor_Helm"
+    ],
+    "itemKey": 1001325,
+    "itemName": "Titan_PlateArmor_Helm",
+    "textId": "4300658127667312",
+    "english": "Lightning Bolt Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "4300658127667313",
+    "description": "A plate headgear crafted in the likeness of the massive gloves of Titan. A high crown rises above the grey plating as rough as a rock, with layered rims that resemble the roof and pillars of a small temple."
+   },
+   {
+    "name": "Crimson Desert cave chest 1",
+    "uuid": [
+     1144003738,
+     1450446589,
+     1083623228,
+     0
+    ],
+    "level": "01_tom_dungeon_0001",
+    "spawnReasons": [
+     "Drop_Mask_Liberator_TwoHandedWarHammer"
+    ],
+    "itemKey": 1001208,
+    "itemName": "Mask_Liberator_TwoHandedWarHammer",
+    "textId": "4300155616493680",
+    "english": "Oblivion of the Past",
+    "status": "named",
+    "equipTypeKey": 3150053877,
+    "itemType": "Warhammer",
+    "descriptionId": "4300155616493681",
+    "description": "A blunt weapon once used by the Masked Liberator. It looks like something meant for ritual use, but no such power can be felt. The Faceless believe that any who are struck by this staff are stripped of their memory and are granted salvation."
+   },
+   {
+    "name": "Hernand cave chest 1",
+    "uuid": [
+     1081938719,
+     1450446552,
+     1058791484,
+     0
+    ],
+    "level": "04_aka_dungeon_0026",
+    "spawnReasons": [
+     "Drop_Redknight_PlateArmor_Gloves"
+    ],
+    "itemKey": 14301,
+    "itemName": "Redknight_PlateArmor_Gloves",
+    "textId": "61422327300208",
+    "english": "Plate Gloves of Cursed Soul",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "61422327300209",
+    "description": "Plate gloves of Fortain the Cursed Knight. To conquer the Wells, he embraced unfathomable power and relinquished his soul. The gloves hold his desire to seize power and strength."
+   },
+   {
+    "name": "Hernand cave chest 2",
+    "uuid": [
+     1684418009,
+     1450446587,
+     1083623228,
+     0
+    ],
+    "level": "04_aka_dungeon_31_dungeon",
+    "spawnReasons": [
+     "Drop_Optionary_NonSlip_Gloves"
+    ],
+    "itemKey": 1001000,
+    "itemName": "Optionary_NonSlip_Gloves",
+    "textId": "4299262263296112",
+    "english": "Reins of Open Sky",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "4299262263296113",
+    "description": null
+   },
+   {
+    "name": "Hernand cave chest 3",
+    "uuid": [
+     2428659539,
+     4279243202,
+     2244463840,
+     0
+    ],
+    "level": "04_aka_her_drain_01",
+    "spawnReasons": [
+     "Drop_Grace_PlateArmor_Helm"
+    ],
+    "itemKey": 101014,
+    "itemName": "Grace_PlateArmor_Helm",
+    "textId": "433851826438256",
+    "english": "Grace Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "433851826438257",
+    "description": "A plate helm primarily issued to soldiers wielding bows, firearms, or raising banners. The wide brim shields the eyes from sun and rain to preserve visibility, while the thin plate protecting the head deflects shrapnel and falling debris. Its open-faced design ensures commands and whistles are heard clearly, with a focus on mobility and observation."
+   },
+   {
+    "name": "Hernand cave chest 4",
+    "uuid": [
+     2218895271,
+     1450446906,
+     2909694524,
+     0
+    ],
+    "level": "cd_waterfall_cave_0002",
+    "spawnReasons": [
+     "Drop_Tychaon_Fabric_Armor"
+    ],
+    "itemKey": 2113206,
+    "itemName": "Tychaon_Fabric_Armor",
+    "textId": "9076150659711088",
+    "english": "Dark Ringleader's Cloth Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "9076150659711089",
+    "description": "A cloth armor once worn by Walter Lanford, leader of the Bleed Bandits. Lavishly made with fine fabric, gold, and all manner of jewels. Light and soft, it allows for free movement even in combat."
+   },
+   {
+    "name": "Hernand cave chest 5",
+    "uuid": [
+     2223636150,
+     1450446906,
+     2909694524,
+     0
+    ],
+    "level": "cd_waterfall_cave_0003",
+    "spawnReasons": [
+     "Drop_Chartian_Fabric_Helm"
+    ],
+    "itemKey": 104132,
+    "itemName": "Chartian_Fabric_Helm",
+    "textId": "447243534467184",
+    "english": "Dark Ringleader's Cloth Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "447243534467185",
+    "description": "A cloth helm once worn by Walter Lanford, leader of the Bleed Bandits. Its vivid colors and feather trim reflect his arrogance. Whether it's practical in combat is another matter."
+   },
+   {
+    "name": "Hernand cave chest 6",
+    "uuid": [
+     2226913500,
+     1450446906,
+     2909694524,
+     0
+    ],
+    "level": "cd_waterfall_cave_0004",
+    "spawnReasons": [
+     "Drop_Tychaon_Fabric_Cloak"
+    ],
+    "itemKey": 1000273,
+    "itemName": "Tychaon_Fabric_Cloak",
+    "textId": "4296139822071920",
+    "english": "Dark Ringleader's Cloth Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296139822071921",
+    "description": "A cloth cloak once worn by Walter Lanford, leader of the Bleed Bandits. Made from a material that doesn't catch fire easily to suit Lanford's fondness for guns, it also features practical storage for gunpowder, bullets, and more."
+   },
+   {
+    "name": "Hernand cave chest 7",
+    "uuid": [
+     3479135890,
+     1450446908,
+     2909694524,
+     0
+    ],
+    "level": "cd_waterfall_cave_0005",
+    "spawnReasons": [
+     "Drop_Hemon_Vindel_Leather_Armor"
+    ],
+    "itemKey": 2113218,
+    "itemName": "Hemon_Vindel_Leather_Armor",
+    "textId": "9076202199318640",
+    "english": "Duskfang Leather Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "9076202199318641",
+    "description": "A leather armor once worn by Hemon Beindel, captain of the Hellhounds. It is crafted from the leather of a hound known for its relentless pursuit and agile movements. The tough leather wraps flexibly around the body, allowing the wearer to move quickly."
+   },
+   {
+    "name": "Hernand cave chest 8",
+    "uuid": [
+     3423592498,
+     1591218244,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0006",
+    "spawnReasons": [
+     "Drop_Tikan_Leather_Gloves"
+    ],
+    "itemKey": 123279,
+    "itemName": "Tikan_Leather_Gloves",
+    "textId": "529479273283696",
+    "english": "Dark Ringleader's Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "529479273283697",
+    "description": "Leather gloves once worn by Walter Lanford, leader of the Bleed Bandits. It is made from the rare hide of a red river hog. Ornate gold trim set against vivid red leather lends them a refined finish."
+   },
+   {
+    "name": "Hernand cave chest 9",
+    "uuid": [
+     211445065,
+     1591218237,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0007",
+    "spawnReasons": [
+     "Drop_AbyssReward_Reeddevil_OneHandSword"
+    ],
+    "itemKey": 200902,
+    "itemName": "AbyssReward_Reeddevil_OneHandSword",
+    "textId": "862867519701104",
+    "english": "Hollow Visage",
+    "status": "named",
+    "equipTypeKey": 1584411264,
+    "itemType": "Sword",
+    "descriptionId": "862867519701105",
+    "description": "A sword once used by the Reed Devil. The people of Sunset Valley tell a legend of a demon who stained the reed fields with blood, but how much of the tale is true is hard to know."
+   },
+   {
+    "name": "Hernand cave chest 10",
+    "uuid": [
+     1759931162,
+     1591218238,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0008",
+    "spawnReasons": [
+     "Drop_Reeddevil_Leather_Armor"
+    ],
+    "itemKey": 113742,
+    "itemName": "Reeddevil_Leather_Armor",
+    "textId": "488518170181744",
+    "english": "Sunset Reed Leather Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "488518170181745",
+    "description": "Leather armor once worn by the Reed Devil. It carries the grudges of the devil of the reed field and his followers, who slipped free of the cycle of life and death. Layers of leather were stitched together, with extra leather reinforced along the seams for added durability."
+   },
+   {
+    "name": "Demeniss cave chest 1",
+    "uuid": [
+     2782773195,
+     1591218238,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0009",
+    "spawnReasons": [
+     "Drop_Redknight_PlateArmor_Helm"
+    ],
+    "itemKey": 14401,
+    "itemName": "Redknight_PlateArmor_Helm",
+    "textId": "61851824029808",
+    "english": "Plate Helm of Cursed Soul",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "61851824029809",
+    "description": "A plate helm of Fortain the Cursed Knight. To conquer the Wells, he embraced unfathomable power and relinquished his soul. He hides his face behind his headgear to desperately turn away from the truth."
+   },
+   {
+    "name": "Demeniss cave chest 2",
+    "uuid": [
+     3669202403,
+     1591218238,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0010",
+    "spawnReasons": [
+     "Drop_Vdure_ChainMail_Cloak"
+    ],
+    "itemKey": 1000268,
+    "itemName": "Vdure_ChainMail_Cloak",
+    "textId": "4296118347235440",
+    "english": "Bedure Chain Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296118347235441",
+    "description": "A chain cloak worn by officers of the Wells brigade. The long, deep red fabric establishes a commander's dignity, while the heraldic ornaments on the shoulders display their affiliation and authority. Its heavy hem ensures a neat appearance even during marches and combat."
+   },
+   {
+    "name": "Demeniss cave chest 3",
+    "uuid": [
+     1568570217,
+     1591218244,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0011",
+    "spawnReasons": [
+     "Drop_Legendary_DemenisMusket_OneHandMusket"
+    ],
+    "itemKey": 13304,
+    "itemName": "Legendary_DemenisMusket_OneHandMusket",
+    "textId": "57140244906096",
+    "english": "Demenissian Hero's Musket",
+    "status": "named",
+    "equipTypeKey": 2276022818,
+    "itemType": "Musket",
+    "descriptionId": "57140244906097",
+    "description": "A masterwork musket that was bestowed upon the hero who saved Demeniss. Precisely crafted with the finest skills, it boasts overwhelming performance. The Demeniss of today was not built in a day, and this weapon is a treasure symbolizing the kingdom's numerous victories. Its value is beyond measure."
+   },
+   {
+    "name": "Demeniss cave chest 4",
+    "uuid": [
+     2425404580,
+     1591218244,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0012",
+    "spawnReasons": [
+     "Drop_Demian_Leather_Cloak_II"
+    ],
+    "itemKey": 1000893,
+    "itemName": "Demian_Leather_Cloak_II",
+    "textId": "4298802701795440",
+    "english": "Wanderer of Faith Leather Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4298802701795441",
+    "description": "A leather cloak that embodies unwavering composure on long journeys. Deep navy leather, trimmed with gold embroidery and edging, lends it a subtle air of refinement, while its short length over the shoulders keeps the wearer's arms free."
+   },
+   {
+    "name": "Demeniss cave chest 5",
+    "uuid": [
+     4123173643,
+     1591218244,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0013",
+    "spawnReasons": [
+     "Drop_Demian_Leather_Gloves_IV"
+    ],
+    "itemKey": 1000894,
+    "itemName": "Demian_Leather_Gloves_IV",
+    "textId": "4298806996762736",
+    "english": "Wanderer of Faith Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "4298806996762737",
+    "description": "Leather gloves that embody unwavering composure on long journeys. A subtle golden pattern spreads across the dark leather in restrained ornamentation, while the long cut that wraps the back of the hand and wrist help to prevent injuries and reduce chafing."
+   },
+   {
+    "name": "Delesyia cave chest 1",
+    "uuid": [
+     678786943,
+     1591218245,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0014",
+    "spawnReasons": [
+     "Drop_Carta_Leather_Gloves"
+    ],
+    "itemKey": 12412,
+    "itemName": "Carta_Leather_Gloves",
+    "textId": "53309134078064",
+    "english": "Carta Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "53309134078065",
+    "description": "Leather gloves crafted by Carta, the scrap merchant of Delesyia. Had he received an education or a chance to realize his talent, Delesyia would have had four great engineers, not three."
+   },
+   {
+    "name": "Delesyia cave chest 2",
+    "uuid": [
+     1161168524,
+     1591218245,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0015",
+    "spawnReasons": [
+     "Drop_IncreaseSwimmingSpeed_Plate_Boots"
+    ],
+    "itemKey": 2131006,
+    "itemName": "IncreaseSwimmingSpeed_Plate_Boots",
+    "textId": "9152601077579888",
+    "english": "Tidebreaker Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "9152601077579889",
+    "description": "Boots equipped with an underwater propulsion device developed by Faust. It activates automatically upon entering the water, helping the wearer swim at high speeds."
+   },
+   {
+    "name": "Delesyia cave chest 3",
+    "uuid": [
+     1456979935,
+     1591218246,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0016",
+    "spawnReasons": [
+     "Drop_Gold_Armor_OneHandShield"
+    ],
+    "itemKey": 1001246,
+    "itemName": "Gold_Armor_OneHandShield",
+    "textId": "4300318825250928",
+    "english": "Golden Shield",
+    "status": "named",
+    "equipTypeKey": 257028056,
+    "itemType": "Shield",
+    "descriptionId": "4300318825250929",
+    "description": "A shield that gleams with dazzling golden light. The Knight of Fortune clad his cast-iron shield in gleaming gold and jewels. Dazzlingly ornate, but its weight is as heavy as the lives and wealth he stole."
+   },
+   {
+    "name": "Delesyia cave chest 4",
+    "uuid": [
+     1832051458,
+     1591218246,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0017",
+    "spawnReasons": [
+     "Drop_Gaeljude_PlateArmor_Gloves"
+    ],
+    "itemKey": 121071,
+    "itemName": "Gaeljude_PlateArmor_Gloves",
+    "textId": "519995985494128",
+    "english": "Golden Greed Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "519995985494129",
+    "description": "Plate Gloves once used by Merrick, the Knight of Fortune. While they retain the golden luster, some criticize that they are unsuitable for combat, likely due to being mixed with cheap iron. However, everyone acknowledges their beauty as they glisten in the sunlight."
+   },
+   {
+    "name": "Crimson Desert cave chest 2",
+    "uuid": [
+     2787422971,
+     1591218246,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0018",
+    "spawnReasons": [
+     "Drop_Samuel_PlateArmor_Cloak"
+    ],
+    "itemKey": 1000310,
+    "itemName": "Samuel_PlateArmor_Cloak",
+    "textId": "4296298735861872",
+    "english": "Dark Marksman's Plate Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296298735861873",
+    "description": "A plate cloak once worn by Samara, the Sandwatcher. The fabric is heavily permeated with the stench of gunpowder. It is dyed with a pitch black color, making it impossible to tell if it is actually stained with gunpowder."
+   },
+   {
+    "name": "Crimson Desert cave chest 3",
+    "uuid": [
+     3219083188,
+     1591218246,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0019",
+    "spawnReasons": [
+     "Drop_MiddleBoss_GoldenArmor_TwoHandHammer_I"
+    ],
+    "itemKey": 1000729,
+    "itemName": "MiddleBoss_GoldenArmor_TwoHandHammer_I",
+    "textId": "4298098327158896",
+    "english": "Golden Greathammer",
+    "status": "named",
+    "equipTypeKey": 604374103,
+    "itemType": "Greathammer",
+    "descriptionId": "4298098327158897",
+    "description": "A shiny greathammer that can deliver powerful destruction. Crafted entirely with gold from head to handle, its ring-shaped ornament at the center of the hammerhead adds unique beauty."
+   },
+   {
+    "name": "Crimson Desert cave chest 4",
+    "uuid": [
+     3567039137,
+     1591218246,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0020",
+    "spawnReasons": [
+     "Drop_Golden_PlateArmor_Cloak"
+    ],
+    "itemKey": 1000301,
+    "itemName": "Golden_PlateArmor_Cloak",
+    "textId": "4296260081156208",
+    "english": "Golden Greed Plate Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296260081156209",
+    "description": "A plate cloak once worn by Merrick, the Knight of Fortune. It features pauldrons forged from golden metal and fabric that shimmers with a brilliant gold hue when caught in the sunlight."
+   },
+   {
+    "name": "Delesyia cave chest 5",
+    "uuid": [
+     4083093860,
+     1591218246,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0021",
+    "spawnReasons": [
+     "Drop_Demian_PlateArmor_Helm_IV"
+    ],
+    "itemKey": 2600045,
+    "itemName": "Demian_PlateArmor_Helm_IV",
+    "textId": "11167108243128432",
+    "english": "Goldlight Plate Helm",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "11167108243128433",
+    "description": null
+   },
+   {
+    "name": "Demeniss cave chest 6",
+    "uuid": [
+     3447117407,
+     1591218250,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0022",
+    "spawnReasons": [
+     "Drop_Redknight_Plate_Boots"
+    ],
+    "itemKey": 14201,
+    "itemName": "Redknight_Plate_Boots",
+    "textId": "60992830570608",
+    "english": "Plate Boots of Cursed Soul",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "60992830570609",
+    "description": "Plate boots of Fortain the Cursed Knight. To conquer the Wells, he embraced unfathomable power and relinquished his soul. The footsteps of a wraith echo with every step."
+   },
+   {
+    "name": "Demeniss cave chest 7",
+    "uuid": [
+     626871775,
+     1591218247,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0023",
+    "spawnReasons": [
+     "Drop_Skull_Knight_Plate_Boots"
+    ],
+    "itemKey": 14202,
+    "itemName": "Skull_Knight_Plate_Boots",
+    "textId": "60997125537904",
+    "english": "Frostcursed Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "60997125537905",
+    "description": "Plate boots once worn by Skull Knight the Frostwarden. Ice crack patterns wrap around the ankles of the blackened plate, and the toes are honed to a bone-like sharpness. A faint, freezing aura emanates with every step."
+   },
+   {
+    "name": "Hernand cave chest 11",
+    "uuid": [
+     1023782498,
+     1591218247,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0024",
+    "spawnReasons": [
+     "Drop_Londel_Leather_Boots"
+    ],
+    "itemKey": 133178,
+    "itemName": "Londel_Leather_Boots",
+    "textId": "571995154546800",
+    "english": "Scorchflame Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "571995154546801",
+    "description": "Leather boots once worn by Tristan, the Flame Knight. Forged in dragon flame, the boots still hold their heat. Crafting equipment this way is said to be the secret method of the Flame Knights."
+   },
+   {
+    "name": "Hernand cave chest 12",
+    "uuid": [
+     1689143037,
+     1591218248,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0025",
+    "spawnReasons": [
+     "Drop_Londel_PlateArmor_Gloves"
+    ],
+    "itemKey": 121026,
+    "itemName": "Londel_PlateArmor_Gloves",
+    "textId": "519802711965808",
+    "english": "Scorchflame Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "519802711965809",
+    "description": null
+   },
+   {
+    "name": "Hernand cave chest 13",
+    "uuid": [
+     2348266535,
+     1591218248,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0026",
+    "spawnReasons": [
+     "Drop_Deerking_Plate_Boots"
+    ],
+    "itemKey": 131046,
+    "itemName": "Deerking_Plate_Boots",
+    "textId": "562838284271728",
+    "english": "Plate Boots of the Fallen Kingdom",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "562838284271729",
+    "description": "Plate boots once worn by Saigord the Staglord, king of a forgotten kingdom. Until his final breath, the Staglord waited for his people who would never return. Now, not a soul remains to acknowledge him as king."
+   },
+   {
+    "name": "Hernand cave chest 14",
+    "uuid": [
+     4001884719,
+     1591218248,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0027",
+    "spawnReasons": [
+     "Drop_Deerking_Leather_Armor"
+    ],
+    "itemKey": 113561,
+    "itemName": "Deerking_Leather_Armor",
+    "textId": "487740781101168",
+    "english": "Leather Armor of the Fallen Kingdom",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "487740781101169",
+    "description": "A leather armor once worn by Saigord the Staglord, king of a forgotten kingdom. The kingdom was once prosperous, but its name was buried and lost to history. Now, no one recognizes the armor that once stood as the kingdom's symbol."
+   },
+   {
+    "name": "Hernand cave chest 15",
+    "uuid": [
+     909910496,
+     1591218249,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0028",
+    "spawnReasons": [
+     "Drop_DarknessKing_PlateArmor_Boots"
+    ],
+    "itemKey": 1000382,
+    "itemName": "DarknessKing_PlateArmor_Boots",
+    "textId": "4296607973507184",
+    "english": "Plate Boots of the Shadows",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4296607973507185",
+    "description": "Plate boots once worn by Beloth, the Darksworn. The black plates extending to the ankles interlock tightly to eliminate gaps, and the sharp, tapered toes are crafted to crush through ice and snow. Traces of treks through the mountain's blizzards remain, causing a faint trail of black frost to follow whenever the wearer walks upon the snow."
+   },
+   {
+    "name": "Hernand cave chest 16",
+    "uuid": [
+     1346861857,
+     1591218250,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0029",
+    "spawnReasons": [
+     "Drop_Deer_King_OneHandSword"
+    ],
+    "itemKey": 200922,
+    "itemName": "Deer_King_OneHandSword",
+    "textId": "862953419047024",
+    "english": "Survivor's Solitude",
+    "status": "named",
+    "equipTypeKey": 1584411264,
+    "itemType": "Sword",
+    "descriptionId": "862953419047025",
+    "description": "The sword held by the last king of a forgotten kingdom until his final moments. It is said to be engraved with a pattern symbolizing the ancient royal house, but no one remains to recognize it as such."
+   },
+   {
+    "name": "Hernand cave chest 17",
+    "uuid": [
+     1918008996,
+     1591218250,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0030",
+    "spawnReasons": [
+     "Drop_Deerking_PlateArmor_Gloves"
+    ],
+    "itemKey": 121081,
+    "itemName": "Deerking_PlateArmor_Gloves",
+    "textId": "520038935167088",
+    "english": "Plate Gloves of the Fallen Kingdom",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "520038935167089",
+    "description": "Plate gloves once worn by Saigord the Staglord, king of a forgotten kingdom. Until his final breath, the Staglord waited for his people who would never return. But as the years of waiting dragged on, his gloves lost their former luster."
+   },
+   {
+    "name": "Kweiden cave chest 1",
+    "uuid": [
+     2690923579,
+     1591218250,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0031",
+    "spawnReasons": [
+     "Drop_Ashad_PlateArmor_Boots"
+    ],
+    "itemKey": 131023,
+    "itemName": "Ashad_PlateArmor_Boots",
+    "textId": "562739500023920",
+    "english": "Ashad Plate Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "562739500023921",
+    "description": "Plate boots named after Ashad, an orc wanderer and freesword of the Crimson Desert. Thick steel wraps tightly around the shins, while golden ornaments shaped like the desert sun protect the knees. Secured firmly with red leather straps, they embody a spirit that refuses to yield, even against the fiercest gust or enemy assault."
+   },
+   {
+    "name": "Kweiden cave chest 2",
+    "uuid": [
+     3117768265,
+     1591218250,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0032",
+    "spawnReasons": [
+     "Drop_Corvo_PlateArmor_Gloves"
+    ],
+    "itemKey": 121069,
+    "itemName": "Corvo_PlateArmor_Gloves",
+    "textId": "519987395559536",
+    "english": "Icewing Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "519987395559537",
+    "description": "Plate gloves of Gwen Kraber, captain of the Wolf Trackers. She is Giath's loyal right hand, constantly seeking new prey for him. In some ways, she seems an unlikely fit among the Wolf Trackers. Her true origins are unknown, but her skill is beyond doubt."
+   },
+   {
+    "name": "Kweiden cave chest 3",
+    "uuid": [
+     2083626813,
+     1591218274,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0034",
+    "spawnReasons": [
+     "Drop_Recipe_Surasang_00"
+    ],
+    "itemKey": 1000819,
+    "itemName": "Recipe_Surasang_00",
+    "textId": "4298484874215536",
+    "english": "Recipe: Grand Meal",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4298484874215537",
+    "description": "A recipe to make a delicious grand meal.<br/><br/>[Effect] Restores Health beyond the limits<br/>※ When made with rare ingredients, the dishes gain special effects."
+   },
+   {
+    "name": "Kweiden cave chest 4",
+    "uuid": [
+     2403856097,
+     1591218274,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0035",
+    "spawnReasons": [
+     "Drop_Drunk_BlackBears_TwoHandedWarHamme"
+    ],
+    "itemKey": 1000637,
+    "itemName": "Drunk_BlackBears_TwoHandedWarHamme",
+    "textId": "4297703190167664",
+    "english": "Roar of the Black Bear",
+    "status": "named",
+    "equipTypeKey": 3150053877,
+    "itemType": "Warhammer",
+    "descriptionId": "4297703190167665",
+    "description": "A warhammer once wielded by the Black Bear vice captain. Its head is shaped the same on both sides so it can be swung either way, and each blow hits with enough force to make the ground tremble."
+   },
+   {
+    "name": "Hernand cave chest 18",
+    "uuid": [
+     1266313320,
+     1591218275,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0036",
+    "spawnReasons": [
+     "Drop_WaterSliding_Plate_Boots"
+    ],
+    "itemKey": 1000259,
+    "itemName": "WaterSliding_Plate_Boots",
+    "textId": "4296079692529776",
+    "english": "Vaporwalker",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4296079692529777",
+    "description": "Boots crafted from waterproof leather with lightweight soles, designed to briefly stay afloat. They allow the wearer to quickly slide across shallow water."
+   },
+   {
+    "name": "Demeniss cave chest 8",
+    "uuid": [
+     3124330059,
+     1591218274,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0037",
+    "spawnReasons": [
+     "Drop_DamianOnly_Leather_Boots_IV"
+    ],
+    "itemKey": 1000011,
+    "itemName": "DamianOnly_Leather_Boots_IV",
+    "textId": "4295014540640368",
+    "english": "Autumn Banquet Leather Boots",
+    "status": "named",
+    "equipTypeKey": 3438125342,
+    "itemType": "Footwear",
+    "descriptionId": "4295014540640369",
+    "description": "Formal leather boots that capture the quiet elegance of an autumn forest. Dark leather runs smoothly up to the shin for a neat look, with a small buckle as a subtle accent. In the light, it takes on a gentle sheen, completing a composed outfit."
+   },
+   {
+    "name": "Demeniss cave chest 9",
+    "uuid": [
+     1881253057,
+     1591218275,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0038",
+    "spawnReasons": [
+     "Drop_Skull_Knight_PlateArmor_Gloves"
+    ],
+    "itemKey": 121017,
+    "itemName": "Skull_Knight_PlateArmor_Gloves",
+    "textId": "519764057260144",
+    "english": "Frostcursed Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "519764057260145",
+    "description": null
+   },
+   {
+    "name": "Demeniss cave chest 10",
+    "uuid": [
+     3555723630,
+     1591218274,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0039",
+    "spawnReasons": [
+     "Drop_king_LostPeople_PlateArmor_Armor"
+    ],
+    "itemKey": 111005,
+    "itemName": "king_LostPeople_PlateArmor_Armor",
+    "textId": "476762844692592",
+    "english": "Frostcursed Plate Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "476762844692593",
+    "description": "A plate armor once worn by Skull Knight the Frostwarden. Grotesquely intertwined rib-like ornaments exude an intimidating aura, as if wearing death itself. A cursed, eternal frost constantly emanates from deep within the armor. Increases the wearer's Frost Resistance."
+   },
+   {
+    "name": "Crimson Desert cave chest 5",
+    "uuid": [
+     3948132493,
+     1591218274,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0040",
+    "spawnReasons": [
+     "Drop_Demian_Fabric_Cloak_I"
+    ],
+    "itemKey": 1000127,
+    "itemName": "Demian_Fabric_Cloak_I",
+    "textId": "4295512756846704",
+    "english": "Light of the Battlefield Cloth Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4295512756846705",
+    "description": "A cloak carrying the hopes for glorious victory. The pure white cloth that is finished with golden trim and patterns lens it a regal air. The adornments on the shoulder resemble wings of light, making the wearer look like a symbol of victory."
+   },
+   {
+    "name": "Hernand cave chest 19",
+    "uuid": [
+     176443087,
+     1591218275,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0041",
+    "spawnReasons": [
+     "Drop_Bear_Chief_Leather_Helm"
+    ],
+    "itemKey": 14501,
+    "itemName": "Bear_Chief_Leather_Helm",
+    "textId": "62281320759408",
+    "english": "Boss Bear Hat",
+    "status": "named",
+    "equipTypeKey": 1963713749,
+    "itemType": "Headgear",
+    "descriptionId": "62281320759409",
+    "description": "A hat crafted from the hide of an alpha bear. It is made from roughly tanned leather and fur that still reeks of the beast."
+   },
+   {
+    "name": "Delesyia cave chest 6",
+    "uuid": [
+     469313066,
+     1591218275,
+     3947466451,
+     0
+    ],
+    "level": "cd_waterfall_cave_0042",
+    "spawnReasons": [
+     "Drop_Scalaphynion_Leather_Gloves"
+    ],
+    "itemKey": 12407,
+    "itemName": "Scalaphynion_Leather_Gloves",
+    "textId": "53287659241584",
+    "english": "Skyblazer Leather Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "53287659241585",
+    "description": "Leather gloves worn by Balthazar, the Wyvernflame. The blood-red leather across the knuckles glints with a vivid hue amidst the dancing flames. Its not particularly resistant to heat, but he used it to skillfully handle wyverns."
+   },
+   {
+    "name": "Delesyia strongbox 1 (dial)",
+    "uuid": [
+     352292785,
+     4279242811,
+     645817056,
+     0
+    ],
+    "level": "sector_-18_-15_indoor_1_17",
+    "spawnReasons": [
+     "Drop_WhiteHorn_Earring"
+    ],
+    "itemKey": 391518521,
+    "itemName": "WhiteHorn_Earring",
+    "textId": "1681559243473289328",
+    "english": "White Horn's Earring",
+    "status": "named",
+    "equipTypeKey": 2168897676,
+    "itemType": "Earring",
+    "descriptionId": "1681559243473289329",
+    "description": "An earring crafted from the processed horns of White Horn, the legendary spirit of the Argent Peaks. The miraculous power of the cold, gleaming horn protects the wearer from harm. Its pure white energy radiates an untouchable, ethereal aura."
+   },
+   {
+    "name": "Delesyia strongbox 2 (padlock)",
+    "uuid": [
+     2285040983,
+     1450447232,
+     3472670780,
+     0
+    ],
+    "level": "sector_-20_-19_sub_2_12",
+    "spawnReasons": [
+     "Drop_Antumbra_DarkDeacon_Necklace"
+    ],
+    "itemKey": 391518537,
+    "itemName": "Antumbra_DarkDeacon_Necklace",
+    "textId": "1681559312192766064",
+    "english": "Relic of Darkness",
+    "status": "named",
+    "equipTypeKey": 41248863,
+    "itemType": "Necklace",
+    "descriptionId": "1681559312192766065",
+    "description": "A necklace infused with the energy of deep darkness. Rest it in one's hand to reveal a weight far heavier than its appearance suggests, as if its dark aura presses down on the very air around it."
+   },
+   {
+    "name": "Demeniss strongbox 1 (sliding jigsaw)",
+    "uuid": [
+     3523647357,
+     1591218667,
+     1150148307,
+     0
+    ],
+    "level": "riventainmonastery_0001_phase00_00",
+    "spawnReasons": [
+     "Drop_Paper_ReventineMonastery_Document"
+    ],
+    "itemKey": 1000859,
+    "itemName": "Paper_ReventineMonastery_Document",
+    "textId": "4298656672907376",
+    "english": "Reventine Monastery Exclusive Document",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4298656672907377",
+    "description": "A document hidden in the Reventine Monastery. Can be sold at a high price to a vendor."
+   },
+   {
+    "name": "Demeniss strongbox 2 (dial)",
+    "uuid": [
+     2907298968,
+     4279242810,
+     645817056,
+     0
+    ],
+    "level": "sector_-27_-12_sub_3_23",
+    "spawnReasons": [
+     "Drop_Titan_Necklace"
+    ],
+    "itemKey": 391518523,
+    "itemName": "Titan_Necklace",
+    "textId": "1681559252063223920",
+    "english": "Necklace of Lightning",
+    "status": "named",
+    "equipTypeKey": 41248863,
+    "itemType": "Necklace",
+    "descriptionId": "1681559252063223921",
+    "description": "A necklace imbued with the power of lightning. When worn, a faint electrical current flows through it, constantly sharpening the wearer's senses. This effect enables rapid detection of an opponent's weaknesses."
+   },
+   {
+    "name": "Demeniss strongbox 3 (padlock)",
+    "uuid": [
+     664027247,
+     1450447231,
+     3472670780,
+     0
+    ],
+    "level": "sector_-31_-13_sub_3_9",
+    "spawnReasons": [
+     "Drop_Recipe_Surasang_05"
+    ],
+    "itemKey": 1001060,
+    "itemName": "Recipe_Surasang_05",
+    "textId": "4299519961333872",
+    "english": "Recipe: Meal",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4299519961333873",
+    "description": "A recipe to make a delicious meal.<br/><br/>[Effect] Restores and fixes Stamina<br/>※ When made with rare ingredients, the dish gains special effects."
+   },
+   {
+    "name": "Demeniss house chest 1",
+    "uuid": [
+     2778463104,
+     1450446554,
+     1058791484,
+     0
+    ],
+    "level": "sector_-31_-14_indoor_1_1",
+    "spawnReasons": [
+     "Drop_Hailbrin_Leather_Armor"
+    ],
+    "itemKey": 12218,
+    "itemName": "Hailbrin_Leather_Armor",
+    "textId": "52475910422640",
+    "english": "Helfryn Leather Armor",
+    "status": "named",
+    "equipTypeKey": 2667368044,
+    "itemType": "Armor",
+    "descriptionId": "52475910422641",
+    "description": "A leather armor set once worn by Gabriel Caliburn, Duke of the Kingdom of Demeniss. Made from very dark brown leather with crimson-trimmed edges, it pairs a refined design with durability."
+   },
+   {
+    "name": "Demeniss strongbox 4 (music box)",
+    "uuid": [
+     4190700554,
+     1591218356,
+     3740195795,
+     0
+    ],
+    "level": "sector_-31_-14_indoor_1_6",
+    "spawnReasons": [
+     "Drop_Recipe_Surasang_01"
+    ],
+    "itemKey": 1000860,
+    "itemName": "Recipe_Surasang_01",
+    "textId": "4298660967874672",
+    "english": "Recipe: Extravagant Meal",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4298660967874673",
+    "description": "A recipe to make a delicious extravagant meal.<br/><br/>[Effect] Restores Spirit, fixes Spirit<br/>※ When made with rare ingredients, the dishes gain special effects."
+   },
+   {
+    "name": "Demeniss strongbox 5 (number wheel)",
+    "uuid": [
+     2526008093,
+     4279242810,
+     645817056,
+     0
+    ],
+    "level": "sector_-32_-14_indoor_1_10",
+    "spawnReasons": [
+     "Drop_Legendary_Ogre_Ring"
+    ],
+    "itemKey": 8505,
+    "itemName": "Legendary_Ogre_Ring",
+    "textId": "36528696852592",
+    "english": "Ogre's Ring",
+    "status": "named",
+    "equipTypeKey": 41248863,
+    "itemType": "Necklace",
+    "descriptionId": "36528696852593",
+    "description": "A crude ring once worn by an ogre. It is so massive that it could serve as a pendant for humans. Simply possessing it fills you with the beast's immense strength."
+   },
+   {
+    "name": "Demeniss strongbox 6 (music box)",
+    "uuid": [
+     3246128797,
+     4279242810,
+     645817056,
+     0
+    ],
+    "level": "sector_-32_-14_indoor_1_43",
+    "spawnReasons": [
+     "Drop_Tarif_Necklace"
+    ],
+    "itemKey": 1001100,
+    "itemName": "Tarif_Necklace",
+    "textId": "4299691760025712",
+    "english": "Tarivian Necklace",
+    "status": "named",
+    "equipTypeKey": 41248863,
+    "itemType": "Necklace",
+    "descriptionId": "4299691760025713",
+    "description": "A necklace that grants the strength to rise again when facing a fatal crisis. The magic within the necklace boosts the wearer's {Staticinfo:Knowledge:Knowledge_Hp#Health}, providing a chance for revival."
+   },
+   {
+    "name": "Demeniss strongbox 7 (music box)",
+    "uuid": [
+     2277313979,
+     1450447232,
+     3472670780,
+     0
+    ],
+    "level": "sector_-32_-14_sub_3_38",
+    "spawnReasons": [
+     "Drop_Pattern_Diamond_Earring"
+    ],
+    "itemKey": 600005,
+    "itemName": "Pattern_Diamond_Earring",
+    "textId": "2577001852436592",
+    "english": "Golden Deer's Tear",
+    "status": "named",
+    "equipTypeKey": 2168897676,
+    "itemType": "Earring",
+    "descriptionId": "2577001852436593",
+    "description": "An earring crafted during the golden age of a forgotten kingdom. The golden horn motif represents royal authority, while the clear gem symbolizes the nation's ideals. After the dynasty's fall, it was passed down as a relic that proves the lineage of the fallen kingdom's descendants."
+   },
+   {
+    "name": "Demeniss strongbox 8 (number wheel)",
+    "uuid": [
+     534039953,
+     3947892910,
+     3021822454,
+     0
+    ],
+    "level": "sector_-33_-13_indoor_1_1",
+    "spawnReasons": [
+     "Drop_Ancient_People_Earring"
+    ],
+    "itemKey": 391518544,
+    "itemName": "Ancient_People_Earring",
+    "textId": "1681559342257537136",
+    "english": "Ancient Earring",
+    "status": "named",
+    "equipTypeKey": 2168897676,
+    "itemType": "Earring",
+    "descriptionId": "1681559342257537137",
+    "description": "An earring containing the essence of an ancient civilization. The latent waves of wisdom resonate with the wearer's mind, evoking a strange sense of exhilaration as if the principles of the world could be understood."
+   },
+   {
+    "name": "Demeniss strongbox 9 (jigsaw)",
+    "uuid": [
+     534040692,
+     3947892910,
+     3021822454,
+     0
+    ],
+    "level": "sector_-33_-13_indoor_1_9",
+    "spawnReasons": [
+     "Drop_SungroveManor_HomeKey"
+    ],
+    "itemKey": 1002260,
+    "itemName": "SungroveManor_HomeKey",
+    "textId": "4304673922089072",
+    "english": "Sungrove Manor Key",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4304673922089073",
+    "description": "A key found in the secret strongbox of Sungrove Manor. There must be a special use for it."
+   },
+   {
+    "name": "Demeniss strongbox 10 (sliding jigsaw)",
+    "uuid": [
+     3774345810,
+     4279242808,
+     645817056,
+     0
+    ],
+    "level": "sector_-34_-12_sub_3_27",
+    "spawnReasons": [
+     "Drop_Karanda_Necklace"
+    ],
+    "itemKey": 391518539,
+    "itemName": "Karanda_Necklace",
+    "textId": "1681559320782700656",
+    "english": "Karanda's Necklace",
+    "status": "named",
+    "equipTypeKey": 41248863,
+    "itemType": "Necklace",
+    "descriptionId": "1681559320782700657",
+    "description": "A feather-adorned necklace imbued with the essence of wind. A faint breeze drifts between the feathers, and when worn, it brings a refreshing sense of freedom as if soaring through the open sky."
+   },
+   {
+    "name": "Demeniss strongbox 11 (number wheel)",
+    "uuid": [
+     3812688348,
+     4279242808,
+     645817056,
+     0
+    ],
+    "level": "sector_-34_-15_indoor_1_5",
+    "spawnReasons": [
+     "Drop_Hexe_Earring"
+    ],
+    "itemKey": 391518540,
+    "itemName": "Hexe_Earring",
+    "textId": "1681559325077667952",
+    "english": "Witch's Earring",
+    "status": "named",
+    "equipTypeKey": 2168897676,
+    "itemType": "Earring",
+    "descriptionId": "1681559325077667953",
+    "description": "An earring infused with the condensed energy of a powerful witch. When worn, a thin witch's veil envelops the body. This mystical energy absorbs external impacts, helping protect the wearer."
+   },
+   {
+    "name": "Demeniss house chest 2",
+    "uuid": [
+     2027356321,
+     1591218613,
+     3740195795,
+     0
+    ],
+    "level": "sector_-34_-4_sub_1_1",
+    "spawnReasons": [
+     "Drop_AbyssReward_Skull_Knight_TwoHandSword"
+    ],
+    "itemKey": 15901,
+    "itemName": "AbyssReward_Skull_Knight_TwoHandSword",
+    "textId": "68294274973808",
+    "english": "Frozen Anguish",
+    "status": "named",
+    "equipTypeKey": 1086980073,
+    "itemType": "Longsword",
+    "descriptionId": "68294274973809",
+    "description": "A longsword once wielded by the Skull Knight. Its cold blue blade radiates a chilling frost. A symbol of darkness and death, this longsword instills fear and intimidation, granting the power to deal devastating blows to the enemy."
+   },
+   {
+    "name": "Hernand strongbox 1 (sliding jigsaw)",
+    "uuid": [
+     655958064,
+     4279242738,
+     645817056,
+     0
+    ],
+    "level": "sector_-39_-20_sub_3_38",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Hernand strongbox 2 (sliding jigsaw)",
+    "uuid": [
+     3662269138,
+     3758100465,
+     2263460684,
+     0
+    ],
+    "level": "sector_-39_-20_sub_3_39",
+    "spawnReasons": [
+     "Drop_Folorin_Earring"
+    ],
+    "itemKey": 8509,
+    "itemName": "Folorin_Earring",
+    "textId": "36545876721776",
+    "english": "Flower Petal Earring",
+    "status": "named",
+    "equipTypeKey": 2168897676,
+    "itemType": "Earring",
+    "descriptionId": "36545876721777",
+    "description": "An earring crafted in a village overflowing with the energy of nature. Upon use, a melody as beautiful as the singing of a spirit echoes in the ears."
+   },
+   {
+    "name": "Hernand strongbox 3 (music box)",
+    "uuid": [
+     3514699320,
+     4279242808,
+     645817056,
+     0
+    ],
+    "level": "sector_-42_-15_indoor_1_14",
+    "spawnReasons": [
+     "Drop_Recipe_Surasang_02"
+    ],
+    "itemKey": 1000881,
+    "itemName": "Recipe_Surasang_02",
+    "textId": "4298751162187888",
+    "english": "Recipe: Lavish Meal",
+    "status": "named",
+    "equipTypeKey": null,
+    "itemType": null,
+    "descriptionId": "4298751162187889",
+    "description": "A recipe to make a delicious lavish meal.<br/><br/>[Effect] Restores and fixes Stamina<br/>※ When made with rare ingredients, the dish gains special effects."
+   },
+   {
+    "name": "Hernand strongbox 4 (padlock)",
+    "uuid": [
+     1001162890,
+     3947892908,
+     3021822454,
+     0
+    ],
+    "level": "sector_-42_-16_indoor_1_26",
+    "spawnReasons": [
+     "Drop_Detail_Gold_Necklace"
+    ],
+    "itemKey": 610014,
+    "itemName": "Detail_Gold_Necklace",
+    "textId": "2619990180102256",
+    "english": "Finely Crafted Gold Necklace",
+    "status": "named",
+    "equipTypeKey": 41248863,
+    "itemType": "Necklace",
+    "descriptionId": "2619990180102257",
+    "description": "A golden necklace that bears the mark of a master artisan. Despite its weight, it feels remarkably smooth against the skin. Even after prolonged wear, it causes little discomfort, reflecting the immense care invested by its maker."
+   },
+   {
+    "name": "Hernand strongbox 5 (number wheel)",
+    "uuid": [
+     1001163168,
+     3947892908,
+     3021822454,
+     0
+    ],
+    "level": "sector_-42_-16_indoor_1_30",
+    "spawnReasons": [
+     "Drop_Antumbra_DarkDeacon_Earring"
+    ],
+    "itemKey": 391518535,
+    "itemName": "Antumbra_DarkDeacon_Earring",
+    "textId": "1681559303602831472",
+    "english": "Oath of Darkness",
+    "status": "named",
+    "equipTypeKey": 2168897676,
+    "itemType": "Earring",
+    "descriptionId": "1681559303602831473",
+    "description": "An earring proving the status of a deacon within Antumbra's followers. It is imbued with an avowed incantation to lure others into the shadows and bind them to eternal darkness."
+   },
+   {
+    "name": "Hernand house chest 1",
+    "uuid": [
+     604604728,
+     3947892910,
+     3021822454,
+     0
+    ],
+    "level": "sector_-43_-15_indoor_1_6",
+    "spawnReasons": [
+     "Drop_Oongka_Plate_Glove"
+    ],
+    "itemKey": 14305,
+    "itemName": "Oongka_Plate_Glove",
+    "textId": "61439507169392",
+    "english": "Brass Warden's Plate Gloves",
+    "status": "named",
+    "equipTypeKey": 3628286577,
+    "itemType": "Gloves",
+    "descriptionId": "61439507169393",
+    "description": "Plate gloves once worn by a nameless soldier who spent years drifting from one battlefield to the next. Multiple leather straps are wound tightly over the plates covering the back of the hand, while the worn and scratched surface bears the marks of brutal combat. This equipment prioritizes defense over any sense of flair."
+   },
+   {
+    "name": "Hernand strongbox 6 (jigsaw)",
+    "uuid": [
+     604604814,
+     3947892910,
+     3021822454,
+     0
+    ],
+    "level": "sector_-43_-15_indoor_1_8",
+    "spawnReasons": [
+     "Drop_Pattern_Gold_Earring"
+    ],
+    "itemKey": 600003,
+    "itemName": "Pattern_Gold_Earring",
+    "textId": "2576993262502000",
+    "english": "Engraved Gold Earring",
+    "status": "named",
+    "equipTypeKey": 2168897676,
+    "itemType": "Earring",
+    "descriptionId": "2576993262502001",
+    "description": "An engraved gold earring featuring exquisite jewelcraft and ancient patterns. Though their meaning remains unknown, the subtle radiance flows along the surface contours, both mystical and captivating."
+   },
+   {
+    "name": "Kweiden strongbox 1 (padlock)",
+    "uuid": [
+     3591242036,
+     4279242808,
+     645817056,
+     0
+    ],
+    "level": "sector_-37_-6_indoor_1_5",
+    "spawnReasons": [
+     "Drop_Detail_Gold_Ring"
+    ],
+    "itemKey": 620011,
+    "itemName": "Detail_Gold_Ring",
+    "textId": "2662926968160368",
+    "english": "Finely Crafted Gold Ring",
+    "status": "named",
+    "equipTypeKey": 2834073798,
+    "itemType": "Ring",
+    "descriptionId": "2662926968160369",
+    "description": "A gold ring that showcases exquisite jewelcraft. With its seamless finish and masterful workmanship, it reflects the artisan's perfectionism and delicate sense of form."
+   },
+   {
+    "name": "Kweiden house chest 1",
+    "uuid": [
+     3393125302,
+     3222802170,
+     1789175885,
+     0
+    ],
+    "level": "sector_-45_-3_indoor_1_0",
+    "spawnReasons": [
+     "Drop_Corvo_PlateArmor_Cloak"
+    ],
+    "itemKey": 1000311,
+    "itemName": "Corvo_PlateArmor_Cloak",
+    "textId": "4296303030829168",
+    "english": "Icewing Plate Cloak",
+    "status": "named",
+    "equipTypeKey": 1241706053,
+    "itemType": "Cloak",
+    "descriptionId": "4296303030829169",
+    "description": "A cloak of Gwen Kraber, captain of the Wolf Trackers. She is Giath's loyal right hand, constantly seeking new prey for him. In some ways, she seems an unlikely fit among the Wolf Trackers. Her true origins are unknown, but her skill is beyond doubt."
+   },
+   {
+    "name": "Kweiden strongbox 2 (all buttons)",
+    "uuid": [
+     240902234,
+     4279242811,
+     645817056,
+     0
+    ],
+    "level": "sector_-46_2_sub_3_18",
+    "spawnReasons": [
+     "Drop_Legendary_Titan_Ring"
+    ],
+    "itemKey": 8502,
+    "itemName": "Legendary_Titan_Ring",
+    "textId": "36515811950704",
+    "english": "Ring of Lightning",
+    "status": "named",
+    "equipTypeKey": 2834073798,
+    "itemType": "Ring",
+    "descriptionId": "36515811950705",
+    "description": "A ring containing the sealed power of an ancient giant. It temporarily wraps the wearer's body with the energy of lightning, unleashing explosive power that transcends human limits. In that moment, the electrical currents surging in all directions will turn everything they touch into ashes."
+   },
+   {
+    "name": "Kweiden strongbox 3 (one-stroke drawing)",
+    "uuid": [
+     3906132523,
+     4279242810,
+     645817056,
+     0
+    ],
+    "level": "sector_-48_-4_sub_3_38",
+    "spawnReasons": [
+     "Drop_Mjordin_Lantern"
+    ],
+    "itemKey": 10047,
+    "itemName": "Mjordin_Lantern",
+    "textId": "43151536423024",
+    "english": "Flame Lantern",
+    "status": "named",
+    "equipTypeKey": 2546137832,
+    "itemType": "Lantern",
+    "descriptionId": "43151536423025",
+    "description": "A sturdy lantern made of iron. The thin iron trim recreates the shape of a burning flame. Said to be preferred by men for its substantial weight and decorative appeal."
+   }
+  ],
+  "Abyss Chest": [
+   {
+    "name": "Abyss bridge 1 chest 1",
+    "uuid": [
+     2801313316,
+     1450447017,
+     1140703292,
+     0
+    ],
+    "level": "abyssbridge_0001_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0001"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 109 chest 1",
+    "uuid": [
+     2860491582,
+     1450447017,
+     1140703292,
+     0
+    ],
+    "level": "abyssbridge_0109_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0109"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 122 chest 1",
+    "uuid": [
+     1678922642,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssbridge_0122_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss bridge 122 chest 2",
+    "uuid": [
+     2856202462,
+     1591218345,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0122_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0122"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 138 chest 1",
+    "uuid": [
+     955864974,
+     1591218556,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0138_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0138"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 140 chest 1",
+    "uuid": [
+     2844277515,
+     1591218345,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0140_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0140"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 150 chest 1",
+    "uuid": [
+     2830077707,
+     1591218345,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0150_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0150"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 151 chest 1",
+    "uuid": [
+     240629046,
+     1591218357,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0151_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0151"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 152 chest 1",
+    "uuid": [
+     2834740659,
+     1591218345,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0152_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0152"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 162 chest 1",
+    "uuid": [
+     3697801490,
+     1591218554,
+     2990706131,
+     0
+    ],
+    "level": "abyssbridge_0162_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0162"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 176 chest 1",
+    "uuid": [
+     2820720008,
+     1591218345,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0176_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0176"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 189 chest 1",
+    "uuid": [
+     1062334340,
+     1591218357,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0189_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0189"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 23 chest 1",
+    "uuid": [
+     1789880781,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssbridge_0023_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss bridge 23 chest 2",
+    "uuid": [
+     1697248457,
+     1450447218,
+     4203164732,
+     0
+    ],
+    "level": "abyssbridge_0023_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0023"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 89 chest 1",
+    "uuid": [
+     2847897518,
+     1450447017,
+     1140703292,
+     0
+    ],
+    "level": "abyssbridge_0089_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0089"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 91 chest 1",
+    "uuid": [
+     2727420217,
+     1591218485,
+     1179029203,
+     0
+    ],
+    "level": "abyssbridge_0091_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0091"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 91 chest 2",
+    "uuid": [
+     1741068642,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssbridge_0091_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss bridge 97 chest 1",
+    "uuid": [
+     2851635890,
+     1450447017,
+     1140703292,
+     0
+    ],
+    "level": "abyssbridge_0097_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0097"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss bridge 99 chest 1",
+    "uuid": [
+     2854741603,
+     1450447017,
+     1140703292,
+     0
+    ],
+    "level": "abyssbridge_0099_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0099"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 1 chest 1",
+    "uuid": [
+     4043237732,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0001_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0001_01"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 1 chest 2",
+    "uuid": [
+     1008730335,
+     4279243251,
+     4084319712,
+     0
+    ],
+    "level": "abyssislandcore_0001_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0001_02"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 2 chest 1",
+    "uuid": [
+     2895578842,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0002_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0002_03"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 2 chest 2",
+    "uuid": [
+     2515515417,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0002_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0002_02"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 2 chest 3",
+    "uuid": [
+     2736615930,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0002_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0002_01"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 3 chest 1",
+    "uuid": [
+     665262521,
+     1591218591,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0003_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0003_01"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 3 chest 2",
+    "uuid": [
+     451669526,
+     1591218591,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0003_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0003_02"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 3 chest 3",
+    "uuid": [
+     606300356,
+     1591218591,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0003_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0003_03"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 4 chest 1",
+    "uuid": [
+     2339021254,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0004_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0004_02"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 4 chest 2",
+    "uuid": [
+     3460364985,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0004_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0004_03"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 4 chest 3",
+    "uuid": [
+     2336271412,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0004_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0004_01"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 5 chest 1",
+    "uuid": [
+     4105411219,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0005_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0005_04"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 5 chest 2",
+    "uuid": [
+     3759066578,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0005_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0005_03"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 5 chest 3",
+    "uuid": [
+     3530951790,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0005_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0005_01"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 5 chest 4",
+    "uuid": [
+     3844555866,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0005_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0005_02"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 6 chest 1",
+    "uuid": [
+     1196529754,
+     4279243251,
+     4084319712,
+     0
+    ],
+    "level": "abyssislandcore_0006_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0006_02"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 6 chest 2",
+    "uuid": [
+     4037818909,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0006_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0006_01"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 7 chest 1",
+    "uuid": [
+     4198132241,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0007_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0007_01"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 7 chest 2",
+    "uuid": [
+     746071794,
+     1591218591,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0007_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0007_02"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 7 chest 3",
+    "uuid": [
+     4144792902,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0007_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0007_04"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss core island 7 chest 4",
+    "uuid": [
+     4147613488,
+     1591218590,
+     1179029203,
+     0
+    ],
+    "level": "abyssislandcore_0007_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_Core_0007_03"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 1 chest 1",
+    "uuid": [
+     1599972655,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0001_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 1001 chest 1",
+    "uuid": [
+     1686880084,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_1001_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 113 chest 1",
+    "uuid": [
+     3346217315,
+     1450447262,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0113_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0113"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 113 chest 2",
+    "uuid": [
+     1701717800,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0113_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 121 chest 1",
+    "uuid": [
+     3852130345,
+     1450447262,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0121_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0121"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 13 chest 1",
+    "uuid": [
+     1612301124,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0013_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 13 chest 2",
+    "uuid": [
+     1604126736,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0013_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 13 chest 3",
+    "uuid": [
+     3475954324,
+     1450447262,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0013_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0013"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 144 chest 1",
+    "uuid": [
+     1620900838,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0144_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 158 chest 1",
+    "uuid": [
+     1816400380,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0158_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 158 chest 2",
+    "uuid": [
+     1192072270,
+     4279243251,
+     4084319712,
+     0
+    ],
+    "level": "abyssisland_0158_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0158"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 158 chest 3",
+    "uuid": [
+     421352041,
+     1450447287,
+     4203164732,
+     0
+    ],
+    "level": "abyssisland_0158_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 175 chest 1",
+    "uuid": [
+     3930461874,
+     3308261754,
+     459099801,
+     0
+    ],
+    "level": "abyssisland_0175_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0175"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 18 chest 1",
+    "uuid": [
+     2837710313,
+     1450447017,
+     1140703292,
+     0
+    ],
+    "level": "abyssisland_0018_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0018"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 191 chest 1",
+    "uuid": [
+     1795513088,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0191_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 200 chest 1",
+    "uuid": [
+     485379192,
+     1450447287,
+     4203164732,
+     0
+    ],
+    "level": "abyssisland_0200_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 3 chest 1",
+    "uuid": [
+     1804305751,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0003_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 3 chest 2",
+    "uuid": [
+     1188162188,
+     4279243251,
+     4084319712,
+     0
+    ],
+    "level": "abyssisland_0003_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 3 chest 3",
+    "uuid": [
+     2804860049,
+     1450447017,
+     1140703292,
+     0
+    ],
+    "level": "abyssisland_0003_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0003"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 36 chest 1",
+    "uuid": [
+     3132018410,
+     1450447262,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0036_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0036"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 41 chest 1",
+    "uuid": [
+     3559034322,
+     1450447262,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0041_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0041"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 55 chest 1",
+    "uuid": [
+     3223303496,
+     1450447262,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0055_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0055"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 55 chest 2",
+    "uuid": [
+     1826651938,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0055_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 79 chest 1",
+    "uuid": [
+     1771102340,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0079_phase00_00_sub_1_0",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 79 chest 2",
+    "uuid": [
+     3797052265,
+     1450447262,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0079_phase00_00_sub_1_0",
+    "spawnReasons": [
+     "Drop_Abyss_0079"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 79 chest 3",
+    "uuid": [
+     1762149295,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0079_phase00_00_sub_1_1",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 83 chest 1",
+    "uuid": [
+     1639385339,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0083_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 83 chest 2",
+    "uuid": [
+     3640157864,
+     1450447262,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0083_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0083"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 83 chest 3",
+    "uuid": [
+     1660316717,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0083_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 84 chest 1",
+    "uuid": [
+     699589205,
+     1450447263,
+     2733276476,
+     0
+    ],
+    "level": "abyssisland_0084_phase00_00",
+    "spawnReasons": [
+     "Drop_Abyss_0084"
+    ],
+    "status": "no item row"
+   },
+   {
+    "name": "Abyss island 97 chest 1",
+    "uuid": [
+     1779498438,
+     1450447285,
+     1494999100,
+     0
+    ],
+    "level": "abyssisland_0097_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 97 chest 2",
+    "uuid": [
+     45630704,
+     1450447287,
+     4203164732,
+     0
+    ],
+    "level": "abyssisland_0097_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 99 chest 1",
+    "uuid": [
+     3495393536,
+     1450447286,
+     4203164732,
+     0
+    ],
+    "level": "abyssisland_0099_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   },
+   {
+    "name": "Abyss island 99 chest 2",
+    "uuid": [
+     3082132493,
+     1450447286,
+     4203164732,
+     0
+    ],
+    "level": "abyssisland_0099_phase00_00",
+    "spawnReasons": [],
+    "status": "no spawn reason"
+   }
+  ]
+ }
+}

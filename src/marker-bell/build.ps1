@@ -91,6 +91,9 @@ if ($Mode -eq 'Categories') {
     # v0.79: the surface Abyss Nexus list read by NativeSaveReader.cpp.
     & $python -B (Join-Path $sourceDirectory 'prepare_nexus_links.py')
     if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss Nexus list' }
+    # v0.88: the Sealed Abyss Artifact list read by NativeSaveReader.cpp.
+    & $python -B (Join-Path $sourceDirectory 'prepare_sealed_artifact_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Sealed Abyss Artifact list' }
 }
 
 # ---------------------------------------------------------------------------

@@ -29,6 +29,9 @@
 //    puzzle strongboxes and surface itemboxes are opened, and (v0.79) which
 //    Abyss Nexuses are activated. If that pass fails, those boxes and the
 //    Nexuses are reported as unknown; Bells and other chests are unaffected.
+// 7b. v0.88: a fourth separate walk of the same field-object list notes which
+//    Sealed Abyss Artifacts are picked up (artifact-links.h). If it fails,
+//    only the artifacts are reported as unknown.
 // 8. Writes a small JSON report and a diagnostic copy of the save into the mod's
 //    own folder, and returns a summary to NativeMapCategoryProbe.cpp.
 // It also contains the F9 save-slot chooser and the remembered-slot loader.
@@ -55,6 +58,7 @@
 #include "shrine-links.h"
 #include "chest-links.h"
 #include "nexus-links.h"
+#include "artifact-links.h"
 
 namespace {
 // ===========================================================================
@@ -370,6 +374,11 @@ struct Record {
     bool reasonKnown = false;
     bool resetKnown = false;
     bool stateKnown = false;
+    // Artifact pass (v0.88): the record's gimmick type, and whether its list
+    // of objects removed from the world holds its own origin UUID.
+    uint32_t gimmickKey = 0; // _gimmickInfoKey.
+    bool gimmickKnown = false;
+    std::vector<std::array<uint32_t, 4>> disabled; // _levelOrigin_disabledSceneObjectUuidList.
 };
 // What the save says about one known Bell.
 struct BellState {
@@ -394,6 +403,12 @@ constexpr uint64_t kBoxResetNever = 0xFFFFFFFFFFFFFFFFull; // Refill time "never
 constexpr uint32_t kBoxClosed = 2255254665u; // Closed (also the common initial state).
 constexpr uint32_t kBoxOpenedStolen = 353047760u; // Opened with a steal prompt.
 constexpr uint32_t kBoxOpenedLooted = 1537827618u; // Opened and looted normally.
+// What the field-object list says about one Sealed Abyss Artifact (v0.88).
+struct ArtifactState {
+    unsigned records = 0; // Matching records (normally 0 or 1).
+    bool pickedUp = false; // A record in the studied "picked up" shape.
+    bool unexpected = false; // A record unlike that shape (makes it unknown).
+};
 // What the save says about one known Greymane Shrine.
 struct ShrineState {
     bool seen = false; // Its knowledge entry exists (any level).
@@ -405,6 +420,7 @@ enum class Pass {
     Bells, // DiscoveredLevelGimmickSceneObjectSaveData._discoveredLevelGimmickSceneObjectSaveDataList
     Knowledge, // KnowledgeSaveData._list (Greymane Shrines)
     Field, // FieldSaveData._fieldGimmickSaveDataList (strongboxes, v0.68)
+    Artifacts, // The same list, read again for Sealed Abyss Artifacts (v0.88)
 };
 
 // ===========================================================================
@@ -430,6 +446,7 @@ class Reflection {
     std::array<ChestState, _countof(kAbyssChestLinks)> abyssChests = {}; // v0.69.
     std::array<ChestState, _countof(kNexusLinks)> nexuses = {}; // v0.79, Bell pass: discovered.
     std::array<FieldChestState, _countof(kNexusLinks)> fieldNexuses = {}; // v0.79, field pass: activated.
+    std::array<ArtifactState, _countof(kArtifactLinks)> artifacts = {}; // v0.88, artifact pass.
     size_t objectsVisited = 0; // Safety counter against huge or looping data.
     bool listVisited = false; // Did we actually see the list field this pass needs?
 
@@ -455,6 +472,26 @@ class Reflection {
         }
     }
 
+    // Artifact pass: note one field-object record for a Sealed Abyss Artifact.
+    // "Picked up" is only the exact shape seen for artifacts 0001 and 0016:
+    // the artifact gimmick, reason 1, never refills, the common initial state,
+    // and its own UUID in the list of objects removed from the world.
+    // Anything else makes the artifact unknown (hidden), never "not picked up".
+    static void NoteArtifactState(ArtifactState& state, const Record& record) {
+        ++state.records;
+        bool removed = std::find(record.disabled.begin(), record.disabled.end(), record.origin)
+            != record.disabled.end();
+        bool studied = record.gimmickKnown && record.gimmickKey == kArtifactGimmickKey &&
+            record.reasonKnown && record.reason == kBoxReasonSaved &&
+            record.resetKnown && record.reset == kBoxResetNever &&
+            record.stateKnown && record.stateHash == kBoxClosed && removed;
+        if (studied) {
+            state.pickedUp = true;
+        } else {
+            state.unexpected = true;
+        }
+    }
+
     // True for property kinds that are stored as arrays (lists of values).
     bool Array(uint16_t kind) { return kind == 3 || kind == 6 || kind == 7 || kind == 9 || kind == 10; }
 
@@ -466,6 +503,17 @@ class Reflection {
     // Abyss Nexus (all four UUID numbers equal; parts use other fourth
     // numbers), note its state.
     void Match(const Record& record) {
+        if (pass == Pass::Artifacts) {
+            if (!record.originKnown) {
+                return;
+            }
+            for (unsigned index = 0; index < _countof(kArtifactLinks); ++index) {
+                if (memcmp(kArtifactLinks[index].uuid, record.origin.data(), sizeof(kArtifactLinks[index].uuid)) == 0) {
+                    NoteArtifactState(artifacts[index], record);
+                }
+            }
+            return;
+        }
         if (pass == Pass::Field) {
             if (!record.originKnown) {
                 return;
@@ -550,7 +598,14 @@ class Reflection {
         if (!record) {
             return;
         }
-        if (pass == Pass::Field) {
+        if (pass == Pass::Field || pass == Pass::Artifacts) {
+            // v0.88: the artifact rule also needs the record's gimmick type.
+            if (pass == Pass::Artifacts && property.name == "_gimmickInfoKey") {
+                Require(property.typeName == "GimmickInfoKey" && size == 4, "Unexpected field gimmick representation.");
+                record->gimmickKey = Load32(value);
+                record->gimmickKnown = true;
+                return;
+            }
             // The four fields the box rule needs, each in its exact studied shape.
             if (property.name == "_levelOriginSceneObjectUuid") {
                 Require(property.typeName == "uint4" && size == 16, "Unexpected field origin UUID representation.");
@@ -633,8 +688,8 @@ class Reflection {
         // KnowledgeElementSaveData object, or the pass is rejected.
         Require(!record || pass != Pass::Knowledge || type.name == "KnowledgeElementSaveData",
             "Unexpected knowledge entry type.");
-        // Field pass: likewise, every entry must be a FieldGimmickSaveData.
-        Require(!record || pass != Pass::Field || type.name == "FieldGimmickSaveData",
+        // Field and artifact passes: likewise, every entry must be a FieldGimmickSaveData.
+        Require(!record || (pass != Pass::Field && pass != Pass::Artifacts) || type.name == "FieldGimmickSaveData",
             "Unexpected field entry type.");
         Require(bitmapSize >= (type.properties.size() + 7) / 8, "Property bitmap too short.");
         size_t start = reader.offset;
@@ -668,6 +723,7 @@ class Reflection {
             } else if (pass == Pass::Knowledge) {
                 captureList = type.name == "KnowledgeSaveData" && property.name == "_list";
             } else {
+                // Field and artifact passes read the same list.
                 captureList = type.name == "FieldSaveData" && property.name == "_fieldGimmickSaveDataList";
             }
             if (captureList) {
@@ -691,8 +747,22 @@ class Reflection {
                 Scalar(property, Count(static_cast<uint32_t>(kMaximumPlain)), capture);
                 break;
             case 3: {
-                // Array of fixed-size values: skipped.
+                // Array of fixed-size values: skipped, except (v0.88) the list
+                // of objects a field record removed from the world.
                 uint32_t count = Count();
+                if (pass == Pass::Artifacts && capture && property.name == "_levelOrigin_disabledSceneObjectUuidList") {
+                    Require(property.typeName == "uint4" && property.size == 16 && count <= 4096,
+                        "Unexpected field disabled-list representation.");
+                    for (uint32_t entry = 0; entry < count; ++entry) {
+                        const uint8_t* value = reader.Take(16);
+                        std::array<uint32_t, 4> uuid = {};
+                        for (unsigned word = 0; word < 4; ++word) {
+                            uuid[word] = Load32(value + word * 4);
+                        }
+                        capture->disabled.push_back(uuid);
+                    }
+                    break;
+                }
                 reader.Skip(static_cast<size_t>(count) * property.size);
                 break;
             }
@@ -782,6 +852,14 @@ public:
         return fieldChests;
     }
 
+    // Parse the decoded save and return what the field-object list says
+    // about each Sealed Abyss Artifact (v0.88).
+    auto ReadArtifacts() {
+        pass = Pass::Artifacts;
+        Parse("FieldSaveData");
+        return artifacts;
+    }
+
 private:
     // Order: header and versions, type table, optional name table, object
     // table, then the single `container` object this pass needs.
@@ -840,7 +918,9 @@ private:
         // Parse only this pass's container; there must be exactly one, and it
         // must contain the needed list, or the whole pass is rejected. The
         // field pass is the exception: saves hold one field container per
-        // world (two in the saves studied), and all of them are read.
+        // world (two in the saves studied), and all of them are read. So is
+        // the artifact pass, which reads the same containers (v0.90: v0.88
+        // required exactly one here and so rejected every save).
         unsigned containers = 0;
         for (const auto& info : entries) {
             if (types[info.type].name != container) { continue; }
@@ -849,11 +929,12 @@ private:
             reader.limit = info.offset + info.size;
             Object(0, false, true, info.type);
         }
-        bool containersFit = pass == Pass::Field ? containers >= 1 && containers <= 8 : containers == 1;
+        bool fieldList = pass == Pass::Field || pass == Pass::Artifacts;
+        bool containersFit = fieldList ? containers >= 1 && containers <= 8 : containers == 1;
         const char* failure = "Save has no unique supported Bell discovery container/list.";
         if (pass == Pass::Knowledge) {
             failure = "Save has no unique supported knowledge container/list.";
-        } else if (pass == Pass::Field) {
+        } else if (fieldList) {
             failure = "Save has no supported field-object container/list.";
         }
         Require(containersFit && listVisited, failure);
@@ -1056,6 +1137,38 @@ void FillShrines(const Bytes& plain, NativeSaveSummary& summary) {
         strncpy_s(summary.shrineError, exception.what(), _TRUNCATE);
     }
 }
+
+// Fourth, independent pass (v0.88): read the Sealed Abyss Artifacts from the
+// field-object list into `summary`. A failure here leaves artifactsValid false
+// (every artifact unknown) with the reason in artifactError; it never throws,
+// so every other result already in `summary` is kept as it is.
+void FillArtifacts(const Bytes& plain, NativeSaveSummary& summary) {
+    static_assert(_countof(kArtifactLinks) <= 32 * _countof(summary.artifactPickedUpMask),
+        "Artifact masks hold at most 256 artifacts");
+    summary.artifactCoverage = static_cast<unsigned>(_countof(kArtifactLinks));
+    try {
+        auto artifacts = Reflection(plain).ReadArtifacts();
+        for (unsigned index = 0; index < artifacts.size(); ++index) {
+            unsigned bit = 1u << (index % 32);
+            bool unknown = artifacts[index].unexpected;
+            bool pickedUp = !unknown && artifacts[index].pickedUp;
+            summary.artifactsPickedUp += pickedUp ? 1 : 0;
+            summary.artifactsUnknown += unknown ? 1 : 0;
+            summary.artifactPickedUpMask[index / 32] |= pickedUp ? bit : 0u;
+            summary.artifactUnknownMask[index / 32] |= unknown ? bit : 0u;
+        }
+        summary.artifactsValid = true;
+    } catch (const std::exception& exception) {
+        summary.artifactsValid = false;
+        summary.artifactsPickedUp = 0;
+        summary.artifactsUnknown = summary.artifactCoverage;
+        for (unsigned word = 0; word < _countof(summary.artifactPickedUpMask); ++word) {
+            summary.artifactPickedUpMask[word] = 0;
+            summary.artifactUnknownMask[word] = 0xFFFFFFFFu;
+        }
+        strncpy_s(summary.artifactError, exception.what(), _TRUNCATE);
+    }
+}
 } // namespace
 
 // ===========================================================================
@@ -1088,6 +1201,7 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
         FillAbyssChests(reflection.AbyssChests(), summary);
         summary.coverage = static_cast<unsigned>(states.size());
         FillShrines(plain, summary);
+        FillArtifacts(plain, summary);
         // Build the JSON report text by hand.
         std::ostringstream report;
         FILETIME now = {};
@@ -1167,6 +1281,8 @@ bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned 
         }
         // Shrines: a separate pass that cannot change the Bell result above.
         FillShrines(plain, summary);
+        // v0.88: Sealed Abyss Artifacts, likewise a separate pass.
+        FillArtifacts(plain, summary);
         modified = snapshot.modified;
         return true;
     } catch (const std::exception& exception) {

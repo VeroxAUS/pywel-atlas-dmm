@@ -1,0 +1,8 @@
+﻿ABYSS_CHEST_READ serial=1 slot=101 coverage=74 seen=2 opened=0
+NEXUS_READ serial=1 slot=101 coverage=213 discovered=4 activated=3 unknown=0
+SEALED_READ serial=1 slot=101 valid=0 coverage=141 pickedUp=0 unknown=141 error=Save has no unique supported Bell discovery container/list.
+BELL_READ serial=1 slot=101 trigger=f7 outcome=accepted profile=60062761:slot101 coverage=8 recorded=2 completed=2 hernandCompleted=1 saveModified=2026-10-24 06:22:20 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+CHEST_READ serial=1 slot=101 coverage=190 seen=2 opened=2 unknown=0 fieldValid=1 fieldRecords=1 error=none
+ABYSS_CHEST_READ serial=1 slot=101 coverage=74 seen=2 opened=0
+NEXUS_READ serial=1 slot=101 coverage=213 discovered=4 activated=3 unknown=0
+SEALED_READ serial=1 slot=101 valid=0 coverage=141 pickedUp=0 unknown=141 error=Save has no unique supported Bell discovery container/list.

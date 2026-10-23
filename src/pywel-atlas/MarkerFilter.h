@@ -3,7 +3,8 @@
 // =============================================================================
 //
 // The in-game filter panel (FilterPanel.cpp) shows one checkbox per marker
-// category (Bells, Greymane Shrines, treasure chests, v0.69 Abyss chests, v0.79 Abyss Nexus). The map-marker part
+// category (Bells, Greymane Shrines, treasure chests, v0.69 Abyss chests, v0.79 Abyss Nexus,
+// v0.88 Sealed Abyss Artifacts). The map-marker part
 // (src/marker-bell/NativeMapCategoryProbe.cpp, combined build) owns the
 // categories: it applies the user's choices, counts the markers, and saves
 // the choices and the panel's size and position to
@@ -13,7 +14,7 @@
 #pragma once
 
 // How many categories the panel lists (same order as the marker part).
-constexpr unsigned kPywelMarkerCategories = 5;
+constexpr unsigned kPywelMarkerCategories = 6;
 
 // A copy of one category's state, for the panel to display.
 struct PywelMarkerCategoryStatus {

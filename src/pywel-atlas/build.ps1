@@ -71,6 +71,9 @@ if ($LASTEXITCODE -ne 0) { throw 'Could not embed the treasure chest list' }
 # v0.79: the surface Abyss Nexus list.
 & $python -B (Join-Path $markerBell 'prepare_nexus_links.py')
 if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss Nexus list' }
+# v0.88: the Sealed Abyss Artifact list.
+& $python -B (Join-Path $markerBell 'prepare_sealed_artifact_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Sealed Abyss Artifact list' }
 if ($Test) {
     # Test build only: the teleporter's named target list.
     & $python -B (Join-Path $sourceDirectory 'prepare_teleport_targets.py')

@@ -1,0 +1,4132 @@
+{
+  "version": 1,
+  "category": "Sealed Abyss Artifact (challenge_sealed_artifact)",
+  "infoKey": 1000002,
+  "gimmickInfoKey": 1004255,
+  "pickedUpRule": "FieldSaveData._fieldGimmickSaveDataList record for this UUID with gimmick 1004255, reason 1, reset never, state 2255254665 and its own UUID in _levelOrigin_disabledSceneObjectUuidList",
+  "challengeSources": "challengeName/challengeText/challengeSteps: the game's missioninfo and quest.paloc (English); challengeReward: the MapGenie point's description",
+  "nativeIcon": {
+    "type": 187,
+    "templateType": 28813,
+    "templateName": "MapIcon_Gimmick_SealedArtifact",
+    "category": "0xffffffff"
+  },
+  "locations": [
+    {
+      "name": "Sharpened Spear II",
+      "uuid": [
+        2434285204,
+        3758100441,
+        2263460684,
+        0
+      ],
+      "gamePosition": [
+        -10345.8887,
+        537.5325,
+        -3988.2859
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0001",
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_II",
+      "mapGenieId": "mg:543944",
+      "mapGenieDistance": 16.6,
+      "challengeName": "Sharpened Spear II",
+      "challengeText": "Hit enemies 30 times with a spear within 30 seconds",
+      "challengeSteps": [
+        "Hit enemies 30 times with a spear within 30 seconds"
+      ],
+      "challengeReward": [
+        "Gale II Abyss Core x1"
+      ]
+    },
+    {
+      "name": "Sword of Trials IV",
+      "uuid": [
+        1223713014,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11250.1221,
+        701.1789,
+        -3782.6301
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0002",
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_IV",
+      "mapGenieId": "mg:546460",
+      "mapGenieDistance": 19.0,
+      "challengeName": "Sword of Trials IV",
+      "challengeText": "Defeat 3 enemies at once with a one-handed sword using Turning Slash",
+      "challengeSteps": [
+        "Defeat 3 enemies at once with a one-handed sword using Turning Slash"
+      ],
+      "challengeReward": [
+        "Destruction I abyss core x1"
+      ]
+    },
+    {
+      "name": "Flawless Massacre",
+      "uuid": [
+        670772687,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11004.8779,
+        753.1967,
+        -2896.6343
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0003",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_IV",
+      "mapGenieId": "mg:546195",
+      "mapGenieDistance": 27.2,
+      "challengeName": "Flawless Massacre",
+      "challengeText": "Defeat 30 enemies within 1 minute without dying",
+      "challengeSteps": [
+        "Defeat 30 enemies within 1 minute without dying"
+      ],
+      "challengeReward": [
+        "Gale II abyss core x1",
+        "Faded Abyss Artifact x1"
+      ]
+    },
+    {
+      "name": "Sharpened Spear V",
+      "uuid": [
+        1024860736,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9663.6709,
+        677.892,
+        -2088.4839
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0004",
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_V",
+      "mapGenieId": "mg:546383",
+      "mapGenieDistance": 13.0,
+      "challengeName": "Sharpened Spear V",
+      "challengeText": "Defeat 5 enemies with a spear without taking damage while maintaining 100% Health",
+      "challengeSteps": [
+        "Defeat 5 enemies with a spear without taking damage while maintaining 100% Health"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Overwhelming Slash I",
+      "uuid": [
+        1033091570,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10075.3398,
+        685.5019,
+        -1750.4597
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0005",
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_I",
+      "mapGenieId": "mg:551656",
+      "mapGenieDistance": 17.6,
+      "challengeName": "Overwhelming Slash I",
+      "challengeText": "Hit 3 enemies at once with a longsword while your Health is below 50%",
+      "challengeSteps": [
+        "Hit 3 enemies at once with a longsword while your Health is below 50%"
+      ],
+      "challengeReward": []
+    },
+    {
+      "name": "Sharpened Spear I",
+      "uuid": [
+        1039436470,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11499.0918,
+        784.4285,
+        -2983.4531
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0006",
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_I",
+      "mapGenieId": "mg:550499",
+      "mapGenieDistance": 21.4,
+      "challengeName": "Sharpened Spear I",
+      "challengeText": "Land 15 counterattacks with a spear within 30 seconds",
+      "challengeSteps": [
+        "Land 15 counterattacks with a spear within 30 seconds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Shield of Unchanging Will VI",
+      "uuid": [
+        1091866805,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -12248.249,
+        835.8418,
+        -2683.8821
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0007",
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_VI",
+      "mapGenieId": "mg:550493",
+      "mapGenieDistance": 19.2,
+      "challengeName": "Shield of Unchanging Will VI",
+      "challengeText": "Land 10 hits on enemies within 1 minute with a shield using Charge",
+      "challengeSteps": [
+        "Land 10 hits on enemies within 1 minute with a shield using Charge"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Rainbow Across the Sky",
+      "uuid": [
+        1095732098,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11867.0088,
+        775.0007,
+        -4106.7983
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0008",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_IV",
+      "mapGenieId": "mg:550257",
+      "mapGenieDistance": 18.2,
+      "challengeName": "Rainbow Across the Sky",
+      "challengeText": "Use a banner pike to pole vault 5 times in 30 seconds",
+      "challengeSteps": [
+        "Use a banner pike to pole vault 5 times in 30 seconds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Desperate Rescue",
+      "uuid": [
+        670772695,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11078.5508,
+        725.8885,
+        -5769.2285
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0009",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_VII",
+      "mapGenieId": "mg:546858",
+      "mapGenieDistance": 17.7,
+      "challengeName": "Desperate Rescue",
+      "challengeText": "Heal exhausted allies 3 times using Healing Force Palm",
+      "challengeSteps": [
+        "Heal exhausted allies 3 times using Healing Force Palm"
+      ],
+      "challengeReward": [
+        "Breath of Life I",
+        "Faded Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Overwhelming Slash II",
+      "uuid": [
+        1116207468,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7308.8105,
+        547.9131,
+        -2320.179
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0010",
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_II",
+      "mapGenieId": "mg:554923",
+      "mapGenieDistance": 19.1,
+      "challengeName": "Overwhelming Slash II",
+      "challengeText": "Defeat 3 enemies with a longsword Finisher without taking damage",
+      "challengeSteps": [
+        "Defeat 3 enemies with a longsword Finisher without taking damage"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Insight I"
+      ]
+    },
+    {
+      "name": "Greymane's Vow",
+      "uuid": [
+        604552041,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5128.5215,
+        390.5024,
+        -4394.6196
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0011",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_VI",
+      "mapGenieId": "mg:549902",
+      "mapGenieDistance": 18.7,
+      "challengeName": "Greymane's Vow",
+      "challengeText": "Acquire a Hernandian Signet; Acquire a Demenissian Signet; Acquire a Delesyian Signet; Acquire a Tashkalpian Signet",
+      "challengeSteps": [
+        "Acquire a Hernandian Signet",
+        "Acquire a Demenissian Signet",
+        "Acquire a Delesyian Signet",
+        "Acquire a Tashkalpian Signet"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Service II abyss core x1"
+      ]
+    },
+    {
+      "name": "End of the Shadow",
+      "uuid": [
+        997790218,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -11380.709,
+        685.1237,
+        -1639.0797
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0012",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_III",
+      "mapGenieId": "mg:550576",
+      "mapGenieDistance": 14.2,
+      "challengeName": "End of the Shadow",
+      "challengeText": "Assassinate 5 enemies at night",
+      "challengeSteps": [
+        "Assassinate 5 enemies at night"
+      ],
+      "challengeReward": []
+    },
+    {
+      "name": "Sword of Trials V",
+      "uuid": [
+        1157050778,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9404.7275,
+        611.7662,
+        -3236.0276
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0013",
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_V",
+      "mapGenieId": "mg:550406",
+      "mapGenieDistance": 23.1,
+      "challengeName": "Sword of Trials V",
+      "challengeText": "Defeat 3 enemies in a row with a one-handed sword only using Stab",
+      "challengeSteps": [
+        "Defeat 3 enemies in a row with a one-handed sword only using Stab"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Rend x1"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves VII",
+      "uuid": [
+        1162988277,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9202.6953,
+        537.4784,
+        -4783.4922
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0014",
+      "challenge": "Challenge_SealedArtifact_Vehicle_VII",
+      "mapGenieId": "mg:544628",
+      "mapGenieDistance": 17.8,
+      "challengeName": "Harmonious Hooves VII",
+      "challengeText": "Ride a Priden for over 100 meters; Ride a Brianto for over 100 meters; Ride a Numont for over 100 meters; Ride an Elantrima for over 100 meters",
+      "challengeSteps": [
+        "Ride a Priden for over 100 meters",
+        "Ride a Brianto for over 100 meters",
+        "Ride a Numont for over 100 meters",
+        "Ride an Elantrima for over 100 meters"
+      ],
+      "challengeReward": [
+        "Bond II Abyss Core x1"
+      ]
+    },
+    {
+      "name": "Worth its Weight",
+      "uuid": [
+        670772663,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11824.6182,
+        707.2255,
+        -1766.3528
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0015",
+      "challenge": "Challenge_SealedArtifact_Crime_VI",
+      "mapGenieId": "mg:547603",
+      "mapGenieDistance": 20.0,
+      "challengeName": "Worth Its Weight",
+      "challengeText": "Sell 10 pigs to the fence",
+      "challengeSteps": [
+        "Sell 10 pigs to the fence"
+      ],
+      "challengeReward": []
+    },
+    {
+      "name": "Shield of Unchanging Will I",
+      "uuid": [
+        1178679672,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10702.3398,
+        631.9969,
+        -3571.0212
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0016",
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_I",
+      "mapGenieId": "mg:543941",
+      "mapGenieDistance": 15.5,
+      "challengeName": "Shield of Unchanging Will I",
+      "challengeText": "Defeat 3 enemies with a shield",
+      "challengeSteps": [
+        "Defeat 3 enemies with a shield"
+      ],
+      "challengeReward": [
+        "Wall of Steel I"
+      ]
+    },
+    {
+      "name": "Between Herbs and Poisons",
+      "uuid": [
+        1016295232,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -9616.1348,
+        642.6708,
+        950.9352
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0017",
+      "challenge": "Challenge_SealedArtifact_Living_I",
+      "mapGenieId": "mg:553957",
+      "mapGenieDistance": 13.3,
+      "challengeName": "Between Herbs and Poisons",
+      "challengeText": "Acquire all mushroom knowledge; Acquire all medicinal herb knowledge; Acquire all poisonous herb knowledge",
+      "challengeSteps": [
+        "Acquire all mushroom knowledge",
+        "Acquire all medicinal herb knowledge",
+        "Acquire all poisonous herb knowledge"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Blessing of Nature III"
+      ]
+    },
+    {
+      "name": "Into The Barrage",
+      "uuid": [
+        670772679,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11240.9287,
+        675.9022,
+        -2552.3396
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0018",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_VI",
+      "mapGenieId": "mg:551569",
+      "mapGenieDistance": 12.6,
+      "challengeName": "Into the Barrage",
+      "challengeText": "Defeat 5 enemies at once with a cannon",
+      "challengeSteps": [
+        "Defeat 5 enemies at once with a cannon"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Sharpened Spear III",
+      "uuid": [
+        1203380356,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10285.7939,
+        651.8823,
+        -2788.3809
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0019",
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_III",
+      "mapGenieId": "mg:551578",
+      "mapGenieDistance": 14.0,
+      "challengeName": "Sharpened Spear III",
+      "challengeText": "Defeat 5 enemies within 15 seconds using Stab",
+      "challengeSteps": [
+        "Defeat 5 enemies within 15 seconds using Stab"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves VI",
+      "uuid": [
+        1335151967,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8307.0049,
+        523.2076,
+        -2796.4514
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0020",
+      "challenge": "Challenge_SealedArtifact_Vehicle_VI",
+      "mapGenieId": "mg:555540",
+      "mapGenieDistance": 15.1,
+      "challengeName": "Harmonious Hooves VI",
+      "challengeText": "Travel from the Silvermoon Tradehouse to Vellua within 10 minutes on horseback",
+      "challengeSteps": [
+        "Travel from the Silvermoon Tradehouse to Vellua within 10 minutes on horseback"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Haste II"
+      ]
+    },
+    {
+      "name": "Shield of Unchanging Will II",
+      "uuid": [
+        1211463523,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -12171.4805,
+        768.4,
+        -5359.854
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0021",
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_II",
+      "mapGenieId": "mg:546866",
+      "mapGenieDistance": 16.3,
+      "challengeName": "Shield of Unchanging Will II",
+      "challengeText": "Block 10 arrows with a shield",
+      "challengeSteps": [
+        "Block 10 arrows with a shield"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Sliding down the Slope",
+      "uuid": [
+        1219238998,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10233.9453,
+        542.8218,
+        -4243.4116
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0022",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_III",
+      "mapGenieId": "mg:544021",
+      "mapGenieDistance": 16.8,
+      "challengeName": "Sliding Down the Slope",
+      "challengeText": "Slide down 50 meters",
+      "challengeSteps": [
+        "Slide down 50 meters"
+      ],
+      "challengeReward": [
+        "Haste I"
+      ]
+    },
+    {
+      "name": "Sword of Trials III",
+      "uuid": [
+        2437887371,
+        3758100441,
+        2263460684,
+        0
+      ],
+      "gamePosition": [
+        -10350.0635,
+        546.8953,
+        -4206.2271
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0023",
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_III",
+      "mapGenieId": "mg:543949",
+      "mapGenieDistance": 17.0,
+      "challengeName": "Sword of Trials III",
+      "challengeText": "Defeat 3 enemies with a one-handed sword without taking damage",
+      "challengeSteps": [
+        "Defeat 3 enemies with a one-handed sword without taking damage"
+      ],
+      "challengeReward": [
+        "Breath of Life I"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves IV",
+      "uuid": [
+        1859702199,
+        1450446808,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11268.9531,
+        762.4227,
+        -6824.9868
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0024",
+      "challenge": "Challenge_SealedArtifact_Vehicle_IV",
+      "mapGenieId": "mg:545604",
+      "mapGenieDistance": 28.2,
+      "challengeName": "Harmonious Hooves IV",
+      "challengeText": "Go from Sunset Valley to Varnia within 40 minutes on horseback",
+      "challengeSteps": [
+        "Go from Sunset Valley to Varnia within 40 minutes on horseback"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Dancing Blade, Shining Shield II",
+      "uuid": [
+        1292262629,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7165.7427,
+        492.1418,
+        -2913.1484
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0025",
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_II",
+      "mapGenieId": "mg:555796",
+      "mapGenieDistance": 18.5,
+      "challengeName": "Dancing Blade, Shining Shield II",
+      "challengeText": "Stab enemies 10 times with a rapier without taking damage",
+      "challengeSteps": [
+        "Stab enemies 10 times with a rapier without taking damage"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Haste I"
+      ]
+    },
+    {
+      "name": "Bow Aimed at Fate V",
+      "uuid": [
+        1298705681,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8822.1787,
+        653.243,
+        -1387.562
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0026",
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_V",
+      "mapGenieId": "mg:551501",
+      "mapGenieDistance": 12.0,
+      "challengeName": "Bow Aimed at Fate V",
+      "challengeText": "Defeat 5 enemies at once from over 20 meters away with a bow",
+      "challengeSteps": [
+        "Defeat 5 enemies at once from over 20 meters away with a bow"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Greater Infinite Arrows x1"
+      ]
+    },
+    {
+      "name": "When Lightning Strikes IV",
+      "uuid": [
+        1568204971,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8212.2393,
+        568.8295,
+        -1785.7305
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0027",
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_IV",
+      "mapGenieId": "mg:552805",
+      "mapGenieDistance": 21.0,
+      "challengeName": "When Lightning Strikes IV",
+      "challengeText": "Hit 7 enemies on horseback with a gun while riding a horse",
+      "challengeSteps": [
+        "Hit 7 enemies on horseback with a gun while riding a horse"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Aptitude I"
+      ]
+    },
+    {
+      "name": "Harmonious Hoves III",
+      "uuid": [
+        1571438373,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8488.5566,
+        454.6075,
+        -4725.063
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0028",
+      "challenge": "Challenge_SealedArtifact_Vehicle_III",
+      "mapGenieId": "mg:554927",
+      "mapGenieDistance": 22.5,
+      "challengeName": "Harmonious Hooves III",
+      "challengeText": "While riding a horse, defeat 20 enemies within 5 minutes",
+      "challengeSteps": [
+        "While riding a horse, defeat 20 enemies within 5 minutes"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Aptitude II x1"
+      ]
+    },
+    {
+      "name": "Special Weapon VII: Gale Shield",
+      "uuid": [
+        607464045,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6101.251,
+        438.0205,
+        -2998.8503
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0029",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_VII",
+      "mapGenieId": "mg:557103",
+      "mapGenieDistance": 22.3,
+      "challengeName": "Special Weapon: Gale Shield",
+      "challengeText": "Defeat 30 enemies with the gale shield",
+      "challengeSteps": [
+        "Defeat 30 enemies with the gale shield"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Greater Destruction"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves V",
+      "uuid": [
+        1577973735,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8055.0405,
+        529.2496,
+        -2399.2979
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0030",
+      "challenge": "Challenge_SealedArtifact_Vehicle_V",
+      "mapGenieId": "mg:556144",
+      "mapGenieDistance": 24.8,
+      "challengeName": "Harmonious Hooves V",
+      "challengeText": "Successfully mount a horse 3 times while descending from the air",
+      "challengeSteps": [
+        "Successfully mount a horse 3 times while descending from the air"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Ascent I"
+      ]
+    },
+    {
+      "name": "Stepping on Clouds",
+      "uuid": [
+        1311575614,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8910.7432,
+        573.8793,
+        -6091.8569
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0031",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_II",
+      "mapGenieId": "mg:554018",
+      "mapGenieDistance": 22.5,
+      "challengeName": "Stepping on Clouds",
+      "challengeText": "Use Aerial Force Palm to reach a height of 10 meters",
+      "challengeSteps": [
+        "Use Aerial Force Palm to reach a height of 10 meters"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Ascent I x1"
+      ]
+    },
+    {
+      "name": "Small Predator",
+      "uuid": [
+        607464061,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8498.7539,
+        527.3723,
+        -3453.2678
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0032",
+      "challenge": "Challenge_SealedArtifact_Hunting_VI",
+      "mapGenieId": "mg:551761",
+      "mapGenieDistance": 18.8,
+      "challengeName": "Small Predator",
+      "challengeText": "Catch and carry 5 animals from the weasel family",
+      "challengeSteps": [
+        "Catch and carry 5 animals from the weasel family"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Blessing of the Beast II"
+      ]
+    },
+    {
+      "name": "Mysterious Accessory Shop",
+      "uuid": [
+        607464030,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8047.5381,
+        509.752,
+        -3611.4141
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0033",
+      "challenge": "Challenge_SealedArtifact_Trust_III",
+      "mapGenieId": "mg:549905",
+      "mapGenieDistance": 18.9,
+      "challengeName": "Mysterious Accessory Shop",
+      "challengeText": "Visit all the Witches' workshops",
+      "challengeSteps": [
+        "Visit all the Witches' workshops"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded  Abyss Artifact",
+        "Life Transference"
+      ]
+    },
+    {
+      "name": "When Lightning Strikes V",
+      "uuid": [
+        670772653,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10143.1426,
+        595.1231,
+        -5501.9136
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0034",
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_V",
+      "mapGenieId": "mg:545607",
+      "mapGenieDistance": 22.9,
+      "challengeName": "When Lightning Strikes V",
+      "challengeText": "Defeat 3 enemies using regular shots; Defeat 3 enemies using Evasive Shot or Focused Evasive Shot; Defeat 3 enemies using aerial shots",
+      "challengeSteps": [
+        "Defeat 3 enemies using regular shots",
+        "Defeat 3 enemies using Evasive Shot or Focused Evasive Shot",
+        "Defeat 3 enemies using aerial shots"
+      ],
+      "challengeReward": [
+        "Destruction I Abyss Core x1"
+      ]
+    },
+    {
+      "name": "Gunshot",
+      "uuid": [
+        607463991,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8736.6953,
+        536.4327,
+        -3950.3799
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0035",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_VIII",
+      "mapGenieId": "mg:555795",
+      "mapGenieDistance": 25.9,
+      "challengeName": "Gunshot",
+      "challengeText": "Defeat an elite enemy using only a gun",
+      "challengeSteps": [
+        "Defeat an elite enemy using only a gun"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Malicebane II"
+      ]
+    },
+    {
+      "name": "Clash of a Protector",
+      "uuid": [
+        1327364200,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6787.1436,
+        543.0292,
+        -2472.6824
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0036",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_VI",
+      "mapGenieId": "mg:554926",
+      "mapGenieDistance": 17.1,
+      "challengeName": "Clash of a Protector",
+      "challengeText": "Successfully parry 7 times without taking damage",
+      "challengeSteps": [
+        "Successfully parry 7 times without taking damage"
+      ],
+      "challengeReward": [
+        "Abyss Artifact - 1",
+        "Faded Abyss Artifact - 1",
+        "Aegis II"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves I",
+      "uuid": [
+        1580871583,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9355.5098,
+        631.406,
+        -2818.7129
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0037",
+      "challenge": "Challenge_SealedArtifact_Vehicle_I",
+      "mapGenieId": "mg:552408",
+      "mapGenieDistance": 15.3,
+      "challengeName": "Harmonious Hooves I",
+      "challengeText": "Tame 2 wild horses",
+      "challengeSteps": [
+        "Tame 2 wild horses"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Companionship abyss core x1"
+      ]
+    },
+    {
+      "name": "Dancing Blade, Shining Shield I",
+      "uuid": [
+        1207687951,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11283.2881,
+        619.1917,
+        -4861.3403
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0038",
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_I",
+      "mapGenieId": "mg:550223",
+      "mapGenieDistance": 25.4,
+      "challengeName": "Dancing Blade, Shining Shield I",
+      "challengeText": "Defeat 5 enemies with a rapier within 60 seconds",
+      "challengeSteps": [
+        "Defeat 5 enemies with a rapier within 60 seconds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Bare Courage",
+      "uuid": [
+        607464012,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9299.9863,
+        558.4833,
+        -5363.1221
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0039",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_X",
+      "mapGenieId": "mg:544692",
+      "mapGenieDistance": 18.8,
+      "challengeName": "Bare Courage",
+      "challengeText": "Defeat 3 enemies within 1 minute without using a weapon",
+      "challengeSteps": [
+        "Defeat 3 enemies within 1 minute without using a weapon"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Fortification I"
+      ]
+    },
+    {
+      "name": "Barraging Cannon III",
+      "uuid": [
+        1998146809,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4564.9233,
+        374.1234,
+        -4228.3584
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0040",
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_III",
+      "mapGenieId": "mg:551598",
+      "mapGenieDistance": 17.8,
+      "challengeName": "Barraging Cannon III",
+      "challengeText": "Defeat 10 enemies within 30 seconds with a blaster without destroying any surrounding objects",
+      "challengeSteps": [
+        "Defeat 10 enemies within 30 seconds with a blaster without destroying any surrounding objects"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Greater Swift"
+      ]
+    },
+    {
+      "name": "Barraging Cannon I",
+      "uuid": [
+        1998147043,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4719.3062,
+        415.0973,
+        -3173.6389
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0041",
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_I",
+      "mapGenieId": "mg:551520",
+      "mapGenieDistance": 24.1,
+      "challengeName": "Barraging Cannon I",
+      "challengeText": "Hit 3 enemies at once with a blaster",
+      "challengeSteps": [
+        "Hit 3 enemies at once with a blaster"
+      ],
+      "challengeReward": [
+        "1x Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Operation: Seeds of Discord",
+      "uuid": [
+        604552055,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5171.5264,
+        400.273,
+        -4682.4858
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0042",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_V",
+      "mapGenieId": "mg:554964",
+      "mapGenieDistance": 25.4,
+      "challengeName": "Seeds of Discord",
+      "challengeText": "Commit a crime in the City of Delesyia while wearing Varnian Contribution Armor; Commit a crime in the City of Varnia while wearing Delesyian Contribution Armor",
+      "challengeSteps": [
+        "Commit a crime in the City of Delesyia while wearing Varnian Contribution Armor",
+        "Commit a crime in the City of Varnia while wearing Delesyian Contribution Armor"
+      ],
+      "challengeReward": []
+    },
+    {
+      "name": "Like A Butterfly, Like a Storm",
+      "uuid": [
+        1998147050,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -3818.6013,
+        391.8767,
+        -4718.6821
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0043",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_VIII",
+      "mapGenieId": "mg:554969",
+      "mapGenieDistance": 21.3,
+      "challengeName": "Like a Butterfly, Like a Storm",
+      "challengeText": "Successfully land Diving Force Palm twice in a row without touching the ground",
+      "challengeSteps": [
+        "Successfully land Diving Force Palm twice in a row without touching the ground"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Composure II"
+      ]
+    },
+    {
+      "name": "Dancing Blade, Shining Shield IV",
+      "uuid": [
+        1998147058,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -6714.6167,
+        504.421,
+        -5490.4888
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0044",
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_IV",
+      "mapGenieId": "mg:554429",
+      "mapGenieDistance": 25.3,
+      "challengeName": "Dancing Blade, Shining Shield IV",
+      "challengeText": "Defeat 3 enemies at once from over 10 meters away with a rapier",
+      "challengeSteps": [
+        "Defeat 3 enemies at once from over 10 meters away with a rapier"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Greater Insight"
+      ]
+    },
+    {
+      "name": "Barraging Cannon IV",
+      "uuid": [
+        1998147066,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5472.979,
+        407.1608,
+        -5372.6748
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0045",
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_IV",
+      "mapGenieId": "mg:554087",
+      "mapGenieDistance": 23.8,
+      "challengeName": "Barraging Cannon IV",
+      "challengeText": "Defeat an enemy on horseback from over 30 meters away with a blaster",
+      "challengeSteps": [
+        "Defeat an enemy on horseback from over 30 meters away with a blaster"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Steelbane II"
+      ]
+    },
+    {
+      "name": "Flash",
+      "uuid": [
+        604552105,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -3586.6233,
+        407.2278,
+        -5192.6011
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0046",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_II",
+      "mapGenieId": "mg:553921",
+      "mapGenieDistance": 21.5,
+      "challengeName": "Flash",
+      "challengeText": "Hit 5 targets at once using Blinding Flash",
+      "challengeSteps": [
+        "Hit 5 targets at once using Blinding Flash"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Aptitude I"
+      ]
+    },
+    {
+      "name": "Single Spark, Seven Strikes",
+      "uuid": [
+        604551995,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5027.0415,
+        381.9896,
+        -4053.2742
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0047",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_V",
+      "mapGenieId": "mg:554960",
+      "mapGenieDistance": 20.5,
+      "challengeName": "Single Spark, Seven Strikes",
+      "challengeText": "Defeat 7 enemies with a single explosion",
+      "challengeSteps": [
+        "Defeat 7 enemies with a single explosion"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Destruction III"
+      ]
+    },
+    {
+      "name": "Tornado of Steel",
+      "uuid": [
+        1998147006,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -6566.5615,
+        409.519,
+        -4584.4707
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0048",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_VII",
+      "mapGenieId": "mg:554080",
+      "mapGenieDistance": 21.2,
+      "challengeName": "Tornado of Steel",
+      "challengeText": "Hit enemies 6 times using a normal Turning Slash; Hit enemies 6 times using a Fire-enhanced Turning Slash; Hit enemies 6 times using an Ice-enhanced Turning Slash; Hit enemies 6 times using an Lightning-enhanced Turning Slash; Hit enemies 6 times using a Wind-enhanced Turning Slash",
+      "challengeSteps": [
+        "Hit enemies 6 times using a normal Turning Slash",
+        "Hit enemies 6 times using a Fire-enhanced Turning Slash",
+        "Hit enemies 6 times using an Ice-enhanced Turning Slash",
+        "Hit enemies 6 times using an Lightning-enhanced Turning Slash",
+        "Hit enemies 6 times using a Wind-enhanced Turning Slash"
+      ],
+      "challengeReward": []
+    },
+    {
+      "name": "Judgement Cast Upon the Sleeping",
+      "uuid": [
+        636725337,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11615.9053,
+        693.3823,
+        -1203.5162
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0049",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_VIII",
+      "mapGenieId": "mg:553878",
+      "mapGenieDistance": 11.7,
+      "challengeName": "Judgment Cast Upon the Sleeping",
+      "challengeText": "Attack sleeping enemies 5 times",
+      "challengeSteps": [
+        "Attack sleeping enemies 5 times"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Ledgermain II"
+      ]
+    },
+    {
+      "name": "Ground-Shaking Impact III",
+      "uuid": [
+        993029025,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -11078.2705,
+        679.5987,
+        -1854.5515
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0050",
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_VI",
+      "mapGenieId": "mg:553031",
+      "mapGenieDistance": 11.8,
+      "challengeName": "Ground-Shaking Impact III",
+      "challengeText": "Knock back 5 enemies flying at once with a two-handed club or axe",
+      "challengeSteps": [
+        "Knock back 5 enemies flying at once with a two-handed club or axe"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Destruction II"
+      ]
+    },
+    {
+      "name": "Night of the Silent Banner Pike",
+      "uuid": [
+        670772429,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9715.7207,
+        567.5445,
+        -4142.7051
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0051",
+      "challenge": "Challenge_SealedArtifact_Crime_I",
+      "mapGenieId": "mg:544036",
+      "mapGenieDistance": 19.9,
+      "challengeName": "Night of the Silent Banner Pike",
+      "challengeText": "Destroy 10 banner pikes at night without being detected",
+      "challengeSteps": [
+        "Destroy 10 banner pikes at night without being detected"
+      ],
+      "challengeReward": [
+        "Destruction II",
+        "Faded Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Mystical Ecosystem",
+      "uuid": [
+        636725352,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9704.5381,
+        629.6953,
+        -591.0292
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0052",
+      "challenge": "Challenge_SealedArtifact_Hunting_IV",
+      "mapGenieId": "mg:551652",
+      "mapGenieDistance": 7.6,
+      "challengeName": "Mystical Ecosystem",
+      "challengeText": "Capture 3 Choppies",
+      "challengeSteps": [
+        "Capture 3 Choppies"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Fortune I"
+      ]
+    },
+    {
+      "name": "Ground-Shaking Impact I",
+      "uuid": [
+        3170660471,
+        3222802561,
+        1822861389,
+        0
+      ],
+      "gamePosition": [
+        -11496.8223,
+        648.6979,
+        -5300.7705
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0053",
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_IV",
+      "mapGenieId": "mg:550244",
+      "mapGenieDistance": 24.5,
+      "challengeName": "Ground-Shaking Impact I",
+      "challengeText": "Land 30 hits on enemies within 30 seconds with a two-handed club or axe",
+      "challengeSteps": [
+        "Land 30 hits on enemies within 30 seconds with a two-handed club or axe"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Special Weapon V: Bismuth Spear",
+      "uuid": [
+        636725374,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10165.5039,
+        747.329,
+        822.1328
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0054",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_V",
+      "mapGenieId": "mg:554920",
+      "mapGenieDistance": 14.1,
+      "challengeName": "Special Weapon: Bismuth Spear",
+      "challengeText": "Defeat 30 enemies with the bismuth spear",
+      "challengeSteps": [
+        "Defeat 30 enemies with the bismuth spear"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Heart of Stone"
+      ]
+    },
+    {
+      "name": "Bow Aimed at Fate III",
+      "uuid": [
+        1007405769,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -9316.8037,
+        615.451,
+        -900.0207
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0055",
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_III",
+      "mapGenieId": "mg:552879",
+      "mapGenieDistance": 5.2,
+      "challengeName": "Bow Aimed at Fate III",
+      "challengeText": "Hit 3 enemies in mid-air with a bow",
+      "challengeSteps": [
+        "Hit 3 enemies in mid-air with a bow"
+      ],
+      "challengeReward": []
+    },
+    {
+      "name": "On a Storm of Beasts",
+      "uuid": [
+        1654136823,
+        1450446864,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10857.3945,
+        662.1122,
+        1291.9681
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0056",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_X",
+      "mapGenieId": "mg:551762",
+      "mapGenieDistance": 9.5,
+      "challengeName": "On a Storm of Beasts",
+      "challengeText": "Hang onto a bear for more than 10 seconds",
+      "challengeSteps": [
+        "Hang onto a bear for more than 10 seconds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Vigor I"
+      ]
+    },
+    {
+      "name": "Bow Aimed at Fate VI",
+      "uuid": [
+        1011967425,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -10239.4912,
+        652.0768,
+        -1088.5682
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0057",
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_VI",
+      "mapGenieId": "mg:553033",
+      "mapGenieDistance": 1.2,
+      "challengeName": "Bow Aimed at Fate VI",
+      "challengeText": "Hit 5 enemies using Focused Shot",
+      "challengeSteps": [
+        "Hit 5 enemies using Focused Shot"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Composure I"
+      ]
+    },
+    {
+      "name": "Ground-Shaking Impact II",
+      "uuid": [
+        1014531948,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -11999.7939,
+        762.4114,
+        -578.4716
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0058",
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_V",
+      "mapGenieId": "mg:552020",
+      "mapGenieDistance": 14.0,
+      "challengeName": "Ground-Shaking Impact II",
+      "challengeText": "Defeat 10 enemies with a two-handed club or axe without taking damage",
+      "challengeSteps": [
+        "Defeat 10 enemies with a two-handed club or axe without taking damage"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Abyss Gear: Insight II"
+      ]
+    },
+    {
+      "name": "Bow Aimed at Fate I",
+      "uuid": [
+        670772671,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10697.5215,
+        628.8204,
+        -5050.4541
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0059",
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_I",
+      "mapGenieId": "mg:546477",
+      "mapGenieDistance": 21.6,
+      "challengeName": "Bow Aimed at Fate I",
+      "challengeText": "Defeat 5 enemies with a bow within 60 seconds",
+      "challengeSteps": [
+        "Defeat 5 enemies with a bow within 60 seconds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Infinite Arrows I"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves VIII",
+      "uuid": [
+        1603331231,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11513.4961,
+        722.1321,
+        -414.0799
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0060",
+      "challenge": "Challenge_SealedArtifact_Vehicle_VIII",
+      "mapGenieId": "mg:553032",
+      "mapGenieDistance": 5.9,
+      "challengeName": "Harmonious Hooves VIII",
+      "challengeText": "While riding a horse, ram into and defeat 30 enemies ahead within 5 minutes",
+      "challengeSteps": [
+        "While riding a horse, ram into and defeat 30 enemies ahead within 5 minutes"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1"
+      ]
+    },
+    {
+      "name": "Disruption",
+      "uuid": [
+        636725052,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10699.4863,
+        672.2485,
+        -2308.9883
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0061",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_VII",
+      "mapGenieId": "mg:553880",
+      "mapGenieDistance": 10.9,
+      "challengeName": "Disruption",
+      "challengeText": "Defeat 10 Lonely Jackals while wearing the Black Bears' Leather Helm",
+      "challengeSteps": [
+        "Defeat 10 Lonely Jackals while wearing the Black Bears' Leather Helm"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1"
+      ]
+    },
+    {
+      "name": "When Lightning Strikes II",
+      "uuid": [
+        1888221249,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5206.6953,
+        460.9092,
+        -2459.7664
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0062",
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_II",
+      "mapGenieId": "mg:551513",
+      "mapGenieDistance": 18.0,
+      "challengeName": "When Lightning Strikes II",
+      "challengeText": "Defeat 3 enemies from over 5 meters away within 5 seconds with a gun",
+      "challengeSteps": [
+        "Defeat 3 enemies from over 5 meters away within 5 seconds with a gun"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Insight II"
+      ]
+    },
+    {
+      "name": "Bow Aimed at Fate IV",
+      "uuid": [
+        1358008673,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -7674.6602,
+        657.056,
+        -880.9276
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0063",
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_IV",
+      "mapGenieId": "mg:554498",
+      "mapGenieDistance": 16.5,
+      "challengeName": "Bow Aimed at Fate IV",
+      "challengeText": "Take down 3 birds from over 15 meters away with a bow",
+      "challengeSteps": [
+        "Take down 3 birds from over 15 meters away with a bow"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Aptitude I"
+      ]
+    },
+    {
+      "name": "Special Weapon: Lightning Spear",
+      "uuid": [
+        625811494,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5720.189,
+        521.5085,
+        -1644.6312
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0064",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_IV",
+      "mapGenieId": "mg:558043",
+      "mapGenieDistance": 13.3,
+      "challengeName": "Special Weapon: Lightning Spear",
+      "challengeText": "Defeat 30 enemies with the lightning spear",
+      "challengeSteps": [
+        "Defeat 30 enemies with the lightning spear"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Shockward II"
+      ]
+    },
+    {
+      "name": "Sinking Fort",
+      "uuid": [
+        1947535182,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6008.9995,
+        650.6623,
+        -776.9189
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0065",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_IV",
+      "mapGenieId": "mg:551508",
+      "mapGenieDistance": 12.1,
+      "challengeName": "Sinking Fort",
+      "challengeText": "Destroy 3 watchtowers within 20 seconds",
+      "challengeSteps": [
+        "Destroy 3 watchtowers within 20 seconds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Destruction II x1"
+      ]
+    },
+    {
+      "name": "Special Weapon: Knuckledrill",
+      "uuid": [
+        625811502,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6811.7383,
+        656.9918,
+        -912.9443
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0066",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_III",
+      "mapGenieId": "mg:550196",
+      "mapGenieDistance": 15.9,
+      "challengeName": "Special Weapon: Knuckledrill",
+      "challengeText": "Hit the explosion from the overheated knuckledrill 5 times",
+      "challengeSteps": [
+        "Hit the explosion from the overheated knuckledrill 5 times"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Shatter II"
+      ]
+    },
+    {
+      "name": "Barraging Cannon V",
+      "uuid": [
+        2435419787,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6171.3018,
+        593.3994,
+        -939.0962
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0067",
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_V",
+      "mapGenieId": "mg:551509",
+      "mapGenieDistance": 14.4,
+      "challengeName": "Barraging Cannon V",
+      "challengeText": "Destroy 2 watchtowers with a blaster within 10 seconds",
+      "challengeSteps": [
+        "Destroy 2 watchtowers with a blaster within 10 seconds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Shatter I",
+        "Abyss Core"
+      ]
+    },
+    {
+      "name": "Through the Current",
+      "uuid": [
+        1367054554,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -6617.3286,
+        785.9476,
+        -76.6824
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0068",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_IX",
+      "mapGenieId": "mg:552227",
+      "mapGenieDistance": 9.5,
+      "challengeName": "Through the Current",
+      "challengeText": "Swim 100 meters at full speed without resting",
+      "challengeSteps": [
+        "Swim 100 meters at full speed without resting"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Riptide II"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves X",
+      "uuid": [
+        1612784150,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4471.8813,
+        641.0082,
+        -1223.4584
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0069",
+      "challenge": "Challenge_SealedArtifact_Vehicle_X",
+      "mapGenieId": "mg:555156",
+      "mapGenieDistance": 19.8,
+      "challengeName": "Harmonious Hooves X",
+      "challengeText": "Tame the legendary steed Royler; Tame the legendary steed Rokade; Tame the legendary steed Camora",
+      "challengeSteps": [
+        "Tame the legendary steed Royler",
+        "Tame the legendary steed Rokade",
+        "Tame the legendary steed Camora"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Companionship III"
+      ]
+    },
+    {
+      "name": "When Lightning Strikes III",
+      "uuid": [
+        1373271745,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -6489.0527,
+        694.5767,
+        467.1123
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0070",
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_III",
+      "mapGenieId": "mg:550806",
+      "mapGenieDistance": 16.9,
+      "challengeName": "When Lightning Strikes III",
+      "challengeText": "Hit the target three times within one second with a pistol",
+      "challengeSteps": [
+        "Hit the target three times within one second with a pistol"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Swift I"
+      ]
+    },
+    {
+      "name": "When Lightning Strikes I",
+      "uuid": [
+        1376014431,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -6353.978,
+        551.6947,
+        -1312.5367
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0071",
+      "challenge": "Challenge_SealedArtifact_Mastery_Gun_I",
+      "mapGenieId": "mg:554065",
+      "mapGenieDistance": 16.3,
+      "challengeName": "When Lightning Strikes I",
+      "challengeText": "Defeat 5 enemies from over 30 meters away with a gun",
+      "challengeSteps": [
+        "Defeat 5 enemies from over 30 meters away with a gun"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Shred II"
+      ]
+    },
+    {
+      "name": "Breathless Touch",
+      "uuid": [
+        1377983459,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -5606.0146,
+        702.8053,
+        876.8929
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0072",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_III",
+      "mapGenieId": "mg:553060",
+      "mapGenieDistance": 9.4,
+      "challengeName": "Breathless Touch",
+      "challengeText": "Hit enemies 9 times within 5 seconds using Force Palm",
+      "challengeSteps": [
+        "Hit enemies 9 times within 5 seconds using Force Palm"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Composure II"
+      ]
+    },
+    {
+      "name": "Meteor Run in the Dark",
+      "uuid": [
+        625811538,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -3845.6279,
+        590.201,
+        3053.5161
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0073",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_IX",
+      "mapGenieId": "mg:551588",
+      "mapGenieDistance": 4.1,
+      "challengeName": "Meteor Run in the Dark",
+      "challengeText": "Destroy 2 Palisade Gates at night",
+      "challengeSteps": [
+        "Destroy 2 Palisade Gates at night"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Disarm I x1"
+      ]
+    },
+    {
+      "name": "Slam Master",
+      "uuid": [
+        1975330288,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -3681.5325,
+        651.0234,
+        3574.2544
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0074",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_I",
+      "mapGenieId": "mg:553649",
+      "mapGenieDistance": 6.2,
+      "challengeName": "Slam Master",
+      "challengeText": "Hit enemies 30 times using Meteor Kick within 3 minutes",
+      "challengeSteps": [
+        "Hit enemies 30 times using Meteor Kick within 3 minutes"
+      ],
+      "challengeReward": [
+        "Abyss Artifact \u00d71",
+        "Tempest II \u00d71"
+      ]
+    },
+    {
+      "name": "Keeping Balance on the Wind",
+      "uuid": [
+        2939136963,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10105.5264,
+        545.2505,
+        -4539.8677
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0075",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_V",
+      "mapGenieId": "mg:546895",
+      "mapGenieDistance": 24.0,
+      "challengeName": "Keeping Balance on the Wind",
+      "challengeText": "Walk 10 meters highlining",
+      "challengeSteps": [
+        "Walk 10 meters highlining"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Steel Grip Against the Chest",
+      "uuid": [
+        2932832458,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9709.708,
+        563.1569,
+        -4998.7817
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0076",
+      "challenge": "Challenge_SealedArtifact_Mastery_Battle_I",
+      "mapGenieId": "mg:546810",
+      "mapGenieDistance": 18.2,
+      "challengeName": "Steel Grip Against the Chest",
+      "challengeText": "Defeat 3 opponents within 1 minute using wrestling skills",
+      "challengeSteps": [
+        "Defeat 3 opponents within 1 minute using wrestling skills"
+      ],
+      "challengeReward": [
+        "Destruction I Abyss Core x1"
+      ]
+    },
+    {
+      "name": "Trespassing",
+      "uuid": [
+        670772710,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10686.8252,
+        385.4391,
+        -6014.1938
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0077",
+      "challenge": "Challenge_SealedArtifact_Crime_VIII",
+      "mapGenieId": "mg:544742",
+      "mapGenieDistance": 32.0,
+      "challengeName": "Trespassing",
+      "challengeText": "Open 20 locked doors",
+      "challengeSteps": [
+        "Open 20 locked doors"
+      ],
+      "challengeReward": [
+        "Shadow's Touch I Abyss Core x1"
+      ]
+    },
+    {
+      "name": "Touch of Darkness",
+      "uuid": [
+        670772702,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10190.2754,
+        675.9601,
+        -2213.0857
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0078",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_VI",
+      "mapGenieId": "mg:551690",
+      "mapGenieDistance": 16.5,
+      "challengeName": "Touch of Darkness",
+      "challengeText": "Assassinate 3 enemies within 1 minute without dying",
+      "challengeSteps": [
+        "Assassinate 3 enemies within 1 minute without dying"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Faded Abyss Artifact x1"
+      ]
+    },
+    {
+      "name": "Shield of Unchanging Will III",
+      "uuid": [
+        2904486606,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -12211.3965,
+        941.3493,
+        -3557.5137
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0079",
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_III",
+      "mapGenieId": "mg:550584",
+      "mapGenieDistance": 30.0,
+      "challengeName": "Shield of Unchanging Will III",
+      "challengeText": "Hit 3 enemies at once with a shield",
+      "challengeSteps": [
+        "Hit 3 enemies at once with a shield"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Sword of Trials II",
+      "uuid": [
+        2897462004,
+        1450446806,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9507.5596,
+        633.7327,
+        -6049.0513
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0080",
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_II",
+      "mapGenieId": "mg:545741",
+      "mapGenieDistance": 21.8,
+      "challengeName": "Sword of Trials II",
+      "challengeText": "Defeat 3 enemies at once with a one-handed sword",
+      "challengeSteps": [
+        "Defeat 3 enemies at once with a one-handed sword"
+      ],
+      "challengeReward": [
+        "Insight I Abyss Core x1"
+      ]
+    },
+    {
+      "name": "Pine Broom",
+      "uuid": [
+        607464038,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8751.9434,
+        515.7346,
+        -5537.1855
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0081",
+      "challenge": "Challenge_SealedArtifact_Hunting_IX",
+      "mapGenieId": "mg:554006",
+      "mapGenieDistance": 16.1,
+      "challengeName": "Pine Broom",
+      "challengeText": "Take down a bear using only a broom",
+      "challengeSteps": [
+        "Take down a bear using only a broom"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Faded Abyss Artifact x1",
+        "Beastbane II x1"
+      ]
+    },
+    {
+      "name": "Dancing Blade, Shining Shield III",
+      "uuid": [
+        2809439586,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -8448.3516,
+        459.1836,
+        -5107.5454
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0082",
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_III",
+      "mapGenieId": "mg:552573",
+      "mapGenieDistance": 26.8,
+      "challengeName": "Dancing Blade, Shining Shield III",
+      "challengeText": "Hit a prone enemy 5 times with a rapier",
+      "challengeSteps": [
+        "Hit a prone enemy 5 times with a rapier"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Shred I"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves II",
+      "uuid": [
+        1584040428,
+        1450446880,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9290.7666,
+        522.2513,
+        -3985.7021
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0083",
+      "challenge": "Challenge_SealedArtifact_Vehicle_II",
+      "mapGenieId": "mg:546949",
+      "mapGenieDistance": 13.5,
+      "challengeName": "Harmonious Hooves II",
+      "challengeText": "While riding a horse, hunt 5 animals within 5 minutes",
+      "challengeSteps": [
+        "While riding a horse, hunt 5 animals within 5 minutes"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Equestrian I x1"
+      ]
+    },
+    {
+      "name": "Sword of Trials VI",
+      "uuid": [
+        2874103461,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -7433.4204,
+        444.3294,
+        -4621.3794
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0084",
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_VI",
+      "mapGenieId": "mg:552505",
+      "mapGenieDistance": 22.7,
+      "challengeName": "Sword of Trials VI",
+      "challengeText": "Defeat 5 enemies within 15 seconds with a one-handed sword using Forward Slash",
+      "challengeSteps": [
+        "Defeat 5 enemies within 15 seconds with a one-handed sword using Forward Slash"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Destruction II"
+      ]
+    },
+    {
+      "name": "Barraging Cannon II",
+      "uuid": [
+        2904498568,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -7115.314,
+        461.8482,
+        -3707.2622
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0085",
+      "challenge": "Challenge_SealedArtifact_Mastery_Cannon_II",
+      "mapGenieId": "mg:553672",
+      "mapGenieDistance": 15.0,
+      "challengeName": "Barraging Cannon II",
+      "challengeText": "Defeat 3 enemies using Charged Shot; Defeat 3 enemies with Fire-imbued Charged Shot; Defeat 3 enemies with Ice-imbued Charged Shot; Defeat 3 enemies with Lightning-imbued Charged Shot; Defeat 3 enemies with Wind-imbued Charged Shot",
+      "challengeSteps": [
+        "Defeat 3 enemies using Charged Shot",
+        "Defeat 3 enemies with Fire-imbued Charged Shot",
+        "Defeat 3 enemies with Ice-imbued Charged Shot",
+        "Defeat 3 enemies with Lightning-imbued Charged Shot",
+        "Defeat 3 enemies with Wind-imbued Charged Shot"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Greater Destruction"
+      ]
+    },
+    {
+      "name": "Shield of Unchanging Will V",
+      "uuid": [
+        3065069999,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -8920.7773,
+        556.4476,
+        -3495.9668
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0086",
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_V",
+      "mapGenieId": "mg:552401",
+      "mapGenieDistance": 23.0,
+      "challengeName": "Shield of Unchanging Will V",
+      "challengeText": "Flip 5 enemies with a shield",
+      "challengeSteps": [
+        "Flip 5 enemies with a shield"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Fortitued I"
+      ]
+    },
+    {
+      "name": "Sharpened Spear IV",
+      "uuid": [
+        3119833849,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -9073.29,
+        600.9672,
+        -2944.4272
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0087",
+      "challenge": "Challenge_SealedArtifact_Mastery_Spear_IV",
+      "mapGenieId": "mg:552379",
+      "mapGenieDistance": 19.1,
+      "challengeName": "Sharpened Spear IV",
+      "challengeText": "Defeat 3 enemies with a spear within 1 minute using only leap attacks",
+      "challengeSteps": [
+        "Defeat 3 enemies with a spear within 1 minute using only leap attacks"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Faded Abyss Artifact x1",
+        "Insight I"
+      ]
+    },
+    {
+      "name": "A Will Harder than Rock",
+      "uuid": [
+        607464054,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8854.2578,
+        577.8763,
+        -2425.7937
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0088",
+      "challenge": "Challenge_SealedArtifact_Hunting_V",
+      "mapGenieId": "mg:552442",
+      "mapGenieDistance": 20.2,
+      "challengeName": "A Will Harder than Rock",
+      "challengeText": "Defeat 10 stoneback crabs",
+      "challengeSteps": [
+        "Defeat 10 stoneback crabs"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Greater Abyssbane"
+      ]
+    },
+    {
+      "name": "Overwhelming Slash III",
+      "uuid": [
+        705636436,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11603.9678,
+        801.1351,
+        -3289.3225
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0089",
+      "challenge": "Challenge_SealedArtifact_Mastery_TwohandWeapon_III",
+      "mapGenieId": "mg:551644",
+      "mapGenieDistance": 25.2,
+      "challengeName": "Overwhelming Slash III",
+      "challengeText": "Knock back 10 enemies within 30 seconds with a longsword",
+      "challengeSteps": [
+        "Knock back 10 enemies within 30 seconds with a longsword"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1"
+      ]
+    },
+    {
+      "name": "Dancing Blade, Shining Shield V",
+      "uuid": [
+        3297694537,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -6442.5518,
+        531.7095,
+        -2587.6306
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0090",
+      "challenge": "Challenge_SealedArtifact_Mastery_Rapier_V",
+      "mapGenieId": "mg:554925",
+      "mapGenieDistance": 22.1,
+      "challengeName": "Dancing Blade, Shining Shield V",
+      "challengeText": "Hit 9 enemies within 15 seconds using Shield Toss",
+      "challengeSteps": [
+        "Hit 9 enemies within 15 seconds using Shield Toss"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Swift I"
+      ]
+    },
+    {
+      "name": "Harmonious Hooves IX",
+      "uuid": [
+        1998147026,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5714.249,
+        462.3532,
+        -4711.8442
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0091",
+      "challenge": "Challenge_SealedArtifact_Vehicle_IX",
+      "mapGenieId": "mg:554082",
+      "mapGenieDistance": 17.5,
+      "challengeName": "Harmonious Hooves IX",
+      "challengeText": "Leave the City of Delesyia at night and arrive at the City of Pailune before sunrise on horseback",
+      "challengeSteps": [
+        "Leave the City of Delesyia at night and arrive at the City of Pailune before sunrise on horseback"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Haste II"
+      ]
+    },
+    {
+      "name": "Special Weapon: Marni Laser Helm",
+      "uuid": [
+        604552004,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6512.5615,
+        507.0871,
+        -4974.9165
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0092",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_VIII",
+      "mapGenieId": "mg:554437",
+      "mapGenieDistance": 23.8,
+      "challengeName": "Special Weapon: Marni Laser Helm",
+      "challengeText": "Hit 5 enemies with the Marni Laser Helm's laser",
+      "challengeSteps": [
+        "Hit 5 enemies with the Marni Laser Helm's laser"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Greater Steelbane"
+      ]
+    },
+    {
+      "name": "Well-Informed Greymane",
+      "uuid": [
+        604552012,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5586.6821,
+        520.5374,
+        -5123.1255
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0093",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_II",
+      "mapGenieId": "mg:554085",
+      "mapGenieDistance": 20.9,
+      "challengeName": "Well-Informed Greymane",
+      "challengeText": "Visit all Greymane Shrines",
+      "challengeSteps": [
+        "Visit all Greymane Shrines"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Blessing of Nature I"
+      ]
+    },
+    {
+      "name": "Magnate of the Golden Desert",
+      "uuid": [
+        604552019,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4629.7417,
+        410.7496,
+        -4830.3203
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0094",
+      "challenge": "Challenge_SealedArtifact_Trust_V",
+      "mapGenieId": "mg:554975",
+      "mapGenieDistance": 24.6,
+      "challengeName": "Magnate of the Golden Desert",
+      "challengeText": "Earn over 300,000 camp funds through trading",
+      "challengeSteps": [
+        "Earn over 300,000 camp funds through trading"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Efficiency II"
+      ]
+    },
+    {
+      "name": "Waves of Lightning",
+      "uuid": [
+        604552027,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4168.8579,
+        468.0042,
+        -5455.314
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0095",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_I",
+      "mapGenieId": "mg:553930",
+      "mapGenieDistance": 31.4,
+      "challengeName": "Waves of Lightning",
+      "challengeText": "Hit 10 enemies at once with the disruptor",
+      "challengeSteps": [
+        "Hit 10 enemies at once with the disruptor"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Steelbane II"
+      ]
+    },
+    {
+      "name": "Giant Windmill",
+      "uuid": [
+        1998147035,
+        1591218210,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -3544.6504,
+        399.9264,
+        -5793.2168
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0096",
+      "challenge": "Challenge_SealedArtifact_Mastery_Skirmish_IX",
+      "mapGenieId": "mg:553924",
+      "mapGenieDistance": 41.8,
+      "challengeName": "Giant Windmill",
+      "challengeText": "Hit enemies 7 times within 30 seconds using Giant Swing",
+      "challengeSteps": [
+        "Hit enemies 7 times within 30 seconds using Giant Swing"
+      ],
+      "challengeReward": [
+        "Battle IX"
+      ]
+    },
+    {
+      "name": "Special Weapon VI: Lightning Bolt Plate Armor",
+      "uuid": [
+        604552034,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -3362.2146,
+        381.294,
+        -4929.9575
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0097",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_VI",
+      "mapGenieId": "mg:554972",
+      "mapGenieDistance": 17.7,
+      "challengeName": "Special Armor: Lightning Bolt Plate Armor",
+      "challengeText": "Obtain Titan's armor",
+      "challengeSteps": [
+        "Obtain Titan's armor"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Greater Malicebane"
+      ]
+    },
+    {
+      "name": "Special Weapon: Vessel of Dark Pursuit",
+      "uuid": [
+        636725392,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9713.3203,
+        670.499,
+        584.2892
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0098",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_X",
+      "mapGenieId": "mg:553944",
+      "mapGenieDistance": 18.5,
+      "challengeName": "Special Weapon: Vessel of Dark Pursuit",
+      "challengeText": "Defeat 100 enemies with the Vessel of Dark Pursuit",
+      "challengeSteps": [
+        "Defeat 100 enemies with the Vessel of Dark Pursuit"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Energy Drain III"
+      ]
+    },
+    {
+      "name": "Special Weapon: Propeller Spear",
+      "uuid": [
+        625811509,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4942.0645,
+        684.34,
+        1651.1025
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0099",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_II",
+      "mapGenieId": "mg:551592",
+      "mapGenieDistance": 46.5,
+      "challengeName": "Special Weapon: Propeller Spear",
+      "challengeText": "Hit 5 enemies at once with the propeller spear's wind attack",
+      "challengeSteps": [
+        "Hit 5 enemies at once with the propeller spear's wind attack"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Shred II"
+      ]
+    },
+    {
+      "name": "Special Weapon: Flamespitter",
+      "uuid": [
+        625811516,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4399.7222,
+        646.2348,
+        2217.1936
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0100",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_I",
+      "mapGenieId": "mg:553640",
+      "mapGenieDistance": 35.2,
+      "challengeName": "Special Weapon: Flamespitter",
+      "challengeText": "Burn 10 enemies within 15 seconds with the flamespitter",
+      "challengeSteps": [
+        "Burn 10 enemies within 15 seconds with the flamespitter"
+      ],
+      "challengeReward": [
+        "Abyss Artifact \u00d71",
+        "Unleashed Fire Veil \u00d71"
+      ]
+    },
+    {
+      "name": "Special Weapon: Shotgun Shield",
+      "uuid": [
+        622169490,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6906.4141,
+        460.2655,
+        -3304.27
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0101",
+      "challenge": "Challenge_SealedArtifact_Mastery_SpecialWeapon_IX",
+      "mapGenieId": "mg:555106",
+      "mapGenieDistance": 17.8,
+      "challengeName": "Special Weapon: Shotgun Shield",
+      "challengeText": "Defeat 30 enemies with the shotgun shield",
+      "challengeSteps": [
+        "Defeat 30 enemies with the shotgun shield"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Fortitude II x1"
+      ]
+    },
+    {
+      "name": "Shield of Unchanging Will IV",
+      "uuid": [
+        4117478545,
+        1450446809,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10194.0742,
+        627.7097,
+        -3359.79
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0102",
+      "challenge": "Challenge_SealedArtifact_Mastery_Shield_IV",
+      "mapGenieId": "mg:550974",
+      "mapGenieDistance": 19.6,
+      "challengeName": "Shield of Unchanging Will IV",
+      "challengeText": "Defeat 5 enemies with a shield without taking damage",
+      "challengeSteps": [
+        "Defeat 5 enemies with a shield without taking damage"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Faded Abyss Artifact x1"
+      ]
+    },
+    {
+      "name": "Feather of the Earth",
+      "uuid": [
+        670772634,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10431.3369,
+        677.2628,
+        -2997.5876
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0103",
+      "challenge": "Challenge_SealedArtifact_Hunting_I",
+      "mapGenieId": "mg:550578",
+      "mapGenieDistance": 18.8,
+      "challengeName": "Feather of the Earth",
+      "challengeText": "Carry 5 birds",
+      "challengeSteps": [
+        "Carry 5 birds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Sword of Trials I",
+      "uuid": [
+        4108874083,
+        1450446809,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10681.0322,
+        631.584,
+        -3442.3323
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0104",
+      "challenge": "Challenge_SealedArtifact_Mastery_OneHandSword_I",
+      "mapGenieId": "mg:544016",
+      "mapGenieDistance": 17.2,
+      "challengeName": "Sword of Trials I",
+      "challengeText": "Defeat 3 enemies within 30 seconds with a one-handed sword",
+      "challengeSteps": [
+        "Defeat 3 enemies within 30 seconds with a one-handed sword"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Destruction I"
+      ]
+    },
+    {
+      "name": "Rare Relics of Existence",
+      "uuid": [
+        604551980,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5317.0366,
+        389.6593,
+        -4180.5449
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0105",
+      "challenge": "Challenge_SealedArtifact_Living_XI",
+      "mapGenieId": "mg:549901",
+      "mapGenieDistance": 39.2,
+      "challengeName": "Rare Relics of Existence",
+      "challengeText": "Acquire all rare gatherable knowledge",
+      "challengeSteps": [
+        "Acquire all rare gatherable knowledge"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Faded Abyss Artifact x1",
+        "Fortune III abyss core x1"
+      ]
+    },
+    {
+      "name": "Return of the Greymane",
+      "uuid": [
+        604552048,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8627.4893,
+        615.4338,
+        -5892.6333
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0106",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_IV",
+      "mapGenieId": "mg:553729",
+      "mapGenieDistance": 16.9,
+      "challengeName": "Return of the Greymane",
+      "challengeText": "Complete Howling Hill Camp - Second Expansion",
+      "challengeSteps": [
+        "Complete Howling Hill Camp - Second Expansion"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Efficiency I x1"
+      ]
+    },
+    {
+      "name": "Wild Showdown",
+      "uuid": [
+        604552063,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5396.3877,
+        402.2431,
+        -3647.5735
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0107",
+      "challenge": "Challenge_SealedArtifact_Hunting_II",
+      "mapGenieId": "mg:554928",
+      "mapGenieDistance": 14.4,
+      "challengeName": "Wild Showdown",
+      "challengeText": "Defeat 3 wolves unarmed",
+      "challengeSteps": [
+        "Defeat 3 wolves unarmed"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Beastbane I"
+      ]
+    },
+    {
+      "name": "A Voyage Without Wind or Sails",
+      "uuid": [
+        604552070,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5126.5908,
+        382.4274,
+        -3761.7632
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0108",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_V",
+      "mapGenieId": "mg:550195",
+      "mapGenieDistance": 17.6,
+      "challengeName": "A Voyage Without Wind or Sails",
+      "challengeText": "Travel 2 kilometers without moving on your own",
+      "challengeSteps": [
+        "Travel 2 kilometers without moving on your own"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Vigor I"
+      ]
+    },
+    {
+      "name": "The Dark Pilgrim Who Stole the Ember",
+      "uuid": [
+        604552077,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8383.9414,
+        559.4537,
+        -5892.2808
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0109",
+      "challenge": "Challenge_SealedArtifact_Crime_IX",
+      "mapGenieId": "mg:553728",
+      "mapGenieDistance": 20.3,
+      "challengeName": "The Dark Pilgrim Who Stole the Ember",
+      "challengeText": "Steal a candle from the Church of West Demeniss; Steal a candle from the Church of East Demeniss; Steal a candle from the Cathedral of Demeniss",
+      "challengeSteps": [
+        "Steal a candle from the Church of West Demeniss",
+        "Steal a candle from the Church of East Demeniss",
+        "Steal a candle from the Cathedral of Demeniss"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Ledgermain II"
+      ]
+    },
+    {
+      "name": "Dirge Beyond the Border",
+      "uuid": [
+        604552084,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4767.291,
+        381.0545,
+        -4294.7417
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0110",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_X",
+      "mapGenieId": "mg:551599",
+      "mapGenieDistance": 20.5,
+      "challengeName": "Dirge Beyond the Border",
+      "challengeText": "Defeat a guard in the Storm Veil",
+      "challengeSteps": [
+        "Defeat a guard in the Storm Veil"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Energy Drain II"
+      ]
+    },
+    {
+      "name": "Little Companions",
+      "uuid": [
+        604552091,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4936.9932,
+        408.5786,
+        -4800.2812
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0111",
+      "challenge": "Challenge_SealedArtifact_Living_IX",
+      "mapGenieId": "mg:554967",
+      "mapGenieDistance": 42.9,
+      "challengeName": "Little Companions",
+      "challengeText": "Tame 30 unique pets",
+      "challengeSteps": [
+        "Tame 30 unique pets"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Companionship III"
+      ]
+    },
+    {
+      "name": "Bounty of the Earth",
+      "uuid": [
+        604552098,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4242.3281,
+        393.4375,
+        -4696.8086
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0112",
+      "challenge": "Challenge_SealedArtifact_Living_X",
+      "mapGenieId": "mg:554922",
+      "mapGenieDistance": 26.3,
+      "challengeName": "Bounty of the Earth",
+      "challengeText": "Acquire all grain knowledge; Acquire all vegetable knowledge; Acquire all fruit knowledge",
+      "challengeSteps": [
+        "Acquire all grain knowledge",
+        "Acquire all vegetable knowledge",
+        "Acquire all fruit knowledge"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Blessing of Nature III"
+      ]
+    },
+    {
+      "name": "The Crow\u2019s Crown and the Last Chivalry",
+      "uuid": [
+        604552113,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -3794.0664,
+        469.7689,
+        -5708.3872
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0113",
+      "challenge": "Challenge_SealedArtifact_Crime_X",
+      "mapGenieId": "mg:553926",
+      "mapGenieDistance": 17.1,
+      "challengeName": "The Crow's Crown and the Last Chivalry",
+      "challengeText": "Arrest the worst outlaw of them all",
+      "challengeSteps": [
+        "Arrest the worst outlaw of them all"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Abyssbane II"
+      ]
+    },
+    {
+      "name": "Bow Aimed at Fate II",
+      "uuid": [
+        698154123,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11509.6426,
+        707.9228,
+        -2735.3445
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0114",
+      "challenge": "Challenge_SealedArtifact_Mastery_Bow_II",
+      "mapGenieId": "mg:551570",
+      "mapGenieDistance": 15.3,
+      "challengeName": "Bow Aimed at Fate II",
+      "challengeText": "Defeat 7 enemies in a row using only normal arrows",
+      "challengeSteps": [
+        "Defeat 7 enemies in a row using only normal arrows"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact"
+      ]
+    },
+    {
+      "name": "The Vanished Wagon",
+      "uuid": [
+        700764597,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11324.5625,
+        710.3642,
+        -2010.2513
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0115",
+      "challenge": "Challenge_SealedArtifact_Crime_III",
+      "mapGenieId": "mg:546459",
+      "mapGenieDistance": 11.0,
+      "challengeName": "The Vanished Wagon",
+      "challengeText": "Sell 3 wagons to the fence",
+      "challengeSteps": [
+        "Sell 3 wagons to the fence"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Traveler with Oak Barrels",
+      "uuid": [
+        636725421,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9823.8574,
+        638.238,
+        45.987
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0116",
+      "challenge": "Challenge_SealedArtifact_Trust_I",
+      "mapGenieId": "mg:551647",
+      "mapGenieDistance": 12.9,
+      "challengeName": "Traveler with Oak Barrels",
+      "challengeText": "Meet the tavern owners from all the regions",
+      "challengeSteps": [
+        "Meet the tavern owners from all the regions"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Solidarity III"
+      ]
+    },
+    {
+      "name": "Back Alley Cleanup",
+      "uuid": [
+        636725399,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11942.6094,
+        703.2385,
+        -1232.5643
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0117",
+      "challenge": "Challenge_SealedArtifact_Crime_IV",
+      "mapGenieId": "mg:553877",
+      "mapGenieDistance": 15.6,
+      "challengeName": "Back Alley Cleanup",
+      "challengeText": "Hand over 3 criminals to the constabulary",
+      "challengeSteps": [
+        "Hand over 3 criminals to the constabulary"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Faded Abyss Artifact x1",
+        "Service I x1"
+      ]
+    },
+    {
+      "name": "Crystals in the Veins",
+      "uuid": [
+        3261115163,
+        1450446807,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -8699.7002,
+        549.867,
+        -2238.4285
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0118",
+      "challenge": "Challenge_SealedArtifact_Living_II",
+      "mapGenieId": "mg:552444",
+      "mapGenieDistance": 29.8,
+      "challengeName": "Crystals in the Veins",
+      "challengeText": "Acquire all mineral knowledge",
+      "challengeSteps": [
+        "Acquire all mineral knowledge"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Blessing of the Earth III"
+      ]
+    },
+    {
+      "name": "The Herder's Lament",
+      "uuid": [
+        707949213,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11165.5547,
+        827.476,
+        -3436.6587
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0119",
+      "challenge": "Challenge_SealedArtifact_Crime_II",
+      "mapGenieId": "mg:550582",
+      "mapGenieDistance": 23.0,
+      "challengeName": "The Herder's Lament",
+      "challengeText": "Sell 3 goats to Bram at the camp's ranch",
+      "challengeSteps": [
+        "Sell 3 goats to Bram at the camp's ranch"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Abyssal Star That Cleaves the Heavens",
+      "uuid": [
+        707949406,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11486.2305,
+        800.1783,
+        -3531.9048
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0120",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_I",
+      "mapGenieId": "mg:545457",
+      "mapGenieDistance": 16.3,
+      "challengeName": "Abyssal Star That Cleaves the Heavens",
+      "challengeText": "Jump from the Abyss and reach the ground within 30 seconds",
+      "challengeSteps": [
+        "Jump from the Abyss and reach the ground within 30 seconds"
+      ],
+      "challengeReward": [
+        "Abyssbane I Abyss Core x1",
+        "Faded Abyss Artifact x1"
+      ]
+    },
+    {
+      "name": "Master of Meats",
+      "uuid": [
+        636725430,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10742.2832,
+        847.0353,
+        -1445.6104
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0121",
+      "challenge": "Challenge_SealedArtifact_Living_III",
+      "mapGenieId": "mg:546427",
+      "mapGenieDistance": 9.9,
+      "challengeName": "Master of Meats",
+      "challengeText": "Acquire all meat knowledge",
+      "challengeSteps": [
+        "Acquire all meat knowledge"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Gourmet III"
+      ]
+    },
+    {
+      "name": "Tiny Citizens of Grasslands",
+      "uuid": [
+        636725362,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10529.8867,
+        686.38,
+        992.1921
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0122",
+      "challenge": "Challenge_SealedArtifact_Living_IV",
+      "mapGenieId": "mg:551649",
+      "mapGenieDistance": 11.7,
+      "challengeName": "Tiny Citizens of Grasslands",
+      "challengeText": "Acquire all insect and arthropod knowledge",
+      "challengeSteps": [
+        "Acquire all insect and arthropod knowledge"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Blessing of the Forest III"
+      ]
+    },
+    {
+      "name": "Under the Ashen Banner Pike",
+      "uuid": [
+        710751496,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11386.8994,
+        630.7716,
+        -4448.8818
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0123",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_III",
+      "mapGenieId": "mg:551259",
+      "mapGenieDistance": 20.2,
+      "challengeName": "Under the Ashen Banner Pike",
+      "challengeText": "Find 20 Greymanes",
+      "challengeSteps": [
+        "Find 20 Greymanes"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss artifact"
+      ]
+    },
+    {
+      "name": "Hunter's Discipline",
+      "uuid": [
+        625811545,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6192.4761,
+        706.5197,
+        -495.0699
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0124",
+      "challenge": "Challenge_SealedArtifact_Hunting_III",
+      "mapGenieId": "mg:558116",
+      "mapGenieDistance": 15.2,
+      "challengeName": "Hunter's Discipline",
+      "challengeText": "Defeat 3 hyenas without moving more than 20 meters",
+      "challengeSteps": [
+        "Defeat 3 hyenas without moving more than 20 meters"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Composure II"
+      ]
+    },
+    {
+      "name": "Feast for the Road",
+      "uuid": [
+        625811523,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6058.6724,
+        698.9423,
+        736.9933
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0125",
+      "challenge": "Challenge_SealedArtifact_Living_VII",
+      "mapGenieId": "mg:551594",
+      "mapGenieDistance": 7.7,
+      "challengeName": "Feast for the Road",
+      "challengeText": "Cook 3 dishes with a field cooking tool; Cook 3 dishes that can only be made with a special cooking tool",
+      "challengeSteps": [
+        "Cook 3 dishes with a field cooking tool",
+        "Cook 3 dishes that can only be made with a special cooking tool"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Gourmet II"
+      ]
+    },
+    {
+      "name": "Hidden Banner Pike",
+      "uuid": [
+        625811552,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4086.418,
+        633.1328,
+        2548.571
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0126",
+      "challenge": "Challenge_SealedArtifact_Mastery_Operation_II",
+      "mapGenieId": "mg:551587",
+      "mapGenieDistance": 11.1,
+      "challengeName": "Hidden Banner Pike",
+      "challengeText": "Defeat 10 bannermen within 30 minutes in Demeniss without dying",
+      "challengeSteps": [
+        "Defeat 10 bannermen within 30 minutes in Demeniss without dying"
+      ],
+      "challengeReward": [
+        "Abyss Artifact \u00d71",
+        "Faded Abyss Artifact \u00d71",
+        "Destruction II \u00d71"
+      ]
+    },
+    {
+      "name": "Hands Quicker than Eyes",
+      "uuid": [
+        625811486,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4662.0444,
+        669.4122,
+        1974.9353
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0127",
+      "challenge": "Challenge_SealedArtifact_Crime_VII",
+      "mapGenieId": "mg:553632",
+      "mapGenieDistance": 10.4,
+      "challengeName": "Hands Quicker than Eyes",
+      "challengeText": "Steal and put into your inventory 5 objects within 10 seconds",
+      "challengeSteps": [
+        "Steal and put into your inventory 5 objects within 10 seconds"
+      ],
+      "challengeReward": [
+        "Abyss Artifact \u00d71",
+        "Shadow Touch II \u00d71"
+      ]
+    },
+    {
+      "name": "The End of Myth",
+      "uuid": [
+        625811559,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5162.6489,
+        701.6857,
+        1297.379
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0128",
+      "challenge": "Challenge_SealedArtifact_Hunting_X",
+      "mapGenieId": "mg:553059",
+      "mapGenieDistance": 11.4,
+      "challengeName": "The End of Myth",
+      "challengeText": "Hunt and skin the Silver Fang; Hunt and skin the White Bear; Hunt and skin the White-Scaled Crocodile; Hunt and skin the White Bison",
+      "challengeSteps": [
+        "Hunt and skin the Silver Fang",
+        "Hunt and skin the White Bear",
+        "Hunt and skin the White-Scaled Crocodile",
+        "Hunt and skin the White Bison"
+      ],
+      "challengeReward": [
+        "Abyss Artifact  x1",
+        "Greater Beastbane II x1"
+      ]
+    },
+    {
+      "name": "Rainbow mane",
+      "uuid": [
+        625811262,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4164.4956,
+        603.5037,
+        3156.551
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0129",
+      "challenge": "Challenge_SealedArtifact_Trust_II",
+      "mapGenieId": "mg:553643",
+      "mapGenieDistance": 8.4,
+      "challengeName": "Rainbow Mane",
+      "challengeText": "Learn Theoric's dyeing technique; Learn Monty's dyeing technique; Learn Devin's dyeing technique; Learn Castiel's dyeing technique; Learn Laurick's dyeing technique; Learn Alton's dyeing technique; Learn Cormac's dyeing technique",
+      "challengeSteps": [
+        "Learn Theoric's dyeing technique",
+        "Learn Monty's dyeing technique",
+        "Learn Devin's dyeing technique",
+        "Learn Castiel's dyeing technique",
+        "Learn Laurick's dyeing technique",
+        "Learn Alton's dyeing technique",
+        "Learn Cormac's dyeing technique"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Faded Abyss Artifact x1",
+        "Solidarity II x1"
+      ]
+    },
+    {
+      "name": "Pillars of the Earth",
+      "uuid": [
+        625811530,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7219.8813,
+        660.7109,
+        -884.5498
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0130",
+      "challenge": "Challenge_SealedArtifact_Living_V",
+      "mapGenieId": "mg:549800",
+      "mapGenieDistance": 25.7,
+      "challengeName": "Pillars of the Earth",
+      "challengeText": "Obtain 5 normal timber through logging; Obtain 5 fine timber through logging; Obtain 5 flawless timber through logging",
+      "challengeSteps": [
+        "Obtain 5 normal timber through logging",
+        "Obtain 5 fine timber through logging",
+        "Obtain 5 flawless timber through logging"
+      ],
+      "challengeReward": [
+        "Abyss Artifact x1",
+        "Blessing of the Forest I abyss core x1"
+      ]
+    },
+    {
+      "name": "Apex of the food chain",
+      "uuid": [
+        625811477,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6894.0913,
+        551.3248,
+        -1292.5408
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0131",
+      "challenge": "Challenge_SealedArtifact_Hunting_VII",
+      "mapGenieId": "mg:549801",
+      "mapGenieDistance": 13.8,
+      "challengeName": "Apex of the Food Chain",
+      "challengeText": "Take down 3 herbivorous animals; Take down 3 predator animals; Take down 3 omnivorous animals",
+      "challengeSteps": [
+        "Take down 3 herbivorous animals",
+        "Take down 3 predator animals",
+        "Take down 3 omnivorous animals"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Beastbane I"
+      ]
+    },
+    {
+      "name": "Challenge 6: The Underwater Ecosystem",
+      "uuid": [
+        607464022,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6422.1777,
+        541.4384,
+        -2256.5286
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0132",
+      "challenge": "Challenge_SealedArtifact_Living_VI",
+      "mapGenieId": "mg:555797",
+      "mapGenieDistance": 18.5,
+      "challengeName": "The Underwater Ecosystem",
+      "challengeText": "Acquire all freshwater fish knowledge; Acquire all saltwater fish knowledge; Acquire all legendary fish knowledge; Acquire all underwater wildlife knowledge",
+      "challengeSteps": [
+        "Acquire all freshwater fish knowledge",
+        "Acquire all saltwater fish knowledge",
+        "Acquire all legendary fish knowledge",
+        "Acquire all underwater wildlife knowledge"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Surge III"
+      ]
+    },
+    {
+      "name": "Contract of the Golden Crown",
+      "uuid": [
+        625811573,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6115.105,
+        499.794,
+        -1915.2705
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0133",
+      "challenge": "Challenge_SealedArtifact_Trust_IV",
+      "mapGenieId": "mg:551521",
+      "mapGenieDistance": 21.4,
+      "challengeName": "Contract of the Golden Crown",
+      "challengeText": "Deliver trade goods to the Hernandian royal court; Deliver trade goods to the Demenissian royal court; Deliver trade goods to the Varnian royal court; Deliver trade goods to the Delesyian royal court",
+      "challengeSteps": [
+        "Deliver trade goods to the Hernandian royal court",
+        "Deliver trade goods to the Demenissian royal court",
+        "Deliver trade goods to the Varnian royal court",
+        "Deliver trade goods to the Delesyian royal court"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Servive II"
+      ]
+    },
+    {
+      "name": "Song of the Moon-Swallowing Sword",
+      "uuid": [
+        625811460,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5561.2148,
+        486.5673,
+        -2292.0042
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0134",
+      "challenge": "Challenge_SealedArtifact_Hunting_VIII",
+      "mapGenieId": "mg:552376",
+      "mapGenieDistance": 12.6,
+      "challengeName": "Song of the Moon-Swallowing Sword",
+      "challengeText": "Cling to a wolf and stab it 6 times in a row",
+      "challengeSteps": [
+        "Cling to a wolf and stab it 6 times in a row"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "The Hand That Brushes Past All",
+      "uuid": [
+        625811566,
+        1450446888,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5270.9204,
+        602.6573,
+        -1189.3966
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0135",
+      "challenge": "Challenge_SealedArtifact_Crime_V",
+      "mapGenieId": "mg:553008",
+      "mapGenieDistance": 14.5,
+      "challengeName": "The Hand That Brushes Past All",
+      "challengeText": "Pickpocket in Hernand; Pickpocket in Demeniss; Pickpocket in Delesyia",
+      "challengeSteps": [
+        "Pickpocket in Hernand",
+        "Pickpocket in Demeniss",
+        "Pickpocket in Delesyia"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Disarm II"
+      ]
+    },
+    {
+      "name": "Caves Exploration Log",
+      "uuid": [
+        1002551578,
+        1450446806,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -11395.751,
+        749.5016,
+        671.6816
+      ],
+      "region": "Kweiden",
+      "level": "challenge_sealed_artifact_kwe",
+      "itemName": "Sealed_Abyss_Artifact_0136",
+      "challenge": "Challenge_SealedArtifact_Living_XII",
+      "mapGenieId": "mg:553753",
+      "mapGenieDistance": 4.4,
+      "challengeName": "Caves Exploration Log",
+      "challengeText": "Acquire 100 caves knowledges",
+      "challengeSteps": [
+        "Acquire 100 caves knowledges"
+      ],
+      "challengeReward": []
+    },
+    {
+      "name": "Artisan's Touch",
+      "uuid": [
+        3173140716,
+        3222802561,
+        1822861389,
+        0
+      ],
+      "gamePosition": [
+        -11328.3809,
+        768.4261,
+        -6901.229
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0137",
+      "challenge": "Challenge_SealedArtifact_Living_VIII",
+      "mapGenieId": "mg:545605",
+      "mapGenieDistance": 24.8,
+      "challengeName": "Artisan's Touch",
+      "challengeText": "Craft a one-handed sword at the smithy; Craft a bow at the smithy",
+      "challengeSteps": [
+        "Craft a one-handed sword at the smithy",
+        "Craft a bow at the smithy"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "Boundless Fortune",
+      "uuid": [
+        8861109,
+        1450447015,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5929.3745,
+        511.8875,
+        -2496.2019
+      ],
+      "region": "Demeniss",
+      "level": "challenge_sealed_artifact_dem",
+      "itemName": "Sealed_Abyss_Artifact_0138",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_VII",
+      "mapGenieId": "mg:554924",
+      "mapGenieDistance": 19.1,
+      "challengeName": "Boundless Fortune",
+      "challengeText": "Have a 3-match win streak in Duo",
+      "challengeSteps": [
+        "Have a 3-match win streak in Duo"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Faded Abyss Artifact",
+        "Fortune II"
+      ]
+    },
+    {
+      "name": "Survival of the Fittest",
+      "uuid": [
+        72346472,
+        1450447015,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6155.9624,
+        417.8835,
+        -4503.3911
+      ],
+      "region": "Delesyia",
+      "level": "challenge_sealed_artifact_del",
+      "itemName": "Sealed_Abyss_Artifact_0139",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_VIII",
+      "mapGenieId": "mg:554076",
+      "mapGenieDistance": 26.7,
+      "challengeName": "Survival of the Fittest",
+      "challengeText": "Win a 4-Player Duo match",
+      "challengeSteps": [
+        "Win a 4-Player Duo match"
+      ],
+      "challengeReward": [
+        "Abyss Artifact",
+        "Fortune I"
+      ]
+    },
+    {
+      "name": "Not So Fast",
+      "uuid": [
+        398248594,
+        1450447015,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9635.3057,
+        622.1623,
+        -3647.8384
+      ],
+      "region": "Hernand",
+      "level": "challenge_sealed_artifact_her",
+      "itemName": "Sealed_Abyss_Artifact_0140",
+      "challenge": "Challenge_SealedArtifact_ChallengeAndChange_IX",
+      "mapGenieId": "mg:546067",
+      "mapGenieDistance": 19.5,
+      "challengeName": "Not So Fast",
+      "challengeText": "Apprehend a cheater in a game of Duo",
+      "challengeSteps": [
+        "Apprehend a cheater in a game of Duo"
+      ],
+      "challengeReward": [
+        "Abyss Artifact"
+      ]
+    },
+    {
+      "name": "When Animals Die",
+      "uuid": [
+        447429184,
+        1450447015,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4887.8579,
+        572.0227,
+        -1531.8572
+      ],
+      "region": "Crimson Desert",
+      "level": "challenge_sealed_artifact_dessert",
+      "itemName": "Sealed_Abyss_Artifact_0141",
+      "challenge": "Challenge_SealedArtifact_Hunting_XI",
+      "mapGenieId": "mg:552337",
+      "mapGenieDistance": 14.7,
+      "challengeName": "When Animals Die",
+      "challengeText": "Obtain thin hide through skinning; Obtain thick hide through skinning; Obtain sturdy hide through skinning; Obtain short hair hide through skinning; Obtain long hair hide through skinning",
+      "challengeSteps": [
+        "Obtain thin hide through skinning",
+        "Obtain thick hide through skinning",
+        "Obtain sturdy hide through skinning",
+        "Obtain short hair hide through skinning",
+        "Obtain long hair hide through skinning"
+      ],
+      "challengeReward": []
+    }
+  ]
+}

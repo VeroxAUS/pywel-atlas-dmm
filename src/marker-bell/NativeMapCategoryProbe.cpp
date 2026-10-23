@@ -74,6 +74,8 @@
 // v0.59: plus the cave and dungeon chests of the game's chest list.
 #include "chest-links.h"
 #include "nexus-links.h"
+// v0.88: the Sealed Abyss Artifact list (names, game positions).
+#include "artifact-links.h"
 // v0.64: per-category choices shared with the in-game filter panel.
 #include "../pywel-atlas/MarkerFilter.h"
 #endif
@@ -333,7 +335,9 @@ MarkerDefinition CopyDefinition(bool active) {
 //       are above the game's Abyss altitude threshold, so they go to the
 //       Abyss map layer (see ResolveIndependentParent);
 //   4 = surface Abyss Nexuses (v0.79; nexus-links.h), the game's own Abyss
-//       Nexus icon (type 234 "MapIcon_Abyss_Ruins", icon group 0x20).
+//       Nexus icon (type 234 "MapIcon_Abyss_Ruins", icon group 0x20);
+//   5 = Sealed Abyss Artifacts (v0.88; artifact-links.h), the game's own
+//       artifact icon (type 187 "MapIcon_Gimmick_SealedArtifact").
 // Marker i of a category uses private key keyBase + i (high bytes spell
 // "PYAT", like the proof chest) and sits exactly at that spot's game position.
 // Each native icon type's definition must still match exactly what was
@@ -355,7 +359,8 @@ constexpr unsigned kShrineCategory = 1;
 constexpr unsigned kChestCategory = 2;
 constexpr unsigned kAbyssChestCategory = 3;
 constexpr unsigned kNexusCategory = 4;
-constexpr unsigned kCategoryCount = 5;
+constexpr unsigned kArtifactCategory = 5;
+constexpr unsigned kCategoryCount = 6;
 // v0.58: up to 256 markers per category, held as 8 words of 32 bits
 // ("masks"; bit i of word i / 32 = marker i).
 constexpr unsigned kMaxCategoryMarkers = 256;
@@ -397,10 +402,17 @@ constexpr MarkerCategory kCategories[kCategoryCount] = {
     // Nexuses, world map and minimap). Keys 0x...0500 + i.
     {"Abyss Nexus", 234, 28866, "MapIcon_Abyss_Ruins", 0x5059415400000500ULL,
         _countof(kNexusLinks), true, 0x20},
+    // v0.88: type 187, the game's own Sealed Abyss Artifact icon (template
+    // 28813 "MapIcon_Gimmick_SealedArtifact", group 0xffffffff like the other
+    // gimmick icons; from the icon catalogue in the v0.53+ map traces). Its
+    // world layout has the Bell icon's zoom window, so our markers get the
+    // same zoom-window fix. Keys 0x...0600 + i.
+    {"Sealed Abyss Artifact", 187, 28813, "MapIcon_Gimmick_SealedArtifact", 0x5059415400000600ULL,
+        _countof(kArtifactLinks), true, 0xffffffff},
 };
 static_assert(_countof(kBellLinks) <= kMaxCategoryMarkers && _countof(kShrineLinks) <= kMaxCategoryMarkers &&
     _countof(kChestLinks) <= kMaxCategoryMarkers && _countof(kAbyssChestLinks) <= kMaxCategoryMarkers &&
-    _countof(kNexusLinks) <= kMaxCategoryMarkers,
+    _countof(kNexusLinks) <= kMaxCategoryMarkers && _countof(kArtifactLinks) <= kMaxCategoryMarkers,
     "Marker masks hold at most 256 markers per category");
 
 // Display name of marker `index` in `category` ("Calphade Bell").
@@ -413,6 +425,9 @@ const char* MarkerName(unsigned category, unsigned index) {
     }
     if (category == kNexusCategory) {
         return kNexusLinks[index].name;
+    }
+    if (category == kArtifactCategory) {
+        return kArtifactLinks[index].name;
     }
     return category == kShrineCategory ? kShrineLinks[index].name : kChestLinks[index].name;
 }
@@ -427,6 +442,9 @@ const float* MarkerPosition(unsigned category, unsigned index) {
     }
     if (category == kNexusCategory) {
         return kNexusLinks[index].position;
+    }
+    if (category == kArtifactCategory) {
+        return kArtifactLinks[index].position;
     }
     return category == kShrineCategory ? kShrineLinks[index].position : kChestLinks[index].position;
 }
@@ -1765,6 +1783,12 @@ void ObserveNexusLayers(void* controller) {
     }
 }
 
+// v0.84: map tooltips, phase 0 (observe only); v0.85: phase 1 (our text).
+// Hook, element table, texts and focus logging live in their own file.
+#include "MapTooltips.h"
+// v0.89: knowledge card observation (logs only); v0.91: the chest card.
+#include "MapKnowledgeCard.h"
+
 // v0.74: the number ("index") a marker is created and looked up with. The
 // world map finds our markers by their tag, so they use 0 (as since v0.31).
 // The minimap's find function (0xdeffa0) returns nothing for index 0, and
@@ -1951,6 +1975,9 @@ void ServiceMarkersOn(void* controller, MapSide& side) {
             present[category].Clear(index);
             hidden[category].Clear(index);
             side.removalIssued[category][index] = 0;
+            if (side.world) {
+                ForgetMarkerElement(category, index); // v0.84 tooltips.
+            }
             bool blocked = side.world && InterlockedCompareExchange(&worldCreateBlocked[category], 0, 0) != 0;
             if (wanted[category].Test(index) && createAllowed[category] && !blocked && !createdThisUpdate &&
                 now >= side.retryAfter[category][index]) {
@@ -2007,6 +2034,10 @@ void ServiceMarkersOn(void* controller, MapSide& side) {
             // DisableZoomWindows; this also covers a re-initialised icon).
             if (side.world) {
                 DisableZoomWindows(icon);
+                // v0.84: remember its UI element for the tooltip hook.
+                NoteMarkerElement(category, index, icon);
+                // v0.91: chests with a known item open the knowledge card.
+                MarkChestForCard(category, index, icon);
             }
             // v0.83: hidden or shown as the user chose (Nexus markers).
             // Compare with the icon's bit itself, not our list: the game may
@@ -2040,6 +2071,9 @@ void ServiceMarkersOn(void* controller, MapSide& side) {
                 present[category].Clear(index);
                 hidden[category].Clear(index);
                 side.removalIssued[category][index] = 0;
+                if (side.world) {
+                    ForgetMarkerElement(category, index); // v0.84 tooltips.
+                }
             }
         } else if (GetTickCount64() - side.removalIssued[category][index] >= 3000) {
             // The game deferred removal and it is still there after 3 s.
@@ -2057,6 +2091,10 @@ void ServiceMarkersOn(void* controller, MapSide& side) {
 // Runs on the game's map thread after each world-map update.
 void ServiceMarkers(void* controller) {
     ServiceMarkersOn(controller, worldSide);
+    // v0.84 tooltips, phase 0: log focus changes (read-only).
+    ObserveTooltipFocus(controller);
+    // v0.89: knowledge card observation (MapKnowledgeCard.h; read-only here).
+    ObserveMapCard(controller);
     // v0.80 observation (read-only).
     ObserveNexusLayers(controller);
 }
@@ -2131,8 +2169,8 @@ struct MarkerState {
 static_assert(kPywelMarkerCategories == kCategoryCount, "The panel lists every marker category");
 // Names shown in the panel, in category order.
 constexpr const char* kPanelNames[kCategoryCount] = {"Bells", "Greymane Shrines", "Treasure chests", "Abyss chests",
-    "Abyss Nexus"};
-volatile LONG categoryShown[kCategoryCount] = {1, 1, 1, 1, 1}; // The user's choice (1 = show).
+    "Abyss Nexus", "Sealed Abyss Artifacts"};
+volatile LONG categoryShown[kCategoryCount] = {1, 1, 1, 1, 1, 1}; // The user's choice (1 = show).
 volatile LONG markersEnabled = 1; // Copy of MarkerState::enabled for the panel.
 volatile LONG filtersDirty = 0; // A choice or the panel geometry changed; save soon.
 SRWLOCK statusLock = SRWLOCK_INIT; // Guards categoryStatus and panelGeometry.
@@ -2241,6 +2279,16 @@ MarkerMask DoneMask(unsigned category, const LoadedSaveBell& loaded, bool saveVa
             done.words[word] = static_cast<LONG>(loaded.bell.nexusActivatedMask[word]);
             unknown.words[word] = static_cast<LONG>(loaded.bell.nexusUnknownMask[word]);
         }
+    } else if (category == kArtifactCategory) {
+        // v0.88: Sealed Abyss Artifacts: done = picked up (their own pass);
+        // that pass failing makes the whole category unknown, and single
+        // undecided artifacts are unknown and get no marker.
+        static_assert(_countof(loaded.bell.artifactPickedUpMask) == kMaskWords, "Artifact mask size must match");
+        valid = saveValid && loaded.bell.artifactsValid;
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.artifactPickedUpMask[word]);
+            unknown.words[word] = static_cast<LONG>(loaded.bell.artifactUnknownMask[word]);
+        }
     } else if (category == kAbyssChestCategory) {
         // v0.69: Abyss chests come from the Bell pass, like the other chests.
         static_assert(_countof(loaded.bell.abyssChestOpenedMask) == kMaskWords, "Chest mask size must match");
@@ -2345,10 +2393,14 @@ void UpdateMarkers(MarkerState& state) {
             if (unknownMask.Count()) {
                 // v0.68: undecided strongboxes, hidden but not counted as done.
                 MarkerNames(category, unknownMask, names);
-                sprintf_s(line, "Detected save serial=%u readSlot=%u %ss: unknown (hidden, not counted as done) %u [%s]; field pass %s (%s)",
+                // v0.90: artifacts report their own pass, the others the chest field pass.
+                bool artifacts = category == kArtifactCategory;
+                bool passValid = artifacts ? loaded.bell.artifactsValid : loaded.bell.chestFieldValid;
+                const char* passError = artifacts ? loaded.bell.artifactError : loaded.bell.chestFieldError;
+                sprintf_s(line, "Detected save serial=%u readSlot=%u %ss: unknown (hidden, not counted as done) %u [%s]; %s pass %s (%s)",
                     loaded.serial, loaded.readSlot, kind.label, unknownMask.Count(), names,
-                    loaded.bell.chestFieldValid ? "ok" : "failed",
-                    loaded.bell.chestFieldError[0] ? loaded.bell.chestFieldError : "unexpected record");
+                    artifacts ? "artifact" : "field", passValid ? "ok" : "failed",
+                    passError[0] ? passError : "unexpected record");
                 Log(line);
             }
             current.known = true;
@@ -2357,9 +2409,11 @@ void UpdateMarkers(MarkerState& state) {
             current.readSlot = loaded.readSlot;
         } else if (!valid && saveValid && (changedRead || !current.unknownLogged)) {
             // The save read was accepted but this category's pass failed.
+            // v0.90: each pass has its own error text (artifacts their own).
+            const char* passError =
+                category == kArtifactCategory ? loaded.bell.artifactError : loaded.bell.shrineError;
             sprintf_s(line, "Detected save serial=%u readSlot=%u: %s result unknown (%s); keeping current markers, creating none.",
-                loaded.serial, loaded.readSlot, kind.label,
-                loaded.bell.shrineError[0] ? loaded.bell.shrineError : "no reason given");
+                loaded.serial, loaded.readSlot, kind.label, passError[0] ? passError : "no reason given");
             Log(line);
             current.unknownLogged = true;
             current.serial = loaded.serial;
@@ -2594,7 +2648,8 @@ bool ChestDefinitionReady() {
 
 // True only if `type` is one this mod creates and its definition is loaded
 // and matches: the chest (226), or in the combined build a category's native
-// icon (Bell 360, Greymane Shrine 186, Abyss Nexus 234). The game loads a definition only once
+// icon (Bell 360, Greymane Shrine 186, Abyss Nexus 234, v0.88 Sealed Abyss
+// Artifact 187). The game loads a definition only once
 // it needs it, and this never asks it to; until then creation is refused.
 bool MarkerDefinitionReady(WORD type) {
 #ifdef PYWEL_ATLAS_COMBINED
@@ -3033,8 +3088,13 @@ bool BeginWorldCreateProbe(void* controller, const WORD* type, const void* tag, 
     unsigned index = 0;
     bool watched = false;
     if (ours && FindMarker(actualTag.key, category, index)) {
-        // First 3 tries per marker; only the first per chest (190 chests, 74 Abyss chests).
-        watched = InterlockedIncrement(&createOursLogged[category][index]) <= (category == kChestCategory || category == kAbyssChestCategory || category == kNexusCategory ? 1 : 3);
+        // First 3 tries per marker; only the first for the large categories
+        // (190 chests, 74 Abyss chests, 213 Nexuses, v0.88 141 artifacts).
+        watched = InterlockedIncrement(&createOursLogged[category][index]) <=
+            (category == kChestCategory || category == kAbyssChestCategory || category == kNexusCategory ||
+                    category == kArtifactCategory
+                ? 1
+                : 3);
     } else if (!ours && actualType == kCategories[kShrineCategory].type) {
         watched = InterlockedIncrement(&createGameShrineLogged) <= 32;
     } else if (!ours && actualType == kCategories[kBellCategory].type) {
@@ -3476,7 +3536,7 @@ DWORD WINAPI Run(void* address) {
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
 #ifdef PYWEL_ATLAS_COMBINED
-    Log("Pywel Atlas combined v0.83 map markers (v0.83: Abyss Nexus markers turned off in the panel or with F10 are hidden with the game's own hide-reason function (bit 23) instead of removed, and shown again when turned on; read-only observation: layer settings of our icon types, hide bits of our world-map markers right after creation, Abyss Nexus hide-bit changes by name, 4 watched Nexus, 2 chest and 2 Abyss chest markers per round at 3 s / 10 s and on layer changes, with picture objects, container-list check and raw copies; markers on the world map and the minimap; surface Abyss Nexus markers (game icon type 234) until activated; minimap markers created with their own number and adopted once the game has built them; Greymane Shrine markers on, world map needs the Shrine Icons file mod; F8 lists icon types with a world-map look; game type 186/40/41 creations logged, our own markers left out of the sample list) - one native Bell icon (type 360) per not-completed Bell, one chest icon (type 226) per not-opened chest of the game's dedicated chest levels, caves/dungeons, puzzle strongboxes and house chests (190 chests; strongboxes from the save's field-object list, unknown ones hidden) and one chest icon (type 226) per not-opened Abyss chest (74, Abyss map layer) in the detected save, shown at every map zoom (zoom limit off on our own markers only); Greymane Shrine markers on (game shrine icon, type 186); up to 256 markers per category, checked 32 per map update; F10 hides all, F6 shows again. A failed marker is retried every 5 s without blocking others. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap, world-create records (ours and the game's own shrine/Bell icons)");
+    Log("Pywel Atlas combined v0.91 map markers (v0.91: chest markers with a known item open the map's knowledge card (Treasure Chest card, item name as title, type and item description); v0.90: Sealed Abyss Artifact save read fixed (it rejected saves with two field containers, so every artifact was unknown); v0.89: knowledge card observation, logs only: focus fields, card fill, knowledge key, card layout texts; v0.88: Sealed Abyss Artifact markers (type 187, 141 artifacts, hidden once picked up; tooltip with the artifact's name); v0.87: chest contents on a second map-label line through <br>; v0.86: map tooltip texts on one line; Bells and Nexuses show their name only; v0.85: map tooltips for our markers (chest contents, Bell/shrine names, Nexus) through the game's own map label; v0.84: map tooltip observation, phase 0: logs tooltip text requests and map focus changes, no visible change; v0.83: Abyss Nexus markers turned off in the panel or with F10 are hidden with the game's own hide-reason function (bit 23) instead of removed, and shown again when turned on; read-only observation: layer settings of our icon types, hide bits of our world-map markers right after creation, Abyss Nexus hide-bit changes by name, 4 watched Nexus, 2 chest and 2 Abyss chest markers per round at 3 s / 10 s and on layer changes, with picture objects, container-list check and raw copies; markers on the world map and the minimap; surface Abyss Nexus markers (game icon type 234) until activated; minimap markers created with their own number and adopted once the game has built them; Greymane Shrine markers on, world map needs the Shrine Icons file mod; F8 lists icon types with a world-map look; game type 186/40/41 creations logged, our own markers left out of the sample list) - one native Bell icon (type 360) per not-completed Bell, one chest icon (type 226) per not-opened chest of the game's dedicated chest levels, caves/dungeons, puzzle strongboxes and house chests (190 chests; strongboxes from the save's field-object list, unknown ones hidden) and one chest icon (type 226) per not-opened Abyss chest (74, Abyss map layer) in the detected save, shown at every map zoom (zoom limit off on our own markers only); Greymane Shrine markers on (game shrine icon, type 186); up to 256 markers per category, checked 32 per map update; F10 hides all, F6 shows again. A failed marker is retried every 5 s without blocking others. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap, world-create records (ours and the game's own shrine/Bell icons)");
 #else
     Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
 #endif
@@ -3566,6 +3626,10 @@ DWORD WINAPI Run(void* address) {
 #ifdef PYWEL_ATLAS_COMBINED
     // v0.53 observation: watch the minimap update for the player position.
     InstallMinimapHook(base);
+    // v0.84: map tooltips, phase 0 (logs only); v0.85: phase 1, our text
+    // for our markers (see MapTooltips.h).
+    InstallTooltipHook(base);
+    InstallCardHooks(base);
 #endif
     Log("F6 requests one private chest for 3 minutes; open Pywel. No reload or saved pin is needed.");
     Log("F8 captures state. F10 disables and requests removal; keep/open Pywel to service it. Save identity is manual.");
@@ -3864,6 +3928,8 @@ DWORD WINAPI Run(void* address) {
             renderWindowPending = true;
 #ifdef PYWEL_ATLAS_COMBINED
             LogZoomAndPosition(true);
+            LogTooltipCounts();
+            LogCardCounts();
 #endif
             char line[320];
             sprintf_s(line,
