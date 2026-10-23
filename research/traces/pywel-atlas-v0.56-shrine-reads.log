@@ -1,0 +1,6 @@
+BELL_READ serial=2 slot=100 trigger=save-write outcome=accepted profile=60062761:slot100 coverage=8 recorded=2 completed=2 hernandCompleted=1 saveModified=2026-10-22 04:59:05 error=none activeSerial=2 diagnostic=1 bellTrusted=0
+BELL_READ serial=2 slot=2 trigger=save-write outcome=accepted profile=60062761:slot2 coverage=8 recorded=2 completed=2 hernandCompleted=1 saveModified=2026-10-22 05:11:06 error=none activeSerial=2 diagnostic=1 bellTrusted=0
+BELL_READ serial=1 slot=100 trigger=selection-formed outcome=accepted profile=60062761:slot100 coverage=8 recorded=2 completed=2 hernandCompleted=1 saveModified=2026-10-22 04:59:05 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+SHRINE_READ serial=1 slot=100 valid=1 coverage=12 found=2 foundMask=0x880 seenMask=0x880 error=none
+BELL_READ serial=1 slot=100 trigger=f7 outcome=accepted profile=60062761:slot100 coverage=8 recorded=2 completed=2 hernandCompleted=1 saveModified=2026-10-22 04:59:05 error=none activeSerial=1 diagnostic=1 bellTrusted=0
+SHRINE_READ serial=1 slot=100 valid=1 coverage=12 found=2 foundMask=0x880 seenMask=0x880 error=none

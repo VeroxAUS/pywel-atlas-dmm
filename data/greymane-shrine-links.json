@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "category": "Greymane Shrine",
+  "saveType": "KnowledgeSaveData",
+  "saveList": "_list",
+  "foundRule": "knowledge key present at _level >= 2 (level 1 or missing = not found)",
+  "nativeIcon": {
+    "type": 186,
+    "templateType": 28812,
+    "templateName": "MapIcon_Gimmick_GreyManeTemple"
+  },
+  "evidence": "Rule confirmed 2026-10-22 with Nas River and Deepfog Basin and the Well-Informed Greymane challenge count; positions from the level files (Kingshield Mountains Northern: user in-game check). See docs/native-save-detection.md.",
+  "locations": [
+    {
+      "poiId": "mg:552782",
+      "name": "Riverbed Terrace Shrine",
+      "nodeKey": 1000262,
+      "knowledgeKey": 1001184,
+      "gamePosition": [
+        -8913.1777,
+        525.7499,
+        -3954.1743
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:557079",
+      "name": "Kingshield Mountains Southern Shrine",
+      "nodeKey": 1000263,
+      "knowledgeKey": 1001185,
+      "gamePosition": [
+        -9088.917,
+        660.1626,
+        -2529.5002
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:561888",
+      "name": "Shadow's Slope Shrine",
+      "nodeKey": 1000265,
+      "knowledgeKey": 1001186,
+      "gamePosition": [
+        -6914.5561,
+        460.2919,
+        -3624.0833
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:555761",
+      "name": "Beardtree Shrine",
+      "nodeKey": 1000558,
+      "knowledgeKey": 1001998,
+      "gamePosition": [
+        -4465.3442,
+        404.868,
+        -3191.4658
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:554143",
+      "name": "Rainforest Shrine",
+      "nodeKey": 1000559,
+      "knowledgeKey": 1001999,
+      "gamePosition": [
+        -4418.6548,
+        537.7379,
+        -2180.928
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:561810",
+      "name": "Crimson Wall Shrine",
+      "nodeKey": 1000560,
+      "knowledgeKey": 1002000,
+      "gamePosition": [
+        -6179.0176,
+        537.4671,
+        -1973.0408
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:547335",
+      "name": "Kingshield Mountains Northern Shrine",
+      "nodeKey": 1000561,
+      "knowledgeKey": 1002001,
+      "gamePosition": [
+        -8784.0,
+        667.79,
+        -1487.0
+      ],
+      "positionSource": "user in-game check"
+    },
+    {
+      "poiId": "mg:544080",
+      "name": "Nas River Shrine",
+      "nodeKey": 1000578,
+      "knowledgeKey": 1002002,
+      "gamePosition": [
+        -10346.3047,
+        533.8214,
+        -3988.0156
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:551449",
+      "name": "Sunrise Plains Shrine",
+      "nodeKey": 1000580,
+      "knowledgeKey": 1002003,
+      "gamePosition": [
+        -10426.1992,
+        607.6848,
+        -5482.2334
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:546435",
+      "name": "Silverwolf Mountain Shrine",
+      "nodeKey": 1000582,
+      "knowledgeKey": 1002004,
+      "gamePosition": [
+        -10626.4619,
+        779.704,
+        -1194.2737
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:553835",
+      "name": "Lake Mistveil Shrine",
+      "nodeKey": 1000583,
+      "knowledgeKey": 1002005,
+      "gamePosition": [
+        -10879.9678,
+        697.1751,
+        867.3259
+      ],
+      "positionSource": "temple object in the level files"
+    },
+    {
+      "poiId": "mg:546841",
+      "name": "Deepfog Basin Shrine",
+      "nodeKey": 1000585,
+      "knowledgeKey": 1002006,
+      "gamePosition": [
+        -12073.8818,
+        716.1058,
+        -1999.9749
+      ],
+      "positionSource": "temple object in the level files"
+    }
+  ]
+}

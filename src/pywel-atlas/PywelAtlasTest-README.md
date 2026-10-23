@@ -1,6 +1,6 @@
 # Pywel Atlas TEST build — teleporter
 
-PywelAtlasTest.asi is the normal Pywel Atlas mod (v0.55: Bell markers, save
+PywelAtlasTest.asi is the normal Pywel Atlas mod (v0.59: Bell and treasure chest markers, save
 detection, teleport logging) **plus a test-only teleporter**. It exists to
 speed up collectible checks. It is not the release mod.
 
@@ -10,7 +10,7 @@ speed up collectible checks. It is not the release mod.
 
 1. Close the game.
 2. In DMM, disable the normal PywelAtlas entry and install
-   PywelAtlasTest-v0.55.zip instead. Never run both at once.
+   PywelAtlasTest-v0.59.zip instead. Never run both at once.
 3. To go back, close the game and swap them again.
 
 ## Keys (only while the game window is in front)
@@ -23,13 +23,17 @@ speed up collectible checks. It is not the release mod.
 
 On a full-size keyboard Ctrl+PageDown / PageUp / Home / End also work.
 
-The normal keys (F6, F7, F8, F10) still work as in PywelAtlas v0.55.
+The normal keys (F6, F7, F8, F10) still work as in PywelAtlas v0.59.
 
 ## Targets (22)
 
 1–2: Southern Guard Post Nexus and Hernand Abyss Nexus (spots the game itself
 used for fast travel). 3–10: the 8 Bells. 11–22: the 12 Greymane Shrines
 (17 is Kingshield Mountains Northern, at the spot confirmed in game).
+
+Extra targets: `%LOCALAPPDATA%\PywelAtlas\teleport-targets.txt`, one per
+line as `name; X; Z; height` (the order th.gl shows). They are added after
+the built-in ones and re-read every time you change target.
 
 ## How it works and its limits
 

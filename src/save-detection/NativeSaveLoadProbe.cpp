@@ -60,6 +60,9 @@
 //   7. When the game saves (hook on its save-to-slot function), a save by the
 //      same loaded world moves the Bell reads to the slot just written, since
 //      autosaves usually go to a different slot than the one loaded.
+//   8. (v0.60) If the game set up its save storage before our start-up hook
+//      was installed, the save folder is copied instead from the storage
+//      object's file methods, which run on every save load and save.
 //
 // SAFETY RULES THIS FILE FOLLOWS
 //   - Never loads saves, never calls game functions on its own, never writes
@@ -137,6 +140,12 @@ using LookupUserActor = void* (*)(void*, void*, unsigned, uintptr_t);
 // fifth stack argument, forwarded opaquely. Returns result storage; its DWORD
 // is zero on success.
 using WriteSave = void* (*)(void*, void*, unsigned, void*, uintptr_t);
+// v0.60: the Steam save storage object's file methods (function table
+// 59840c0, slots 3-6: 2356e20, ef601b0 (slot 4 jumps there), 23571d0,
+// 2357c60). Each is BYTE method(storage, request): RCX storage object, RDX
+// file request. None reads R8/R9 before writing them, and none takes stack
+// arguments; R8/R9 are still forwarded untouched. Result in AL.
+using StorageFileMethod = BYTE (*)(void*, void*, uintptr_t, uintptr_t);
 
 // =============================================================================
 // 2. Shared state
@@ -159,6 +168,8 @@ ResolveGameplayActor originalResolveActor = nullptr;
 LookupUserActor originalClientLookup = nullptr;
 LookupUserActor originalServerLookup = nullptr;
 WriteSave originalWrite = nullptr;
+// v0.60: the four storage file methods, in slot order 3, 4, 5, 6.
+StorageFileMethod originalStorageUse[4] = {};
 // Where the game's .exe starts in memory (RVA 0). Every RVA is added to this.
 uintptr_t imageBase = 0;
 // Our append-only log file, written by the worker thread only.
@@ -186,7 +197,8 @@ enum class Stage {
     CleanupStart, CleanupEnd, StorageStart, StorageEnd,
     FieldBeginStart, FieldBeginEnd, ClientResetStart, ClientResetEnd,
     FieldTransitionStart, FieldTransitionEnd, FieldReloadStart, FieldReloadEnd,
-    ControllerSnapshot, ActorLink, KeyLookup, WriteStart, WriteEnd };
+    ControllerSnapshot, ActorLink, KeyLookup, WriteStart, WriteEnd,
+    StorageUse };
 // Correlation belongs to this synchronous native call chain only. Restoring
 // outer scope handles nested loads; no thread-local game pointer is retained.
 // (thread_local = each game thread has its own copy.)
@@ -232,6 +244,8 @@ struct Event {
     unsigned lookupKey;
     unsigned actorKey; // Diagnostic +60 DWORD of an exact-typed actor.
     bool actorKeyRead;
+    BYTE storageMethod; // StorageUse only: function-table slot 3-6.
+    char fileName[64]; // StorageUse only: the request's file name (log only).
     char root[512];
 };
 // The queue: hooks add records here; the worker empties it every 30 ms.
@@ -305,7 +319,8 @@ Event Begin(Stage stage, uintptr_t caller, uintptr_t object, unsigned slot) {
     event.scope = loadScope;
     event.droppedAtCapture = InterlockedCompareExchange(&dropped, 0, 0);
     event.epoch = InterlockedCompareExchange(&epoch, 0, 0);
-    if (object && stage != Stage::StorageStart) {
+    // The storage object is not a game entity, so its +5e is not sampled.
+    if (object && stage != Stage::StorageStart && stage != Stage::StorageUse) {
         uintptr_t table = 0;
         if (ReadMemory(object, &table, sizeof(table)) && table >= imageBase &&
             table - imageBase < kLoadImageSize) {
@@ -793,6 +808,132 @@ BYTE ObserveStorage(void* handler, void* context, uintptr_t opaque3, uintptr_t o
     return returned;
 }
 
+// -----------------------------------------------------------------------------
+// v0.60: storage file methods (start-up race fallback)
+// -----------------------------------------------------------------------------
+// In one session the game started its save storage before our start-up hook
+// (ef62160) was installed, so the save folder ("storage root") was never
+// copied and no selection could form. The storage object's file methods run
+// on every save load and save, so they give a second chance to copy the same
+// root. They are watch-only: inputs are forwarded unchanged and the game's
+// own result is returned. Nothing here calls a game function on its own.
+
+// Hook-side throttle: these methods can run many times per load (one call per
+// file), so an event is queued only when the root or the epoch differs from
+// the last event of the same method. A busy lock simply skips the event: the
+// thread holding it is queuing the same information. Without this, a burst
+// could fill the queue, and a queue drop starts a new epoch (and so retires
+// the selection).
+SRWLOCK storageUseLock = SRWLOCK_INIT;
+LONG storageUseEpoch[4] = {}; // Epoch of the last queued event, per method.
+unsigned storageUseHash[4] = {}; // Root fingerprint of that event, per method.
+
+// A short fingerprint of a root path (FNV-1a hash), so the throttle can compare
+// roots without keeping four 512-byte copies. 0 means "root not copied".
+unsigned RootFingerprint(const Event& event) {
+    if (!event.rootRead) {
+        return 0;
+    }
+    unsigned hash = 2166136261u;
+    for (const char* character = event.root; *character; ++character) {
+        hash = (hash ^ static_cast<unsigned char>(*character)) * 16777619u;
+    }
+    return hash ? hash : 1;
+}
+
+// Decides whether this method's event is new enough to queue (see above).
+bool ShouldQueueStorageUse(unsigned method, const Event& event) {
+    if (!TryAcquireSRWLockExclusive(&storageUseLock)) {
+        return false;
+    }
+    unsigned index = method - 3;
+    unsigned fingerprint = RootFingerprint(event);
+    bool changed = storageUseEpoch[index] != event.epoch || storageUseHash[index] != fingerprint;
+    if (changed) {
+        storageUseEpoch[index] = event.epoch;
+        storageUseHash[index] = fingerprint;
+    }
+    ReleaseSRWLockExclusive(&storageUseLock);
+    return changed;
+}
+
+// Copies the file name of a storage request for the log: inline text at
+// request +28, or a longer heap copy whose pointer is at +b0 (as all four
+// methods build their "<root>/<file>" path). Diagnostic only, never used for
+// a decision; anything that is not plain printable text is dropped.
+void CopyRequestFileName(uintptr_t request, char (&text)[64]) {
+    text[0] = 0;
+    uintptr_t heap = 0;
+    if (!request || !ReadMemory(request + 0xb0, &heap, sizeof(heap))) {
+        return;
+    }
+    uintptr_t start = heap ? heap : request + 0x28;
+    for (size_t index = 0; index + 1 < sizeof(text); ++index) {
+        char character = 0;
+        if (!ReadMemory(start + index, &character, 1) ||
+            (character && (character < 0x20 || character > 0x7e))) {
+            text[0] = 0;
+            return;
+        }
+        text[index] = character;
+        if (!character) {
+            return;
+        }
+    }
+    text[sizeof(text) - 1] = 0;
+}
+
+// Shared body of the four storage file-method hooks. `method` is the
+// function-table slot (3-6), `caller` the hook's return address. The root is
+// copied BEFORE the game call, while the storage object is certainly live.
+BYTE ObserveStorageUse(unsigned method, StorageFileMethod original, uintptr_t caller,
+    void* storage, void* request, uintptr_t opaque3, uintptr_t opaque4) {
+    DWORD incomingError = GetLastError();
+    // Only the exact Steam storage type (function table 59840c0) is read.
+    uintptr_t table = 0;
+    uintptr_t object = reinterpret_cast<uintptr_t>(storage);
+    if (ReadMemory(object, &table, sizeof(table)) && table == imageBase + 0x59840c0) {
+        Event event = Begin(Stage::StorageUse, caller, object, 0xffffffffu);
+        event.vtableRva = 0x59840c0;
+        event.storageMethod = static_cast<BYTE>(method);
+        event.rootRead = CopyStorageRoot(object, event.root);
+        CopyRequestFileName(reinterpret_cast<uintptr_t>(request), event.fileName);
+        if (ShouldQueueStorageUse(method, event)) {
+            Queue(event);
+        }
+    }
+    SetLastError(incomingError);
+    BYTE returned = original(storage, request, opaque3, opaque4);
+    DWORD originalError = GetLastError();
+    SetLastError(originalError);
+    return returned;
+}
+
+// Hook for 2356e20 (storage slot 3): builds a file path and opens it.
+BYTE ObserveStorageSlot3(void* storage, void* request, uintptr_t opaque3, uintptr_t opaque4) {
+    return ObserveStorageUse(3, originalStorageUse[0], reinterpret_cast<uintptr_t>(_ReturnAddress()),
+        storage, request, opaque3, opaque4);
+}
+
+// Hook for ef601b0 (storage slot 4, reached through a jump at 2356f40): read
+// or recover a save file ("[SaveData] restore failed" on failure).
+BYTE ObserveStorageSlot4(void* storage, void* request, uintptr_t opaque3, uintptr_t opaque4) {
+    return ObserveStorageUse(4, originalStorageUse[1], reinterpret_cast<uintptr_t>(_ReturnAddress()),
+        storage, request, opaque3, opaque4);
+}
+
+// Hook for 23571d0 (storage slot 5): read or recover a save file.
+BYTE ObserveStorageSlot5(void* storage, void* request, uintptr_t opaque3, uintptr_t opaque4) {
+    return ObserveStorageUse(5, originalStorageUse[2], reinterpret_cast<uintptr_t>(_ReturnAddress()),
+        storage, request, opaque3, opaque4);
+}
+
+// Hook for 2357c60 (storage slot 6): writes the request's buffer to a file.
+BYTE ObserveStorageSlot6(void* storage, void* request, uintptr_t opaque3, uintptr_t opaque4) {
+    return ObserveStorageUse(6, originalStorageUse[3], reinterpret_cast<uintptr_t>(_ReturnAddress()),
+        storage, request, opaque3, opaque4);
+}
+
 // =============================================================================
 // 5. Worker: logging, correlation and the diagnostic selection
 // -----------------------------------------------------------------------------
@@ -828,6 +969,9 @@ struct Selection {
     uintptr_t clientChild;
     char account[24];
     char root[512];
+    // v0.60: true when `root` came from a storage file method because the
+    // start-up record was missing or unreadable (log: rootSource=use).
+    bool rootFromUse;
     // Save writes linked to this selection (v0.42). `readSlot` starts as the
     // loaded slot and follows each successful write by the same server child,
     // because the game can save the loaded world to a different slot.
@@ -848,6 +992,10 @@ struct Summary {
     Event lastApply;
     Event lastLoad;
     Event lastStorage;
+    // v0.60: storage file-method events (throttled) and the latest one whose
+    // root was copied. Used only when the start-up record is missing.
+    unsigned storageUses;
+    Event lastStorageUse;
     bool correlatedCandidate;
     unsigned clientResets;
     unsigned fieldBegins;
@@ -1132,10 +1280,12 @@ void RetireSelection(Summary& summary, const char* reason) {
 // loaded" selection.
 // Activation and invalidation policy (diagnostic):
 // - Forms when the matched boundary holds in the current generation and the
-//   captured storage root validates. Each formation gets a new serial, even
+//   captured storage root validates (start-up record first; v0.60 falls back
+//   to a storage file-method root). Each formation gets a new serial, even
 //   for an identity equal to a retired one.
 // - Retires on any generation change (load start, any context cleanup, queue
-//   drop) or a storage re-initialization with a different/unreadable root.
+//   drop), a storage re-initialization with a different/unreadable root, or
+//   (v0.60) a storage file method using a different root.
 // - Is deliberately NOT retired by later loading stages or a phase below 24
 //   alone: v0.36 showed death/retry reusing the loaded world without a disk
 //   load or cleanup, so save identity outlives player-control transitions.
@@ -1149,11 +1299,28 @@ void UpdateSelection(Summary& summary) {
     if (selection.active || !summary.clientBoundaryCandidate) {
         return;
     }
-    const Event& storage = summary.lastStorage;
-    char account[24] = {};
+    // Choose the save folder evidence (v0.60). The start-up record stays the
+    // first choice. When it is missing or unreadable (start-up race), a root
+    // copied by a storage file method this session is used instead, after the
+    // same checks. If both exist and differ, nothing is chosen.
+    const Event& startup = summary.lastStorage;
+    const Event& use = summary.lastStorageUse;
+    bool startupUsable = startup.rootRead && startup.status == 1;
+    bool useUsable = use.rootRead;
+    const char* root = nullptr;
+    bool rootFromUse = false;
     const char* reason = "storage-root-unavailable";
-    bool valid = storage.rootRead && storage.status == 1 &&
-        ValidateAccountRoot(storage.root, summary.lastLoad.requestedSlot, account, reason);
+    if (startupUsable && useUsable && strcmp(startup.root, use.root) != 0) {
+        reason = "storage-root-conflict";
+    } else if (startupUsable) {
+        root = startup.root;
+    } else if (useUsable) {
+        root = use.root;
+        rootFromUse = true;
+    }
+    char account[24] = {};
+    bool valid = root &&
+        ValidateAccountRoot(root, summary.lastLoad.requestedSlot, account, reason);
     if (!valid) {
         // Log the reason once per generation, not every 30 ms.
         if (summary.withheldGeneration != summary.generation) {
@@ -1175,7 +1342,7 @@ void UpdateSelection(Summary& summary) {
     bool sameWorld = previous.serial != 0 &&
         previous.loadScope == summary.lastLoad.scope &&
         previous.serverChild == summary.lastLoad.object &&
-        strcmp(previous.root, storage.root) == 0;
+        strcmp(previous.root, root) == 0;
     selection = {};
     selection.active = true;
     selection.serial = ++summary.selectionSerial;
@@ -1187,17 +1354,19 @@ void UpdateSelection(Summary& summary) {
     selection.serverChild = summary.lastLoad.object;
     selection.clientChild = summary.lastController.object;
     strcpy_s(selection.account, account);
-    strcpy_s(selection.root, storage.root);
+    strcpy_s(selection.root, root);
+    selection.rootFromUse = rootFromUse;
     if (sameWorld) {
         selection.readSlot = previous.readSlot;
         selection.linkedWrites = previous.linkedWrites;
     }
     char line[768];
-    sprintf_s(line, "SELECTION formed serial=%u generation=%ld loadScope=%ld slot=%u readSlot=%u sameWorld=%u account=%s userKey=0x%08x serverChild=0x%llx clientChild=0x%llx root=%s diagnostic=1 automaticLoadedSaveTrusted=0",
+    sprintf_s(line, "SELECTION formed serial=%u generation=%ld loadScope=%ld slot=%u readSlot=%u sameWorld=%u account=%s userKey=0x%08x serverChild=0x%llx clientChild=0x%llx rootSource=%s root=%s diagnostic=1 automaticLoadedSaveTrusted=0",
         selection.serial, selection.generation, selection.loadScope, selection.slot, selection.readSlot,
         sameWorld ? 1u : 0u, selection.account,
         selection.userKey, static_cast<unsigned long long>(selection.serverChild),
-        static_cast<unsigned long long>(selection.clientChild), selection.root);
+        static_cast<unsigned long long>(selection.clientChild),
+        rootFromUse ? "use" : "startup", selection.root);
     Log(line);
 }
 
@@ -1477,6 +1646,48 @@ void UpdateBellReads(Summary& summary, bool pollFile) {
         local.wYear, local.wMonth, local.wDay, local.wHour, local.wMinute, local.wSecond,
         result.error[0] ? result.error : "none", selection.active ? selection.serial : 0u);
     Log(line);
+    // v0.56: the shrine pass from the same read (independent of the Bell
+    // result; valid=0 means unknown, never "not found").
+    if (result.succeeded) {
+        sprintf_s(line, "SHRINE_READ serial=%u slot=%u valid=%u coverage=%u found=%u foundMask=0x%x seenMask=0x%x error=%s",
+            result.serial, result.slot, result.summary.shrinesValid ? 1u : 0u,
+            result.summary.shrineCoverage, result.summary.shrinesFound,
+            result.summary.shrineFoundMask, result.summary.shrineSeenMask,
+            result.summary.shrineError[0] ? result.summary.shrineError : "none");
+        Log(line);
+        // v0.58: chests from the Bell pass (same list and validity as Bells).
+        unsigned seen = 0;
+        for (unsigned word : result.summary.chestSeenMask) {
+            seen += static_cast<unsigned>(__popcnt(word));
+        }
+        // v0.68: strongboxes also use the field-object pass; unknown boxes
+        // stay hidden (fieldValid=0 means that pass failed, see error).
+        sprintf_s(line, "CHEST_READ serial=%u slot=%u coverage=%u seen=%u opened=%u unknown=%u fieldValid=%u fieldRecords=%u error=%s",
+            result.serial, result.slot, result.summary.chestCoverage, seen, result.summary.chestsOpened,
+            result.summary.chestsUnknown, result.summary.chestFieldValid ? 1u : 0u,
+            result.summary.chestFieldRecords,
+            result.summary.chestFieldError[0] ? result.summary.chestFieldError : "none");
+        Log(line);
+        // v0.69: Abyss chests from the same Bell pass.
+        unsigned abyssSeen = 0;
+        for (unsigned word : result.summary.abyssChestSeenMask) {
+            abyssSeen += static_cast<unsigned>(__popcnt(word));
+        }
+        sprintf_s(line, "ABYSS_CHEST_READ serial=%u slot=%u coverage=%u seen=%u opened=%u",
+            result.serial, result.slot, result.summary.abyssChestCoverage, abyssSeen,
+            result.summary.abyssChestsOpened);
+        Log(line);
+        // v0.79: surface Abyss Nexuses (discovered from the Bell pass,
+        // activated from the field pass; unknown ones stay hidden).
+        unsigned nexusSeen = 0;
+        for (unsigned word : result.summary.nexusSeenMask) {
+            nexusSeen += static_cast<unsigned>(__popcnt(word));
+        }
+        sprintf_s(line, "NEXUS_READ serial=%u slot=%u coverage=%u discovered=%u activated=%u unknown=%u",
+            result.serial, result.slot, result.summary.nexusCoverage, nexusSeen,
+            result.summary.nexusesActivated, result.summary.nexusesUnknown);
+        Log(line);
+    }
 }
 
 #ifdef PYWEL_ATLAS_COMBINED
@@ -1534,11 +1745,21 @@ void NotifyCheckpoint(const Summary& summary) {
         return;
     }
     // The latest accepted Bell result for the current selection, if any.
-    wchar_t bellLine[256] = {};
+    wchar_t bellLine[384] = {};
     if (summary.bellValid) {
-        swprintf_s(bellLine, L"slot %u, serial %u: %u of %u Bells recorded, %u completed; Hernand Bell %ls",
+        // v0.56: shrines come from the same read ("unknown" if their pass failed).
+        wchar_t shrines[64] = L"Greymane Shrines unknown";
+        if (summary.bell.shrinesValid) {
+            swprintf_s(shrines, L"%u of %u Greymane Shrines found",
+                summary.bell.shrinesFound, summary.bell.shrineCoverage);
+        }
+        swprintf_s(bellLine, L"slot %u, serial %u: %u of %u Bells recorded, %u completed; Hernand Bell %ls; %ls; "
+            L"%u of %u chests opened (%u unknown); %u of %u Abyss chests opened; %u of %u Abyss Nexuses activated",
             summary.bellSlot, summary.bellSerial, summary.bell.recorded, summary.bell.coverage,
-            summary.bell.completed, summary.bell.hernandCompleted ? L"completed" : L"not completed");
+            summary.bell.completed, summary.bell.hernandCompleted ? L"completed" : L"not completed", shrines,
+            summary.bell.chestsOpened, summary.bell.chestCoverage, summary.bell.chestsUnknown,
+            summary.bell.abyssChestsOpened, summary.bell.abyssChestCoverage,
+            summary.bell.nexusesActivated, summary.bell.nexusCoverage);
     } else {
         swprintf_s(bellLine, L"none accepted yet for this selection");
     }
@@ -1557,7 +1778,7 @@ void NotifyCheckpoint(const Summary& summary) {
         L"Matching late boundary: %ls\n"
         L"Diagnostic selection: %hs (slot %u, serial %u)\n"
         L"Field begin / transition / reload: %u / %u / %u\n"
-        L"Context cleanups: %u\nStorage root copied: %ls\nDropped records: %ld\n\n"
+        L"Context cleanups: %u\nStorage root: %ls\nDropped records: %ld\n\n"
         L"Logging continues while this confirmation is open.\n"
         L"Press OK, then continue the loading sequence.\n\n"
         L"Observation only; loaded-save detection is not yet trusted.",
@@ -1577,7 +1798,9 @@ void NotifyCheckpoint(const Summary& summary) {
         summary.selection.active ? summary.selection.account : "none",
         summary.selection.active ? summary.selection.slot : 0xffffffffu, summary.selection.serial,
         summary.fieldBegins, summary.fieldTransitions, summary.fieldReloads,
-        summary.cleanups, summary.lastStorage.rootRead ? L"yes" : L"no",
+        summary.cleanups,
+        summary.lastStorage.rootRead ? L"start-up record"
+            : summary.lastStorageUse.rootRead ? L"save-file use (start-up missed)" : L"not copied",
         InterlockedCompareExchange(&dropped, 0, 0));
     HANDLE notification = CreateThread(nullptr, 0, ShowCheckpointPopup, nullptr, 0, nullptr);
     if (notification) {
@@ -1602,8 +1825,9 @@ void Drain(Summary& summary) {
         "load-start", "load-end", "cleanup-start", "cleanup-end", "storage-start", "storage-end",
         "field-begin-start", "field-begin-end", "client-reset-start", "client-reset-end",
         "field-transition-start", "field-transition-end", "field-reload-start", "field-reload-end",
-        "controller-snapshot", "actor-link", "key-lookup", "write-start", "write-end"};
-    static_assert(_countof(stages) == static_cast<unsigned>(Stage::WriteEnd) + 1,
+        "controller-snapshot", "actor-link", "key-lookup", "write-start", "write-end",
+        "storage-use"};
+    static_assert(_countof(stages) == static_cast<unsigned>(Stage::StorageUse) + 1,
         "Every stage needs a log name");
     for (unsigned index = 0; index < count; ++index) {
         const Event& event = events[index];
@@ -1682,8 +1906,30 @@ void Drain(Summary& summary) {
                 RetireSelection(summary, "storage-root-changed");
             }
             summary.lastStorage = event;
+            // Forget the root seen by earlier file methods: it belongs to the
+            // old storage object and must not be chosen again as a fallback.
+            summary.lastStorageUse = {};
             sprintf_s(line, "STORAGE_ROOT copied=%u booleanResult=%lu root=%s",
                 event.rootRead ? 1u : 0u, event.status, event.rootRead ? event.root : "<unavailable>");
+            Log(line);
+        } else if (event.stage == Stage::StorageUse) {
+            // v0.60: a storage file method ran (throttled to one record per
+            // method, root and epoch). A different root ends the selection,
+            // like a re-initialized storage object.
+            ++summary.storageUses;
+            if (event.rootRead) {
+                if (summary.selection.active && strcmp(event.root, summary.selection.root) != 0) {
+                    RetireSelection(summary, "storage-root-changed");
+                }
+                summary.lastStorageUse = event;
+            }
+            bool sameAsStartup = event.rootRead && summary.lastStorage.rootRead &&
+                strcmp(event.root, summary.lastStorage.root) == 0;
+            sprintf_s(line, "STORAGE_USE seq=%ld method=%u file=%s copied=%u startupRootCopied=%u sameAsStartup=%u epoch=%ld root=%.400s",
+                event.sequence, static_cast<unsigned>(event.storageMethod),
+                event.fileName[0] ? event.fileName : "<unavailable>", event.rootRead ? 1u : 0u,
+                summary.lastStorage.rootRead ? 1u : 0u, sameAsStartup ? 1u : 0u, event.epoch,
+                event.rootRead ? event.root : "<unavailable>");
             Log(line);
         }
     }
@@ -1719,7 +1965,7 @@ DWORD WINAPI Run(void* address) {
         return 0;
     }
     char line[192];
-    sprintf_s(line, "SESSION native save-load observation v0.44 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
+    sprintf_s(line, "SESSION native save-load observation v0.60 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
         GetCurrentProcessId(), GetTickCount64());
     Log(line);
     // Check this is the exact supported game build (timestamp and size).
@@ -1764,7 +2010,11 @@ DWORD WINAPI Run(void* address) {
         reinterpret_cast<void*>(&ObserveResolveActor),
         reinterpret_cast<void*>(&ObserveClientLookup),
         reinterpret_cast<void*>(&ObserveServerLookup),
-        reinterpret_cast<void*>(&ObserveWrite)};
+        reinterpret_cast<void*>(&ObserveWrite),
+        reinterpret_cast<void*>(&ObserveStorageSlot3),
+        reinterpret_cast<void*>(&ObserveStorageSlot4),
+        reinterpret_cast<void*>(&ObserveStorageSlot5),
+        reinterpret_cast<void*>(&ObserveStorageSlot6)};
     // Where MinHook stores the "call the real game function" pointers, same order.
     void** originals[] = {
         reinterpret_cast<void**>(&originalRead),
@@ -1780,7 +2030,11 @@ DWORD WINAPI Run(void* address) {
         reinterpret_cast<void**>(&originalResolveActor),
         reinterpret_cast<void**>(&originalClientLookup),
         reinterpret_cast<void**>(&originalServerLookup),
-        reinterpret_cast<void**>(&originalWrite)};
+        reinterpret_cast<void**>(&originalWrite),
+        reinterpret_cast<void**>(&originalStorageUse[0]),
+        reinterpret_cast<void**>(&originalStorageUse[1]),
+        reinterpret_cast<void**>(&originalStorageUse[2]),
+        reinterpret_cast<void**>(&originalStorageUse[3])};
     static_assert(_countof(callbacks) == _countof(kSaveLoadSites),
         "Every observed lifecycle site needs an explicit callback");
     // Create every hook first; if any fails, install none.
@@ -1822,7 +2076,7 @@ DWORD WINAPI Run(void* address) {
     } else {
         Log("Bell reader thread unavailable; observation continues without Bell reads.");
     }
-    Log("READY v0.44: fourteen guarded hooks; 200-range save writes ignored; last saved slot carried over when the selection re-forms in the same world; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. Diagnostic read-only Bell reads tagged with the selection serial; stale results discarded. Save writes by the selection's server child retarget Bell reads to the written slot. F7 foreground confirmation retained. No marker hooks or save writes.");
+    Log("READY v0.60: eighteen guarded hooks (v0.60: four watch-only storage file methods copy the save folder when the start-up record is missing; rootSource=startup or use; conflicting roots withhold the selection); 200-range save writes ignored; last saved slot carried over when the selection re-forms in the same world; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. Diagnostic read-only Bell reads tagged with the selection serial; stale results discarded. Save writes by the selection's server child retarget Bell reads to the written slot. F7 foreground confirmation retained. No marker hooks or save writes.");
     Summary summary = {};
     summary.generation = 1;
     LONG observedDrops = 0;
@@ -1868,7 +2122,7 @@ DWORD WINAPI Run(void* address) {
             sprintf_s(checkpoint,
                 "CHECKPOINT F7 readCount=%u applyCount=%u sameObject=%u dropped=%ld "
                 "lastRequestedSlot=%u readStatusReadable=%u readStatus=%lu "
-                "applyStatusReadable=%u applyStatus=%lu loadCount=%u cleanupCount=%u correlated=%u storageRootCopied=%u "
+                "applyStatusReadable=%u applyStatus=%lu loadCount=%u cleanupCount=%u correlated=%u storageRootCopied=%u storageUseRootCopied=%u storageUses=%u "
                 "clientResetCount=%u clientBoundary=%u fieldBeginCount=%u fieldTransitionCount=%u fieldReloadCount=%u "
                 "controllerChanges=%u phaseReadable=%u controllerPhase=%u actorLinkCount=%u nativeLinkRead=%u "
                 "keyLookupCount=%u clientKey=0x%08x clientKeyEpoch=%ld clientUser=0x%llx clientSelected=0x%llx "
@@ -1886,7 +2140,8 @@ DWORD WINAPI Run(void* address) {
                 summary.lastRead.statusRead ? 1u : 0u, summary.lastRead.status,
                 summary.lastApply.statusRead ? 1u : 0u, summary.lastApply.status,
                 summary.loads, summary.cleanups, summary.correlatedCandidate ? 1u : 0u,
-                summary.lastStorage.rootRead ? 1u : 0u, summary.clientResets,
+                summary.lastStorage.rootRead ? 1u : 0u,
+                summary.lastStorageUse.rootRead ? 1u : 0u, summary.storageUses, summary.clientResets,
                 summary.clientBoundaryCandidate ? 1u : 0u,
                 summary.fieldBegins, summary.fieldTransitions, summary.fieldReloads,
                 summary.controllerChanges, summary.lastController.controllerPhaseRead ? 1u : 0u,

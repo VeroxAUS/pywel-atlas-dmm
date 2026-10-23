@@ -1,0 +1,55 @@
+0xdeca40: mov qword ptr [rsp + 8], rbx
+0xdeca45: push rdi
+0xdeca46: sub rsp, 0x20
+0xdeca4a: xor r10d, r10d
+0xdeca4d: lea r9, [rcx + 0x1e8]
+0xdeca54: movzx edi, r8b
+0xdeca58: mov r11d, r10d
+0xdeca5b: mov rax, r9
+0xdeca5e: movzx r8d, dl
+0xdeca62: mov rbx, rcx
+0xdeca65: cmp byte ptr [rax], r10b
+0xdeca68: jne 0x140deca7a
+0xdeca6a: inc r11d
+0xdeca6d: inc rax
+0xdeca70: cmp r11d, 3
+0xdeca74: jb 0x140deca65
+0xdeca76: xor dl, dl
+0xdeca78: jmp 0x140deca7c
+0xdeca7a: mov dl, 1
+0xdeca7c: mov rcx, r8
+0xdeca7f: shr r8, 3
+0xdeca83: and ecx, 7
+0xdeca86: movzx eax, byte ptr [r8 + r9]
+0xdeca8b: test dil, dil
+0xdeca8e: je 0x140deca95
+0xdeca90: bts eax, ecx
+0xdeca93: jmp 0x140deca98
+0xdeca95: btr eax, ecx
+0xdeca98: mov byte ptr [r8 + r9], al
+0xdeca9c: nop dword ptr [rax]
+0xdecaa0: cmp byte ptr [r9], 0
+0xdecaa4: jne 0x140decab6
+0xdecaa6: inc r10d
+0xdecaa9: inc r9
+0xdecaac: cmp r10d, 3
+0xdecab0: jb 0x140decaa0
+0xdecab2: xor al, al
+0xdecab4: jmp 0x140decab8
+0xdecab6: mov al, 1
+0xdecab8: cmp dl, al
+0xdecaba: je 0x140decad7
+0xdecabc: mov rdx, qword ptr [rbx]
+0xdecabf: mov rcx, rbx
+0xdecac2: test al, al
+0xdecac4: je 0x140decad4
+0xdecac6: mov rbx, qword ptr [rsp + 0x30]
+0xdecacb: add rsp, 0x20
+0xdecacf: pop rdi
+0xdecad0: jmp qword ptr [rdx + 0x28]
+0xdecad4: call qword ptr [rdx + 0x20]
+0xdecad7: mov rbx, qword ptr [rsp + 0x30]
+0xdecadc: add rsp, 0x20
+0xdecae0: pop rdi
+0xdecae1: ret 
+0xdecae2: int3 

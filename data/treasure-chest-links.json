@@ -1,0 +1,3670 @@
+{
+  "version": 3,
+  "category": "Treasure Chest (dedicated chest levels, then cave and dungeon chests, then puzzle strongboxes and surface itemboxes)",
+  "saveType": "DiscoveredLevelGimmickSceneObjectSaveData",
+  "saveList": "_discoveredLevelGimmickSceneObjectSaveDataList",
+  "infoKey": 1000007,
+  "openedRule": "rule list: record with infoKey 1000007, this UUID and _isCompleted = true; rule field: the same with infoKey 1000007 or 1000134, or a FieldSaveData._fieldGimmickSaveDataList record for this UUID with reason 1, reset never and state 353047760 or 1537827618 (2255254665 = closed)",
+  "nativeIcon": {
+    "type": 226,
+    "templateType": 28852,
+    "templateName": "MapIcon_Gimmick_LevelTreasureBox"
+  },
+  "evidence": "Save test 2026-10-22 (chest B, Church of Calphade tower, TreasureBoxHernand): seen added the record, opening set _isCompleted, 12 in-game hours later unchanged. Cave save test 2026-10-22 (chest D, Echoing Tunnel): the same record and flag. Strongbox save test 2026-10-22 (owl box, music box, jigsaw safe, Hernand itembox): field records on opening only, reset never, opened states as in openedRule. Positions from the level files via research/scripts/find_treasure_chests.py.",
+  "locations": [
+    {
+      "name": "Crimson Desert chest 1",
+      "uuid": [
+        805150262,
+        1591217937,
+        560387027,
+        0
+      ],
+      "gamePosition": [
+        -3832.1367,
+        652.727,
+        3379.5979
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:560152",
+      "mapGenieDistance": 9.2,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 2",
+      "uuid": [
+        1198678463,
+        3222802197,
+        1789175885,
+        0
+      ],
+      "gamePosition": [
+        -3473.8486,
+        611.7009,
+        -766.1708
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:938442",
+      "mapGenieDistance": 15.5,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 3",
+      "uuid": [
+        3178226632,
+        3222802220,
+        1789175885,
+        0
+      ],
+      "gamePosition": [
+        -4975.5254,
+        669.6478,
+        -551.6422
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:952893",
+      "mapGenieDistance": 12.7,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 4",
+      "uuid": [
+        2958124583,
+        3222802212,
+        1789175885,
+        0
+      ],
+      "gamePosition": [
+        -8029.127,
+        671.7016,
+        -603.7257
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:560918",
+      "mapGenieDistance": 18.4,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 5",
+      "uuid": [
+        3716890279,
+        3222802116,
+        1822861389,
+        0
+      ],
+      "gamePosition": [
+        -4671.3994,
+        480.7394,
+        -2010.9376
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554049",
+      "mapGenieDistance": 25.0,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 6",
+      "uuid": [
+        4183623579,
+        3222802206,
+        1789175885,
+        0
+      ],
+      "gamePosition": [
+        -4378.1445,
+        469.8326,
+        -2282.4973
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:554149",
+      "mapGenieDistance": 26.0,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 7",
+      "uuid": [
+        3596842660,
+        1450446532,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -5115.7954,
+        521.0853,
+        -2297.21
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554092",
+      "mapGenieDistance": 17.2,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 8",
+      "uuid": [
+        1555756338,
+        1591217951,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5527.8472,
+        566.0587,
+        -1156.1115
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:549787",
+      "mapGenieDistance": 21.0,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 9",
+      "uuid": [
+        103731873,
+        3222802199,
+        1789175885,
+        0
+      ],
+      "gamePosition": [
+        -7156.5112,
+        588.8034,
+        -1239.2106
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:560724",
+      "mapGenieDistance": 14.0,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 10",
+      "uuid": [
+        351047863,
+        1591217957,
+        560387027,
+        0
+      ],
+      "gamePosition": [
+        -4473.3296,
+        605.3865,
+        -843.9546
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:552342",
+      "mapGenieDistance": 18.7,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 11",
+      "uuid": [
+        3954719244,
+        4279243045,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -5273.7944,
+        736.2119,
+        -778.4738
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:560191",
+      "mapGenieDistance": 17.5,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 12",
+      "uuid": [
+        4042900538,
+        4279243045,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -4460.7749,
+        695.2028,
+        -333.7401
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:942686",
+      "mapGenieDistance": 29.1,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 13",
+      "uuid": [
+        4113727328,
+        4279243045,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -4400.9829,
+        668.4192,
+        1877.9865
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:560151",
+      "mapGenieDistance": 7.0,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 14",
+      "uuid": [
+        4167973286,
+        4279243045,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -4992.5215,
+        695.797,
+        880.1337
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:560150",
+      "mapGenieDistance": 51.1,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 15",
+      "uuid": [
+        4182404172,
+        4279243045,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -6193.8076,
+        628.4424,
+        999.8107
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:560160",
+      "mapGenieDistance": 9.8,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert chest 16",
+      "uuid": [
+        4275545806,
+        4279243045,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -4478.479,
+        679.6193,
+        1565.0266
+      ],
+      "level": "treasureboxcrimsondesert",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:952882",
+      "mapGenieDistance": 8.9,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 1",
+      "uuid": [
+        3461447009,
+        1591217934,
+        560387027,
+        0
+      ],
+      "gamePosition": [
+        -7086.1455,
+        423.6989,
+        -5804.9629
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:556906",
+      "mapGenieDistance": 24.4,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 2",
+      "uuid": [
+        3002339217,
+        4279242500,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -6596.542,
+        530.3411,
+        -5604.6416
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:943874",
+      "mapGenieDistance": 61.0,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 3",
+      "uuid": [
+        484754728,
+        1450446625,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -6674.2163,
+        535.2866,
+        -5304.8931
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554431",
+      "mapGenieDistance": 22.1,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 4",
+      "uuid": [
+        1089739355,
+        1450446589,
+        1083623228,
+        0
+      ],
+      "gamePosition": [
+        -6797.7036,
+        551.1794,
+        -5253.3159
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:554432",
+      "mapGenieDistance": 10.5,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 5",
+      "uuid": [
+        622199458,
+        1450446530,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -6473.6323,
+        580.4507,
+        -5149.3174
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554435",
+      "mapGenieDistance": 6.8,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 6",
+      "uuid": [
+        2104291283,
+        1450446538,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -6069.1831,
+        462.5907,
+        -4760.3257
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:562197",
+      "mapGenieDistance": 22.0,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 7",
+      "uuid": [
+        2368137256,
+        1450446625,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -5170.3779,
+        505.174,
+        -5082.9673
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:560399",
+      "mapGenieDistance": 23.1,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 8",
+      "uuid": [
+        2668251072,
+        1450446804,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5149.2964,
+        399.9859,
+        -4758.209
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:941048",
+      "mapGenieDistance": 21.2,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 9",
+      "uuid": [
+        4018385012,
+        1450446528,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -4029.8062,
+        556.3235,
+        -5139.1855
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:555080",
+      "mapGenieDistance": 25.2,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 10",
+      "uuid": [
+        4027738185,
+        1450446528,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -3184.9941,
+        473.0042,
+        -5648.7139
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:556932",
+      "mapGenieDistance": 11.4,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 11",
+      "uuid": [
+        3088457150,
+        1450446624,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -3485.1692,
+        373.4537,
+        -4842.8667
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:943980",
+      "mapGenieDistance": 27.3,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 12",
+      "uuid": [
+        31216416,
+        1450446529,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -3424.1262,
+        389.7675,
+        -4480.5005
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554971",
+      "mapGenieDistance": 28.4,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 13",
+      "uuid": [
+        4291791801,
+        1450446622,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4254.6216,
+        350.4537,
+        -3982.553
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:561850",
+      "mapGenieDistance": 19.3,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 14",
+      "uuid": [
+        2072025724,
+        3222802114,
+        1822861389,
+        0
+      ],
+      "gamePosition": [
+        -4359.8804,
+        406.2105,
+        -3907.9314
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:561849",
+      "mapGenieDistance": 19.7,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 15",
+      "uuid": [
+        2054748770,
+        1450446623,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -4398.0806,
+        398.6561,
+        -3804.1248
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554940",
+      "mapGenieDistance": 20.1,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 16",
+      "uuid": [
+        742223830,
+        4279243046,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -7092.3223,
+        361.7493,
+        -4901.1357
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:561835",
+      "mapGenieDistance": 13.8,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 17",
+      "uuid": [
+        631964841,
+        1591217868,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -5553.0674,
+        524.5582,
+        -2592.061
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557125",
+      "mapGenieDistance": 21.2,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 18",
+      "uuid": [
+        2153367957,
+        1450446621,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -5601.2568,
+        526.871,
+        -2666.7251
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557126",
+      "mapGenieDistance": 13.7,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 19",
+      "uuid": [
+        959734234,
+        1450446595,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5481.1006,
+        426.0732,
+        -3112.2991
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:560171",
+      "mapGenieDistance": 18.5,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 20",
+      "uuid": [
+        3835728638,
+        1450446622,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -5476.5566,
+        397.0799,
+        -3361.4741
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 21",
+      "uuid": [
+        3016528673,
+        1450446620,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -6406.917,
+        448.16,
+        -3737.2683
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:562515",
+      "mapGenieDistance": 17.6,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 22",
+      "uuid": [
+        992893862,
+        1591217923,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5712.6675,
+        531.8991,
+        -3980.9023
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:562297",
+      "mapGenieDistance": 25.4,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 23",
+      "uuid": [
+        3618386306,
+        1591217924,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5856.5933,
+        516.1524,
+        -3942.3076
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:562312",
+      "mapGenieDistance": 18.7,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 24",
+      "uuid": [
+        2813045479,
+        1591217866,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -5858.2637,
+        555.671,
+        -4072.9116
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:562318",
+      "mapGenieDistance": 17.8,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 25",
+      "uuid": [
+        675301335,
+        4279243046,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -7156.3252,
+        351.2112,
+        -5175.9526
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557014",
+      "mapGenieDistance": 21.2,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia chest 26",
+      "uuid": [
+        3672485500,
+        1450446751,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -5977.4121,
+        467.436,
+        -4217.2129
+      ],
+      "level": "treasureboxdelesyia",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:562177",
+      "mapGenieDistance": 19.5,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 1",
+      "uuid": [
+        3580229536,
+        3222802584,
+        1822861389,
+        0
+      ],
+      "gamePosition": [
+        -6998.0957,
+        350.0931,
+        -3955.8411
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557165",
+      "mapGenieDistance": 21.7,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 2",
+      "uuid": [
+        77809529,
+        1591217867,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -8317.7705,
+        575.2658,
+        -5888.5361
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:940865",
+      "mapGenieDistance": 10.0,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 3",
+      "uuid": [
+        2982998606,
+        3222802114,
+        1822861389,
+        0
+      ],
+      "gamePosition": [
+        -7149.6162,
+        479.0876,
+        -3071.1606
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:596014",
+      "mapGenieDistance": 18.7,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 4",
+      "uuid": [
+        3697270496,
+        1450446556,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -9250.8984,
+        570.1344,
+        -3879.8899
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:556700",
+      "mapGenieDistance": 45.5,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 5",
+      "uuid": [
+        2101378731,
+        1591217870,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -9159.9346,
+        563.4514,
+        -3661.7434
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:943040",
+      "mapGenieDistance": 15.9,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 6",
+      "uuid": [
+        2027746240,
+        1450446538,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -8408.8311,
+        483.8581,
+        -3771.2505
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:596412",
+      "mapGenieDistance": 20.3,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 7",
+      "uuid": [
+        140365873,
+        1591217935,
+        560387027,
+        0
+      ],
+      "gamePosition": [
+        -7367.6538,
+        408.6509,
+        -4778.9341
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:553001",
+      "mapGenieDistance": 20.0,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 8",
+      "uuid": [
+        25735867,
+        1450446529,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -7003.4233,
+        357.9601,
+        -3905.1108
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557162",
+      "mapGenieDistance": 18.7,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 9",
+      "uuid": [
+        2903737093,
+        1450446542,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -6520.0098,
+        397.0789,
+        -3668.2861
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:562522",
+      "mapGenieDistance": 19.8,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 10",
+      "uuid": [
+        2253253648,
+        1450446552,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -7924.6309,
+        537.6585,
+        -3540.5811
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:560339",
+      "mapGenieDistance": 17.9,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 11",
+      "uuid": [
+        3513304954,
+        3222802194,
+        1789175885,
+        0
+      ],
+      "gamePosition": [
+        -6297.2529,
+        394.2199,
+        -3274.9722
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:557105",
+      "mapGenieDistance": 19.8,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 12",
+      "uuid": [
+        2764745724,
+        1450446530,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -6255.5649,
+        454.3904,
+        -2857.5337
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0005.prefab",
+      "mapGenieId": "mg:557107",
+      "mapGenieDistance": 20.1,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 13",
+      "uuid": [
+        1801968226,
+        1591217858,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -6244.7388,
+        429.913,
+        -2840.6621
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557107",
+      "mapGenieDistance": 37.9,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 14",
+      "uuid": [
+        1579697117,
+        1450446623,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -6832.4263,
+        488.8208,
+        -3097.7083
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557182",
+      "mapGenieDistance": 17.4,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 15",
+      "uuid": [
+        3915776765,
+        1450446538,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -7700.6357,
+        510.1128,
+        -3060.9148
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:562368",
+      "mapGenieDistance": 17.7,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 16",
+      "uuid": [
+        2023688669,
+        1450446538,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -9236.3379,
+        648.0714,
+        -2744.6816
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:556662",
+      "mapGenieDistance": 25.8,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 17",
+      "uuid": [
+        2970617647,
+        1450446578,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9208.9316,
+        676.8539,
+        -2422.7007
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:552412",
+      "mapGenieDistance": 36.7,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 18",
+      "uuid": [
+        3430000096,
+        1591217854,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -8424.0205,
+        541.4092,
+        -2774.5959
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:560153",
+      "mapGenieDistance": 17.1,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 19",
+      "uuid": [
+        1038422945,
+        1450446538,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -7639.3652,
+        529.2108,
+        -2735.3608
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:560995",
+      "mapGenieDistance": 18.2,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 20",
+      "uuid": [
+        422233227,
+        1591217868,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -6869.0,
+        549.0778,
+        -2462.8357
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557098",
+      "mapGenieDistance": 22.1,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 21",
+      "uuid": [
+        4072597239,
+        1591217950,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -6596.8242,
+        592.5012,
+        -1890.9142
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:562587",
+      "mapGenieDistance": 28.4,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 22",
+      "uuid": [
+        4045130986,
+        1450446530,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -7629.9272,
+        598.5009,
+        -2055.866
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557120",
+      "mapGenieDistance": 9.3,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 23",
+      "uuid": [
+        214887111,
+        1591217953,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -7880.3271,
+        555.2967,
+        -1663.7894
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:559594",
+      "mapGenieDistance": 18.6,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 24",
+      "uuid": [
+        889932553,
+        1450446621,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -8943.1611,
+        695.5704,
+        -1774.6191
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:552855",
+      "mapGenieDistance": 16.9,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 25",
+      "uuid": [
+        336865288,
+        1450446530,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -9171.5732,
+        766.7645,
+        -1606.4558
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:552877",
+      "mapGenieDistance": 27.4,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 26",
+      "uuid": [
+        3837276997,
+        1450446538,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -7800.437,
+        527.5303,
+        -3215.0173
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:556432",
+      "mapGenieDistance": 14.0,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 27",
+      "uuid": [
+        486074405,
+        1450446527,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -7886.4248,
+        548.5684,
+        -3302.021
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:598042",
+      "mapGenieDistance": 18.9,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 28",
+      "uuid": [
+        2737400151,
+        1450446536,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -7904.3257,
+        539.6172,
+        -3303.6296
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:552769",
+      "mapGenieDistance": 23.8,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 29",
+      "uuid": [
+        930374071,
+        1450446536,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -8824.3037,
+        543.925,
+        -2822.1548
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:560956",
+      "mapGenieDistance": 19.9,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 30",
+      "uuid": [
+        4024973329,
+        1450446536,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -8021.8652,
+        526.5855,
+        -3422.146
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:596333",
+      "mapGenieDistance": 12.7,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 31",
+      "uuid": [
+        241811425,
+        4279243046,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -7573.5986,
+        409.1481,
+        -5288.8135
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557805",
+      "mapGenieDistance": 21.3,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 32",
+      "uuid": [
+        266380066,
+        4279243046,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -7863.7222,
+        405.3577,
+        -5476.394
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554449",
+      "mapGenieDistance": 17.2,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 33",
+      "uuid": [
+        636933163,
+        4279243046,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -8631.1455,
+        350.7362,
+        -6369.1636
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554462",
+      "mapGenieDistance": 24.2,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 34",
+      "uuid": [
+        699053055,
+        4279243046,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -7421.7729,
+        351.3305,
+        -5253.5679
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:943979",
+      "mapGenieDistance": 21.5,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss chest 35",
+      "uuid": [
+        931734090,
+        4279243046,
+        1617652448,
+        0
+      ],
+      "gamePosition": [
+        -6304.2505,
+        524.0287,
+        -2136.6443
+      ],
+      "level": "treasureboxdemeniss",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:560154",
+      "mapGenieDistance": 23.2,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 1",
+      "uuid": [
+        3181687831,
+        1450446538,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -9592.333,
+        553.3274,
+        -2856.3247
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:550177",
+      "mapGenieDistance": 20.7,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 2",
+      "uuid": [
+        417836576,
+        1450446536,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -11779.4365,
+        1016.7322,
+        -5939.771
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:552026",
+      "mapGenieDistance": 28.0,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 3",
+      "uuid": [
+        814392345,
+        3222802115,
+        1822861389,
+        0
+      ],
+      "gamePosition": [
+        -12408.959,
+        755.8508,
+        -5304.4839
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:551574",
+      "mapGenieDistance": 23.7,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 4",
+      "uuid": [
+        755279913,
+        1450446531,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -13138.4131,
+        1142.036,
+        -4382.145
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:551619",
+      "mapGenieDistance": 11.1,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 5",
+      "uuid": [
+        1541382966,
+        1450446530,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -12435.0518,
+        1051.4139,
+        -3563.8298
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:550269",
+      "mapGenieDistance": 27.0,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 6",
+      "uuid": [
+        2398997509,
+        1450446538,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -12765.1816,
+        1039.8241,
+        -2875.8254
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:551571",
+      "mapGenieDistance": 35.8,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 7",
+      "uuid": [
+        113599075,
+        1591217939,
+        560387027,
+        0
+      ],
+      "gamePosition": [
+        -12585.917,
+        954.4283,
+        -2550.4553
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:550491",
+      "mapGenieDistance": 24.5,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 8",
+      "uuid": [
+        2163388933,
+        4279242571,
+        2832474592,
+        0
+      ],
+      "gamePosition": [
+        -11898.1299,
+        706.5329,
+        -2027.0164
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:545827",
+      "mapGenieDistance": 16.0,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 9",
+      "uuid": [
+        1676619777,
+        1591217866,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -11954.5361,
+        1000.4269,
+        -3144.8435
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:545822",
+      "mapGenieDistance": 21.2,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 10",
+      "uuid": [
+        3891691030,
+        1450446528,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -11478.374,
+        807.894,
+        -3220.604
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:550501",
+      "mapGenieDistance": 36.4,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 11",
+      "uuid": [
+        1676886854,
+        1450446538,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -11484.8203,
+        647.1304,
+        -4593.5449
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:551891",
+      "mapGenieDistance": 20.6,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 12",
+      "uuid": [
+        3595084779,
+        3222802190,
+        1789175885,
+        0
+      ],
+      "gamePosition": [
+        -11420.6924,
+        624.7142,
+        -4827.1553
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:554264",
+      "mapGenieDistance": 23.1,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 13",
+      "uuid": [
+        2859283304,
+        1591217856,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -10321.9941,
+        601.0756,
+        -4803.9829
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:551702",
+      "mapGenieDistance": 21.8,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 14",
+      "uuid": [
+        3249922228,
+        1450446536,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -9975.8525,
+        610.8068,
+        -5530.4199
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:545658",
+      "mapGenieDistance": 24.9,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 15",
+      "uuid": [
+        2190875110,
+        1591217935,
+        560387027,
+        0
+      ],
+      "gamePosition": [
+        -10052.6113,
+        607.4005,
+        -5473.7114
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:545660",
+      "mapGenieDistance": 20.4,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 16",
+      "uuid": [
+        1809843147,
+        1591217937,
+        560387027,
+        0
+      ],
+      "gamePosition": [
+        -10183.0771,
+        576.6238,
+        -5262.772
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:546043",
+      "mapGenieDistance": 20.6,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 17",
+      "uuid": [
+        1679880628,
+        1450446540,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -10007.8086,
+        563.5029,
+        -5141.3208
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:551540",
+      "mapGenieDistance": 21.2,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 18",
+      "uuid": [
+        4236334860,
+        1450446538,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -9999.5371,
+        600.358,
+        -4861.4639
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:551698",
+      "mapGenieDistance": 22.0,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 19",
+      "uuid": [
+        4004310107,
+        1450446528,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -9973.4062,
+        579.8743,
+        -4848.5083
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:546167",
+      "mapGenieDistance": 20.9,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 20",
+      "uuid": [
+        3420526367,
+        1591217900,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9874.4473,
+        557.6454,
+        -4925.897
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:544540",
+      "mapGenieDistance": 23.1,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 21",
+      "uuid": [
+        3874648063,
+        1450446528,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -9393.8057,
+        601.9886,
+        -5045.8687
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:551527",
+      "mapGenieDistance": 17.6,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 22",
+      "uuid": [
+        2417596809,
+        1450446538,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -9398.8857,
+        585.4571,
+        -4142.0908
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:546798",
+      "mapGenieDistance": 15.8,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 23",
+      "uuid": [
+        4132777280,
+        3222802114,
+        1822861389,
+        0
+      ],
+      "gamePosition": [
+        -10847.9688,
+        652.3535,
+        -3750.5176
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:547530",
+      "mapGenieDistance": 7.6,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 24",
+      "uuid": [
+        2718969801,
+        1450446528,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -10835.3164,
+        653.8348,
+        -3735.0762
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:547548",
+      "mapGenieDistance": 11.5,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 25",
+      "uuid": [
+        3086969779,
+        1450446530,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -10672.7197,
+        637.9172,
+        -3239.9883
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:545582",
+      "mapGenieDistance": 16.1,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 26",
+      "uuid": [
+        2910497824,
+        1450446538,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -10413.4746,
+        648.5211,
+        -3097.7456
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0005.prefab",
+      "mapGenieId": "mg:556203",
+      "mapGenieDistance": 20.7,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 27",
+      "uuid": [
+        753841485,
+        1450446552,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -10250.25,
+        609.7579,
+        -3079.8352
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554492",
+      "mapGenieDistance": 15.7,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand chest 28",
+      "uuid": [
+        3627672019,
+        1450446528,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -10686.5869,
+        750.2543,
+        -2636.248
+      ],
+      "level": "treasureboxhernand",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:551927",
+      "mapGenieDistance": 14.9,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 1",
+      "uuid": [
+        4292864861,
+        1591217868,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -9366.9775,
+        608.2639,
+        -847.6751
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:606606",
+      "mapGenieDistance": 12.4,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 2",
+      "uuid": [
+        1829405488,
+        1450446587,
+        1083623228,
+        0
+      ],
+      "gamePosition": [
+        -10455.1133,
+        701.7748,
+        -992.0633
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:556050",
+      "mapGenieDistance": 21.2,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 3",
+      "uuid": [
+        502905231,
+        1591217867,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -10481.3604,
+        833.1661,
+        -644.5976
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:555269",
+      "mapGenieDistance": 10.7,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 4",
+      "uuid": [
+        3101910310,
+        1450446528,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -10492.9785,
+        855.5345,
+        -612.369
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557516",
+      "mapGenieDistance": 9.1,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 5",
+      "uuid": [
+        1153431182,
+        1450446625,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -11440.7881,
+        727.9384,
+        -313.0038
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:941535",
+      "mapGenieDistance": 4.0,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 6",
+      "uuid": [
+        1630562554,
+        1450446528,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11400.791,
+        715.4057,
+        68.3987
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:554798",
+      "mapGenieDistance": 14.5,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 7",
+      "uuid": [
+        2785882785,
+        1591217870,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -10096.9619,
+        762.2348,
+        -26.7733
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557759",
+      "mapGenieDistance": 15.4,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 8",
+      "uuid": [
+        1793259931,
+        1450446538,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -10029.1436,
+        668.6971,
+        164.3809
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:560121",
+      "mapGenieDistance": 15.9,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 9",
+      "uuid": [
+        2039262791,
+        1450446538,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -9893.29,
+        639.3447,
+        67.0831
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:554298",
+      "mapGenieDistance": 11.3,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 10",
+      "uuid": [
+        1681206263,
+        1450446538,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -9665.2109,
+        648.8799,
+        335.9923
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:553933",
+      "mapGenieDistance": 17.1,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 11",
+      "uuid": [
+        3013125076,
+        1591217868,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -9701.0605,
+        664.9728,
+        449.764
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:552277",
+      "mapGenieDistance": 15.7,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 12",
+      "uuid": [
+        3905097080,
+        1450446528,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -9767.7559,
+        661.5845,
+        550.9712
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:606605",
+      "mapGenieDistance": 10.4,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 13",
+      "uuid": [
+        3037246684,
+        1450446530,
+        1056489532,
+        0
+      ],
+      "gamePosition": [
+        -10308.1426,
+        781.14,
+        575.1395
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:553875",
+      "mapGenieDistance": 18.7,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 14",
+      "uuid": [
+        887372900,
+        1450446589,
+        1083623228,
+        0
+      ],
+      "gamePosition": [
+        -10653.1738,
+        668.5521,
+        912.6913
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:557551",
+      "mapGenieDistance": 22.7,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden chest 15",
+      "uuid": [
+        869419122,
+        1450446589,
+        1083623228,
+        0
+      ],
+      "gamePosition": [
+        -9637.124,
+        640.6132,
+        1044.5596
+      ],
+      "level": "treasureboxkweiden",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:553963",
+      "mapGenieDistance": 10.1,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert cave chest 1",
+      "place": "Sandshift Basin Cave",
+      "uuid": [
+        1144003738,
+        1450446589,
+        1083623228,
+        0
+      ],
+      "gamePosition": [
+        -4695.3164,
+        553.8586,
+        -1199.9043
+      ],
+      "level": "01_tom_dungeon_0001",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:952894",
+      "mapGenieDistance": 17.5,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 1",
+      "place": "Anvil Hill Gust Cave",
+      "uuid": [
+        1081938719,
+        1450446552,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -9422.8457,
+        596.6027,
+        -3335.1343
+      ],
+      "level": "04_aka_dungeon_0026",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:551738",
+      "mapGenieDistance": 12.2,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 2",
+      "place": "Arboria Spider Cave",
+      "uuid": [
+        1684418009,
+        1450446587,
+        1083623228,
+        0
+      ],
+      "gamePosition": [
+        -9926.5156,
+        663.013,
+        -2110.2747
+      ],
+      "level": "04_aka_dungeon_31_dungeon",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:551962",
+      "mapGenieDistance": 45.0,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 3",
+      "place": "Hernand Sewers",
+      "uuid": [
+        2428659539,
+        4279243202,
+        2244463840,
+        0
+      ],
+      "gamePosition": [
+        -10640.9121,
+        600.5702,
+        -3832.5103
+      ],
+      "level": "04_aka_her_drain_01",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:551929",
+      "mapGenieDistance": 17.7,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 4",
+      "place": "Blade Cavern",
+      "uuid": [
+        2218895271,
+        1450446906,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -11753.5811,
+        681.1483,
+        -4181.4058
+      ],
+      "level": "cd_waterfall_cave_0002",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:550254",
+      "mapGenieDistance": 20.1,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 5",
+      "place": "Shadowheart Grotto",
+      "uuid": [
+        2223636150,
+        1450446906,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -11673.9678,
+        642.1933,
+        -4334.1118
+      ],
+      "level": "cd_waterfall_cave_0003",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:550249",
+      "mapGenieDistance": 19.6,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 6",
+      "place": "Echoing Tunnel",
+      "uuid": [
+        2226913500,
+        1450446906,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -11516.4668,
+        610.2327,
+        -5196.0396
+      ],
+      "level": "cd_waterfall_cave_0004",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:550227",
+      "mapGenieDistance": 10.7,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 7",
+      "place": "Whispering Grotto",
+      "uuid": [
+        3479135890,
+        1450446908,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -11115.6973,
+        626.9335,
+        -5322.3818
+      ],
+      "level": "cd_waterfall_cave_0005",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:551543",
+      "mapGenieDistance": 17.8,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 8",
+      "place": "Cloudmist Cave",
+      "uuid": [
+        3423592498,
+        1591218244,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -11114.7695,
+        556.1784,
+        -4481.8555
+      ],
+      "level": "cd_waterfall_cave_0006",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:550272",
+      "mapGenieDistance": 28.5,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 9",
+      "place": "Dawn Cave",
+      "uuid": [
+        211445065,
+        1591218237,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -10903.0996,
+        485.0928,
+        -5981.272
+      ],
+      "level": "cd_waterfall_cave_0007",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:550631",
+      "mapGenieDistance": 26.4,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 10",
+      "place": "Echoing Waves Cave",
+      "uuid": [
+        1759931162,
+        1591218238,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -10872.75,
+        426.5997,
+        -6463.6538
+      ],
+      "level": "cd_waterfall_cave_0008",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:550626",
+      "mapGenieDistance": 23.3,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 1",
+      "place": "Windrift Cave",
+      "uuid": [
+        2782773195,
+        1591218238,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -8394.1768,
+        419.0636,
+        -6083.0547
+      ],
+      "level": "cd_waterfall_cave_0009",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:555812",
+      "mapGenieDistance": 40.2,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 2",
+      "place": "Windwail Cave",
+      "uuid": [
+        3669202403,
+        1591218238,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -8211.5713,
+        485.014,
+        -5867.6885
+      ],
+      "level": "cd_waterfall_cave_0010",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:555814",
+      "mapGenieDistance": 23.0,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 3",
+      "place": null,
+      "uuid": [
+        1568570217,
+        1591218244,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -7717.9399,
+        375.9818,
+        -4250.6919
+      ],
+      "level": "cd_waterfall_cave_0011",
+      "prefab": "gimmick_itembox_a_0005.prefab",
+      "mapGenieId": "mg:556912",
+      "mapGenieDistance": 28.7,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 4",
+      "place": "Crystal Crown Cave",
+      "uuid": [
+        2425404580,
+        1591218244,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -7320.4814,
+        351.4615,
+        -4034.3757
+      ],
+      "level": "cd_waterfall_cave_0012",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:553021",
+      "mapGenieDistance": 18.8,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 5",
+      "place": "Starlight Cave",
+      "uuid": [
+        4123173643,
+        1591218244,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -6690.7886,
+        350.6921,
+        -3740.5315
+      ],
+      "level": "cd_waterfall_cave_0013",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:954333",
+      "mapGenieDistance": 24.5,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia cave chest 1",
+      "place": "Cave of Silence",
+      "uuid": [
+        678786943,
+        1591218245,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -6375.3149,
+        362.4466,
+        -4561.6309
+      ],
+      "level": "cd_waterfall_cave_0014",
+      "prefab": "gimmick_itembox_a_0005.prefab",
+      "mapGenieId": "mg:562209",
+      "mapGenieDistance": 21.1,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia cave chest 2",
+      "place": "Guardian's Cave",
+      "uuid": [
+        1161168524,
+        1591218245,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5561.9565,
+        414.2831,
+        -4580.4961
+      ],
+      "level": "cd_waterfall_cave_0015",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:562570",
+      "mapGenieDistance": 21.5,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia cave chest 3",
+      "place": "Silentwater Grotto",
+      "uuid": [
+        1456979935,
+        1591218246,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5144.979,
+        350.859,
+        -2813.4521
+      ],
+      "level": "cd_waterfall_cave_0016",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:554189",
+      "mapGenieDistance": 19.2,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia cave chest 4",
+      "place": "Gale of Judgement Cave",
+      "uuid": [
+        1832051458,
+        1591218246,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5232.5449,
+        400.9498,
+        -2585.8728
+      ],
+      "level": "cd_waterfall_cave_0017",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:554183",
+      "mapGenieDistance": 24.2,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert cave chest 2",
+      "place": "Warrior's Soul Cave",
+      "uuid": [
+        2787422971,
+        1591218246,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5707.9985,
+        471.2789,
+        -2394.9207
+      ],
+      "level": "cd_waterfall_cave_0018",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:561803",
+      "mapGenieDistance": 18.2,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert cave chest 3",
+      "place": "Sacred Beast's Cave",
+      "uuid": [
+        3219083188,
+        1591218246,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -4747.519,
+        494.0036,
+        -1998.5242
+      ],
+      "level": "cd_waterfall_cave_0019",
+      "prefab": "gimmick_itembox_a_0005.prefab",
+      "mapGenieId": "mg:554097",
+      "mapGenieDistance": 13.2,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert cave chest 4",
+      "place": "Venomblade Grotto",
+      "uuid": [
+        3567039137,
+        1591218246,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -4469.5854,
+        493.7105,
+        -1941.3979
+      ],
+      "level": "cd_waterfall_cave_0020",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:554052",
+      "mapGenieDistance": 7.4,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia cave chest 5",
+      "place": "Mirror Chasm",
+      "uuid": [
+        4083093860,
+        1591218246,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5754.9146,
+        484.352,
+        -2625.9788
+      ],
+      "level": "cd_waterfall_cave_0021",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:560189",
+      "mapGenieDistance": 19.8,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 6",
+      "place": null,
+      "uuid": [
+        3447117407,
+        1591218250,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -8955.7178,
+        439.7307,
+        -4314.3228
+      ],
+      "level": "cd_waterfall_cave_0022",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:554214",
+      "mapGenieDistance": 18.2,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 7",
+      "place": "Well of Tragedy Grotto",
+      "uuid": [
+        626871775,
+        1591218247,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -8293.4453,
+        549.5424,
+        -1475.155
+      ],
+      "level": "cd_waterfall_cave_0023",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:552835",
+      "mapGenieDistance": 15.5,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 11",
+      "place": "Cascade Grotto",
+      "uuid": [
+        1023782498,
+        1591218247,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -9530.4248,
+        553.2469,
+        -2922.9763
+      ],
+      "level": "cd_waterfall_cave_0024",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:552422",
+      "mapGenieDistance": 18.7,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 12",
+      "place": "Twilight Grotto",
+      "uuid": [
+        1689143037,
+        1591218248,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -9648.7764,
+        549.4576,
+        -2831.3936
+      ],
+      "level": "cd_waterfall_cave_0025",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:551896",
+      "mapGenieDistance": 21.1,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 13",
+      "place": "Nightstorm Cave",
+      "uuid": [
+        2348266535,
+        1591218248,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -11774.25,
+        842.3734,
+        -3228.2295
+      ],
+      "level": "cd_waterfall_cave_0026",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:550506",
+      "mapGenieDistance": 14.1,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 14",
+      "place": "Frozen Soul Cave",
+      "uuid": [
+        4001884719,
+        1591218248,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -12261.5547,
+        827.4797,
+        -3820.916
+      ],
+      "level": "cd_waterfall_cave_0027",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:551629",
+      "mapGenieDistance": 18.1,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 15",
+      "place": "Frostclaw Cave",
+      "uuid": [
+        909910496,
+        1591218249,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -12861.6006,
+        926.4657,
+        -4105.7832
+      ],
+      "level": "cd_waterfall_cave_0028",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:551620",
+      "mapGenieDistance": 12.9,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 16",
+      "place": "Death's Grip Cave",
+      "uuid": [
+        1346861857,
+        1591218250,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -12559.4307,
+        786.9941,
+        -4811.1963
+      ],
+      "level": "cd_waterfall_cave_0029",
+      "prefab": "gimmick_itembox_a_0005.prefab",
+      "mapGenieId": "mg:551612",
+      "mapGenieDistance": 21.0,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 17",
+      "place": "Starlight Storm Cave",
+      "uuid": [
+        1918008996,
+        1591218250,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -11624.0146,
+        805.8073,
+        -3721.3538
+      ],
+      "level": "cd_waterfall_cave_0030",
+      "prefab": "gimmick_itembox_a_0005.prefab",
+      "mapGenieId": "mg:551641",
+      "mapGenieDistance": 18.9,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden cave chest 1",
+      "place": "Frostpierce Cave",
+      "uuid": [
+        2690923579,
+        1591218250,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -11727.0674,
+        763.1993,
+        990.8281
+      ],
+      "level": "cd_waterfall_cave_0031",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:552286",
+      "mapGenieDistance": 13.5,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden cave chest 2",
+      "place": "Claggy Chasm",
+      "uuid": [
+        3117768265,
+        1591218250,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -11425.3701,
+        700.4957,
+        866.9922
+      ],
+      "level": "cd_waterfall_cave_0032",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:553664",
+      "mapGenieDistance": 41.4,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden cave chest 3",
+      "place": "Snowwind Cave",
+      "uuid": [
+        2083626813,
+        1591218274,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -10061.833,
+        657.2229,
+        610.6908
+      ],
+      "level": "cd_waterfall_cave_0034",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:553913",
+      "mapGenieDistance": 8.4,
+      "rule": "list"
+    },
+    {
+      "name": "Kweiden cave chest 4",
+      "place": null,
+      "uuid": [
+        2403856097,
+        1591218274,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -10420.8379,
+        835.5816,
+        202.9779
+      ],
+      "level": "cd_waterfall_cave_0035",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:555217",
+      "mapGenieDistance": 18.0,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 18",
+      "place": "Ancient's Heart Cave",
+      "uuid": [
+        1266313320,
+        1591218275,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -10563.7432,
+        668.5552,
+        -1533.1674
+      ],
+      "level": "cd_waterfall_cave_0036",
+      "prefab": "gimmick_itembox_a_0002.prefab",
+      "mapGenieId": "mg:552089",
+      "mapGenieDistance": 9.9,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 8",
+      "place": "Crescent Cave",
+      "uuid": [
+        3124330059,
+        1591218274,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -8558.2646,
+        539.5779,
+        -1867.011
+      ],
+      "level": "cd_waterfall_cave_0037",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:552548",
+      "mapGenieDistance": 16.0,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 9",
+      "place": "Lunar Sprit Grotto",
+      "uuid": [
+        1881253057,
+        1591218275,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -8430.8311,
+        571.9671,
+        -1667.8961
+      ],
+      "level": "cd_waterfall_cave_0038",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:552593",
+      "mapGenieDistance": 18.4,
+      "rule": "list"
+    },
+    {
+      "name": "Demeniss cave chest 10",
+      "place": null,
+      "uuid": [
+        3555723630,
+        1591218274,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -8101.8848,
+        599.9733,
+        -885.9446
+      ],
+      "level": "cd_waterfall_cave_0039",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:552609",
+      "mapGenieDistance": 17.3,
+      "rule": "list"
+    },
+    {
+      "name": "Crimson Desert cave chest 5",
+      "place": "Sun's Gate Cave",
+      "uuid": [
+        3948132493,
+        1591218274,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -3905.9268,
+        590.1478,
+        3381.8271
+      ],
+      "level": "cd_waterfall_cave_0040",
+      "prefab": "gimmick_itembox_a_0005.prefab",
+      "mapGenieId": "mg:555679",
+      "mapGenieDistance": 5.7,
+      "rule": "list"
+    },
+    {
+      "name": "Hernand cave chest 19",
+      "place": "Firefly Haven Cave",
+      "uuid": [
+        176443087,
+        1591218275,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -9339.4473,
+        491.1712,
+        -4406.5425
+      ],
+      "level": "cd_waterfall_cave_0041",
+      "prefab": "gimmick_itembox_a_0006.prefab",
+      "mapGenieId": "mg:552310",
+      "mapGenieDistance": 18.7,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia cave chest 6",
+      "place": null,
+      "uuid": [
+        469313066,
+        1591218275,
+        3947466451,
+        0
+      ],
+      "gamePosition": [
+        -5574.5425,
+        445.1938,
+        -4904.7275
+      ],
+      "level": "cd_waterfall_cave_0042",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:557499",
+      "mapGenieDistance": 5.0,
+      "rule": "list"
+    },
+    {
+      "name": "Delesyia strongbox 1 (dial)",
+      "rule": "field",
+      "uuid": [
+        352292785,
+        4279242811,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -4387.5771,
+        415.2954,
+        -3803.8069
+      ],
+      "level": "sector_-18_-15_indoor_1_17",
+      "prefab": "gimmick_treasurebox_dial_safe_01.prefab",
+      "mapGenieId": "mg:554940",
+      "mapGenieDistance": 20.1
+    },
+    {
+      "name": "Delesyia strongbox 2 (padlock)",
+      "rule": "field",
+      "uuid": [
+        2285040983,
+        1450447232,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -4894.6372,
+        393.299,
+        -4706.354
+      ],
+      "level": "sector_-20_-19_sub_2_12",
+      "prefab": "gimmick_treasurebox_padlock_safe_03.prefab",
+      "mapGenieId": "mg:565436",
+      "mapGenieDistance": 16.8
+    },
+    {
+      "name": "Demeniss strongbox 1 (sliding jigsaw)",
+      "rule": "field",
+      "uuid": [
+        3523647357,
+        1591218667,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9380.8477,
+        615.2579,
+        -3013.2617
+      ],
+      "level": "riventainmonastery_0001_phase00_00",
+      "prefab": "gimmick_treasurebox_jigsaw_move_safe_04.prefab",
+      "mapGenieId": "mg:547588",
+      "mapGenieDistance": 15.0
+    },
+    {
+      "name": "Demeniss strongbox 2 (dial)",
+      "rule": "field",
+      "uuid": [
+        2907298968,
+        4279242810,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -6662.8276,
+        464.2691,
+        -3047.7661
+      ],
+      "level": "sector_-27_-12_sub_3_23",
+      "prefab": "gimmick_treasurebox_dial_safe_01.prefab",
+      "mapGenieId": "mg:555101",
+      "mapGenieDistance": 30.9
+    },
+    {
+      "name": "Demeniss strongbox 3 (padlock)",
+      "rule": "field",
+      "uuid": [
+        664027247,
+        1450447231,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -7918.4819,
+        530.931,
+        -3296.6479
+      ],
+      "level": "sector_-31_-13_sub_3_9",
+      "prefab": "gimmick_treasurebox_padlock_safe_02.prefab",
+      "mapGenieId": "mg:552769",
+      "mapGenieDistance": 21.2
+    },
+    {
+      "name": "Demeniss house chest 1",
+      "rule": "field",
+      "uuid": [
+        2778463104,
+        1450446554,
+        1058791484,
+        0
+      ],
+      "gamePosition": [
+        -7872.3271,
+        591.7385,
+        -3519.6833
+      ],
+      "level": "sector_-31_-14_indoor_1_1",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:560342",
+      "mapGenieDistance": 16.1
+    },
+    {
+      "name": "Demeniss strongbox 4 (music box)",
+      "rule": "field",
+      "uuid": [
+        4190700554,
+        1591218356,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7806.4277,
+        543.2437,
+        -3389.2305
+      ],
+      "level": "sector_-31_-14_indoor_1_6",
+      "prefab": "gimmick_treasurebox_musicbox_01.prefab",
+      "mapGenieId": "mg:557604",
+      "mapGenieDistance": 17.6
+    },
+    {
+      "name": "Demeniss strongbox 5 (number wheel)",
+      "rule": "field",
+      "uuid": [
+        2526008093,
+        4279242810,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -8093.1685,
+        554.6133,
+        -3498.73
+      ],
+      "level": "sector_-32_-14_indoor_1_10",
+      "prefab": "gimmick_treasurebox_fitnumber_safe_01.prefab",
+      "mapGenieId": "mg:557650",
+      "mapGenieDistance": 20.3
+    },
+    {
+      "name": "Demeniss strongbox 6 (music box)",
+      "rule": "field",
+      "uuid": [
+        3246128797,
+        4279242810,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -7944.7646,
+        540.792,
+        -3432.4714
+      ],
+      "level": "sector_-32_-14_indoor_1_43",
+      "prefab": "gimmick_treasurebox_musicbox_01.prefab",
+      "mapGenieId": "mg:552761",
+      "mapGenieDistance": 20.4
+    },
+    {
+      "name": "Demeniss strongbox 7 (music box)",
+      "rule": "field",
+      "uuid": [
+        2277313979,
+        1450447232,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -8112.7705,
+        530.572,
+        -3399.738
+      ],
+      "level": "sector_-32_-14_sub_3_38",
+      "prefab": "gimmick_treasurebox_musicbox_01.prefab",
+      "mapGenieId": "mg:556439",
+      "mapGenieDistance": 19.2
+    },
+    {
+      "name": "Demeniss strongbox 8 (number wheel)",
+      "rule": "field",
+      "uuid": [
+        534039953,
+        3947892910,
+        3021822454,
+        0
+      ],
+      "gamePosition": [
+        -8329.2822,
+        538.4264,
+        -3249.9019
+      ],
+      "level": "sector_-33_-13_indoor_1_1",
+      "prefab": "gimmick_treasurebox_fitnumber_safe_02.prefab",
+      "mapGenieId": "mg:549908",
+      "mapGenieDistance": 22.9
+    },
+    {
+      "name": "Demeniss strongbox 9 (jigsaw)",
+      "rule": "field",
+      "uuid": [
+        534040692,
+        3947892910,
+        3021822454,
+        0
+      ],
+      "gamePosition": [
+        -8261.9102,
+        516.82,
+        -3119.373
+      ],
+      "level": "sector_-33_-13_indoor_1_9",
+      "prefab": "gimmick_treasurebox_jigsaw_safe_02.prefab",
+      "mapGenieId": "mg:549920",
+      "mapGenieDistance": 13.7
+    },
+    {
+      "name": "Demeniss strongbox 10 (sliding jigsaw)",
+      "rule": "field",
+      "uuid": [
+        3774345810,
+        4279242808,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -8481.1104,
+        515.7518,
+        -2956.3533
+      ],
+      "level": "sector_-34_-12_sub_3_27",
+      "prefab": "gimmick_treasurebox_jigsaw_move_safe_01.prefab",
+      "mapGenieId": "mg:550071",
+      "mapGenieDistance": 15.6
+    },
+    {
+      "name": "Demeniss strongbox 11 (number wheel)",
+      "rule": "field",
+      "uuid": [
+        3812688348,
+        4279242808,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -8545.2236,
+        538.947,
+        -3626.8694
+      ],
+      "level": "sector_-34_-15_indoor_1_5",
+      "prefab": "gimmick_treasurebox_fitnumber_safe_03.prefab",
+      "mapGenieId": "mg:549903",
+      "mapGenieDistance": 22.1
+    },
+    {
+      "name": "Demeniss house chest 2",
+      "rule": "field",
+      "uuid": [
+        2027356321,
+        1591218613,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -8482.3057,
+        620.8903,
+        -974.0272
+      ],
+      "level": "sector_-34_-4_sub_1_1",
+      "prefab": "gimmick_itembox_a_0004.prefab",
+      "mapGenieId": "mg:554504",
+      "mapGenieDistance": 16.6
+    },
+    {
+      "name": "Hernand strongbox 1 (sliding jigsaw)",
+      "rule": "field",
+      "uuid": [
+        655958064,
+        4279242738,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -9875.8359,
+        561.1979,
+        -4908.6807
+      ],
+      "level": "sector_-39_-20_sub_3_38",
+      "prefab": "gimmick_treasurebox_jigsaw_move_safe_02.prefab",
+      "mapGenieId": "mg:544510",
+      "mapGenieDistance": 40.0
+    },
+    {
+      "name": "Hernand strongbox 2 (sliding jigsaw)",
+      "rule": "field",
+      "uuid": [
+        3662269138,
+        3758100465,
+        2263460684,
+        0
+      ],
+      "gamePosition": [
+        -9864.4668,
+        565.2496,
+        -4913.1987
+      ],
+      "level": "sector_-39_-20_sub_3_39",
+      "prefab": "gimmick_treasurebox_jigsaw_move_safe_03.prefab",
+      "mapGenieId": "mg:544510",
+      "mapGenieDistance": 40.0
+    },
+    {
+      "name": "Hernand strongbox 3 (music box)",
+      "rule": "field",
+      "uuid": [
+        3514699320,
+        4279242808,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -10561.2363,
+        660.3344,
+        -3796.8096
+      ],
+      "level": "sector_-42_-15_indoor_1_14",
+      "prefab": "gimmick_treasurebox_musicbox_01.prefab",
+      "mapGenieId": "mg:546887",
+      "mapGenieDistance": 16.6
+    },
+    {
+      "name": "Hernand strongbox 4 (padlock)",
+      "rule": "field",
+      "uuid": [
+        1001162890,
+        3947892908,
+        3021822454,
+        0
+      ],
+      "gamePosition": [
+        -10711.7969,
+        621.5869,
+        -3897.2322
+      ],
+      "level": "sector_-42_-16_indoor_1_26",
+      "prefab": "gimmick_treasurebox_padlock_safe_06.prefab",
+      "mapGenieId": "mg:544444",
+      "mapGenieDistance": 10.4
+    },
+    {
+      "name": "Hernand strongbox 5 (number wheel)",
+      "rule": "field",
+      "uuid": [
+        1001163168,
+        3947892908,
+        3021822454,
+        0
+      ],
+      "gamePosition": [
+        -10700.3105,
+        621.3369,
+        -3880.2908
+      ],
+      "level": "sector_-42_-16_indoor_1_30",
+      "prefab": "gimmick_treasurebox_fitnumber_safe_04.prefab",
+      "mapGenieId": "mg:544444",
+      "mapGenieDistance": 17.7
+    },
+    {
+      "name": "Hernand house chest 1",
+      "rule": "field",
+      "uuid": [
+        604604728,
+        3947892910,
+        3021822454,
+        0
+      ],
+      "gamePosition": [
+        -10831.5469,
+        648.9999,
+        -3721.5874
+      ],
+      "level": "sector_-43_-15_indoor_1_6",
+      "prefab": "gimmick_itembox_a_0001.prefab",
+      "mapGenieId": "mg:547548",
+      "mapGenieDistance": 11.5
+    },
+    {
+      "name": "Hernand strongbox 6 (jigsaw)",
+      "rule": "field",
+      "uuid": [
+        604604814,
+        3947892910,
+        3021822454,
+        0
+      ],
+      "gamePosition": [
+        -10820.1318,
+        652.8457,
+        -3713.6443
+      ],
+      "level": "sector_-43_-15_indoor_1_8",
+      "prefab": "gimmick_treasurebox_jigsaw_safe_03.prefab",
+      "mapGenieId": "mg:547533",
+      "mapGenieDistance": 13.7
+    },
+    {
+      "name": "Kweiden strongbox 1 (padlock)",
+      "rule": "field",
+      "uuid": [
+        3591242036,
+        4279242808,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -9440.7988,
+        654.1624,
+        -1368.0941
+      ],
+      "level": "sector_-37_-6_indoor_1_5",
+      "prefab": "gimmick_treasurebox_padlock_safe_04.prefab",
+      "mapGenieId": "mg:550094",
+      "mapGenieDistance": 6.7
+    },
+    {
+      "name": "Kweiden house chest 1",
+      "rule": "field",
+      "uuid": [
+        3393125302,
+        3222802170,
+        1789175885,
+        0
+      ],
+      "gamePosition": [
+        -11321.3408,
+        779.6671,
+        -699.3804
+      ],
+      "level": "sector_-45_-3_indoor_1_0",
+      "prefab": "gimmick_itembox_a_0003.prefab",
+      "mapGenieId": "mg:554824",
+      "mapGenieDistance": 28.5
+    },
+    {
+      "name": "Kweiden strongbox 2 (all buttons)",
+      "rule": "field",
+      "uuid": [
+        240902234,
+        4279242811,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -11617.0107,
+        801.9489,
+        563.4619
+      ],
+      "level": "sector_-46_2_sub_3_18",
+      "prefab": "gimmick_treasurebox_allbutton_01.prefab",
+      "mapGenieId": "mg:553743",
+      "mapGenieDistance": 9.8
+    },
+    {
+      "name": "Kweiden strongbox 3 (one-stroke drawing)",
+      "rule": "field",
+      "uuid": [
+        3906132523,
+        4279242810,
+        645817056,
+        0
+      ],
+      "gamePosition": [
+        -12269.3896,
+        727.3544,
+        -827.029
+      ],
+      "level": "sector_-48_-4_sub_3_38",
+      "prefab": "gimmick_treasurebox_onetouchdrawing_01.prefab",
+      "mapGenieId": "mg:552012",
+      "mapGenieDistance": 14.6
+    }
+  ]
+}

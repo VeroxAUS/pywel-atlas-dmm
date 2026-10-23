@@ -11,7 +11,8 @@ joins the save-detection part (src/save-detection) and the map-marker part
 Windows DLL (code library) with a different extension so mod loaders find it.
 
 Steps:
-  1. Regenerate the marker part's embedded data with its two Python helpers
+  1. Regenerate the marker part's embedded data with its Python helpers
+     (default marker, Bell list, Greymane Shrine list)
      (build-time only; the mod itself never runs Python).
   2. Load the Visual Studio 64-bit C++ compiler settings into this window.
   3. Compile MinHook (the small library that installs hooks) once.
@@ -61,6 +62,15 @@ $python = 'C:/Users/Thomas/.cache/codex-runtimes/codex-primary-runtime/dependenc
 if ($LASTEXITCODE -ne 0) { throw 'Could not embed the default marker definition' }
 & $python -B (Join-Path $markerBell 'prepare_bell_links.py')
 if ($LASTEXITCODE -ne 0) { throw 'Could not embed verified Bell identities' }
+# v0.56: the Greymane Shrine list (save reader and shrine markers).
+& $python -B (Join-Path $markerBell 'prepare_shrine_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Greymane Shrine list' }
+# v0.58: the treasure chests of the game's dedicated chest levels.
+& $python -B (Join-Path $markerBell 'prepare_chest_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the treasure chest list' }
+# v0.79: the surface Abyss Nexus list.
+& $python -B (Join-Path $markerBell 'prepare_nexus_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss Nexus list' }
 if ($Test) {
     # Test build only: the teleporter's named target list.
     & $python -B (Join-Path $sourceDirectory 'prepare_teleport_targets.py')
@@ -90,6 +100,19 @@ try {
         if ($LASTEXITCODE -ne 0) { throw "Could not compile $relativePath" }
     }
 
+    # --- Step 3b: compile Dear ImGui (third-party, MIT) once -------------------
+    # Its own warning level (/W3), like MinHook; our code below uses /W4. The
+    # same IMGUI_ defines are given to FilterPanel.cpp: no IME or shell helpers.
+    $imguiDirectory = Join-Path $sourceDirectory 'vendor/imgui'
+    $imguiDefines = @('/DIMGUI_DISABLE_WIN32_DEFAULT_IME_FUNCTIONS', '/DIMGUI_DISABLE_DEFAULT_SHELL_FUNCTIONS')
+    $imguiSources = @('imgui.cpp', 'imgui_draw.cpp', 'imgui_tables.cpp', 'imgui_widgets.cpp',
+        'backends/imgui_impl_dx12.cpp')
+    foreach ($relativePath in $imguiSources) {
+        & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W3 @imguiDefines "/I$imguiDirectory" /c (Join-Path $imguiDirectory $relativePath)
+        if ($LASTEXITCODE -ne 0) { throw "Could not compile ImGui $relativePath" }
+    }
+    $imguiObjects = @('imgui.obj', 'imgui_draw.obj', 'imgui_tables.obj', 'imgui_widgets.obj', 'imgui_impl_dx12.obj')
+
     # --- Step 4: compile both parts and link one .asi ------------------------
     # /DPYWEL_ATLAS_COMBINED removes each part's own DllMain (PywelAtlas.cpp
     # owns it) and makes the parts share one MinHook initialization.
@@ -97,6 +120,8 @@ try {
     $applicationSources = @(
         (Join-Path $sourceDirectory 'PywelAtlas.cpp'),
         (Join-Path $sourceDirectory 'TeleportObserve.cpp'),
+        # v0.62: the in-game filter panel (Dear ImGui, drawn in the game's frame).
+        (Join-Path $sourceDirectory 'FilterPanel.cpp'),
         (Join-Path $saveDetection 'NativeSaveLoadProbe.cpp'),
         (Join-Path $markerBell 'NativeMapCategoryProbe.cpp'),
         (Join-Path $markerBell 'NativeMarkerDefinition.cpp'),
@@ -107,12 +132,13 @@ try {
         $applicationSources += (Join-Path $sourceDirectory 'TestTeleporter.cpp')
         $defines += '/DPYWEL_ATLAS_TELEPORT'
     }
-    & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W4 /LD @defines @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj /link "/OUT:$outputPath" /IMPLIB:PywelAtlas.lib shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib
+    & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W4 /LD @defines @imguiDefines "/I$imguiDirectory" @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj @imguiObjects /link "/OUT:$outputPath" /IMPLIB:PywelAtlas.lib shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib dxgi.lib d3dcompiler.lib
     if ($LASTEXITCODE -ne 0) { throw "Could not build $asiName" }
 
     # --- Step 5: copy licenses and README next to the .asi -------------------
     Copy-Item -LiteralPath (Join-Path $saveDetection 'vendor/minhook/LICENSE.txt') -Destination (Join-Path $destination 'PywelAtlas-MinHook-LICENSE.txt') -Force
     Copy-Item -LiteralPath (Join-Path $workspace 'third_party/python/pycrimson-LICENSE.txt') -Destination (Join-Path $destination 'pycrimson-LICENSE.txt') -Force
+    Copy-Item -LiteralPath (Join-Path $workspace 'third_party/imgui/imgui-LICENSE.txt') -Destination (Join-Path $destination 'imgui-LICENSE.txt') -Force
     Copy-Item -LiteralPath (Join-Path $sourceDirectory $readmeName) -Destination $destination -Force
     Write-Output "Built $outputPath"
 } finally {

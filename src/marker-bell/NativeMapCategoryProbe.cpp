@@ -15,6 +15,8 @@
 // - One hook (ObserveWorldMapUpdate) runs on the game's own map/UI thread
 //   after each world-map update. That is the only place where this mod asks
 //   the game to CREATE its one test marker (the "proof chest") or REMOVE it.
+//   (Combined build: all collectible markers. v0.73 test build: the minimap's
+//   update hook, ObserveMinimapUpdate, keeps the same markers on the minimap.)
 // - Keys handled by the worker (only while the game window is focused):
 //     F6  load the marker JSON (NativeMarkerDefinition.cpp) and request creation.
 //     F7  read the selected save (NativeSaveReader.cpp) and enable Bell tracking.
@@ -66,6 +68,14 @@
 #include "../pywel-atlas/LoadedSave.h"
 // The verified Bell list (ids, names, game positions) for one marker per Bell.
 #include "bell-proof-links.h"
+// v0.56: the checked Greymane Shrine list (names, game positions).
+#include "shrine-links.h"
+// v0.58: the treasure chests of the game's dedicated chest levels;
+// v0.59: plus the cave and dungeon chests of the game's chest list.
+#include "chest-links.h"
+#include "nexus-links.h"
+// v0.64: per-category choices shared with the in-game filter panel.
+#include "../pywel-atlas/MarkerFilter.h"
 #endif
 #ifdef PYWEL_ATLAS_TELEPORT
 // Test build only (src/pywel-atlas/TestTeleporter.cpp): runs on the minimap thread.
@@ -214,6 +224,10 @@ struct VisibilityEvent {
     BYTE before[3];
     BYTE after[3];
     bool afterRead;
+    // v0.80: set for an Abyss Nexus marker, which is then logged by name and
+    // every time (not only the first time this exact change is seen).
+    bool named;
+    WORD markerIndex;
 };
 
 // Associate only synchronous type queries with the live creation call. Nested
@@ -230,10 +244,17 @@ Sample pending[128] = {};
 unsigned pendingCount = 0;
 Sample seen[256] = {};
 unsigned seenCount = 0;
-VisibilityEvent visibilityPending[128] = {};
+// v0.80: 512 pending events, because one layer switch can touch all 210
+// Nexus markers within a single frame.
+VisibilityEvent visibilityPending[512] = {};
 unsigned visibilityPendingCount = 0;
 VisibilityEvent visibilitySeen[256] = {};
 unsigned visibilitySeenCount = 0;
+// v0.80: finished log lines from the game's map thread (layer observation),
+// written to the log by the worker. Also protected by sampleLock. v0.81:
+// 160 lines of up to 400 characters, room for the raw copies (QueueDump).
+char observationLines[160][400] = {};
+unsigned observationLineCount = 0;
 
 // Forward declarations: these functions are defined further down the file.
 bool ChestDefinitionReady();
@@ -247,7 +268,32 @@ void ServiceCreation(void* controller);
 void Queue(const Sample& sample);
 void ServiceRemoval(void* controller);
 #ifdef PYWEL_ATLAS_COMBINED
-void ServiceBellMarkers(void* controller);
+// v0.57: one watched world-icon creation (see BeginWorldCreateProbe).
+struct WorldCreateRecord {
+    WORD type;
+    uint64_t key; // Tag number (our "PYAT" keys, or the game's own).
+    BYTE kind; // Tag kind (0x15 = ours; the game uses e.g. 0xc for shrines).
+    bool ours; // Our own marker, routed to its map layer.
+    char templateName[96]; // Text at the template-name argument ("" if unreadable).
+    bool templateRead;
+    bool appearancePresent; // Presentation argument non-null.
+    uintptr_t slot7; // Opaque arguments, logged raw for comparison.
+    float scalar;
+    uintptr_t slot9;
+    bool optional12Present;
+    bool optional13Present;
+    BYTE finalFlag;
+    BYTE waitingFlag; // Controller +0xaf7 (allows queueing a not-ready element).
+    DWORD waitingBefore; // Controller +0x578: elements waiting to be finished.
+    DWORD waitingAfter;
+    bool created; // The constructor returned an icon (non-zero).
+};
+bool BeginWorldCreateProbe(void* controller, const WORD* type, const void* tag, uintptr_t slot7,
+    float scalar, uintptr_t slot9, const void* appearance, const char* templateName,
+    const void* optional12, const void* optional13, BYTE finalFlag, bool ours,
+    WorldCreateRecord& record);
+void FinishWorldCreateProbe(void* controller, uintptr_t result, WorldCreateRecord& record);
+void ServiceMarkers(void* controller);
 void RecordIconZoomType(void* icon);
 void RecordZoomFrame(void* controller);
 void RecordMapViewPosition(const void* playerXyz, float heading);
@@ -274,58 +320,220 @@ MarkerDefinition CopyDefinition(bool active) {
 }
 
 #ifdef PYWEL_ATLAS_COMBINED
-// Combined build: one map marker per known Bell. Marker i uses private key
-// kBellMarkerKeyBase + i (high bytes spell "PYAT", like the proof chest) and
-// sits exactly at that Bell's game position from bell-proof-links.h.
-constexpr uint64_t kBellMarkerKeyBase = 0x5059415400000100ULL;
-constexpr unsigned kBellMarkerCount = _countof(kBellLinks);
-static_assert(kBellMarkerCount <= 31, "Bell marker masks hold at most 31 markers");
-// v0.54: Bell markers use the game's own Bell map icon (type 360), so they
-// look native. Its definition must still match exactly what was traced:
-// template type 29084 named "MapIcon_Gimmick_Bell_01", category 0xffffffff.
-constexpr WORD bellMarkerType = 360;
-constexpr WORD kBellTemplateType = 29084;
-constexpr const char* kBellTemplateName = "MapIcon_Gimmick_Bell_01";
+// Combined build: one native map marker per known collectible that the
+// detected save does not mark as done. Each collectible kind is a "category":
+//   0 = Bells (bell-proof-links.h), the game's own Bell icon (v0.54);
+//   1 = Greymane Shrines (shrine-links.h), the game's own shrine icon (v0.56;
+//       paused in v0.58 because the game refuses to create that icon);
+//   2 = treasure chests from the game's dedicated chest levels (v0.58) and
+//       caves/dungeons (v0.59) (chest-links.h), the chest icon our markers
+//       have used since v0.31;
+//   3 = Abyss chests (v0.69; chest-links.h kAbyssChestLinks), the chest icon
+//       (v0.70; the game refuses its own Abyss chest icon). Their positions
+//       are above the game's Abyss altitude threshold, so they go to the
+//       Abyss map layer (see ResolveIndependentParent);
+//   4 = surface Abyss Nexuses (v0.79; nexus-links.h), the game's own Abyss
+//       Nexus icon (type 234 "MapIcon_Abyss_Ruins", icon group 0x20).
+// Marker i of a category uses private key keyBase + i (high bytes spell
+// "PYAT", like the proof chest) and sits exactly at that spot's game position.
+// Each native icon type's definition must still match exactly what was
+// traced (template id, template name, icon group) before it is used.
+struct MarkerCategory {
+    const char* label; // For the log: "Bell", "Greymane Shrine", "Chest".
+    WORD type; // The game's own map icon type the markers use.
+    WORD templateType; // Its expected UI template id...
+    const char* templateName; // ...and template name.
+    uint64_t keyBase; // Private key of marker 0 in this category.
+    unsigned count; // How many markers this category has.
+    bool shown; // False = this build never creates markers for it (paused).
+    // v0.79: the icon's group in its definition (+0x2c): 0xffffffff for the
+    // gimmick icons, 0x20 for the Abyss Nexus icon.
+    DWORD iconGroup;
+};
+constexpr unsigned kBellCategory = 0;
+constexpr unsigned kShrineCategory = 1;
+constexpr unsigned kChestCategory = 2;
+constexpr unsigned kAbyssChestCategory = 3;
+constexpr unsigned kNexusCategory = 4;
+constexpr unsigned kCategoryCount = 5;
+// v0.58: up to 256 markers per category, held as 8 words of 32 bits
+// ("masks"; bit i of word i / 32 = marker i).
+constexpr unsigned kMaxCategoryMarkers = 256;
+constexpr unsigned kMaskWords = kMaxCategoryMarkers / 32;
+// Greymane Shrine markers (history): the game refused our shrine icon on the
+// world map in v0.56-v0.73, because the world map's layout file
+// (ui/xml/gamemain/template/worldmapicon.thtml) has no shrine layout; only
+// the minimap's has one (found in the game files, 2026-10-22). The Pywel
+// Atlas Shrine Icons file mod (src/pywel-atlas-ui/, installed through DMM)
+// adds that layout; with it the v0.77 test run created all 11 shrine markers.
+// v0.78: shrine markers are on in every build. Without the file mod the game
+// keeps refusing them on the world map; the mod then stops trying there and
+// the panel says the add-on is needed (see kShrineAddonRefusals).
+constexpr bool kShrineMarkersShown = true;
+// v0.73 (test build) / v0.78 (every build): the same markers are also kept
+// on the minimap (user request, 2026-10-22).
+constexpr bool kMinimapMarkers = true;
+constexpr MarkerCategory kCategories[kCategoryCount] = {
+    {"Bell", 360, 29084, "MapIcon_Gimmick_Bell_01", 0x5059415400000100ULL, _countof(kBellLinks), true,
+        0xffffffff},
+    // Type 186 as the game itself created it for Deepfog Basin (trace
+    // research/traces/pywel-atlas-test-v0.55-deepfog-map-marker.log). Paused
+    // (user, 2026-10-22): v0.56/v0.57 showed the game refuses to build it.
+    // v0.78: on again; needs the Shrine Icons file mod on the world map (see
+    // kShrineMarkersShown).
+    {"Greymane Shrine", 186, 28812, "MapIcon_Gimmick_GreyManeTemple", 0x5059415400000200ULL,
+        _countof(kShrineLinks), kShrineMarkersShown, 0xffffffff},
+    // Type 226, the chest icon of the proof chest (v0.31 onwards). Keys
+    // 0x...0300 + i stay below 0x...0400 for up to 256 chests.
+    {"Chest", 226, 28852, "MapIcon_Gimmick_LevelTreasureBox", 0x5059415400000300ULL,
+        _countof(kChestLinks), true, 0xffffffff},
+    // v0.69 tried type 40, the game's own Abyss chest icon: the game refused
+    // all 74 creations (like the shrine icon). v0.70 (user, 2026-10-22, also
+    // for the final version): the normal chest icon 226. Keys 0x...0400 + i.
+    {"Abyss Chest", 226, 28852, "MapIcon_Gimmick_LevelTreasureBox", 0x5059415400000400ULL,
+        _countof(kAbyssChestLinks), true, 0xffffffff},
+    // v0.79: type 234, the game's own Abyss Nexus icon (template 28866
+    // "MapIcon_Abyss_Ruins", group 0x20; seen on the game's own discovered
+    // Nexuses, world map and minimap). Keys 0x...0500 + i.
+    {"Abyss Nexus", 234, 28866, "MapIcon_Abyss_Ruins", 0x5059415400000500ULL,
+        _countof(kNexusLinks), true, 0x20},
+};
+static_assert(_countof(kBellLinks) <= kMaxCategoryMarkers && _countof(kShrineLinks) <= kMaxCategoryMarkers &&
+    _countof(kChestLinks) <= kMaxCategoryMarkers && _countof(kAbyssChestLinks) <= kMaxCategoryMarkers &&
+    _countof(kNexusLinks) <= kMaxCategoryMarkers,
+    "Marker masks hold at most 256 markers per category");
 
-// Returns which Bell marker a private key belongs to, or -1 if none.
-int BellMarkerIndex(uint64_t key) {
-    return key >= kBellMarkerKeyBase && key < kBellMarkerKeyBase + kBellMarkerCount
-        ? static_cast<int>(key - kBellMarkerKeyBase) : -1;
+// Display name of marker `index` in `category` ("Calphade Bell").
+const char* MarkerName(unsigned category, unsigned index) {
+    if (category == kBellCategory) {
+        return kBellLinks[index].name;
+    }
+    if (category == kAbyssChestCategory) {
+        return kAbyssChestLinks[index].name;
+    }
+    if (category == kNexusCategory) {
+        return kNexusLinks[index].name;
+    }
+    return category == kShrineCategory ? kShrineLinks[index].name : kChestLinks[index].name;
 }
 
-// True only if `icon` is our Bell marker `index`: right type, its private key
-// and kind, and exactly that Bell's position. Anything else is never touched.
-bool IsBellMarker(void* icon, unsigned index) {
+// Game position (X, height Y, Z) of marker `index` in `category`.
+const float* MarkerPosition(unsigned category, unsigned index) {
+    if (category == kBellCategory) {
+        return kBellLinks[index].position;
+    }
+    if (category == kAbyssChestCategory) {
+        return kAbyssChestLinks[index].position;
+    }
+    if (category == kNexusCategory) {
+        return kNexusLinks[index].position;
+    }
+    return category == kShrineCategory ? kShrineLinks[index].position : kChestLinks[index].position;
+}
+
+// A fixed-size set of marker bits, one per marker of a category.
+struct MarkerMask {
+    LONG words[kMaskWords];
+
+    // True if marker `index` is in the set.
+    bool Test(unsigned index) const { return (words[index / 32] >> (index % 32)) & 1; }
+    // Add or remove marker `index`.
+    void Set(unsigned index) { words[index / 32] |= static_cast<LONG>(1UL << (index % 32)); }
+    void Clear(unsigned index) { words[index / 32] &= ~static_cast<LONG>(1UL << (index % 32)); }
+    // True if both sets hold exactly the same markers.
+    bool Same(const MarkerMask& other) const { return memcmp(words, other.words, sizeof(words)) == 0; }
+    // How many markers are in the set.
+    unsigned Count() const {
+        unsigned total = 0;
+        for (LONG word : words) {
+            total += static_cast<unsigned>(__popcnt(static_cast<unsigned>(word)));
+        }
+        return total;
+    }
+};
+
+// Read a mask shared between threads, one word at a time. Each word is read
+// atomically; a mask changing during the read can mix old and new words, but
+// every bit is then still either its old or its new value.
+MarkerMask LoadMask(volatile LONG (&shared)[kMaskWords]) {
+    MarkerMask mask = {};
+    for (unsigned word = 0; word < kMaskWords; ++word) {
+        mask.words[word] = InterlockedCompareExchange(&shared[word], 0, 0);
+    }
+    return mask;
+}
+
+// Replace a shared mask, one word at a time.
+void StoreMask(volatile LONG (&shared)[kMaskWords], const MarkerMask& mask) {
+    for (unsigned word = 0; word < kMaskWords; ++word) {
+        InterlockedExchange(&shared[word], mask.words[word]);
+    }
+}
+
+// Add or remove one marker in a shared mask.
+void SetSharedBit(volatile LONG (&shared)[kMaskWords], unsigned index, bool on) {
+    LONG bit = static_cast<LONG>(1UL << (index % 32));
+    if (on) {
+        InterlockedOr(&shared[index / 32], bit);
+    } else {
+        InterlockedAnd(&shared[index / 32], ~bit);
+    }
+}
+
+// Finds which category and marker a private key belongs to; false if none.
+bool FindMarker(uint64_t key, unsigned& category, unsigned& index) {
+    for (unsigned item = 0; item < kCategoryCount; ++item) {
+        const MarkerCategory& kind = kCategories[item];
+        if (key >= kind.keyBase && key < kind.keyBase + kind.count) {
+            category = item;
+            index = static_cast<unsigned>(key - kind.keyBase);
+            return true;
+        }
+    }
+    return false;
+}
+
+// True only if `icon` is our marker `index` of `category`: right type, its
+// private key and kind, and exactly that spot's position. Anything else is
+// never touched.
+bool IsCategoryMarker(void* icon, unsigned category, unsigned index) {
     WORD type = 0;
     NumericTag tag = {};
     float position[3] = {};
     auto* bytes = static_cast<const BYTE*>(icon);
-    return icon && index < kBellMarkerCount &&
-        Read(bytes + 0xde, &type, sizeof(type)) && type == bellMarkerType &&
+    if (!icon || category >= kCategoryCount || index >= kCategories[category].count) {
+        return false;
+    }
+    const MarkerCategory& kind = kCategories[category];
+    return Read(bytes + 0xde, &type, sizeof(type)) && type == kind.type &&
         Read(bytes + 0xc8, &tag, sizeof(tag)) &&
-        tag.key == kBellMarkerKeyBase + index && tag.kind == 0x15 &&
+        tag.key == kind.keyBase + index && tag.kind == 0x15 &&
         Read(bytes + 0xe0, position, sizeof(position)) &&
-        memcmp(position, kBellLinks[index].position, sizeof(position)) == 0;
+        memcmp(position, MarkerPosition(category, index), sizeof(position)) == 0;
 }
 #endif
 
 // True for a private key this mod uses: the proof chest's, or (combined
-// build) one of the Bell markers'.
+// build) one of the category markers'.
 bool IsOwnMarkerKey(uint64_t key) {
 #ifdef PYWEL_ATLAS_COMBINED
-    if (BellMarkerIndex(key) >= 0) {
+    unsigned category = 0;
+    unsigned index = 0;
+    if (FindMarker(key, category, index)) {
         return true;
     }
 #endif
     return key == chestKey;
 }
 
-// The icon type this mod creates for one of its private keys: the native Bell
-// icon for a Bell marker (combined build), the chest for the proof chest.
+// The icon type this mod creates for one of its private keys: the category's
+// native icon for a marker (combined build), the chest for the proof chest.
 WORD OwnMarkerType(uint64_t key) {
 #ifdef PYWEL_ATLAS_COMBINED
-    if (BellMarkerIndex(key) >= 0) {
-        return bellMarkerType;
+    unsigned category = 0;
+    unsigned index = 0;
+    if (FindMarker(key, category, index)) {
+        return kCategories[category].type;
     }
 #else
     (void)key; // Standalone build: only the proof chest exists.
@@ -335,14 +543,15 @@ WORD OwnMarkerType(uint64_t key) {
 
 // True only if `icon` is our own chest: right type (+0xde), our private tag
 // (+0xc8) and exactly the active definition's position (+0xe0). In the
-// combined build a Bell marker counts too (diagnostic hooks use this).
+// combined build a category marker counts too (diagnostic hooks use this).
 bool IsPrivateChest(void* icon) {
 #ifdef PYWEL_ATLAS_COMBINED
     NumericTag probe = {};
     if (icon && Read(static_cast<const BYTE*>(icon) + 0xc8, &probe, sizeof(probe))) {
-        int bell = BellMarkerIndex(probe.key);
-        if (bell >= 0) {
-            return IsBellMarker(icon, static_cast<unsigned>(bell));
+        unsigned category = 0;
+        unsigned index = 0;
+        if (FindMarker(probe.key, category, index)) {
+            return IsCategoryMarker(icon, category, index);
         }
     }
 #endif
@@ -383,15 +592,31 @@ uintptr_t RouteWorldContainer(void* controller, const WORD* type, const void* ta
         Read(type, &actualType, sizeof(actualType)) &&
         Read(tag, &actualTag, sizeof(actualTag)) &&
         Read(position, actualPosition, sizeof(actualPosition));
+    bool ours = false;
     if (readable && creatingChest && requestedChestContainer &&
         activeSample->generated && IsOwnMarkerKey(actualTag.key) &&
         actualType == OwnMarkerType(actualTag.key) && actualTag.kind == 0x15 &&
         memcmp(actualPosition, activeSample->position, sizeof(actualPosition)) == 0) {
         container = requestedChestContainer;
         activeSample->containerRouted = true;
+        ours = true;
     }
-    return originalWorldCreate(controller, type, tag, index, position, container,
+#ifdef PYWEL_ATLAS_COMBINED
+    // v0.57 observation: for our own markers and the game's own shrine/Bell
+    // icons, copy the arguments and the controller's waiting list before and
+    // after the call, to see why a creation is refused. Changes nothing.
+    WorldCreateRecord probe = {};
+    bool watched = BeginWorldCreateProbe(controller, type, tag, slot7, scalar, slot9,
+        appearance, templateName, optional12, optional13, finalFlag, ours, probe);
+#endif
+    uintptr_t result = originalWorldCreate(controller, type, tag, index, position, container,
         slot7, scalar, slot9, appearance, templateName, optional12, optional13, finalFlag);
+#ifdef PYWEL_ATLAS_COMBINED
+    if (watched) {
+        FinishWorldCreateProbe(controller, result, probe);
+    }
+#endif
+    return result;
 }
 
 // Copy a few fields of a live icon into `sample` (visibility bits, size, and
@@ -523,8 +748,8 @@ uintptr_t ObserveWorldMapUpdate(void* controller, float elapsed) {
     uintptr_t table = 0;
     if (Read(controller, &table, sizeof(table)) && table == imageBase + 0x566ff50) {
 #ifdef PYWEL_ATLAS_COMBINED
-        // Combined build: keep the Bell markers matching what the worker wants.
-        ServiceBellMarkers(controller);
+        // Combined build: keep the markers matching what the worker wants.
+        ServiceMarkers(controller);
 #else
         ServiceRemoval(controller);
         ServiceCreation(controller);
@@ -654,6 +879,19 @@ uintptr_t ObserveVisibility(void* icon, BYTE bit, BYTE enabled) {
     event.enabled = enabled;
     bool watched = IsPrivateChest(icon) &&
         Read(static_cast<const BYTE*>(icon) + 0x1e8, event.before, sizeof(event.before));
+#ifdef PYWEL_ATLAS_COMBINED
+    // v0.80: an Abyss Nexus marker is logged by name, every time.
+    if (watched) {
+        NumericTag tag = {};
+        unsigned category = 0;
+        unsigned index = 0;
+        if (Read(static_cast<const BYTE*>(icon) + 0xc8, &tag, sizeof(tag)) &&
+            FindMarker(tag.key, category, index) && category == kNexusCategory) {
+            event.named = true;
+            event.markerIndex = static_cast<WORD>(index);
+        }
+    }
+#endif
     uintptr_t result = originalVisibility(icon, bit, enabled);
     if (!watched) {
         return result;
@@ -665,6 +903,18 @@ uintptr_t ObserveVisibility(void* icon, BYTE bit, BYTE enabled) {
     // Never wait for the lock on the game's thread: if busy, drop the event.
     if (!TryAcquireSRWLockExclusive(&sampleLock)) {
         InterlockedIncrement(&droppedSamples);
+        return result;
+    }
+    if (event.named) {
+        // v0.80: Nexus markers skip the duplicate check (up to a session cap).
+        static LONG namedLogged = 0;
+        if (namedLogged < 3000 && visibilityPendingCount < _countof(visibilityPending)) {
+            ++namedLogged;
+            visibilityPending[visibilityPendingCount++] = event;
+        } else {
+            InterlockedIncrement(&droppedSamples);
+        }
+        ReleaseSRWLockExclusive(&sampleLock);
         return result;
     }
     bool duplicate = false;
@@ -830,6 +1080,18 @@ uintptr_t ObserveCreate(void* controller, const WORD* type, const void* tag,
     uintptr_t result = originalCreate(controller, type, tag, index, scale,
         position, appearance, flag, data, finalFlag);
     activeSample = previous;
+#ifdef PYWEL_ATLAS_COMBINED
+    // v0.72: our own category markers are not sampled here (their world-create
+    // lines log them). With 264 chests they filled the 256-entry sample list
+    // in v0.71, so the game's own shrine icon was never logged.
+    uint64_t sampleKey = 0;
+    memcpy(&sampleKey, sample.tag, sizeof(sampleKey));
+    unsigned ownCategory = 0;
+    unsigned ownIndex = 0;
+    if (FindMarker(sampleKey, ownCategory, ownIndex)) {
+        return result;
+    }
+#endif
     DWORD actualIndex = 0;
     if (Read(index, &actualIndex, sizeof(actualIndex))) {
         LookupIcon lookup = sample.controller == 0x566ff50 ? worldLookup : minimapLookup;
@@ -958,53 +1220,63 @@ void HideCompletedProof() {
 
 #ifdef PYWEL_ATLAS_COMBINED
 // ===========================================================================
-// Section: combined build - one map marker per Bell, following the loaded save
+// Section: combined build - one map marker per collectible, following the
+// loaded save
 // ---------------------------------------------------------------------------
 // In the combined Pywel Atlas mod, the save-detection part says which save is
-// loaded and publishes the Bells read from the slot the game last saved it to
-// (see src/pywel-atlas/LoadedSave.h). This part shows one marker at each known
-// Bell whose save record is NOT completed, and removes it once it is.
+// loaded and publishes what the slot the game last saved it to says about
+// Bells, (v0.56) Greymane Shrines and (v0.58) treasure chests (see
+// src/pywel-atlas/LoadedSave.h). This part shows one marker at each known
+// Bell / chest the save does NOT mark as done, and removes it once it is.
+// Each category (kCategories) is handled the same way, with its own masks.
 //
 // How it works ("desired state"):
-//   - The worker decides which markers SHOULD exist (bellMarkerWanted, one bit
-//     per Bell) and whether new ones may be created (bellMarkerCreateAllowed).
-//   - On every world-map update (the game's map thread), ServiceBellMarkers
-//     compares that with what is really on the map and fixes the difference:
-//     it creates at most one missing marker per update and removes unwanted
-//     ones. A removal with nothing to remove is simply nothing to do, so it
-//     can never block a later creation (the v0.51 "press F6 twice" quirk).
+//   - The worker decides which markers SHOULD exist (markerWanted, one bit
+//     per marker per category) and whether new ones may be created
+//     (markerCreateAllowed, per category).
+//   - On every world-map update (the game's map thread), ServiceMarkers
+//     compares that with what is really on the map and fixes the difference,
+//     for a rotating slice of markers per update (v0.58): it creates at most
+//     one missing marker per update and removes unwanted ones. A removal with
+//     nothing to remove is simply nothing to do, so it can never block a
+//     later creation (the v0.51 "press F6 twice" quirk).
 //   - Markers stay until they are unwanted. There is no 3-minute limit and
 //     losing game focus does nothing (the v0.51 focus-loss quirk).
 // Safety rules:
 //   - Only an accepted ("valid") detected result can make a marker appear.
-//     While nothing is known (just after loading, or if a read failed),
-//     existing markers are kept but no new ones are created. Unknown never
-//     means "not completed".
-//   - Only icons with our own private key, type and exact Bell position are
-//     ever removed; anything else is left alone.
+//     While nothing is known (just after loading, or if a read or the shrine
+//     pass failed), existing markers are kept but no new ones are created.
+//     Unknown never means "not done".
+//   - Only icons with our own private key, type and exact position are ever
+//     removed; anything else (including the game's own icons) is left alone.
 // ===========================================================================
 
 // Shared between the worker (writes wanted/allowed) and the map thread
-// (writes present). One bit per Bell, in kBellLinks order.
-volatile LONG bellMarkerWanted = 0;
-volatile LONG bellMarkerCreateAllowed = 0;
-volatile LONG bellMarkerPresent = 0; // Markers this session created and still sees.
-volatile LONG bellMarkerCreations = 0; // Successful creations (diagnostic count).
-volatile LONG bellMarkerRemovals = 0; // Native removal calls (diagnostic count).
-volatile LONG bellMarkerFailures = 0; // Creations that could not be completed.
-volatile LONG bellMarkerStuck = 0; // Markers still present 3 s after removal.
-volatile LONG bellZoomWindowWrites = 0; // Zoom-limit bytes switched off (diagnostic count).
-volatile LONG bellZoomWindowFailures = 0; // Writes the system refused (diagnostic count).
+// (writes present). One bit per marker, in the category's list order
+// (v0.58: kMaskWords words per category; see MarkerMask).
+volatile LONG markerWanted[kCategoryCount][kMaskWords] = {};
+volatile LONG markerCreateAllowed[kCategoryCount] = {};
+// v0.83: 1 = keep this category's markers but hide them (the user turned it
+// off; only categories where HidesInsteadOfRemoving is true).
+volatile LONG markerHiddenByChoice[kCategoryCount] = {};
+volatile LONG markerPresent[kCategoryCount][kMaskWords] = {}; // Markers this session created and still sees.
+volatile LONG markerStuck[kCategoryCount][kMaskWords] = {}; // Markers still present 3 s after removal.
+volatile LONG markerFailed[kCategoryCount][kMaskWords] = {}; // Last creation try failed (v0.57; retried every 5 s).
+volatile LONG markerCreations = 0; // Successful creations (diagnostic count).
+volatile LONG markerRemovals = 0; // Native removal calls (diagnostic count).
+volatile LONG markerFailures = 0; // Creations that could not be completed.
+volatile LONG markerZoomWindowWrites = 0; // Zoom-limit bytes switched off (diagnostic count).
+volatile LONG markerZoomWindowFailures = 0; // Writes the system refused (diagnostic count).
 
 // Each map icon copies up to three "zoom windows" from its UI template when it
 // is set up: a zoom range in which the icon is shown (main icon at +0x1f8,
 // image at +0x20c, text at +0x220; 0x14 bytes each, the byte at +0x10 of each
 // = enabled). Outside that range the game hides the icon. The native Bell icon
 // is only shown near full zoom-in (v0.53 runtime log). With the user's
-// approval, this switches the enabled bytes off on OUR OWN Bell markers only,
-// so the game treats them like personal pins (no zoom limit). It never touches
+// approval, this switches the enabled bytes off on OUR OWN markers only, so
+// the game treats them like personal pins (no zoom limit). It never touches
 // the shared icon type, the template, or any icon the caller has not just
-// verified as ours (IsBellMarker), and runs only on the game's map thread.
+// verified as ours (IsCategoryMarker), and runs only on the game's map thread.
 void DisableZoomWindows(void* icon) {
     static constexpr unsigned kEnabledOffsets[3] = {0x1f8 + 0x10, 0x20c + 0x10, 0x220 + 0x10};
     for (unsigned offset : kEnabledOffsets) {
@@ -1020,214 +1292,1240 @@ void DisableZoomWindows(void* icon) {
         // crashing if the memory is not writable.
         if (WriteProcessMemory(GetCurrentProcess(), enabled, &off, sizeof(off), &written) &&
             written == sizeof(off)) {
-            InterlockedIncrement(&bellZoomWindowWrites);
+            InterlockedIncrement(&markerZoomWindowWrites);
         } else {
-            InterlockedIncrement(&bellZoomWindowFailures);
+            InterlockedIncrement(&markerZoomWindowFailures);
         }
     }
 }
 
-// Ask the game to create Bell marker `index` at that Bell's position, then
-// look it up again to confirm it exists with our identity. Returns true only
-// after that confirmation (same steps as CreateIndependentChest).
-bool CreateBellMarker(void* controller, unsigned index) {
-    if (creatingChest) {
+// v0.73: the same markers can be kept on two maps. A "map side" holds what
+// differs between them: the game's own find/remove functions for that map
+// and this side's bookkeeping. The world map is always served; the minimap
+// too (v0.73 test build, v0.78 every build). Each side is used only on
+// its own map's update (the game's UI thread), never from the worker.
+struct MapSide {
+    const char* name; // For the log: "world map" or "minimap".
+    uintptr_t controllerTable; // The controller's vtable RVA (0x566ff50 / 0x5674e00).
+    bool world; // World map: our layer routing and zoom-limit-off apply.
+    LookupIcon* lookup; // The game's own "find icon" function for this map.
+    RemoveWorldIcon* remove; // The game's own "remove icon" function for this map.
+    volatile LONG (*present)[kMaskWords]; // Markers created, verified and still seen.
+    volatile LONG (*stuck)[kMaskWords]; // Still there 3 s after removal.
+    volatile LONG (*failed)[kMaskWords]; // Last creation try failed.
+    volatile LONG (*hidden)[kMaskWords]; // v0.83: hidden by the user's choice (see SetChoiceHidden).
+    volatile LONG* creations;
+    volatile LONG* removals;
+    volatile LONG* failures;
+    // Map thread only: when each removal was issued (a removal the game
+    // defers is checked again instead of being issued repeatedly), and
+    // (v0.57) when a failed marker may be tried again (5 s later, so one
+    // failing marker cannot take every update's single creation slot).
+    ULONGLONG removalIssued[kCategoryCount][kMaxCategoryMarkers];
+    ULONGLONG retryAfter[kCategoryCount][kMaxCategoryMarkers];
+    unsigned cursor; // Position of the next marker to check (all shown categories in order).
+};
+
+// v0.73 minimap bookkeeping. Written only on the minimap's
+// update; the worker reads the masks for its log.
+volatile LONG minimapPresent[kCategoryCount][kMaskWords] = {};
+volatile LONG minimapStuck[kCategoryCount][kMaskWords] = {};
+volatile LONG minimapFailed[kCategoryCount][kMaskWords] = {};
+volatile LONG minimapCreations = 0;
+volatile LONG minimapRemovals = 0;
+volatile LONG minimapFailures = 0;
+// The minimap's own remove function (0xe09fc0, slot 0x558 of the minimap
+// controller's vtable). Set only when its guard bytes and both vtable slots
+// match the studied build (see InstallMinimapMarkers); null = minimap off.
+RemoveWorldIcon removeMinimapIcon = nullptr;
+
+// v0.83: our markers each map currently keeps hidden (written on that map's
+// thread, read by the worker for the log).
+volatile LONG worldHidden[kCategoryCount][kMaskWords] = {};
+volatile LONG minimapHidden[kCategoryCount][kMaskWords] = {};
+
+MapSide worldSide = {"world map", 0x566ff50, true, &worldLookup, &removeWorldIcon,
+    markerPresent, markerStuck, markerFailed, worldHidden, &markerCreations, &markerRemovals, &markerFailures,
+    {}, {}, 0};
+MapSide minimapSide = {"minimap", 0x5674e00, false, &minimapLookup, &removeMinimapIcon,
+    minimapPresent, minimapStuck, minimapFailed, minimapHidden, &minimapCreations, &minimapRemovals,
+    &minimapFailures, {}, {}, 0};
+
+// ---------------------------------------------------------------------------
+// v0.83: hiding instead of removing (Abyss Nexus markers)
+// ---------------------------------------------------------------------------
+// v0.79-v0.82 runtime: Abyss Nexus markers that were removed (filter panel
+// off) and created again (filter on) exist, sit in the map's picture lists
+// and have no hide reason set, yet the game never draws them, even with a
+// fresh key; re-created chests do show. The game reuses the removed markers'
+// picture parts, and the Nexus icon has a second ("small") picture that
+// chests lack, so the reused parts probably keep a state that creation does
+// not reset (not proven). So Nexus markers are no longer removed when the
+// user turns them off (panel or F10): they are hidden and shown again with
+// the game's own "set one hide reason" function, 0xdeca40, the same one the
+// game uses to hide its own icons (for example icons of the other map
+// layer). It sets one of the icon's 24 hide-reason bits (+0x1e8) and, if
+// that changes whether any bit is set, tells the icon's picture to hide or
+// show. Markers of completed spots are still removed as before.
+// Allowed by the user's "free rein" decision (2026-10-23).
+
+// The hide-reason bit we use: 23, which no game call sets with a fixed bit
+// number (static scan of all 0xdeca40 calls; 9 calls pass a computed number).
+constexpr BYTE kChoiceHideBit = 23;
+
+// True for categories whose markers are hidden, not removed, when the user
+// turns them off.
+bool HidesInsteadOfRemoving(unsigned category) {
+    return category == kNexusCategory;
+}
+
+// Reads our hide-reason bit from one of our own verified markers into
+// `isHidden`. False if the read fails.
+bool ReadChoiceHidden(const void* icon, bool& isHidden) {
+    BYTE bits[3] = {};
+    if (!Read(static_cast<const BYTE*>(icon) + 0x1e8, bits, sizeof(bits))) {
         return false;
     }
-    const float* position = kBellLinks[index].position;
+    isHidden = ((bits[kChoiceHideBit / 8] >> (kChoiceHideBit % 8)) & 1) != 0;
+    return true;
+}
+
+// Hides (`hide` true) or shows one of our own verified markers through the
+// game's own function, then checks the bit. Runs only on that map's own
+// thread, right after the caller verified `icon` (IsCategoryMarker).
+// `originalVisibility` is the original 0xdeca40 behind our observation hook,
+// so it exists only when that hook's guard bytes matched.
+bool SetChoiceHidden(void* icon, bool hide) {
+    if (!originalVisibility) {
+        return false;
+    }
+    originalVisibility(icon, kChoiceHideBit, hide ? 1 : 0);
+    bool isHidden = false;
+    return ReadChoiceHidden(icon, isHidden) && isHidden == hide;
+}
+
+// The icon type's definition record, or 0 (defined after ReadTable below).
+uintptr_t IconRecord(WORD type);
+
+// ---------------------------------------------------------------------------
+// v0.80 observation (read-only): why re-created Abyss Nexus markers stay hidden
+// ---------------------------------------------------------------------------
+// v0.79 runtime: Nexus markers were shown at first, but after the filter
+// panel turned them off and on again (map open, player in the Abyss), the
+// game accepted every new marker yet never drew one, even after reopening
+// the map. Chests went through the same off/on and came back.
+// Every map icon has 24 "hide reason" bits at +0x1e8; it is drawn only while
+// all of them are clear. From the game code (0xdb6e95..0xdb6ec9, 0xd8bf00):
+// when an icon is set up, the game works out its map layer ("layer class";
+// 3 = Abyss) from the icon type's definition and sets hide bit 12 if the
+// world-map controller's "layer showing" byte for that class is 0
+// (controller +0x468 points at one byte per class). If that is what happens
+// to our Nexus markers, these lines will show it. Everything here only reads
+// game memory and queues log lines; it changes nothing.
+// v0.80 runtime: it is not that. Re-created Nexus markers exist, on layer
+// class 1 (surface), with all 24 hide bits clear, and still are not drawn.
+// v0.81 therefore also logs each watched marker's picture objects and raw
+// copies of a visible (first round) and an invisible (later round) marker,
+// with chest markers (which do come back) for comparison.
+
+// Queues one finished log line from the game's map thread for the worker.
+// Never waits for the lock on the game's thread: if it is busy, the line is
+// dropped (counted like a dropped sample).
+void QueueObservation(const char* line) {
+    if (!TryAcquireSRWLockExclusive(&sampleLock)) {
+        InterlockedIncrement(&droppedSamples);
+        return;
+    }
+    if (observationLineCount < _countof(observationLines)) {
+        strcpy_s(observationLines[observationLineCount++], line);
+    } else {
+        InterlockedIncrement(&droppedSamples);
+    }
+    ReleaseSRWLockExclusive(&sampleLock);
+}
+
+// The layer class the game gives `icon`, worked out the same way as the
+// game's own function 0xd8bf00 (which is read here, never called). False if
+// any value is unreadable.
+bool IconLayerClass(const void* icon, BYTE& layerClass) {
+    auto* bytes = static_cast<const BYTE*>(icon);
+    WORD alternateType = 0xffff;
+    WORD type = 0;
+    if (!Read(bytes + 0x288, &alternateType, sizeof(alternateType)) ||
+        !Read(bytes + 0xde, &type, sizeof(type))) {
+        return false;
+    }
+
+    // The class comes from +0x2a of the icon's type definition (the second
+    // type number at +0x288 is used instead unless it is 0xffff).
+    uintptr_t classRecord = IconRecord(alternateType != 0xffff ? alternateType : type);
+    if (!classRecord || !Read(reinterpret_cast<const void*>(classRecord + 0x2a), &layerClass, sizeof(layerClass))) {
+        return false;
+    }
+    if (layerClass >= 3) {
+        return true;
+    }
+
+    // Below 3, a type whose +0xb7 flag is set moves to class 3 when the icon
+    // is at or above the game's Abyss height limit.
+    uintptr_t ownRecord = IconRecord(type);
+    BYTE followsHeight = 0;
+    if (!ownRecord || !Read(reinterpret_cast<const void*>(ownRecord + 0xb7), &followsHeight, sizeof(followsHeight))) {
+        return false;
+    }
+    if (!followsHeight) {
+        return true;
+    }
+    float height = 0;
+    float threshold = 0;
+    if (!Read(bytes + 0xe4, &height, sizeof(height)) ||
+        !Read(reinterpret_cast<const void*>(imageBase + kParentAltitudeThresholdRva), &threshold, sizeof(threshold))) {
+        return false;
+    }
+    if (height >= threshold) {
+        layerClass = 3;
+    }
+    return true;
+}
+
+// Copies the world-map controller's "layer showing" bytes for classes 0-4
+// (controller +0x468 points at them). False if unreadable.
+bool ReadLayersShowing(void* controller, BYTE (&showing)[5]) {
+    uintptr_t table = 0;
+    return Read(static_cast<const BYTE*>(controller) + 0x468, &table, sizeof(table)) && table &&
+        Read(reinterpret_cast<const void*>(table), showing, sizeof(showing));
+}
+
+// World-map creations of our markers, per category, by their hide bits right
+// after creation: all clear, any set, and bit 12 ("layer not showing") set.
+// Written on the map thread, logged by the worker.
+volatile LONG createdClear[kCategoryCount] = {};
+volatile LONG createdHidden[kCategoryCount] = {};
+volatile LONG createdLayerHidden[kCategoryCount] = {};
+
+// A few markers whose state is logged again later (map thread only): 3 s
+// and 10 s after creation, and whenever the layer bytes change. v0.81: 4 Nexus
+// markers and (for comparison, since re-created chests do show) 2 chest
+// markers. Each category's list starts again each time its markers become
+// wanted again (filter turned on).
+struct MarkerWatch {
+    bool used;
+    unsigned category;
+    unsigned index;
+    ULONGLONG created;
+    unsigned checks; // 0 = only the creation line so far, 1 = 3 s line done, 2 = 10 s line done.
+};
+// v0.82: Abyss chests (same chest icon) are watched too.
+constexpr unsigned kWatchedCategories[3] = {kNexusCategory, kChestCategory, kAbyssChestCategory};
+constexpr unsigned kWatchSlots[3] = {4, 2, 2}; // Markers watched per round, per watched category.
+MarkerWatch markerWatch[3][4] = {};
+bool watchWantedBefore[3] = {}; // Any marker of the category wanted at the last world-map update.
+unsigned watchRound[3] = {}; // Counts the rounds (1 = the markers made after loading).
+BYTE layersBefore[5] = {}; // Layer bytes at the last world-map update...
+bool layersKnown = false; // ...once read.
+
+// v0.81: queues a raw hex copy of `size` bytes at `address` (game memory),
+// 0x80 bytes per log line, so a visible and an invisible marker can be
+// compared byte by byte offline. Pointers in it are only numbers in the log.
+void QueueDump(const char* what, const char* name, unsigned round, const void* address, unsigned size) {
+    for (unsigned offset = 0; offset < size; offset += 0x80) {
+        BYTE bytes[0x80] = {};
+        unsigned length = size - offset < 0x80 ? size - offset : 0x80;
+        char line[400];
+        int used = sprintf_s(line, "layer-dump round=%u %s marker=%s +0x%03x ", round, what, name, offset);
+        if (used < 0) {
+            return;
+        }
+        if (!Read(static_cast<const BYTE*>(address) + offset, bytes, length)) {
+            strcat_s(line, "unreadable");
+        } else {
+            for (unsigned byte = 0; byte < length; ++byte) {
+                sprintf_s(line + used, sizeof(line) - used, "%02x", bytes[byte]);
+                used += 2;
+            }
+        }
+        QueueObservation(line);
+    }
+}
+
+// v0.82: looks for `root` (an icon's interface picture, icon +0x8) in the
+// world map's layer containers. The game's per-frame icon update (0xd94040,
+// called once per container by 0xdabd10) walks each container's list of
+// child pictures (+0x40 array, +0x48 count) and takes each child's icon from
+// child +0xd8; an icon whose picture is in no list is never updated or drawn.
+// Read-only. Returns false if `root` is in no container list.
+bool FindPictureInContainers(void* controller, uintptr_t root, unsigned& container, unsigned& slot) {
+    DWORD containerCount = 0;
+    uintptr_t containers = 0;
+    if (!root || !Read(static_cast<const BYTE*>(controller) + 0x3a0, &containerCount, sizeof(containerCount)) ||
+        containerCount == 0 || containerCount > 16 ||
+        !Read(static_cast<const BYTE*>(controller) + 0x398, &containers, sizeof(containers)) || !containers) {
+        return false;
+    }
+    for (container = 0; container < containerCount; ++container) {
+        uintptr_t layer = 0;
+        uintptr_t children = 0;
+        DWORD childCount = 0;
+        if (!Read(reinterpret_cast<const void*>(containers + container * sizeof(uintptr_t)), &layer, sizeof(layer)) ||
+            !layer || !Read(reinterpret_cast<const void*>(layer + 0x40), &children, sizeof(children)) || !children ||
+            !Read(reinterpret_cast<const void*>(layer + 0x48), &childCount, sizeof(childCount)) || childCount > 65536) {
+            continue;
+        }
+        // Read the list in blocks of 512 entries.
+        uintptr_t block[512];
+        for (DWORD start = 0; start < childCount; start += _countof(block)) {
+            DWORD length = childCount - start < _countof(block) ? childCount - start : _countof(block);
+            if (!Read(reinterpret_cast<const void*>(children + start * sizeof(uintptr_t)), block,
+                length * sizeof(uintptr_t))) {
+                break;
+            }
+            for (DWORD entry = 0; entry < length; ++entry) {
+                if (block[entry] == root) {
+                    slot = start + entry;
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+// Queues one line describing a watched marker: its 24 hide bits, its layer
+// class, the controller's layer bytes and (v0.81) its picture objects (+0x8
+// interface root, +0x118 base icon, +0x260 second element; addresses only).
+// With `dump`, also raw copies of the icon and of its first two picture
+// objects. `icon` may be null (the marker was looked up and not found).
+void DescribeMarker(void* controller, void* icon, const MarkerWatch& watch, unsigned round, const char* moment,
+    bool dump) {
+    auto* bytes = static_cast<const BYTE*>(icon);
+    BYTE hide[3] = {};
+    BYTE layerClass = 0xff;
+    BYTE showing[5] = {};
+    uintptr_t root = 0;
+    uintptr_t baseIcon = 0;
+    uintptr_t second = 0;
+    bool hideRead = icon && Read(bytes + 0x1e8, hide, sizeof(hide));
+    bool classRead = icon && IconLayerClass(icon, layerClass);
+    bool showingRead = ReadLayersShowing(controller, showing);
+    bool picturesRead = icon && Read(bytes + 8, &root, sizeof(root)) &&
+        Read(bytes + 0x118, &baseIcon, sizeof(baseIcon)) && Read(bytes + 0x260, &second, sizeof(second));
+    const char* name = MarkerName(watch.category, watch.index);
+    char line[400];
+    sprintf_s(line, "layer-watch round=%u %s %s marker=%s found=%u hide=%s%02x%02x%02x layerClass=%s%u "
+        "layersShowing=%s%u%u%u%u%u pictures%s root=0x%llx baseIcon=0x%llx second=0x%llx",
+        round, moment, kCategories[watch.category].label, name, icon ? 1u : 0u, hideRead ? "" : "?",
+        hide[0], hide[1], hide[2], classRead ? "" : "?", layerClass, showingRead ? "" : "?",
+        showing[0], showing[1], showing[2], showing[3], showing[4], picturesRead ? "" : "?",
+        static_cast<unsigned long long>(root), static_cast<unsigned long long>(baseIcon),
+        static_cast<unsigned long long>(second));
+    QueueObservation(line);
+
+    // v0.82: is the picture in a layer container's list (so the game's
+    // per-frame update reaches it), and does it point back at this icon?
+    if (icon && root) {
+        uintptr_t owner = 0;
+        uintptr_t reference = 0;
+        uintptr_t referenceUse = 0;
+        BYTE needsRefresh = 0;
+        unsigned container = 0;
+        unsigned slot = 0;
+        Read(reinterpret_cast<const void*>(root + 0xd8), &owner, sizeof(owner));
+        // The per-frame update skips a child whose +0xa0 object has a non-zero +0x8.
+        if (Read(reinterpret_cast<const void*>(root + 0xa0), &reference, sizeof(reference)) && reference) {
+            Read(reinterpret_cast<const void*>(reference + 8), &referenceUse, sizeof(referenceUse));
+        }
+        Read(bytes + 0x1ed, &needsRefresh, sizeof(needsRefresh));
+        bool listed = FindPictureInContainers(controller, root, container, slot);
+        char where[48] = "none";
+        if (listed) {
+            sprintf_s(where, "container %u slot %u", container, slot);
+        }
+        sprintf_s(line, "layer-attach round=%u %s %s marker=%s icon=0x%llx key=0x%llx pictureOwner=0x%llx ownerMatches=%u "
+            "picture+0xa0=0x%llx (+0x8=0x%llx) needsRefresh=%u inContainerList=%s",
+            round, moment, kCategories[watch.category].label, name,
+            static_cast<unsigned long long>(reinterpret_cast<uintptr_t>(icon)),
+            static_cast<unsigned long long>(kCategories[watch.category].keyBase + watch.index),
+            static_cast<unsigned long long>(owner), owner == reinterpret_cast<uintptr_t>(icon) ? 1u : 0u,
+            static_cast<unsigned long long>(reference), static_cast<unsigned long long>(referenceUse),
+            needsRefresh, where);
+        QueueObservation(line);
+    }
+    if (!dump || !icon) {
+        return;
+    }
+    QueueDump("icon", name, round, icon, 0x2c0);
+    if (root) {
+        QueueDump("root", name, round, reinterpret_cast<const void*>(root), 0x100);
+    }
+    if (baseIcon) {
+        QueueDump("baseIcon", name, round, reinterpret_cast<const void*>(baseIcon), 0x100);
+    }
+}
+
+// Called on the map thread after one of our markers was created on the world
+// map and verified: counts its hide bits, and may start watching it.
+void NoteWorldCreation(void* controller, void* icon, unsigned category, unsigned index) {
+    BYTE hide[3] = {};
+    if (Read(static_cast<const BYTE*>(icon) + 0x1e8, hide, sizeof(hide))) {
+        if (hide[0] | hide[1] | hide[2]) {
+            InterlockedIncrement(&createdHidden[category]);
+        } else {
+            InterlockedIncrement(&createdClear[category]);
+        }
+        // Bit 12 = bit 4 of the second byte.
+        if (hide[1] & 0x10) {
+            InterlockedIncrement(&createdLayerHidden[category]);
+        }
+    }
+    for (unsigned watched = 0; watched < _countof(kWatchedCategories); ++watched) {
+        if (kWatchedCategories[watched] != category) {
+            continue;
+        }
+        for (unsigned slot = 0; slot < kWatchSlots[watched]; ++slot) {
+            MarkerWatch& watch = markerWatch[watched][slot];
+            if (!watch.used) {
+                watch = {true, category, index, GetTickCount64(), 0};
+                DescribeMarker(controller, icon, watch, watchRound[watched], "created", false);
+                return;
+            }
+        }
+    }
+}
+
+// Finds our marker `index` of `category` on the world map, or null (also
+// null if what is found is not exactly ours).
+void* FindWorldMarker(void* controller, unsigned category, unsigned index) {
+    const MarkerCategory& kind = kCategories[category];
+    NumericTag tag = {};
+    tag.key = kind.keyBase + index;
+    tag.kind = 0x15;
+    DWORD lookupIndex = 0;
+    if (!worldLookup) {
+        return nullptr;
+    }
+    void* icon = worldLookup(controller, &kind.type, &tag, &lookupIndex);
+    return IsCategoryMarker(icon, category, index) ? icon : nullptr;
+}
+
+// Runs on the map thread after each world-map update: logs layer byte
+// changes and the watched markers' later states.
+void ObserveNexusLayers(void* controller) {
+    // A new round of watching each time a watched category becomes wanted again.
+    for (unsigned watched = 0; watched < _countof(kWatchedCategories); ++watched) {
+        unsigned category = kWatchedCategories[watched];
+        bool wanted = LoadMask(markerWanted[category]).Count() != 0;
+        if (wanted && !watchWantedBefore[watched]) {
+            for (MarkerWatch& watch : markerWatch[watched]) {
+                watch.used = false;
+            }
+            ++watchRound[watched];
+            char line[160];
+            sprintf_s(line, "layer-watch: %s markers wanted (round %u); watching the next %u created",
+                kCategories[category].label, watchRound[watched], kWatchSlots[watched]);
+            QueueObservation(line);
+        }
+        watchWantedBefore[watched] = wanted;
+    }
+
+    // The layer bytes changed (map opened or closed, or another layer shown?).
+    BYTE showing[5] = {};
+    bool layersChanged = ReadLayersShowing(controller, showing) &&
+        (!layersKnown || memcmp(showing, layersBefore, sizeof(showing)) != 0);
+    if (layersChanged) {
+        char line[160];
+        sprintf_s(line, "layer-watch: layers showing changed to %u%u%u%u%u (classes 0-4)",
+            showing[0], showing[1], showing[2], showing[3], showing[4]);
+        QueueObservation(line);
+        memcpy(layersBefore, showing, sizeof(showing));
+        layersKnown = true;
+    }
+
+    // Layer changes, and the 3 s (with raw copies) and 10 s checks.
+    ULONGLONG now = GetTickCount64();
+    for (unsigned watched = 0; watched < _countof(kWatchedCategories); ++watched) {
+        for (MarkerWatch& watch : markerWatch[watched]) {
+            if (!watch.used) {
+                continue;
+            }
+            unsigned round = watchRound[watched];
+            if (layersChanged) {
+                DescribeMarker(controller, FindWorldMarker(controller, watch.category, watch.index), watch, round,
+                    "layers-changed", true);
+            }
+            if (watch.checks == 0 && now - watch.created >= 3000) {
+                watch.checks = 1;
+                DescribeMarker(controller, FindWorldMarker(controller, watch.category, watch.index), watch, round,
+                    "after-3s", true);
+            } else if (watch.checks == 1 && now - watch.created >= 10000) {
+                watch.checks = 2;
+                DescribeMarker(controller, FindWorldMarker(controller, watch.category, watch.index), watch, round,
+                    "after-10s", false);
+            }
+        }
+    }
+}
+
+// v0.74: the number ("index") a marker is created and looked up with. The
+// world map finds our markers by their tag, so they use 0 (as since v0.31).
+// The minimap's find function (0xdeffa0) returns nothing for index 0, and
+// the shared create function (0xdeeb60) treats 0 as "replace whatever has
+// this tag" (v0.73 log: every minimap marker "not found", recreated every
+// 5 s and never removed). So minimap markers get their own non-zero number:
+// 0x50590000 ("PY" in the high bytes, like our keys) + category * 0x100 +
+// marker. The find and create functions also compare type and tag, so a
+// number the game happens to use too never matches one of its icons.
+DWORD MarkerIndex(const MapSide& side, unsigned category, unsigned index) {
+    return side.world ? 0u : 0x50590000u + category * 0x100u + index;
+}
+
+// v0.76: the first few minimap icons found by lookup but not yet owned
+// (adopted when they have our exact identity) are logged per category.
+volatile LONG minimapAdoptLogged[kCategoryCount] = {};
+
+// v0.73: the first few minimap creation attempts per category are logged
+// (what the find function returned and whether it matched our identity).
+volatile LONG minimapCreateLogged[kCategoryCount] = {};
+
+// v0.78: what one creation attempt achieved.
+enum class CreateResult {
+    Created, // Exists now and is confirmed as ours.
+    Pending, // Minimap: asked for; the game builds it a moment later (adopted then).
+    Failed, // Could not be created or confirmed (retried after 5 s).
+};
+
+// v0.78: world-map creations the game refused (its icon constructor ran but
+// returned no icon) and creations that worked, per category. Written on the
+// map thread, read by the worker. The shrine icon is refused on the world map
+// unless the Shrine Icons file mod is installed.
+volatile LONG worldRefusals[kCategoryCount] = {};
+volatile LONG worldSuccesses[kCategoryCount] = {};
+// After this many refusals with no success, a category is treated as "needs
+// its icon add-on": no more world-map tries this session (the worker sets
+// worldCreateBlocked). The minimap has its own shrine layout and keeps going.
+constexpr LONG kShrineAddonRefusals = 3;
+volatile LONG worldCreateBlocked[kCategoryCount] = {};
+
+// Ask the game to create marker `index` of `category` at that spot's
+// position on one map, then look it up again to confirm it exists with our
+// identity. Returns true only after that confirmation (same steps as
+// CreateIndependentChest). World map: our map layer is chosen (see
+// ResolveIndependentParent). Minimap (v0.73): the minimap's own creation
+// passes its own containers, so no layer is chosen here.
+CreateResult CreateMarker(void* controller, unsigned category, unsigned index, const MapSide& side) {
+    if (creatingChest) {
+        return CreateResult::Failed;
+    }
+    const MarkerCategory& kind = kCategories[category];
+    const float* position = MarkerPosition(category, index);
     float place[3] = {position[0], position[1], position[2]};
     void* parent = nullptr;
     uintptr_t record = 0;
     const void* presentation = nullptr;
-    if (!ResolveIndependentParent(controller, bellMarkerType, place, parent, record) ||
-        !ResolvePresentation(record, presentation)) {
-        return false;
+    if (side.world) {
+        if (!ResolveIndependentParent(controller, kind.type, place, parent, record)) {
+            return CreateResult::Failed;
+        }
+    } else {
+        if (!MarkerDefinitionReady(kind.type)) {
+            return CreateResult::Failed;
+        }
+        record = IconRecord(kind.type);
+    }
+    if (!record || !ResolvePresentation(record, presentation)) {
+        return CreateResult::Failed;
     }
     NumericTag tag = {};
-    tag.key = kBellMarkerKeyBase + index;
+    tag.key = kind.keyBase + index;
     tag.kind = 0x15;
-    DWORD lookupIndex = 0;
+    DWORD lookupIndex = MarkerIndex(side, category, index);
     Sample generated = {};
-    generated.controller = 0x566ff50;
-    generated.type = bellMarkerType;
+    generated.controller = side.controllerTable;
+    generated.type = kind.type;
     generated.generated = true;
     generated.finalFlag = 1;
     generated.positionRead = true;
     memcpy(generated.tag, &tag, sizeof(tag));
     memcpy(generated.position, place, sizeof(place));
-    strcpy_s(generated.markerName, kBellLinks[index].name);
+    strcpy_s(generated.markerName, MarkerName(category, index));
     Sample* previous = activeSample;
     void* previousRequestedContainer = requestedChestContainer;
-    requestedChestContainer = parent;
+    requestedChestContainer = parent; // Null on the minimap: no layer routing.
     activeSample = &generated;
     creatingChest = true;
     // Same empty property collection as the proof chest (see
     // CreateIndependentChest for why it is safe).
     alignas(8) BYTE emptyProperties[0x28] = {};
     float scalar = 0;
-    originalCreate(controller, &bellMarkerType, &tag, &lookupIndex, &scalar,
+    originalCreate(controller, &kind.type, &tag, &lookupIndex, &scalar,
         place, presentation, 0, emptyProperties, 1);
     creatingChest = false;
     activeSample = previous;
     requestedChestContainer = previousRequestedContainer;
-    // Read back: it must exist with our type, key and exact position, and our
-    // parent-container routing must have happened.
-    void* icon = worldLookup(controller, &bellMarkerType, &tag, &lookupIndex);
+    // Read back: it must exist with our type, key and exact position (and on
+    // the world map, our parent-container routing must have happened).
+    void* icon = (*side.lookup)(controller, &kind.type, &tag, &lookupIndex);
     CaptureIconState(icon, generated);
-    generated.iconVerified = IsBellMarker(icon, index);
-    Queue(generated);
-    if (!generated.iconVerified || !generated.containerRouted) {
-        return false;
+    generated.iconVerified = IsCategoryMarker(icon, category, index);
+    // v0.72: our own markers are not added to the sample list (264 chests
+    // filled it); their world-create lines and the counts log them.
+    if (!side.world && InterlockedIncrement(&minimapCreateLogged[category]) <= 3) {
+        char line[320];
+        sprintf_s(line, "minimap-create %s marker=%s found=%u verified=%u",
+            kind.label, MarkerName(category, index), icon ? 1u : 0u, generated.iconVerified ? 1u : 0u);
+        Log(line);
     }
-    // Ours and confirmed: remove its zoom limit straight away.
-    DisableZoomWindows(icon);
-    return true;
+    if (!side.world && !icon) {
+        // v0.76/v0.78: the minimap builds it a moment later; it is adopted
+        // then (see ServiceMarkersOn). Not a failure.
+        return CreateResult::Pending;
+    }
+    if (side.world && !icon && generated.containerRouted) {
+        // The world-map icon constructor ran and gave no icon: refused.
+        InterlockedIncrement(&worldRefusals[category]);
+    }
+    if (!generated.iconVerified || (side.world && !generated.containerRouted)) {
+        return CreateResult::Failed;
+    }
+    // World map, ours and confirmed: remove its zoom limit straight away.
+    if (side.world) {
+        InterlockedIncrement(&worldSuccesses[category]);
+        DisableZoomWindows(icon);
+        // v0.80 observation: its hide bits right after creation.
+        NoteWorldCreation(controller, icon, category, index);
+    }
+    return CreateResult::Created;
 }
 
-// Runs on the game's map thread after each world-map update: makes the Bell
-// markers on the map match what the worker wants.
-void ServiceBellMarkers(void* controller) {
-    // Remember when each removal was issued (map thread only), so a removal
-    // the game defers is checked again instead of being issued repeatedly.
-    static ULONGLONG removalIssued[kBellMarkerCount] = {};
-    LONG wanted = InterlockedCompareExchange(&bellMarkerWanted, 0, 0);
-    bool createAllowed = InterlockedCompareExchange(&bellMarkerCreateAllowed, 0, 0) != 0;
-    LONG present = InterlockedCompareExchange(&bellMarkerPresent, 0, 0);
+// v0.58: how many markers a map update checks. With ~170 markers, checking
+// all of them every frame would mean ~170 lookups per frame; a rotating
+// slice keeps each frame light, and every marker is still checked every few
+// updates.
+constexpr unsigned kServicePerUpdate = 32;
+
+// Runs on the game's UI thread after one map's update: makes our markers on
+// that map match what the worker wants, a slice at a time.
+void ServiceMarkersOn(void* controller, MapSide& side) {
+    unsigned total = 0;
+    for (const MarkerCategory& kind : kCategories) {
+        total += kind.shown ? kind.count : 0;
+    }
+    if (total == 0) {
+        return;
+    }
+    // Copy the shared masks once per update.
+    MarkerMask wanted[kCategoryCount];
+    MarkerMask present[kCategoryCount];
+    MarkerMask hidden[kCategoryCount]; // v0.83: which present markers we hid.
+    bool createAllowed[kCategoryCount];
+    bool hideAll[kCategoryCount]; // v0.83: the user turned this category off (hide, keep).
+    for (unsigned category = 0; category < kCategoryCount; ++category) {
+        wanted[category] = LoadMask(markerWanted[category]);
+        present[category] = LoadMask(side.present[category]);
+        hidden[category] = LoadMask(side.hidden[category]);
+        createAllowed[category] = InterlockedCompareExchange(&markerCreateAllowed[category], 0, 0) != 0;
+        hideAll[category] = InterlockedCompareExchange(&markerHiddenByChoice[category], 0, 0) != 0;
+    }
+    ULONGLONG now = GetTickCount64();
+    // At most one creation per update (across all categories) keeps each
+    // frame light.
     bool createdThisUpdate = false;
-    for (unsigned index = 0; index < kBellMarkerCount; ++index) {
-        LONG bit = 1L << index;
+    unsigned steps = total < kServicePerUpdate ? total : kServicePerUpdate;
+    for (unsigned step = 0; step < steps; ++step) {
+        // Turn the running position into (category, index).
+        unsigned flat = side.cursor % total;
+        side.cursor = (flat + 1) % total;
+        unsigned category = 0;
+        while (!kCategories[category].shown || flat >= kCategories[category].count) {
+            flat -= kCategories[category].shown ? kCategories[category].count : 0;
+            ++category;
+        }
+        unsigned index = flat;
+        const MarkerCategory& kind = kCategories[category];
         NumericTag tag = {};
-        tag.key = kBellMarkerKeyBase + index;
+        tag.key = kind.keyBase + index;
         tag.kind = 0x15;
-        DWORD lookupIndex = 0;
-        void* icon = worldLookup(controller, &bellMarkerType, &tag, &lookupIndex);
+        DWORD lookupIndex = MarkerIndex(side, category, index);
+        void* icon = (*side.lookup)(controller, &kind.type, &tag, &lookupIndex);
         if (!icon) {
             // Gone: removed by us, or the map was rebuilt (e.g. after a load).
-            present &= ~bit;
-            removalIssued[index] = 0;
-            if ((wanted & bit) && createAllowed && !createdThisUpdate) {
-                // At most one creation per update keeps each frame light.
+            present[category].Clear(index);
+            hidden[category].Clear(index);
+            side.removalIssued[category][index] = 0;
+            bool blocked = side.world && InterlockedCompareExchange(&worldCreateBlocked[category], 0, 0) != 0;
+            if (wanted[category].Test(index) && createAllowed[category] && !blocked && !createdThisUpdate &&
+                now >= side.retryAfter[category][index]) {
                 createdThisUpdate = true;
-                if (CreateBellMarker(controller, index)) {
-                    present |= bit;
-                    InterlockedIncrement(&bellMarkerCreations);
+                CreateResult created = CreateMarker(controller, category, index, side);
+                if (created == CreateResult::Created) {
+                    present[category].Set(index);
+                    side.retryAfter[category][index] = 0;
+                    SetSharedBit(side.failed[category], index, false);
+                    InterlockedIncrement(side.creations);
+                    // v0.83: created while its category is turned off: hide
+                    // it at once (fresh lookup; the icon must be ours).
+                    void* fresh = (*side.lookup)(controller, &kind.type, &tag, &lookupIndex);
+                    if (hideAll[category] && IsCategoryMarker(fresh, category, index) && SetChoiceHidden(fresh, true)) {
+                        hidden[category].Set(index);
+                    }
+                } else if (created == CreateResult::Pending) {
+                    // Asked again only if it has not appeared within 5 s.
+                    side.retryAfter[category][index] = now + 5000;
                 } else {
-                    InterlockedIncrement(&bellMarkerFailures);
+                    side.retryAfter[category][index] = now + 5000;
+                    SetSharedBit(side.failed[category], index, true);
+                    InterlockedIncrement(side.failures);
                 }
             }
             continue;
         }
-        if (!(present & bit) || !IsBellMarker(icon, index)) {
+        bool ours = IsCategoryMarker(icon, category, index);
+        if (!present[category].Test(index) && !side.world) {
+            // v0.76: the minimap's create function (0xe08d70) passes the
+            // request on and the icon is built a moment later, so the check
+            // right after creating finds nothing (v0.73-v0.75 logs). Adopt
+            // it once it appears with our exact private key, type and
+            // position: no other icon can have that identity.
+            if (InterlockedIncrement(&minimapAdoptLogged[category]) <= 3) {
+                char line[320];
+                sprintf_s(line, "minimap-adopt %s marker=%s verified=%u", kind.label,
+                    MarkerName(category, index), ours ? 1u : 0u);
+                Log(line);
+            }
+            if (ours) {
+                present[category].Set(index);
+                side.retryAfter[category][index] = 0;
+                SetSharedBit(side.failed[category], index, false);
+                InterlockedIncrement(side.creations);
+            }
+        }
+        if (!present[category].Test(index) || !ours) {
             // Not one we created and verified this session: never touch it.
             continue;
         }
-        if (wanted & bit) {
-            // Wanted and present: keep its zoom limit off (see
+        if (wanted[category].Test(index)) {
+            // Wanted and present. World map: keep its zoom limit off (see
             // DisableZoomWindows; this also covers a re-initialised icon).
-            DisableZoomWindows(icon);
+            if (side.world) {
+                DisableZoomWindows(icon);
+            }
+            // v0.83: hidden or shown as the user chose (Nexus markers).
+            // Compare with the icon's bit itself, not our list: the game may
+            // clear it (e.g. when it sets the icon up again).
+            if (HidesInsteadOfRemoving(category)) {
+                bool isHidden = hidden[category].Test(index);
+                ReadChoiceHidden(icon, isHidden);
+                if (hideAll[category] != isHidden && SetChoiceHidden(icon, hideAll[category])) {
+                    isHidden = hideAll[category];
+                }
+                if (isHidden) {
+                    hidden[category].Set(index);
+                } else {
+                    hidden[category].Clear(index);
+                }
+            }
             continue;
         }
-        // Present but no longer wanted (e.g. its Bell is now completed).
-        if (!removalIssued[index]) {
-            if (!MarkerDefinitionReady(bellMarkerType)) {
+        // Present but no longer wanted (e.g. its Bell is now completed or its
+        // chest opened).
+        if (!side.removalIssued[category][index]) {
+            if (!MarkerDefinitionReady(kind.type)) {
                 continue; // Icon definitions changed: refuse to remove.
             }
-            removalIssued[index] = GetTickCount64();
-            InterlockedIncrement(&bellMarkerRemovals);
+            side.removalIssued[category][index] = GetTickCount64();
+            InterlockedIncrement(side.removals);
             // Native removal: type and index by value, like the proof chest.
-            removeWorldIcon(controller, bellMarkerType, &tag, lookupIndex);
+            (*side.remove)(controller, kind.type, &tag, lookupIndex);
             // The old icon may be freed now; inspect only a fresh lookup.
-            if (!worldLookup(controller, &bellMarkerType, &tag, &lookupIndex)) {
-                present &= ~bit;
-                removalIssued[index] = 0;
+            if (!(*side.lookup)(controller, &kind.type, &tag, &lookupIndex)) {
+                present[category].Clear(index);
+                hidden[category].Clear(index);
+                side.removalIssued[category][index] = 0;
             }
-        } else if (GetTickCount64() - removalIssued[index] >= 3000) {
+        } else if (GetTickCount64() - side.removalIssued[category][index] >= 3000) {
             // The game deferred removal and it is still there after 3 s.
             // Do not call removal again; report it and leave reload as fallback.
-            InterlockedOr(&bellMarkerStuck, bit);
+            SetSharedBit(side.stuck[category], index, true);
         }
     }
-    InterlockedExchange(&bellMarkerPresent, present);
+    // Only this thread writes this side's present and hidden masks.
+    for (unsigned category = 0; category < kCategoryCount; ++category) {
+        StoreMask(side.present[category], present[category]);
+        StoreMask(side.hidden[category], hidden[category]);
+    }
 }
 
-// Lists the Bell names whose bit is set in `mask`, e.g. "Calphade, Varnia".
-void BellNames(LONG mask, char (&text)[256]) {
+// Runs on the game's map thread after each world-map update.
+void ServiceMarkers(void* controller) {
+    ServiceMarkersOn(controller, worldSide);
+    // v0.80 observation (read-only).
+    ObserveNexusLayers(controller);
+}
+
+// v0.73: runs on the game's UI thread after each minimap
+// update, when the minimap's remove function passed its checks.
+void ServiceMinimapMarkers(void* controller) {
+    if (removeMinimapIcon && minimapLookup) {
+        ServiceMarkersOn(controller, minimapSide);
+    }
+}
+
+// Lists the names in `mask` for one category, e.g. "Calphade Bell, Varnia
+// Bell". Long lists (chests) end with "... (+N more)" so the text always fits.
+void MarkerNames(unsigned category, const MarkerMask& mask, char (&text)[640]) {
     text[0] = 0;
-    for (unsigned index = 0; index < kBellMarkerCount; ++index) {
-        if (mask & (1L << index)) {
-            if (text[0]) {
-                strcat_s(text, ", ");
-            }
-            strcat_s(text, kBellLinks[index].name);
+    unsigned skipped = 0;
+    for (unsigned index = 0; index < kCategories[category].count; ++index) {
+        if (!mask.Test(index)) {
+            continue;
         }
+        const char* name = MarkerName(category, index);
+        // Leave room for ", ", the name and a closing "... (+NNN more)".
+        if (strlen(text) + strlen(name) + 2 + 24 >= sizeof(text)) {
+            ++skipped;
+            continue;
+        }
+        if (text[0]) {
+            strcat_s(text, ", ");
+        }
+        strcat_s(text, name);
+    }
+    if (skipped) {
+        char more[24];
+        sprintf_s(more, "... (+%u more)", skipped);
+        strcat_s(text, more);
     }
     if (!text[0]) {
         strcpy_s(text, "none");
     }
 }
 
-// The worker's view of the Bell markers.
-struct BellMarkerState {
-    bool enabled; // F10 turns all markers off; F6 turns them back on.
-    bool known; // A valid detected result has been seen at least once.
+// The worker's view of one category's markers.
+struct CategoryState {
+    bool known; // A valid result for this category has been seen at least once.
+    bool unknownLogged; // "Result unknown" already logged for the current read.
     unsigned serial; // Selection serial of the last result logged.
     unsigned readSlot; // Slot of the last result logged.
-    LONG wanted; // Last wanted mask sent to the map thread.
-    LONG present; // Last present mask logged.
-    LONG stuck; // Last stuck mask logged.
+    MarkerMask wanted; // Last wanted mask sent to the map thread.
+    MarkerMask present; // Last present mask logged.
+    MarkerMask stuck; // Last stuck mask logged.
+    MarkerMask failed; // Last failed mask logged (v0.57).
+    MarkerMask minimapPresent; // v0.73: last minimap mask logged.
+    MarkerMask minimapFailed; // v0.73: last minimap failed mask logged.
+    unsigned worldHiddenCount; // v0.83: last hidden counts logged (world map, minimap).
+    unsigned minimapHiddenCount;
 };
+
+// The worker's view of all markers.
+struct MarkerState {
+    bool enabled; // F10 turns all markers off; F6 turns them back on.
+    CategoryState categories[kCategoryCount];
+    bool shownLogged[kCategoryCount]; // Choice last logged per category (v0.64).
+};
+
+// ---------------------------------------------------------------------------
+// v0.64: filter panel choices (see src/pywel-atlas/MarkerFilter.h)
+// ---------------------------------------------------------------------------
+// The panel (render thread) writes the choices; this part's worker applies
+// them in UpdateMarkers and saves them to filters.ini. The status copy below
+// is refreshed by the worker for the panel to show.
+static_assert(kPywelMarkerCategories == kCategoryCount, "The panel lists every marker category");
+// Names shown in the panel, in category order.
+constexpr const char* kPanelNames[kCategoryCount] = {"Bells", "Greymane Shrines", "Treasure chests", "Abyss chests",
+    "Abyss Nexus"};
+volatile LONG categoryShown[kCategoryCount] = {1, 1, 1, 1, 1}; // The user's choice (1 = show).
+volatile LONG markersEnabled = 1; // Copy of MarkerState::enabled for the panel.
+volatile LONG filtersDirty = 0; // A choice or the panel geometry changed; save soon.
+SRWLOCK statusLock = SRWLOCK_INIT; // Guards categoryStatus and panelGeometry.
+PywelMarkerCategoryStatus categoryStatus[kCategoryCount] = {};
+float panelGeometry[4] = {}; // x, y, width, height as screen fractions.
+bool panelGeometryKnown = false;
+
+// Full path of %LOCALAPPDATA%\PywelAtlas\filters.ini (false if unavailable).
+bool FiltersPath(wchar_t (&path)[MAX_PATH]) {
+    if (FAILED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, path))) {
+        return false;
+    }
+    return wcscat_s(path, L"\\PywelAtlas\\filters.ini") == 0;
+}
+
+// Reads filters.ini at start-up: one "<category>=0/1" line per category (by
+// its log label, e.g. "Chest=0") and "panel=x,y,width,height". Unknown or
+// malformed lines are ignored, so a damaged file only loses those lines.
+void LoadFilters() {
+    wchar_t path[MAX_PATH] = {};
+    FILE* file = nullptr;
+    if (!FiltersPath(path) || _wfopen_s(&file, path, L"r") != 0 || !file) {
+        return; // No file yet: everything is shown.
+    }
+    char line[256];
+    while (fgets(line, sizeof(line), file)) {
+        char* equals = strchr(line, '=');
+        if (line[0] == '#' || !equals) {
+            continue;
+        }
+        *equals = 0;
+        const char* value = equals + 1;
+        for (unsigned category = 0; category < kCategoryCount; ++category) {
+            if (strcmp(line, kCategories[category].label) == 0 && (value[0] == '0' || value[0] == '1')) {
+                InterlockedExchange(&categoryShown[category], value[0] == '1' ? 1 : 0);
+            }
+        }
+        float geometry[4] = {};
+        if (strcmp(line, "panel") == 0 &&
+            sscanf_s(value, "%f,%f,%f,%f", &geometry[0], &geometry[1], &geometry[2], &geometry[3]) == 4 &&
+            geometry[0] >= 0.0f && geometry[0] < 1.0f && geometry[1] >= 0.0f && geometry[1] < 1.0f &&
+            geometry[2] > 0.0f && geometry[2] <= 1.0f && geometry[3] > 0.0f && geometry[3] <= 1.0f) {
+            AcquireSRWLockExclusive(&statusLock);
+            memcpy(panelGeometry, geometry, sizeof(geometry));
+            panelGeometryKnown = true;
+            ReleaseSRWLockExclusive(&statusLock);
+        }
+    }
+    fclose(file);
+}
+
+// Writes filters.ini (worker thread only), first to a temporary file that
+// then replaces the old one, so a crash mid-write never leaves half a file.
+// False if anything failed; the old file is then kept.
+bool SaveFilters() {
+    wchar_t path[MAX_PATH] = {};
+    wchar_t temporary[MAX_PATH + 8] = {};
+    FILE* file = nullptr;
+    if (!FiltersPath(path) || swprintf_s(temporary, L"%ls.tmp", path) < 0 ||
+        _wfopen_s(&file, temporary, L"w") != 0 || !file) {
+        return false;
+    }
+    fputs("# Pywel Atlas filter panel choices (written automatically; 1 = shown)\n", file);
+    for (unsigned category = 0; category < kCategoryCount; ++category) {
+        fprintf(file, "%s=%ld\n", kCategories[category].label,
+            InterlockedCompareExchange(&categoryShown[category], 0, 0));
+    }
+    AcquireSRWLockShared(&statusLock);
+    bool known = panelGeometryKnown;
+    float geometry[4];
+    memcpy(geometry, panelGeometry, sizeof(geometry));
+    ReleaseSRWLockShared(&statusLock);
+    if (known) {
+        fprintf(file, "panel=%.4f,%.4f,%.4f,%.4f\n", geometry[0], geometry[1], geometry[2], geometry[3]);
+    }
+    // Replace the old file only with a complete copy (a full disk would
+    // otherwise leave a cut-off file).
+    bool written = !ferror(file);
+    if (fclose(file) != 0 || !written) {
+        DeleteFileW(temporary);
+        return false;
+    }
+    return MoveFileExW(temporary, path, MOVEFILE_REPLACE_EXISTING) != 0;
+}
+
+
+// What the detected save says is done for one category, and whether that is
+// known: Bells and chests come from the Bell pass, shrines from their own.
+// `unknown` (v0.68) lists single spots whose state is not known (strongboxes
+// whose field record could not be decided): they get no marker either.
+MarkerMask DoneMask(unsigned category, const LoadedSaveBell& loaded, bool saveValid, bool& valid,
+    MarkerMask& unknown) {
+    MarkerMask done = {};
+    unknown = {};
+    valid = saveValid;
+    if (category == kBellCategory) {
+        done.words[0] = static_cast<LONG>(loaded.bell.completedMask);
+    } else if (category == kShrineCategory) {
+        valid = saveValid && loaded.bell.shrinesValid;
+        done.words[0] = static_cast<LONG>(loaded.bell.shrineFoundMask);
+    } else if (category == kNexusCategory) {
+        // v0.79: Abyss Nexuses: done = activated (field pass); undecided ones
+        // are unknown and get no marker.
+        static_assert(_countof(loaded.bell.nexusActivatedMask) == kMaskWords, "Nexus mask size must match");
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.nexusActivatedMask[word]);
+            unknown.words[word] = static_cast<LONG>(loaded.bell.nexusUnknownMask[word]);
+        }
+    } else if (category == kAbyssChestCategory) {
+        // v0.69: Abyss chests come from the Bell pass, like the other chests.
+        static_assert(_countof(loaded.bell.abyssChestOpenedMask) == kMaskWords, "Chest mask size must match");
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.abyssChestOpenedMask[word]);
+        }
+    } else {
+        static_assert(_countof(loaded.bell.chestOpenedMask) == kMaskWords, "Chest mask size must match");
+        static_assert(_countof(loaded.bell.chestUnknownMask) == kMaskWords, "Chest mask size must match");
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.chestOpenedMask[word]);
+            unknown.words[word] = static_cast<LONG>(loaded.bell.chestUnknownMask[word]);
+        }
+    }
+    return done;
+}
 
 // Called every worker loop: works out which markers should exist from the
 // detected save, tells the map thread, and logs changes.
-void UpdateBellMarkers(BellMarkerState& state) {
+void UpdateMarkers(MarkerState& state) {
     LoadedSaveBell loaded = {};
-    bool valid = PywelGetLoadedSaveBell(loaded);
-    LONG all = static_cast<LONG>((1UL << kBellMarkerCount) - 1);
-    LONG wanted = state.wanted;
-    if (!state.enabled) {
-        wanted = 0;
-    } else if (valid) {
-        // Show every Bell the save does NOT explicitly mark as completed.
-        wanted = all & ~static_cast<LONG>(loaded.bell.completedMask);
+    bool saveValid = PywelGetLoadedSaveBell(loaded);
+    char names[640];
+    char hidden[640];
+    char line[1600];
+    for (unsigned category = 0; category < kCategoryCount; ++category) {
+        CategoryState& current = state.categories[category];
+        const MarkerCategory& kind = kCategories[category];
+        if (!kind.shown) {
+            continue; // Paused category: never wanted, never created.
+        }
+        // v0.64: the filter panel's choice for this category.
+        bool chosen = InterlockedCompareExchange(&categoryShown[category], 0, 0) != 0;
+        // v0.83: Nexus markers are hidden, not removed, when turned off.
+        bool hideByChoice = HidesInsteadOfRemoving(category) && (!state.enabled || !chosen);
+        if (chosen != state.shownLogged[category]) {
+            sprintf_s(line, "%s markers turned %s (filter panel)%s", kind.label, chosen ? "on" : "off",
+                chosen ? "; they follow the detected save"
+                       : (hideByChoice ? "; all are being hidden (kept, game hide reason 23)" : "; all are being removed"));
+            Log(line);
+            state.shownLogged[category] = chosen;
+        }
+        bool valid = false;
+        MarkerMask unknown = {};
+        MarkerMask done = DoneMask(category, loaded, saveValid, valid, unknown);
+        MarkerMask all = {};
+        for (unsigned index = 0; index < kind.count; ++index) {
+            all.Set(index);
+        }
+        MarkerMask wanted = current.wanted;
+        if ((!state.enabled || !chosen) && !hideByChoice) {
+            wanted = {};
+        } else if (valid) {
+            // Show every spot the save does NOT explicitly mark as done,
+            // except spots whose state is unknown (v0.68).
+            for (unsigned word = 0; word < kMaskWords; ++word) {
+                wanted.words[word] = all.words[word] & ~done.words[word] & ~unknown.words[word];
+            }
+        }
+        MarkerMask hiddenMask = {};
+        MarkerMask unknownMask = {};
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            hiddenMask.words[word] = all.words[word] & done.words[word];
+            unknownMask.words[word] = all.words[word] & unknown.words[word];
+        }
+        // While nothing is known, keep the current markers but create no new ones.
+        // v0.83: a hidden category still creates (and then hides) missing markers.
+        InterlockedExchange(&markerCreateAllowed[category], ((state.enabled && chosen) || hideByChoice) && valid ? 1 : 0);
+        InterlockedExchange(&markerHiddenByChoice[category], hideByChoice ? 1 : 0);
+        StoreMask(markerWanted[category], wanted);
+        bool changedRead = loaded.serial != current.serial || loaded.readSlot != current.readSlot;
+        if (valid && (!current.known || changedRead || !wanted.Same(current.wanted))) {
+            MarkerNames(category, wanted, names);
+            MarkerNames(category, hiddenMask, hidden);
+            sprintf_s(line, "Detected save serial=%u loadedSlot=%u readSlot=%u %ss: show %u [%s]; done (hidden) %u [%s]",
+                loaded.serial, loaded.loadedSlot, loaded.readSlot, kind.label, wanted.Count(), names,
+                hiddenMask.Count(), hidden);
+            Log(line);
+            if (category == kChestCategory) {
+                // v0.68: the field-rule boxes (puzzle strongboxes and house
+                // chests) on their own line; they come last in the chest list,
+                // so the line above often cuts them off.
+                MarkerMask fieldShown = {};
+                MarkerMask fieldDone = {};
+                for (unsigned index = 0; index < kind.count; ++index) {
+                    if (kChestLinks[index].rule != kChestRuleField) {
+                        continue;
+                    }
+                    if (wanted.Test(index)) {
+                        fieldShown.Set(index);
+                    }
+                    if (hiddenMask.Test(index)) {
+                        fieldDone.Set(index);
+                    }
+                }
+                MarkerNames(category, fieldShown, names);
+                MarkerNames(category, fieldDone, hidden);
+                sprintf_s(line, "Detected save serial=%u readSlot=%u strongboxes and house chests: show %u [%s]; opened (hidden) %u [%s]",
+                    loaded.serial, loaded.readSlot, fieldShown.Count(), names, fieldDone.Count(), hidden);
+                Log(line);
+            }
+            if (unknownMask.Count()) {
+                // v0.68: undecided strongboxes, hidden but not counted as done.
+                MarkerNames(category, unknownMask, names);
+                sprintf_s(line, "Detected save serial=%u readSlot=%u %ss: unknown (hidden, not counted as done) %u [%s]; field pass %s (%s)",
+                    loaded.serial, loaded.readSlot, kind.label, unknownMask.Count(), names,
+                    loaded.bell.chestFieldValid ? "ok" : "failed",
+                    loaded.bell.chestFieldError[0] ? loaded.bell.chestFieldError : "unexpected record");
+                Log(line);
+            }
+            current.known = true;
+            current.unknownLogged = false;
+            current.serial = loaded.serial;
+            current.readSlot = loaded.readSlot;
+        } else if (!valid && saveValid && (changedRead || !current.unknownLogged)) {
+            // The save read was accepted but this category's pass failed.
+            sprintf_s(line, "Detected save serial=%u readSlot=%u: %s result unknown (%s); keeping current markers, creating none.",
+                loaded.serial, loaded.readSlot, kind.label,
+                loaded.bell.shrineError[0] ? loaded.bell.shrineError : "no reason given");
+            Log(line);
+            current.unknownLogged = true;
+            current.serial = loaded.serial;
+            current.readSlot = loaded.readSlot;
+        } else if (!state.enabled && !wanted.Same(current.wanted)) {
+            sprintf_s(line, "%s markers turned off (F10); all are being removed.", kind.label);
+            Log(line);
+        }
+        current.wanted = wanted;
+        MarkerMask present = LoadMask(markerPresent[category]);
+        // v0.64: refresh the copy the filter panel shows.
+        AcquireSRWLockExclusive(&statusLock);
+        // v0.78: the world map keeps refusing this category's icon and never
+        // accepted one (the Greymane Shrine icon without the Shrine Icons
+        // file mod): stop world-map tries for this session and tell the panel.
+        bool needsAddon = category == kShrineCategory &&
+            InterlockedCompareExchange(&worldSuccesses[category], 0, 0) == 0 &&
+            InterlockedCompareExchange(&worldRefusals[category], 0, 0) >= kShrineAddonRefusals;
+        if (needsAddon && !InterlockedExchange(&worldCreateBlocked[category], 1)) {
+            sprintf_s(line, "%s markers: the game refused the first %ld on the world map and accepted none, so the Pywel Atlas Shrine Icons file mod is probably not installed; no more world-map tries this session (minimap markers continue).",
+                kind.label, InterlockedCompareExchange(&worldRefusals[category], 0, 0));
+            Log(line);
+        }
+        PywelMarkerCategoryStatus& status = categoryStatus[category];
+        status.needsAddon = needsAddon;
+        status.saveKnown = valid || current.known;
+        if (valid) {
+            status.done = hiddenMask.Count();
+        }
+        // v0.83: markers kept but hidden do not count as on the map.
+        unsigned worldHiddenNow = LoadMask(worldHidden[category]).Count();
+        status.onMap = present.Count() - (worldHiddenNow < present.Count() ? worldHiddenNow : present.Count());
+        ReleaseSRWLockExclusive(&statusLock);
+        unsigned minimapHiddenNow = LoadMask(minimapHidden[category]).Count();
+        if (worldHiddenNow != current.worldHiddenCount || minimapHiddenNow != current.minimapHiddenCount) {
+            sprintf_s(line, "%s markers hidden by choice now: %u on the world map, %u on the minimap", kind.label,
+                worldHiddenNow, minimapHiddenNow);
+            Log(line);
+            current.worldHiddenCount = worldHiddenNow;
+            current.minimapHiddenCount = minimapHiddenNow;
+        }
+        if (!present.Same(current.present)) {
+            MarkerNames(category, present, names);
+            sprintf_s(line, "%s markers on the map now: %u [%s] (all categories: creations=%ld removals=%ld failures=%ld zoomLimitOff=%ld zoomLimitRefused=%ld)",
+                kind.label, present.Count(), names, InterlockedCompareExchange(&markerCreations, 0, 0),
+                InterlockedCompareExchange(&markerRemovals, 0, 0),
+                InterlockedCompareExchange(&markerFailures, 0, 0),
+                InterlockedCompareExchange(&markerZoomWindowWrites, 0, 0),
+                InterlockedCompareExchange(&markerZoomWindowFailures, 0, 0));
+            Log(line);
+            current.present = present;
+        }
+        MarkerMask stuck = LoadMask(markerStuck[category]);
+        if (!stuck.Same(current.stuck)) {
+            MarkerNames(category, stuck, names);
+            sprintf_s(line, "%s markers still present 3 s after removal (reload clears them): %u [%s]",
+                kind.label, stuck.Count(), names);
+            Log(line);
+            current.stuck = stuck;
+        }
+        MarkerMask failed = LoadMask(markerFailed[category]);
+        if (!failed.Same(current.failed)) {
+            MarkerNames(category, failed, names);
+            sprintf_s(line, "%s markers whose last creation failed (retried every 5 s): %u [%s] (failures=%ld)",
+                kind.label, failed.Count(), names, InterlockedCompareExchange(&markerFailures, 0, 0));
+            Log(line);
+            current.failed = failed;
+        }
+        if (kMinimapMarkers) {
+            // v0.73: the same markers on the minimap.
+            MarkerMask minimapNow = LoadMask(minimapPresent[category]);
+            if (!minimapNow.Same(current.minimapPresent)) {
+                sprintf_s(line, "%s markers on the minimap now: %u (minimap creations=%ld removals=%ld failures=%ld)",
+                    kind.label, minimapNow.Count(), InterlockedCompareExchange(&minimapCreations, 0, 0),
+                    InterlockedCompareExchange(&minimapRemovals, 0, 0),
+                    InterlockedCompareExchange(&minimapFailures, 0, 0));
+                Log(line);
+                current.minimapPresent = minimapNow;
+            }
+            MarkerMask minimapFailedNow = LoadMask(minimapFailed[category]);
+            if (!minimapFailedNow.Same(current.minimapFailed)) {
+                MarkerNames(category, minimapFailedNow, names);
+                sprintf_s(line, "%s minimap markers whose last creation failed (retried every 5 s): %u [%s]",
+                    kind.label, minimapFailedNow.Count(), names);
+                Log(line);
+                current.minimapFailed = minimapFailedNow;
+            }
+        }
     }
-    // While nothing is known, keep the current markers but create no new ones.
-    InterlockedExchange(&bellMarkerCreateAllowed, state.enabled && valid ? 1 : 0);
-    InterlockedExchange(&bellMarkerWanted, wanted);
-    char names[256];
-    char line[512];
-    if (valid && (!state.known || loaded.serial != state.serial ||
-        loaded.readSlot != state.readSlot || wanted != state.wanted)) {
-        char hidden[256];
-        BellNames(wanted, names);
-        BellNames(all & static_cast<LONG>(loaded.bell.completedMask), hidden);
-        sprintf_s(line, "Detected save serial=%u loadedSlot=%u readSlot=%u: show [%s]; completed (hidden) [%s]",
-            loaded.serial, loaded.loadedSlot, loaded.readSlot, names, hidden);
-        Log(line);
-        state.known = true;
-        state.serial = loaded.serial;
-        state.readSlot = loaded.readSlot;
-    } else if (!state.enabled && wanted != state.wanted) {
-        Log("Bell markers turned off (F10); all are being removed.");
+}
+
+// v0.80 observation (worker): logs once the layer settings of the icon types
+// our markers use, and (at most once a second, when they change) how many
+// world-map creations started hidden. See "v0.80 observation" above.
+void LogLayerObservation() {
+    static bool definitionsLogged = false;
+    static LONG lastTotals[kCategoryCount][3] = {};
+    static ULONGLONG nextSummary = 0;
+    char line[640];
+
+    // 1 = personal pin (our layer routing copies its settings), 226 = chest,
+    // 234 = Abyss Nexus, 334 = the game's fog Nexus icon, 360 = Bell.
+    if (!definitionsLogged) {
+        static constexpr WORD kTypes[] = {1, 226, 234, 334, 360};
+        float threshold = 0;
+        bool all = Read(reinterpret_cast<const void*>(imageBase + kParentAltitudeThresholdRva), &threshold,
+            sizeof(threshold));
+        char types[512] = {};
+        for (WORD type : kTypes) {
+            uintptr_t record = IconRecord(type);
+            BYTE layerSelector = 0;
+            BYTE flagB5 = 0;
+            BYTE followsHeight = 0;
+            DWORD group = 0;
+            if (!record || !Read(reinterpret_cast<const void*>(record + 0x2a), &layerSelector, sizeof(layerSelector)) ||
+                !Read(reinterpret_cast<const void*>(record + 0xb5), &flagB5, sizeof(flagB5)) ||
+                !Read(reinterpret_cast<const void*>(record + 0xb7), &followsHeight, sizeof(followsHeight)) ||
+                !Read(reinterpret_cast<const void*>(record + 0x2c), &group, sizeof(group))) {
+                // Only the Nexus type is required; the others are for comparison.
+                if (type == 234) {
+                    all = false;
+                    break;
+                }
+                char missing[48];
+                sprintf_s(missing, " type%u: not loaded;", type);
+                strcat_s(types, missing);
+                continue;
+            }
+            char part[96];
+            sprintf_s(part, " type%u: layer=%u followsHeight=%u b5=%u group=0x%lx;", type, layerSelector, followsHeight,
+                flagB5, group);
+            strcat_s(types, part);
+        }
+        if (all) {
+            sprintf_s(line, "layer-watch: icon type layer settings (+0x2a layer, +0xb7 follows height, +0xb5, +0x2c group):%s Abyss height limit=%.1f",
+                types, threshold);
+            Log(line);
+            definitionsLogged = true;
+        }
     }
-    state.wanted = wanted;
-    LONG present = InterlockedCompareExchange(&bellMarkerPresent, 0, 0);
-    if (present != state.present) {
-        BellNames(present, names);
-        sprintf_s(line, "Bell markers on the map now: [%s] (creations=%ld removals=%ld failures=%ld zoomLimitOff=%ld zoomLimitRefused=%ld)",
-            names, InterlockedCompareExchange(&bellMarkerCreations, 0, 0),
-            InterlockedCompareExchange(&bellMarkerRemovals, 0, 0),
-            InterlockedCompareExchange(&bellMarkerFailures, 0, 0),
-            InterlockedCompareExchange(&bellZoomWindowWrites, 0, 0),
-            InterlockedCompareExchange(&bellZoomWindowFailures, 0, 0));
-        Log(line);
-        state.present = present;
+
+    // Creation counts by hide bits, per category.
+    if (GetTickCount64() < nextSummary) {
+        return;
     }
-    LONG stuck = InterlockedCompareExchange(&bellMarkerStuck, 0, 0);
-    if (stuck != state.stuck) {
-        BellNames(stuck, names);
-        sprintf_s(line, "Bell markers still present 3 s after removal (reload clears them): [%s]", names);
+    bool changed = false;
+    char parts[480] = {};
+    for (unsigned category = 0; category < kCategoryCount; ++category) {
+        LONG totals[3] = {InterlockedCompareExchange(&createdClear[category], 0, 0),
+            InterlockedCompareExchange(&createdHidden[category], 0, 0),
+            InterlockedCompareExchange(&createdLayerHidden[category], 0, 0)};
+        if (memcmp(totals, lastTotals[category], sizeof(totals)) != 0) {
+            changed = true;
+            memcpy(lastTotals[category], totals, sizeof(totals));
+        }
+        if (totals[0] || totals[1]) {
+            char part[96];
+            sprintf_s(part, " %s clear=%ld hidden=%ld (bit 12: %ld);", kCategories[category].label, totals[0],
+                totals[1], totals[2]);
+            strcat_s(parts, part);
+        }
+    }
+    if (changed) {
+        sprintf_s(line, "layer-watch: world-map creations by hide bits right after creation:%s", parts);
         Log(line);
-        state.stuck = stuck;
+        nextSummary = GetTickCount64() + 1000;
     }
 }
 #endif
@@ -1264,8 +2562,9 @@ bool SameTable(const TableView& left, const TableView& right) {
 }
 
 // True only if icon `type` is already loaded with exactly the expected
-// template type id and template name, and category 0xffffffff.
-bool IconDefinitionReady(WORD type, WORD expectedTemplate, const char* expectedName) {
+// template type id, template name and (v0.79) icon group (0xffffffff for the
+// gimmick icons, 0x20 for the Abyss Nexus icon).
+bool IconDefinitionReady(WORD type, WORD expectedTemplate, const char* expectedName, DWORD expectedGroup) {
     TableView icons = {};
     TableView templates = {};
     uintptr_t record = 0;
@@ -1280,7 +2579,7 @@ bool IconDefinitionReady(WORD type, WORD expectedTemplate, const char* expectedN
         Read(reinterpret_cast<const void*>(record + 0x20), &secondary, sizeof(secondary)) &&
         secondary == expectedTemplate && secondary < templates.count &&
         Read(reinterpret_cast<const void*>(record + 0x2c), &category, sizeof(category)) &&
-        category == 0xffffffff &&
+        category == expectedGroup &&
         Read(reinterpret_cast<const void*>(templates.cache + secondary * sizeof(uintptr_t)),
             &templateRecord, sizeof(templateRecord)) &&
         ReadTemplateName(reinterpret_cast<const void*>(templateRecord), name) &&
@@ -1290,18 +2589,33 @@ bool IconDefinitionReady(WORD type, WORD expectedTemplate, const char* expectedN
 // True only if icon type 226 is already loaded and matches the verified chest:
 // template type 28852, category 0xffffffff, template "MapIcon_Gimmick_LevelTreasureBox".
 bool ChestDefinitionReady() {
-    return IconDefinitionReady(chestType, 28852, "MapIcon_Gimmick_LevelTreasureBox");
+    return IconDefinitionReady(chestType, 28852, "MapIcon_Gimmick_LevelTreasureBox", 0xffffffff);
 }
 
 // True only if `type` is one this mod creates and its definition is loaded
-// and matches: the chest (226), or in the combined build the native Bell (360).
+// and matches: the chest (226), or in the combined build a category's native
+// icon (Bell 360, Greymane Shrine 186, Abyss Nexus 234). The game loads a definition only once
+// it needs it, and this never asks it to; until then creation is refused.
 bool MarkerDefinitionReady(WORD type) {
 #ifdef PYWEL_ATLAS_COMBINED
-    if (type == bellMarkerType) {
-        return IconDefinitionReady(bellMarkerType, kBellTemplateType, kBellTemplateName);
+    for (const MarkerCategory& kind : kCategories) {
+        if (type == kind.type) {
+            return IconDefinitionReady(kind.type, kind.templateType, kind.templateName, kind.iconGroup);
+        }
     }
 #endif
     return type == chestType && ChestDefinitionReady();
+}
+
+// The icon type's definition record (from the game's icon table), or 0.
+uintptr_t IconRecord(WORD type) {
+    TableView icons = {};
+    uintptr_t record = 0;
+    if (!ReadTable(kIconTablePointerRva, 4096, icons) || type >= icons.count ||
+        !Read(reinterpret_cast<const void*>(icons.cache + type * sizeof(uintptr_t)), &record, sizeof(record))) {
+        return 0;
+    }
+    return record;
 }
 
 // Choose which map layer ("parent container") the chest is created in, the
@@ -1384,7 +2698,8 @@ bool ResolvePresentation(uintptr_t record, const void*& presentation) {
 
 // F8 diagnostic (only while generation is off): log already-loaded icon
 // definitions whose template names look relevant, plus raw bytes for a few
-// selected type ids (1, 226-229, 360).
+// selected type ids (1, 40, 41, 186, 226-229, 360), and (v0.75) every type
+// with a world-map look.
 void SnapshotCachedDefinitions() {
     // This reads only existing metadata cache entries. It never calls the lazy
     // loaders for missing IDs. The worker touches no scene/controller objects.
@@ -1400,6 +2715,7 @@ void SnapshotCachedDefinitions() {
     unsigned loaded = 0;
     unsigned named = 0;
     unsigned relevant = 0;
+    unsigned withLook = 0; // v0.75: types with a world-map look (see below).
     for (DWORD index = 0; index < icons.count; ++index) {
         uintptr_t record = 0;
         if (!Read(reinterpret_cast<const void*>(icons.cache + index * sizeof(uintptr_t)),
@@ -1420,7 +2736,10 @@ void SnapshotCachedDefinitions() {
             continue;
         }
         ++named;
-        if (index == 1 || (index >= 226 && index <= 229) || index == 360) {
+        // 186 = Greymane Shrine icon (v0.56), 360 = Bell icon, 40/41 = Abyss
+        // chest closed/opened (v0.69).
+        if (index == 1 || index == 40 || index == 41 || index == 186 || (index >= 226 && index <= 229) ||
+            index == 360) {
             // Equal template names do not imply equal map placement behaviour.
             // World creation selects a container with byte +0x2a; projection
             // branches on +0xb0 and altitude placement on +0xb7. Preserve the
@@ -1443,6 +2762,19 @@ void SnapshotCachedDefinitions() {
                 Log("definition bytes unavailable; no native loader invoked");
             }
         }
+        // v0.75: every loaded icon type with a value at +0x30. The icons our
+        // markers can use (chest 226 0x16fc, Bell 360 0x16f6) have one; the
+        // refused shrine (186) and Abyss chest (40) icons have 0xffff, so
+        // this is probably the world-map look. The list gives candidate
+        // icons for the shrine pins.
+        WORD look = 0xffff;
+        if (Read(reinterpret_cast<const void*>(record + 0x30), &look, sizeof(look)) && look != 0xffff) {
+            ++withLook;
+            char lookLine[256];
+            sprintf_s(lookLine, "worldlook type=%lu look=0x%x category=0x%lx template=%s",
+                index, static_cast<unsigned>(look), category, name);
+            Log(lookLine);
+        }
         if (!strstr(name, "Gimmick") && !strstr(name, "Treasure") &&
             !strstr(name, "Pin_Marker")) {
             continue;
@@ -1459,8 +2791,8 @@ void SnapshotCachedDefinitions() {
         ReadTable(kTemplateTablePointerRva, 65536, afterTemplates) &&
         SameTable(icons, afterIcons) && SameTable(templates, afterTemplates);
     char line[256];
-    sprintf_s(line, "catalogue end types=%lu cached=%u named=%u relevant=%u headersStable=%u",
-        icons.count, loaded, named, relevant, stable ? 1u : 0u);
+    sprintf_s(line, "catalogue end types=%lu cached=%u named=%u relevant=%u worldLook=%u headersStable=%u",
+        icons.count, loaded, named, relevant, withLook, stable ? 1u : 0u);
     Log(line);
 }
 
@@ -1564,12 +2896,16 @@ struct ZoomFrameRecord {
     float nearDistance; // global 0x6cab9e8
     float farDistance; // global 0x6caba88
     float zoomT; // 1 - (distance - near) / (far - near), as the game computes it
-    LONG markers; // Bell markers inspected (bit per Bell)
-    BYTE windowResult[32]; // icon+0x2b9 per Bell
-    BYTE onScreen[32]; // icon+0x1eb per Bell
-    DWORD elementFlags[32]; // (icon+8)->+0xb4 per Bell; bit 8 = hidden
-    BYTE windowEnabled[32]; // icon+0x208 per Bell (main zoom window enabled)
-    DWORD actorId[32]; // icon+0x1c0 per Bell (actor the icon follows; 0 = none)
+    LONG markers[kCategoryCount]; // Markers inspected (bit per marker, per category)
+    // Per marker of each category (v0.58: only the first 32 of each, to
+    // keep this record small on the game's thread):
+    struct {
+        BYTE windowResult; // icon+0x2b9
+        BYTE onScreen; // icon+0x1eb
+        DWORD elementFlags; // (icon+8)->+0xb4; bit 8 = hidden
+        BYTE windowEnabled; // icon+0x208 (main zoom window enabled)
+        DWORD actorId; // icon+0x1c0 (actor the icon follows; 0 = none)
+    } marker[kCategoryCount][32];
 };
 
 ZoomFrameRecord zoomFrames[16] = {};
@@ -1595,31 +2931,35 @@ void RecordZoomFrame(void* controller) {
     Read(reinterpret_cast<const void*>(imageBase + 0x6caba88), &record.farDistance, sizeof(float));
     float span = record.farDistance - record.nearDistance;
     record.zoomT = span != 0 ? 1.0f - (record.cameraDistance - record.nearDistance) / span : -1.0f;
-    LONG present = InterlockedCompareExchange(&bellMarkerPresent, 0, 0);
-    for (unsigned index = 0; index < kBellMarkerCount; ++index) {
-        if (!(present & (1L << index))) {
-            continue;
+    for (unsigned category = 0; category < kCategoryCount; ++category) {
+        const MarkerCategory& kind = kCategories[category];
+        MarkerMask present = LoadMask(markerPresent[category]);
+        for (unsigned index = 0; index < kind.count && index < 32; ++index) {
+            if (!present.Test(index)) {
+                continue;
+            }
+            NumericTag tag = {};
+            tag.key = kind.keyBase + index;
+            tag.kind = 0x15;
+            DWORD lookupIndex = 0;
+            void* icon = worldLookup(controller, &kind.type, &tag, &lookupIndex);
+            if (!IsCategoryMarker(icon, category, index)) {
+                continue;
+            }
+            auto* iconBytes = static_cast<const BYTE*>(icon);
+            auto& marker = record.marker[category][index];
+            uintptr_t element = 0;
+            Read(iconBytes + 0x2b9, &marker.windowResult, 1);
+            // v0.54: the main zoom window's enabled byte (0 = our limit is
+            // off), and the actor id the native icon type may follow (0 = none).
+            Read(iconBytes + 0x1f8 + 0x10, &marker.windowEnabled, 1);
+            Read(iconBytes + 0x1c0, &marker.actorId, sizeof(DWORD));
+            Read(iconBytes + 0x1eb, &marker.onScreen, 1);
+            if (Read(iconBytes + 8, &element, sizeof(element)) && element) {
+                Read(reinterpret_cast<const void*>(element + 0xb4), &marker.elementFlags, sizeof(DWORD));
+            }
+            record.markers[category] |= static_cast<LONG>(1UL << index);
         }
-        NumericTag tag = {};
-        tag.key = kBellMarkerKeyBase + index;
-        tag.kind = 0x15;
-        DWORD lookupIndex = 0;
-        void* icon = worldLookup(controller, &bellMarkerType, &tag, &lookupIndex);
-        if (!IsBellMarker(icon, index)) {
-            continue;
-        }
-        auto* iconBytes = static_cast<const BYTE*>(icon);
-        uintptr_t element = 0;
-        Read(iconBytes + 0x2b9, &record.windowResult[index], 1);
-        // v0.54: the main zoom window's enabled byte (0 = our limit is off),
-        // and the actor id the native Bell type may follow (0 = none).
-        Read(iconBytes + 0x1f8 + 0x10, &record.windowEnabled[index], 1);
-        Read(iconBytes + 0x1c0, &record.actorId[index], sizeof(DWORD));
-        Read(iconBytes + 0x1eb, &record.onScreen[index], 1);
-        if (Read(iconBytes + 8, &element, sizeof(element)) && element) {
-            Read(reinterpret_cast<const void*>(element + 0xb4), &record.elementFlags[index], sizeof(DWORD));
-        }
-        record.markers |= 1L << index;
     }
     if (!TryAcquireSRWLockExclusive(&zoomLock)) {
         return;
@@ -1628,6 +2968,149 @@ void RecordZoomFrame(void* controller) {
         zoomFrames[zoomFrameCount++] = record;
     }
     ReleaseSRWLockExclusive(&zoomLock);
+}
+
+// --- 2b. Why a world-icon creation is refused (v0.57) --------------------
+// The world icon constructor (0xdb3bd0, hooked as RouteWorldContainer) builds
+// a UI element from the template-name argument. Static reading: if that
+// element is not ready, it either parks it on the controller's waiting list
+// (+0x570 array, +0x578 count, only when +0xaf7 is set) or throws it away,
+// and returns 0 without setting the icon up. v0.56 saw exactly that for our
+// shrine marker. These records compare our attempts with the game's own
+// shrine and Bell creations. Copies only; nothing is changed.
+
+SRWLOCK createLock = SRWLOCK_INIT;
+WorldCreateRecord createRecords[64] = {}; // Waiting to be logged by the worker.
+unsigned createRecordCount = 0;
+volatile LONG createDropped = 0;
+// How many records were taken per source, to keep the log short:
+volatile LONG createOursLogged[kCategoryCount][kMaxCategoryMarkers] = {}; // First 3 per marker.
+volatile LONG createGameShrineLogged = 0; // Game's own type 186: first 32.
+volatile LONG createGameBellLogged = 0; // Game's own type 360: first 4.
+volatile LONG createGameAbyssChestLogged = 0; // v0.71: game's own type 40/41: first 32.
+
+// Copy a short text from game memory into `text`, 16 bytes at a time, so an
+// unreadable page after the text cannot fail the whole copy. Stops at the
+// first zero byte; anything unprintable becomes '?'. False if nothing readable.
+bool ReadShortText(const char* source, char (&text)[96]) {
+    text[0] = 0;
+    if (!source) {
+        return false;
+    }
+    size_t length = 0;
+    while (length + 16 < sizeof(text)) {
+        char chunk[16] = {};
+        if (!Read(source + length, chunk, sizeof(chunk))) {
+            break;
+        }
+        for (char value : chunk) {
+            if (value == 0) {
+                text[length] = 0;
+                return true;
+            }
+            text[length++] = (value >= 0x20 && value < 0x7f) ? value : '?';
+        }
+    }
+    text[length] = 0;
+    return length > 0;
+}
+
+// Called just before the original constructor runs. Decides whether this
+// creation is watched (ours, or the game's own shrine/Bell/Abyss chest within budget) and
+// copies its arguments. Returns false (watch nothing) for everything else.
+bool BeginWorldCreateProbe(void* controller, const WORD* type, const void* tag, uintptr_t slot7,
+    float scalar, uintptr_t slot9, const void* appearance, const char* templateName,
+    const void* optional12, const void* optional13, BYTE finalFlag, bool ours,
+    WorldCreateRecord& record) {
+    NumericTag actualTag = {};
+    WORD actualType = 0;
+    uintptr_t table = 0;
+    if (!Read(controller, &table, sizeof(table)) || table != imageBase + 0x566ff50 ||
+        !Read(type, &actualType, sizeof(actualType)) || !Read(tag, &actualTag, sizeof(actualTag))) {
+        return false;
+    }
+    unsigned category = 0;
+    unsigned index = 0;
+    bool watched = false;
+    if (ours && FindMarker(actualTag.key, category, index)) {
+        // First 3 tries per marker; only the first per chest (190 chests, 74 Abyss chests).
+        watched = InterlockedIncrement(&createOursLogged[category][index]) <= (category == kChestCategory || category == kAbyssChestCategory || category == kNexusCategory ? 1 : 3);
+    } else if (!ours && actualType == kCategories[kShrineCategory].type) {
+        watched = InterlockedIncrement(&createGameShrineLogged) <= 32;
+    } else if (!ours && actualType == kCategories[kBellCategory].type) {
+        watched = InterlockedIncrement(&createGameBellLogged) <= 4;
+    } else if (!ours && (actualType == 40 || actualType == 41)) {
+        // v0.71: the game's own Abyss chest icons (closed 40, opened 41), to
+        // compare with our refused type-40 attempts in v0.69.
+        watched = InterlockedIncrement(&createGameAbyssChestLogged) <= 32;
+    }
+    if (!watched) {
+        return false;
+    }
+    auto* bytes = static_cast<const BYTE*>(controller);
+    record.type = actualType;
+    record.key = actualTag.key;
+    record.kind = actualTag.kind;
+    record.ours = ours;
+    record.templateRead = ReadShortText(templateName, record.templateName);
+    record.appearancePresent = appearance != nullptr;
+    record.slot7 = slot7;
+    record.scalar = scalar;
+    record.slot9 = slot9;
+    record.optional12Present = optional12 != nullptr;
+    record.optional13Present = optional13 != nullptr;
+    record.finalFlag = finalFlag;
+    Read(bytes + 0xaf7, &record.waitingFlag, sizeof(record.waitingFlag));
+    Read(bytes + 0x578, &record.waitingBefore, sizeof(record.waitingBefore));
+    return true;
+}
+
+// Called right after the original constructor returned: notes whether it made
+// an icon and the waiting-list count, then queues the record for the log.
+void FinishWorldCreateProbe(void* controller, uintptr_t result, WorldCreateRecord& record) {
+    record.created = result != 0;
+    Read(static_cast<const BYTE*>(controller) + 0x578, &record.waitingAfter, sizeof(record.waitingAfter));
+    // Never wait on the game's thread: if busy or full, count it as dropped.
+    if (!TryAcquireSRWLockExclusive(&createLock)) {
+        InterlockedIncrement(&createDropped);
+        return;
+    }
+    if (createRecordCount < _countof(createRecords)) {
+        createRecords[createRecordCount++] = record;
+    } else {
+        InterlockedIncrement(&createDropped);
+    }
+    ReleaseSRWLockExclusive(&createLock);
+}
+
+// Worker: log the queued creation records.
+void LogWorldCreates() {
+    WorldCreateRecord batch[_countof(createRecords)];
+    AcquireSRWLockExclusive(&createLock);
+    unsigned count = createRecordCount;
+    memcpy(batch, createRecords, count * sizeof(WorldCreateRecord));
+    createRecordCount = 0;
+    ReleaseSRWLockExclusive(&createLock);
+    for (unsigned item = 0; item < count; ++item) {
+        const WorldCreateRecord& record = batch[item];
+        unsigned category = 0;
+        unsigned index = 0;
+        const char* name = record.ours && FindMarker(record.key, category, index)
+            ? MarkerName(category, index) : "-";
+        char line[512];
+        sprintf_s(line, "world-create %s type=%u tag=(0x%llx,0x%x) marker=%s created=%u template=%s "
+            "appearance=%u slot7=0x%llx scalar=%g slot9=0x%llx opt12=%u opt13=%u finalFlag=%u "
+            "waitingFlag=%u waiting=%lu->%lu dropped=%ld",
+            record.ours ? "ours" : "game", static_cast<unsigned>(record.type),
+            static_cast<unsigned long long>(record.key), static_cast<unsigned>(record.kind), name,
+            record.created ? 1u : 0u, record.templateRead ? record.templateName : "(unreadable)",
+            record.appearancePresent ? 1u : 0u, static_cast<unsigned long long>(record.slot7),
+            record.scalar, static_cast<unsigned long long>(record.slot9),
+            record.optional12Present ? 1u : 0u, record.optional13Present ? 1u : 0u,
+            record.finalFlag, record.waitingFlag, record.waitingBefore, record.waitingAfter,
+            InterlockedCompareExchange(&createDropped, 0, 0));
+        Log(line);
+    }
 }
 
 // --- 3. Player position ----------------------------------------------------
@@ -1679,6 +3162,11 @@ uintptr_t ObserveMinimapUpdate(void* controller, float elapsed) {
         ++playerPosition.minimapUpdates;
         ReleaseSRWLockExclusive(&positionLock);
     }
+    // v0.73: keep our markers on the minimap too, right after
+    // its own update (like the world map, see ObserveWorldMapUpdate).
+    if (minimap && kMinimapMarkers) {
+        ServiceMinimapMarkers(controller);
+    }
 #ifdef PYWEL_ATLAS_TELEPORT
     // Test build only: the game's own teleports run on this thread, after the
     // minimap update. The teleporter checks its own request state.
@@ -1706,9 +3194,44 @@ void RecordMapViewPosition(const void* playerXyz, float heading) {
     }
 }
 
+// v0.73: the minimap's own "remove icon" function (minimap controller vtable
+// slot 0x558; the world map's is 0xdb8a60 in the same slot). Arguments as the
+// world one: controller, icon type, tag, index. Its first 24 bytes in the
+// supported build (read from the installed executable with pefile, 2026-10-22).
+constexpr uintptr_t kMinimapRemoveRva = 0xe09fc0;
+constexpr BYTE kMinimapRemoveGuard[24] = {
+    0x48, 0x89, 0x5c, 0x24, 0x08, 0x48, 0x89, 0x74,
+    0x24, 0x18, 0x44, 0x89, 0x4c, 0x24, 0x20, 0x66,
+    0x89, 0x54, 0x24, 0x10, 0x57, 0x41, 0x54, 0x41,
+};
+
+// v0.73: switches minimap markers on only if the remove
+// function's guard bytes match and the minimap controller's vtable really
+// points at the studied find (0x548) and remove (0x558) functions.
+void PrepareMinimapMarkers(BYTE* base) {
+    if (!kMinimapMarkers) {
+        return;
+    }
+    uintptr_t lookupSlot = 0;
+    uintptr_t removeSlot = 0;
+    bool guard = memcmp(base + kMinimapRemoveRva, kMinimapRemoveGuard, sizeof(kMinimapRemoveGuard)) == 0;
+    bool slots = Read(base + 0x5674e00 + 0x548, &lookupSlot, sizeof(lookupSlot)) &&
+        Read(base + 0x5674e00 + 0x558, &removeSlot, sizeof(removeSlot)) &&
+        lookupSlot == reinterpret_cast<uintptr_t>(base + kInspectSites[4].rva) &&
+        removeSlot == reinterpret_cast<uintptr_t>(base + kMinimapRemoveRva);
+    if (guard && slots) {
+        removeMinimapIcon = reinterpret_cast<RemoveWorldIcon>(base + kMinimapRemoveRva);
+    }
+    char line[200];
+    sprintf_s(line, "Minimap markers: %s (remove guard %s, vtable slots %s)",
+        removeMinimapIcon ? "on" : "off", guard ? "matched" : "changed", slots ? "matched" : "changed");
+    Log(line);
+}
+
 // Installs the minimap watch hook, after checking its guard bytes. A failure
 // only disables position logging; the markers keep working.
 void InstallMinimapHook(BYTE* base) {
+    PrepareMinimapMarkers(base);
     if (memcmp(base + kMinimapUpdateRva, kMinimapUpdateGuard, sizeof(kMinimapUpdateGuard)) != 0) {
         Log("Minimap update entry changed; position observation not installed.");
         return;
@@ -1799,12 +3322,16 @@ void LogZoomAndPosition(bool now) {
             frame.cameraDistance, frame.nearDistance, frame.farDistance, frame.zoomT, frame.sizeInput,
             frame.valueA9c, frame.valueAe4, frame.mode, frame.firstUpdate);
         Log(line);
-        for (unsigned bell = 0; bell < kBellMarkerCount; ++bell) {
-            if (frame.markers & (1L << bell)) {
-                sprintf_s(line, "  zoom-marker %s windowResult=0x%02x onScreen=%u elementFlags=0x%lx hidden=%u zoomLimitEnabled=%u actorId=%lu",
-                    kBellLinks[bell].name, frame.windowResult[bell], frame.onScreen[bell],
-                    frame.elementFlags[bell], (frame.elementFlags[bell] & 8) ? 1u : 0u,
-                    frame.windowEnabled[bell], frame.actorId[bell]);
+        for (unsigned category = 0; category < kCategoryCount; ++category) {
+            for (unsigned item = 0; item < kCategories[category].count && item < 32; ++item) {
+                if (!(frame.markers[category] & static_cast<LONG>(1UL << item))) {
+                    continue;
+                }
+                const auto& marker = frame.marker[category][item];
+                sprintf_s(line, "  zoom-marker %s type=%u windowResult=0x%02x onScreen=%u elementFlags=0x%lx hidden=%u zoomLimitEnabled=%u actorId=%lu",
+                    MarkerName(category, item), static_cast<unsigned>(kCategories[category].type),
+                    marker.windowResult, marker.onScreen, marker.elementFlags,
+                    (marker.elementFlags & 8) ? 1u : 0u, marker.windowEnabled, marker.actorId);
                 Log(line);
             }
         }
@@ -1828,7 +3355,7 @@ void LogZoomAndPosition(bool now) {
     memcpy(lastLogged, position.minimap, sizeof(lastLogged));
     int nearest = -1;
     float nearestDistance = 0;
-    for (unsigned bell = 0; bell < kBellMarkerCount; ++bell) {
+    for (unsigned bell = 0; bell < _countof(kBellLinks); ++bell) {
         float bx = kBellLinks[bell].position[0] - position.minimap[0];
         float bz = kBellLinks[bell].position[2] - position.minimap[2];
         float distance = sqrtf(bx * bx + bz * bz);
@@ -1857,7 +3384,9 @@ void LogZoomAndPosition(bool now) {
 // write them to the log (outside the lock, so the game is never kept waiting).
 void Drain() {
     Sample batch[128];
-    VisibilityEvent visibilityBatch[128];
+    VisibilityEvent visibilityBatch[_countof(visibilityPending)];
+    // Static: too large for the stack next to the batches above (worker only).
+    static char lineBatch[_countof(observationLines)][_countof(observationLines[0])];
     AcquireSRWLockExclusive(&sampleLock);
     unsigned count = pendingCount;
     memcpy(batch, pending, count * sizeof(Sample));
@@ -1865,6 +3394,9 @@ void Drain() {
     unsigned visibilityCount = visibilityPendingCount;
     memcpy(visibilityBatch, visibilityPending, visibilityCount * sizeof(VisibilityEvent));
     visibilityPendingCount = 0;
+    unsigned lineCount = observationLineCount;
+    memcpy(lineBatch, observationLines, lineCount * sizeof(observationLines[0]));
+    observationLineCount = 0;
     ReleaseSRWLockExclusive(&sampleLock);
     for (unsigned index = 0; index < count; ++index) {
         const Sample& sample = batch[index];
@@ -1898,13 +3430,24 @@ void Drain() {
     }
     for (unsigned index = 0; index < visibilityCount; ++index) {
         const auto& event = visibilityBatch[index];
-        char line[256];
+        char line[320];
         sprintf_s(line, "private-chest visibility caller=0x%llx bit=%u enabled=%u "
             "before=%02x%02x%02x afterKnown=%u after=%02x%02x%02x",
             static_cast<unsigned long long>(event.caller), event.bit, event.enabled,
             event.before[0], event.before[1], event.before[2], event.afterRead ? 1u : 0u,
             event.after[0], event.after[1], event.after[2]);
+#ifdef PYWEL_ATLAS_COMBINED
+        if (event.named) {
+            // v0.80: which Nexus marker it was.
+            strcat_s(line, " marker=");
+            strcat_s(line, MarkerName(kNexusCategory, event.markerIndex));
+        }
+#endif
         Log(line);
+    }
+    // v0.80: lines written on the game's map thread.
+    for (unsigned index = 0; index < lineCount; ++index) {
+        Log(lineBatch[index]);
     }
 }
 
@@ -1933,7 +3476,7 @@ DWORD WINAPI Run(void* address) {
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
 #ifdef PYWEL_ATLAS_COMBINED
-    Log("Pywel Atlas combined v0.55 map markers -one native Bell icon (type 360) per Bell, shown at every map zoom (zoom limit off on our own markers only) while the detected save has it not completed; F10 hides all, F6 shows again. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap");
+    Log("Pywel Atlas combined v0.83 map markers (v0.83: Abyss Nexus markers turned off in the panel or with F10 are hidden with the game's own hide-reason function (bit 23) instead of removed, and shown again when turned on; read-only observation: layer settings of our icon types, hide bits of our world-map markers right after creation, Abyss Nexus hide-bit changes by name, 4 watched Nexus, 2 chest and 2 Abyss chest markers per round at 3 s / 10 s and on layer changes, with picture objects, container-list check and raw copies; markers on the world map and the minimap; surface Abyss Nexus markers (game icon type 234) until activated; minimap markers created with their own number and adopted once the game has built them; Greymane Shrine markers on, world map needs the Shrine Icons file mod; F8 lists icon types with a world-map look; game type 186/40/41 creations logged, our own markers left out of the sample list) - one native Bell icon (type 360) per not-completed Bell, one chest icon (type 226) per not-opened chest of the game's dedicated chest levels, caves/dungeons, puzzle strongboxes and house chests (190 chests; strongboxes from the save's field-object list, unknown ones hidden) and one chest icon (type 226) per not-opened Abyss chest (74, Abyss map layer) in the detected save, shown at every map zoom (zoom limit off on our own markers only); Greymane Shrine markers on (game shrine icon, type 186); up to 256 markers per category, checked 32 per map update; F10 hides all, F6 shows again. A failed marker is retried every 5 s without blocking others. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap, world-create records (ours and the game's own shrine/Bell icons)");
 #else
     Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
 #endif
@@ -2047,18 +3590,48 @@ DWORD WINAPI Run(void* address) {
     bool lastRefreshCompleted = false;
     ULONGLONG nextSaveRefresh = 0;
 #ifdef PYWEL_ATLAS_COMBINED
-    // Combined build: one marker per Bell, following the detected save.
-    // Markers are on from the start; F10 turns them off, F6 back on.
-    BellMarkerState bellMarkers = {};
-    bellMarkers.enabled = true;
+    // Combined build: one marker per Bell and per Greymane Shrine, following
+    // the detected save. Markers are on from the start; F10 turns them all
+    // off, F6 back on. v0.64: the filter panel (F9) switches each category,
+    // and its choices are loaded from filters.ini here.
+    MarkerState markers = {};
+    markers.enabled = true;
+    LoadFilters();
+    char filterLine[160] = "Filter panel choices:";
+    AcquireSRWLockExclusive(&statusLock);
+    for (unsigned category = 0; category < kCategoryCount; ++category) {
+        PywelMarkerCategoryStatus& panelStatus = categoryStatus[category];
+        strcpy_s(panelStatus.name, kPanelNames[category]);
+        panelStatus.available = kCategories[category].shown;
+        panelStatus.total = kCategories[category].count;
+        markers.shownLogged[category] = InterlockedCompareExchange(&categoryShown[category], 0, 0) != 0;
+        char part[48];
+        sprintf_s(part, " %s=%s", kCategories[category].label, markers.shownLogged[category] ? "on" : "off");
+        strcat_s(filterLine, part);
+    }
+    ReleaseSRWLockExclusive(&statusLock);
+    Log(filterLine);
+    ULONGLONG nextFiltersSave = 0;
 #endif
     while (true) {
         Drain();
 #ifdef PYWEL_ATLAS_COMBINED
-        UpdateBellMarkers(bellMarkers);
+        UpdateMarkers(markers);
+        LogLayerObservation();
+        InterlockedExchange(&markersEnabled, markers.enabled ? 1 : 0);
+        // v0.64: save changed panel choices, at most once a second.
+        if (InterlockedCompareExchange(&filtersDirty, 0, 0) && GetTickCount64() >= nextFiltersSave) {
+            InterlockedExchange(&filtersDirty, 0);
+            if (!SaveFilters()) {
+                InterlockedExchange(&filtersDirty, 1); // Try again in a second.
+            }
+            nextFiltersSave = GetTickCount64() + 1000;
+        }
         // v0.53 observation: zoom records and player position (F8 also logs
         // the position at once; see the F8 block below).
         LogZoomAndPosition(false);
+        // v0.57 observation: why world-icon creations are refused.
+        LogWorldCreates();
 #endif
         // Hotkeys count only while the game window is in front.
         DWORD foreground = 0;
@@ -2075,14 +3648,14 @@ DWORD WINAPI Run(void* address) {
         bool f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
         bool f10 = (GetAsyncKeyState(VK_F10) & 0x8000) != 0;
 #ifdef PYWEL_ATLAS_COMBINED
-        // --- F6 / F10 (combined build): turn the Bell markers on / off. ---
-        if (focused && f6 && !previousF6 && !bellMarkers.enabled) {
-            bellMarkers.enabled = true;
-            Log("Bell markers turned on (F6); they follow the detected save.");
+        // --- F6 / F10 (combined build): turn all markers on / off. ---
+        if (focused && f6 && !previousF6 && !markers.enabled) {
+            markers.enabled = true;
+            Log("Markers turned on (F6); they follow the detected save.");
             MessageBeep(MB_OK);
         }
-        if (focused && f10 && !previousF10 && bellMarkers.enabled) {
-            bellMarkers.enabled = false;
+        if (focused && f10 && !previousF10 && markers.enabled) {
+            markers.enabled = false;
             MessageBeep(MB_OK);
         }
 #else
@@ -2368,6 +3941,53 @@ bool PywelGetMinimapPlayer(float (&xyz)[3], DWORD& thread, ULONGLONG& tick) {
     bool known = playerPosition.minimapUpdates > 0;
     ReleaseSRWLockShared(&positionLock);
     return known;
+}
+
+// v0.64 (src/pywel-atlas/MarkerFilter.h): copies one category's state for
+// the filter panel.
+bool PywelGetMarkerCategory(unsigned category, PywelMarkerCategoryStatus& status) {
+    if (category >= kCategoryCount) {
+        return false;
+    }
+    AcquireSRWLockShared(&statusLock);
+    status = categoryStatus[category];
+    ReleaseSRWLockShared(&statusLock);
+    status.shown = InterlockedCompareExchange(&categoryShown[category], 0, 0) != 0;
+    return status.name[0] != 0; // Empty until this part's worker has started.
+}
+
+// v0.64: the filter panel switches a category on or off. Paused categories
+// cannot be switched on. The worker applies it and saves filters.ini.
+void PywelSetMarkerCategoryShown(unsigned category, bool shown) {
+    if (category >= kCategoryCount || (shown && !kCategories[category].shown)) {
+        return;
+    }
+    if (InterlockedExchange(&categoryShown[category], shown ? 1 : 0) != (shown ? 1 : 0)) {
+        InterlockedExchange(&filtersDirty, 1);
+    }
+}
+
+// v0.64: false while F10 has turned all markers off.
+bool PywelMarkersEnabled() {
+    return InterlockedCompareExchange(&markersEnabled, 0, 0) != 0;
+}
+
+// v0.64: the panel's saved position and size (screen fractions).
+bool PywelGetPanelGeometry(float (&geometry)[4]) {
+    AcquireSRWLockShared(&statusLock);
+    bool known = panelGeometryKnown;
+    memcpy(geometry, panelGeometry, sizeof(geometry));
+    ReleaseSRWLockShared(&statusLock);
+    return known;
+}
+
+// v0.64: stores the panel's new position and size; saved by the worker.
+void PywelSetPanelGeometry(const float (&geometry)[4]) {
+    AcquireSRWLockExclusive(&statusLock);
+    memcpy(panelGeometry, geometry, sizeof(panelGeometry));
+    panelGeometryKnown = true;
+    ReleaseSRWLockExclusive(&statusLock);
+    InterlockedExchange(&filtersDirty, 1);
 }
 #else
 // Windows calls this when the mod DLL is loaded. It does as little as possible

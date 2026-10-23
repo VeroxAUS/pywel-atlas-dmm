@@ -1530,3 +1530,756 @@ in the level files). `find_greymane_shrine_positions.py` now excludes that
 temple (`NOT_A_SHRINE`) and places Kingshield Northern from the user check
 (`USER_CONFIRMED`, height 667.79 where the player stood). The test build's
 target list is regenerated (22 targets; no separate th.gl entry).
+
+### Shrine save test (plan, 2026-10-22)
+
+Goal: find which save records change when one Greymane Shrine is (B)
+discovered and (C) finished, so the shrine category has an explicit
+completion source like the Bell's `_isCompleted`. Use the test build (it
+contains the normal mod) and a test save.
+
+User steps:
+1. Pick a shrine not yet discovered. Good starts: Nas River (330 m from the
+   Hernand Abyss Nexus target) or Deepfog Basin (541 m from the Southern
+   Guard Post Nexus target). Teleport to that nexus target, not onto the
+   shrine (landing on it may count as discovering it).
+2. Manual save A (an unused slot, not the last manual slot the user keeps
+   for repeats).
+3. Walk to the shrine until the game says it is discovered. Manual save B
+   in a second slot.
+4. Do whatever finishes it (pray, ritual, repair, reward). Manual save C in
+   a third slot. Note what the game showed.
+5. Quit normally and tell Claude the shrine and the three slot names.
+
+Claude afterwards (read-only):
+- Copy the three slot files out of the save folder into the ignored
+  `research/vendor/work/` (reading only), then decode them with the
+  existing reader logic.
+- Extend `research/scripts/survey_save_record_lists.py` with a shrine view:
+  `FactionSaveData._factionNodeElementSaveDataList` records 1107–1118 (all
+  fields), `KnowledgeSaveData._list` entries for the 12 shrine knowledge
+  keys (1001184–1001186, 1001998–1002006), the discovered-landmark list,
+  and alert history. Then diff A→B→C.
+- Also confirm that the save's node list order matches the table order
+  (records 1107–1118 should be the shrines; a check by a value only shrines
+  have, if one exists).
+- Result: the exact field (node index, field name, value change) that marks
+  "discovered" and "completed". Only an explicit change at C may count as
+  completed; record presence or knowledge alone never does.
+
+### Shrine save test result (2026-10-22)
+
+User run: Nas River Shrine; manual saves 6/7/8 = slots 105 (A, before),
+106 (B, discovered), 107 (C). The user found nothing to do at the shrine
+(no prompt, nothing "ticked"). Copies were decoded with pycrimson
+(`SaveFile` + `ReflectionParser`, works on whole saves); script
+`research/scripts/compare_shrine_saves.py` compares by key.
+
+- A → B: knowledge 1002002 `Knowledge_Node_NasRiver_GreyManeTemple` added at
+  level 2, with a "knowledge learned" alert (type 0, level 2). Also
+  Greystone Manor knowledge 1002116 went level 1 → 2 (passed on the way).
+- B → C: nothing shrine-related (Navet and Egg knowledge at level 1, and
+  an unrelated mission 4294966887 2 → 5).
+- The 12 shrine faction-node records (list positions 1107–1118; confirmed
+  the list follows the table order: each record's `_ownerFactionKey` is its
+  node key) are unchanged in A, B and C, all `_factionState` 2.
+- The user named the related challenge "Well-Informed Greymane". In the
+  English strings (`quest.paloc`; the current string files are a 32-byte
+  `paloc` header + LZ4 block, which pycrimson does not read yet) it is the
+  title of mission 1001044 in `missioninfo` (internal name reused:
+  `Challenge_SealedArtifact_ChallengeAndChange_II`). It is state 2 in all
+  three saves (likely "in progress"); the save holds no per-shrine counter
+  for it.
+
+Conclusion: the only per-shrine record the game writes is the shrine's
+knowledge entry, at level 2, when it is discovered. It is explicit and
+keyed (no proximity inference). It most likely is what the challenge
+counts, but that is inferred until the challenge screen confirms Nas River
+counts. A Greymane Shrine marker could use "knowledge key present at level
+≥ 2" as its completion source; level 1 or missing stays "not found".
+Needs the user's decision.
+
+### Challenge check setup (2026-10-22)
+
+- The user believes the "Well-Informed Greymane" challenge starts by picking
+  up a particular Sealed Abyss Artifact. th.gl: "Well-Informed Greymane",
+  Sealed Abyss Artifact, description "Visit all Greymane Shrines", shown
+  as (−5587, −5123, 521). th.gl's coordinate order is inconsistent between
+  pages (link `@a:b`); the level files settle it: X −5586.68, Z −5123.13
+  has objects at height ~520 including a Greymane temple lantern, the other
+  order has none. No placed artifact object was found (likely spawned).
+- The test teleporter now also reads `%LOCALAPPDATA%\PywelAtlas\teleport-targets.txt`
+  (`name; X; Z; height`, re-read on every target change; up to 128 targets
+  in all). Outcomes now carry their own target name and position. The file
+  was created with this artifact (with the user's request). Rebuilt
+  `/W4` clean, repackaged `PywelAtlasTest-v0.55.zip`.
+
+### Challenge check result (2026-10-22)
+
+User loaded manual 8 (slot 107), teleported to the artifact (file target),
+picked it up and saved to manual 5 (slot 104). The challenge screen showed
+"1 of 12" but does not list which shrines count.
+
+- 107 → 104: one new inventory item (key 1002021, the artifact); some
+  unrelated knowledge at level 1 and one node (Windrose Farm) at level 2;
+  the rolling missions 4294966596 → 5 and 4294966595 new (the same pattern
+  as 4294966887/86 earlier, not shrine-related). Mission 1001044
+  ("Well-Informed Greymane") is unchanged: state 2, same tags. No
+  challenge/achievement record type exists in the save. The 12 shrine
+  nodes are unchanged.
+- So the challenge stores no counter; "1 of 12" is computed. The only
+  shrine record in the save is Nas River's knowledge (level 2), and the
+  count matches it. Strong support (still inferred, one data point) that
+  the challenge counts the shrine knowledge entries, the same record a
+  shrine marker would use.
+- Copies of slots 104–107 are kept in the ignored `research/vendor/work/shrine-test/`.
+
+### Second shrine confirms the rule (2026-10-22)
+
+User loaded manual 5 (slot 104, challenge 1 of 12), teleported to the
+Southern Guard Post Nexus target, walked ~540 m to Deepfog Basin Shrine until
+the game said it was discovered; the challenge screen updated (2 of 12);
+saved to manual 1 (slot 100). 104 → 100: the only change in the whole
+comparison is knowledge 1002006 `Knowledge_Node_Deepfog_GreyManeTemple`
+added at level 2 (plus its learned alert). Shrine nodes unchanged.
+
+Confirmed (two shrines, user-observed challenge count): a Greymane Shrine
+is "found" exactly when its knowledge entry is present at level 2, and the
+"Well-Informed Greymane" challenge counts these entries. This is the
+explicit save record for the shrine category's completion.
+
+### Greymane Shrine markers: plan (2026-10-22, user-approved; built as v0.56)
+
+Evidence for the plan: after Deepfog Basin was discovered, the game created
+its own icon type 186 `MapIcon_Gimmick_GreyManeTemple` (template 28812,
+category 0xffffffff, tag kind 0xc) at (−12073.88, 716.11, −1999.97), exactly
+the temple position from the level files (trace
+`research/traces/pywel-atlas-test-v0.55-deepfog-map-marker.log`). So the
+game shows a shrine icon only after discovery; our markers cover exactly
+the undiscovered ones and never stack on the game's own icon.
+
+1. Data: `data/greymane-shrine-links.json` (12 rows: poiId, name, node key,
+   knowledge key, gamePosition, positionSource, evidence), made from
+   `research/analysis/greymane-shrine-positions.json` by a script, then a
+   generator `src/marker-bell/prepare_shrine_links.py` → `shrine-links.h`
+   (like the Bell table).
+2. Save reader (`NativeSaveReader.cpp`): a second, independent pass over the
+   single `KnowledgeSaveData` object and its `_list` of
+   `KnowledgeElementSaveData`, capturing `_key` and `_level` with exact
+   shape checks. Found = shrine knowledge key present at level ≥ 2.
+   `NativeSaveSummary` gains `shrinesValid`, `shrineFoundMask` and
+   `shrineSeenMask` (level 1, kept for diagnostics only). If this pass fails,
+   shrines are "unknown" (no new shrine markers) and Bells are unaffected.
+3. Save detection publishes the same summary (no change to its selection
+   or slot logic).
+4. Markers (`NativeMapCategoryProbe.cpp`): generalise the Bell marker code
+   into a small per-category table (name, icon type, template id/name,
+   private key block, positions, wanted/present masks). Shrines: keys
+   `0x5059415400000200 + i`, type 186 with exact definition checks, the
+   same zoom-limit-off, reconcile, removal and "unknown never means not
+   found" rules as Bells. F10/F6 still switch all markers until the ImGui
+   panel exists.
+5. Logging: type 186's definition once (container selector, record +0xb0
+   actor-follow branch, zoom window), and per shrine marker the same F8
+   fields as Bells (window result, zoom limit, actor id).
+6. Test (release-style build, or the test build with the teleporter): load a
+   save with Nas River and Deepfog found → 10 shrine markers, none at those
+   two (the game's own icons show there). Discover a third shrine and save →
+   its marker disappears. Check zoom-out visibility as for Bells.
+
+## Combined v0.56: Greymane Shrine markers (built, runtime pending)
+
+Built from the plan above (user-approved 2026-10-22). Release
+`archive/releases/PywelAtlas-v0.56.zip`, test build with the teleporter
+`PywelAtlasTest-v0.56.zip`. MSVC /W4 clean for the release, test and both
+standalone builds. Not run in game yet.
+
+- Data: `research/scripts/export_shrine_links.py` writes
+  `data/greymane-shrine-links.json` (12 rows: poiId, name, nodeKey,
+  knowledgeKey, gamePosition, positionSource) from the research output;
+  `src/marker-bell/prepare_shrine_links.py` turns it into `shrine-links.h`
+  (run by both build scripts).
+- Save reader (`NativeSaveReader.cpp`): the parser gained a `Pass` (Bells or
+  Knowledge). After the unchanged Bell parse, `FillShrines` runs a second,
+  complete parse of the same decoded bytes that descends only into the one
+  `KnowledgeSaveData` object and captures `_key` (`KnowledgeKey`, 4 bytes) and
+  `_level` (`TLevel`, 4 bytes, at most 1000) of each `_list` entry, which must
+  be exactly `KnowledgeElementSaveData`. Static check on a test save copy:
+  all property kinds inside that container are ones the parser supports
+  (0, 2, 6). Found = level ≥ 2; seen = any level. A failure sets
+  `shrinesValid=0` and `shrineError`, never throws, and leaves the Bell
+  result untouched. New `NativeSaveSummary` fields: `shrinesValid`,
+  `shrineCoverage`, `shrinesFound`, `shrineFoundMask`, `shrineSeenMask`,
+  `shrineError`.
+- Save detection: no selection or slot change. It logs `SHRINE_READ` after each
+  successful `BELL_READ`, adds "N of 12 Greymane Shrines found" (or
+  "unknown") to the F7 popup, and publishes the same summary to the markers.
+- Markers (`NativeMapCategoryProbe.cpp`): the Bell-only code became a table
+  `kCategories` (label, native type, template id/name, key block, count).
+  Bells: type 360, keys `0x5059415400000100 + i`. Shrines: type 186, template
+  28812 `MapIcon_Gimmick_GreyManeTemple`, category 0xffffffff, keys
+  `0x5059415400000200 + i`. Wanted / create-allowed / present / stuck masks
+  are per category; at most one creation per map update across all
+  categories. Shrines are "valid" only when the save read is accepted AND the
+  shrine pass succeeded; otherwise existing shrine markers stay and none are
+  created (logged once per read as "result unknown"). Same exact identity
+  checks, zoom-limit-off and native removal as Bells. F10/F6 switch all.
+- Logging: per-category "Detected save ... show [...]; done (hidden) [...]"
+  and "markers on the map now"; F8 zoom-marker lines carry the type; the F8
+  definition dump now includes type 186 (container selector, +0xb0 branch);
+  the first type-186 icon logs its zoom windows (zoom-type line).
+- Known limit: `MarkerDefinitionReady` reads only the already-loaded icon
+  definition and never asks the game to load it. If type 186 is not loaded
+  (possibly on a save with no shrine found yet), shrine creation is refused
+  and counted as failures. The test save has two shrines found.
+
+### v0.56 runtime result (2026-10-22): shrine markers not created
+
+User: Bell markers fine; F7 popup "2 of 12" shrines (correct); no shrine
+markers on the map. Traces `research/traces/pywel-atlas-v0.56-shrine-markers-map.log`
+and `pywel-atlas-v0.56-shrine-reads.log`:
+
+- Save side correct: every `SHRINE_READ` valid=1 found=2 foundMask=0x880
+  (Nas River, Deepfog Basin); marker log "show [10 shrines]; done (hidden)
+  [Nas River, Deepfog Basin]".
+- Type 186 definition matched (F8 dump: containerSelector=1, +0xb0 branch=1,
+  catalogue template 28812 `MapIcon_Gimmick_GreyManeTemple`).
+- The one creation sample (Riverbed Terrace, index 0) shows
+  `containerRouted=1 initObserved=0 iconVerified=0`: the world icon
+  constructor `0xdb3bd0` was entered but never reached the common
+  initialization (`0xdb4420` → `0xd8a970`), so no icon exists.
+- The game created no type-186 icon of its own in this session's log.
+- Definition difference: record +0x30 (WORD) is 0x16f6 for Bell 360 and
+  0x16fc for chest 226, but 0xffff for shrine 186.
+- Static reading of `0xdb3bd0` (research/disasm/map-zoom-db3bd0.asm): it builds
+  a UI element from the template name (11th argument) via `0x3d2f5b0`; if the
+  element's widget component (+0xd8, or +0xa0 → +0x58) is missing, or the
+  element is still loading (+0xa0 → +8 non-zero), it either queues the element
+  on controller +0x570 (when controller +0xaf7 is set) or destroys it, and
+  returns 0 without initializing. Most likely the shrine's UI template is not
+  loaded/ready when we create, unlike the Bell's. Not yet confirmed.
+- Design flaw found: a marker that always fails is retried first on every
+  update and uses the single creation slot, so the other 9 shrines were never
+  tried (one sample only, index 0).
+
+## Combined v0.57: why shrine icon creation is refused (user-approved, built, runtime pending)
+
+`archive/releases/PywelAtlas-v0.57.zip` / `PywelAtlasTest-v0.57.zip`; MSVC /W4
+clean for all four builds.
+
+- Observation (no game change): `RouteWorldContainer` (hook on the world icon
+  constructor `0xdb3bd0`) now keeps its return value and, for watched
+  creations, logs a `world-create` line: ours/game, type, tag, the text at the
+  template-name argument (bounded 16-byte copies), presentation present,
+  slot7/scalar/slot9 raw, optional 12/13 present, final flag, controller
+  +0xaf7, the waiting-list count at controller +0x578 before and after, and
+  whether an icon was returned. Watched: our markers (first 3 tries each), the
+  game's own type 186 (first 32) and type 360 (first 4).
+- Fix: `ServiceMarkers` gives each marker a 5 s retry delay after a failed
+  creation, so a failing marker no longer takes every update's creation slot.
+  The worker logs "markers whose last creation failed" per category.
+- What the run should answer: is our template text the same as the game's own
+  shrine creation; did the constructor park our element (waiting count up) or
+  throw it away; and do our markers succeed once the game has shown its own
+  shrine icon (template loaded).
+
+### v0.57 first run (2026-10-22): inconclusive, save never confirmed
+
+Traces `research/traces/pywel-atlas-v0.57-no-selection-*.log`. User: no
+shrine markers, only the game's own icons at Nas River and Deepfog Basin.
+But the marker log has no "Detected save" line and no `world-create ours`
+line: save detection logged `SELECTION withheld generation=2 loadScope=1650
+slot=100 reason=storage-root-unavailable`. In every earlier session the
+Steam save-storage start-up hook (`ef62160`, `stage=storage-end`) fired about
+0.7 s after `SESSION`; in this session it never appears, so the game started
+its save storage before our hook was installed (start-up timing race; not
+caused by v0.57). Without the storage root no selection forms, so no marker
+of any category may be created. The two game Bell creations were logged as
+expected (`world-create game type=360 ... template=MapIcon_Gimmick_Bell_01
+created=1 waiting=0->0`). Next: repeat the v0.57 run. Possible later fix
+(needs the user's OK): recover the storage root when the start-up hook was
+missed.
+
+### Fix plan: save folder when the start-up hook is missed (2026-10-22, needs the user's OK)
+
+Problem (v0.57 first run): the game started its Steam save storage before our
+start-up hook (`ef62160`, slot 1 of the storage object, vtable `59840c0`) was
+installed, so no save folder ("storage root") was copied and no selection
+formed. Rare (one session in all logs) but it silently disables every marker.
+
+Static research (read-only, this date):
+- The storage object is created once at start-up. Its owner is reached as
+  top object +0x108 → +0x50 → +0x10 (`0xacd9e0` → `0xa032470` → `0xef510a0`),
+  but the +0x108 object's constructor (`0x186deb0`) jumps straight into the
+  game's protected (scrambled) code. Following that chain from a fixed global
+  would be slow and fragile, so it is not used.
+- The storage object's own methods (vtable `59840c0`): slot 1 start-up
+  (`ef62160`, hooked today), slots 3–8 all build "<root>/<file>" paths with
+  the format `%#/%#` (`0x5578e3c`) from the same root at +0x20 / +0x128:
+  slot 3 `0x2356e20` (path, then `0x2358a20`), slot 4 `0x2356f40` → `0xef601b0`
+  and slot 5 `0x23571d0` (both log "[SaveData] restore failed"; read/recover),
+  slot 6 `0x2357c60` (writes the request's buffer), slot 7 `0x2358ef0`
+  (`_new` / `_backup` / `_delete` files), slot 8 `0x2359ff0`.
+- Slots 3–6 have the same exact shape: `BYTE method(void* storage, void* request)`.
+  Only RCX and RDX are read (R8/R9 are written before use), no float or stack
+  arguments, result in AL. The request's file name is at request +0x28 (or the
+  heap pointer at +0xb0).
+
+Plan (v0.58):
+1. Four watch-only hooks on slots 3–6 (`0x2356e20`, `0xef601b0`, `0x23571d0`,
+   `0x2357c60`), each with 24-byte guards checked against the installed
+   executable. Each forwards both arguments unchanged, keeps LastError, and
+   returns the original result. No game function is called by us.
+2. On entry, and only when RCX has exactly vtable `59840c0`, copy the root
+   with the existing `CopyStorageRoot` (bounded, while the object is live) and
+   queue a `STORAGE_USE` event (method slot, root copied). Logged when the root
+   or generation changes, not on every call.
+3. Selection: the start-up record stays the first choice. When it is missing
+   or unreadable, a `STORAGE_USE` root seen in the current session is accepted
+   as the same evidence, after the same `ValidateAccountRoot` checks (account
+   folder digits, slot folder). If both exist and differ, the selection is
+   withheld ("storage-root-conflict"). The log says which source was used
+   (`rootSource=startup|use`).
+4. Never guess the account from the folder listing; nothing is written to the
+   game or its saves.
+
+Test: ordinary runs should show `STORAGE_USE` firing during a load with the
+same root as the start-up record (the real confirmation, since the race cannot
+be forced). If the race happens again, the selection should still form with
+`rootSource=use`. Open question for the run: which of slots 3–6 run on load
+(static reading says the read/recover slots 4/5 should).
+
+## Third category: Treasure chests (research, 2026-10-22)
+
+Greymane Shrine markers are paused (user, 2026-10-22): the game refuses to
+create the shrine icon (v0.56/v0.57 above). Chests were chosen next because
+our own markers already use the chest icon (type 226), which works. User
+rule: only chests that do NOT refill are tracked.
+
+### Static findings (read-only)
+
+- Two kinds of chest exist in the game files:
+  - furniture chests in houses (`dff_chest_*`, `box_chest_*`,
+    `treasurebox_cabinet_*`, `in_dff_chest_*`). In the test saves they appear
+    in `FieldSaveData._fieldGimmickSaveDataList` (reason 1, with a
+    `_resetTimeSecondsOfDays` refill timer; their `_cover` parts reason 4).
+    They refill, so they are not trackable;
+  - special treasure boxes: prefabs under
+    `object/cd_gimmick/00_common/treasurebox/` (`gimmick_treasurebox_01/05/06/07`,
+    puzzle `padlock_safe_0N`, `jigsaw_safe_0N`, `musicbox_01`, `onetouchdrawing_01`,
+    `safe_01`) plus `gimmick_dungeon_chest_01` and `gimmick_temple_chest_01`.
+    These match MapGenie's "Treasure Chest" category (251 points, named
+    "Treasure Chest" or "Strongbox").
+- The level-gimmick table (`levelgimmicksceneobjectinfo`, the Bells' table)
+  has chest entries: `TreasureBox` 1000007, `TreasureBox_Sector` 1000134,
+  `Ocean_TreasureBox` 1000176, `Religion_Box` 1000101 (Bells: `Quest_Bell*`
+  1000115–1000119). So chests may be recorded in the Bells' save list
+  (`DiscoveredLevelGimmickSceneObjectSaveData`) once found or opened. Not
+  confirmed: the test saves have opened no special chest (user), so the
+  absence of chest records there says nothing.
+- Placements (`research/scripts/find_treasure_chests.py` →
+  `research/analysis/treasure-chest-placements.json`; level list from the
+  research-only scan `research/vendor/work/scan_chest_levels.py`): 275 special
+  chest objects in 178 spots (chests within 15 m grouped; some caves hold piles
+  of up to ~10 `treasurebox_07`). Only 63 spots / 50 MapGenie points pair
+  within 80 m. The puzzle strongboxes pair within 10–17 m. All 54 Abyss points
+  are unmatched (the MapGenie→game formula is fitted to Pywel only).
+- Many well-known chests have no special-chest object nearby, for example the
+  Church of Calphade tower chest (`mg:545827`, about 16 m from the Calphade
+  Bell): only crates, barrels and a toolbox lie within 40 m in the sector
+  levels. They are placed some other way (an interior/mission level, or
+  spawned by a quest or event); one MapGenie chest says "requires quest
+  progression for chest to spawn".
+- Whether special chests refill is unknown (static data shows no timer for
+  them; furniture chests have one).
+
+### In-game save test plan (needs the user)
+
+Goal: find which save record changes when a special chest is opened, whether it
+names the chest's UUID, and whether it carries a refill timer. Use the test
+build (teleporter) and test saves; copies are read outside the save folder.
+
+Chest A, a matched puzzle strongbox: `mg:544444` "Strongbox", Hernand, the
+Count's bed chambers on the upper floor (puzzle: rotate the wheel until the
+owl picture is complete). Level object `gimmick_treasurebox_padlock_safe_06`
+at (−10711.8, 621.6, −3897.2), about 85 m from teleport target "Hernand Abyss
+Nexus".
+Chest B, an unmatched chest: `mg:545827`, Church of Calphade tower, one floor
+below the Calphade Bell (climb in through the broken window on the north
+side); teleport target "Calphade Bell".
+
+1. Load a test save, go next to chest A without opening it, and save to a free
+   manual slot (A0).
+2. Open chest A, take the loot, save to another manual slot (A1).
+3. Teleport to the Calphade Bell, go to chest B without opening it, save (B0);
+   open it, save (B1).
+4. Refill check: wait or sleep at least one in-game day, look at chest A or B
+   again (closed again = refills), save (R).
+5. Tell Claude the slot numbers and what you saw. Claude copies the slots out
+   of the save folder and compares A0→A1, B0→B1 and A1→R key by key (the
+   shrine comparison tool, extended to the level-gimmick and field-gimmick
+   lists).
+
+### Chest save test result (2026-10-22)
+
+User run (test build, teleporter): A0 = Manual 1 (slot 100), A1 = Manual 2
+(101), B0 = Manual 3 (102), B1 = Manual 4 (103), R = Manual 5 (104). Copies in
+`research/vendor/work/chest-test/` (ignored); compared with
+`research/scripts/compare_chest_saves.py`.
+User notes: chest A was a lockpick (padlock) strongbox, south of the owl-picture
+one MapGenie describes; it opened and its item had to be stolen (user correction: it was looted, by stealing). Chest B looted. The
+refill check (about 12 in-game hours of sleep) showed the safe still open with
+no new loot.
+
+- Chest A (`gimmick_treasurebox_padlock_safe_06`, UUID
+  [1001162890, 3947892908, 3021822454, 0], level
+  `sector_-42_-16_indoor_1_26`, (−10711.8, 621.6, −3897.2), the object paired
+  with `mg:544444`): A0→A1 added a `FieldSaveData._fieldGimmickSaveDataList`
+  record for exactly that UUID: reason 1, `_resetTimeSecondsOfDays` =
+  18446744073709551615 (the largest value, "never"; furniture chests have
+  finite timers), `_initStateNameHash` 353047760, plus reason-4 records for its
+  door and lock parts. No Bells'-list record. No record existed before opening.
+- Chest B (Church of Calphade tower, `mg:545827`): the game object is
+  `itembox_06`, UUID [2163388933, 4279242571, 2832474592, 0], in the dedicated
+  level `TreasureBoxHernand`. Its field record existed already in A0 (reason 1,
+  reset "never", state hash 2255254665, the common initial value).
+  - A1→B0 (walked up, not opened): a Bells'-list record appeared,
+    `DiscoveredLevelGimmickSceneObjectSaveData`, key 1000007 (`TreasureBox`),
+    that UUID, no `_isCompleted`.
+  - B0→B1 (opened, looted): that record gained `_isCompleted = True`; the
+    field record's state hash became 1537827618 and gained `_leftDropRollCount`.
+  - B1→R (12 h): unchanged. Not refilled.
+- Rules (evidence from one chest each):
+  - chests in the dedicated chest levels: done = Bells'-list record with that
+    UUID, key 1000007, `_isCompleted = True`. The same rule and reader as Bells;
+    present without the flag = seen, not opened;
+  - other special chests (puzzle strongboxes in sector/indoor levels): a field
+    record for that UUID with reason 1 and reset "never" appeared on opening.
+    Opened and looted (stolen) gave state hash 353047760 and no
+    `_leftDropRollCount` (chest B, looted normally, gained one); from one
+    sample each. Whether an opened-but-not-looted box differs is untested.
+  - Neither carries a refill timer, so both kinds count as non-refilling.
+- Placements updated (`find_treasure_chests.py` now also reads the six chest
+  levels `treasurebox`, `treasureboxcrimsondesert`, `-delesyia`, `-demeniss`,
+  `-hernand`, `-kweiden` and the `gimmick_itembox_*` prefabs): 422 chest objects
+  in 321 spots; 159 of 251 MapGenie points pair within 80 m (119 matched spots
+  use the Bells'-list rule, 83 the field rule). Unpaired: the 54 Abyss points
+  (no coordinate formula) and about 38 surface points. Open: itembox objects
+  outside the six chest levels were only found where the earlier scan already
+  listed the level; a rescan for `gimmick_itembox_` would complete the list.
+
+## Combined v0.58: treasure chest markers (built, runtime pending)
+
+`archive/releases/PywelAtlas-v0.58.zip` / `PywelAtlasTest-v0.58.zip`; MSVC /W4
+clean for the release, test and both standalone builds. Not run in game yet.
+
+- Data: `research/scripts/export_chest_links.py` writes
+  `data/treasure-chest-links.json` (the 120 chests of the six dedicated chest
+  levels: name like "Hernand chest 8", UUID, game position, level, prefab,
+  paired MapGenie id); `src/marker-bell/prepare_chest_links.py` turns it into
+  `chest-links.h` (`kChestInfoKey` = 1000007). Both build scripts run it.
+  None of these 120 chests is within 20 m of another, so no pile handling is
+  needed yet.
+- Save reader: the Bell pass's `Match` also matches records with key 1000007
+  against the chest UUIDs (seen; opened = `_isCompleted`). `NativeSaveSummary`
+  gains `chestCoverage`, `chestsOpened`, `chestSeenMask[8]`,
+  `chestOpenedMask[8]` (256 bits). Same validity as Bells (one pass).
+- Save detection logs `CHEST_READ` (coverage, seen, opened) and the F7 popup
+  adds "N of 120 chests opened".
+- Markers: category 2 "Chest", type 226, template 28852
+  `MapIcon_Gimmick_LevelTreasureBox`, keys `0x5059415400000300 + i`. Masks are
+  now `MarkerMask` (8 × 32 bits, up to 256 markers per category), shared as
+  `[category][8]` LONG words with per-word Interlocked access.
+  `ServiceMarkers` checks a rotating slice of 32 markers per map update (still
+  at most one creation per update). Log lines show counts and truncate long
+  name lists. The F8 zoom record keeps only the first 32 markers per
+  category. The shrine category is paused (`shown = false`): never wanted or
+  created. World-create logging records only the first try per chest.
+- Test-build teleport target added to the user's runtime file:
+  "Chest C - Lioncrest Manor bedroom chest" ("Hernand chest 24", `mg:547548`).
+- Risks to watch: whether type 226's definition is loaded (it was in earlier
+  sessions; if not, chest creations fail and are logged); chests whose level
+  only loads after quest progress still get a marker (see
+  `docs/quest-dependent-chests-handoff.md`).
+
+## Which chests depend on quest progress (static research, 2026-10-22)
+
+Question from `docs/quest-dependent-chests-handoff.md`. Script:
+`research/scripts/classify_chest_gates.py` (read-only) writes
+`research/analysis/chest-gate-classification.json`.
+
+Evidence (game data and the user's save copies):
+
+- The game's level tree, `leveldata/rootlevel/sceneobjectphase/mergedphasegroups.dat`
+  (pack 0015), gives every level a parent chain. The 422 placed chests fall
+  into: terrain (sectors, `cd_cave`, `cd_dungeon` under `world_use_terrain`)
+  276; the six chest levels (`gamedatalevel/contents/treasurebox`) 120;
+  faction or main-quest levels (`gamedatalevel/faction/...`, `.../main/...`)
+  6; Abyss phase level `abyssisland_0003_phase00_00` 5; story/build phase
+  levels (`velluavillage_before/...phase00_00...`, `akapen_phase/grace_build/
+  grace_build_0001_phase00_00`) 3; not in the tree 12
+  (`castlegrant_node_crim_fortmanub_0001_phase00_00` 10, `world_region_01` 1,
+  `sector_-42_-16_indoor_1_41` 1).
+- Levels are referenced by a 32-bit Jenkins hash of their CamelCase name
+  (pycrimson `calculate_checksum`; e.g. `Mission_Friendly_Legendary_Black_Lion`
+  = 0xcb04a9d4). No static table, sequencer (`.paseq`/`.pastage`/`.paseqc`,
+  ~15,800 files) or group level file names a load rule for any chest level,
+  by name or by hash. Group level files hold only bounds. The level files'
+  `sceneobjectphase/levelinfos/*.levelinfo` list object UUIDs and parents per
+  phase, not conditions.
+- `levelgimmicksceneobjectinfo_misc` is the game's list of objects the save's
+  Bells' list can track: type key, gimmick key, level, parent chain, UUID
+  (three u32 at +8 after the chain). It has 239 `TreasureBox` (1000007)
+  objects: 147 match placed chests (all 120 chest-level chests, plus 24
+  waterfall-cave and 3 Abyss chests); 92 were missed by the level scan (71 in
+  Abyss levels, 19 caves, 1 dungeon, 1 in main-quest level `MeetAlustain`).
+  95 chest-level and 21 cave chests are also `RestoreStockTargetItem`
+  (1000167); meaning untested (chest B, one of them, did not refill).
+- Exact name links: only `mission_friendly_legendary_black_lion` has a mission
+  (1001701) and a parent quest (`Quest_Node_Her_Friendly_Legendary`, 1000322)
+  of the same name. The Bell levels follow the same pattern
+  (`Mission_PororinVillage_Bell_All_Hernand` = mission 1000186, state 5 in
+  chest-test slot 104), and Bells are present before and after that mission
+  completes, so "mission-named level" does not by itself mean "present only
+  while the mission is active" [inference].
+- Hypothesis 5 is refuted: in chest-test slots 100/104 and shrine-test slot
+  107, only the test chests have any record; the other ~420 placed chests
+  have neither a Bells'-list nor a field record. The save does not list
+  chests that exist.
+- No save field records which level phase is active
+  (`_activatedContentsPhaseGamePlayTriggerInfoKeyList` empty,
+  `SubLevelSaveData` holds two experience entries,
+  `_fieldLevelModifiedSaveDataList` holds level hashes with times).
+
+Not settled: the rule that loads faction/main/phase levels. Until a save test
+links one, these 26 chests (6 quest/faction, 5 Abyss phase, 3 story/build
+phase, 10 castle-grant phase, 2 other) stay "unknown" and get no marker. The
+120 chest-level chests sit in an always-on content group (structure, not yet
+a runtime test).
+
+### Offline follow-up (2026-10-22, no in-game test)
+
+- `RestoreStockTargetItem` is not a refill timer [evidence + inference]: the
+  executable's field list for `LevelGimmickSceneObjectInfo` has
+  `_isRestoreStockTargetItem` next to `_checkGameLevelLoadState`,
+  `_showIconConditionType` and `_checkBlockCondition`; the only other "Stock"
+  fields are shop fields (`_buyableStockCount`, `_isStockBuyable`). No save
+  copy holds a 1000167 record, even after chest B (both types) was opened. Its
+  purpose is unknown; the one sample did not refill. `_checkGameLevelLoadState`
+  suggests the game itself ties a gimmick's map icon to its level being loaded
+  [inference].
+- The game list gives each object's world position (three floats at +48 after
+  the chain; matched 263 placed chests). With it, an Abyss MapGenie formula
+  was fitted: x = (lng + 0.9704511) / 3.1054142e-5,
+  z = (lat − 0.7620569) / 3.1054118e-5 (same scale on both axes). All 54 Abyss
+  chest points pair one-to-one with Abyss TreasureBox objects, median ~2.5 m,
+  worst 35 m. 18 more surface points pair with missed cave/dungeon
+  TreasureBox objects. MapGenie coverage: 231 of 251 points now pair with a
+  game object (was 159); 20 unpaired, listed in
+  `chest-gate-classification.json`.
+- All 239 TreasureBox objects (Bells' save rule, key 1000007): 120 chest
+  levels, 74 Abyss, 44 terrain caves/dungeons, 1 main-quest level. 228 have a
+  MapGenie point within 80 m.
+- `mg:543899` (Hernand Castle alchemist's room, "found during the main
+  quest") is the TreasureBox in `MeetAlustain_Alustain_Chamber_Gimmick`
+  (group `Quest_MeetAlustain_Alchemist` under `Main`), 26 m from the point. So
+  it is a quest-level chest, not a chest-level one [inference from position and
+  MapGenie text]. In all three save copies the related main quest
+  `Quest_MeetAlustain_Alchemist_CrowWing` (1000509) is in progress (state 2).
+- Abyss phases: only `AbyssIsland_0003` (3 TreasureBoxes, 2 more chests) has a
+  real alternate phase level (`_Phase00_01`). The other 71 Abyss TreasureBoxes
+  have one version each. 21 sit under `AbyssIsland_Quest` (Abyss cores),
+  meaning untested.
+- Faction-node chests: `Node_Kwe_StellenManor` (1000466),
+  `Node_Dem_WindmereManor_Byron` (1000487) and `Node_Her_SpiderCastle`
+  (1000060) are faction nodes; their `FactionNodeElementSaveData` (keyed by
+  `_ownerFactionKey`) shows `_factionState` 2, 0 (blocked) and 2 in all three
+  copies. `conditioninfo` 1010001 reads
+  `GetFactionNodeState(Node_Kwe_StellenManor)==Normal`. The state numbering is
+  unknown, so these stay unknown.
+- No table names `SplitHorn_Boss_Ibano_*`, `grace_Build_0001_Phase00_00` or
+  `VelluaVillage_0001_Phase00_00_sub_2_3` as a load target.
+
+## v0.58 runtime result (2026-10-22): chest markers work end to end
+
+Traces `research/traces/pywel-atlas-v0.58-chest-markers-map.log` and
+`...-save-detection.log` (last session only). Test build, Manual 5 (slot 104).
+
+User: F7 said "1 of 120 chests opened"; chest icons all over the map, but
+Hernand looked like it was missing some. Teleported to Chest C (landed in the
+roof, climbed down), looted it and saved; its icon "changed to an open one".
+F8 with the map open, normal exit.
+
+Logs (captured):
+- `SELECTION formed serial=1 ... slot=104`, `BELL_READ ... accepted`,
+  `CHEST_READ serial=1 slot=104 coverage=120 seen=1 opened=1`. The save went to
+  slot 100 (Manual 1): `SAVE_WRITE ... slot=100 linked=1`, then `CHEST_READ
+  slot=100 seen=2 opened=2`. All `drops=0`.
+- Marker log: `Chests: show 119 ...; done (hidden) 1 [Hernand chest 8]`;
+  markers rose 32 per update slice to `Chest markers on the map now: 119`;
+  125 creations (6 Bells, 119 chests), `failures=0`, `zoomLimitOff=125`,
+  `zoomLimitRefused=0`; every `world-create ours` line has `created=1`. After
+  the save: `done (hidden) 2 [Hernand chest 8, Hernand chest 24]`,
+  `removals=1`, 118 on the map.
+- The "open" icon is the game's own: type 227
+  `MapIcon_Gimmick_LevelTreasureBoxOpened` (zoom window `[0.88 0.93 1 1]`).
+  The game drew one at Hernand chest 8's exact position (Calphade, opened
+  earlier). So after we remove our marker, the game shows its own opened
+  chest icon there (Chest C's own type-227 creation is not in the log; the
+  snapshot was already full) [inference for Chest C].
+
+Why Hernand looks sparse (static, this date): MapGenie lists 55 Hernand chests;
+we mark 27 (Hernand has 28 chest-level chests). The rest: 16 MapGenie-paired
+cave/dungeon TreasureBoxes (same game list and save type 1000007 as ours, in
+the always-on terrain group, under `CD_Cave_Her`), 5 field-rule puzzle boxes,
+2 in quest or phase levels, 5 unpaired. Across all regions the game's TreasureBox list has 44
+such cave/dungeon chests (Hernand 17, Demeniss 12, Delesyia 6, Crimson Desert
+5, Pailune 4); 24 of them are in `treasure-chest-placements.json` labelled
+`saveRule: field` only because they are outside the six chest levels. That
+label is probably wrong (they are in the Bells' list table), but their save
+record is untested.
+
+## Quest-gating review against v0.58 and chest plan (2026-10-22, needs the user's OK)
+
+Check against v0.58: all 120 chest-level chests (always-on content group)
+got markers and the opened one was hidden by its save record, so the static
+"always there" class holds in game for marker purposes. Nothing in v0.58
+touched the gated or unknown chests (no markers by design).
+
+What the findings mean for markers:
+1. Always there, marked now: 120 chest-level chests. Done = Bells'-list record,
+   key 1000007, `_isCompleted` (confirmed twice: chest B, Chest C).
+2. Always there, not marked yet: 44 cave/dungeon TreasureBoxes in the terrain
+   group (Hernand 17). They are in the same game list with the same type
+   1000007, so the same record is expected, but no save sample exists yet.
+3. Abyss: 74 TreasureBoxes (71 with one version; 21 under `AbyssIsland_Quest`,
+   meaning untested; 3 in `AbyssIsland_0003` with an alternate phase). They
+   need the game's Abyss chest icons (type 40 `MapIcon_AbyssTreasureBox`, 41
+   opened) and a check that our markers work on the Abyss map layer.
+4. Depend on quest progress, unknown: 26 placed chests in quest, faction,
+   story or castle-grant phase levels, plus the TreasureBox in the main-quest
+   level `MeetAlustain_Alustain_Chamber_Gimmick`. The save does not record
+   which levels are active, and no table names their load rule. Faction-node
+   states are readable but their numbering is unknown. Only the Alustain chest
+   is in the TreasureBox list, so only it could give a "seen" record (the
+   record the game writes when the player comes near, as chest B showed).
+   They stay hidden.
+
+Proposal:
+- Save test (user, test build, short): one Hernand cave chest, e.g. Echoing
+  Tunnel (`CD_Waterfall_Cave_0004`, (−11516.5, 610.2, −5196.0), `mg:550227`
+  10.7 m). Save before opening (C0) and after looting (C1); Claude compares
+  copies. Expected: a Bells'-list record, key 1000007, with that UUID and
+  `_isCompleted = True`.
+- v0.59 (after the test confirms it): add the 44 cave/dungeon chests to the
+  Chest category (positions from the game list, names by region and cave, same
+  rule and type-226 icon), 164 chests in all, under the 256 limit. Correct the
+  `saveRule` label of those 24 placement entries.
+- Gated chests stay hidden. Optional: show the Alustain chest only once its
+  "seen" record exists (an explicit save record), until it is opened.
+- Abyss chests: a separate later step (native Abyss icon, map layer check).
+
+### Missed puzzle strongboxes: the owl box (2026-10-22, static)
+
+User report: the Count's owl strongbox in Hernand (`mg:544444`, "rotate the
+wheel until the owl picture is complete") had no icon. Expected for v0.58
+(puzzle strongboxes use the field save rule and are not marked yet), but it
+was also missing from the research data:
+- The level search (`research/vendor/work/scan_chest_levels.py`) only looked
+  for a fixed list of box names and missed four puzzle-box families:
+  `fitnumber_safe`, `dial_safe`, `jigsaw_move_safe` and `allbutton`, plus
+  itemboxes outside the six chest levels. The owl box is
+  `gimmick_treasurebox_fitnumber_safe_04`, UUID [1001163168, 3947892908,
+  3021822454], level `sector_-42_-16_indoor_1_30`, (−10700.3, 621.3, −3880.3).
+- The padlock safe opened in the chest save test (chest A, `padlock_safe_06`)
+  is MapGenie's other strongbox in that manor, `mg:546900` ("rotate the dials
+  below the pins"). Nearest-point pairing gave it the owl point (10 m vs
+  18 m); with ~35 m MapGenie accuracy, two boxes in one house cannot be told
+  apart by distance.
+- Fix: the search pattern now includes those families and
+  `gimmick_itembox_*`; 87 more levels were added to `chest-levels.txt`;
+  `find_treasure_chests.py` skips loose `_part` pieces. Regenerated:
+  564 chest objects (was 422), 455 spots; all 239 TreasureBox-list objects
+  are now placed; MapGenie pairs 242 of 251 points (was 231).
+  `data/treasure-chest-links.json` (the 120 marked chests) is unchanged.
+- New objects found: about 17 surface puzzle strongboxes and itemboxes
+  outside the chest levels (Hernand 4: the owl box, a `jigsaw_move_safe` at
+  `mg:544510`, the Baron's bedchamber itembox in Lioncrest Manor `mg:547533`;
+  Demeniss 10; Delesyia 1; Pailune 2), 21 cave itemboxes already known from
+  the TreasureBox list, 71 Abyss TreasureBoxes, and 34
+  `itembox_reminiscence_01` in level `reminiscence_her` (a flashback level
+  under the content group; meaning unknown, no marker).
+
+Hernand, all 55 MapGenie chest points: 29 marked; 13 in caves, sewers or
+dungeons (TreasureBox list, save type 1000007, not marked yet); about 9
+puzzle strongboxes and itemboxes in manors and Hernand Castle (field rule,
+not marked yet: the owl box, padlock safes, two music boxes in the castle,
+the Baron's itembox); 2 in quest levels (Arboria Castle padlock safe in
+`quest_node_her_spidercastle`, Torchlight Cabin temple chest in
+`mission_friendly_legendary_black_lion`); 1 with no object within 50 m
+(`mg:556288`, a cabin on The Singing Catfish, probably a ship level).
+Gate classes now: 266 field-rule chests in terrain, 34 reminiscence, 12 not
+in the level tree, 7 quest/faction, 3 story/build phase, 2 Abyss, 1 other.
+
+### Cave chest save test (plan, user-approved 2026-10-22)
+
+Goal: confirm that the 44 cave/dungeon TreasureBoxes use the same save record
+as the chest-level chests before v0.59 marks them. Echoing Tunnel, Hernand
+(`mg:550227`, MapGenie "Chest x2"), level `cd_waterfall_cave_0004`:
+- chest D, `gimmick_itembox_a_0004`, UUID [2226913500, 1450446906,
+  2909694524], (−11516.5, 610.2, −5196.0), types 1000007 + 1000167. Expected:
+  a Bells'-list record, key 1000007, seen on approach, `_isCompleted` when
+  opened;
+- chest E, `gimmick_treasurebox_07`, UUID [1484827400, 1591218232,
+  3740195795], (−11503.8, 610.2, −5185.5), not in the chest list. Expected
+  (as chest A): a field record, reason 1, reset "never", on opening.
+Teleport target "Chest D - Echoing Tunnel cave chest" added to the user's
+runtime file. Steps: D0 = save next to both chests, unopened; D1 = after
+opening and looting chest D; D2 = after opening and looting chest E. Copies go
+to `research/vendor/work/cave-test/`, compared with `compare_chest_saves.py`.
+
+### Cave chest save test result (2026-10-22)
+
+User run (test build): D0 = Manual 2 (slot 101), D1 = Manual 3 (102), D2 =
+Manual 4 (103). Copies in `research/vendor/work/cave-test/` (ignored);
+compared with `compare_chest_saves.py`. The user opened one of the two
+generic chests next to chest D (not sure which counted as "chest E"); the
+save shows which.
+- Chest D (cave itembox, game chest list): D0 already had the Bells'-list
+  record (key 1000007, that UUID, no flag: seen); D0→D1 set `_isCompleted =
+  True`. Its field record (reason 1, reset "never") existed from D0 and
+  changed state hash 2255254665 → 1537827618 with `_leftDropRollCount` 0, as
+  chest B. **Same rule as the chest-level chests, confirmed.**
+- The two generic chests (`treasurebox_07`, gimmick key 16040007, origin UUID
+  [1484827400, 1591218232, 3740195795] with fourth word 82 and 86, same
+  position): both had field records already in D0, reason 1 with a finite
+  `_resetTimeSecondsOfDays` 1252289 (not "never"); their cover parts are
+  reason 4. D1→D2: chest 82 changed state hash to 1537827618 with
+  `_leftDropRollCount` 0; chest 86 unchanged (not opened). So the user opened
+  chest 82. The finite timer marks these as refilling chests, like furniture
+  chests [inference from the timer; no refill observed]. Under the user's
+  rule they are not tracked. This matters for the field-rule step: all 145
+  `treasurebox_07` objects probably refill, while the puzzle strongbox
+  (chest A, `padlock_safe_06`) had reset "never". A field record existing
+  does not mean opened (these existed before opening); chest A's record
+  appeared only on opening.
+
+## Combined v0.59: cave chest markers (built, runtime pending)
+
+`archive/releases/PywelAtlas-v0.59.zip` / `PywelAtlasTest-v0.59.zip`; MSVC /W4
+clean for the release, test and both standalone builds. Not run in game yet.
+v0.58 zips kept as the last runtime-confirmed fallback.
+- `export_chest_links.py` appends the 44 cave/dungeon TreasureBoxes (game
+  chest list, terrain group) after the 120 chest-level chests, so existing
+  marker keys keep their numbers: 164 chests (Hernand 19, Demeniss 10,
+  Delesyia 6, Crimson Desert 5, Kweiden 4 cave chests), names like "Hernand
+  cave chest 6", plus a `place` field (MapGenie cave name, e.g. Echoing
+  Tunnel = Hernand cave chest 6). Positions from the level files.
+- No code logic changed: the reader, masks and markers are sized from the
+  chest table (`kChestLinks`); banner, comments and READMEs updated.
+- Expected test (Manual 4, slot 103 copy checked offline): opened = Hernand
+  chest 8, Hernand chest 24, Hernand cave chest 6, so F7 should say "3 of 164
+  chests opened" and 161 chest markers appear.
+- Still hidden: quest/faction/phase chests (unknown), Abyss chests, puzzle
+  strongboxes (field rule, next), reminiscence-level itemboxes, and the
+  refilling `treasurebox_07` chests.

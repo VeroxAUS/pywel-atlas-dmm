@@ -82,6 +82,15 @@ if ($Mode -eq 'Categories') {
     if ($LASTEXITCODE -ne 0) { throw 'Could not embed the default marker definition' }
     & $python -B (Join-Path $sourceDirectory 'prepare_bell_links.py')
     if ($LASTEXITCODE -ne 0) { throw 'Could not embed verified Bell identities' }
+    # v0.56: the Greymane Shrine list read by NativeSaveReader.cpp.
+    & $python -B (Join-Path $sourceDirectory 'prepare_shrine_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Greymane Shrine list' }
+    # v0.58: the treasure chest list read by NativeSaveReader.cpp.
+    & $python -B (Join-Path $sourceDirectory 'prepare_chest_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the treasure chest list' }
+    # v0.79: the surface Abyss Nexus list read by NativeSaveReader.cpp.
+    & $python -B (Join-Path $sourceDirectory 'prepare_nexus_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss Nexus list' }
 }
 
 # ---------------------------------------------------------------------------

@@ -36,6 +36,12 @@
 //   Ctrl+Right / Ctrl+Left (Ctrl+PageDown / Ctrl+PageUp)  next / previous target
 //   Ctrl+Up (Ctrl+Home)          show the current target again (popup)
 //   Ctrl+Down (Ctrl+End)         teleport to the current target
+//
+// TARGETS
+//   %LOCALAPPDATA%\PywelAtlas\teleport-targets.txt, one per line:
+//   "name; X; Z; height" (th.gl's order). Re-read on every target change.
+//   v0.68: when the file has targets, only those are offered; the built-in
+//   targets (teleport-targets.h) are used only when it has none.
 // =============================================================================
 
 #define WIN32_LEAN_AND_MEAN
@@ -55,7 +61,6 @@ namespace {
 
 constexpr DWORD kExpectedTimestamp = 1790086912u;
 constexpr DWORD kExpectedImageSize = 389722112u;
-constexpr unsigned kTargetCount = _countof(kTeleportTargets);
 constexpr float kLandingLift = 1.5f; // metres above the target, to land on top
 constexpr ULONGLONG kReapplyDelay = 3000; // ms, like the game's second apply
 constexpr ULONGLONG kCheckDelay = 2000; // ms after the second apply
@@ -120,8 +125,12 @@ bool Read(const void* address, void* destination, SIZE_T size) {
 // game thread moves 1 -> 2 and 2 -> 0. The target is written before 1 is set.
 volatile LONG requestState = 0;
 float requestedTarget[3] = {};
-unsigned requestedIndex = 0;
+char requestedName[96] = {};
 alignas(8) volatile LONG64 requestedAt = 0;
+// Game-thread copies of the request being carried out (taken at 1 -> 2), so
+// a later request cannot change what an outcome reports.
+float activeTarget[3] = {};
+char activeName[96] = {};
 
 // What happened, for the worker to log. Written only on the game thread.
 enum OutcomeKind : BYTE {
@@ -134,7 +143,8 @@ enum OutcomeKind : BYTE {
 struct Outcome {
     BYTE kind;
     BYTE attempt;       // 1 = first apply, 2 = second apply
-    unsigned index;     // target index
+    char name[96];      // target name
+    float target[3];    // target position
     ULONGLONG tick;
     DWORD thread;
     bool playerKnown;
@@ -150,7 +160,8 @@ void Report(BYTE kind, BYTE attempt, uintptr_t result) {
     Outcome outcome = {};
     outcome.kind = kind;
     outcome.attempt = attempt;
-    outcome.index = requestedIndex;
+    memcpy(outcome.name, activeName, sizeof(outcome.name));
+    memcpy(outcome.target, activeTarget, sizeof(outcome.target));
     outcome.tick = GetTickCount64();
     outcome.thread = GetCurrentThreadId();
     DWORD minimapThread = 0;
@@ -249,7 +260,6 @@ BYTE ApplyMove(const float (&target)[3], BYTE attempt) {
 // 1 first apply done (second pending), 2 second apply done (check pending).
 int stage = 0;
 ULONGLONG nextStepAt = 0;
-float activeTarget[3] = {};
 
 } // namespace
 
@@ -265,6 +275,7 @@ void PywelTeleporterService() {
             return;
         }
         memcpy(activeTarget, requestedTarget, sizeof(activeTarget));
+        memcpy(activeName, requestedName, sizeof(activeName));
         if (ApplyMove(activeTarget, 1) == kApplied) {
             stage = 1;
             nextStepAt = now + kReapplyDelay;
@@ -312,16 +323,89 @@ DWORD WINAPI ShowPopup(void*) {
     return 0;
 }
 
+// The worker's target list: the user's targets from
+// %LOCALAPPDATA%\PywelAtlas\teleport-targets.txt or, v0.68, only when that
+// file has none, the built-in targets (teleport-targets.h). That keeps the
+// list short while testing. Only the worker reads or changes it.
+struct Target {
+    char name[96];
+    float position[3]; // X, height Y, Z
+};
+Target targets[128] = {};
+unsigned targetCount = 0;
+bool builtInTargetsUsed = false; // True when the file gave no targets.
+wchar_t extraTargetsPath[MAX_PATH] = {};
+
+// Copies the built-in targets into the list (used when the file has none).
+void LoadBuiltInTargets() {
+    for (const auto& builtIn : kTeleportTargets) {
+        Target& target = targets[targetCount++];
+        strcpy_s(target.name, builtIn.name);
+        memcpy(target.position, builtIn.position, sizeof(target.position));
+    }
+    builtInTargetsUsed = true;
+}
+
+// Rebuild the list from the user's file, one target per line,
+// "name; X; Z; height" (the order th.gl shows coordinates in). Lines
+// starting with '#', and lines that do not parse, are skipped. No usable
+// line (or no file) = the built-in targets instead.
+void LoadTargets() {
+    targetCount = 0;
+    builtInTargetsUsed = false;
+    FILE* file = nullptr;
+    if (_wfopen_s(&file, extraTargetsPath, L"r") != 0 || !file) {
+        LoadBuiltInTargets();
+        return;
+    }
+    char text[256];
+    while (targetCount < _countof(targets) && fgets(text, sizeof(text), file)) {
+        if (text[0] == '#') {
+            continue;
+        }
+        char* context = nullptr;
+        char* name = strtok_s(text, ";", &context);
+        char* fields[3] = {};
+        bool complete = name != nullptr;
+        for (auto& field : fields) {
+            field = strtok_s(nullptr, ";\r\n", &context);
+            complete = complete && field != nullptr;
+        }
+        if (!complete) {
+            continue;
+        }
+        float x = strtof(fields[0], nullptr);
+        float z = strtof(fields[1], nullptr);
+        float height = strtof(fields[2], nullptr);
+        if (!std::isfinite(x) || !std::isfinite(z) || !std::isfinite(height) ||
+            std::fabs(x) > 100000 || std::fabs(z) > 100000 || std::fabs(height) > 100000) {
+            continue;
+        }
+        while (*name == ' ') {
+            ++name;
+        }
+        Target& target = targets[targetCount++];
+        strncpy_s(target.name, name, _TRUNCATE); // Long names are cut, not fatal.
+        target.position[0] = x;
+        target.position[1] = height;
+        target.position[2] = z;
+    }
+    fclose(file);
+    if (targetCount == 0) {
+        LoadBuiltInTargets();
+    }
+}
+
 // Opens the target popup unless one is already open.
 void ShowTarget(unsigned index) {
     if (InterlockedCompareExchange(&popupOpen, 1, 0) != 0) {
         return;
     }
-    const TeleportTarget& target = kTeleportTargets[index];
+    const Target& target = targets[index];
     swprintf_s(popupText, L"Target %u of %u:\n%hs\n(%.1f, %.1f, %.1f)\n\n"
         L"Ctrl+Down teleports there (test saves only).\n"
         L"Ctrl+Right / Ctrl+Left choose another target.",
-        index + 1, kTargetCount, target.name, target.position[0], target.position[1], target.position[2]);
+        index + 1, targetCount, target.name, target.position[0], target.position[1], target.position[2]);
     HANDLE thread = CreateThread(nullptr, 0, ShowPopup, nullptr, 0, nullptr);
     if (thread) {
         CloseHandle(thread);
@@ -343,17 +427,16 @@ void LogOutcomes() {
         "no valid player", "player movement component did not match", "checked"};
     for (unsigned index = 0; index < count; ++index) {
         const Outcome& outcome = copy[index];
-        const TeleportTarget& target = kTeleportTargets[outcome.index];
         char line[512];
         int length = sprintf_s(line, "t=%llu attempt %u to \"%s\": %s thread=%lu", outcome.tick,
-            outcome.attempt, target.name, kNames[outcome.kind < _countof(kNames) ? outcome.kind : 0], outcome.thread);
+            outcome.attempt, outcome.name, kNames[outcome.kind < _countof(kNames) ? outcome.kind : 0], outcome.thread);
         if (outcome.kind == kApplied) {
             length += sprintf_s(line + length, sizeof(line) - length, " result=0x%llx",
                 static_cast<unsigned long long>(outcome.result));
         }
         if (outcome.playerKnown && length > 0) {
-            float dx = outcome.player[0] - target.position[0];
-            float dz = outcome.player[2] - target.position[2];
+            float dx = outcome.player[0] - outcome.target[0];
+            float dz = outcome.player[2] - outcome.target[2];
             sprintf_s(line + length, sizeof(line) - length, " player=(%.2f, %.2f, %.2f) distanceToTarget=%.1f m%s",
                 outcome.player[0], outcome.player[1], outcome.player[2], std::sqrt(dx * dx + dz * dz),
                 outcome.kind == kChecked ? (std::sqrt(dx * dx + dz * dz) < 10.0f ? " -> ARRIVED" : " -> NOT THERE") : "");
@@ -373,6 +456,8 @@ DWORD WINAPI Run(void* address) {
     }
     wcscat_s(path, L"\\PywelAtlas");
     CreateDirectoryW(path, nullptr);
+    wcscpy_s(extraTargetsPath, path);
+    wcscat_s(extraTargetsPath, L"\\teleport-targets.txt");
     wcscat_s(path, L"\\teleporter.log");
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
@@ -397,8 +482,10 @@ DWORD WINAPI Run(void* address) {
         }
     }
     InterlockedExchange(&teleporterReady, 1);
-    char line[160];
-    sprintf_s(line, "All guards matched; %u targets loaded.", kTargetCount);
+    LoadTargets();
+    char line[256];
+    sprintf_s(line, "All guards matched; %u targets loaded (%s).", targetCount,
+        builtInTargetsUsed ? "built in; teleport-targets.txt has none" : "from teleport-targets.txt only");
     Log(line);
 
     unsigned current = 0;
@@ -422,10 +509,18 @@ DWORD WINAPI Run(void* address) {
         ULONGLONG now = GetTickCount64();
 
         if ((next && !previousNext) || (previous && !previousPrevious)) {
-            current = next ? (current + 1) % kTargetCount : (current + kTargetCount - 1) % kTargetCount;
+            // Re-read the user's file, so edits show up without restarting.
+            unsigned before = targetCount;
+            LoadTargets();
+            if (targetCount != before) {
+                sprintf_s(line, "Target list reloaded: %u targets.", targetCount);
+                Log(line);
+            }
+            current = current < targetCount ? current : 0;
+            current = next ? (current + 1) % targetCount : (current + targetCount - 1) % targetCount;
             MessageBeep(MB_OK);
             popupAt = now + 700;
-            sprintf_s(line, "Selected target %u: %s", current + 1, kTeleportTargets[current].name);
+            sprintf_s(line, "Selected target %u: %s", current + 1, targets[current].name);
             Log(line);
         }
         if (popupAt && now >= popupAt) {
@@ -439,11 +534,11 @@ DWORD WINAPI Run(void* address) {
             if (InterlockedCompareExchange(&requestState, 0, 0) != 0) {
                 Log("Teleport ignored: the previous one is still being carried out.");
             } else {
-                memcpy(requestedTarget, kTeleportTargets[current].position, sizeof(requestedTarget));
-                requestedIndex = current;
+                memcpy(requestedTarget, targets[current].position, sizeof(requestedTarget));
+                strcpy_s(requestedName, targets[current].name);
                 InterlockedExchange64(&requestedAt, static_cast<LONG64>(now));
                 InterlockedExchange(&requestState, 1);
-                sprintf_s(line, "t=%llu teleport requested to %u: %s", now, current + 1, kTeleportTargets[current].name);
+                sprintf_s(line, "t=%llu teleport requested to %u: %s", now, current + 1, targets[current].name);
                 Log(line);
             }
         }

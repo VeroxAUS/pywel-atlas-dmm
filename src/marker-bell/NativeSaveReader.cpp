@@ -1,4 +1,5 @@
-// NativeSaveReader.cpp - read the game's save file (never write it) and report Bells.
+// NativeSaveReader.cpp - read the game's save file (never write it) and report
+// Bells and (v0.56) Greymane Shrines.
 //
 // What this file does, in order:
 // 1. Finds the save file: %LOCALAPPDATA%\Pearl Abyss\CD\save\<steam id>\slot<N>\save.save.
@@ -14,7 +15,21 @@
 // 5. Matches those records against the known Bells (from bell-proof-links.h) by
 //    their UUID (a 16-byte unique ID for each object placed in the game world)
 //    and a numeric type key, and notes which are recorded and which completed.
-// 6. Writes a small JSON report and a diagnostic copy of the save into the mod's
+//    v0.58: the same records also cover treasure chests from the game's
+//    dedicated chest levels and (v0.59) caves and dungeons (chest-links.h,
+//    type key 1000007 "TreasureBox"), and (v0.69) the Abyss chests, and
+//    (v0.79) which surface Abyss Nexuses are discovered (nexus-links.h, type
+//    key 1000001 "AbyssRuins_Field").
+// 6. v0.56: walks the same decoded data a second, separate time, this time
+//    only the player's "knowledge" list, and notes which Greymane Shrines the
+//    save records as found (knowledge entry at level 2; shrine-links.h). If
+//    that pass fails, shrines are reported as unknown and Bells are unaffected.
+// 7. v0.68: a third separate walk reads only the field-object list (objects
+//    placed in the world whose state the game remembers) and notes which
+//    puzzle strongboxes and surface itemboxes are opened, and (v0.79) which
+//    Abyss Nexuses are activated. If that pass fails, those boxes and the
+//    Nexuses are reported as unknown; Bells and other chests are unaffected.
+// 8. Writes a small JSON report and a diagnostic copy of the save into the mod's
 //    own folder, and returns a summary to NativeMapCategoryProbe.cpp.
 // It also contains the F9 save-slot chooser and the remembered-slot loader.
 //
@@ -37,6 +52,9 @@
 #include <string>
 #include <vector>
 #include "bell-proof-links.h"
+#include "shrine-links.h"
+#include "chest-links.h"
+#include "nexus-links.h"
 
 namespace {
 // ===========================================================================
@@ -338,28 +356,82 @@ struct Record {
     bool uuidKnown = false;
     bool keyKnown = false;
     bool completed = false; // _isCompleted.
+    // Knowledge pass (v0.56): one KnowledgeElementSaveData entry.
+    uint32_t knowledgeKey = 0; // _key.
+    uint32_t level = 0; // _level (1 = heard of, 2 = found, for shrines).
+    bool knowledgeKeyKnown = false;
+    bool levelKnown = false;
+    // Field pass (v0.68): one FieldGimmickSaveData entry.
+    std::array<uint32_t, 4> origin = {}; // _levelOriginSceneObjectUuid.
+    uint32_t reason = 0; // _fieldSaveDataReason (1 for the boxes studied).
+    uint64_t reset = 0; // _resetTimeSecondsOfDays (largest value = never refills).
+    uint32_t stateHash = 0; // _initStateNameHash (closed / opened, see kBoxOpened...).
+    bool originKnown = false;
+    bool reasonKnown = false;
+    bool resetKnown = false;
+    bool stateKnown = false;
 };
 // What the save says about one known Bell.
 struct BellState {
     bool recorded = false; // A matching record exists in the save.
     bool completed = false; // That record explicitly says completed.
 };
+// What the save says about one known treasure chest (v0.58).
+struct ChestState {
+    bool seen = false; // A matching record exists (the player came near).
+    bool opened = false; // That record explicitly says completed (opened).
+};
+// What the field-object list says about one field-rule chest (v0.68).
+struct FieldChestState {
+    unsigned records = 0; // Matching records (normally 0 or 1).
+    bool opened = false; // A record in an opened state.
+    bool closed = false; // A record in the closed state.
+    bool unexpected = false; // A record unlike any studied one (makes it unknown).
+};
+// Field-record values from the strongbox save tests (2026-10-22).
+constexpr uint32_t kBoxReasonSaved = 1; // _fieldSaveDataReason of every box record seen.
+constexpr uint64_t kBoxResetNever = 0xFFFFFFFFFFFFFFFFull; // Refill time "never".
+constexpr uint32_t kBoxClosed = 2255254665u; // Closed (also the common initial state).
+constexpr uint32_t kBoxOpenedStolen = 353047760u; // Opened with a steal prompt.
+constexpr uint32_t kBoxOpenedLooted = 1537827618u; // Opened and looted normally.
+// What the save says about one known Greymane Shrine.
+struct ShrineState {
+    bool seen = false; // Its knowledge entry exists (any level).
+    bool found = false; // Its knowledge entry is at level 2 or more.
+};
+// Which part of the save one parse looks at. Each pass is a separate,
+// complete parse, so a failure in one never changes the other's result.
+enum class Pass {
+    Bells, // DiscoveredLevelGimmickSceneObjectSaveData._discoveredLevelGimmickSceneObjectSaveDataList
+    Knowledge, // KnowledgeSaveData._list (Greymane Shrines)
+    Field, // FieldSaveData._fieldGimmickSaveDataList (strongboxes, v0.68)
+};
 
 // ===========================================================================
 // Section: reflection parser
-// Walks the decoded data, but descends into only one container type
-// ("DiscoveredLevelGimmickSceneObjectSaveData"). Everything else is skipped.
+// Walks the decoded data, but descends into only one container type: the
+// Bell container ("DiscoveredLevelGimmickSceneObjectSaveData"), for the
+// shrine pass the knowledge container ("KnowledgeSaveData") or, for the field
+// pass, the field containers ("FieldSaveData"). Everything else is skipped.
 // ===========================================================================
 
-// Parses one decoded save and returns one BellState per entry in kBellLinks.
+// Parses one decoded save. Read() returns one BellState per entry in
+// kBellLinks; ReadShrines() returns one ShrineState per entry in kShrineLinks.
 class Reflection {
     Cursor reader;
+    Pass pass = Pass::Bells; // Which container this parse descends into.
     uint32_t metadata = 0; // Reflection metadata version (3 or 4 supported).
     uint32_t version = 0; // Serialization version (11..15 supported).
     std::vector<Type> types; // The save's type table.
     std::array<BellState, _countof(kBellLinks)> states = {};
+    std::array<ShrineState, _countof(kShrineLinks)> shrines = {};
+    std::array<ChestState, _countof(kChestLinks)> chests = {};
+    std::array<FieldChestState, _countof(kChestLinks)> fieldChests = {};
+    std::array<ChestState, _countof(kAbyssChestLinks)> abyssChests = {}; // v0.69.
+    std::array<ChestState, _countof(kNexusLinks)> nexuses = {}; // v0.79, Bell pass: discovered.
+    std::array<FieldChestState, _countof(kNexusLinks)> fieldNexuses = {}; // v0.79, field pass: activated.
     size_t objectsVisited = 0; // Safety counter against huge or looping data.
-    bool bellListVisited = false; // Did we actually see the Bell list field?
+    bool listVisited = false; // Did we actually see the list field this pass needs?
 
     // Read a 4-byte element count and reject anything above `maximum`.
     uint32_t Count(uint32_t maximum = 1000000) {
@@ -367,14 +439,97 @@ class Reflection {
         Require(count <= maximum, "Reflection collection exceeds limit.");
         return count;
     }
+    // Field pass: note one field-object record's state for a box or Nexus.
+    // Only the exact shape seen in the save tests counts; anything else
+    // (another reason, a refill timer, no state) makes it unknown.
+    static void NoteFieldState(FieldChestState& state, const Record& record) {
+        ++state.records;
+        bool studied = record.reasonKnown && record.reason == kBoxReasonSaved &&
+            record.resetKnown && record.reset == kBoxResetNever && record.stateKnown;
+        if (studied && (record.stateHash == kBoxOpenedStolen || record.stateHash == kBoxOpenedLooted)) {
+            state.opened = true;
+        } else if (studied && record.stateHash == kBoxClosed) {
+            state.closed = true;
+        } else {
+            state.unexpected = true;
+        }
+    }
+
     // True for property kinds that are stored as arrays (lists of values).
     bool Array(uint16_t kind) { return kind == 3 || kind == 6 || kind == 7 || kind == 9 || kind == 10; }
 
-    // If this record's UUID and type key both match a known Bell, mark that Bell
-    // as recorded, and as completed if the record says so.
+    // Bell pass: if this record's UUID and type key both match a known Bell,
+    // mark that Bell as recorded, and as completed if the record says so.
+    // Knowledge pass: if the entry's key is a shrine's knowledge key, mark that
+    // shrine as seen, and as found at level 2 or more.
+    // Field pass: if the entry came from a field-rule chest or (v0.79) an
+    // Abyss Nexus (all four UUID numbers equal; parts use other fourth
+    // numbers), note its state.
     void Match(const Record& record) {
+        if (pass == Pass::Field) {
+            if (!record.originKnown) {
+                return;
+            }
+            for (unsigned index = 0; index < _countof(kChestLinks); ++index) {
+                if (kChestLinks[index].rule == kChestRuleField &&
+                    memcmp(kChestLinks[index].uuid, record.origin.data(), sizeof(kChestLinks[index].uuid)) == 0) {
+                    NoteFieldState(fieldChests[index], record);
+                }
+            }
+            // v0.79: an activated Nexus ("abyssruins_useartifact_01") has the
+            // same record shape and "opened" state as an opened strongbox.
+            for (unsigned index = 0; index < _countof(kNexusLinks); ++index) {
+                if (memcmp(kNexusLinks[index].uuid, record.origin.data(), sizeof(kNexusLinks[index].uuid)) == 0) {
+                    NoteFieldState(fieldNexuses[index], record);
+                }
+            }
+            return;
+        }
+        if (pass == Pass::Knowledge) {
+            // Both fields must have been read; otherwise the entry says nothing.
+            if (!record.knowledgeKeyKnown || !record.levelKnown) {
+                return;
+            }
+            for (unsigned index = 0; index < _countof(kShrineLinks); ++index) {
+                if (kShrineLinks[index].knowledgeKey == record.knowledgeKey) {
+                    shrines[index].seen = true;
+                    shrines[index].found |= record.level >= 2;
+                }
+            }
+            return;
+        }
         if (!record.uuidKnown || !record.keyKnown) {
             return;
+        }
+        // v0.58: a treasure chest needs the exact chest type key and UUID.
+        // v0.68: field-rule boxes may also use the "TreasureBox_Sector" key
+        // (seen on the Hernand itembox when it was opened).
+        if (record.key == kChestInfoKey || record.key == kSectorChestInfoKey) {
+            for (unsigned index = 0; index < _countof(kChestLinks); ++index) {
+                bool keyFits = record.key == kChestInfoKey || kChestLinks[index].rule == kChestRuleField;
+                if (keyFits &&
+                    memcmp(kChestLinks[index].uuid, record.uuid.data(), sizeof(kChestLinks[index].uuid)) == 0) {
+                    chests[index].seen = true;
+                    chests[index].opened |= record.completed;
+                }
+            }
+        }
+        // v0.79: a discovered Abyss Nexus: its own key and UUID, no flags.
+        if (record.key == kNexusInfoKey) {
+            for (unsigned index = 0; index < _countof(kNexusLinks); ++index) {
+                if (memcmp(kNexusLinks[index].uuid, record.uuid.data(), sizeof(kNexusLinks[index].uuid)) == 0) {
+                    nexuses[index].seen = true;
+                }
+            }
+        }
+        // v0.69: Abyss chests use the same "TreasureBox" key and UUID rule.
+        if (record.key == kChestInfoKey) {
+            for (unsigned index = 0; index < _countof(kAbyssChestLinks); ++index) {
+                if (memcmp(kAbyssChestLinks[index].uuid, record.uuid.data(), sizeof(kAbyssChestLinks[index].uuid)) == 0) {
+                    abyssChests[index].seen = true;
+                    abyssChests[index].opened |= record.completed;
+                }
+            }
         }
         for (unsigned index = 0; index < _countof(kBellLinks); ++index) {
             const auto& link = kBellLinks[index];
@@ -388,11 +543,51 @@ class Reflection {
     }
 
     // Read one plain value of `size` bytes. If we are inside a Bell record,
-    // keep the three fields we care about; each must have the exact expected
-    // shape or parsing stops with an error.
+    // keep the three fields we care about (knowledge entry: its two fields);
+    // each must have the exact expected shape or parsing stops with an error.
     void Scalar(const Property& property, size_t size, Record* record) {
         const uint8_t* value = reader.Take(size);
         if (!record) {
+            return;
+        }
+        if (pass == Pass::Field) {
+            // The four fields the box rule needs, each in its exact studied shape.
+            if (property.name == "_levelOriginSceneObjectUuid") {
+                Require(property.typeName == "uint4" && size == 16, "Unexpected field origin UUID representation.");
+                for (unsigned word = 0; word < 4; ++word) {
+                    record->origin[word] = Load32(value + word * 4);
+                }
+                record->originKnown = true;
+            } else if (property.name == "_fieldSaveDataReason") {
+                Require(property.typeName == "FieldSaveDataReason" && size == 1,
+                    "Unexpected field save reason representation.");
+                record->reason = value[0];
+                record->reasonKnown = true;
+            } else if (property.name == "_resetTimeSecondsOfDays") {
+                Require(property.typeName == "uint64" && size == 8, "Unexpected field reset representation.");
+                record->reset = Load32(value) | (static_cast<uint64_t>(Load32(value + 4)) << 32);
+                record->resetKnown = true;
+            } else if (property.name == "_initStateNameHash") {
+                Require(property.typeName == "HashCode32" && size == 4, "Unexpected field state representation.");
+                record->stateHash = Load32(value);
+                record->stateKnown = true;
+            }
+            return;
+        }
+        if (pass == Pass::Knowledge) {
+            if (property.name == "_key") {
+                Require(property.typeName == "KnowledgeKey" && size == 4,
+                    "Unexpected knowledge key representation.");
+                record->knowledgeKey = Load32(value);
+                record->knowledgeKeyKnown = true;
+            } else if (property.name == "_level") {
+                // Levels seen in saves are 1 and 2; a huge value means the
+                // layout is not what was studied.
+                Require(property.typeName == "TLevel" && size == 4 && Load32(value) <= 1000,
+                    "Unexpected knowledge level representation.");
+                record->level = Load32(value);
+                record->levelKnown = true;
+            }
             return;
         }
         if (property.name == "_sceneObjectUuid") {
@@ -434,6 +629,13 @@ class Reflection {
         }
         Require(typeIndex < types.size(), "Invalid reflection type index.");
         const Type& type = types[typeIndex];
+        // Knowledge pass: every entry of the knowledge list must be exactly a
+        // KnowledgeElementSaveData object, or the pass is rejected.
+        Require(!record || pass != Pass::Knowledge || type.name == "KnowledgeElementSaveData",
+            "Unexpected knowledge entry type.");
+        // Field pass: likewise, every entry must be a FieldGimmickSaveData.
+        Require(!record || pass != Pass::Field || type.name == "FieldGimmickSaveData",
+            "Unexpected field entry type.");
         Require(bitmapSize >= (type.properties.size() + 7) / 8, "Property bitmap too short.");
         size_t start = reader.offset;
         reader.Skip(1); // Version >=10 object flag.
@@ -456,12 +658,21 @@ class Reflection {
             if ((property.flags & 0x82) != 0 || (!array && !present)) {
                 continue;
             }
-            // The one list we care about: the discovered-gimmick records list.
-            bool bellList = type.name == "DiscoveredLevelGimmickSceneObjectSaveData" &&
-                property.name == "_discoveredLevelGimmickSceneObjectSaveDataList";
-            if (bellList) {
-                Require(property.kind == 6 || property.kind == 7, "Unsupported Bell list representation.");
-                bellListVisited = true;
+            // The one list this pass cares about: the discovered-gimmick records
+            // list (Bells), the knowledge list (shrines) or the field-object
+            // list (strongboxes).
+            bool captureList = false;
+            if (pass == Pass::Bells) {
+                captureList = type.name == "DiscoveredLevelGimmickSceneObjectSaveData" &&
+                    property.name == "_discoveredLevelGimmickSceneObjectSaveDataList";
+            } else if (pass == Pass::Knowledge) {
+                captureList = type.name == "KnowledgeSaveData" && property.name == "_list";
+            } else {
+                captureList = type.name == "FieldSaveData" && property.name == "_fieldGimmickSaveDataList";
+            }
+            if (captureList) {
+                Require(property.kind == 6 || property.kind == 7, "Unsupported record list representation.");
+                listVisited = true;
             }
             // Version 15+: arrays start with a 1-byte marker; 1 means "nothing stored".
             if (version >= 15 && array && reader.U8() == 1) {
@@ -495,8 +706,8 @@ class Reflection {
                 break;
             case 6:
             case 7: {
-                // Array of objects. Entries are Bell records only when this is
-                // the Bell list found above.
+                // Array of objects. Entries are captured records only when this
+                // is the list found above.
                 uint32_t count = Count();
                 bool hasNames = version >= 14 && reader.U8() == 1;
                 reader.Skip(8);
@@ -506,7 +717,7 @@ class Reflection {
                     reader.Skip(static_cast<size_t>(unknownCount) * (hasNames ? 12 : 8));
                 }
                 for (uint32_t entry = 0; entry < count; ++entry) {
-                    Object(depth + 1, bellList, false, 0, hasNames);
+                    Object(depth + 1, captureList, false, 0, hasNames);
                 }
                 break;
             }
@@ -520,7 +731,7 @@ class Reflection {
             }
             default:
                 // Any other kind (including 9) is refused rather than guessed.
-                throw std::runtime_error("Unsupported reflected property kind in Bell container.");
+                throw std::runtime_error("Unsupported reflected property kind in save container.");
             }
         }
         // Nested objects end with their own byte size; it must match what we read.
@@ -536,10 +747,45 @@ class Reflection {
 
 public:
     explicit Reflection(const Bytes& plain) : reader(plain) {}
-    // Parse the whole decoded save and return the per-Bell results.
-    // Order: header and versions, type table, optional name table, object
-    // table, then the single Bell container object.
+
+    // Parse the decoded save and return the per-Bell results.
     auto Read() {
+        pass = Pass::Bells;
+        Parse("DiscoveredLevelGimmickSceneObjectSaveData");
+        return states;
+    }
+
+    // Per-chest results of the last Read() (v0.58; same pass as the Bells).
+    const auto& Chests() const { return chests; }
+
+    // Per-Abyss-chest results of the last Read() (v0.69; same pass).
+    const auto& AbyssChests() const { return abyssChests; }
+
+    // Per-Nexus "discovered" results of the last Read() (v0.79; same pass).
+    const auto& Nexuses() const { return nexuses; }
+
+    // Per-Nexus field records of the last ReadFieldChests() (v0.79).
+    const auto& FieldNexuses() const { return fieldNexuses; }
+
+    // Parse the decoded save and return the per-shrine results (v0.56).
+    auto ReadShrines() {
+        pass = Pass::Knowledge;
+        Parse("KnowledgeSaveData");
+        return shrines;
+    }
+
+    // Parse the decoded save and return what the field-object list says
+    // about each field-rule chest (v0.68; other chest rows stay empty).
+    auto ReadFieldChests() {
+        pass = Pass::Field;
+        Parse("FieldSaveData");
+        return fieldChests;
+    }
+
+private:
+    // Order: header and versions, type table, optional name table, object
+    // table, then the single `container` object this pass needs.
+    void Parse(const char* container) {
         Require(reader.U16() == 0xffff, "Unsupported legacy reflection header.");
         metadata = reader.U32();
         if (metadata < 3 || metadata > 4) {
@@ -591,19 +837,26 @@ public:
                 "Invalid reflection object table entry.");
             entries.push_back(info);
         }
-        // Parse only the Bell container; there must be exactly one, and it must
-        // contain the Bell list, or the whole read is rejected.
+        // Parse only this pass's container; there must be exactly one, and it
+        // must contain the needed list, or the whole pass is rejected. The
+        // field pass is the exception: saves hold one field container per
+        // world (two in the saves studied), and all of them are read.
         unsigned containers = 0;
         for (const auto& info : entries) {
-            if (types[info.type].name != "DiscoveredLevelGimmickSceneObjectSaveData") { continue; }
+            if (types[info.type].name != container) { continue; }
             ++containers;
             reader.offset = info.offset;
             reader.limit = info.offset + info.size;
             Object(0, false, true, info.type);
         }
-        Require(containers == 1 && bellListVisited,
-            "Save has no unique supported Bell discovery container/list.");
-        return states;
+        bool containersFit = pass == Pass::Field ? containers >= 1 && containers <= 8 : containers == 1;
+        const char* failure = "Save has no unique supported Bell discovery container/list.";
+        if (pass == Pass::Knowledge) {
+            failure = "Save has no unique supported knowledge container/list.";
+        } else if (pass == Pass::Field) {
+            failure = "Save has no supported field-object container/list.";
+        }
+        Require(containersFit && listVisited, failure);
     }
 };
 
@@ -707,6 +960,102 @@ FileRead ReadStable(const std::wstring& source) {
     }
     throw std::runtime_error("Save is still changing; no completion was inferred.");
 }
+// Copy the per-chest results of a successful Bell pass into `summary` (v0.58),
+// then (v0.68) add the field-object pass for field-rule chests and (v0.79)
+// Abyss Nexuses. That pass is a separate parse: if it fails, only field-rule
+// chests not already opened by the Bells' list, and the Nexuses, become
+// unknown; it never throws.
+template <typename States, typename NexusStates>
+void FillChests(const States& chests, const NexusStates& nexuses, const Bytes& plain, NativeSaveSummary& summary) {
+    static_assert(_countof(kChestLinks) <= 32 * _countof(summary.chestSeenMask),
+        "Chest masks hold at most 256 chests");
+    static_assert(_countof(kNexusLinks) <= 32 * _countof(summary.nexusSeenMask),
+        "Nexus masks hold at most 256 Nexuses");
+    std::array<FieldChestState, _countof(kChestLinks)> field = {};
+    std::array<FieldChestState, _countof(kNexusLinks)> nexusField = {};
+    summary.chestFieldValid = false;
+    try {
+        Reflection fieldReader(plain);
+        field = fieldReader.ReadFieldChests();
+        nexusField = fieldReader.FieldNexuses();
+        summary.chestFieldValid = true;
+    } catch (const std::exception& exception) {
+        strncpy_s(summary.chestFieldError, exception.what(), _TRUNCATE);
+    }
+    // v0.79: Nexuses. Activated only by an explicit "opened" field record.
+    summary.nexusCoverage = static_cast<unsigned>(nexuses.size());
+    for (unsigned index = 0; index < nexuses.size(); ++index) {
+        unsigned bit = 1u << (index % 32);
+        const FieldChestState& state = nexusField[index];
+        bool unknown = !summary.chestFieldValid || state.unexpected || (state.opened && state.closed);
+        bool activated = !unknown && state.opened;
+        bool seen = nexuses[index].seen || state.records > 0;
+        summary.nexusesActivated += activated ? 1 : 0;
+        summary.nexusesUnknown += unknown ? 1 : 0;
+        summary.nexusSeenMask[index / 32] |= seen ? bit : 0u;
+        summary.nexusActivatedMask[index / 32] |= activated ? bit : 0u;
+        summary.nexusUnknownMask[index / 32] |= unknown ? bit : 0u;
+    }
+    summary.chestCoverage = static_cast<unsigned>(chests.size());
+    for (unsigned index = 0; index < chests.size(); ++index) {
+        unsigned bit = 1u << (index % 32);
+        bool seen = chests[index].seen || field[index].records > 0;
+        bool opened = chests[index].opened;
+        bool unknown = false;
+        if (kChestLinks[index].rule == kChestRuleField && !opened) {
+            const FieldChestState& state = field[index];
+            if (!summary.chestFieldValid || state.unexpected || (state.opened && state.closed)) {
+                unknown = true; // Undecided: hidden, never shown as "not opened".
+            } else {
+                opened = state.opened;
+            }
+        }
+        summary.chestFieldRecords += field[index].records;
+        summary.chestsOpened += opened ? 1 : 0;
+        summary.chestsUnknown += unknown ? 1 : 0;
+        summary.chestSeenMask[index / 32] |= seen ? bit : 0u;
+        summary.chestOpenedMask[index / 32] |= opened ? bit : 0u;
+        summary.chestUnknownMask[index / 32] |= unknown ? bit : 0u;
+    }
+}
+
+// Copy the per-Abyss-chest results of a successful Bell pass into `summary` (v0.69).
+template <typename States>
+void FillAbyssChests(const States& chests, NativeSaveSummary& summary) {
+    static_assert(_countof(kAbyssChestLinks) <= 32 * _countof(summary.abyssChestSeenMask),
+        "Abyss chest masks hold at most 256 chests");
+    summary.abyssChestCoverage = static_cast<unsigned>(chests.size());
+    for (unsigned index = 0; index < chests.size(); ++index) {
+        unsigned bit = 1u << (index % 32);
+        summary.abyssChestsOpened += chests[index].opened ? 1 : 0;
+        summary.abyssChestSeenMask[index / 32] |= chests[index].seen ? bit : 0u;
+        summary.abyssChestOpenedMask[index / 32] |= chests[index].opened ? bit : 0u;
+    }
+}
+
+// Second, independent pass (v0.56): read the Greymane Shrines from the same
+// decoded bytes into `summary`. A failure here leaves shrinesValid false
+// (unknown) with the reason in shrineError; it never throws, so the Bell
+// result already in `summary` is kept as it is.
+void FillShrines(const Bytes& plain, NativeSaveSummary& summary) {
+    static_assert(_countof(kShrineLinks) <= 32, "Shrine masks hold at most 32 shrines");
+    try {
+        auto shrines = Reflection(plain).ReadShrines();
+        summary.shrineCoverage = static_cast<unsigned>(shrines.size());
+        for (unsigned index = 0; index < shrines.size(); ++index) {
+            summary.shrinesFound += shrines[index].found ? 1 : 0;
+            summary.shrineFoundMask |= shrines[index].found ? 1u << index : 0u;
+            summary.shrineSeenMask |= shrines[index].seen ? 1u << index : 0u;
+        }
+        summary.shrinesValid = true;
+    } catch (const std::exception& exception) {
+        summary.shrinesValid = false;
+        summary.shrinesFound = 0;
+        summary.shrineFoundMask = 0;
+        summary.shrineSeenMask = 0;
+        strncpy_s(summary.shrineError, exception.what(), _TRUNCATE);
+    }
+}
 } // namespace
 
 // ===========================================================================
@@ -731,8 +1080,14 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
         WriteLocal(runtime + L"\\native-save-proof-" + snapshotName + L".save",
             snapshot.bytes.data(), snapshot.bytes.size());
         Bytes plain = Decode(snapshot.bytes);
-        auto states = Reflection(plain).Read();
+        Reflection reflection(plain);
+        auto states = reflection.Read();
+        // v0.58: chests come from the same pass and list as the Bells;
+        // v0.68: strongboxes also from their own field-object pass.
+        FillChests(reflection.Chests(), reflection.Nexuses(), plain, summary);
+        FillAbyssChests(reflection.AbyssChests(), summary);
         summary.coverage = static_cast<unsigned>(states.size());
+        FillShrines(plain, summary);
         // Build the JSON report text by hand.
         std::ostringstream report;
         FILETIME now = {};
@@ -792,7 +1147,12 @@ bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned 
         // Only the stable copied bytes are decoded; the game's file is never
         // opened for write.
         Bytes plain = Decode(snapshot.bytes);
-        auto states = Reflection(plain).Read();
+        Reflection reflection(plain);
+        auto states = reflection.Read();
+        // v0.58: chests come from the same pass and list as the Bells;
+        // v0.68: strongboxes also from their own field-object pass.
+        FillChests(reflection.Chests(), reflection.Nexuses(), plain, summary);
+        FillAbyssChests(reflection.AbyssChests(), summary);
         summary.coverage = static_cast<unsigned>(states.size());
         static_assert(_countof(kBellLinks) <= 32, "Bell masks hold at most 32 Bells");
         for (unsigned index = 0; index < states.size(); ++index) {
@@ -805,6 +1165,8 @@ bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned 
                 summary.hernandCompleted = states[index].completed;
             }
         }
+        // Shrines: a separate pass that cannot change the Bell result above.
+        FillShrines(plain, summary);
         modified = snapshot.modified;
         return true;
     } catch (const std::exception& exception) {
@@ -826,6 +1188,16 @@ int FindBellIndex(const char* id) {
 // A Bell's display name by index, or "" if the index is out of range.
 const char* BellName(int index) {
     return index >= 0 && index < static_cast<int>(_countof(kBellLinks)) ? kBellLinks[index].name : "";
+}
+
+// A chest's display name by index, or "" if the index is out of range.
+const char* ChestName(int index) {
+    return index >= 0 && index < static_cast<int>(_countof(kChestLinks)) ? kChestLinks[index].name : "";
+}
+
+// A shrine's display name by index, or "" if the index is out of range.
+const char* ShrineName(int index) {
+    return index >= 0 && index < static_cast<int>(_countof(kShrineLinks)) ? kShrineLinks[index].name : "";
 }
 
 // Read the remembered slot from native-save-selection.ini in the mod's folder.

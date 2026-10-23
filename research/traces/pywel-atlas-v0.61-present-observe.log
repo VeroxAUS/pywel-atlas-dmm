@@ -1,0 +1,107 @@
+Pywel Atlas combined v0.61 present observation - watch only: nothing is drawn, no frame is changed, no game function is called
+dxgi.dll at 0x7ffb371b0000 size 0x13b000
+hook IDXGIFactory::CreateSwapChain at dxgi.dll+0x2c4d0: MH_OK
+hook IDXGIFactory2::CreateSwapChainForHwnd at dxgi.dll+0x2d8f0: MH_OK
+t=4030078 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x62675dd0 thread=31468 caller=RTSSHooks64.dll device=0x5ad60250 d3d12Queue=1 queueType=0 window=0x700720 size=3840x2160 format=24 buffers=3 swapEffect=3 flags=0x800
+    Present at 0x7ffb371c9000 (dxgi.dll)
+    Present1 at 0x7ffb371c94a0 (dxgi.dll)
+    ResizeBuffers at 0x7ffb371e6c30 (dxgi.dll)
+    ResizeBuffers1 at 0x7ffb37247490 (dxgi.dll)
+hook IDXGISwapChain::Present at dxgi.dll+0x19000: MH_OK
+hook IDXGISwapChain::Present1 at dxgi.dll+0x194a0: MH_OK
+hook IDXGISwapChain::ResizeBuffers at dxgi.dll+0x36c30: MH_OK
+hook IDXGISwapChain::ResizeBuffers1 at dxgi.dll+0x97490: MH_OK
+t=4034421 RESIZED via ResizeBuffers result=0x80070057 swapchain=0x62675dd0 thread=31468 caller=sl.interposer.dll buffers=0 size=0x0 format=0 flags=0x0
+t=4034468 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x2131ab6c0 thread=31468 caller=RTSSHooks64.dll device=0x212ab84b0 d3d12Queue=1 queueType=0 window=0x700720 size=3840x2160 format=24 buffers=2 swapEffect=3 flags=0x840
+    Present at 0x7ffb371c9000 (dxgi.dll)
+    Present1 at 0x7ffb371c94a0 (dxgi.dll)
+    ResizeBuffers at 0x7ffb371e6c30 (dxgi.dll)
+    ResizeBuffers1 at 0x7ffb37247490 (dxgi.dll)
+t=4036140 Present new caller sl.dlss_g.dll+0x487dc swapchain=0x2131ab6c0 thread=6164
+t=4040531 Present new caller RTSSHooks64.dll+0x72fda swapchain=0x2131ab6c0 thread=6164
+t=4040828 RATE swapchain=0x2131ab6c0 present/s=65.4 present1/s=0.0 totals=328/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4045843 RATE swapchain=0x2131ab6c0 present/s=87.7 present1/s=0.0 totals=768/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4050859 RATE swapchain=0x2131ab6c0 present/s=86.5 present1/s=0.0 totals=1202/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4055875 RATE swapchain=0x2131ab6c0 present/s=114.0 present1/s=0.0 totals=1774/0 resizes=0/0 sync=0 flags=0x200 threads=6164,9128,0,0
+t=4060890 RATE swapchain=0x2131ab6c0 present/s=136.4 present1/s=0.0 totals=2458/0 resizes=0/0 sync=0 flags=0x200 threads=6164,9128,0,0
+t=4064796 RESIZED via ResizeBuffers result=0x00000000 swapchain=0x2131ab6c0 thread=31468 caller=RTSSHooks64.dll buffers=2 size=0x0 format=0 flags=0x840
+t=4064828 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x245672010 thread=31468 caller=RTSSHooks64.dll device=0x5ad60250 d3d12Queue=1 queueType=0 window=0x700720 size=3840x2160 format=24 buffers=3 swapEffect=3 flags=0x800
+    Present at 0x7ffb371c9000 (dxgi.dll)
+    Present1 at 0x7ffb371c94a0 (dxgi.dll)
+    ResizeBuffers at 0x7ffb371e6c30 (dxgi.dll)
+    ResizeBuffers1 at 0x7ffb37247490 (dxgi.dll)
+t=4065906 RATE swapchain=0x2131ab6c0 present/s=104.9 present1/s=0.0 totals=2984/0 resizes=1/0 sync=0 flags=0x200 threads=6164,9128,0,0
+t=4065953 Present new caller RTSSHooks64.dll+0x72fda swapchain=0x245672010 thread=6164
+t=4070937 RATE swapchain=0x245672010 present/s=88.8 present1/s=0.0 totals=447/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4075953 RATE swapchain=0x245672010 present/s=93.7 present1/s=0.0 totals=917/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4080968 RATE swapchain=0x245672010 present/s=97.7 present1/s=0.0 totals=1407/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4085984 RATE swapchain=0x245672010 present/s=93.5 present1/s=0.0 totals=1876/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4091000 RATE swapchain=0x245672010 present/s=41.5 present1/s=0.0 totals=2084/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4096015 RATE swapchain=0x245672010 present/s=51.0 present1/s=0.0 totals=2340/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4101031 RATE swapchain=0x245672010 present/s=48.2 present1/s=0.0 totals=2582/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4106046 RATE swapchain=0x245672010 present/s=48.9 present1/s=0.0 totals=2827/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4111046 RATE swapchain=0x245672010 present/s=51.8 present1/s=0.0 totals=3086/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4116062 RATE swapchain=0x245672010 present/s=52.4 present1/s=0.0 totals=3349/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4121078 RATE swapchain=0x245672010 present/s=47.6 present1/s=0.0 totals=3588/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4126093 RATE swapchain=0x245672010 present/s=47.3 present1/s=0.0 totals=3825/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4131125 RATE swapchain=0x245672010 present/s=46.7 present1/s=0.0 totals=4060/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4136140 RATE swapchain=0x245672010 present/s=46.9 present1/s=0.0 totals=4295/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4141156 RATE swapchain=0x245672010 present/s=46.9 present1/s=0.0 totals=4530/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4146171 RATE swapchain=0x245672010 present/s=50.0 present1/s=0.0 totals=4781/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4151187 RATE swapchain=0x245672010 present/s=49.4 present1/s=0.0 totals=5029/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4156203 RATE swapchain=0x245672010 present/s=50.0 present1/s=0.0 totals=5280/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4161218 RATE swapchain=0x245672010 present/s=48.1 present1/s=0.0 totals=5521/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4164796 RESIZED via ResizeBuffers result=0x80070057 swapchain=0x245672010 thread=31468 caller=RTSSHooks64.dll buffers=0 size=0x0 format=0 flags=0x0
+t=4164828 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x245672010 thread=31468 caller=RTSSHooks64.dll device=0x134fe8900 d3d12Queue=1 queueType=0 window=0x700720 size=3840x2160 format=24 buffers=2 swapEffect=3 flags=0x840
+    Present at 0x7ffb371c9000 (dxgi.dll)
+    Present1 at 0x7ffb371c94a0 (dxgi.dll)
+    ResizeBuffers at 0x7ffb371e6c30 (dxgi.dll)
+    ResizeBuffers1 at 0x7ffb37247490 (dxgi.dll)
+t=4166234 RATE swapchain=0x245672010 present/s=49.4 present1/s=0.0 totals=5769/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4171250 RATE swapchain=0x245672010 present/s=69.6 present1/s=0.0 totals=6118/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4176265 RATE swapchain=0x245672010 present/s=81.4 present1/s=0.0 totals=6526/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4181281 RATE swapchain=0x245672010 present/s=78.9 present1/s=0.0 totals=6922/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4186296 RATE swapchain=0x245672010 present/s=79.0 present1/s=0.0 totals=7318/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4191312 RATE swapchain=0x245672010 present/s=79.3 present1/s=0.0 totals=7716/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4196328 RATE swapchain=0x245672010 present/s=78.5 present1/s=0.0 totals=8110/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4201343 RATE swapchain=0x245672010 present/s=66.8 present1/s=0.0 totals=8445/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4206359 RATE swapchain=0x245672010 present/s=86.1 present1/s=0.0 totals=8877/0 resizes=1/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4207875 RESIZED via ResizeBuffers result=0x00000000 swapchain=0x245672010 thread=31468 caller=RTSSHooks64.dll buffers=2 size=0x0 format=0 flags=0x840
+t=4207890 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x1155438ea0 thread=31468 caller=RTSSHooks64.dll device=0x5ad60250 d3d12Queue=1 queueType=0 window=0x700720 size=3840x2160 format=24 buffers=3 swapEffect=3 flags=0x800
+    Present at 0x7ffb371c9000 (dxgi.dll)
+    Present1 at 0x7ffb371c94a0 (dxgi.dll)
+    ResizeBuffers at 0x7ffb371e6c30 (dxgi.dll)
+    ResizeBuffers1 at 0x7ffb37247490 (dxgi.dll)
+t=4208406 Present new caller RTSSHooks64.dll+0x72fda swapchain=0x1155438ea0 thread=6164
+t=4211390 RATE swapchain=0x245672010 present/s=25.0 present1/s=0.0 totals=9003/0 resizes=2/0 sync=0 flags=0x200 threads=6164,34984,9128,0
+t=4211390 RATE swapchain=0x1155438ea0 present/s=34.0 present1/s=0.0 totals=171/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4216406 RATE swapchain=0x1155438ea0 present/s=63.2 present1/s=0.0 totals=488/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4221421 RATE swapchain=0x1155438ea0 present/s=61.0 present1/s=0.0 totals=794/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4226437 RATE swapchain=0x1155438ea0 present/s=62.0 present1/s=0.0 totals=1105/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4231453 RATE swapchain=0x1155438ea0 present/s=56.6 present1/s=0.0 totals=1389/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4236468 RATE swapchain=0x1155438ea0 present/s=60.0 present1/s=0.0 totals=1690/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4241484 RATE swapchain=0x1155438ea0 present/s=60.4 present1/s=0.0 totals=1993/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4246500 RATE swapchain=0x1155438ea0 present/s=59.4 present1/s=0.0 totals=2291/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4251531 RATE swapchain=0x1155438ea0 present/s=57.8 present1/s=0.0 totals=2582/0 resizes=0/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4253671 RESIZED via ResizeBuffers result=0x80070057 swapchain=0x1155438ea0 thread=31468 caller=RTSSHooks64.dll buffers=0 size=0x0 format=0 flags=0x0
+t=4253781 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x245679270 thread=31468 caller=RTSSHooks64.dll device=0x2d301e0c0 d3d12Queue=1 queueType=0 window=0x700720 size=3840x2160 format=24 buffers=3 swapEffect=3 flags=0x840
+    Present at 0x7ffb371c9000 (dxgi.dll)
+    Present1 at 0x7ffb371c94a0 (dxgi.dll)
+    ResizeBuffers at 0x7ffb371e6c30 (dxgi.dll)
+    ResizeBuffers1 at 0x7ffb37247490 (dxgi.dll)
+t=4254765 Present1 new caller RTSSHooks64.dll+0x726e5 swapchain=0x245679270 thread=6164
+t=4256546 RATE swapchain=0x1155438ea0 present/s=24.9 present1/s=0.0 totals=2707/0 resizes=1/0 sync=0 flags=0x200 threads=6164,0,0,0
+t=4256546 RATE swapchain=0x245679270 present/s=0.0 present1/s=27.3 totals=0/137 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4261562 RATE swapchain=0x245679270 present/s=0.0 present1/s=89.1 totals=0/584 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4266578 RATE swapchain=0x245679270 present/s=0.0 present1/s=93.7 totals=0/1054 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4271593 RATE swapchain=0x245679270 present/s=0.0 present1/s=94.9 totals=0/1530 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4276625 RATE swapchain=0x245679270 present/s=0.0 present1/s=93.0 totals=0/1998 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4281640 RATE swapchain=0x245679270 present/s=0.0 present1/s=93.7 totals=0/2468 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4286656 RATE swapchain=0x245679270 present/s=0.0 present1/s=100.5 totals=0/2972 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4291671 RATE swapchain=0x245679270 present/s=0.0 present1/s=80.0 totals=0/3373 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4296687 RATE swapchain=0x245679270 present/s=0.0 present1/s=88.3 totals=0/3816 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4301703 RATE swapchain=0x245679270 present/s=0.0 present1/s=100.1 totals=0/4318 resizes=0/0 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4302250 RESIZED via ResizeBuffers1 result=0x00000000 swapchain=0x245679270 thread=31468 caller=libxess_fg.dll buffers=3 size=2560x1600 format=24 flags=0x840
+t=4306718 RATE swapchain=0x245679270 present/s=0.0 present1/s=122.6 totals=0/4933 resizes=0/1 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4311734 RATE swapchain=0x245679270 present/s=0.0 present1/s=125.2 totals=0/5561 resizes=0/1 sync=0 flags=0x200 threads=6164,17064,0,0
+t=4316750 RATE swapchain=0x245679270 present/s=0.0 present1/s=136.8 totals=0/6247 resizes=0/1 sync=0 flags=0x200 threads=6164,17064,0,0

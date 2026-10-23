@@ -1,0 +1,134 @@
+Pywel Atlas combined v0.62 filter panel (test: not connected to the markers) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui 1.92.9b
+dxgi.dll at 0x7ffb371b0000 size 0x13b000
+hook IDXGIFactory::CreateSwapChain at dxgi.dll+0x2c4d0: MH_OK
+hook IDXGIFactory2::CreateSwapChainForHwnd at dxgi.dll+0x2d8f0: MH_OK
+t=5021234 thread=19268 hook IDXGISwapChain::Present at dxgi.dll+0x19000: MH_OK
+t=5021281 thread=19268 hook IDXGISwapChain::Present1 at dxgi.dll+0x194a0: MH_OK
+t=5021312 thread=19268 hook IDXGISwapChain::ResizeBuffers at dxgi.dll+0x36c30: MH_OK
+t=5021343 thread=19268 hook IDXGISwapChain::ResizeBuffers1 at dxgi.dll+0x97490: MH_OK
+t=5021390 thread=19268 hook IDXGISwapChain::SetColorSpace1 at dxgi.dll+0x36280: MH_OK
+t=5021203 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0xe0322020 thread=19268 caller=RTSSHooks64.dll device=0xdaeb7da0 d3d12Queue=1 queueType=0 window=0x12e0ec6 size=2560x1600 format=24 buffers=3 swapEffect=3 flags=0x800
+t=5021390 thread=19268 SetColorSpace1 swapchain=0xe0322020 colorSpace=12
+t=5025703 RESIZED via ResizeBuffers result=0x80070057 swapchain=0xe0322020 thread=19268 caller=sl.interposer.dll buffers=0 size=0x0 format=0 flags=0x0
+t=5025843 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x21141c0b0 thread=19268 caller=RTSSHooks64.dll device=0x134159d10 d3d12Queue=1 queueType=0 window=0x12e0ec6 size=2560x1600 format=24 buffers=3 swapEffect=3 flags=0x840
+t=5026281 thread=19268 SetColorSpace1 swapchain=0x21141c0b0 colorSpace=12
+t=5028187 Present1 new caller libxess_fg.dll+0x21f1c5 swapchain=0x21141c0b0 thread=5620
+t=5031406 Present1 new caller RTSSHooks64.dll+0x726e5 swapchain=0x21141c0b0 thread=5620
+t=5031515 RATE swapchain=0x21141c0b0 present/s=0.0 present1/s=82.4 resizes=0/0 sync=0 flags=0x200 threads=5620,25940,0,0 panel=0
+t=5036531 RATE swapchain=0x21141c0b0 present/s=0.0 present1/s=160.3 resizes=0/0 sync=0 flags=0x200 threads=5620,25940,0,0 panel=0
+t=5041546 RATE swapchain=0x21141c0b0 present/s=0.0 present1/s=165.1 resizes=0/0 sync=0 flags=0x200 threads=5620,25940,0,0 panel=0
+t=5046562 RATE swapchain=0x21141c0b0 present/s=0.0 present1/s=181.6 resizes=0/0 sync=0 flags=0x200 threads=5620,25940,0,0 panel=0
+t=5051578 RATE swapchain=0x21141c0b0 present/s=0.0 present1/s=231.3 resizes=0/0 sync=0 flags=0x200 threads=5620,25940,0,0 panel=0
+t=5054140 RESIZED via ResizeBuffers1 result=0x00000000 swapchain=0x21141c0b0 thread=19268 caller=libxess_fg.dll buffers=3 size=3840x2160 format=24 flags=0x840
+t=5054218 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x2d59b4c70 thread=19268 caller=RTSSHooks64.dll device=0xdaeb7da0 d3d12Queue=1 queueType=0 window=0x12e0ec6 size=3840x2160 format=24 buffers=3 swapEffect=3 flags=0x800
+t=5054218 thread=19268 SetColorSpace1 swapchain=0x2d59b4c70 colorSpace=12
+t=5054421 Present new caller RTSSHooks64.dll+0x72fda swapchain=0x2d59b4c70 thread=5620
+t=5056593 RATE swapchain=0x21141c0b0 present/s=0.0 present1/s=115.5 resizes=0/1 sync=0 flags=0x200 threads=5620,25940,0,0 panel=0
+t=5056593 RATE swapchain=0x2d59b4c70 present/s=52.0 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5061609 RATE swapchain=0x2d59b4c70 present/s=128.8 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5066625 RATE swapchain=0x2d59b4c70 present/s=136.4 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5071640 RATE swapchain=0x2d59b4c70 present/s=105.9 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5076656 RATE swapchain=0x2d59b4c70 present/s=76.8 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5081687 RATE swapchain=0x2d59b4c70 present/s=73.5 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5086703 RATE swapchain=0x2d59b4c70 present/s=72.4 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5091718 RATE swapchain=0x2d59b4c70 present/s=78.4 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5096734 RATE swapchain=0x2d59b4c70 present/s=80.9 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5101750 RATE swapchain=0x2d59b4c70 present/s=74.6 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5106765 RATE swapchain=0x2d59b4c70 present/s=67.8 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5111781 RATE swapchain=0x2d59b4c70 present/s=62.2 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5115843 thread=5620 panel opened (F9)
+t=5115859 thread=5620 panel resources created for swapchain 0x2d59b4c70: 3840x2160 format=24 buffers=3 colorSpace=12 queue=0xdaeb7da0
+t=5115859 thread=5620 panel: input hold-back installed on window 0x12e0ec6 (previous procedure 0x14035a220)
+t=5116796 RATE swapchain=0x2d59b4c70 present/s=72.8 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=1
+t=5121812 RATE swapchain=0x2d59b4c70 present/s=73.6 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=1
+t=5126828 RATE swapchain=0x2d59b4c70 present/s=74.0 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=1
+t=5131843 RATE swapchain=0x2d59b4c70 present/s=74.4 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=1
+t=5134562 thread=5620 panel closed (Esc)
+t=5136875 RATE swapchain=0x2d59b4c70 present/s=73.3 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5138546 thread=5620 panel opened (F9)
+t=5139156 thread=5620 panel closed (Esc)
+t=5141437 thread=5620 panel opened (F9)
+t=5141890 RATE swapchain=0x2d59b4c70 present/s=68.0 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=1
+t=5143921 thread=5620 panel closed (F9)
+t=5144343 thread=5620 panel opened (F9)
+t=5145750 thread=5620 panel closed (F9)
+t=5146921 RATE swapchain=0x2d59b4c70 present/s=70.2 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5147046 thread=5620 panel opened (F9)
+t=5149765 thread=5620 panel closed (F9)
+t=5151937 RATE swapchain=0x2d59b4c70 present/s=69.8 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5156953 RATE swapchain=0x2d59b4c70 present/s=71.6 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5161968 RATE swapchain=0x2d59b4c70 present/s=72.0 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5166984 RATE swapchain=0x2d59b4c70 present/s=72.0 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5168453 thread=5620 panel opened (F9)
+t=5172000 RATE swapchain=0x2d59b4c70 present/s=72.0 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=1
+t=5174984 thread=5620 panel closed (F9)
+t=5177031 RATE swapchain=0x2d59b4c70 present/s=72.2 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5182046 RATE swapchain=0x2d59b4c70 present/s=72.2 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=0
+t=5182968 thread=5620 panel opened (F9)
+t=5184218 thread=5620 panel closed (F9)
+t=5184640 RESIZED via ResizeBuffers result=0x80070057 swapchain=0x2d59b4c70 thread=19268 caller=RTSSHooks64.dll buffers=0 size=0x0 format=0 flags=0x0
+t=5184656 thread=19268 panel resources released for swapchain 0x2d59b4c70 (a new swapchain is being created)
+t=5184671 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x114b74e200 thread=19268 caller=RTSSHooks64.dll device=0x2d5f532f0 d3d12Queue=1 queueType=0 window=0x12e0ec6 size=3840x2160 format=24 buffers=2 swapEffect=3 flags=0x840
+t=5184687 thread=19268 SetColorSpace1 swapchain=0x114b74e200 colorSpace=12
+t=5184906 Present new caller RTSSHooks64.dll+0x72fda swapchain=0x114b74e200 thread=36012
+t=5185375 thread=36012 panel opened (F9)
+t=5185375 thread=36012 panel resources created for swapchain 0x114b74e200: 3840x2160 format=24 buffers=2 colorSpace=12 queue=0x2d5f532f0
+t=5187062 RATE swapchain=0x2d59b4c70 present/s=36.5 present1/s=0.0 resizes=1/0 sync=0 flags=0x200 threads=5620,0,0,0 panel=1
+t=5187078 RATE swapchain=0x114b74e200 present/s=44.5 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=36012,5620,16660,0 panel=1
+t=5188156 thread=16660 panel closed (Esc)
+t=5189687 thread=5620 panel opened (F9)
+t=5192093 RATE swapchain=0x114b74e200 present/s=99.0 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=36012,5620,16660,0 panel=1
+t=5193031 thread=16660 panel closed (F9)
+t=5193515 thread=16660 panel opened (F9)
+t=5194375 thread=16660 panel closed (F9)
+t=5197109 RATE swapchain=0x114b74e200 present/s=94.3 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=36012,5620,16660,0 panel=0
+t=5202125 RATE swapchain=0x114b74e200 present/s=110.4 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=36012,5620,16660,0 panel=0
+t=5202796 RESIZED via ResizeBuffers result=0x00000000 swapchain=0x114b74e200 thread=19268 caller=RTSSHooks64.dll buffers=2 size=0x0 format=0 flags=0x840
+t=5202937 thread=19268 panel resources released for swapchain 0x114b74e200 (a new swapchain is being created)
+t=5202953 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x2f2af01e0 thread=19268 caller=RTSSHooks64.dll device=0x2d6116bd0 d3d12Queue=1 queueType=0 window=0x12e0ec6 size=3840x2160 format=24 buffers=3 swapEffect=3 flags=0x840
+t=5203109 thread=19268 SetColorSpace1 swapchain=0x2f2af01e0 colorSpace=12
+t=5203328 Present1 new caller RTSSHooks64.dll+0x726e5 swapchain=0x2f2af01e0 thread=5620
+t=5203671 thread=8284 panel opened (F9)
+t=5203671 thread=8284 panel resources created for swapchain 0x2f2af01e0: 3840x2160 format=24 buffers=3 colorSpace=12 queue=0x2d6116bd0
+t=5204828 thread=5620 panel closed (Esc)
+t=5206296 thread=5620 panel opened (F9)
+t=5207156 RATE swapchain=0x114b74e200 present/s=13.5 present1/s=0.0 resizes=1/0 sync=0 flags=0x200 threads=36012,5620,16660,0 panel=1
+t=5207156 RATE swapchain=0x2f2af01e0 present/s=0.0 present1/s=72.7 resizes=0/0 sync=0 flags=0x200 threads=5620,8284,0,0 panel=1
+t=5209453 thread=8284 panel closed (F9)
+t=5212171 RATE swapchain=0x2f2af01e0 present/s=0.0 present1/s=99.3 resizes=0/0 sync=0 flags=0x200 threads=5620,8284,0,0 panel=0
+t=5216187 thread=19268 panel resources released for swapchain 0x2f2af01e0 (a new swapchain is being created)
+t=5216203 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0x11de600390 thread=19268 caller=RTSSHooks64.dll device=0x2755d8980 d3d12Queue=1 queueType=0 window=0x12e0ec6 size=3840x2160 format=24 buffers=3 swapEffect=4 flags=0x840
+t=5216218 thread=19268 SetColorSpace1 swapchain=0x11de600390 colorSpace=12
+t=5216812 Present new caller RTSSHooks64.dll+0x72fda swapchain=0x11de600390 thread=27072
+t=5217187 RATE swapchain=0x2f2af01e0 present/s=0.0 present1/s=87.9 resizes=0/0 sync=0 flags=0x200 threads=5620,8284,0,0 panel=0
+t=5217187 RATE swapchain=0x11de600390 present/s=8.0 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=27072,0,0,0 panel=0
+t=5218312 thread=5620 panel opened (F9)
+t=5218312 thread=5620 panel resources created for swapchain 0x11de600390: 3840x2160 format=24 buffers=3 colorSpace=12 queue=0x2755d8980
+t=5222203 RATE swapchain=0x11de600390 present/s=120.4 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=27072,5620,4512,0 panel=1
+t=5222781 thread=4512 panel closed (F9)
+t=5227218 RATE swapchain=0x11de600390 present/s=109.7 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=27072,5620,4512,17384 panel=0
+t=5227953 thread=5620 panel opened (F9)
+t=5231296 thread=30520 panel closed (F9)
+t=5232234 RATE swapchain=0x11de600390 present/s=89.5 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=27072,5620,4512,17384 panel=0
+t=5237250 RATE swapchain=0x11de600390 present/s=117.4 present1/s=0.0 resizes=0/0 sync=0 flags=0x200 threads=27072,5620,4512,17384 panel=0
+t=5238109 thread=29548 panel opened (F9)
+t=5238687 thread=29548 panel closed (F9)
+t=5239000 thread=29548 panel opened (F9)
+t=5239062 thread=29548 panel closed (F9)
+t=5239671 thread=29548 panel opened (F9)
+t=5240046 thread=29548 panel closed (F9)
+t=5240359 thread=29548 panel opened (F9)
+t=5240390 RESIZED via ResizeBuffers result=0x00000000 swapchain=0x11de600390 thread=19268 caller=RTSSHooks64.dll buffers=0 size=2560x1600 format=24 flags=0x840
+t=5240593 thread=26212 panel resources released for swapchain 0x11de600390 (size, format or colour space changed)
+t=5240593 thread=26212 panel resources created for swapchain 0x11de600390: 2560x1600 format=24 buffers=3 colorSpace=12 queue=0x2755d8980
+t=5241593 thread=26212 panel closed (F9)
+t=5241796 thread=26212 panel opened (F9)
+t=5242125 thread=26212 panel closed (F9)
+t=5242265 thread=26212 panel opened (F9)
+t=5242281 RATE swapchain=0x11de600390 present/s=133.0 present1/s=0.0 resizes=1/0 sync=0 flags=0x200 threads=27072,5620,4512,17384 panel=1
+t=5242609 thread=26212 panel closed (F9)
+t=5242718 thread=26212 panel opened (F9)
+t=5243000 thread=26212 panel closed (F9)
+t=5247312 RATE swapchain=0x11de600390 present/s=181.3 present1/s=0.0 resizes=1/0 sync=0 flags=0x200 threads=27072,5620,4512,17384 panel=0
+t=5248203 RESIZED via ResizeBuffers result=0x00000000 swapchain=0x11de600390 thread=19268 caller=RTSSHooks64.dll buffers=0 size=3840x2160 format=24 flags=0x840
+t=5252328 RATE swapchain=0x11de600390 present/s=115.8 present1/s=0.0 resizes=2/0 sync=0 flags=0x200 threads=27072,5620,4512,17384 panel=0

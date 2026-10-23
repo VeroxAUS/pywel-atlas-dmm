@@ -1,0 +1,1421 @@
+{
+  "version": 1,
+  "category": "Abyss Chest (the game's TreasureBox list, Abyss levels)",
+  "saveType": "DiscoveredLevelGimmickSceneObjectSaveData",
+  "saveList": "_discoveredLevelGimmickSceneObjectSaveDataList",
+  "infoKey": 1000007,
+  "openedRule": "record with infoKey 1000007, this UUID and _isCompleted = true (assumed from the surface chests; confirmed by the Abyss save test 2026-10-22, Abyss bridge 1 chest 1)",
+  "nativeIcon": {
+    "type": 226,
+    "templateType": 28852,
+    "templateName": "MapIcon_Gimmick_LevelTreasureBox"
+  },
+  "locations": [
+    {
+      "name": "Abyss bridge 1 chest 1",
+      "uuid": [
+        2801313316,
+        1450447017,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -10075.5254,
+        1838.6979,
+        -4198.7212
+      ],
+      "level": "abyssbridge_0001_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:551232",
+      "mapGenieDistance": 4.8
+    },
+    {
+      "name": "Abyss bridge 109 chest 1",
+      "uuid": [
+        2860491582,
+        1450447017,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11457.8486,
+        2003.7449,
+        943.1367
+      ],
+      "level": "abyssbridge_0109_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:1044090",
+      "mapGenieDistance": 2.8
+    },
+    {
+      "name": "Abyss bridge 122 chest 1",
+      "uuid": [
+        1678922642,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -7765.3916,
+        1788.8716,
+        -5530.4629
+      ],
+      "level": "abyssbridge_0122_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss bridge 122 chest 2",
+      "uuid": [
+        2856202462,
+        1591218345,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7736.8628,
+        1816.9316,
+        -5415.0898
+      ],
+      "level": "abyssbridge_0122_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:564617",
+      "mapGenieDistance": 3.4
+    },
+    {
+      "name": "Abyss bridge 138 chest 1",
+      "uuid": [
+        955864974,
+        1591218556,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7874.9854,
+        1859.4104,
+        414.9729
+      ],
+      "level": "abyssbridge_0138_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:558544",
+      "mapGenieDistance": 5.7
+    },
+    {
+      "name": "Abyss bridge 140 chest 1",
+      "uuid": [
+        2844277515,
+        1591218345,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -8099.8081,
+        1970.5347,
+        -2345.6084
+      ],
+      "level": "abyssbridge_0140_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:554355",
+      "mapGenieDistance": 1.8
+    },
+    {
+      "name": "Abyss bridge 150 chest 1",
+      "uuid": [
+        2830077707,
+        1591218345,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -9883.5273,
+        1785.3328,
+        -6279.7031
+      ],
+      "level": "abyssbridge_0150_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:943183",
+      "mapGenieDistance": 2.6
+    },
+    {
+      "name": "Abyss bridge 151 chest 1",
+      "uuid": [
+        240629046,
+        1591218357,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7228.0166,
+        1917.3339,
+        -952.961
+      ],
+      "level": "abyssbridge_0151_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:561600",
+      "mapGenieDistance": 1.1
+    },
+    {
+      "name": "Abyss bridge 152 chest 1",
+      "uuid": [
+        2834740659,
+        1591218345,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -9930.2949,
+        1781.0011,
+        268.7233
+      ],
+      "level": "abyssbridge_0152_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:556654",
+      "mapGenieDistance": 5.9
+    },
+    {
+      "name": "Abyss bridge 162 chest 1",
+      "uuid": [
+        3697801490,
+        1591218554,
+        2990706131,
+        0
+      ],
+      "gamePosition": [
+        -8897.8799,
+        1792.3099,
+        -1529.7111
+      ],
+      "level": "abyssbridge_0162_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:590004",
+      "mapGenieDistance": 0.5
+    },
+    {
+      "name": "Abyss bridge 176 chest 1",
+      "uuid": [
+        2820720008,
+        1591218345,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -8151.8599,
+        1953.3351,
+        -1044.1156
+      ],
+      "level": "abyssbridge_0176_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:558533",
+      "mapGenieDistance": 2.4
+    },
+    {
+      "name": "Abyss bridge 189 chest 1",
+      "uuid": [
+        1062334340,
+        1591218357,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7130.8423,
+        1868.4739,
+        -486.2622
+      ],
+      "level": "abyssbridge_0189_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:564755",
+      "mapGenieDistance": 13.7
+    },
+    {
+      "name": "Abyss bridge 23 chest 1",
+      "uuid": [
+        1789880781,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -12273.499,
+        1834.0194,
+        -4907.2344
+      ],
+      "level": "abyssbridge_0023_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:551236",
+      "mapGenieDistance": 60.0
+    },
+    {
+      "name": "Abyss bridge 23 chest 2",
+      "uuid": [
+        1697248457,
+        1450447218,
+        4203164732,
+        0
+      ],
+      "gamePosition": [
+        -12212.8145,
+        1835.0941,
+        -4923.0308
+      ],
+      "level": "abyssbridge_0023_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:551236",
+      "mapGenieDistance": 3.0
+    },
+    {
+      "name": "Abyss bridge 89 chest 1",
+      "uuid": [
+        2847897518,
+        1450447017,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -12381.3633,
+        2070.6069,
+        -3136.9775
+      ],
+      "level": "abyssbridge_0089_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:554354",
+      "mapGenieDistance": 7.7
+    },
+    {
+      "name": "Abyss bridge 91 chest 1",
+      "uuid": [
+        2727420217,
+        1591218485,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7137.2696,
+        1853.2549,
+        -2348.5067
+      ],
+      "level": "abyssbridge_0091_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:1044119",
+      "mapGenieDistance": 14.3
+    },
+    {
+      "name": "Abyss bridge 91 chest 2",
+      "uuid": [
+        1741068642,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -7092.4985,
+        1835.0446,
+        -2692.3162
+      ],
+      "level": "abyssbridge_0091_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss bridge 97 chest 1",
+      "uuid": [
+        2851635890,
+        1450447017,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -10027.6572,
+        1943.671,
+        -5782.0366
+      ],
+      "level": "abyssbridge_0097_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:566860",
+      "mapGenieDistance": 6.2
+    },
+    {
+      "name": "Abyss bridge 99 chest 1",
+      "uuid": [
+        2854741603,
+        1450447017,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11265.7773,
+        1805.3046,
+        -4139.2979
+      ],
+      "level": "abyssbridge_0099_phase00_00",
+      "levelGroup": "AbyssBridge",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:552599",
+      "mapGenieDistance": 4.8
+    },
+    {
+      "name": "Abyss core island 1 chest 1",
+      "uuid": [
+        4043237732,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7871.0728,
+        2172.3374,
+        -2407.5493
+      ],
+      "level": "abyssislandcore_0001_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:559870",
+      "mapGenieDistance": 1.1
+    },
+    {
+      "name": "Abyss core island 1 chest 2",
+      "uuid": [
+        1008730335,
+        4279243251,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -7810.4189,
+        2175.814,
+        -2450.3191
+      ],
+      "level": "abyssislandcore_0001_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:559868",
+      "mapGenieDistance": 2.0
+    },
+    {
+      "name": "Abyss core island 2 chest 1",
+      "uuid": [
+        2895578842,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -8012.7163,
+        2319.1653,
+        -2359.1567
+      ],
+      "level": "abyssislandcore_0002_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:564739",
+      "mapGenieDistance": 1.8
+    },
+    {
+      "name": "Abyss core island 2 chest 2",
+      "uuid": [
+        2515515417,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7986.0962,
+        2325.5813,
+        -2424.4739
+      ],
+      "level": "abyssislandcore_0002_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:564753",
+      "mapGenieDistance": 1.6
+    },
+    {
+      "name": "Abyss core island 2 chest 3",
+      "uuid": [
+        2736615930,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7907.9648,
+        2330.271,
+        -2393.0996
+      ],
+      "level": "abyssislandcore_0002_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:1044145",
+      "mapGenieDistance": 3.5
+    },
+    {
+      "name": "Abyss core island 3 chest 1",
+      "uuid": [
+        665262521,
+        1591218591,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7976.2432,
+        2262.8127,
+        -2197.5435
+      ],
+      "level": "abyssislandcore_0003_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:564686",
+      "mapGenieDistance": 0.9
+    },
+    {
+      "name": "Abyss core island 3 chest 2",
+      "uuid": [
+        451669526,
+        1591218591,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7964.1816,
+        2251.6755,
+        -2223.2358
+      ],
+      "level": "abyssislandcore_0003_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:1044141",
+      "mapGenieDistance": 3.3
+    },
+    {
+      "name": "Abyss core island 3 chest 3",
+      "uuid": [
+        606300356,
+        1591218591,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7926.4644,
+        2257.5234,
+        -2220.1497
+      ],
+      "level": "abyssislandcore_0003_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:557871",
+      "mapGenieDistance": 4.2
+    },
+    {
+      "name": "Abyss core island 4 chest 1",
+      "uuid": [
+        2339021254,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7740.5781,
+        2307.0491,
+        -2483.9448
+      ],
+      "level": "abyssislandcore_0004_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:559871",
+      "mapGenieDistance": 1.2
+    },
+    {
+      "name": "Abyss core island 4 chest 2",
+      "uuid": [
+        3460364985,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7693.1182,
+        2321.9158,
+        -2456.8489
+      ],
+      "level": "abyssislandcore_0004_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:559873",
+      "mapGenieDistance": 0.9
+    },
+    {
+      "name": "Abyss core island 4 chest 3",
+      "uuid": [
+        2336271412,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7683.98,
+        2317.4304,
+        -2538.8926
+      ],
+      "level": "abyssislandcore_0004_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:559869",
+      "mapGenieDistance": 0.6
+    },
+    {
+      "name": "Abyss core island 5 chest 1",
+      "uuid": [
+        4105411219,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7629.6401,
+        2330.1387,
+        -2328.9812
+      ],
+      "level": "abyssislandcore_0005_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:557868",
+      "mapGenieDistance": 0.7
+    },
+    {
+      "name": "Abyss core island 5 chest 2",
+      "uuid": [
+        3759066578,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7580.2402,
+        2328.4409,
+        -2336.0989
+      ],
+      "level": "abyssislandcore_0005_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:557867",
+      "mapGenieDistance": 2.0
+    },
+    {
+      "name": "Abyss core island 5 chest 3",
+      "uuid": [
+        3530951790,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7572.8423,
+        2330.9417,
+        -2288.46
+      ],
+      "level": "abyssislandcore_0005_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:557865",
+      "mapGenieDistance": 1.0
+    },
+    {
+      "name": "Abyss core island 5 chest 4",
+      "uuid": [
+        3844555866,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7557.6685,
+        2329.5562,
+        -2354.3711
+      ],
+      "level": "abyssislandcore_0005_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:557866",
+      "mapGenieDistance": 2.1
+    },
+    {
+      "name": "Abyss core island 6 chest 1",
+      "uuid": [
+        1196529754,
+        4279243251,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -7803.4531,
+        2327.3169,
+        -2100.824
+      ],
+      "level": "abyssislandcore_0006_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:557877",
+      "mapGenieDistance": 0.6
+    },
+    {
+      "name": "Abyss core island 6 chest 2",
+      "uuid": [
+        4037818909,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7764.3975,
+        2312.3203,
+        -2073.0396
+      ],
+      "level": "abyssislandcore_0006_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:566114",
+      "mapGenieDistance": 2.7
+    },
+    {
+      "name": "Abyss core island 7 chest 1",
+      "uuid": [
+        4198132241,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7676.1572,
+        2180.4827,
+        -2223.0408
+      ],
+      "level": "abyssislandcore_0007_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:566118",
+      "mapGenieDistance": 1.2
+    },
+    {
+      "name": "Abyss core island 7 chest 2",
+      "uuid": [
+        746071794,
+        1591218591,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7654.2695,
+        2184.0874,
+        -2191.8406
+      ],
+      "level": "abyssislandcore_0007_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:566115",
+      "mapGenieDistance": 3.2
+    },
+    {
+      "name": "Abyss core island 7 chest 3",
+      "uuid": [
+        4144792902,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7641.9106,
+        2180.6848,
+        -2201.9724
+      ],
+      "level": "abyssislandcore_0007_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:566116",
+      "mapGenieDistance": 7.5
+    },
+    {
+      "name": "Abyss core island 7 chest 4",
+      "uuid": [
+        4147613488,
+        1591218590,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -7605.1519,
+        2184.9248,
+        -2198.8691
+      ],
+      "level": "abyssislandcore_0007_phase00_00",
+      "levelGroup": "AbyssIslandCore_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:566112",
+      "mapGenieDistance": 1.7
+    },
+    {
+      "name": "Abyss island 1 chest 1",
+      "uuid": [
+        1599972655,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -10180.376,
+        1831.5277,
+        -4053.3557
+      ],
+      "level": "abyssisland_0001_phase00_00",
+      "levelGroup": "AbyssIsland_Alustin",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss island 1001 chest 1",
+      "uuid": [
+        1686880084,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -4746.1328,
+        1800.9575,
+        -5211.2095
+      ],
+      "level": "abyssisland_1001_phase00_00",
+      "levelGroup": "AbyssIsland_HyperSpace",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:936841",
+      "mapGenieDistance": 3.3
+    },
+    {
+      "name": "Abyss island 113 chest 1",
+      "uuid": [
+        3346217315,
+        1450447262,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -5039.6343,
+        1801.1898,
+        -1896.4857
+      ],
+      "level": "abyssisland_0113_phase00_00",
+      "levelGroup": "AbyssIsland_ClockTower",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:564709",
+      "mapGenieDistance": 4.6
+    },
+    {
+      "name": "Abyss island 113 chest 2",
+      "uuid": [
+        1701717800,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -5003.7231,
+        1808.3695,
+        -1897.1879
+      ],
+      "level": "abyssisland_0113_phase00_00",
+      "levelGroup": "AbyssIsland_ClockTower",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:564709",
+      "mapGenieDistance": 31.9
+    },
+    {
+      "name": "Abyss island 121 chest 1",
+      "uuid": [
+        3852130345,
+        1450447262,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7072.1069,
+        1904.4562,
+        -492.6093
+      ],
+      "level": "abyssisland_0121_phase00_00",
+      "levelGroup": "AbyssIsland_SunTower",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:564757",
+      "mapGenieDistance": 4.4
+    },
+    {
+      "name": "Abyss island 13 chest 1",
+      "uuid": [
+        1612301124,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -8998.4453,
+        1904.5137,
+        -5016.5474
+      ],
+      "level": "abyssisland_0013_phase00_00",
+      "levelGroup": "AbyssIsland_Alustin",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss island 13 chest 2",
+      "uuid": [
+        1604126736,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -8877.3115,
+        2206.812,
+        -4965.0972
+      ],
+      "level": "abyssisland_0013_phase00_00",
+      "levelGroup": "AbyssIsland_Alustin",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:556418",
+      "mapGenieDistance": 2.9
+    },
+    {
+      "name": "Abyss island 13 chest 3",
+      "uuid": [
+        3475954324,
+        1450447262,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8740.7939,
+        2155.0798,
+        -4731.0747
+      ],
+      "level": "abyssisland_0013_phase00_00",
+      "levelGroup": "AbyssIsland_Alustin",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:556421",
+      "mapGenieDistance": 12.2
+    },
+    {
+      "name": "Abyss island 144 chest 1",
+      "uuid": [
+        1620900838,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -8381.4238,
+        1854.3314,
+        -4804.3354
+      ],
+      "level": "abyssisland_0144_phase00_00",
+      "levelGroup": "AbyssIsland_Alustin",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss island 158 chest 1",
+      "uuid": [
+        1816400380,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -10565.6025,
+        1824.6354,
+        -5178.2529
+      ],
+      "level": "abyssisland_0158_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:1044100",
+      "mapGenieDistance": 64.4
+    },
+    {
+      "name": "Abyss island 158 chest 2",
+      "uuid": [
+        1192072270,
+        4279243251,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -10502.9727,
+        1806.979,
+        -5196.7881
+      ],
+      "level": "abyssisland_0158_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:1044100",
+      "mapGenieDistance": 1.5
+    },
+    {
+      "name": "Abyss island 158 chest 3",
+      "uuid": [
+        421352041,
+        1450447287,
+        4203164732,
+        0
+      ],
+      "gamePosition": [
+        -10470.3643,
+        1824.7606,
+        -5227.8311
+      ],
+      "level": "abyssisland_0158_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:1044100",
+      "mapGenieDistance": 46.4
+    },
+    {
+      "name": "Abyss island 175 chest 1",
+      "uuid": [
+        3930461874,
+        3308261754,
+        459099801,
+        0
+      ],
+      "gamePosition": [
+        -10508.5361,
+        1826.3096,
+        1010.4071
+      ],
+      "level": "abyssisland_0175_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfRingingTruth",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:556646",
+      "mapGenieDistance": 5.5
+    },
+    {
+      "name": "Abyss island 18 chest 1",
+      "uuid": [
+        2837710313,
+        1450447017,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -5874.375,
+        1787.361,
+        -2582.1072
+      ],
+      "level": "abyssisland_0018_phase00_00",
+      "levelGroup": "AbyssIsland_ClockTower",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:554208",
+      "mapGenieDistance": 2.1
+    },
+    {
+      "name": "Abyss island 191 chest 1",
+      "uuid": [
+        1795513088,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -12432.1816,
+        1833.6675,
+        -5206.6108
+      ],
+      "level": "abyssisland_0191_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss island 200 chest 1",
+      "uuid": [
+        485379192,
+        1450447287,
+        4203164732,
+        0
+      ],
+      "gamePosition": [
+        -5949.2178,
+        1996.9763,
+        439.0246
+      ],
+      "level": "abyssisland_0200_phase00_00",
+      "levelGroup": "AbyssIsland_FrozenTower",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss island 3 chest 1",
+      "uuid": [
+        1804305751,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -11169.6768,
+        1864.0387,
+        -6141.1177
+      ],
+      "level": "abyssisland_0003_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:552248",
+      "mapGenieDistance": 58.1
+    },
+    {
+      "name": "Abyss island 3 chest 2",
+      "uuid": [
+        1188162188,
+        4279243251,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -11147.5986,
+        1846.5649,
+        -6098.957
+      ],
+      "level": "abyssisland_0003_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:552248",
+      "mapGenieDistance": 10.9
+    },
+    {
+      "name": "Abyss island 3 chest 3",
+      "uuid": [
+        2804860049,
+        1450447017,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11130.5107,
+        1868.6338,
+        -6098.9995
+      ],
+      "level": "abyssisland_0003_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:552248",
+      "mapGenieDistance": 12.4
+    },
+    {
+      "name": "Abyss island 36 chest 1",
+      "uuid": [
+        3132018410,
+        1450447262,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -4343.0786,
+        1841.8811,
+        -1610.1191
+      ],
+      "level": "abyssisland_0036_phase00_00",
+      "levelGroup": "AbyssIsland_ClockTower",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:564707",
+      "mapGenieDistance": 2.3
+    },
+    {
+      "name": "Abyss island 41 chest 1",
+      "uuid": [
+        3559034322,
+        1450447262,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11139.2178,
+        1785.715,
+        234.7684
+      ],
+      "level": "abyssisland_0041_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfRingingTruth",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:566127",
+      "mapGenieDistance": 19.4
+    },
+    {
+      "name": "Abyss island 55 chest 1",
+      "uuid": [
+        3223303496,
+        1450447262,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10627.752,
+        1895.6074,
+        -1762.8436
+      ],
+      "level": "abyssisland_0055_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfRingingTruth",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:566144",
+      "mapGenieDistance": 8.5
+    },
+    {
+      "name": "Abyss island 55 chest 2",
+      "uuid": [
+        1826651938,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -10613.9365,
+        1929.299,
+        -1718.165
+      ],
+      "level": "abyssisland_0055_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfRingingTruth",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:566144",
+      "mapGenieDistance": 54.6
+    },
+    {
+      "name": "Abyss island 79 chest 1",
+      "uuid": [
+        1771102340,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -7978.8594,
+        2024.7036,
+        -675.6848
+      ],
+      "level": "abyssisland_0079_phase00_00_sub_1_0",
+      "levelGroup": "AbyssIsland_0079_Phase00_00",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:561592",
+      "mapGenieDistance": 23.2
+    },
+    {
+      "name": "Abyss island 79 chest 2",
+      "uuid": [
+        3797052265,
+        1450447262,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7963.4019,
+        2010.2997,
+        -692.1868
+      ],
+      "level": "abyssisland_0079_phase00_00_sub_1_0",
+      "levelGroup": "AbyssIsland_0079_Phase00_00",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:561592",
+      "mapGenieDistance": 2.3
+    },
+    {
+      "name": "Abyss island 79 chest 3",
+      "uuid": [
+        1762149295,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -7754.7959,
+        1993.2307,
+        -451.8948
+      ],
+      "level": "abyssisland_0079_phase00_00_sub_1_1",
+      "levelGroup": "AbyssIsland_0079_Phase00_00",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss island 83 chest 1",
+      "uuid": [
+        1639385339,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -8000.2134,
+        1828.6034,
+        -5241.7856
+      ],
+      "level": "abyssisland_0083_phase00_00",
+      "levelGroup": "AbyssIsland_JijeongTempleTower",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    },
+    {
+      "name": "Abyss island 83 chest 2",
+      "uuid": [
+        3640157864,
+        1450447262,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7922.3042,
+        1817.1533,
+        -5205.105
+      ],
+      "level": "abyssisland_0083_phase00_00",
+      "levelGroup": "AbyssIsland_JijeongTempleTower",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:557768",
+      "mapGenieDistance": 1.9
+    },
+    {
+      "name": "Abyss island 83 chest 3",
+      "uuid": [
+        1660316717,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -7907.4009,
+        1904.6877,
+        -5199.2139
+      ],
+      "level": "abyssisland_0083_phase00_00",
+      "levelGroup": "AbyssIsland_JijeongTempleTower",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:557768",
+      "mapGenieDistance": 15.5
+    },
+    {
+      "name": "Abyss island 84 chest 1",
+      "uuid": [
+        699589205,
+        1450447263,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8489.2686,
+        1798.1888,
+        -354.107
+      ],
+      "level": "abyssisland_0084_phase00_00",
+      "levelGroup": "AbyssIsland_FrozenTower",
+      "prefab": "gimmick_itembox_a_0009.prefab",
+      "mapGenieId": "mg:554359",
+      "mapGenieDistance": 35.2
+    },
+    {
+      "name": "Abyss island 97 chest 1",
+      "uuid": [
+        1779498438,
+        1450447285,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -10128.2461,
+        1864.3749,
+        -5903.6709
+      ],
+      "level": "abyssisland_0097_phase00_00",
+      "levelGroup": "AbyssIsland_WisdomTower",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:556396",
+      "mapGenieDistance": 2.1
+    },
+    {
+      "name": "Abyss island 97 chest 2",
+      "uuid": [
+        45630704,
+        1450447287,
+        4203164732,
+        0
+      ],
+      "gamePosition": [
+        -10087.3818,
+        1802.8207,
+        -5967.8882
+      ],
+      "level": "abyssisland_0097_phase00_00",
+      "levelGroup": "AbyssIsland_WisdomTower",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:1044101",
+      "mapGenieDistance": 1.6
+    },
+    {
+      "name": "Abyss island 99 chest 1",
+      "uuid": [
+        3495393536,
+        1450447286,
+        4203164732,
+        0
+      ],
+      "gamePosition": [
+        -11202.1719,
+        1820.6873,
+        -4111.4424
+      ],
+      "level": "abyssisland_0099_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": "mg:552599",
+      "mapGenieDistance": 69.9
+    },
+    {
+      "name": "Abyss island 99 chest 2",
+      "uuid": [
+        3082132493,
+        1450447286,
+        4203164732,
+        0
+      ],
+      "gamePosition": [
+        -11137.293,
+        1820.2827,
+        -4170.9209
+      ],
+      "level": "abyssisland_0099_phase00_00",
+      "levelGroup": "AbyssIsland_SpireOfTheStars",
+      "prefab": "gimmick_itembox_a_0010.prefab",
+      "mapGenieId": null,
+      "mapGenieDistance": null
+    }
+  ]
+}

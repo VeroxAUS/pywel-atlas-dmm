@@ -7,12 +7,16 @@
 //   loads into Crimson Desert. It joins two parts that used to be separate
 //   mods, without changing what either part does:
 //     - Save detection (src/save-detection/NativeSaveLoadProbe.cpp): works out
-//       which save is loaded and where the game saves it, and reads its Bells.
+//       which save is loaded and where the game saves it, and reads its Bells
+//       and (v0.56) Greymane Shrines.
 //     - Map marker (src/marker-bell/NativeMapCategoryProbe.cpp): shows and
-//       removes the Bell map markers.
+//       removes the Bell and (v0.56) Greymane Shrine map markers.
 //     - Teleport observation (TeleportObserve.cpp, v0.55): watch-only logging
 //       of the game's own player-move functions, for the planned test-only
 //       teleporter. It moves nothing.
+//     - Filter panel (FilterPanel.cpp, v0.62): the in-game Dear ImGui panel
+//       (F9), drawn in the game's own frames; v0.62 is not connected to
+//       the markers yet. Hooks only Windows' dxgi.dll.
 //     - Test teleporter (TestTeleporter.cpp): ONLY in the separate test build
 //       PywelAtlasTest.asi (build.ps1 -Test defines PYWEL_ATLAS_TELEPORT).
 //   Both files are compiled with PYWEL_ATLAS_COMBINED defined, which removes
@@ -28,7 +32,7 @@
 // KEYS IN THE COMBINED BUILD
 //   F7        save-detection checkpoint popup (unchanged).
 //   Shift+F7  map marker's "read the selected save" (was plain F7 there).
-//   F6, F8, F9, F10 keep their map-marker meanings.
+//   F6, F8, F10 keep their map-marker meanings; F9 opens the filter panel.
 // =============================================================================
 
 #define WIN32_LEAN_AND_MEAN
@@ -41,6 +45,8 @@ DWORD WINAPI PywelSaveDetectionRun(void* address);
 DWORD WINAPI PywelMapMarkerRun(void* address);
 // v0.55: watch-only teleport observation (TeleportObserve.cpp); moves nothing.
 DWORD WINAPI PywelTeleportObserveRun(void* address);
+// v0.62: the in-game filter panel (FilterPanel.cpp).
+DWORD WINAPI PywelFilterPanelRun(void* address);
 #ifdef PYWEL_ATLAS_TELEPORT
 // Test build only (PywelAtlasTest.asi): the test teleporter's worker.
 DWORD WINAPI PywelTeleporterRun(void* address);
@@ -66,6 +72,7 @@ DWORD WINAPI Start(void* address) {
     StartPart(PywelSaveDetectionRun, address);
     StartPart(PywelMapMarkerRun, address);
     StartPart(PywelTeleportObserveRun, address);
+    StartPart(PywelFilterPanelRun, address);
 #ifdef PYWEL_ATLAS_TELEPORT
     StartPart(PywelTeleporterRun, address);
 #endif

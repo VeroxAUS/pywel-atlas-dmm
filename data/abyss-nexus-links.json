@@ -1,0 +1,3636 @@
+{
+  "version": 1,
+  "category": "Abyss Nexus (surface, AbyssRuins_Field)",
+  "infoKey": 1000001,
+  "discoveredRule": "DiscoveredLevelGimmickSceneObjectSaveData record with infoKey 1000001 and this UUID",
+  "activatedRule": "FieldSaveData._fieldGimmickSaveDataList record for this UUID with reason 1, reset never and state 353047760 or 1537827618 (2255254665 = not yet)",
+  "nativeIcon": {
+    "type": 234,
+    "templateType": 28866,
+    "templateName": "MapIcon_Abyss_Ruins",
+    "category": "0x20"
+  },
+  "locations": [
+    {
+      "name": "Crimson Desert Abyss Nexus 1",
+      "uuid": [
+        2828228085,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5040.0469,
+        416.2446,
+        -2774.394
+      ],
+      "level": "abyssruins_cd_0001",
+      "mapGenieId": "mg:549640",
+      "mapGenieDistance": 23.7
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 2",
+      "uuid": [
+        560148511,
+        1591217965,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7035.5923,
+        588.1408,
+        -1954.6818
+      ],
+      "level": "abyssruins_cd_0002",
+      "mapGenieId": "mg:550810",
+      "mapGenieDistance": 29.6
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 3",
+      "uuid": [
+        1026842915,
+        1591217965,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5722.6187,
+        577.5298,
+        -1351.6583
+      ],
+      "level": "abyssruins_cd_0003",
+      "mapGenieId": "mg:552997",
+      "mapGenieDistance": 22.4
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 4",
+      "uuid": [
+        1347754636,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5480.9419,
+        541.4342,
+        -1876.7155
+      ],
+      "level": "abyssruins_cd_0004",
+      "mapGenieId": "mg:555134",
+      "mapGenieDistance": 12.7
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 5",
+      "uuid": [
+        2742950768,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -6517.6743,
+        659.9598,
+        -901.3474
+      ],
+      "level": "abyssruins_cd_0005",
+      "mapGenieId": "mg:549477",
+      "mapGenieDistance": 17.3
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 6",
+      "uuid": [
+        366144527,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7876.1089,
+        661.86,
+        -815.6313
+      ],
+      "level": "abyssruins_cd_0006",
+      "mapGenieId": "mg:551505",
+      "mapGenieDistance": 24.5
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 7",
+      "uuid": [
+        2218516162,
+        1591217965,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -6897.2168,
+        955.2693,
+        -156.242
+      ],
+      "level": "abyssruins_cd_0007",
+      "mapGenieId": "mg:550807",
+      "mapGenieDistance": 2.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 8",
+      "uuid": [
+        2725817947,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5581.23,
+        682.0197,
+        208.8817
+      ],
+      "level": "abyssruins_cd_0008",
+      "mapGenieId": "mg:555678",
+      "mapGenieDistance": 14.9
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 9",
+      "uuid": [
+        2718461604,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4674.123,
+        665.6293,
+        2201.7549
+      ],
+      "level": "abyssruins_cd_0009",
+      "mapGenieId": "mg:549664",
+      "mapGenieDistance": 32.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 10",
+      "uuid": [
+        2503244832,
+        4279243122,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -3832.8882,
+        692.7052,
+        3527.4585
+      ],
+      "level": "abyssruins_cd_0010",
+      "mapGenieId": "mg:549667",
+      "mapGenieDistance": 13.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 11",
+      "uuid": [
+        3307176403,
+        1591218069,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7390.4727,
+        675.5249,
+        -744.2218
+      ],
+      "level": "abyssruins_cd_0011",
+      "mapGenieId": "mg:555166",
+      "mapGenieDistance": 48.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 12",
+      "uuid": [
+        3532105845,
+        1591218069,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5168.6919,
+        680.1932,
+        -822.0803
+      ],
+      "level": "abyssruins_cd_0012",
+      "mapGenieId": "mg:555138",
+      "mapGenieDistance": 19.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 13",
+      "uuid": [
+        36404834,
+        1591218082,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6420.6104,
+        533.2896,
+        -1420.0912
+      ],
+      "level": "abyssruins_cd_0013",
+      "mapGenieId": "mg:550809",
+      "mapGenieDistance": 22.7
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 14",
+      "uuid": [
+        72023287,
+        1591218082,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4844.8394,
+        585.5411,
+        -1759.4391
+      ],
+      "level": "abyssruins_cd_0014",
+      "mapGenieId": "mg:552335",
+      "mapGenieDistance": 78.9
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 15",
+      "uuid": [
+        72023292,
+        1591218082,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6009.2686,
+        655.8211,
+        -304.3624
+      ],
+      "level": "abyssruins_cd_0015",
+      "mapGenieId": "mg:555164",
+      "mapGenieDistance": 19.4
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 16",
+      "uuid": [
+        3217504611,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6006.9956,
+        577.9938,
+        -1261.5176
+      ],
+      "level": "abyssruins_cd_0016",
+      "mapGenieId": "mg:549646",
+      "mapGenieDistance": 38.6
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 17",
+      "uuid": [
+        2742851250,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4509.9155,
+        471.6336,
+        -2417.9133
+      ],
+      "level": "abyssruins_cd_0017",
+      "mapGenieId": "mg:554032",
+      "mapGenieDistance": 11.4
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 18",
+      "uuid": [
+        2758182419,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4916.7812,
+        518.625,
+        -2261.8667
+      ],
+      "level": "abyssruins_cd_0018",
+      "mapGenieId": "mg:552394",
+      "mapGenieDistance": 20.5
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 19",
+      "uuid": [
+        3150218267,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4461.603,
+        609.256,
+        -811.7241
+      ],
+      "level": "abyssruins_cd_0019",
+      "mapGenieId": "mg:552344",
+      "mapGenieDistance": 18.4
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 20",
+      "uuid": [
+        3138343155,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -5798.248,
+        520.6287,
+        -2314.6282
+      ],
+      "level": "abyssruins_cd_0020",
+      "mapGenieId": "mg:551517",
+      "mapGenieDistance": 14.4
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 21",
+      "uuid": [
+        3114927430,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -5001.4248,
+        674.478,
+        -229.6471
+      ],
+      "level": "abyssruins_cd_0021",
+      "mapGenieId": "mg:555162",
+      "mapGenieDistance": 3.4
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 22",
+      "uuid": [
+        3045237430,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -5291.3003,
+        689.9993,
+        786.6704
+      ],
+      "level": "abyssruins_cd_0022",
+      "mapGenieId": "mg:551593",
+      "mapGenieDistance": 12.3
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 23",
+      "uuid": [
+        3033480511,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4714.4829,
+        682.1725,
+        1555.3308
+      ],
+      "level": "abyssruins_cd_0023",
+      "mapGenieId": "mg:553634",
+      "mapGenieDistance": 33.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 24",
+      "uuid": [
+        3017454017,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4599.188,
+        651.3367,
+        3158.0425
+      ],
+      "level": "abyssruins_cd_0024",
+      "mapGenieId": "mg:553653",
+      "mapGenieDistance": 16.3
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 25",
+      "uuid": [
+        2990260060,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7799.0327,
+        781.7446,
+        -241.4004
+      ],
+      "level": "abyssruins_cd_0025",
+      "mapGenieId": "mg:554873",
+      "mapGenieDistance": 14.4
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 26",
+      "uuid": [
+        2946344822,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6134.2188,
+        698.4098,
+        854.3572
+      ],
+      "level": "abyssruins_cd_0026",
+      "mapGenieId": "mg:549657",
+      "mapGenieDistance": 22.5
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 27",
+      "uuid": [
+        2889778702,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -3810.0815,
+        659.7609,
+        -645.217
+      ],
+      "level": "abyssruins_cd_0027",
+      "mapGenieId": "mg:551595",
+      "mapGenieDistance": 7.4
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 28",
+      "uuid": [
+        2917799779,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4882.0586,
+        671.9375,
+        -1261.3804
+      ],
+      "level": "abyssruins_cd_0028",
+      "mapGenieId": "mg:551947",
+      "mapGenieDistance": 23.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 29",
+      "uuid": [
+        2931118891,
+        1591218134,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6922.8032,
+        664.5942,
+        -565.6556
+      ],
+      "level": "abyssruins_cd_0029",
+      "mapGenieId": "mg:552043",
+      "mapGenieDistance": 37.5
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 30",
+      "uuid": [
+        2685745369,
+        1450446657,
+        2838231612,
+        0
+      ],
+      "gamePosition": [
+        -6485.6484,
+        969.7618,
+        100.9435
+      ],
+      "level": "abyssruins_cd_0030",
+      "mapGenieId": "mg:550808",
+      "mapGenieDistance": 14.1
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 31",
+      "uuid": [
+        3737214609,
+        1450447206,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -5952.563,
+        608.7403,
+        -894.0214
+      ],
+      "level": "abyssruins_cd_0031",
+      "mapGenieId": "mg:549645",
+      "mapGenieDistance": 15.0
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 32",
+      "uuid": [
+        2067274791,
+        4279243112,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -7318.5112,
+        691.4053,
+        -472.5993
+      ],
+      "level": "abyssruins_cd_0032",
+      "mapGenieId": "mg:554030",
+      "mapGenieDistance": 18.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 33",
+      "uuid": [
+        1919433874,
+        4279243124,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -7188.2935,
+        761.098,
+        23.7087
+      ],
+      "level": "abyssruins_cd_0033",
+      "mapGenieId": "mg:551506",
+      "mapGenieDistance": 26.8
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 34",
+      "uuid": [
+        1921670308,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7071.415,
+        598.4536,
+        -1371.4377
+      ],
+      "level": "abyssruins_cd_0034",
+      "mapGenieId": "mg:551946",
+      "mapGenieDistance": 18.9
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 35",
+      "uuid": [
+        1687956232,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -6453.4976,
+        694.9895,
+        -710.9118
+      ],
+      "level": "abyssruins_cd_0035",
+      "mapGenieId": "mg:554031",
+      "mapGenieDistance": 5.9
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 36",
+      "uuid": [
+        1642408275,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -4418.5054,
+        659.445,
+        189.5424
+      ],
+      "level": "abyssruins_cd_0036",
+      "mapGenieId": "mg:555157",
+      "mapGenieDistance": 64.1
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 37",
+      "uuid": [
+        1661710313,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -5512.6743,
+        651.8558,
+        -976.6522
+      ],
+      "level": "abyssruins_cd_0037",
+      "mapGenieId": "mg:555136",
+      "mapGenieDistance": 13.2
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 38",
+      "uuid": [
+        1658691746,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -5494.7036,
+        703.1957,
+        945.8394
+      ],
+      "level": "abyssruins_cd_0038",
+      "mapGenieId": "mg:553058",
+      "mapGenieDistance": 15.9
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 39",
+      "uuid": [
+        1736731858,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -7951.9121,
+        671.1056,
+        -657.4492
+      ],
+      "level": "abyssruins_cd_0039",
+      "mapGenieId": "mg:554029",
+      "mapGenieDistance": 19.8
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 40",
+      "uuid": [
+        1936249994,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -6107.3599,
+        614.1817,
+        -888.4572
+      ],
+      "level": "abyssruins_cd_0040",
+      "mapGenieId": "mg:551728",
+      "mapGenieDistance": 15.9
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 41",
+      "uuid": [
+        1878091583,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -5470.043,
+        684.101,
+        -375.4676
+      ],
+      "level": "abyssruins_cd_0041",
+      "mapGenieId": "mg:555163",
+      "mapGenieDistance": 10.9
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 42",
+      "uuid": [
+        1904824522,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -6567.4561,
+        650.8708,
+        -1023.913
+      ],
+      "level": "abyssruins_cd_0042",
+      "mapGenieId": "mg:555165",
+      "mapGenieDistance": 19.5
+    },
+    {
+      "name": "Crimson Desert Abyss Nexus 44",
+      "uuid": [
+        2057382237,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -5200.4536,
+        517.5425,
+        -1659.1322
+      ],
+      "level": "abyssruins_cd_0044",
+      "mapGenieId": "mg:555135",
+      "mapGenieDistance": 30.2
+    },
+    {
+      "name": "Delesyia Abyss Nexus 1",
+      "uuid": [
+        2599908791,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -3786.0701,
+        423.455,
+        -4891.7896
+      ],
+      "level": "abyssruins_del_0001",
+      "mapGenieId": "mg:553914",
+      "mapGenieDistance": 38.4
+    },
+    {
+      "name": "Delesyia Abyss Nexus 2",
+      "uuid": [
+        2606192375,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5929.9131,
+        428.4046,
+        -3562.8069
+      ],
+      "level": "abyssruins_del_0002",
+      "mapGenieId": "mg:551522",
+      "mapGenieDistance": 29.7
+    },
+    {
+      "name": "Delesyia Abyss Nexus 3",
+      "uuid": [
+        2611312658,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -6900.2324,
+        507.2188,
+        -5578.6074
+      ],
+      "level": "abyssruins_del_0003",
+      "mapGenieId": "mg:552265",
+      "mapGenieDistance": 22.5
+    },
+    {
+      "name": "Delesyia Abyss Nexus 4",
+      "uuid": [
+        2620177124,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4885.5181,
+        424.3779,
+        -4901.2803
+      ],
+      "level": "abyssruins_del_0004",
+      "mapGenieId": "mg:554033",
+      "mapGenieDistance": 33.7
+    },
+    {
+      "name": "Delesyia Abyss Nexus 5",
+      "uuid": [
+        2625539002,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4514.3477,
+        384.6357,
+        -3368.5552
+      ],
+      "level": "abyssruins_del_0005",
+      "mapGenieId": "mg:549636",
+      "mapGenieDistance": 32.4
+    },
+    {
+      "name": "Delesyia Abyss Nexus 6",
+      "uuid": [
+        2070597592,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6694.1606,
+        492.2702,
+        -4892.7041
+      ],
+      "level": "abyssruins_del_0006",
+      "mapGenieId": "mg:550814",
+      "mapGenieDistance": 38.7
+    },
+    {
+      "name": "Delesyia Abyss Nexus 7",
+      "uuid": [
+        2076529460,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -5256.7061,
+        377.5102,
+        -3721.6089
+      ],
+      "level": "abyssruins_del_0007",
+      "mapGenieId": "mg:552264",
+      "mapGenieDistance": 25.3
+    },
+    {
+      "name": "Delesyia Abyss Nexus 8",
+      "uuid": [
+        2094066017,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -5398.5571,
+        425.3965,
+        -3199.999
+      ],
+      "level": "abyssruins_del_0008",
+      "mapGenieId": "mg:551519",
+      "mapGenieDistance": 35.3
+    },
+    {
+      "name": "Delesyia Abyss Nexus 9",
+      "uuid": [
+        2094066023,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -3991.939,
+        517.5408,
+        -5294.2856
+      ],
+      "level": "abyssruins_del_0009",
+      "mapGenieId": "mg:553918",
+      "mapGenieDistance": 26.0
+    },
+    {
+      "name": "Delesyia Abyss Nexus 10",
+      "uuid": [
+        2101947476,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -3539.4924,
+        366.7344,
+        -4464.4399
+      ],
+      "level": "abyssruins_del_0010",
+      "mapGenieId": "mg:552005",
+      "mapGenieDistance": 23.4
+    },
+    {
+      "name": "Delesyia Abyss Nexus 11",
+      "uuid": [
+        2112276887,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4739.9097,
+        367.4262,
+        -3835.7783
+      ],
+      "level": "abyssruins_del_0011",
+      "mapGenieId": "mg:547437",
+      "mapGenieDistance": 24.5
+    },
+    {
+      "name": "Delesyia Abyss Nexus 12",
+      "uuid": [
+        3197976873,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5850.2656,
+        518.1268,
+        -4925.0918
+      ],
+      "level": "abyssruins_del_0012",
+      "mapGenieId": "mg:554083",
+      "mapGenieDistance": 25.9
+    },
+    {
+      "name": "Delesyia Abyss Nexus 13",
+      "uuid": [
+        3321979223,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5590.4297,
+        516.7923,
+        -4313.7886
+      ],
+      "level": "abyssruins_del_0013",
+      "mapGenieId": "mg:550813",
+      "mapGenieDistance": 24.0
+    },
+    {
+      "name": "Delesyia Abyss Nexus 14",
+      "uuid": [
+        3356853106,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4921.4517,
+        373.0657,
+        -5444.126
+      ],
+      "level": "abyssruins_del_0014",
+      "mapGenieId": "mg:551523",
+      "mapGenieDistance": 23.0
+    },
+    {
+      "name": "Delesyia Abyss Nexus 15",
+      "uuid": [
+        3380990066,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -5810.147,
+        365.0916,
+        -5479.3618
+      ],
+      "level": "abyssruins_del_0015",
+      "mapGenieId": "mg:554898",
+      "mapGenieDistance": 18.3
+    },
+    {
+      "name": "Delesyia Abyss Nexus 16",
+      "uuid": [
+        3416306119,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -3166.4351,
+        453.5377,
+        -5577.8901
+      ],
+      "level": "abyssruins_del_0016",
+      "mapGenieId": "mg:553919",
+      "mapGenieDistance": 19.2
+    },
+    {
+      "name": "Delesyia Abyss Nexus 17",
+      "uuid": [
+        2163100958,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -4201.9043,
+        353.6474,
+        -4264.1895
+      ],
+      "level": "abyssruins_del_0017",
+      "mapGenieId": "mg:552009",
+      "mapGenieDistance": 15.8
+    },
+    {
+      "name": "Delesyia Abyss Nexus 18",
+      "uuid": [
+        2434734807,
+        4279243122,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -4516.6113,
+        383.35,
+        -3927.6357
+      ],
+      "level": "abyssruins_del_0018",
+      "mapGenieId": "mg:549635",
+      "mapGenieDistance": 20.5
+    },
+    {
+      "name": "Delesyia Abyss Nexus 19",
+      "uuid": [
+        3820673565,
+        1450447206,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -4222.0854,
+        612.9935,
+        -5140.3184
+      ],
+      "level": "abyssruins_del_0019",
+      "mapGenieId": "mg:553917",
+      "mapGenieDistance": 23.4
+    },
+    {
+      "name": "Delesyia Abyss Nexus 20",
+      "uuid": [
+        1986577492,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6056.5044,
+        518.3402,
+        -3995.9326
+      ],
+      "level": "abyssruins_del_0020",
+      "mapGenieId": "mg:552263",
+      "mapGenieDistance": 13.5
+    },
+    {
+      "name": "Delesyia Abyss Nexus 21",
+      "uuid": [
+        2022030779,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4645.3755,
+        387.7555,
+        -4564.0078
+      ],
+      "level": "abyssruins_del_0021",
+      "mapGenieId": "mg:555085",
+      "mapGenieDistance": 17.5
+    },
+    {
+      "name": "Delesyia Abyss Nexus 22",
+      "uuid": [
+        2058237660,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4310.2856,
+        370.8501,
+        -5641.8574
+      ],
+      "level": "abyssruins_del_0022",
+      "mapGenieId": "mg:553923",
+      "mapGenieDistance": 36.9
+    },
+    {
+      "name": "Delesyia Abyss Nexus 23",
+      "uuid": [
+        1722882244,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -6926.1787,
+        521.977,
+        -5265.688
+      ],
+      "level": "abyssruins_del_0023",
+      "mapGenieId": "mg:552503",
+      "mapGenieDistance": 22.9
+    },
+    {
+      "name": "Delesyia Abyss Nexus 24",
+      "uuid": [
+        1703289616,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -6395.334,
+        563.548,
+        -5186.1943
+      ],
+      "level": "abyssruins_del_0024",
+      "mapGenieId": "mg:552266",
+      "mapGenieDistance": 17.6
+    },
+    {
+      "name": "Delesyia Abyss Nexus 25",
+      "uuid": [
+        2654597460,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -4709.4932,
+        410.126,
+        -2950.635
+      ],
+      "level": "abyssruins_del_0025",
+      "mapGenieId": "mg:552349",
+      "mapGenieDistance": 17.1
+    },
+    {
+      "name": "Delesyia Abyss Nexus 26",
+      "uuid": [
+        2671189665,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -4675.5903,
+        412.5979,
+        -3107.1992
+      ],
+      "level": "abyssruins_del_0026",
+      "mapGenieId": "mg:553051",
+      "mapGenieDistance": 21.3
+    },
+    {
+      "name": "Delesyia Abyss Nexus 27",
+      "uuid": [
+        2031061456,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -3081.332,
+        447.3139,
+        -4671.0264
+      ],
+      "level": "abyssruins_del_0027",
+      "mapGenieId": "mg:552006",
+      "mapGenieDistance": 9.9
+    },
+    {
+      "name": "Delesyia Abyss Nexus 28",
+      "uuid": [
+        2075498770,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -3522.7068,
+        362.8221,
+        -4757.9751
+      ],
+      "level": "abyssruins_del_0028",
+      "mapGenieId": "mg:552008",
+      "mapGenieDistance": 22.7
+    },
+    {
+      "name": "Delesyia Abyss Nexus 29",
+      "uuid": [
+        2154840122,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -3202.4148,
+        398.5494,
+        -4813.7065
+      ],
+      "level": "abyssruins_del_0029",
+      "mapGenieId": "mg:552007",
+      "mapGenieDistance": 23.6
+    },
+    {
+      "name": "Delesyia Abyss Nexus 30",
+      "uuid": [
+        2198278726,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -4572.562,
+        431.0464,
+        -4892.5278
+      ],
+      "level": "abyssruins_del_0030",
+      "mapGenieId": "mg:554034",
+      "mapGenieDistance": 14.4
+    },
+    {
+      "name": "Delesyia Abyss Nexus 31",
+      "uuid": [
+        2309670176,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -4261.4126,
+        386.5476,
+        -4629.5674
+      ],
+      "level": "abyssruins_del_0031",
+      "mapGenieId": "mg:554035",
+      "mapGenieDistance": 39.1
+    },
+    {
+      "name": "Delesyia Abyss Nexus 32",
+      "uuid": [
+        2365659437,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -3587.1177,
+        402.734,
+        -5757.2886
+      ],
+      "level": "abyssruins_del_0032",
+      "mapGenieId": "mg:553916",
+      "mapGenieDistance": 21.5
+    },
+    {
+      "name": "Delesyia Abyss Nexus 33",
+      "uuid": [
+        2407921584,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -4710.7612,
+        439.8378,
+        -5347.5269
+      ],
+      "level": "abyssruins_del_0033",
+      "mapGenieId": "mg:553915",
+      "mapGenieDistance": 55.3
+    },
+    {
+      "name": "Delesyia Abyss Nexus 34",
+      "uuid": [
+        2459282451,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -5608.2456,
+        459.3355,
+        -3453.3987
+      ],
+      "level": "abyssruins_del_0034",
+      "mapGenieId": "mg:555090",
+      "mapGenieDistance": 25.8
+    },
+    {
+      "name": "Delesyia Abyss Nexus 35",
+      "uuid": [
+        2510774051,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -6618.5615,
+        509.3931,
+        -5478.5508
+      ],
+      "level": "abyssruins_del_0035",
+      "mapGenieId": "mg:554428",
+      "mapGenieDistance": 19.6
+    },
+    {
+      "name": "Delesyia Abyss Nexus 36",
+      "uuid": [
+        2352104355,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4346.4136,
+        396.7555,
+        -3910.9558
+      ],
+      "level": "abyssruins_del_0036",
+      "mapGenieId": "mg:551601",
+      "mapGenieDistance": 18.3
+    },
+    {
+      "name": "Demeniss Abyss Nexus 1",
+      "uuid": [
+        2542641079,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -8163.0044,
+        467.6309,
+        -4349.6265
+      ],
+      "level": "abyssruins_dem_0001",
+      "mapGenieId": "mg:547407",
+      "mapGenieDistance": 41.2
+    },
+    {
+      "name": "Demeniss Abyss Nexus 2",
+      "uuid": [
+        2552417453,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7746.6338,
+        564.3807,
+        -2184.0696
+      ],
+      "level": "abyssruins_dem_0002",
+      "mapGenieId": "mg:555140",
+      "mapGenieDistance": 27.4
+    },
+    {
+      "name": "Demeniss Abyss Nexus 3",
+      "uuid": [
+        2559701209,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7037.3726,
+        465.5171,
+        -3180.5867
+      ],
+      "level": "abyssruins_dem_0003",
+      "mapGenieId": "mg:547392",
+      "mapGenieDistance": 19.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 4",
+      "uuid": [
+        2584668853,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9056.7334,
+        652.1549,
+        -2386.1921
+      ],
+      "level": "abyssruins_dem_0004",
+      "mapGenieId": "mg:552414",
+      "mapGenieDistance": 18.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 5",
+      "uuid": [
+        2590579630,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7827.4346,
+        377.9966,
+        -5478.6704
+      ],
+      "level": "abyssruins_dem_0005",
+      "mapGenieId": "mg:551680",
+      "mapGenieDistance": 24.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 6",
+      "uuid": [
+        769724410,
+        1591218065,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7816.3667,
+        639.3656,
+        -1125.1733
+      ],
+      "level": "abyssruins_dem_0006",
+      "mapGenieId": "mg:551729",
+      "mapGenieDistance": 14.5
+    },
+    {
+      "name": "Demeniss Abyss Nexus 7",
+      "uuid": [
+        2002342111,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -8898.666,
+        493.3741,
+        -5191.6074
+      ],
+      "level": "abyssruins_dem_0007",
+      "mapGenieId": "mg:545765",
+      "mapGenieDistance": 27.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 8",
+      "uuid": [
+        2008520561,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7577.499,
+        401.8237,
+        -4346.0425
+      ],
+      "level": "abyssruins_dem_0008",
+      "mapGenieId": "mg:552789",
+      "mapGenieDistance": 19.3
+    },
+    {
+      "name": "Demeniss Abyss Nexus 9",
+      "uuid": [
+        2016327029,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6024.167,
+        510.8369,
+        -2702.0596
+      ],
+      "level": "abyssruins_dem_0009",
+      "mapGenieId": "mg:550811",
+      "mapGenieDistance": 13.1
+    },
+    {
+      "name": "Demeniss Abyss Nexus 10",
+      "uuid": [
+        2028140154,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -8298.5908,
+        651.5435,
+        -1235.6353
+      ],
+      "level": "abyssruins_dem_0010",
+      "mapGenieId": "mg:551503",
+      "mapGenieDistance": 15.5
+    },
+    {
+      "name": "Demeniss Abyss Nexus 11",
+      "uuid": [
+        2035123928,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -8279.8418,
+        389.3773,
+        -6179.7012
+      ],
+      "level": "abyssruins_dem_0011",
+      "mapGenieId": "mg:551682",
+      "mapGenieDistance": 20.9
+    },
+    {
+      "name": "Demeniss Abyss Nexus 12",
+      "uuid": [
+        3049376255,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -8631.0176,
+        516.9888,
+        -3782.3655
+      ],
+      "level": "abyssruins_dem_0012",
+      "mapGenieId": "mg:550815",
+      "mapGenieDistance": 39.5
+    },
+    {
+      "name": "Demeniss Abyss Nexus 13",
+      "uuid": [
+        3077842745,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7548.0317,
+        401.4629,
+        -3819.7991
+      ],
+      "level": "abyssruins_dem_0013",
+      "mapGenieId": "mg:547364",
+      "mapGenieDistance": 21.0
+    },
+    {
+      "name": "Demeniss Abyss Nexus 14",
+      "uuid": [
+        3092403638,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -6445.1211,
+        465.8219,
+        -2887.4609
+      ],
+      "level": "abyssruins_dem_0014",
+      "mapGenieId": "mg:547386",
+      "mapGenieDistance": 67.9
+    },
+    {
+      "name": "Demeniss Abyss Nexus 15",
+      "uuid": [
+        3110074147,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -6516.0762,
+        424.9818,
+        -4102.6099
+      ],
+      "level": "abyssruins_dem_0015",
+      "mapGenieId": "mg:551723",
+      "mapGenieDistance": 8.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 16",
+      "uuid": [
+        3158134439,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7884.291,
+        555.8077,
+        -1720.0889
+      ],
+      "level": "abyssruins_dem_0016",
+      "mapGenieId": "mg:551985",
+      "mapGenieDistance": 25.0
+    },
+    {
+      "name": "Demeniss Abyss Nexus 17",
+      "uuid": [
+        3173116032,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -8126.9746,
+        528.3338,
+        -2699.2566
+      ],
+      "level": "abyssruins_dem_0017",
+      "mapGenieId": "mg:547344",
+      "mapGenieDistance": 21.6
+    },
+    {
+      "name": "Demeniss Abyss Nexus 18",
+      "uuid": [
+        2124979134,
+        4279243122,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -7985.1943,
+        538.8623,
+        -3409.5291
+      ],
+      "level": "abyssruins_dem_0018",
+      "mapGenieId": "mg:547352",
+      "mapGenieDistance": 20.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 19",
+      "uuid": [
+        3942375349,
+        1450447206,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -8440.7627,
+        614.3132,
+        -1847.387
+      ],
+      "level": "abyssruins_dem_0019",
+      "mapGenieId": "mg:550982",
+      "mapGenieDistance": 35.2
+    },
+    {
+      "name": "Demeniss Abyss Nexus 20",
+      "uuid": [
+        4035449459,
+        1450447206,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -6008.4595,
+        542.3912,
+        -2440.6494
+      ],
+      "level": "abyssruins_dem_0020",
+      "mapGenieId": "mg:551518",
+      "mapGenieDistance": 18.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 21",
+      "uuid": [
+        2284476835,
+        4279243112,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -8622.9092,
+        648.3381,
+        -851.3172
+      ],
+      "level": "abyssruins_dem_0021",
+      "mapGenieId": "mg:554502",
+      "mapGenieDistance": 14.0
+    },
+    {
+      "name": "Demeniss Abyss Nexus 22",
+      "uuid": [
+        3764101687,
+        1591218548,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7393.3647,
+        454.2502,
+        -4639.6055
+      ],
+      "level": "abyssruins_dem_0022",
+      "mapGenieId": "mg:547420",
+      "mapGenieDistance": 5.5
+    },
+    {
+      "name": "Demeniss Abyss Nexus 23",
+      "uuid": [
+        1476489685,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -8392.9561,
+        530.387,
+        -2710.5588
+      ],
+      "level": "abyssruins_dem_0023",
+      "mapGenieId": "mg:552038",
+      "mapGenieDistance": 19.0
+    },
+    {
+      "name": "Demeniss Abyss Nexus 24",
+      "uuid": [
+        1762803264,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9366.8408,
+        681.4985,
+        -1516.1816
+      ],
+      "level": "abyssruins_dem_0024",
+      "mapGenieId": "mg:551710",
+      "mapGenieDistance": 15.9
+    },
+    {
+      "name": "Demeniss Abyss Nexus 25",
+      "uuid": [
+        1808771732,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -8330.5312,
+        462.7715,
+        -4937.9385
+      ],
+      "level": "abyssruins_dem_0025",
+      "mapGenieId": "mg:551683",
+      "mapGenieDistance": 30.6
+    },
+    {
+      "name": "Demeniss Abyss Nexus 26",
+      "uuid": [
+        1825089446,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -8515.208,
+        539.2798,
+        -5550.0278
+      ],
+      "level": "abyssruins_dem_0026",
+      "mapGenieId": "mg:553723",
+      "mapGenieDistance": 33.0
+    },
+    {
+      "name": "Demeniss Abyss Nexus 27",
+      "uuid": [
+        1853654541,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6455.6338,
+        540.7715,
+        -2557.0791
+      ],
+      "level": "abyssruins_dem_0027",
+      "mapGenieId": "mg:551945",
+      "mapGenieDistance": 24.0
+    },
+    {
+      "name": "Demeniss Abyss Nexus 28",
+      "uuid": [
+        1884236498,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7951.9834,
+        572.6431,
+        -1577.4333
+      ],
+      "level": "abyssruins_dem_0028",
+      "mapGenieId": "mg:551504",
+      "mapGenieDistance": 17.2
+    },
+    {
+      "name": "Demeniss Abyss Nexus 29",
+      "uuid": [
+        1954957921,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6763.7896,
+        434.2212,
+        -3551.7563
+      ],
+      "level": "abyssruins_dem_0029",
+      "mapGenieId": "mg:552256",
+      "mapGenieDistance": 20.9
+    },
+    {
+      "name": "Demeniss Abyss Nexus 30",
+      "uuid": [
+        2125622102,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6677.915,
+        540.783,
+        -2280.0608
+      ],
+      "level": "abyssruins_dem_0030",
+      "mapGenieId": "mg:555133",
+      "mapGenieDistance": 9.0
+    },
+    {
+      "name": "Demeniss Abyss Nexus 31",
+      "uuid": [
+        2348376984,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -8990.4639,
+        597.6172,
+        -6026.9102
+      ],
+      "level": "abyssruins_dem_0031",
+      "mapGenieId": "mg:554017",
+      "mapGenieDistance": 24.7
+    },
+    {
+      "name": "Demeniss Abyss Nexus 32",
+      "uuid": [
+        2394606771,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -9219.2822,
+        546.0139,
+        -5389.8555
+      ],
+      "level": "abyssruins_dem_0032",
+      "mapGenieId": "mg:551526",
+      "mapGenieDistance": 24.4
+    },
+    {
+      "name": "Demeniss Abyss Nexus 34",
+      "uuid": [
+        2552553892,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -8749.4971,
+        542.0269,
+        -2664.771
+      ],
+      "level": "abyssruins_dem_0034",
+      "mapGenieId": "mg:552037",
+      "mapGenieDistance": 29.9
+    },
+    {
+      "name": "Demeniss Abyss Nexus 35",
+      "uuid": [
+        1714599177,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -6869.2441,
+        391.6525,
+        -3844.8105
+      ],
+      "level": "abyssruins_dem_0035",
+      "mapGenieId": "mg:552260",
+      "mapGenieDistance": 26.9
+    },
+    {
+      "name": "Demeniss Abyss Nexus 36",
+      "uuid": [
+        1996966208,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -9060.248,
+        759.3806,
+        -1857.3427
+      ],
+      "level": "abyssruins_dem_0036",
+      "mapGenieId": "mg:551711",
+      "mapGenieDistance": 22.3
+    },
+    {
+      "name": "Demeniss Abyss Nexus 37",
+      "uuid": [
+        2082554869,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -8887.3359,
+        695.9161,
+        -1520.6533
+      ],
+      "level": "abyssruins_dem_0037",
+      "mapGenieId": "mg:551499",
+      "mapGenieDistance": 6.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 38",
+      "uuid": [
+        2218873025,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -7337.5688,
+        399.6482,
+        -4213.6909
+      ],
+      "level": "abyssruins_dem_0038",
+      "mapGenieId": "mg:551760",
+      "mapGenieDistance": 18.6
+    },
+    {
+      "name": "Demeniss Abyss Nexus 39",
+      "uuid": [
+        1788415421,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -9016.0107,
+        602.9542,
+        -2917.0891
+      ],
+      "level": "abyssruins_dem_0039",
+      "mapGenieId": "mg:551716",
+      "mapGenieDistance": 45.6
+    },
+    {
+      "name": "Demeniss Abyss Nexus 40",
+      "uuid": [
+        1861832259,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -6726.4502,
+        477.2733,
+        -3046.4492
+      ],
+      "level": "abyssruins_dem_0040",
+      "mapGenieId": "mg:552230",
+      "mapGenieDistance": 29.6
+    },
+    {
+      "name": "Demeniss Abyss Nexus 41",
+      "uuid": [
+        1904296590,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -8404.7979,
+        523.7598,
+        -2874.9124
+      ],
+      "level": "abyssruins_dem_0041",
+      "mapGenieId": "mg:552039",
+      "mapGenieDistance": 21.7
+    },
+    {
+      "name": "Demeniss Abyss Nexus 42",
+      "uuid": [
+        1950781545,
+        4279243222,
+        4084319712,
+        0
+      ],
+      "gamePosition": [
+        -8647.6738,
+        537.5211,
+        -3585.7551
+      ],
+      "level": "abyssruins_dem_0042",
+      "mapGenieId": "mg:551732",
+      "mapGenieDistance": 23.8
+    },
+    {
+      "name": "Demeniss Abyss Nexus 43",
+      "uuid": [
+        1960608391,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -8154.9902,
+        505.5402,
+        -3652.7454
+      ],
+      "level": "abyssruins_dem_0043",
+      "mapGenieId": "mg:551722",
+      "mapGenieDistance": 32.2
+    },
+    {
+      "name": "Demeniss Abyss Nexus 44",
+      "uuid": [
+        1768736279,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -8493.7168,
+        609.4683,
+        -1049.019
+      ],
+      "level": "abyssruins_dem_0044",
+      "mapGenieId": "mg:551502",
+      "mapGenieDistance": 4.2
+    },
+    {
+      "name": "Demeniss Abyss Nexus 45",
+      "uuid": [
+        2292474463,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7728.4482,
+        519.6987,
+        -3264.0369
+      ],
+      "level": "abyssruins_dem_0045",
+      "mapGenieId": "mg:555110",
+      "mapGenieDistance": 45.3
+    },
+    {
+      "name": "Demeniss Abyss Nexus 48",
+      "uuid": [
+        2331150698,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7567.3198,
+        520.1978,
+        -3473.2898
+      ],
+      "level": "abyssruins_dem_0048",
+      "mapGenieId": "mg:551718",
+      "mapGenieDistance": 15.0
+    },
+    {
+      "name": "Hernand Abyss Nexus 1",
+      "uuid": [
+        2535571764,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11180.8174,
+        807.172,
+        -3019.2837
+      ],
+      "level": "abyssruins_her_0001",
+      "mapGenieId": "mg:546194",
+      "mapGenieDistance": 15.1
+    },
+    {
+      "name": "Hernand Abyss Nexus 2",
+      "uuid": [
+        2400342334,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9560.5635,
+        599.4611,
+        -3579.937
+      ],
+      "level": "abyssruins_her_0002",
+      "mapGenieId": "mg:545355",
+      "mapGenieDistance": 24.0
+    },
+    {
+      "name": "Hernand Abyss Nexus 3",
+      "uuid": [
+        2427235926,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9827.6582,
+        607.9249,
+        -5567.0659
+      ],
+      "level": "abyssruins_her_0003",
+      "mapGenieId": "mg:545662",
+      "mapGenieDistance": 21.5
+    },
+    {
+      "name": "Hernand Abyss Nexus 4",
+      "uuid": [
+        2517186004,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -12655.9258,
+        1044.522,
+        -4206.3867
+      ],
+      "level": "abyssruins_her_0004",
+      "mapGenieId": "mg:550264",
+      "mapGenieDistance": 22.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 5",
+      "uuid": [
+        2526800937,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11144.9229,
+        609.7719,
+        -4942.2949
+      ],
+      "level": "abyssruins_her_0005",
+      "mapGenieId": "mg:546541",
+      "mapGenieDistance": 19.4
+    },
+    {
+      "name": "Hernand Abyss Nexus 6",
+      "uuid": [
+        438986232,
+        1591218070,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10372.2676,
+        628.9906,
+        -1549.6143
+      ],
+      "level": "abyssruins_her_0006",
+      "mapGenieId": "mg:546420",
+      "mapGenieDistance": 7.3
+    },
+    {
+      "name": "Hernand Abyss Nexus 7",
+      "uuid": [
+        1226107967,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10021.6025,
+        715.1537,
+        -2446.7708
+      ],
+      "level": "abyssruins_her_0007",
+      "mapGenieId": "mg:553898",
+      "mapGenieDistance": 24.9
+    },
+    {
+      "name": "Hernand Abyss Nexus 8",
+      "uuid": [
+        1250837262,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -12154.0186,
+        732.7748,
+        -2036.564
+      ],
+      "level": "abyssruins_her_0008",
+      "mapGenieId": "mg:545681",
+      "mapGenieDistance": 25.1
+    },
+    {
+      "name": "Hernand Abyss Nexus 9",
+      "uuid": [
+        1267171186,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11505.2139,
+        748.6154,
+        -3718.6033
+      ],
+      "level": "abyssruins_her_0009",
+      "mapGenieId": "mg:546454",
+      "mapGenieDistance": 17.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 11",
+      "uuid": [
+        1362052406,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9510.4668,
+        555.3477,
+        -4921.2734
+      ],
+      "level": "abyssruins_her_0011",
+      "mapGenieId": "mg:544696",
+      "mapGenieDistance": 31.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 12",
+      "uuid": [
+        1370024892,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -12065.8896,
+        930.9772,
+        -5744.9639
+      ],
+      "level": "abyssruins_her_0012",
+      "mapGenieId": "mg:545855",
+      "mapGenieDistance": 34.5
+    },
+    {
+      "name": "Hernand Abyss Nexus 13",
+      "uuid": [
+        1093349184,
+        1591218082,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11918.6016,
+        833.6688,
+        -5019.3789
+      ],
+      "level": "abyssruins_her_0013",
+      "mapGenieId": "mg:545730",
+      "mapGenieDistance": 24.7
+    },
+    {
+      "name": "Hernand Abyss Nexus 14",
+      "uuid": [
+        2820599129,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11071.6348,
+        800.1887,
+        -2332.3323
+      ],
+      "level": "abyssruins_her_0014",
+      "mapGenieId": "mg:551568",
+      "mapGenieDistance": 16.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 15",
+      "uuid": [
+        2884808298,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -12537.1465,
+        1035.2366,
+        -2769.4563
+      ],
+      "level": "abyssruins_her_0015",
+      "mapGenieId": "mg:550282",
+      "mapGenieDistance": 61.1
+    },
+    {
+      "name": "Hernand Abyss Nexus 16",
+      "uuid": [
+        2917696221,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10414.1631,
+        689.1041,
+        -3171.9399
+      ],
+      "level": "abyssruins_her_0016",
+      "mapGenieId": "mg:545303",
+      "mapGenieDistance": 9.3
+    },
+    {
+      "name": "Hernand Abyss Nexus 17",
+      "uuid": [
+        2944954853,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10605.2969,
+        350.144,
+        -6416.6904
+      ],
+      "level": "abyssruins_her_0017",
+      "mapGenieId": "mg:547473",
+      "mapGenieDistance": 24.3
+    },
+    {
+      "name": "Hernand Abyss Nexus 18",
+      "uuid": [
+        2988798382,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10116.7617,
+        587.2657,
+        -4892.8369
+      ],
+      "level": "abyssruins_her_0018",
+      "mapGenieId": "mg:545769",
+      "mapGenieDistance": 17.4
+    },
+    {
+      "name": "Hernand Abyss Nexus 19",
+      "uuid": [
+        3017252831,
+        1591218134,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -12119.2148,
+        875.663,
+        -4028.6145
+      ],
+      "level": "abyssruins_her_0019",
+      "mapGenieId": "mg:550262",
+      "mapGenieDistance": 30.4
+    },
+    {
+      "name": "Hernand Abyss Nexus 20",
+      "uuid": [
+        4244243020,
+        1450447199,
+        1494999100,
+        0
+      ],
+      "gamePosition": [
+        -11111.1709,
+        708.4921,
+        -3859.7598
+      ],
+      "level": "abyssruins_her_0020",
+      "mapGenieId": "mg:546461",
+      "mapGenieDistance": 19.6
+    },
+    {
+      "name": "Hernand Abyss Nexus 21",
+      "uuid": [
+        3783951294,
+        4279243110,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -10626.4336,
+        620.7167,
+        -3813.2607
+      ],
+      "level": "abyssruins_her_0021",
+      "mapGenieId": "mg:544720",
+      "mapGenieDistance": 19.6
+    },
+    {
+      "name": "Hernand Abyss Nexus 22",
+      "uuid": [
+        4146541291,
+        1450447206,
+        2909694524,
+        0
+      ],
+      "gamePosition": [
+        -9664.4668,
+        623.6057,
+        -5997.6963
+      ],
+      "level": "abyssruins_her_0022",
+      "mapGenieId": "mg:545734",
+      "mapGenieDistance": 27.8
+    },
+    {
+      "name": "Hernand Abyss Nexus 23",
+      "uuid": [
+        4056356744,
+        4279243110,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -10622.9805,
+        855.2995,
+        -1719.8868
+      ],
+      "level": "abyssruins_her_0023",
+      "mapGenieId": "mg:546404",
+      "mapGenieDistance": 22.0
+    },
+    {
+      "name": "Hernand Abyss Nexus 24",
+      "uuid": [
+        4139320690,
+        4279243110,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -11517.1221,
+        659.2434,
+        -4628.4424
+      ],
+      "level": "abyssruins_her_0024",
+      "mapGenieId": "mg:545720",
+      "mapGenieDistance": 22.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 25",
+      "uuid": [
+        2351255118,
+        4279243217,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -10730.3838,
+        613.7632,
+        -3398.9868
+      ],
+      "level": "abyssruins_her_0025",
+      "mapGenieId": "mg:550246",
+      "mapGenieDistance": 20.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 26",
+      "uuid": [
+        1234476574,
+        1591218645,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10531.5918,
+        610.7545,
+        -4329.9185
+      ],
+      "level": "abyssruins_her_0026",
+      "mapGenieId": "mg:550232",
+      "mapGenieDistance": 21.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 27",
+      "uuid": [
+        1319508477,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10125.2705,
+        615.6768,
+        -4668.5137
+      ],
+      "level": "abyssruins_her_0027",
+      "mapGenieId": "mg:551490",
+      "mapGenieDistance": 18.7
+    },
+    {
+      "name": "Hernand Abyss Nexus 28",
+      "uuid": [
+        1352930540,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9942.416,
+        614.1075,
+        -4727.8682
+      ],
+      "level": "abyssruins_her_0028",
+      "mapGenieId": "mg:551491",
+      "mapGenieDistance": 19.3
+    },
+    {
+      "name": "Hernand Abyss Nexus 29",
+      "uuid": [
+        1370730830,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10791.6924,
+        616.1104,
+        -5495.5527
+      ],
+      "level": "abyssruins_her_0029",
+      "mapGenieId": "mg:551481",
+      "mapGenieDistance": 26.3
+    },
+    {
+      "name": "Hernand Abyss Nexus 30",
+      "uuid": [
+        1383376049,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11156.8936,
+        760.837,
+        -5969.5298
+      ],
+      "level": "abyssruins_her_0030",
+      "mapGenieId": "mg:551476",
+      "mapGenieDistance": 22.8
+    },
+    {
+      "name": "Hernand Abyss Nexus 31",
+      "uuid": [
+        1436034159,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -12229.7627,
+        793.5987,
+        -5532.4634
+      ],
+      "level": "abyssruins_her_0031",
+      "mapGenieId": "mg:551489",
+      "mapGenieDistance": 22.1
+    },
+    {
+      "name": "Hernand Abyss Nexus 32",
+      "uuid": [
+        1497038353,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11793.2324,
+        688.2437,
+        -2462.8281
+      ],
+      "level": "abyssruins_her_0032",
+      "mapGenieId": "mg:551567",
+      "mapGenieDistance": 19.4
+    },
+    {
+      "name": "Hernand Abyss Nexus 33",
+      "uuid": [
+        1650804234,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -12153.3828,
+        762.7065,
+        -1664.7701
+      ],
+      "level": "abyssruins_her_0033",
+      "mapGenieId": "mg:551650",
+      "mapGenieDistance": 12.8
+    },
+    {
+      "name": "Hernand Abyss Nexus 34",
+      "uuid": [
+        2316612699,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -9921.3799,
+        583.3812,
+        -5790.2681
+      ],
+      "level": "abyssruins_her_0034",
+      "mapGenieId": "mg:551479",
+      "mapGenieDistance": 25.4
+    },
+    {
+      "name": "Hernand Abyss Nexus 35",
+      "uuid": [
+        2508264201,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10623.2021,
+        374.5364,
+        -6109.2666
+      ],
+      "level": "abyssruins_her_0035",
+      "mapGenieId": "mg:551478",
+      "mapGenieDistance": 21.4
+    },
+    {
+      "name": "Hernand Abyss Nexus 36",
+      "uuid": [
+        2427736812,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10351.0537,
+        593.3878,
+        -5533.6968
+      ],
+      "level": "abyssruins_her_0036",
+      "mapGenieId": "mg:551480",
+      "mapGenieDistance": 28.8
+    },
+    {
+      "name": "Hernand Abyss Nexus 37",
+      "uuid": [
+        2559204044,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11475.5371,
+        616.3815,
+        -5120.3564
+      ],
+      "level": "abyssruins_her_0037",
+      "mapGenieId": "mg:551546",
+      "mapGenieDistance": 20.3
+    },
+    {
+      "name": "Hernand Abyss Nexus 38",
+      "uuid": [
+        2561080897,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9407.6729,
+        564.3702,
+        -4565.729
+      ],
+      "level": "abyssruins_her_0038",
+      "mapGenieId": "mg:551536",
+      "mapGenieDistance": 25.1
+    },
+    {
+      "name": "Hernand Abyss Nexus 39",
+      "uuid": [
+        1650621307,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11979.2334,
+        991.4836,
+        -3302.4417
+      ],
+      "level": "abyssruins_her_0039",
+      "mapGenieId": "mg:551493",
+      "mapGenieDistance": 21.7
+    },
+    {
+      "name": "Hernand Abyss Nexus 40",
+      "uuid": [
+        1666804638,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11501.3799,
+        813.8447,
+        -3319.5208
+      ],
+      "level": "abyssruins_her_0040",
+      "mapGenieId": "mg:551643",
+      "mapGenieDistance": 18.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 41",
+      "uuid": [
+        1684590618,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11607.0625,
+        689.6945,
+        -4200.7788
+      ],
+      "level": "abyssruins_her_0041",
+      "mapGenieId": "mg:551487",
+      "mapGenieDistance": 22.6
+    },
+    {
+      "name": "Hernand Abyss Nexus 42",
+      "uuid": [
+        1854023915,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -12719.7344,
+        1028.8359,
+        -2924.4609
+      ],
+      "level": "abyssruins_her_0042",
+      "mapGenieId": "mg:551492",
+      "mapGenieDistance": 32.9
+    },
+    {
+      "name": "Hernand Abyss Nexus 43",
+      "uuid": [
+        1930438935,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -12002.8145,
+        766.1001,
+        -2841.8765
+      ],
+      "level": "abyssruins_her_0043",
+      "mapGenieId": "mg:551770",
+      "mapGenieDistance": 27.1
+    },
+    {
+      "name": "Hernand Abyss Nexus 44",
+      "uuid": [
+        2198909138,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -11728.2266,
+        992.156,
+        -5872.2402
+      ],
+      "level": "abyssruins_her_0044",
+      "mapGenieId": "mg:551552",
+      "mapGenieDistance": 17.6
+    },
+    {
+      "name": "Hernand Abyss Nexus 46",
+      "uuid": [
+        2448657612,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9733.9756,
+        667.708,
+        -2275.5344
+      ],
+      "level": "abyssruins_her_0046",
+      "mapGenieId": "mg:551497",
+      "mapGenieDistance": 15.8
+    },
+    {
+      "name": "Hernand Abyss Nexus 47",
+      "uuid": [
+        2419519176,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9891.8184,
+        661.7225,
+        -1984.2632
+      ],
+      "level": "abyssruins_her_0047",
+      "mapGenieId": "mg:551488",
+      "mapGenieDistance": 18.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 48",
+      "uuid": [
+        2386796887,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11047.2168,
+        679.7053,
+        -5355.9312
+      ],
+      "level": "abyssruins_her_0048",
+      "mapGenieId": "mg:551484",
+      "mapGenieDistance": 21.5
+    },
+    {
+      "name": "Hernand Abyss Nexus 49",
+      "uuid": [
+        2346936359,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11170.1484,
+        797.9068,
+        -5443.6729
+      ],
+      "level": "abyssruins_her_0049",
+      "mapGenieId": "mg:551485",
+      "mapGenieDistance": 16.7
+    },
+    {
+      "name": "Hernand Abyss Nexus 50",
+      "uuid": [
+        2252283711,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10521.6885,
+        813.4113,
+        -2188.1809
+      ],
+      "level": "abyssruins_her_0050",
+      "mapGenieId": "mg:551495",
+      "mapGenieDistance": 31.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 51",
+      "uuid": [
+        2147921267,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10341.4912,
+        677.2435,
+        -2448.0771
+      ],
+      "level": "abyssruins_her_0051",
+      "mapGenieId": "mg:551496",
+      "mapGenieDistance": 5.2
+    },
+    {
+      "name": "Hernand Abyss Nexus 52",
+      "uuid": [
+        2048441884,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9814.9658,
+        683.0121,
+        -1502.2083
+      ],
+      "level": "abyssruins_her_0052",
+      "mapGenieId": "mg:551500",
+      "mapGenieDistance": 26.2
+    },
+    {
+      "name": "Kweiden Abyss Nexus 1",
+      "uuid": [
+        2632223301,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9028.2305,
+        824.842,
+        -64.164
+      ],
+      "level": "abyssruins_kwe_0001",
+      "mapGenieId": "mg:550114",
+      "mapGenieDistance": 13.6
+    },
+    {
+      "name": "Kweiden Abyss Nexus 2",
+      "uuid": [
+        2637939665,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11178.4785,
+        893.3989,
+        -562.6282
+      ],
+      "level": "abyssruins_kwe_0002",
+      "mapGenieId": "mg:547280",
+      "mapGenieDistance": 18.5
+    },
+    {
+      "name": "Kweiden Abyss Nexus 3",
+      "uuid": [
+        2667353862,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10769.9697,
+        670.6693,
+        1025.5486
+      ],
+      "level": "abyssruins_kwe_0003",
+      "mapGenieId": "mg:547319",
+      "mapGenieDistance": 8.5
+    },
+    {
+      "name": "Kweiden Abyss Nexus 4",
+      "uuid": [
+        3034258043,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -12269.2627,
+        785.1305,
+        -1174.5386
+      ],
+      "level": "abyssruins_kwe_0004",
+      "mapGenieId": "mg:546267",
+      "mapGenieDistance": 30.3
+    },
+    {
+      "name": "Kweiden Abyss Nexus 5",
+      "uuid": [
+        3039891643,
+        1591217967,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9860.9502,
+        699.7141,
+        -1061.0612
+      ],
+      "level": "abyssruins_kwe_0005",
+      "mapGenieId": "mg:547286",
+      "mapGenieDistance": 2.0
+    },
+    {
+      "name": "Kweiden Abyss Nexus 6",
+      "uuid": [
+        139064021,
+        1591218070,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11458.6211,
+        781.3278,
+        376.0796
+      ],
+      "level": "abyssruins_kwe_0006",
+      "mapGenieId": "mg:551563",
+      "mapGenieDistance": 24.9
+    },
+    {
+      "name": "Kweiden Abyss Nexus 7",
+      "uuid": [
+        4277386431,
+        1591218081,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9417.8574,
+        615.6467,
+        -732.705
+      ],
+      "level": "abyssruins_kwe_0007",
+      "mapGenieId": "mg:550129",
+      "mapGenieDistance": 14.8
+    },
+    {
+      "name": "Kweiden Abyss Nexus 8",
+      "uuid": [
+        15914039,
+        1591218082,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9536.8174,
+        651.433,
+        572.0737
+      ],
+      "level": "abyssruins_kwe_0008",
+      "mapGenieId": "mg:552278",
+      "mapGenieDistance": 12.5
+    },
+    {
+      "name": "Kweiden Abyss Nexus 9",
+      "uuid": [
+        15914045,
+        1591218082,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9750.4404,
+        669.4562,
+        1117.7416
+      ],
+      "level": "abyssruins_kwe_0009",
+      "mapGenieId": "mg:552274",
+      "mapGenieDistance": 21.3
+    },
+    {
+      "name": "Kweiden Abyss Nexus 10",
+      "uuid": [
+        25266842,
+        1591218082,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -12225.5645,
+        709.3024,
+        -290.429
+      ],
+      "level": "abyssruins_kwe_0010",
+      "mapGenieId": "mg:552019",
+      "mapGenieDistance": 15.6
+    },
+    {
+      "name": "Kweiden Abyss Nexus 11",
+      "uuid": [
+        31839438,
+        1591218082,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11107.2832,
+        689.8196,
+        -1750.9983
+      ],
+      "level": "abyssruins_kwe_0011",
+      "mapGenieId": "mg:551498",
+      "mapGenieDistance": 22.4
+    },
+    {
+      "name": "Kweiden Abyss Nexus 12",
+      "uuid": [
+        2197992345,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9834.5801,
+        645.4151,
+        8.1861
+      ],
+      "level": "abyssruins_kwe_0012",
+      "mapGenieId": "mg:550816",
+      "mapGenieDistance": 10.8
+    },
+    {
+      "name": "Kweiden Abyss Nexus 13",
+      "uuid": [
+        2252886498,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10975.9219,
+        902.8642,
+        -110.6666
+      ],
+      "level": "abyssruins_kwe_0013",
+      "mapGenieId": "mg:553689",
+      "mapGenieDistance": 10.5
+    },
+    {
+      "name": "Kweiden Abyss Nexus 14",
+      "uuid": [
+        2283484616,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11375.2363,
+        746.4022,
+        -1111.7556
+      ],
+      "level": "abyssruins_kwe_0014",
+      "mapGenieId": "mg:554826",
+      "mapGenieDistance": 13.2
+    },
+    {
+      "name": "Kweiden Abyss Nexus 15",
+      "uuid": [
+        2296506501,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -12638.5654,
+        929.8438,
+        -204.7392
+      ],
+      "level": "abyssruins_kwe_0015",
+      "mapGenieId": "mg:566063",
+      "mapGenieDistance": 12.4
+    },
+    {
+      "name": "Kweiden Abyss Nexus 16",
+      "uuid": [
+        2309433934,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11492.3789,
+        723.9067,
+        -311.8064
+      ],
+      "level": "abyssruins_kwe_0016",
+      "mapGenieId": "mg:552032",
+      "mapGenieDistance": 14.7
+    },
+    {
+      "name": "Kweiden Abyss Nexus 17",
+      "uuid": [
+        2318435639,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10736.8018,
+        898.2812,
+        -635.4659
+      ],
+      "level": "abyssruins_kwe_0017",
+      "mapGenieId": "mg:547282",
+      "mapGenieDistance": 15.8
+    },
+    {
+      "name": "Kweiden Abyss Nexus 18",
+      "uuid": [
+        2335333435,
+        1591218135,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10809.2236,
+        983.1548,
+        507.3835
+      ],
+      "level": "abyssruins_kwe_0018",
+      "mapGenieId": "mg:550978",
+      "mapGenieDistance": 15.5
+    },
+    {
+      "name": "Kweiden Abyss Nexus 19",
+      "uuid": [
+        2347704881,
+        4279243112,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -11849.1699,
+        873.9609,
+        -596.9416
+      ],
+      "level": "abyssruins_kwe_0019",
+      "mapGenieId": "mg:549895",
+      "mapGenieDistance": 18.6
+    },
+    {
+      "name": "Kweiden Abyss Nexus 20",
+      "uuid": [
+        1971871234,
+        4279243124,
+        2038457056,
+        0
+      ],
+      "gamePosition": [
+        -11412.5596,
+        769.0438,
+        -725.4596
+      ],
+      "level": "abyssruins_kwe_0020",
+      "mapGenieId": "mg:551565",
+      "mapGenieDistance": 12.8
+    },
+    {
+      "name": "Kweiden Abyss Nexus 21",
+      "uuid": [
+        1715739151,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10609.3066,
+        953.9228,
+        126.3842
+      ],
+      "level": "abyssruins_kwe_0021",
+      "mapGenieId": "mg:552033",
+      "mapGenieDistance": 23.0
+    },
+    {
+      "name": "Kweiden Abyss Nexus 22",
+      "uuid": [
+        2460603346,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -11147.6914,
+        662.9201,
+        1208.0752
+      ],
+      "level": "abyssruins_kwe_0022",
+      "mapGenieId": "mg:553991",
+      "mapGenieDistance": 9.2
+    },
+    {
+      "name": "Kweiden Abyss Nexus 23",
+      "uuid": [
+        2408420155,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -10111.2061,
+        749.4988,
+        892.1755
+      ],
+      "level": "abyssruins_kwe_0023",
+      "mapGenieId": "mg:552273",
+      "mapGenieDistance": 20.3
+    },
+    {
+      "name": "Kweiden Abyss Nexus 24",
+      "uuid": [
+        2447644712,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11723.7314,
+        809.1803,
+        950.6049
+      ],
+      "level": "abyssruins_kwe_0024",
+      "mapGenieId": "mg:552030",
+      "mapGenieDistance": 12.4
+    },
+    {
+      "name": "Kweiden Abyss Nexus 25",
+      "uuid": [
+        2463665705,
+        1591218646,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11209.001,
+        684.1893,
+        924.5395
+      ],
+      "level": "abyssruins_kwe_0025",
+      "mapGenieId": "mg:552254",
+      "mapGenieDistance": 9.1
+    },
+    {
+      "name": "Kweiden Abyss Nexus 26",
+      "uuid": [
+        316097500,
+        1591218669,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -9862.8369,
+        657.3742,
+        208.9642
+      ],
+      "level": "abyssruins_kwe_0026",
+      "mapGenieId": "mg:556428",
+      "mapGenieDistance": 12.4
+    },
+    {
+      "name": "Kweiden Abyss Nexus 28",
+      "uuid": [
+        1746564648,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -9169.8564,
+        786.2301,
+        1154.6371
+      ],
+      "level": "abyssruins_kwe_0028",
+      "mapGenieId": "mg:554308",
+      "mapGenieDistance": 7.1
+    },
+    {
+      "name": "Kweiden Abyss Nexus 29",
+      "uuid": [
+        1761721055,
+        1450447318,
+        1140703292,
+        0
+      ],
+      "gamePosition": [
+        -9021.5898,
+        763.6463,
+        844.6085
+      ],
+      "level": "abyssruins_kwe_0029",
+      "mapGenieId": "mg:555060",
+      "mapGenieDistance": 11.6
+    },
+    {
+      "name": "Kweiden Abyss Nexus 30",
+      "uuid": [
+        1866022945,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -11887.9307,
+        898.0876,
+        -810.2159
+      ],
+      "level": "abyssruins_kwe_0030",
+      "mapGenieId": "mg:552015",
+      "mapGenieDistance": 12.3
+    },
+    {
+      "name": "Kweiden Abyss Nexus 31",
+      "uuid": [
+        1768294654,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -11849.4111,
+        724.0862,
+        -1155.5536
+      ],
+      "level": "abyssruins_kwe_0031",
+      "mapGenieId": "mg:552014",
+      "mapGenieDistance": 21.0
+    },
+    {
+      "name": "Kweiden Abyss Nexus 32",
+      "uuid": [
+        2148754121,
+        4279243222,
+        1211860192,
+        0
+      ],
+      "gamePosition": [
+        -10396.7705,
+        840.1117,
+        -689.9827
+      ],
+      "level": "abyssruins_kwe_0032",
+      "mapGenieId": "mg:552297",
+      "mapGenieDistance": 9.1
+    },
+    {
+      "name": "Kweiden Abyss Nexus 33",
+      "uuid": [
+        3230199631,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11621.5879,
+        783.6985,
+        120.0322
+      ],
+      "level": "abyssruins_kwe_0033",
+      "mapGenieId": "mg:551561",
+      "mapGenieDistance": 15.9
+    },
+    {
+      "name": "Kweiden Abyss Nexus 34",
+      "uuid": [
+        1916245206,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11881.2529,
+        715.0438,
+        -1430.8647
+      ],
+      "level": "abyssruins_kwe_0034",
+      "mapGenieId": "mg:551765",
+      "mapGenieDistance": 23.5
+    },
+    {
+      "name": "Kweiden Abyss Nexus 35",
+      "uuid": [
+        1884484186,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -12243.7832,
+        710.335,
+        -888.8492
+      ],
+      "level": "abyssruins_kwe_0035",
+      "mapGenieId": "mg:551566",
+      "mapGenieDistance": 17.2
+    },
+    {
+      "name": "Kweiden Abyss Nexus 36",
+      "uuid": [
+        1859418718,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11143.7158,
+        764.9674,
+        -1455.4755
+      ],
+      "level": "abyssruins_kwe_0036",
+      "mapGenieId": "mg:552837",
+      "mapGenieDistance": 14.6
+    },
+    {
+      "name": "Kweiden Abyss Nexus 37",
+      "uuid": [
+        1846003387,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11114.3076,
+        852.6431,
+        -1128.5233
+      ],
+      "level": "abyssruins_kwe_0037",
+      "mapGenieId": "mg:552838",
+      "mapGenieDistance": 10.7
+    },
+    {
+      "name": "Kweiden Abyss Nexus 38",
+      "uuid": [
+        1828571956,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9537.0742,
+        616.8093,
+        -859.454
+      ],
+      "level": "abyssruins_kwe_0038",
+      "mapGenieId": "mg:551653",
+      "mapGenieDistance": 15.0
+    },
+    {
+      "name": "Kweiden Abyss Nexus 39",
+      "uuid": [
+        1806730323,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10940.6621,
+        1016.0722,
+        -307.181
+      ],
+      "level": "abyssruins_kwe_0039",
+      "mapGenieId": "mg:551494",
+      "mapGenieDistance": 20.7
+    },
+    {
+      "name": "Kweiden Abyss Nexus 40",
+      "uuid": [
+        1794418197,
+        1591218646,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -8913.9971,
+        616.7446,
+        -1104.8821
+      ],
+      "level": "abyssruins_kwe_0040",
+      "mapGenieId": "mg:552042",
+      "mapGenieDistance": 19.6
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+Pywel Atlas combined v0.83 filter panel (Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui 1.92.9b
+dxgi.dll at 0x7ffedb3d0000 size 0x13b000
+hook IDXGIFactory::CreateSwapChain at dxgi.dll+0x2c4d0: MH_OK
+hook IDXGIFactory2::CreateSwapChainForHwnd at dxgi.dll+0x2d8f0: MH_OK
+t=42547687 thread=28376 hook IDXGISwapChain::Present at dxgi.dll+0x19000: MH_OK
+t=42547718 thread=28376 hook IDXGISwapChain::Present1 at dxgi.dll+0x194a0: MH_OK
+t=42547750 thread=28376 hook IDXGISwapChain::ResizeBuffers at dxgi.dll+0x36c30: MH_OK
+t=42547781 thread=28376 hook IDXGISwapChain::ResizeBuffers1 at dxgi.dll+0x97490: MH_OK
+t=42547828 thread=28376 hook IDXGISwapChain::SetColorSpace1 at dxgi.dll+0x36280: MH_OK
+t=42547656 CREATED via CreateSwapChainForHwnd result=0x00000000 swapchain=0xe22dc3d0 thread=28376 caller=RTSSHooks64.dll device=0xdc93bc20 d3d12Queue=1 queueType=0 window=0xb10718 size=3840x2160 format=24 buffers=3 swapEffect=3 flags=0x800
+t=42547828 thread=28376 SetColorSpace1 swapchain=0xe22dc3d0 colorSpace=12
+t=42555234 Present new caller RTSSHooks64.dll+0x72fda swapchain=0xe22dc3d0 thread=32352
+t=42556765 RATE swapchain=0xe22dc3d0 present/s=21.7 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42561781 RATE swapchain=0xe22dc3d0 present/s=130.6 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42566796 RATE swapchain=0xe22dc3d0 present/s=134.4 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42571812 RATE swapchain=0xe22dc3d0 present/s=131.0 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42576140 thread=32352 cursor (panel closed) frames=136 shown=136 imageChanges=4 image=0x15db0b05 clip=(-2560,0)-(3840,2160)
+t=42576828 RATE swapchain=0xe22dc3d0 present/s=133.2 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42577140 thread=32352 cursor (panel closed) frames=136 shown=61 imageChanges=3 image=0x0 clip=(1,0)-(1,0)
+t=42578140 thread=32352 cursor (panel closed) frames=136 shown=0 imageChanges=0 image=0x0 clip=(1,0)-(1,0)
+t=42581843 RATE swapchain=0xe22dc3d0 present/s=135.6 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42586875 RATE swapchain=0xe22dc3d0 present/s=132.2 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42591890 RATE swapchain=0xe22dc3d0 present/s=94.5 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42596906 RATE swapchain=0xe22dc3d0 present/s=71.6 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42601937 RATE swapchain=0xe22dc3d0 present/s=70.0 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42606953 RATE swapchain=0xe22dc3d0 present/s=69.2 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42611968 RATE swapchain=0xe22dc3d0 present/s=75.8 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42616984 RATE swapchain=0xe22dc3d0 present/s=71.6 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42622000 RATE swapchain=0xe22dc3d0 present/s=63.6 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42627015 RATE swapchain=0xe22dc3d0 present/s=57.0 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42632031 RATE swapchain=0xe22dc3d0 present/s=53.8 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42633031 thread=32352 cursor (panel closed) frames=14 shown=1 imageChanges=1 image=0x10003 clip=(-2560,0)-(3840,2160)
+t=42634031 thread=32352 cursor (panel closed) frames=65 shown=65 imageChanges=4 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42636234 thread=32352 cursor (panel closed) frames=25 shown=3 imageChanges=2 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42637046 RATE swapchain=0xe22dc3d0 present/s=61.8 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42637234 thread=32352 cursor (panel closed) frames=63 shown=13 imageChanges=1 image=0x0 clip=(1016,510)-(1016,510)
+t=42638234 thread=32352 cursor (panel closed) frames=67 shown=0 imageChanges=0 image=0x0 clip=(1016,510)-(1016,510)
+t=42639234 thread=32352 cursor (panel closed) frames=57 shown=50 imageChanges=6 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42640234 thread=32352 cursor (panel closed) frames=107 shown=107 imageChanges=0 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42642062 RATE swapchain=0xe22dc3d0 present/s=95.7 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42645234 thread=32352 cursor (panel closed) frames=129 shown=129 imageChanges=2 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42646234 thread=32352 cursor (panel closed) frames=129 shown=129 imageChanges=0 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42647078 RATE swapchain=0xe22dc3d0 present/s=127.4 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42647234 thread=32352 cursor (panel closed) frames=129 shown=129 imageChanges=2 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42648234 thread=32352 cursor (panel closed) frames=129 shown=129 imageChanges=0 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42649640 thread=32352 panel opened (F9)
+t=42649640 thread=32352 panel resources created for swapchain 0xe22dc3d0: 3840x2160 format=24 buffers=3 colorSpace=12 queue=0xdc93bc20
+t=42649640 thread=32352 panel: input hold-back installed on window 0xb10718 (previous procedure 0x14035a220)
+t=42650640 thread=32352 cursor frames=127 shown=127 moved=104 imageChanges=3 image=0x10003 settled=free modeChanges=0 panelCursorDrawn=0 raw=(-1802,-538) clip=(-2560,0)-(3840,2160)
+t=42651640 thread=32352 cursor frames=130 shown=130 moved=13 imageChanges=0 image=0x10003 settled=free modeChanges=0 panelCursorDrawn=0 raw=(-21,-14) clip=(-2560,0)-(3840,2160)
+t=42652109 RATE swapchain=0xe22dc3d0 present/s=128.2 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=1
+t=42652640 thread=32352 cursor frames=129 shown=129 moved=0 imageChanges=0 image=0x10003 settled=free modeChanges=0 panelCursorDrawn=0 raw=(0,0) clip=(-2560,0)-(3840,2160)
+t=42653484 thread=32352 panel closed (F9)
+t=42653484 thread=32352 cursor (panel closed) frames=52 shown=52 imageChanges=1 image=0x10003 clip=(-2560,0)-(3840,2160)
+t=42654484 thread=32352 cursor (panel closed) frames=130 shown=130 imageChanges=2 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42655484 thread=32352 cursor (panel closed) frames=131 shown=131 imageChanges=0 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42655875 thread=32352 panel opened (F9)
+t=42656875 thread=32352 cursor frames=132 shown=132 moved=0 imageChanges=1 image=0x10003 settled=free modeChanges=0 panelCursorDrawn=0 raw=(0,0) clip=(-2560,0)-(3840,2160)
+t=42657140 RATE swapchain=0xe22dc3d0 present/s=130.2 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=1
+t=42657656 thread=32352 panel closed (F9)
+t=42657656 thread=32352 cursor (panel closed) frames=51 shown=51 imageChanges=1 image=0x10003 clip=(-2560,0)-(3840,2160)
+t=42658656 thread=32352 cursor (panel closed) frames=128 shown=128 imageChanges=1 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42659656 thread=32352 cursor (panel closed) frames=129 shown=129 imageChanges=0 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42662156 RATE swapchain=0xe22dc3d0 present/s=130.0 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42666656 thread=32352 cursor (panel closed) frames=75 shown=47 imageChanges=1 image=0x0 clip=(351,800)-(351,800)
+t=42667171 RATE swapchain=0xe22dc3d0 present/s=111.9 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
+t=42667656 thread=32352 cursor (panel closed) frames=65 shown=28 imageChanges=10 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42668656 thread=32352 cursor (panel closed) frames=51 shown=51 imageChanges=10 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42669656 thread=32352 cursor (panel closed) frames=61 shown=61 imageChanges=0 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42670656 thread=32352 cursor (panel closed) frames=65 shown=65 imageChanges=8 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42671656 thread=32352 cursor (panel closed) frames=65 shown=65 imageChanges=0 image=0x65c0b5f clip=(-2560,0)-(3840,2160)
+t=42672203 RATE swapchain=0xe22dc3d0 present/s=58.0 present1/s=0.0 resizes=0/0 sync=1 flags=0x0 threads=32352,0,0,0 panel=0
