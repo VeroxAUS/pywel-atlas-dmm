@@ -24,17 +24,29 @@ Test build (-Test): builds PywelAtlasTest.asi instead, the same mod plus the
 test-only teleporter (TestTeleporter.cpp, PYWEL_ATLAS_TELEPORT defined). It
 goes to dist/pywel-atlas-test/ and is never part of the normal release.
 
+Release build (-Release, v0.129): the Nexus release. The normal build and
+-Test define PYWEL_ATLAS_DEV, which keeps the debug keys (F7, F8), the
+detailed per-part logs and the teleport observation (TeleportObserve.cpp).
+-Release leaves PYWEL_ATLAS_DEV and TeleportObserve.cpp out, so none of
+that is compiled; the mod writes only the short pywel-atlas.log. After
+linking, check_release.py stops the build if debug text is still inside
+the .asi. It goes to dist/pywel-atlas-release/ with the release README.
+
 Output:  dist/pywel-atlas/  (temporary compiler files: build/pywel-atlas/)
          dist/pywel-atlas-test/ with -Test (build/pywel-atlas-test/)
-Usage:   .\src\pywel-atlas\build.ps1 [-Test]
+         dist/pywel-atlas-release/ with -Release (build/pywel-atlas-release/)
+Usage:   .\src\pywel-atlas\build.ps1 [-Test | -Release]
 Requires Visual Studio 2022 (Community) with the C++ tools installed.
 #>
 param(
     # Build the test-only teleporter build instead of the release mod.
-    [switch]$Test
+    [switch]$Test,
+    # v0.129: build the Nexus release (no debug keys, tools or detailed logs).
+    [switch]$Release
 )
 # Stop at the first error instead of carrying on with a half-finished build.
 $ErrorActionPreference = 'Stop'
+if ($Test -and $Release) { throw 'Choose -Test or -Release, not both' }
 
 # --- Folder layout -----------------------------------------------------------
 $sourceDirectory = $PSScriptRoot
@@ -47,6 +59,11 @@ if ($Test) {
     $destination = Join-Path $workspace 'dist/pywel-atlas-test'
     $asiName = 'PywelAtlasTest.asi'
     $readmeName = 'PywelAtlasTest-README.md'
+} elseif ($Release) {
+    $buildDirectory = Join-Path $workspace 'build/pywel-atlas-release'
+    $destination = Join-Path $workspace 'dist/pywel-atlas-release'
+    $asiName = 'PywelAtlas.asi'
+    $readmeName = 'PywelAtlas-Release-README.md'
 } else {
     $buildDirectory = Join-Path $workspace 'build/pywel-atlas'
     $destination = Join-Path $workspace 'dist/pywel-atlas'
@@ -144,7 +161,8 @@ try {
     $outputPath = Join-Path $destination $asiName
     $applicationSources = @(
         (Join-Path $sourceDirectory 'PywelAtlas.cpp'),
-        (Join-Path $sourceDirectory 'TeleportObserve.cpp'),
+        # v0.129: the short player log (pywel-atlas.log), in every build.
+        (Join-Path $sourceDirectory 'ReleaseLog.cpp'),
         # v0.62: the in-game filter panel (Dear ImGui, drawn in the game's frame).
         (Join-Path $sourceDirectory 'FilterPanel.cpp'),
         # v0.104: the collectible route (planner, worker and snapshots, line overlay).
@@ -172,6 +190,12 @@ try {
         (Join-Path $markerBell 'NativeMarkerDefinition.cpp'),
         (Join-Path $markerBell 'NativeSaveReader.cpp'))
     $defines = @('/DPYWEL_ATLAS_COMBINED')
+    if (-not $Release) {
+        # Development builds (normal and -Test): debug keys, detailed logs and
+        # the watch-only teleport observation. -Release compiles none of it.
+        $defines += '/DPYWEL_ATLAS_DEV'
+        $applicationSources += (Join-Path $sourceDirectory 'TeleportObserve.cpp')
+    }
     if ($Test) {
         # Test build only: add the teleporter and switch on its hook call.
         $applicationSources += (Join-Path $sourceDirectory 'TestTeleporter.cpp')
@@ -185,6 +209,11 @@ try {
     Copy-Item -LiteralPath (Join-Path $workspace 'third_party/python/pycrimson-LICENSE.txt') -Destination (Join-Path $destination 'pycrimson-LICENSE.txt') -Force
     Copy-Item -LiteralPath (Join-Path $workspace 'third_party/imgui/imgui-LICENSE.txt') -Destination (Join-Path $destination 'imgui-LICENSE.txt') -Force
     Copy-Item -LiteralPath (Join-Path $sourceDirectory $readmeName) -Destination $destination -Force
+    if ($Release) {
+        # v0.129: make sure no debug text made it into the release .asi.
+        & $python -B (Join-Path $sourceDirectory 'check_release.py') $outputPath
+        if ($LASTEXITCODE -ne 0) { throw "Debug text found in $asiName; release build stopped" }
+    }
     Write-Output "Built $outputPath"
 } finally {
     Pop-Location

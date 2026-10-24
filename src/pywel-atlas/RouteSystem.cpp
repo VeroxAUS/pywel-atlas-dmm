@@ -1,6 +1,6 @@
 // =============================================================================
 // Pywel Atlas - collectible route: worker, map snapshots and screen maths
-// (RouteSystem.cpp, v0.104-v0.122)
+// (RouteSystem.cpp, v0.104-v0.133)
 // =============================================================================
 //
 // WHAT THIS FILE DOES
@@ -71,6 +71,8 @@
 #include "RouteLines.h"
 // v0.119: the "Skip route stop" key (Keybinds.h; no key by default).
 #include "Keybinds.h"
+// v0.129: the short player log (pywel-atlas.log).
+#include "ReleaseLog.h"
 
 static_assert(kRouteMaxStops == kPywelRoutePlanMax, "The planner and the published plan hold the same number of stops");
 
@@ -435,7 +437,7 @@ void PywelSetRouteSettings(const PywelRouteSettings& changed) {
 
 // filters.ini lines: route=0/1, routeStops=N, routeWorldLine=0/1,
 // routeMinimapLine=0/1, (v0.111) routeCanvasLine=0/1. Unknown values are
-// ignored.
+// ignored (v0.133: so is the old routePlainLine line of v0.124-v0.132).
 bool PywelRouteLoadSetting(const char* key, const char* value) {
     bool flag = value[0] == '1';
     bool flagValid = value[0] == '0' || value[0] == '1';
@@ -549,17 +551,22 @@ namespace {
 HANDLE logFile = INVALID_HANDLE_VALUE;
 
 // Appends one line to route.log with the time in milliseconds (worker only).
+// v0.127: the time goes in front and the line is written as it is, of any
+// length. Up to v0.126 both went through sprintf_s into a 2200-byte buffer;
+// the v0.124 start-up line is 2240 characters, so sprintf_s stopped the game
+// at launch (Windows crash record: 0xc0000409 in PywelAtlasTest.asi).
 void Log(const char* line) {
     if (logFile == INVALID_HANDLE_VALUE) {
         return;
     }
-    char stamped[2200];
-    int length = sprintf_s(stamped, "t=%llu %s\r\n", GetTickCount64(), line);
-    if (length <= 0) {
-        return;
-    }
+    char stamp[32];
+    int length = _snprintf_s(stamp, _TRUNCATE, "t=%llu ", GetTickCount64());
     DWORD written = 0;
-    WriteFile(logFile, stamped, static_cast<DWORD>(length), &written, nullptr);
+    if (length > 0) {
+        WriteFile(logFile, stamp, static_cast<DWORD>(length), &written, nullptr);
+    }
+    WriteFile(logFile, line, static_cast<DWORD>(strlen(line)), &written, nullptr);
+    WriteFile(logFile, "\r\n", 2, &written, nullptr);
     FlushFileBuffers(logFile);
 }
 
@@ -591,8 +598,10 @@ void FormatRect(const PywelUiRect& rect, char (&text)[96]) {
     sprintf_s(text, "(%.1f,%.1f %.1fx%.1f)", rect.x, rect.y, rect.width, rect.height);
 }
 
+#ifdef PYWEL_ATLAS_DEV
 // Logs the world-map snapshot, our pixel for the first stop and that stop's
 // own marker element (UI pixels and converted), so the error can be seen.
+// (This and LogMinimapView: development builds only, v0.129.)
 void LogWorldView(const char* why, const PywelRoutePlan& plan) {
     PywelWorldMapView view = {};
     if (!PywelGetWorldMapView(view)) {
@@ -615,16 +624,26 @@ void LogWorldView(const char* why, const PywelRoutePlan& plan) {
     PywelGetRouteCanvasStats(canvas);
     const RouteCanvasStats::Map& world = canvas.world;
     float widthPixels = view.metresPerUnit > 0.0f ? world.lastWidth / view.metresPerUnit * view.uiScale : 0.0f;
-    sprintf_s(line, "world-map canvas (ours, #PywelRouteCanvas): guards %s, updates %ld, drawn %ld, "
-        "not found %ld, searches %ld, cleared %ld, transform writes %ld, lines %ld, current-leg width %.3f m "
-        "(= %.2f UI px at this zoom), "
-        "colours sent (linear B,G,R,A) crimson (%.4f,%.4f,%.4f,%.2f) outline (%.4f,%.4f,%.4f,%.2f), last drawn %llums ago",
+    // v0.124: how the canvas was found, which one drew (painted or plain),
+    // the paths added (slot 0x398, legs and rings) and the map layer check.
+    sprintf_s(line, "world-map canvas (ours): guards %s, found by %s, drawn on %s, updates %ld, drawn %ld, "
+        "not found %ld, searches %ld, cleared %ld, transform writes %ld, paths (slot 0x398) %ld, "
+        "layer bytes (+0x468) %02x %02x %02x %02x, player on %s, map shows %s layer, skipped (other layer) %ld, "
+        "current-leg width %.3f m (= %.2f UI px at this zoom), "
+        "colours sent (linear B,G,R,A) crimson (%.4f,%.4f,%.4f,%.2f) outline (%.4f,%.4f,%.4f,%.2f), "
+        "last handled %llums ago",
         !canvas.guardsChecked ? "not checked" : (canvas.guardsMatched ? "matched" : "CHANGED (overlay used)"),
-        world.updates, world.drawn, world.notFound, world.lookups, world.cleared, world.matrixWrites,
-        world.polylines,
+        world.found, world.drawnOn, world.updates, world.drawn, world.notFound, world.lookups, world.cleared,
+        world.matrixWrites, world.paths, world.layerBytes & 0xff, (world.layerBytes >> 8) & 0xff,
+        (world.layerBytes >> 16) & 0xff, world.layerBytes >> 24, world.playerAbyss ? "the Abyss" : "the surface",
+        PywelRouteWorldLayerMatches() ? "the player's" : "the OTHER", world.layerSkips,
         world.lastWidth, widthPixels, canvas.crimson[0], canvas.crimson[1], canvas.crimson[2], canvas.crimson[3],
         canvas.outline[0], canvas.outline[1], canvas.outline[2], canvas.outline[3],
         world.lastDrawTick ? GetTickCount64() - world.lastDrawTick : 0ULL);
+    Log(line);
+    // v0.131: strokes left out to stay within the canvas geometry budget.
+    sprintf_s(line, "canvas budget: legs or rings left out, world map %ld, minimap %ld", world.budgetSkips,
+        canvas.minimap.budgetSkips);
     Log(line);
     if (plan.count == 0) {
         return;
@@ -695,12 +714,12 @@ void LogMinimapView(const char* why, const PywelRoutePlan& plan) {
     RouteCanvasStats canvas = {};
     PywelGetRouteCanvasStats(canvas);
     const RouteCanvasStats::Map& minimap = canvas.minimap;
-    sprintf_s(line, "minimap canvas (ours, #PywelRouteMinimapCanvas): guards %s, updates %ld, drawn %ld, "
-        "not found %ld, searches %ld, cleared %ld, lines %ld, current-leg width %.4f canvas units, "
-        "last drawn %llums ago",
+    sprintf_s(line, "minimap canvas (ours, #PywelRouteMinimapCanvas): guards %s, found by %s, updates %ld, "
+        "drawn %ld, not found %ld, searches %ld, cleared %ld, paths (slot 0x398) %ld, current-leg width %.4f "
+        "canvas units, last handled %llums ago",
         !canvas.guardsChecked ? "not checked" : (canvas.guardsMatched ? "matched" : "CHANGED (overlay used)"),
-        minimap.updates, minimap.drawn, minimap.notFound, minimap.lookups, minimap.cleared, minimap.polylines,
-        minimap.lastWidth, minimap.lastDrawTick ? GetTickCount64() - minimap.lastDrawTick : 0ULL);
+        minimap.found, minimap.updates, minimap.drawn, minimap.notFound, minimap.lookups, minimap.cleared,
+        minimap.paths, minimap.lastWidth, minimap.lastDrawTick ? GetTickCount64() - minimap.lastDrawTick : 0ULL);
     Log(line);
     if (plan.count == 0) {
         return;
@@ -726,6 +745,7 @@ void LogMinimapView(const char* why, const PywelRoutePlan& plan) {
         matches && view.probe.valid ? ourY - markerY : 0.0f, GetTickCount64() - view.probeTick);
     Log(line);
 }
+#endif
 
 // Logs a new plan: stop count, total length and the order with leg lengths.
 void LogPlan(const PywelRoutePlan& plan, const char* reason, float playerX, float playerZ, bool abyss,
@@ -774,18 +794,31 @@ RouteLegInfo legInfo[kRouteMaxStops];
 unsigned legCount = 0;
 RouteLines shownLines = {}; // What is published: leg 0 trimmed behind the player.
 unsigned linesSerial = 0;
+// v0.124: the player is on the Abyss layer. Its islands share X and Z with
+// the surface (62 of 74 Abyss chests lie within 300 m of a surface road), and
+// the road file has no Abyss roads, so Abyss legs are straight lines and the
+// tour keeps its straight-distance order.
+bool planningAbyss = false;
 
 // Plans leg `leg` from `from` to its stop and logs a one-line summary.
 void PlanLeg(unsigned leg, const RoutePoint& from, const PywelRoutePlanStop& stop, const char* why) {
     RoutePoint buffer[kLegPointCap];
     unsigned count = 0;
-    legInfo[leg] = PlanRouteLeg(from, {stop.x, stop.z}, buffer, kLegPointCap, count);
+    if (planningAbyss) {
+        float length = Distance(from.x, from.z, stop.x, stop.z);
+        buffer[0] = from;
+        buffer[1] = {stop.x, stop.z};
+        count = 2;
+        legInfo[leg] = {length, length, false, 0.0f, 0.0f, 0.0f};
+    } else {
+        legInfo[leg] = PlanRouteLeg(from, {stop.x, stop.z}, buffer, kLegPointCap, count);
+    }
     legPoints[leg].assign(buffer, buffer + count);
     const RouteLegInfo& info = legInfo[leg];
     char line[400];
     sprintf_s(line, "leg %u (%s) to '%s' (%u/%u): %s, %.0f m (road %.0f m, to road %.0f m, road to stop %.0f m), "
         "cost %.0f, %u points", leg + 1, why, stop.name, stop.category, stop.index,
-        info.onRoad ? "roads" : "straight", info.length, info.roadLength, info.entryDistance, info.exitDistance,
+        planningAbyss ? "straight (Abyss)" : (info.onRoad ? "roads" : "straight"), info.length, info.roadLength, info.entryDistance, info.exitDistance,
         info.cost, count);
     Log(line);
 }
@@ -827,7 +860,10 @@ float PublishTrimmed(const RoutePoint& player, const PywelRoutePlan& plan) {
         if (line.size() < 2) {
             continue;
         }
-        size_t first = 0;
+        // v0.130: `start` is the leg's first point, so the copy below begins
+        // at line[1] (up to v0.129 line[0] was added twice; the zero-length
+        // first piece made the overlay skip the next leg's trim at its stop).
+        size_t first = 1;
         RoutePoint start = line[0];
         if (leg == 0) {
             // The nearest spot on the line to the player.
@@ -878,6 +914,8 @@ float PublishTrimmed(const RoutePoint& player, const PywelRoutePlan& plan) {
 
 // The route worker: plans, reaches, skips and logs (see the top of the file).
 DWORD WINAPI PywelRouteRun(void*) {
+#ifdef PYWEL_ATLAS_DEV
+    // The detailed route log; the release build has none (Log() writes nothing).
     wchar_t path[MAX_PATH] = {};
     if (SUCCEEDED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, path)) &&
         wcscat_s(path, L"\\PywelAtlas") == 0) {
@@ -887,7 +925,16 @@ DWORD WINAPI PywelRouteRun(void*) {
                 FILE_ATTRIBUTE_NORMAL, nullptr);
         }
     }
-    Log("Pywel Atlas combined v0.122 route (v0.122: no route change (map code split into files); v0.121: our own line canvases on both maps (#PywelRouteCanvas, "
+#endif
+    PywelReleaseLog("Route started.");
+#ifdef PYWEL_ATLAS_DEV
+    // The version and change list (development builds only, v0.129).
+    Log("Pywel Atlas combined 0.28.0 route (v0.133: at most 10 stops; legs end straight at the rings (clamped curve ends, points inside a ring dropped); Painted look removed; thinner minimap line; v0.131: fix for huge filled shapes on the world map: rings drawn with the direct line call (33 points), no extra smoothing (slot 0x398 is a B-spline of its own), and a geometry budget per update, nearest legs and rings first; v0.130: stop ring is a soft glow plus a 1 px hairline; every leg starts and ends at its stops' rings (each leg's first point was stored twice); canvas query uses the element's +0xd8; Painted on the game's dotted preset as a material test, with a canvas dump; v0.129: no route change (release build without debug tools: F8 and this log only in development builds); v0.127: route.log lines of any length (the v0.124 start-up line was longer than the old 2200-byte buffer and stopped the game at launch); v0.124: canvas search by the game's selector query and by a "
+        "read-only element walk, both logged with a control search for the game's own canvas; world map Look "
+        "Painted (our canvas with the game's map line material, preset-pywel-route) or Plain; each leg one "
+        "continuous path (slot 0x398); a crimson ring with a soft glow under each stop's icon instead of the dot, "
+        "legs end at the ring; the world-map route only while the map shows the player's layer (+0x468); "
+        "straight legs in the Abyss; canvases cleared only to redraw or when the route is off; v0.122: no route change (map code split into files); v0.121: our own line canvases on both maps (#PywelRouteCanvas, "
         "#PywelRouteMinimapCanvas from UI add-on v0.86): plain solid lines without the game's dotted path "
         "material, cleared and redrawn every update, the game's own canvases no longer touched; overlay if not "
         "found; v0.119: optional Skip stop key from the panel's Keys section; v0.118: world-map line follows zoom and pan with a game waypoint "
@@ -904,6 +951,7 @@ DWORD WINAPI PywelRouteRun(void*) {
         "nearest neighbour then 2-opt, re-plan on save or choice changes / reached or skipped stop; "
         "reached = within 10 m (routing only, never hides a marker); world-map and minimap snapshots from the "
         "existing map hooks; view lines every 2 s while a map is visible and on F8");
+#endif
 
     PywelRoutePlan plan = {0, 0, 0.0f, {}, "Route is off"};
     unsigned planSerial = 0;
@@ -913,14 +961,18 @@ DWORD WINAPI PywelRouteRun(void*) {
     LONG lastLoadScope = 0;
     bool loadScopeKnown = false;
     bool previousShown = false;
-    bool previousF8 = false;
     bool previousSkipKey = false; // v0.119.
+#ifdef PYWEL_ATLAS_DEV
+    unsigned findSerials[2] = {}; // v0.124: canvas search reports logged.
+    bool previousF8 = false;
     ULONGLONG nextWorldLog = 0;
     ULONGLONG nextMinimapLog = 0;
+#endif
 
     while (true) {
         Sleep(100);
-        ULONGLONG now = GetTickCount64();
+        // Used only by the development view logs (v0.130: no unused-variable warning in -Release).
+        [[maybe_unused]] ULONGLONG now = GetTickCount64();
         PywelRouteSettings choice = PywelGetRouteSettings();
         if (choice.shown != previousShown) {
             Log(choice.shown ? "route turned on (panel)" : "route turned off (panel)");
@@ -1006,6 +1058,7 @@ DWORD WINAPI PywelRouteRun(void*) {
                 reason = "stops or choices changed";
             }
             RoutePoint start = {player.playerX, player.playerZ};
+            planningAbyss = player.abyssLayer;
             if (reason) {
                 // The nearest stops (straight distance), then (v0.111) their
                 // order by road cost, then one road-following leg per stop.
@@ -1017,7 +1070,13 @@ DWORD WINAPI PywelRouteRun(void*) {
                     chosenPoints[stop] = candidatePoints[order[stop]];
                 }
                 unsigned roadOrder[kRouteMaxStops] = {};
-                OrderByRoad(start, chosenPoints, stops, roadOrder);
+                if (planningAbyss) {
+                    for (unsigned stop = 0; stop < stops; ++stop) {
+                        roadOrder[stop] = stop;
+                    }
+                } else {
+                    OrderByRoad(start, chosenPoints, stops, roadOrder);
+                }
                 plan.serial = ++planSerial;
                 plan.count = stops;
                 plan.status = count == 0 ? "No stops left on this map layer" : nullptr;
@@ -1057,6 +1116,9 @@ DWORD WINAPI PywelRouteRun(void*) {
             PublishLines(shownLines);
         }
         Publish(plan);
+#ifdef PYWEL_ATLAS_DEV
+        // The first stop's own marker is looked up only for the view log
+        // (development builds only, v0.129; the release never sets it).
         InterlockedExchange(&probeTarget,
             plan.count > 0 ? static_cast<LONG>(plan.stops[0].category << 16 | plan.stops[0].index) : -1);
 
@@ -1070,6 +1132,17 @@ DWORD WINAPI PywelRouteRun(void*) {
             LogMinimapView(" (F8)", plan);
         }
         previousF8 = f8;
+        // v0.124: each new canvas search report (both maps); v0.130: and the
+        // world map canvas dump (slot 2), one route.log line per text line.
+        for (unsigned map = 0; map < 2; ++map) {
+            static char report[4400];
+            if (PywelGetRouteCanvasFindLog(map, findSerials[map], findSerials[map], report, sizeof(report))) {
+                char* next = nullptr;
+                for (char* part = strtok_s(report, "\n", &next); part; part = strtok_s(nullptr, "\n", &next)) {
+                    Log(part);
+                }
+            }
+        }
         PywelWorldMapView world = {};
         if (choice.shown && PywelGetWorldMapView(world) && now - world.tick < 200 && now >= nextWorldLog) {
             LogWorldView("", plan);
@@ -1079,5 +1152,6 @@ DWORD WINAPI PywelRouteRun(void*) {
             LogMinimapView("", plan);
             nextMinimapLog = now + 2000;
         }
+#endif
     }
 }

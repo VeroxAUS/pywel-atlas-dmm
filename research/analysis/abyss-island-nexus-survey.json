@@ -1,0 +1,1565 @@
+{
+  "summary": "Abyss-island Nexuses: landmark types 1000008 (AbyssRuins_AbyssIsland), 1000114 (AbyssRuins_AbyssIsland_Quest) and 1000053 (AbyssRuins_Housing). Offline survey of the game data and the user's save copies.",
+  "nativeIcon": {
+    "activated": {
+      "type": 235,
+      "templateType": 28866,
+      "templateName": "MapIcon_Abyss_Ruins",
+      "category": "0x21"
+    },
+    "fog": {
+      "type": 335,
+      "templateType": 29057,
+      "templateName": "MapIcon_Abyss_Ruins_Fog",
+      "category": "0x23"
+    },
+    "note": "From the icon catalogue in the v0.83 map trace: the game draws its own island Nexus with type 235 (same world-map and minimap template as the surface Nexus icon 234, which the mod already uses), and type 335 while it is only discovered. The landmark table gives these types the textures Abyss_Ruins_Abyss (5500) and Abyss_Ruins_Fog_Abyss (5503)."
+  },
+  "candidateRule": {
+    "discovered": "Bells' list record with the landmark type key (1000008/1000114/1000053) and the UUID, no flags.",
+    "activated": "FieldSaveData._fieldGimmickSaveDataList record for the UUID (fourth word 0) with the Nexus gimmick (1008572, 1008610 or 1007470), reason 1, reset never and state 353047760: the surface Nexus rule with the island gimmick.",
+    "evidence": "In the user's saves AbyssIsland_0002 has both signs and AbyssIsland_0001 is discovered only. A before/after save pair at one island Nexus would confirm that the field record appears on activation."
+  },
+  "mapGeniePairing": {
+    "abyssPoints": 51,
+    "spareSurfacePoints": 2,
+    "unpairedAbyssPoints": [],
+    "unpairedSurfacePoints": [],
+    "paired": 53,
+    "medianMetres": 5.6,
+    "maxMetres": 32.6
+  },
+  "nativeIconCrossCheck": [
+    {
+      "type": 235,
+      "xyz": [
+        -10665.498,
+        1794.694,
+        -3700.333
+      ],
+      "nearestLevel": "AbyssIsland_0002_Phase00_00",
+      "metres": 0.0
+    },
+    {
+      "type": 335,
+      "xyz": [
+        -10243.889,
+        1832.406,
+        -4039.178
+      ],
+      "nearestLevel": "AbyssIsland_0001_Phase00_00",
+      "metres": 6.22
+    }
+  ],
+  "nexuses": [
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0001_Phase00_00",
+      "group": "AbyssIsland_Alustin",
+      "uuid": [
+        2268573942,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10249.1043,
+        1832.4061,
+        -4042.565
+      ],
+      "positionSource": "level file abyssisland_0001_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550148",
+      "mapGenieDistance": 3.5,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0002_Phase00_00",
+      "group": "AbyssIsland_Alustin",
+      "uuid": [
+        2293023749,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10665.498,
+        1794.6936,
+        -3700.3325
+      ],
+      "positionSource": "level file abyssisland_0002_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550147",
+      "mapGenieDistance": 6.5,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0003_Phase00_00",
+      "group": "AbyssIsland_SpireOfTheStars",
+      "uuid": [
+        2396535545,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11211.3789,
+        1807.3542,
+        -6125.5605
+      ],
+      "positionSource": "level file abyssisland_0003_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:552240",
+      "mapGenieDistance": 16.5,
+      "mapGenieNote": "Progress by tackling the [Vault of Vengeance](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=552247) challenge"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0009_Phase00_00",
+      "group": "AbyssIsland_JumpTower",
+      "uuid": [
+        2864431278,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -9476.1465,
+        2001.2483,
+        -2919.0269
+      ],
+      "positionSource": "level file abyssisland_0009_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550185",
+      "mapGenieDistance": 4.8,
+      "mapGenieNote": "**Location:** Accessed from the [Crescent Skybridge](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=555638)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0013_Phase00_00",
+      "group": "AbyssIsland_Alustin",
+      "uuid": [
+        2874773431,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8920.291,
+        2183.2522,
+        -4850.2769
+      ],
+      "positionSource": "level file abyssisland_0013_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:554211",
+      "mapGenieDistance": 17.0,
+      "mapGenieNote": "**Location:** Accessed via continuing forward from the [Ethereal Pathway](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=550148)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0014_Phase00_00",
+      "group": "AbyssIsland_SpireOfRingingTruth",
+      "uuid": [
+        2882868116,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10876.334,
+        1891.3358,
+        -1282.8843
+      ],
+      "positionSource": "level file abyssisland_0014_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:556655",
+      "mapGenieDistance": 12.0,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0016_Phase00_00",
+      "group": "AbyssIsland_SpireOfRingingTruth",
+      "uuid": [
+        2889901033,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11984.0947,
+        1844.325,
+        -776.7908
+      ],
+      "positionSource": "level file abyssisland_0016_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550192",
+      "mapGenieDistance": 4.5,
+      "mapGenieNote": "**Location:** Teleport here after completing the [Spire of Ringing Truth](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=545667)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0018_Phase00_00",
+      "group": "AbyssIsland_ClockTower",
+      "uuid": [
+        81244070,
+        1591218559,
+        2990706131,
+        0
+      ],
+      "gamePosition": [
+        -5816.4038,
+        1773.7996,
+        -2698.5464
+      ],
+      "positionSource": "level file abyssisland_0018_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:554204",
+      "mapGenieDistance": 15.0,
+      "mapGenieNote": "**Location:** Accessible after repairing and riding the [Ether Fragment Flying Platform](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=554205)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0023_Phase00_00",
+      "group": "AbyssIsland_SpireOfTheStars",
+      "uuid": [
+        2943382996,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -12033.7197,
+        1821.8721,
+        -4716.4443
+      ],
+      "positionSource": "level file abyssisland_0023_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550191",
+      "mapGenieDistance": 2.8,
+      "mapGenieNote": "**Location:** Unlocked by completing the [Spire of the Stars](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=545727#L) during main quest [Spire of th"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008610,
+      "level": "AbyssIsland_0036_Phase00_00",
+      "group": "AbyssIsland_ClockTower",
+      "uuid": [
+        3082079837,
+        1591218357,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -4387.3418,
+        1839.2614,
+        -1651.3742
+      ],
+      "positionSource": "level file abyssisland_0036_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04_desert.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:564705",
+      "mapGenieDistance": 5.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0041_Phase00_00",
+      "group": "AbyssIsland_SpireOfRingingTruth",
+      "uuid": [
+        2985467815,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11133.5469,
+        1789.3624,
+        221.7146
+      ],
+      "positionSource": "level file abyssisland_0041_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:556622",
+      "mapGenieDistance": 8.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0055_Phase00_00",
+      "group": "AbyssIsland_SpireOfRingingTruth",
+      "uuid": [
+        2993345312,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10599.1094,
+        1894.8632,
+        -1791.5637
+      ],
+      "positionSource": "level file abyssisland_0055_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:553690",
+      "mapGenieDistance": 16.2,
+      "mapGenieNote": "**Location:** Accessed via completing the [Ancient Sealed Gate](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=550077) puzzle"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008610,
+      "level": "AbyssIsland_0079_Phase00_00_sub_1_0",
+      "group": "AbyssIsland_0079_Phase00_00",
+      "uuid": [
+        3015548248,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7800.0981,
+        1964.3743,
+        -578.2614
+      ],
+      "positionSource": "level file abyssisland_0079_phase00_00_sub_1_0",
+      "prefab": "gimmick_abyssruins_useartifact_04_desert.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550187",
+      "mapGenieDistance": 4.8,
+      "mapGenieNote": "**Location:** Accessed from the [Spire of the Sun](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=549494) during Chapter 9: [Unwavering Steps](https:"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0083_Phase00_00",
+      "group": "AbyssIsland_JijeongTempleTower",
+      "uuid": [
+        3025060432,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7950.499,
+        1828.0919,
+        -5221.0957
+      ],
+      "positionSource": "level file abyssisland_0083_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550190",
+      "mapGenieDistance": 3.7,
+      "mapGenieNote": "**Location:** Accessed via the [Jijeong Temple Pagoda](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=547417) Spire during Chapter 9: [Face the Inner"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008610,
+      "level": "AbyssIsland_0084_Phase00_00",
+      "group": "AbyssIsland_FrozenTower",
+      "uuid": [
+        3030954541,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8488.0732,
+        1786.4203,
+        -379.1497
+      ],
+      "positionSource": "level file abyssisland_0084_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04_desert.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:554358",
+      "mapGenieDistance": 15.2,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0089_Phase00_00",
+      "group": "AbyssIsland_SpireOfTheStars",
+      "uuid": [
+        3054722250,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -12206.0039,
+        2058.113,
+        -3175.4185
+      ],
+      "positionSource": "level file abyssisland_0089_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:553678",
+      "mapGenieDistance": 8.6,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0091_Phase00_00",
+      "group": "AbyssIsland_ClockTower",
+      "uuid": [
+        2669854466,
+        1450447136,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -6953.8428,
+        2895.843,
+        -2961.343
+      ],
+      "positionSource": "level file abyssisland_0091_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:564702",
+      "mapGenieDistance": 5.6,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0097_Phase00_00",
+      "group": "AbyssIsland_WisdomTower",
+      "uuid": [
+        3064352926,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10059.7334,
+        1786.4022,
+        -6023.2485
+      ],
+      "positionSource": "level file abyssisland_0097_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:556395",
+      "mapGenieDistance": 8.9,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0099_Phase00_00",
+      "group": "AbyssIsland_SpireOfTheStars",
+      "uuid": [
+        3071471488,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11117.2793,
+        1825.8427,
+        -4093.5073
+      ],
+      "positionSource": "level file abyssisland_0099_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:553673",
+      "mapGenieDistance": 3.5,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0109_Phase00_00",
+      "group": "AbyssIsland_SpireOfRingingTruth",
+      "uuid": [
+        3075733818,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11661.5928,
+        1992.1757,
+        894.2913
+      ],
+      "positionSource": "level file abyssisland_0109_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:556616",
+      "mapGenieDistance": 0.6,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0113_Phase00_00",
+      "group": "AbyssIsland_ClockTower",
+      "uuid": [
+        3090721644,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -4856.7163,
+        1806.5538,
+        -1925.5682
+      ],
+      "positionSource": "level file abyssisland_0113_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:564708",
+      "mapGenieDistance": 2.2,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008610,
+      "level": "AbyssIsland_0121_Phase00_00",
+      "group": "AbyssIsland_SunTower",
+      "uuid": [
+        3095787566,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7135.7412,
+        1891.761,
+        -466.8524
+      ],
+      "positionSource": "level file abyssisland_0121_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04_desert.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550189",
+      "mapGenieDistance": 4.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0122_Phase00_00",
+      "group": "AbyssIsland_JijeongTempleTower",
+      "uuid": [
+        3649887045,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7894.1235,
+        1806.3203,
+        -5612.3931
+      ],
+      "positionSource": "level file abyssisland_0122_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:559900",
+      "mapGenieDistance": 16.4,
+      "mapGenieNote": "**Location:** Accessed via the [Path of Serpents Flying Platform](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=557802)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0131_Phase00_00",
+      "group": "AbyssIsland_SpireOfRingingTruth",
+      "uuid": [
+        3293135946,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -12107.4658,
+        1837.8591,
+        -13.6268
+      ],
+      "positionSource": "level file abyssisland_0131_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550193",
+      "mapGenieDistance": 4.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0137_Phase00_00",
+      "group": "AbyssIsland_ClockTower",
+      "uuid": [
+        3298290871,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -6398.8813,
+        1981.7032,
+        -2986.2048
+      ],
+      "positionSource": "level file abyssisland_0137_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:564667",
+      "mapGenieDistance": 4.6,
+      "mapGenieNote": "**Location:** Ascend the [Spire of Clockwork](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=547383) to gain access"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008610,
+      "level": "AbyssIsland_0138_Phase00_00",
+      "group": "AbyssIsland_FrozenTower",
+      "uuid": [
+        3309790566,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7840.3281,
+        1847.9237,
+        290.9057
+      ],
+      "positionSource": "level file abyssisland_0138_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04_desert.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:558542",
+      "mapGenieDistance": 4.9,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0140_Phase00_00",
+      "group": "AbyssIsland_JumpTower",
+      "uuid": [
+        3325851455,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8668.6432,
+        1752.9126,
+        -2116.354
+      ],
+      "positionSource": "level file abyssisland_0140_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550186",
+      "mapGenieDistance": 3.4,
+      "mapGenieNote": "**Location:** Accessed from the [Spire of Soaring](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=547374)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0144_Phase00_00",
+      "group": "AbyssIsland_Alustin",
+      "uuid": [
+        3329098331,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8518.9883,
+        1726.4509,
+        -4906.7715
+      ],
+      "positionSource": "level file abyssisland_0144_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:556404",
+      "mapGenieDistance": 15.7,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0150_Phase00_00",
+      "group": "AbyssIsland_WisdomTower",
+      "uuid": [
+        3332493063,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -9755.6885,
+        1792.8777,
+        -6425.9653
+      ],
+      "positionSource": "level file abyssisland_0150_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:552237",
+      "mapGenieDistance": 32.6,
+      "mapGenieNote": "Unlocked by completing the [Spire of Insight](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=543937)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008610,
+      "level": "AbyssIsland_0151_Phase00_00",
+      "group": "AbyssIsland_SunTower",
+      "uuid": [
+        3342244870,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -6958.3086,
+        1775.1356,
+        -1157.7312
+      ],
+      "positionSource": "level file abyssisland_0151_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04_desert.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:561598",
+      "mapGenieDistance": 5.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0152_Phase00_00",
+      "group": "AbyssIsland_SpireOfRingingTruth",
+      "uuid": [
+        3345987639,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -9788.7891,
+        1800.7513,
+        162.233
+      ],
+      "positionSource": "level file abyssisland_0152_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:556648",
+      "mapGenieDistance": 6.0,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0158_Phase00_00",
+      "group": "AbyssIsland_SpireOfTheStars",
+      "uuid": [
+        3349199490,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10519.1611,
+        1815.1802,
+        -5288.6865
+      ],
+      "positionSource": "level file abyssisland_0158_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:552249",
+      "mapGenieDistance": 11.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0162_Phase00_00",
+      "group": "AbyssIsland_JumpTower",
+      "uuid": [
+        3361268823,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -9019.7861,
+        1805.5989,
+        -1655.3763
+      ],
+      "positionSource": "level file abyssisland_0162_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:555642",
+      "mapGenieDistance": 0.9,
+      "mapGenieNote": "**Location:** Accessed from the [Crow's Nest](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=550185)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0175_Phase00_00",
+      "group": "AbyssIsland_SpireOfRingingTruth",
+      "uuid": [
+        3364533413,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10611.2207,
+        1813.5143,
+        814.5283
+      ],
+      "positionSource": "level file abyssisland_0175_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:556641",
+      "mapGenieDistance": 23.6,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0176_Phase00_00",
+      "group": "AbyssIsland_FrozenTower",
+      "uuid": [
+        2659936932,
+        1591218357,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -8161.7895,
+        1970.8248,
+        -1325.7922
+      ],
+      "positionSource": "level file abyssisland_0176_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:551235",
+      "mapGenieDistance": 1.5,
+      "mapGenieNote": "**Location:** Accessed from ascending the [Spire of Frost](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=547333)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008610,
+      "level": "AbyssIsland_0189_Phase00_00",
+      "group": "AbyssIsland_SunTower",
+      "uuid": [
+        3386278125,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7496.8618,
+        1956.5453,
+        -863.4337
+      ],
+      "positionSource": "level file abyssisland_0189_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04_desert.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:550188",
+      "mapGenieDistance": 1.7,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0191_Phase00_00",
+      "group": "AbyssIsland_SpireOfTheStars",
+      "uuid": [
+        3392251379,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -12432.1191,
+        1754.5023,
+        -5206.2354
+      ],
+      "positionSource": "level file abyssisland_0191_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:551944",
+      "mapGenieDistance": 8.7,
+      "mapGenieNote": "**Location:** To the left and above the starting location.  Progress by solving the [Secret Garden](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=55"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008610,
+      "level": "AbyssIsland_0200_Phase00_00",
+      "group": "AbyssIsland_FrozenTower",
+      "uuid": [
+        3395838596,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -5843.0552,
+        1993.4216,
+        322.9561
+      ],
+      "positionSource": "level file abyssisland_0200_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04_desert.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:558549",
+      "mapGenieDistance": 12.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_0201_Phase00_00",
+      "group": "AbyssIsland_JijeongTempleTower",
+      "uuid": [
+        3695044238,
+        1450447135,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7893.3262,
+        2987.1201,
+        -4142.2612
+      ],
+      "positionSource": "level file abyssisland_0201_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:564645",
+      "mapGenieDistance": 1.6,
+      "mapGenieNote": "**Location:** Unlocked by completing the [Path of Serpents](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=564598)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_1001_Phase00_00",
+      "group": "AbyssIsland_HyperSpace",
+      "uuid": [
+        2927882836,
+        1591218389,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -4758.0205,
+        1865.0343,
+        -5230.6816
+      ],
+      "positionSource": "level file abyssisland_1001_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:566123",
+      "mapGenieDistance": 18.3,
+      "mapGenieNote": "Accessed via teleportation from the [Gate to Advancement](https://mapgenie.io/crimson-desert/maps/pywel?locationIds=547459)"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_1002_Phase00_00",
+      "group": "AbyssIsland_HyperSpace",
+      "uuid": [
+        2933146549,
+        1591218389,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -5655.9463,
+        1802.2264,
+        -4029.9915
+      ],
+      "positionSource": "level file abyssisland_1002_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:566120",
+      "mapGenieDistance": 13.6,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_1003_Phase00_00",
+      "group": "AbyssIsland_HyperSpace",
+      "uuid": [
+        2921192412,
+        1591218389,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -3445.8992,
+        1888.1643,
+        -5519.9141
+      ],
+      "positionSource": "level file abyssisland_1003_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:571999",
+      "mapGenieDistance": 11.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_1004_Phase00_00",
+      "group": "AbyssIsland_HyperSpace",
+      "uuid": [
+        2952215856,
+        1591218389,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -4323.2163,
+        1789.7794,
+        -4521.3315
+      ],
+      "positionSource": "level file abyssisland_1004_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:566121",
+      "mapGenieDistance": 5.5,
+      "mapGenieNote": "Abyss Nexus"
+    },
+    {
+      "kind": "island",
+      "typeKey": 1000008,
+      "gimmickKey": 1008572,
+      "level": "AbyssIsland_1005_Phase00_00",
+      "group": "AbyssIsland_HyperSpace",
+      "uuid": [
+        4089096347,
+        1591218419,
+        2990706131,
+        0
+      ],
+      "gamePosition": [
+        -3761.3931,
+        1974.0099,
+        -4534.2847
+      ],
+      "positionSource": "level file abyssisland_1005_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:566122",
+      "mapGenieDistance": 0.6,
+      "mapGenieNote": "Abyss Nexus"
+    },
+    {
+      "kind": "quest",
+      "typeKey": 1000114,
+      "gimmickKey": 1008572,
+      "level": "AbyssIslandCore_0001_Phase00_00",
+      "group": "AbyssIslandCore_Phase00_00",
+      "uuid": [
+        4117529307,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7947.0239,
+        2156.5522,
+        -2571.792
+      ],
+      "positionSource": "level file abyssislandcore_0001_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:557873",
+      "mapGenieDistance": 1.5,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "quest",
+      "typeKey": 1000114,
+      "gimmickKey": 1008572,
+      "level": "AbyssIslandCore_0002_Phase00_00",
+      "group": "AbyssIslandCore_Phase00_00",
+      "uuid": [
+        4127994021,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8088.2695,
+        2329.8064,
+        -2421.4946
+      ],
+      "positionSource": "level file abyssislandcore_0002_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:557874",
+      "mapGenieDistance": 2.0,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "quest",
+      "typeKey": 1000114,
+      "gimmickKey": 1008572,
+      "level": "AbyssIslandCore_0003_Phase00_00",
+      "group": "AbyssIslandCore_Phase00_00",
+      "uuid": [
+        4139515132,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8108.8545,
+        2223.3145,
+        -2303.5686
+      ],
+      "positionSource": "level file abyssislandcore_0003_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:559872",
+      "mapGenieDistance": 4.3,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "quest",
+      "typeKey": 1000114,
+      "gimmickKey": 1008572,
+      "level": "AbyssIslandCore_0004_Phase00_00",
+      "group": "AbyssIslandCore_Phase00_00",
+      "uuid": [
+        4157896708,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7722.2539,
+        2322.4583,
+        -2631.2371
+      ],
+      "positionSource": "level file abyssislandcore_0004_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:557872",
+      "mapGenieDistance": 3.7,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "quest",
+      "typeKey": 1000114,
+      "gimmickKey": 1008572,
+      "level": "AbyssIslandCore_0005_Phase00_00",
+      "group": "AbyssIslandCore_Phase00_00",
+      "uuid": [
+        4220438040,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7414.1011,
+        2329.7019,
+        -2325.3333
+      ],
+      "positionSource": "level file abyssislandcore_0005_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:557869",
+      "mapGenieDistance": 10.2,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "quest",
+      "typeKey": 1000114,
+      "gimmickKey": 1008572,
+      "level": "AbyssIslandCore_0006_Phase00_00",
+      "group": "AbyssIslandCore_Phase00_00",
+      "uuid": [
+        4227921699,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7764.5303,
+        2341.2173,
+        -1898.397
+      ],
+      "positionSource": "level file abyssislandcore_0006_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:557875",
+      "mapGenieDistance": 18.6,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "quest",
+      "typeKey": 1000114,
+      "gimmickKey": 1008572,
+      "level": "AbyssIslandCore_0007_Phase00_00",
+      "group": "AbyssIslandCore_Phase00_00",
+      "uuid": [
+        4234311446,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7606.9292,
+        2181.9138,
+        -2146.7356
+      ],
+      "positionSource": "level file abyssislandcore_0007_phase00_00",
+      "prefab": "gimmick_abyssruins_useartifact_04.prefab",
+      "tablePositionMatches": true,
+      "mapGenieId": "mg:557870",
+      "mapGenieDistance": 8.1,
+      "mapGenieNote": ""
+    },
+    {
+      "kind": "housing",
+      "typeKey": 1000053,
+      "gimmickKey": 1007470,
+      "level": "KliffHouse_Useartifact_0001_Phase00_00_sub_1_0",
+      "group": "KliffHouse_Useartifact_0001_Phase00_00",
+      "uuid": [
+        2065503041,
+        1450447186,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -10356.0195,
+        613.1619,
+        -4443.5566
+      ],
+      "positionSource": "level file kliffhouse_useartifact_0001_phase00_00_sub_1_0",
+      "prefab": "gimmick_abyssruins_useartifact_01_attach.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:555141",
+      "mapGenieDistance": 21.2,
+      "mapGenieNote": "**Location:** Initially hidden under vines that can be burned away with Blinding Flash Concentrate Light.  Requires an Abyss Transporter item, found either insi"
+    },
+    {
+      "kind": "housing",
+      "typeKey": 1000053,
+      "gimmickKey": 1007470,
+      "level": "KliffHouse_Useartifact_0002_Phase00_00_sub_1_0",
+      "group": "KliffHouse_Useartifact_0002_Phase00_00",
+      "uuid": [
+        4119105389,
+        1591218527,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9958.0898,
+        666.2692,
+        261.6863
+      ],
+      "positionSource": "level file kliffhouse_useartifact_0002_phase00_00_sub_1_0",
+      "prefab": "gimmick_abyssruins_useartifact_01_attach.prefab",
+      "tablePositionMatches": false,
+      "mapGenieId": "mg:554291",
+      "mapGenieDistance": 14.4,
+      "mapGenieNote": "**Location:** Initially hidden under vines that can be burned away with Blinding Flash Concentrate Light.  Requires an Abyss Transporter item, found either insi"
+    }
+  ],
+  "saves": [
+    {
+      "save": "sealed-artifact-survey/slot0.save",
+      "discovered": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        },
+        {
+          "level": "AbyssIsland_0001_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        }
+      ],
+      "fieldRecords": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "gimmickInfoKey": 1008572,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 353047760,
+          "matchesActivatedRule": true
+        }
+      ]
+    },
+    {
+      "save": "sealed-artifact-survey/slot1.save",
+      "discovered": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        },
+        {
+          "level": "AbyssIsland_0001_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        }
+      ],
+      "fieldRecords": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "gimmickInfoKey": 1008572,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 353047760,
+          "matchesActivatedRule": true
+        }
+      ]
+    },
+    {
+      "save": "sealed-artifact-survey/slot100.save",
+      "discovered": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        },
+        {
+          "level": "AbyssIsland_0001_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        }
+      ],
+      "fieldRecords": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "gimmickInfoKey": 1008572,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 353047760,
+          "matchesActivatedRule": true
+        }
+      ]
+    },
+    {
+      "save": "sealed-artifact-survey/slot101.save",
+      "discovered": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        },
+        {
+          "level": "AbyssIsland_0001_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        }
+      ],
+      "fieldRecords": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "gimmickInfoKey": 1008572,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 353047760,
+          "matchesActivatedRule": true
+        }
+      ]
+    },
+    {
+      "save": "sealed-artifact-survey/slot102.save",
+      "discovered": [],
+      "fieldRecords": []
+    },
+    {
+      "save": "sealed-artifact-survey/slot103.save",
+      "discovered": [],
+      "fieldRecords": []
+    },
+    {
+      "save": "sealed-artifact-survey/slot104.save",
+      "discovered": [],
+      "fieldRecords": []
+    },
+    {
+      "save": "sealed-artifact-survey/slot105.save",
+      "discovered": [],
+      "fieldRecords": []
+    },
+    {
+      "save": "sealed-artifact-survey/slot106.save",
+      "discovered": [],
+      "fieldRecords": []
+    },
+    {
+      "save": "sealed-artifact-survey/slot107.save",
+      "discovered": [],
+      "fieldRecords": []
+    },
+    {
+      "save": "sealed-artifact-survey/slot108.save",
+      "discovered": [],
+      "fieldRecords": []
+    },
+    {
+      "save": "sealed-artifact-survey/slot2.save",
+      "discovered": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        },
+        {
+          "level": "AbyssIsland_0001_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        }
+      ],
+      "fieldRecords": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "gimmickInfoKey": 1008572,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 353047760,
+          "matchesActivatedRule": true
+        }
+      ]
+    },
+    {
+      "save": "sealed-artifact-test/a0-before-slot100.save",
+      "discovered": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        },
+        {
+          "level": "AbyssIsland_0001_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        }
+      ],
+      "fieldRecords": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "gimmickInfoKey": 1008572,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 353047760,
+          "matchesActivatedRule": true
+        }
+      ]
+    },
+    {
+      "save": "sealed-artifact-test/a1-autosave-slot2.save",
+      "discovered": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        },
+        {
+          "level": "AbyssIsland_0001_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        }
+      ],
+      "fieldRecords": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "gimmickInfoKey": 1008572,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 353047760,
+          "matchesActivatedRule": true
+        }
+      ]
+    },
+    {
+      "save": "sealed-artifact-test/a2-after-slot101.save",
+      "discovered": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        },
+        {
+          "level": "AbyssIsland_0001_Phase00_00",
+          "infoKey": 1000008,
+          "flags": {}
+        }
+      ],
+      "fieldRecords": [
+        {
+          "level": "AbyssIsland_0002_Phase00_00",
+          "gimmickInfoKey": 1008572,
+          "reason": 1,
+          "resetNever": true,
+          "initStateNameHash": 353047760,
+          "matchesActivatedRule": true
+        }
+      ]
+    }
+  ]
+}

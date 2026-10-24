@@ -847,19 +847,23 @@ uintptr_t ObserveFormatText(void* context, uintptr_t text, uintptr_t segments, u
 }
 
 // Hook on 0x3ed7f90 (element, markup, flag), which builds an element's
-// content from markup (one text element per line). v0.98: for our card's
-// description it builds our markup instead. Outside a card layout pass it
-// goes straight to the original; inside one it also logs the call.
+// content from markup (one text element per line). v0.98 also swapped in our
+// markup here; v0.14.0 only logs. The description's set-markup calls come
+// from 0x646700, which builds the element from the segments format-text
+// (0x647cb0, where our markup goes in) made: it calls set-markup once per
+// run of plain text between placeholders such as {Key:...}, with a key icon
+// element in between. Swapping our whole markup into every call showed the
+// description twice around the icon and kept the placeholder raw (Thomas,
+// Plate Helm of the Shadows). Outside a card layout pass it goes straight to
+// the original; inside one it also logs the call.
 uintptr_t ObserveSetMarkup(void* element, uintptr_t markup, uintptr_t flag, uintptr_t fourth) {
     if (!cardLayoutBox) {
         return cardHooks[kCardMarkup].original(element, markup, flag, fourth);
     }
     uintptr_t caller = reinterpret_cast<uintptr_t>(_ReturnAddress()) - imageBase;
-    const char* ours = OurCardMarkup(element);
-    uintptr_t sent = ours ? reinterpret_cast<uintptr_t>(ours) : markup;
-    uintptr_t result = cardHooks[kCardMarkup].original(element, sent, flag, fourth);
+    uintptr_t result = cardHooks[kCardMarkup].original(element, markup, flag, fourth);
     DWORD lastError = GetLastError();
-    LogCardMarkupCall(ours ? "set-markup sent=ours" : "set-markup", caller, element, static_cast<int>(flag & 0xff),
+    LogCardMarkupCall("set-markup", caller, element, static_cast<int>(flag & 0xff),
         reinterpret_cast<const char*>(markup));
     SetLastError(lastError);
     return result;

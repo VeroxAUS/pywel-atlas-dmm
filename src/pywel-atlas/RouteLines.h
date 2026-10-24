@@ -15,13 +15,6 @@
 #include "MarkerFilter.h"
 #include "RoutePlanner.h"
 
-// Half the icon size of each marker category on the world map, in canvas
-// units (the game's worldmapicon.css: Bell 48 px, Abyss Nexus 50 px,
-// Sealed Abyss Artifact 30 px, the chest, shrine, cresset and (v0.114)
-// constellation test icons 32 px). Lines end and dots sit just outside this.
-constexpr float kRouteWorldIconHalf[kPywelMarkerCategories] = {
-    24.0f, 16.0f, 16.0f, 16.0f, 25.0f, 15.0f, 25.0f, 16.0f, 16.0f, 16.0f};
-
 // Room for all legs' points together (a long tour on roads).
 constexpr unsigned kRouteLineMaxPoints = 8192;
 // Room for the legs (the planner's stop limit).

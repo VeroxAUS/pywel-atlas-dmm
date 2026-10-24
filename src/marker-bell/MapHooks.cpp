@@ -132,17 +132,18 @@ uintptr_t RouteWorldContainer(void* controller, const WORD* type, const void* ta
         activeSample->containerRouted = true;
         ours = true;
     }
-#ifdef PYWEL_ATLAS_COMBINED
+#if defined(PYWEL_ATLAS_COMBINED) && defined(PYWEL_ATLAS_DEV)
     // v0.57 observation: for our own markers and the game's own shrine/Bell
     // icons, copy the arguments and the controller's waiting list before and
     // after the call, to see why a creation is refused. Changes nothing.
+    // Development builds only (v0.129).
     WorldCreateRecord probe = {};
     bool watched = BeginWorldCreateProbe(controller, type, tag, slot7, scalar, slot9,
         appearance, templateName, optional12, optional13, finalFlag, ours, probe);
 #endif
     uintptr_t result = originalWorldCreate(controller, type, tag, index, position, container,
         slot7, scalar, slot9, appearance, templateName, optional12, optional13, finalFlag);
-#ifdef PYWEL_ATLAS_COMBINED
+#if defined(PYWEL_ATLAS_COMBINED) && defined(PYWEL_ATLAS_DEV)
     if (watched) {
         FinishWorldCreateProbe(controller, result, probe);
     }
@@ -184,8 +185,9 @@ BYTE ObserveInitialize(void* icon, const void* description, BYTE flag) {
         activeSample->initializationResult = result;
         CaptureIconState(icon, *activeSample);
     }
-#ifdef PYWEL_ATLAS_COMBINED
-    // v0.53 observation: log this icon type's zoom window once.
+#if defined(PYWEL_ATLAS_COMBINED) && defined(PYWEL_ATLAS_DEV)
+    // v0.53 observation: log this icon type's zoom window once
+    // (development builds only, v0.129).
     RecordIconZoomType(icon);
 #endif
     return result;
@@ -289,7 +291,9 @@ uintptr_t ObserveWorldProjection(void* controller, BYTE flag, void* layer,
         // `value` is the heading (static research); copy them, and during F8
         // record the map zoom state.
         RecordMapViewPosition(optional, value);
+#ifdef PYWEL_ATLAS_DEV
         RecordZoomFrame(controller);
+#endif
         // v0.104: copy the map's view for the route line (read-only).
         PywelRouteCaptureWorldMap(controller);
 #endif

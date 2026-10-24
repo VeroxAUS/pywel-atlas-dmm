@@ -28,7 +28,7 @@ struct RoutePoint {
 };
 
 // The most stops a route may hold (the panel's slider goes up to this).
-constexpr unsigned kRouteMaxStops = 50;
+constexpr unsigned kRouteMaxStops = 10; // v0.133 (was 50).
 
 // Plans a route from `start` through up to `keep` of the `count` points.
 // Writes the chosen points' indices (into `points`) to `order` in visiting

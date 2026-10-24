@@ -1,0 +1,25 @@
+Pywel Atlas combined v0.98 map markers (v0.98: our knowledge cards get their whole description as markup, one line per part with real line breaks (artifact steps and reward, recipe lines); v0.97: Abyss-island Nexus markers use the surface Nexus icon (type 234; type 235 followed the map camera); v0.96: knowledge card markup observation, logs only (format-text 0x647cb0, set-markup 0x3ed7f90 inside the card layout); v0.95: Abyss-island Nexus markers (type 235, 51 on the Abyss map, hidden once activated; the 2 Nexuses at Kliff's houses join the surface Nexuses, now 215); v0.94: lines inside a card paragraph joined with a middle dot (the card shows no line breaks); v0.93: Sealed Abyss Artifact markers open a knowledge card (challenge name, steps, reward); v0.92: chest card description as two paragraphs (item type, item text), no markup, generic chest paragraph blanked; v0.91: chest markers with a known item open the map's knowledge card (Treasure Chest card, item name as title, type and item description); v0.90: Sealed Abyss Artifact save read fixed (it rejected saves with two field containers, so every artifact was unknown); v0.89: knowledge card observation, logs only: focus fields, card fill, knowledge key, card layout texts; v0.88: Sealed Abyss Artifact markers (type 187, 141 artifacts, hidden once picked up; tooltip with the artifact's name); v0.87: chest contents on a second map-label line through <br>; v0.86: map tooltip texts on one line; Bells and Nexuses show their name only; v0.85: map tooltips for our markers (chest contents, Bell/shrine names, Nexus) through the game's own map label; v0.84: map tooltip observation, phase 0: logs tooltip text requests and map focus changes, no visible change; v0.83: Abyss Nexus markers turned off in the panel or with F10 are hidden with the game's own hide-reason function (bit 23) instead of removed, and shown again when turned on; read-only observation: layer settings of our icon types, hide bits of our world-map markers right after creation, Abyss Nexus hide-bit changes by name, 4 watched Nexus, 2 chest and 2 Abyss chest markers per round at 3 s / 10 s and on layer changes, with picture objects, container-list check and raw copies; markers on the world map and the minimap; surface Abyss Nexus markers (game icon type 234) until activated; minimap markers created with their own number and adopted once the game has built them; Greymane Shrine markers on, world map needs the Shrine Icons file mod; F8 lists icon types with a world-map look; game type 186/40/41 creations logged, our own markers left out of the sample list) - one native Bell icon (type 360) per not-completed Bell, one chest icon (type 226) per not-opened chest of the game's dedicated chest levels, caves/dungeons, puzzle strongboxes and house chests (190 chests; strongboxes from the save's field-object list, unknown ones hidden) and one chest icon (type 226) per not-opened Abyss chest (74, Abyss map layer) in the detected save, shown at every map zoom (zoom limit off on our own markers only); Greymane Shrine markers on (game shrine icon, type 186); up to 256 markers per category, checked 32 per map update; F10 hides all, F6 shows again. A failed marker is retried every 5 s without blocking others. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap, world-create records (ours and the game's own shrine/Bell icons)
+Create observation hook rva=0xdeeb60: MH_OK
+Create observation hook rva=0x537250: MH_OK
+Create observation hook rva=0x388e00: MH_OK
+Create observation hook rva=0xdeca40: MH_OK
+Create observation hook rva=0xdb3bd0: MH_OK
+Create observation hook rva=0xd8a970: MH_OK
+Create observation hook rva=0xd94040: MH_OK
+Create observation hook rva=0xd91820: MH_OK
+Create observation hook rva=0xdabd10: MH_OK
+Minimap markers: on (remove guard matched, vtable slots matched)
+Minimap position watch hook rva=0xe13cf0: MH_OK
+Map tooltip hook rva=0x3edd6b0 (phase 1, our text for our markers: on, chest separator "<br>"): MH_OK
+Map knowledge card hook fill-gimmick rva=0xdba0e0: MH_OK
+Map knowledge card hook set-key rva=0xf12770: MH_OK
+Map knowledge card hook layout rva=0xf09e70: MH_OK
+Map knowledge card hook set-text rva=0x3ed4e00: MH_OK
+Map knowledge card hook format-text rva=0x647cb0: MH_OK
+Map knowledge card hook set-markup rva=0x3ed7f90: MH_OK
+Map knowledge card descriptions: our markup (real line breaks)
+Map knowledge cards for chests (card 0x16fc: on) and Sealed Abyss Artifacts (card 0x16fb: on): on
+F6 requests one private chest for 3 minutes; open Pywel. No reload or saved pin is needed.
+F8 captures state. F10 disables and requests removal; keep/open Pywel to service it. Save identity is manual.
+Filter panel choices: Bell=on Greymane Shrine=on Chest=on Abyss Chest=on Abyss Nexus=on Sealed Abyss Artifact=on Abyss-island Nexus=on
+position settings at start: cellSize=64 cellWindow=3 nativeRadius=50 altitudeThreshold=1500

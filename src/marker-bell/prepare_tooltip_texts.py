@@ -38,6 +38,7 @@ Writes: src/marker-bell/tooltip-texts.h (overwritten)
 Run:    python -B src/marker-bell/prepare_tooltip_texts.py
 """
 import json
+import re
 from pathlib import Path
 
 # Longest item text accepted, in UTF-8 bytes (the tooltip buffer is 160).
@@ -426,6 +427,24 @@ def markup_text(text):
     return text
 
 
+def split_placeholder(text):
+    """Split an effect line into (text for a div, plain text after it) at its "(... {Key:...} ...)" part (v0.14.0).
+
+    The game expands placeholders such as {Key:Key_Roll} into a key icon,
+    but the icon is its own element: the description builder (0x646700)
+    ends the current markup before it and starts a new one after it. A
+    placeholder inside one of our <div>s would cut that div in two, so the
+    placeholder part goes after the div as plain text, the form the game's
+    own descriptions use. Lines without a placeholder are returned whole.
+    """
+    if "{" not in text:
+        return text, ""
+    match = re.fullmatch(r"(.*?)\s*(\([^()]*\{[^{}]*\}[^()]*\))", text)
+    if not match or "{" in match.group(1):
+        raise ValueError(f"Placeholder not in a trailing (...) part: {text!r}")
+    return match.group(1), match.group(2)
+
+
 def div(css, inner):
     """Return one <div css="..."> element around already-checked `inner` markup."""
     return f'<div css="{css}">{inner}</div>'
@@ -488,12 +507,14 @@ def style_markup(style, item_type, parts, body, also):
                                     div(f"item-tooltip-sub-stat-label {STAT_LINE_CSS}", label))
                               + div("item-tooltip-stat-info-wrap", div(f"stat-common-value {STAT_LINE_CSS}", value)))
             continue
-        text = markup_text(part["text"])
+        text, outside = split_placeholder(markup_text(part["text"]))
         if style == 1:
             markup += div(EFFECT_LINE_CSS, text)
         else:
             markup += div("item-tooltip-buff-stat-set", effect_icon(part)
                           + div(f"item-tooltip-buff-stat-value multi-line-text-buff {EFFECT_LINE_CSS}", text))
+        # Its placeholder part as plain text after the div (own line).
+        markup += outside
         for note in notes(text):
             markup += div(NOTE_LINE_CSS, markup_text(note))
     if parts and body:

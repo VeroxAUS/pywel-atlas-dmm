@@ -6,9 +6,9 @@
 //   (ServiceMarkersOn, CreateMarker).
 // - Switches off the zoom limit on our own markers, hides instead of removing
 //   where the game needs it (Abyss Nexuses), and the Nexus layer watch.
-// - Includes the tooltip, knowledge card and marker size parts
-//   (MapTooltips.h, MapKnowledgeCard.h, MarkerIconSize.h). Those files hold
-//   their own state, so only this file may include them.
+// - Includes the tooltip, knowledge card, marker size and height arrow parts
+//   (MapTooltips.h, MapKnowledgeCard.h, MarkerIconSize.h, MarkerHeightArrow.h).
+//   Those files hold their own state, so only this file may include them.
 // Moved unchanged from NativeMapCategoryProbe.cpp in v0.122.
 #include "MapMarkerShared.h"
 
@@ -258,9 +258,11 @@ unsigned watchRound[3] = {}; // Counts the rounds (1 = the markers made after lo
 BYTE layersBefore[5] = {}; // Layer bytes at the last world-map update...
 bool layersKnown = false; // ...once read.
 
+#ifdef PYWEL_ATLAS_DEV
 // v0.81: queues a raw hex copy of `size` bytes at `address` (game memory),
 // 0x80 bytes per log line, so a visible and an invisible marker can be
 // compared byte by byte offline. Pointers in it are only numbers in the log.
+// (Development builds only, v0.129, like the layer watch below.)
 void QueueDump(const char* what, const char* name, unsigned round, const void* address, unsigned size) {
     for (unsigned offset = 0; offset < size; offset += 0x80) {
         BYTE bytes[0x80] = {};
@@ -281,6 +283,7 @@ void QueueDump(const char* what, const char* name, unsigned round, const void* a
         QueueObservation(line);
     }
 }
+#endif
 
 // v0.82: looks for `root` (an icon's interface picture, icon +0x8) in the
 // world map's layer containers. The game's per-frame icon update (0xd94040,
@@ -324,6 +327,7 @@ bool FindPictureInContainers(void* controller, uintptr_t root, unsigned& contain
     return false;
 }
 
+#ifdef PYWEL_ATLAS_DEV
 // Queues one line describing a watched marker: its 24 hide bits, its layer
 // class, the controller's layer bytes and (v0.81) its picture objects (+0x8
 // interface root, +0x118 base icon, +0x260 second element; addresses only).
@@ -395,6 +399,7 @@ void DescribeMarker(void* controller, void* icon, const MarkerWatch& watch, unsi
         QueueDump("baseIcon", name, round, reinterpret_cast<const void*>(baseIcon), 0x100);
     }
 }
+#endif
 
 // Called on the map thread after one of our markers was created on the world
 // map and verified: counts its hide bits, and may start watching it.
@@ -411,6 +416,8 @@ void NoteWorldCreation(void* controller, void* icon, unsigned category, unsigned
             InterlockedIncrement(&createdLayerHidden[category]);
         }
     }
+#ifdef PYWEL_ATLAS_DEV
+    // The layer watch (logs only): development builds only (v0.129).
     for (unsigned watched = 0; watched < _countof(kWatchedCategories); ++watched) {
         if (kWatchedCategories[watched] != category) {
             continue;
@@ -424,6 +431,10 @@ void NoteWorldCreation(void* controller, void* icon, unsigned category, unsigned
             }
         }
     }
+#else
+    (void)controller;
+    (void)index;
+#endif
 }
 
 // Finds our marker `index` of `category` on the world map, or null (also
@@ -441,8 +452,9 @@ void* FindWorldMarker(void* controller, unsigned category, unsigned index) {
     return IsCategoryMarker(icon, category, index) ? icon : nullptr;
 }
 
+#ifdef PYWEL_ATLAS_DEV
 // Runs on the map thread after each world-map update: logs layer byte
-// changes and the watched markers' later states.
+// changes and the watched markers' later states (development builds only).
 void ObserveNexusLayers(void* controller) {
     // A new round of watching each time a watched category becomes wanted again.
     for (unsigned watched = 0; watched < _countof(kWatchedCategories); ++watched) {
@@ -498,6 +510,7 @@ void ObserveNexusLayers(void* controller) {
         }
     }
 }
+#endif
 
 // v0.84: map tooltips, phase 0 (observe only); v0.85: phase 1 (our text).
 // Hook, element table, texts and focus logging live in their own file.
@@ -506,6 +519,8 @@ void ObserveNexusLayers(void* controller) {
 #include "MapKnowledgeCard.h"
 // v0.117: even icon sizes for our markers (class for the UI add-on's rules).
 #include "MarkerIconSize.h"
+// v0.126: up / down arrows on markers above or below the player.
+#include "MarkerHeightArrow.h"
 
 // v0.74: the number ("index") a marker is created and looked up with. The
 // world map finds our markers by their tag, so they use 0 (as since v0.31).
@@ -695,6 +710,7 @@ void ServiceMarkersOn(void* controller, MapSide& side) {
             hidden[category].Clear(index);
             side.removalIssued[category][index] = 0;
             ForgetMarkerSize(category, index, side.world); // v0.117.
+            ForgetHeightArrow(category, index, side.world); // v0.126.
             if (side.world) {
                 ForgetMarkerElement(category, index); // v0.84 tooltips.
                 evenScaleIcons[category][index] = nullptr; // v0.120.
@@ -760,6 +776,8 @@ void ServiceMarkersOn(void* controller, MapSide& side) {
         if (wanted[category].Test(index)) {
             // v0.117: our size class on its picture (once per icon object).
             ApplyMarkerSize(icon, category, index, side.world);
+            // v0.126: its height arrow class (changed only when the state changes).
+            ApplyHeightArrow(icon, category, index, side.world);
             // Wanted and present. World map: keep its zoom limit off (see
             // DisableZoomWindows; this also covers a re-initialised icon).
             if (side.world) {
@@ -804,6 +822,7 @@ void ServiceMarkersOn(void* controller, MapSide& side) {
                 hidden[category].Clear(index);
                 side.removalIssued[category][index] = 0;
                 ForgetMarkerSize(category, index, side.world); // v0.117.
+                ForgetHeightArrow(category, index, side.world); // v0.126.
                 if (side.world) {
                     ForgetMarkerElement(category, index); // v0.84 tooltips.
                     evenScaleIcons[category][index] = nullptr; // v0.120.
@@ -832,8 +851,10 @@ void ServiceMarkers(void* controller) {
     ObserveTooltipFocus(controller);
     // v0.89: knowledge card observation (MapKnowledgeCard.h; read-only here).
     ObserveMapCard(controller);
-    // v0.80 observation (read-only).
+#ifdef PYWEL_ATLAS_DEV
+    // v0.80 observation (read-only, logs only).
     ObserveNexusLayers(controller);
+#endif
 }
 
 // v0.73: runs on the game's UI thread after each minimap

@@ -1,5 +1,5 @@
 // =============================================================================
-// Pywel Atlas - route line overlay and panel section (RouteOverlay.cpp, v0.104-v0.123)
+// Pywel Atlas - route line overlay and panel section (RouteOverlay.cpp, v0.104-v0.133)
 // =============================================================================
 //
 // WHAT THIS FILE DOES
@@ -9,9 +9,11 @@
 //     red (#d14d45, about 4 px, with a thin dark border);
 //   - the later legs about 3 px (v0.115: the same crimson, a little fainter;
 //     it was a light beige, #dfd4c7);
-//   - v0.107 (user request; v0.104 drew large rings): a small red dot just
-//     under each stop's icon, a little larger for the current stop, so the
-//     game's own icon stays fully visible; legs end at the icon's edge.
+//   - v0.124 (Thomas's choice; v0.107-v0.123 drew a small dot under each
+//     icon): a ring centred on each stop's icon, just outside its edge; legs
+//     end at the ring. v0.130 (option 3): a soft crimson glow fading out over
+//     about 12 px and a 1 px crimson hairline. (The overlay draws on top of
+//     the icons; the canvases draw the ring under them, RouteCanvas.cpp.)
 //   Line sizes follow the back-buffer height (1080 lines = 1x); the icon
 //   sizes come from the game's own CSS times the interface scale. The
 //   world-map line is drawn only while the world-map snapshot is younger
@@ -25,8 +27,10 @@
 //   panel's Line style is "Overlay" or the canvas is not drawing. v0.115:
 //   the same for the minimap (its own canvas, RouteCanvas.cpp), and the
 //   overlay uses the same crimson look (later legs thinner and fainter).
+//   v0.124: the world-map line only while the map shows the player's layer
+//   (surface or Abyss, RouteCanvas.cpp).
 //   It also builds the panel's Route section (show, stop count, which maps,
-//   line style, Skip stop, status line).
+//   line style, Skip stop, status line; v0.124-v0.132 also a canvas Look).
 //
 // The overlay only draws; it never reads game memory itself.
 // =============================================================================
@@ -130,27 +134,10 @@ bool InsideCircle(const ImVec2& p, const ImVec2& c, float r, bool clip) {
     return !clip || dx * dx + dy * dy <= r * r;
 }
 
-// Moves `from` towards `to` by `distance` pixels (used to end a leg at a
-// stop's icon instead of over it). False if the leg is shorter.
-bool Shorten(ImVec2& from, const ImVec2& to, float distance) {
-    float dx = to.x - from.x;
-    float dy = to.y - from.y;
-    float length = std::sqrt(dx * dx + dy * dy);
-    if (length <= distance) {
-        return false;
-    }
-    from.x += dx / length * distance;
-    from.y += dy / length * distance;
-    return true;
-}
-
-// Draws one leg with its dark border. `trimStart` / `trimEnd` keep the line
-// off the icons at its ends; the minimap clips it to the circle.
-void DrawLeg(ImDrawList* draw, ImVec2 a, ImVec2 b, float trimStart, float trimEnd, ImU32 colour, ImU32 border,
-    float thickness, float edge, bool clip, const ImVec2& centre, float radius) {
-    if ((trimStart > 0.0f && !Shorten(a, b, trimStart)) || (trimEnd > 0.0f && !Shorten(b, a, trimEnd))) {
-        return;
-    }
+// Draws one piece of a leg with its dark border; the minimap clips it to
+// the circle.
+void DrawLeg(ImDrawList* draw, ImVec2 a, ImVec2 b, ImU32 colour, ImU32 border, float thickness, float edge,
+    bool clip, const ImVec2& centre, float radius) {
     if (clip && !ClipToCircle(a, b, centre, radius)) {
         return;
     }
@@ -158,18 +145,57 @@ void DrawLeg(ImDrawList* draw, ImVec2 a, ImVec2 b, float trimStart, float trimEn
     draw->AddLine(a, b, colour, thickness);
 }
 
-// The minimap's icons are smaller than the world map's; one estimate for all
-// (canvas units).
-constexpr float kMinimapIconHalf = 12.0f;
-// Dot radius at 1080 lines: about 6 px across, the current stop's a little
-// larger.
-constexpr float kDotRadius = 3.0f;
-constexpr float kCurrentDotRadius = 4.0f;
+// v0.130: removes `distance` pixels of line from the end of `line` (walking
+// back over as many pieces as that takes, so a short last piece no longer
+// leaves the rest untrimmed). False if the line is shorter.
+bool TrimEnd(ImVector<ImVec2>& line, float distance) {
+    while (line.Size >= 2 && distance > 0.0f) {
+        ImVec2& a = line[line.Size - 2];
+        ImVec2& b = line[line.Size - 1];
+        float dx = b.x - a.x;
+        float dy = b.y - a.y;
+        float length = std::sqrt(dx * dx + dy * dy);
+        if (length > distance) {
+            b.x -= dx / length * distance;
+            b.y -= dy / length * distance;
+            return true;
+        }
+        distance -= length;
+        line.pop_back();
+    }
+    return line.Size >= 2;
+}
+
+// The same at the start of `line`.
+bool TrimStart(ImVector<ImVec2>& line, float distance) {
+    for (int a = 0, b = line.Size - 1; a < b; ++a, --b) {
+        ImVec2 swap = line[a];
+        line[a] = line[b];
+        line[b] = swap;
+    }
+    bool kept = TrimEnd(line, distance);
+    for (int a = 0, b = line.Size - 1; a < b; ++a, --b) {
+        ImVec2 swap = line[a];
+        line[a] = line[b];
+        line[b] = swap;
+    }
+    return kept;
+}
+
+// Stop ring radius at 1080 lines (all markers show about 24 px since
+// v0.120; the minimap's are smaller), and (v0.130) the hairline and glow, as
+// RouteCanvas.cpp.
+constexpr float kWorldRingRadius = 14.0f;
+constexpr float kMinimapRingRadius = 10.0f;
+constexpr float kHairlineWidth = 1.0f;
+constexpr unsigned kGlowRings = 8;
+constexpr float kGlowRingWidth = 1.5f;
+constexpr float kGlowOpacity = 0.35f;
 
 // Draws every leg of `lines` (v0.111: road-following polylines), with
 // `project` turning a world point into back-buffer pixels. `iconHalf[leg]`
-// is the half-size (pixels) of the icon at that leg's end: lines end there
-// and the stop's small red dot sits just under it.
+// is the radius (pixels) of the ring around the icon at that leg's end:
+// lines end there (v0.124).
 template <typename Project>
 void DrawLines(ImDrawList* draw, const RouteLines& route, Project project, const float* iconHalf, float scale,
     PywelColourFn colour, bool clip, const ImVec2& centre, float radius) {
@@ -179,78 +205,50 @@ void DrawLines(ImDrawList* draw, const RouteLines& route, Project project, const
     float edge = scale > 1.0f ? scale : 1.0f;
     ImVec2 ends[kRouteLineMaxLegs] = {};
     bool endKnown[kRouteLineMaxLegs] = {};
-    // Later legs first, so the current leg lies on top.
+    // Later legs first, so the current leg lies on top. v0.130: each leg is
+    // projected whole, then trimmed to the rings at both ends (the arriving
+    // leg at its stop, the next leg at the same stop).
+    static thread_local ImVector<ImVec2> line;
     for (unsigned leg = route.legCount; leg-- > 0;) {
         const RouteLineLeg& item = route.legs[leg];
         if (item.count < 2 || item.first + item.count > route.pointCount) {
             continue;
         }
-        ImVec2 previous;
-        bool previousKnown = project(route.points[item.first], previous);
-        for (unsigned point = 1; point < item.count; ++point) {
-            ImVec2 next;
-            bool nextKnown = project(route.points[item.first + point], next);
-            if (previousKnown && nextKnown) {
-                float trimStart = point == 1 && leg > 0 ? iconHalf[leg - 1] : 0.0f;
-                float trimEnd = point + 1 == item.count ? iconHalf[leg] : 0.0f;
-                DrawLeg(draw, previous, next, trimStart, trimEnd, leg == 0 ? red : redLater, border,
-                    (leg == 0 ? 4.0f : 3.0f) * scale, edge, clip, centre, radius);
-            }
-            previous = next;
-            previousKnown = nextKnown;
+        line.resize(0);
+        bool known = true;
+        for (unsigned point = 0; point < item.count && known; ++point) {
+            ImVec2 spot;
+            known = project(route.points[item.first + point], spot);
+            line.push_back(spot);
         }
-        ends[leg] = previous;
-        endKnown[leg] = previousKnown;
+        if (!known) {
+            continue;
+        }
+        ends[leg] = line[line.Size - 1];
+        endKnown[leg] = true;
+        if (!TrimEnd(line, iconHalf[leg]) || (leg > 0 && !TrimStart(line, iconHalf[leg - 1]))) {
+            continue;
+        }
+        for (int point = 1; point < line.Size; ++point) {
+            DrawLeg(draw, line[point - 1], line[point], leg == 0 ? red : redLater, border,
+                (leg == 0 ? 4.0f : 3.0f) * scale, edge, clip, centre, radius);
+        }
     }
+    // A ring around each stop's icon: v0.130, a soft glow (outermost and
+    // faintest first) and a hairline at the icon's edge.
+    float hairline = kHairlineWidth * scale;
+    float glowWidth = kGlowRingWidth * scale;
     for (unsigned leg = 0; leg < route.legCount; ++leg) {
-        if (!endKnown[leg]) {
+        if (!endKnown[leg] || !InsideCircle(ends[leg], centre, radius, clip)) {
             continue;
         }
-        float dot = (leg == 0 ? kCurrentDotRadius : kDotRadius) * scale;
-        ImVec2 spot(ends[leg].x, ends[leg].y + iconHalf[leg] + dot + edge);
-        if (!InsideCircle(spot, centre, radius, clip)) {
-            continue;
+        for (unsigned glow = kGlowRings; glow-- > 0;) {
+            float fade = 1.0f - static_cast<float>(glow) / kGlowRings;
+            draw->AddCircle(ends[leg], iconHalf[leg] + 0.5f * hairline + glowWidth * (glow + 0.5f),
+                colour(ImVec4(kRed.x, kRed.y, kRed.z, kGlowOpacity * fade * fade)), 48, glowWidth);
         }
-        draw->AddCircleFilled(spot, dot + edge, border, 16);
-        draw->AddCircleFilled(spot, dot, red, 16);
+        draw->AddCircle(ends[leg], iconHalf[leg], red, 48, hairline);
     }
-}
-
-// Back-buffer pixels per canvas unit on the world map, measured with the
-// line's own maths (two points one canvas unit apart); the plain height
-// scale if the view is unusable.
-float WorldCanvasScale(const PywelWorldMapView& view, float width, float height) {
-    float x0 = 0.0f;
-    float y0 = 0.0f;
-    float x1 = 0.0f;
-    float y1 = 0.0f;
-    if (PywelRouteWorldToScreen(view, view.centerX, view.centerZ, width, height, x0, y0) &&
-        PywelRouteWorldToScreen(view, view.centerX + view.metresPerUnit, view.centerZ, width, height, x1, y1) &&
-        x1 > x0) {
-        return x1 - x0;
-    }
-    return height / 1080.0f;
-}
-
-// Back-buffer pixels per canvas unit on the minimap, measured the same way
-// from the player position (falls back to the plain height scale).
-float MinimapCanvasScale(const PywelMinimapView& view, float width, float height) {
-    float x0 = 0.0f;
-    float y0 = 0.0f;
-    float x1 = 0.0f;
-    float y1 = 0.0f;
-    float unitsPerMetre = view.scale554 * view.layerScaleX;
-    if (unitsPerMetre > 0.0f &&
-        PywelRouteMinimapToScreen(view, view.playerX, view.playerZ, width, height, x0, y0) &&
-        PywelRouteMinimapToScreen(view, view.playerX + 1.0f / unitsPerMetre, view.playerZ, width, height, x1, y1)) {
-        float dx = x1 - x0;
-        float dy = y1 - y0;
-        float length = std::sqrt(dx * dx + dy * dy);
-        if (length > 0.0f) {
-            return length;
-        }
-    }
-    return height / 1080.0f;
 }
 
 } // namespace
@@ -261,7 +259,7 @@ bool PywelRouteOverlayWanted() {
     float card[4] = {};
     bool cardOpen = PywelMapKnowledgeCardState(card);
     return inputs.settings.shown && lines.legCount > 0 &&
-        ((inputs.worldByOverlay && !cardOpen) || inputs.minimapByOverlay);
+        ((inputs.worldByOverlay && !cardOpen && PywelRouteWorldLayerMatches()) || inputs.minimapByOverlay);
 }
 
 // See RouteOverlay.h.
@@ -279,13 +277,12 @@ void PywelRouteDrawOverlay(ImDrawList* draw, float width, float height, PywelCol
         // card's on-screen rectangle is not known, so the world-map route
         // waits while a card is open. (The canvas line sits under the card.)
         float card[4] = {};
-        if (!inputs.worldByOverlay || PywelMapKnowledgeCardState(card)) {
+        // v0.124: and only while the map shows the player's layer.
+        if (!inputs.worldByOverlay || PywelMapKnowledgeCardState(card) || !PywelRouteWorldLayerMatches()) {
             return;
         }
-        float unit = WorldCanvasScale(inputs.world, width, height);
         for (unsigned leg = 0; leg < lines.legCount; ++leg) {
-            unsigned category = lines.legs[leg].category;
-            iconHalf[leg] = (category < kPywelMarkerCategories ? kRouteWorldIconHalf[category] : 16.0f) * unit;
+            iconHalf[leg] = kWorldRingRadius * scale;
         }
         const PywelWorldMapView& view = inputs.world;
         DrawLines(draw, lines, [&](const RoutePoint& point, ImVec2& out) {
@@ -298,14 +295,14 @@ void PywelRouteDrawOverlay(ImDrawList* draw, float width, float height, PywelCol
         if (!PywelRouteMinimapCircle(inputs.minimap, width, height, centreX, centreY, radius)) {
             return;
         }
-        float unit = MinimapCanvasScale(inputs.minimap, width, height);
         for (unsigned leg = 0; leg < lines.legCount; ++leg) {
-            iconHalf[leg] = kMinimapIconHalf * unit;
+            iconHalf[leg] = kMinimapRingRadius * scale;
         }
+        // v0.133: the minimap's line thinner, as on its canvas (RouteCanvas.cpp).
         const PywelMinimapView& view = inputs.minimap;
         DrawLines(draw, lines, [&](const RoutePoint& point, ImVec2& out) {
             return PywelRouteMinimapToScreen(view, point.x, point.z, width, height, out.x, out.y);
-        }, iconHalf, scale, colour, true, ImVec2(centreX, centreY), radius);
+        }, iconHalf, scale * 0.62f, colour, true, ImVec2(centreX, centreY), radius);
     }
 }
 

@@ -1,0 +1,137 @@
+{
+  "textures": [
+    {
+      "name": "cd_Icon_map_gimmick_abyss_mark",
+      "list": "cd_icon_map_00.xml",
+      "sheet": "UI/texture/cd_icon_map_00.dds",
+      "rect": [
+        695,
+        281,
+        52,
+        52
+      ],
+      "sheetFile": "cd_icon_map_00.dds"
+    },
+    {
+      "name": "cd_icon_map_GreyManeTemple_minimap",
+      "list": "cd_icon_map_00.xml",
+      "sheet": "UI/texture/cd_icon_map_00.dds",
+      "rect": [
+        103,
+        701,
+        100,
+        100
+      ],
+      "sheetFile": "cd_icon_map_00.dds"
+    },
+    {
+      "name": "cd_Icon_map_sealed_artifact_00",
+      "list": "cd_icon_map_00.xml",
+      "sheet": "UI/texture/cd_icon_map_00.dds",
+      "rect": [
+        443,
+        1,
+        100,
+        100
+      ],
+      "sheetFile": "cd_icon_map_00.dds"
+    },
+    {
+      "name": "cd_Icon_map_standstone",
+      "list": "cd_icon_map_00.xml",
+      "sheet": "UI/texture/cd_icon_map_00.dds",
+      "rect": [
+        795,
+        551,
+        52,
+        52
+      ],
+      "sheetFile": "cd_icon_map_00.dds"
+    },
+    {
+      "name": "cd_Icon_map_testgimmick11",
+      "list": "cd_icon_map_00.xml",
+      "sheet": "UI/texture/cd_icon_map_00.dds",
+      "rect": [
+        861,
+        929,
+        52,
+        52
+      ],
+      "sheetFile": "cd_icon_map_00.dds"
+    },
+    {
+      "name": "cd_Icon_map_treasurebox",
+      "list": "cd_icon_map_00.xml",
+      "sheet": "UI/texture/cd_icon_map_00.dds",
+      "rect": [
+        948,
+        435,
+        52,
+        52
+      ],
+      "sheetFile": "cd_icon_map_00.dds"
+    },
+    {
+      "name": "cd_Icon_map_bell_01",
+      "list": "cd_icon_map_04.xml",
+      "sheet": "UI/texture/cd_icon_map_04.dds",
+      "rect": [
+        1,
+        205,
+        154,
+        154
+      ],
+      "sheetFile": "cd_icon_map_04.dds"
+    },
+    {
+      "name": "cd_Icon_map_gimmick_bell_01",
+      "list": "cd_icon_map_04.xml",
+      "sheet": "UI/texture/cd_icon_map_04.dds",
+      "rect": [
+        261,
+        957,
+        54,
+        54
+      ],
+      "sheetFile": "cd_icon_map_04.dds"
+    },
+    {
+      "name": "cd_Icon_worldmap_treasurebox_00",
+      "list": "cd_icon_map_04.xml",
+      "sheet": "UI/texture/cd_icon_map_04.dds",
+      "rect": [
+        511,
+        317,
+        100,
+        100
+      ],
+      "sheetFile": "cd_icon_map_04.dds"
+    },
+    {
+      "name": "cd_knowledgeimage_Knowledge_abyss_mark",
+      "list": "cd_image_knowledgeimage_background.xml",
+      "sheet": "UI/texture/Image/Knowledgeimage/cd_knowledgeimage_Knowledge_abyss_mark.dds",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sheetFile": "cd_knowledgeimage_knowledge_abyss_mark.dds"
+    },
+    {
+      "name": "itemicon_prefab_cd_t0000_abyss_artifact_c_0001",
+      "list": "cd_item_icon.xml",
+      "sheet": "UI/texture/icon/itemicon_prefab_cd_t0000_abyss_artifact_c_0001.dds",
+      "rect": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "sheetFile": "itemicon_prefab_cd_t0000_abyss_artifact_c_0001.dds"
+    }
+  ],
+  "missing": []
+}

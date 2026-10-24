@@ -63,7 +63,7 @@ void PywelRequestFiltersSave();
 // The user's route choices.
 struct PywelRouteSettings {
     bool shown; // "Show route".
-    unsigned stops; // How many stops to plan (1..50).
+    unsigned stops; // How many stops to plan (1..10; v0.133, was 1..50).
     bool worldLine; // Draw on the world map.
     bool minimapLine; // Draw on the minimap.
     // v0.111 "Line style": true = the world map's own canvas (RouteCanvas.cpp),
@@ -146,8 +146,9 @@ bool PywelGetMinimapView(PywelMinimapView& view);
 
 // --- The planned route: for the overlay and the panel ----------------------
 
-// The most stops a plan holds (the panel's slider maximum).
-constexpr unsigned kPywelRoutePlanMax = 50;
+// The most stops a plan holds (the panel's slider maximum). v0.133: 10 (was
+// 50; Thomas's v0.132 test: around 30 and more stops the drawing broke).
+constexpr unsigned kPywelRoutePlanMax = 10;
 
 // One stop of the planned route.
 struct PywelRoutePlanStop {

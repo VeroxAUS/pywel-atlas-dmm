@@ -117,6 +117,54 @@ What it does:
     The mod finds the canvases by their ids; without them it draws the line
     with its overlay instead.
 
+    v0.87 (with mod v0.124): the world map gets two route canvases, both right
+    after #WorldmapCanvas so the mod can also find them as its next siblings:
+    #PywelRouteCanvas ("Painted") with the game's map line material,
+    controller-material="UICanvasWorldMapPath" and our own preset
+    controller-material-parm="preset-pywel-route", and #PywelRouteCanvasPlain
+    ("Plain", the v0.86 canvas without a material). The preset goes into
+    ui/xml/gamemain/play/worldmapview.css right after the game's
+    preset-ui-canvas-worldmap-path, copied from it with _dotThickness 0 (the
+    material's default, as the game's solid node-line presets leave it): the
+    same paper-and-noise look without the dotted pattern. The panel's Look
+    choice picks the canvas. The v0.86 canvas text of a mounted install is
+    taken out first, as our own.
+
+    v0.88 (with mod v0.126): height arrows (Thomas, 2026-10-24: "a small up
+    or down arrow in the bottom left of the marker" when the player is above
+    or below it). The mod gives our markers' picture elements the class
+    pywel-above or pywel-below (more than 10 m up or down); height_arrows.py
+    makes a copy of each marker picture with an arrow badge baked into its
+    bottom left (the interface draws one background per picture, so the badge
+    cannot be laid on top), one small DDS file per copy like the star picture,
+    one texture list line each after the star's, and one rule per picture
+    class and direction at the end of worldmapicon.css and minimapicon.css,
+    after the size blocks. The pictures are cut out of the game's own texture
+    sheets at build time.
+
+    v0.89 (mod v0.126 unchanged): v0.88 crashed the game while it started
+    (Thomas, 2026-10-24; every mod part logged only its first line). The
+    arrow pictures had names up to 64 characters and paths up to 80, longer
+    than any in the game's map icon texture list (54 and 45), so they are now
+    short and numbered: cd_icon_map_pywel_hu01 / _hd01 and so on (22
+    characters, paths 41). Keep any new texture name and path within the
+    game's own longest.
+
+    v0.90 (with mod v0.130): a test of whether our Painted canvas takes
+    the game's material at all (Thomas's v0.127 screenshots: Painted and
+    Plain looked the same). The Painted canvas now uses the game's own
+    dotted route preset preset-ui-canvas-worldmap-path: if its line turns
+    dotted, the material binds and a solid painted preset is tuned next;
+    if not, the Painted / Plain choice is dropped. Our own preset
+    preset-pywel-route is no longer added (it is still taken out of a
+    mounted install), and the v0.87 Painted canvas text is taken out as ours.
+
+    v0.91 (with mod v0.133): the Painted world-map canvas is dropped
+    (Thomas's v0.132 test: the material binds, but its dots vanish at some
+    zooms and the minimap cannot use it). Only #PywelRouteCanvasPlain stays,
+    right after #WorldmapCanvas; the v0.86-v0.90 world canvas text of a
+    mounted install is taken out as ours.
+
     The game files are taken from the install at build time, so the mod
     always matches the installed game version, and only the user's own copy
     is written. The script stops without writing anything if the files do not
@@ -130,6 +178,7 @@ Reads (v0.82): src/pywel-atlas-ui/pywel-star-cluster.png (the Constellation pict
 Reads (v0.84): src/marker-bell/MapMarkerShared.h (kCategories layout names, for the size check;
         in NativeMapCategoryProbe.cpp until the v0.122 split)
 Reads (v0.86): ui/xml/gamemain/play/worldmapview.html, minimaphudview2.html, minimaphudview2.css (pack 0012)
+Reads (v0.88): ui/xml/texture/*.xml and the map icon texture sheets they name (pack 0012)
 Writes: dist/pywel-atlas-shrine-icons/mod.json, dist/pywel-atlas-shrine-icons/ui/... and
         dist/PywelAtlasShrineIcons.zip (all overwritten)
 Run:    research/vendor/.venv/Scripts/python.exe -B src/pywel-atlas-ui/build_ui_patch.py
@@ -151,12 +200,14 @@ sys.path.insert(0, str(ROOT / "research" / "vendor" / "pycrimson" / "src"))
 
 from pycrimson._context import PackageContext  # noqa: E402
 
+import height_arrows  # noqa: E402  (v0.88, beside this script)
+
 GAME = Path("E:/SteamLibrary/steamapps/common/Crimson Desert")
 OUTPUT = ROOT / "dist" / "pywel-atlas-shrine-icons"
 TEMPLATE_FILE = "ui/xml/gamemain/template/worldmapicon.thtml"
 STYLE_FILE = "ui/xml/gamemain/template/worldmapicon.css"
 VIEW_FILE = "ui/xml/gamemain/play/worldmapview.css"
-VERSION = "0.86"
+VERSION = "0.10.0"
 # v0.86: our own route line canvases (see the module comment).
 WORLD_PAGE_FILE = "ui/xml/gamemain/play/worldmapview.html"
 MINIMAP_PAGE_FILE = "ui/xml/gamemain/play/minimaphudview2.html"
@@ -164,8 +215,35 @@ MINIMAP_PAGE_STYLE_FILE = "ui/xml/gamemain/play/minimaphudview2.css"
 WORLD_CANVAS_ANCHOR = (b'<div id="WorldmapCanvas" css="no-pickable worldmap-canvas cpp-worldmap-canvas-sdf" '
                        b'script="UICanvas" controller-material="UICanvasWorldMapPath" '
                        b'controller-material-parm="preset-ui-canvas-worldmap-path" ></div>')
-WORLD_ROUTE_CANVAS = (b'\r\n\t\t\t\t\t\t<div id="PywelRouteCanvas" css="no-pickable worldmap-canvas" '
+# v0.87: Painted (the game's map line material) then Plain; v0.90: Painted
+# on the game's own route preset (binding test, see the module comment).
+# v0.91: the plain canvas only.
+WORLD_ROUTE_CANVAS = (b'\r\n\t\t\t\t\t\t<div id="PywelRouteCanvasPlain" css="no-pickable worldmap-canvas" '
                       b'script="UICanvas"></div>')
+# The v0.90 world canvases (Painted on the game's preset), taken out of a mounted install.
+WORLD_ROUTE_CANVAS_V090 = (b'\r\n\t\t\t\t\t\t<div id="PywelRouteCanvas" css="no-pickable worldmap-canvas" '
+                           b'script="UICanvas" controller-material="UICanvasWorldMapPath" '
+                           b'controller-material-parm="preset-ui-canvas-worldmap-path" ></div>'
+                           b'\r\n\t\t\t\t\t\t<div id="PywelRouteCanvasPlain" css="no-pickable worldmap-canvas" '
+                           b'script="UICanvas"></div>')
+# The v0.87-v0.89 world canvases (our own preset), taken out of a mounted install.
+WORLD_ROUTE_CANVAS_V087 = (b'\r\n\t\t\t\t\t\t<div id="PywelRouteCanvas" css="no-pickable worldmap-canvas" '
+                           b'script="UICanvas" controller-material="UICanvasWorldMapPath" '
+                           b'controller-material-parm="preset-pywel-route" ></div>'
+                           b'\r\n\t\t\t\t\t\t<div id="PywelRouteCanvasPlain" css="no-pickable worldmap-canvas" '
+                           b'script="UICanvas"></div>')
+# The v0.86 world canvas, taken out of a mounted install.
+WORLD_ROUTE_CANVAS_V086 = (b'\r\n\t\t\t\t\t\t<div id="PywelRouteCanvas" css="no-pickable worldmap-canvas" '
+                           b'script="UICanvas"></div>')
+# v0.87: our solid preset, after the game's own route preset in worldmapview.css.
+PATH_PRESET_ANCHOR = b"@material-param preset-ui-canvas-worldmap-path "
+ROUTE_PRESET = (b"\r\n\r\n@material-param preset-pywel-route\r\n{\r\n"
+                b"\t_noiseScale: float, 7.000000;\r\n"
+                b"\t_noiseIntensity: float, 0.15000;\r\n"
+                b"\t_dotThickness: float, 0.000000;\r\n"
+                b"\t_dotRoundness: float, 0.800000;\r\n"
+                b"\t_dotLength: float, 40.000000;\r\n"
+                b"\t_dotSpacing: float, 10.000000;\r\n}")
 MINIMAP_CANVAS_ANCHOR = b'<div id="MinimapDestinationCanvas" css="minimap-destination-canvas" script="UICanvas"></div>'
 MINIMAP_ROUTE_CANVAS = (b'\r\n' + b' ' * 32 + b'<div id="PywelRouteMinimapCanvas" css="pywel-route-minimap-canvas" '
                         b'script="UICanvas"></div>')
@@ -480,14 +558,18 @@ def star_texture(sample_icon):
     return bytes(header) + bytes(blocks)
 
 
-def add_route_canvas(text, name, anchor, addition):
+def add_route_canvas(text, name, anchor, addition, earlier=()):
     """v0.86: puts `addition` right after `anchor` (both exactly once as
-    studied). Our own earlier addition (the install holds it while this mod
-    is mounted) is taken out first; any other pywel route text stops."""
+    studied). Our own addition (the install holds it while this mod is
+    mounted; v0.87: also an `earlier` version's) is taken out first; any
+    other pywel route text stops."""
     if b"ywelRoute" in text or b"pywel-route" in text:
-        if text.count(anchor + addition) != 1:
+        ours = next((form for form in (addition, *earlier) if text.count(anchor + form) == 1), None)
+        if ours is None:
             raise SystemExit(f"{name} has pywel route canvas text that is not ours; nothing written.")
-        text = text.replace(anchor + addition, anchor, 1)
+        text = text.replace(anchor + ours, anchor, 1)
+        if b"ywelRoute" in text or b"pywel-route" in text:
+            raise SystemExit(f"{name} has pywel route canvas text that is not ours; nothing written.")
         print(f"Found this mod's own route canvas in {name} (mounted by DMM); rebuilt without it.")
     if text.count(anchor) != 1:
         raise SystemExit(f"{name} does not have the canvas text as studied; nothing written.")
@@ -524,6 +606,12 @@ def main():
         raise SystemExit("A game file for the route canvases is missing; nothing written.")
     if minimap_style is None or texture_list is None or sample_icon is None:
         raise SystemExit("A game file for the Constellation picture is missing; nothing written.")
+    # v0.88: our height arrow rules and texture lines come out first, since
+    # they name the star picture and the class pywel-marker, which the checks
+    # below count.
+    style = height_arrows.take_out(style, STYLE_FILE)
+    minimap_style = height_arrows.take_out(minimap_style, MINIMAP_STYLE_FILE)
+    texture_list = height_arrows.take_out_texture_lines(texture_list)
     if SHRINE_NAME in template:
         # While this mod is mounted by DMM, the install holds our own patched
         # copy. Take our exact addition out again to get the game's text back;
@@ -534,6 +622,13 @@ def main():
         template = template.replace(SHRINE_COMPONENT, b"", 1)
         style = style.replace(SHRINE_STYLE, b"", 1)
         print("Found this mod's own layout in the install (mounted by DMM); rebuilt from the text without it.")
+
+    if b"preset-pywel-route" in view:
+        # v0.87: same for our route preset.
+        if view.count(ROUTE_PRESET) != 1 or view.count(b"preset-pywel-route") != 1:
+            raise SystemExit("The world-map view file has a pywel route preset that is not ours; nothing written.")
+        view = view.replace(ROUTE_PRESET, b"", 1)
+        print("Found this mod's own route preset in the install (mounted by DMM); rebuilt without it.")
 
     if b"pywel-buff-" in view or b"pywel-stat-" in view:
         # Same as above for the icon rules (v0.80 on), whichever version is mounted.
@@ -591,17 +686,31 @@ def main():
     patched_template = insert_after_block(template, BELL_COMPONENT, b"</component>", SHRINE_COMPONENT)
     patched_style = insert_after_block(style, BELL_STYLE, b"}", SHRINE_STYLE)
     patched_view = insert_after_block(view, PICTURE_STYLE, b"}", ICON_SIZE_STYLE + BUFF_ICON_STYLE + STAT_ICON_STYLE)
+    # v0.87: our solid route preset right after the game's own route preset.
     # v0.82: the test icon's picture becomes our star texture on both maps.
     patched_style = patched_style.replace(WORLD_TEST_RULE, WORLD_TEST_RULE.replace(GAME_TEST_TEXTURE, STAR_TEXTURE), 1)
     patched_minimap_style = minimap_style.replace(
         MINIMAP_TEST_RULE, MINIMAP_TEST_RULE.replace(GAME_TEST_TEXTURE, STAR_TEXTURE), 1)
-    patched_texture_list = texture_list.replace(TEST_TEXTURE_LINE, TEST_TEXTURE_LINE + STAR_TEXTURE_LINE, 1)
+    # v0.88: the height arrow copies of every marker picture (from the rules
+    # as patched so far: the shrine layout and the star picture are ours).
+    width, height, star_pixels = read_png_rgba(STAR_PICTURE)
+    star_rows = [[tuple(star_pixels[(y * width + x) * 4:(y * width + x) * 4 + 4]) for x in range(width)]
+                 for y in range(height)]
+    arrow_rules, arrow_lines, arrow_files = height_arrows.build(
+        context, MARKER_SIZES, {"world": patched_style, "minimap": patched_minimap_style}, sample_icon,
+        {"cd_icon_map_pywel_star_cluster": star_rows}, encode_dxt5_block)
+    patched_texture_list = texture_list.replace(TEST_TEXTURE_LINE, TEST_TEXTURE_LINE + STAR_TEXTURE_LINE + arrow_lines, 1)
     # v0.84: the marker size blocks go last, so they come after every rule they change.
     patched_style += marker_size_rules("world")
     patched_minimap_style += marker_size_rules("minimap")
+    # v0.88: the arrow rules after them (same classes plus one more).
+    patched_style += arrow_rules["world"]
+    patched_minimap_style += arrow_rules["minimap"]
     star_dds = star_texture(sample_icon)
     # v0.86: our route line canvases.
-    patched_world_page = add_route_canvas(world_page, WORLD_PAGE_FILE, WORLD_CANVAS_ANCHOR, WORLD_ROUTE_CANVAS)
+    patched_world_page = add_route_canvas(world_page, WORLD_PAGE_FILE, WORLD_CANVAS_ANCHOR, WORLD_ROUTE_CANVAS,
+                                          (WORLD_ROUTE_CANVAS_V090, WORLD_ROUTE_CANVAS_V087,
+                                           WORLD_ROUTE_CANVAS_V086))
     patched_minimap_page = add_route_canvas(minimap_page, MINIMAP_PAGE_FILE, MINIMAP_CANVAS_ANCHOR,
                                             MINIMAP_ROUTE_CANVAS)
     patched_minimap_page_style = add_route_canvas(minimap_page_style, MINIMAP_PAGE_STYLE_FILE, MINIMAP_CANVAS_RULE,
@@ -613,7 +722,7 @@ def main():
                        (MINIMAP_STYLE_FILE, patched_minimap_style), (TEXTURE_LIST_FILE, patched_texture_list),
                        (STAR_TEXTURE_FILE, star_dds), (WORLD_PAGE_FILE, patched_world_page),
                        (MINIMAP_PAGE_FILE, patched_minimap_page),
-                       (MINIMAP_PAGE_STYLE_FILE, patched_minimap_page_style)):
+                       (MINIMAP_PAGE_STYLE_FILE, patched_minimap_page_style)) + tuple(arrow_files.items()):
         target = OUTPUT / name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
@@ -630,11 +739,13 @@ def main():
                            "cards, and the Pywel Atlas star picture for Constellation pins (the game's unused "
                            "test icon), and even sizes for Pywel Atlas markers (class pywel-marker; "
                            "the game's own icons keep theirs), and two line canvases for the Pywel Atlas "
-                           "route line (world map and minimap). Changes only "
+                           "route line (world map and minimap), and up / down height arrow "
+                           "pictures for Pywel Atlas markers (classes pywel-above / pywel-below). Changes only "
                            "ui/xml/gamemain/template/worldmapicon.thtml, worldmapicon.css, minimapicon.css, "
                            "ui/xml/gamemain/play/worldmapview.css, worldmapview.html, minimaphudview2.html, "
                            "minimaphudview2.css and ui/xml/texture/cd_icon_map_00.xml, and adds "
-                           "ui/texture/cd_icon_map_pywel_star_cluster.dds. Built from the installed game files "
+                           "ui/texture/cd_icon_map_pywel_star_cluster.dds and the "
+                           f"{len(arrow_files)} ui/texture/cd_icon_map_pywel_h*.dds height arrow pictures. Built from the installed game files "
                            "(source SHA-256 "
                            f"{hashlib.sha256(template).hexdigest()[:16]} / "
                            f"{hashlib.sha256(style).hexdigest()[:16]} / "

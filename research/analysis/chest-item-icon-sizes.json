@@ -1,0 +1,6938 @@
+{
+ "summary": {
+  "items": 189,
+  "abyssItems": 74,
+  "uniqueItems": 43,
+  "distinctIcons": 265,
+  "fillMin": 0.3828,
+  "fillMedian": 0.8789,
+  "fillMax": 1.0
+ },
+ "items": [
+  {
+   "chest": "Crimson Desert chest 1",
+   "item": "Light of the Battlefield Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phw_00_hand_00_0151",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    34,
+    8,
+    226,
+    246
+   ],
+   "fillWidth": 0.75,
+   "fillHeight": 0.9297,
+   "fill": 0.9297,
+   "centreOffset": [
+    0.0078,
+    -0.0039
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 2",
+   "item": "Radiant Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phw_00_foot_00_0020",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    71,
+    12,
+    176,
+    248
+   ],
+   "fillWidth": 0.4102,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    -0.0176,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 3",
+   "item": "The Masked Liberator's Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_set_0011_index03",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    13,
+    226,
+    239
+   ],
+   "fillWidth": 0.7578,
+   "fillHeight": 0.8828,
+   "fill": 0.8828,
+   "centreOffset": [
+    0.0039,
+    -0.0078
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 4",
+   "item": "Goldlight Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phw_00_foot_00_0020_index02",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    71,
+    12,
+    176,
+    248
+   ],
+   "fillWidth": 0.4102,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    -0.0176,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 5",
+   "item": "Golden Greed Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_0008_index04",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    19,
+    206,
+    248
+   ],
+   "fillWidth": 0.6641,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    -0.0273,
+    0.0215
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 6",
+   "item": "Golden Greed Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_so_phm_ub_43013",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    21,
+    22,
+    237,
+    256
+   ],
+   "fillWidth": 0.8438,
+   "fillHeight": 0.9141,
+   "fill": 0.9141,
+   "centreOffset": [
+    0.0039,
+    0.043
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 7",
+   "item": "Golden Greed Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_set_0135_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    68,
+    0,
+    233,
+    256
+   ],
+   "fillWidth": 0.6445,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0879,
+    0.0
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 8",
+   "item": "Goldlight Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phw_00_hand_00_0146",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    40,
+    11,
+    217,
+    245
+   ],
+   "fillWidth": 0.6914,
+   "fillHeight": 0.9141,
+   "fill": 0.9141,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 9",
+   "item": "Leather Hat of Enlightenment",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0408",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    74,
+    46,
+    168,
+    144
+   ],
+   "fillWidth": 0.3672,
+   "fillHeight": 0.3828,
+   "fill": 0.3828,
+   "centreOffset": [
+    -0.0273,
+    -0.1289
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 10",
+   "item": "The Masked Liberator's Cloth Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_de_phm_cloak_23002_t",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    18,
+    231,
+    256
+   ],
+   "fillWidth": 0.7734,
+   "fillHeight": 0.9297,
+   "fill": 0.9297,
+   "centreOffset": [
+    0.0156,
+    0.0352
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 11",
+   "item": "Goldlight Plate Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phw_00_cloak_00_0146_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    4,
+    15,
+    251,
+    256
+   ],
+   "fillWidth": 0.9648,
+   "fillHeight": 0.9414,
+   "fill": 0.9648,
+   "centreOffset": [
+    -0.002,
+    0.0293
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 12",
+   "item": "Divine Echoes Bow",
+   "itemType": "Bow",
+   "icon": "itemicon_prefab_cd_phm_04_bow_0015",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    44,
+    20,
+    212,
+    256
+   ],
+   "fillWidth": 0.6562,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    0.0,
+    0.0391
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 13",
+   "item": "Light of the Battlefield Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phw_00_foot_00_0151",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    75,
+    2,
+    173,
+    247
+   ],
+   "fillWidth": 0.3828,
+   "fillHeight": 0.957,
+   "fill": 0.957,
+   "centreOffset": [
+    -0.0156,
+    -0.0137
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 14",
+   "item": "Light of the Battlefield Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phw_00_ub_00_0151_u",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    0,
+    225,
+    256
+   ],
+   "fillWidth": 0.7695,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.0059,
+    0.0
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 15",
+   "item": "Light of the Battlefield Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phw_00_hel_00_0151",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    61,
+    234,
+    151
+   ],
+   "fillWidth": 0.8008,
+   "fillHeight": 0.3516,
+   "fill": 0.8008,
+   "centreOffset": [
+    0.0137,
+    -0.0859
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 16",
+   "item": "Greathammer of Fire",
+   "itemType": "Greathammer",
+   "icon": "itemicon_prefab_cd_phm_02_hammer_0002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    7,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9727,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0137
+   ]
+  },
+  {
+   "chest": "Delesyia chest 1",
+   "item": "Aeserion Gear Blueprint",
+   "itemType": null,
+   "icon": "itemicon_prefab_gimmick_item_book_01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    49,
+    14,
+    208,
+    243
+   ],
+   "fillWidth": 0.6211,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Delesyia chest 2",
+   "item": "Skyblazer Cloth Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_de_phm_cloak_23001_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    8,
+    19,
+    243,
+    256
+   ],
+   "fillWidth": 0.918,
+   "fillHeight": 0.9258,
+   "fill": 0.9258,
+   "centreOffset": [
+    -0.0098,
+    0.0371
+   ]
+  },
+  {
+   "chest": "Delesyia chest 3",
+   "item": "Skyblazer Cloth Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_0101_01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    19,
+    33,
+    238,
+    255
+   ],
+   "fillWidth": 0.8555,
+   "fillHeight": 0.8672,
+   "fill": 0.8672,
+   "centreOffset": [
+    0.002,
+    0.0625
+   ]
+  },
+  {
+   "chest": "Delesyia chest 4",
+   "item": "Finest Rhinard Cannon",
+   "itemType": "Two-Handed Cannon",
+   "icon": "itemicon_prefab_cd_phm_02_cannon_0065_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    37,
+    0,
+    218,
+    256
+   ],
+   "fillWidth": 0.707,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Delesyia chest 5",
+   "item": "Skyblazer Cloth Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_de_phm_ub_23001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    4,
+    17,
+    252,
+    256
+   ],
+   "fillWidth": 0.9688,
+   "fillHeight": 0.9336,
+   "fill": 0.9688,
+   "centreOffset": [
+    0.0,
+    0.0332
+   ]
+  },
+  {
+   "chest": "Delesyia chest 6",
+   "item": "Carta Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_de_phm_ub_24004",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    23,
+    249,
+    256
+   ],
+   "fillWidth": 0.9727,
+   "fillHeight": 0.9102,
+   "fill": 0.9727,
+   "centreOffset": [
+    -0.0137,
+    0.0449
+   ]
+  },
+  {
+   "chest": "Delesyia chest 7",
+   "item": "Lascaux Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_0105_index02",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    29,
+    218,
+    234
+   ],
+   "fillWidth": 0.7344,
+   "fillHeight": 0.8008,
+   "fill": 0.8008,
+   "centreOffset": [
+    -0.0156,
+    0.0137
+   ]
+  },
+  {
+   "chest": "Delesyia chest 8",
+   "item": "Legion Spearmen's Large Shield",
+   "itemType": "Large Shield",
+   "icon": "itemicon_prefab_cd_phm_03_towershield_0093",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    72,
+    23,
+    185,
+    233
+   ],
+   "fillWidth": 0.4414,
+   "fillHeight": 0.8203,
+   "fill": 0.8203,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Delesyia chest 9",
+   "item": "Delesyian Longsword",
+   "itemType": "Longsword",
+   "icon": "itemicon_prefab_cd_phm_02_sword_0028",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    8,
+    0,
+    251,
+    256
+   ],
+   "fillWidth": 0.9492,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0059,
+    0.0
+   ]
+  },
+  {
+   "chest": "Delesyia chest 10",
+   "item": "Ancient Shield",
+   "itemType": "Shield",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0123",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    24,
+    231,
+    228
+   ],
+   "fillWidth": 0.8086,
+   "fillHeight": 0.7969,
+   "fill": 0.8086,
+   "centreOffset": [
+    -0.002,
+    -0.0078
+   ]
+  },
+  {
+   "chest": "Delesyia chest 11",
+   "item": "Frozen Heart Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_00_0362",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    27,
+    11,
+    209,
+    248
+   ],
+   "fillWidth": 0.7109,
+   "fillHeight": 0.9258,
+   "fill": 0.9258,
+   "centreOffset": [
+    -0.0391,
+    0.0059
+   ]
+  },
+  {
+   "chest": "Delesyia chest 12",
+   "item": "Red Needle",
+   "itemType": "Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0081",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    45,
+    0,
+    207,
+    256
+   ],
+   "fillWidth": 0.6328,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.0078,
+    0.0
+   ]
+  },
+  {
+   "chest": "Delesyia chest 13",
+   "item": "Frozen Heart Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_0362",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    27,
+    16,
+    232,
+    241
+   ],
+   "fillWidth": 0.8008,
+   "fillHeight": 0.8789,
+   "fill": 0.8789,
+   "centreOffset": [
+    0.0059,
+    0.002
+   ]
+  },
+  {
+   "chest": "Delesyia chest 14",
+   "item": "Nazk Sword",
+   "itemType": "Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0075",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    0,
+    219,
+    256
+   ],
+   "fillWidth": 0.7617,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.0254,
+    0.0
+   ]
+  },
+  {
+   "chest": "Delesyia chest 15",
+   "item": "Frozen Heart Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_ub_43014",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    17,
+    30,
+    242,
+    256
+   ],
+   "fillWidth": 0.8789,
+   "fillHeight": 0.8828,
+   "fill": 0.8828,
+   "centreOffset": [
+    0.0059,
+    0.0586
+   ]
+  },
+  {
+   "chest": "Delesyia chest 16",
+   "item": "Executioner of Darkness Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phw_00_foot_00_0145",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    75,
+    14,
+    180,
+    246
+   ],
+   "fillWidth": 0.4102,
+   "fillHeight": 0.9062,
+   "fill": 0.9062,
+   "centreOffset": [
+    -0.002,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Delesyia chest 17",
+   "item": "Helm of Ignition",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0454_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    35,
+    237,
+    218
+   ],
+   "fillWidth": 0.8359,
+   "fillHeight": 0.7148,
+   "fill": 0.8359,
+   "centreOffset": [
+    0.0078,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Delesyia chest 18",
+   "item": "The Masked Liberator's Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_0099_01_index05",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    19,
+    19,
+    237,
+    237
+   ],
+   "fillWidth": 0.8516,
+   "fillHeight": 0.8516,
+   "fill": 0.8516,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Delesyia chest 19",
+   "item": "Leonne Rapier",
+   "itemType": "Rapiers",
+   "icon": "itemicon_prefab_cd_phw_01_sword_0010_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    7,
+    0,
+    229,
+    256
+   ],
+   "fillWidth": 0.8672,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.0391,
+    0.0
+   ]
+  },
+  {
+   "chest": "Delesyia chest 20",
+   "item": "Executioner of Darkness Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phw_00_hel_00_0169",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    35,
+    69,
+    238,
+    182
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.4414,
+   "fill": 0.793,
+   "centreOffset": [
+    0.0332,
+    -0.0098
+   ]
+  },
+  {
+   "chest": "Delesyia chest 21",
+   "item": "Steelheart Horseshoes",
+   "itemType": "Horseshoes",
+   "icon": "itemicon_prefab_cd_r0002_00_horse_horseshoe_0004",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    49,
+    24,
+    213,
+    232
+   ],
+   "fillWidth": 0.6406,
+   "fillHeight": 0.8125,
+   "fill": 0.8125,
+   "centreOffset": [
+    0.0117,
+    0.0
+   ]
+  },
+  {
+   "chest": "Delesyia chest 22",
+   "item": "Electro-Mecha Spear",
+   "itemType": "Two-Handed Spear",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0115",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    38,
+    27,
+    195,
+    256
+   ],
+   "fillWidth": 0.6133,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    -0.0449,
+    0.0527
+   ]
+  },
+  {
+   "chest": "Delesyia chest 23",
+   "item": "Recipe: Fine Meal",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_boardpaper_0130",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    47,
+    10,
+    208,
+    239
+   ],
+   "fillWidth": 0.6289,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    -0.002,
+    -0.0137
+   ]
+  },
+  {
+   "chest": "Delesyia chest 24",
+   "item": "Incomplete Masterpiece",
+   "itemType": "Greataxe",
+   "icon": "itemicon_prefab_cd_phm_02_axe_0023",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    18,
+    58,
+    246,
+    256
+   ],
+   "fillWidth": 0.8906,
+   "fillHeight": 0.7734,
+   "fill": 0.8906,
+   "centreOffset": [
+    0.0156,
+    0.1133
+   ]
+  },
+  {
+   "chest": "Delesyia chest 25",
+   "item": "Executioner of Darkness Plate Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phw_00_cloak_00_0145_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    24,
+    247,
+    256
+   ],
+   "fillWidth": 0.8555,
+   "fillHeight": 0.9062,
+   "fill": 0.9062,
+   "centreOffset": [
+    0.0371,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Delesyia chest 26",
+   "item": "Hidden Treasure Map Piece 8",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_boardpaper_0138",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    65,
+    21,
+    179,
+    237
+   ],
+   "fillWidth": 0.4453,
+   "fillHeight": 0.8438,
+   "fill": 0.8438,
+   "centreOffset": [
+    -0.0234,
+    0.0039
+   ]
+  },
+  {
+   "chest": "Demeniss chest 1",
+   "item": "Wanderer of Faith's Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phw_00_hel_00_0145",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    97,
+    228,
+    155
+   ],
+   "fillWidth": 0.7812,
+   "fillHeight": 0.2266,
+   "fill": 0.7812,
+   "centreOffset": [
+    0.0,
+    -0.0078
+   ]
+  },
+  {
+   "chest": "Demeniss chest 2",
+   "item": "Bedure Chain Mail",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_ub_24002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    15,
+    22,
+    242,
+    256
+   ],
+   "fillWidth": 0.8867,
+   "fillHeight": 0.9141,
+   "fill": 0.9141,
+   "centreOffset": [
+    0.002,
+    0.043
+   ]
+  },
+  {
+   "chest": "Demeniss chest 3",
+   "item": "Troll Hook Greataxe",
+   "itemType": "Greataxe",
+   "icon": "itemicon_prefab_cd_phm_02_axe_0011",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    3,
+    37,
+    239,
+    256
+   ],
+   "fillWidth": 0.9219,
+   "fillHeight": 0.8555,
+   "fill": 0.9219,
+   "centreOffset": [
+    -0.0273,
+    0.0723
+   ]
+  },
+  {
+   "chest": "Demeniss chest 4",
+   "item": "Plate Cloak of Cursed Soul",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_bliss_redknight_cloak_0001_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    12,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9531,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0234
+   ]
+  },
+  {
+   "chest": "Demeniss chest 5",
+   "item": "Plate Armor of Cursed Soul",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_bliss_redknight_ub_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    13,
+    27,
+    243,
+    256
+   ],
+   "fillWidth": 0.8984,
+   "fillHeight": 0.8945,
+   "fill": 0.8984,
+   "centreOffset": [
+    0.0,
+    0.0527
+   ]
+  },
+  {
+   "chest": "Demeniss chest 6",
+   "item": "Jester Leather Mask",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_set_0120_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    12,
+    226,
+    256
+   ],
+   "fillWidth": 0.7578,
+   "fillHeight": 0.9531,
+   "fill": 0.9531,
+   "centreOffset": [
+    0.0039,
+    0.0234
+   ]
+  },
+  {
+   "chest": "Demeniss chest 7",
+   "item": "Eastern Witch's Fan",
+   "itemType": "Fan",
+   "icon": "itemicon_prefab_cd_t0000_wingfan_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    22,
+    34,
+    235,
+    252
+   ],
+   "fillWidth": 0.832,
+   "fillHeight": 0.8516,
+   "fill": 0.8516,
+   "centreOffset": [
+    0.002,
+    0.0586
+   ]
+  },
+  {
+   "chest": "Demeniss chest 8",
+   "item": "Wanderer of Faith Leather Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phw_00_ub_00_0166",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    10,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9609,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0195
+   ]
+  },
+  {
+   "chest": "Demeniss chest 9",
+   "item": "Liberre Rapier",
+   "itemType": "Rapiers",
+   "icon": "itemicon_prefab_cd_phw_01_sword_0024_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    0,
+    228,
+    256
+   ],
+   "fillWidth": 0.7695,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0059,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss chest 10",
+   "item": "Helfryn Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_0052_index10",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    21,
+    221,
+    238
+   ],
+   "fillWidth": 0.7734,
+   "fillHeight": 0.8477,
+   "fill": 0.8477,
+   "centreOffset": [
+    -0.0234,
+    0.0059
+   ]
+  },
+  {
+   "chest": "Demeniss chest 11",
+   "item": "Wanderer of Faith Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phw_00_foot_00_0166",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    73,
+    9,
+    197,
+    247
+   ],
+   "fillWidth": 0.4844,
+   "fillHeight": 0.9297,
+   "fill": 0.9297,
+   "centreOffset": [
+    0.0273,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss chest 12",
+   "item": "Dark Marksman's Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_m0001_00_samuel_hand_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    23,
+    213,
+    235
+   ],
+   "fillWidth": 0.6914,
+   "fillHeight": 0.8281,
+   "fill": 0.8281,
+   "centreOffset": [
+    -0.0137,
+    0.0039
+   ]
+  },
+  {
+   "chest": "Demeniss chest 13",
+   "item": "Dark Marksman's Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_m0001_00_samuel_foot_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    22,
+    6,
+    204,
+    251
+   ],
+   "fillWidth": 0.7109,
+   "fillHeight": 0.957,
+   "fill": 0.957,
+   "centreOffset": [
+    -0.0586,
+    0.002
+   ]
+  },
+  {
+   "chest": "Demeniss chest 14",
+   "item": "Crimson Chaser Chain Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phm_00_cloak_00_0350_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    20,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9219,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0391
+   ]
+  },
+  {
+   "chest": "Demeniss chest 15",
+   "item": "Crimson Chaser Chain Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_0350",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    10,
+    219,
+    245
+   ],
+   "fillWidth": 0.7148,
+   "fillHeight": 0.918,
+   "fill": 0.918,
+   "centreOffset": [
+    -0.002,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Demeniss chest 16",
+   "item": "Scorchflame Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_0197_i",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    21,
+    230,
+    235
+   ],
+   "fillWidth": 0.8047,
+   "fillHeight": 0.8359,
+   "fill": 0.8359,
+   "centreOffset": [
+    -0.0039,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss chest 17",
+   "item": "Autumn Banquet Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phw_00_hel_00_0161",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    38,
+    84,
+    220,
+    161
+   ],
+   "fillWidth": 0.7109,
+   "fillHeight": 0.3008,
+   "fill": 0.7109,
+   "centreOffset": [
+    0.0039,
+    -0.0215
+   ]
+  },
+  {
+   "chest": "Demeniss chest 18",
+   "item": "Autumn Banquet Cloth Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phw_00_cloak_00_0161_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    60,
+    19,
+    150,
+    256
+   ],
+   "fillWidth": 0.3516,
+   "fillHeight": 0.9258,
+   "fill": 0.9258,
+   "centreOffset": [
+    -0.0898,
+    0.0371
+   ]
+  },
+  {
+   "chest": "Demeniss chest 19",
+   "item": "Nagmore Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_0001_index11",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    10,
+    221,
+    246
+   ],
+   "fillWidth": 0.7227,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss chest 20",
+   "item": "Crimson Chaser Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0350_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    61,
+    0,
+    204,
+    251
+   ],
+   "fillWidth": 0.5586,
+   "fillHeight": 0.9805,
+   "fill": 0.9805,
+   "centreOffset": [
+    0.0176,
+    -0.0098
+   ]
+  },
+  {
+   "chest": "Demeniss chest 21",
+   "item": "Dark Marksman's Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_samuel_ub_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    10,
+    29,
+    249,
+    256
+   ],
+   "fillWidth": 0.9336,
+   "fillHeight": 0.8867,
+   "fill": 0.9336,
+   "centreOffset": [
+    0.0059,
+    0.0566
+   ]
+  },
+  {
+   "chest": "Demeniss chest 22",
+   "item": "Autumn Banquet Leather Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phw_00_ub_00_0161",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    9,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9648,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0176
+   ]
+  },
+  {
+   "chest": "Demeniss chest 23",
+   "item": "Odeck's Protector Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_orcumer_hel_0002_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    62,
+    0,
+    201,
+    215
+   ],
+   "fillWidth": 0.543,
+   "fillHeight": 0.8398,
+   "fill": 0.8398,
+   "centreOffset": [
+    0.0137,
+    -0.0801
+   ]
+  },
+  {
+   "chest": "Demeniss chest 24",
+   "item": "Frostcursed Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_m0001_00_skullknight_hel_0003_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    56,
+    11,
+    210,
+    256
+   ],
+   "fillWidth": 0.6016,
+   "fillHeight": 0.957,
+   "fill": 0.957,
+   "centreOffset": [
+    0.0195,
+    0.0215
+   ]
+  },
+  {
+   "chest": "Demeniss chest 25",
+   "item": "Frostcursed Plate Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_skullknight_cloak_0003_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    4,
+    20,
+    249,
+    256
+   ],
+   "fillWidth": 0.957,
+   "fillHeight": 0.9219,
+   "fill": 0.957,
+   "centreOffset": [
+    -0.0059,
+    0.0391
+   ]
+  },
+  {
+   "chest": "Demeniss chest 26",
+   "item": "Crimson Warden's Bow",
+   "itemType": "Bow",
+   "icon": "itemicon_prefab_cd_phm_04_bow_0014",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    45,
+    0,
+    200,
+    256
+   ],
+   "fillWidth": 0.6055,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.0215,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss chest 27",
+   "item": "Helfryn Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_0052_index13",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    30,
+    215,
+    241
+   ],
+   "fillWidth": 0.7188,
+   "fillHeight": 0.8242,
+   "fill": 0.8242,
+   "centreOffset": [
+    -0.0195,
+    0.0293
+   ]
+  },
+  {
+   "chest": "Demeniss chest 28",
+   "item": "Helfryn Leather Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phm_00_cloak_00_0052_index01_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    38,
+    4,
+    251,
+    256
+   ],
+   "fillWidth": 0.832,
+   "fillHeight": 0.9844,
+   "fill": 0.9844,
+   "centreOffset": [
+    0.0645,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Demeniss chest 29",
+   "item": "Scorchflame Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_ub_25001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    15,
+    19,
+    241,
+    256
+   ],
+   "fillWidth": 0.8828,
+   "fillHeight": 0.9258,
+   "fill": 0.9258,
+   "centreOffset": [
+    0.0,
+    0.0371
+   ]
+  },
+  {
+   "chest": "Demeniss chest 30",
+   "item": "Black Sun",
+   "itemType": "Shield",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0131",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    27,
+    27,
+    230,
+    231
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    0.002,
+    0.0039
+   ]
+  },
+  {
+   "chest": "Demeniss chest 31",
+   "item": "Sior Blaster",
+   "itemType": "Blaster",
+   "icon": "itemicon_prefab_cd_phm_13_fist_0011_l",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    9,
+    226,
+    256
+   ],
+   "fillWidth": 0.7891,
+   "fillHeight": 0.9648,
+   "fill": 0.9648,
+   "centreOffset": [
+    -0.0117,
+    0.0176
+   ]
+  },
+  {
+   "chest": "Demeniss chest 32",
+   "item": "Elite Vanguard",
+   "itemType": "Two-Handed Spear",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0051",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    27,
+    4,
+    198,
+    256
+   ],
+   "fillWidth": 0.668,
+   "fillHeight": 0.9844,
+   "fill": 0.9844,
+   "centreOffset": [
+    -0.0605,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Demeniss chest 33",
+   "item": "Shield of Sacrifice",
+   "itemType": "Large Shield",
+   "icon": "itemicon_prefab_cd_phm_03_towershield_0119",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    71,
+    15,
+    186,
+    242
+   ],
+   "fillWidth": 0.4492,
+   "fillHeight": 0.8867,
+   "fill": 0.8867,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Demeniss chest 34",
+   "item": "Executioner of Darkness Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phw_00_hand_00_0145",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    39,
+    25,
+    224,
+    231
+   ],
+   "fillWidth": 0.7227,
+   "fillHeight": 0.8047,
+   "fill": 0.8047,
+   "centreOffset": [
+    0.0137,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss chest 35",
+   "item": "Autumn Banquet Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phw_00_hand_00_0161",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    39,
+    12,
+    217,
+    239
+   ],
+   "fillWidth": 0.6953,
+   "fillHeight": 0.8867,
+   "fill": 0.8867,
+   "centreOffset": [
+    0.0,
+    -0.0098
+   ]
+  },
+  {
+   "chest": "Hernand chest 1",
+   "item": "Scorchflame Plate Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_cloak_25001_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    20,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9219,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0391
+   ]
+  },
+  {
+   "chest": "Hernand chest 2",
+   "item": "Sunset Reed Cloth Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_m0001_00_bush_devil_foot_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    18,
+    58,
+    238,
+    198
+   ],
+   "fillWidth": 0.8594,
+   "fillHeight": 0.5469,
+   "fill": 0.8594,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand chest 3",
+   "item": "Reindeer Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phm_00_cloak_00_0417_v",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    1,
+    0,
+    254,
+    256
+   ],
+   "fillWidth": 0.9883,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand chest 4",
+   "item": "Plate Gloves of the Shadows",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_m0001_00_death_knight_hand_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    49,
+    17,
+    217,
+    237
+   ],
+   "fillWidth": 0.6562,
+   "fillHeight": 0.8594,
+   "fill": 0.8594,
+   "centreOffset": [
+    0.0195,
+    -0.0039
+   ]
+  },
+  {
+   "chest": "Hernand chest 5",
+   "item": "Leather Helm of the Fallen Kingdom",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_m0001_00_saigod_hel_0001_i",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    44,
+    0,
+    256,
+    256
+   ],
+   "fillWidth": 0.8281,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0859,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand chest 6",
+   "item": "Plate Cloak of the Shadows",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_death_knight_cloak_0001_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    11,
+    11,
+    245,
+    256
+   ],
+   "fillWidth": 0.9141,
+   "fillHeight": 0.957,
+   "fill": 0.957,
+   "centreOffset": [
+    0.0,
+    0.0215
+   ]
+  },
+  {
+   "chest": "Hernand chest 7",
+   "item": "Plate Armor of the Shadows",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_death_knight_ub_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    19,
+    28,
+    239,
+    256
+   ],
+   "fillWidth": 0.8594,
+   "fillHeight": 0.8906,
+   "fill": 0.8906,
+   "centreOffset": [
+    0.0039,
+    0.0547
+   ]
+  },
+  {
+   "chest": "Hernand chest 8",
+   "item": "Shield of Conviction",
+   "itemType": "Large Shield",
+   "icon": "itemicon_prefab_cd_phm_03_towershield_0045",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    78,
+    8,
+    179,
+    249
+   ],
+   "fillWidth": 0.3945,
+   "fillHeight": 0.9414,
+   "fill": 0.9414,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Hernand chest 9",
+   "item": "Leather Cloak of the Fallen Kingdom",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_saigod_cloak_0002_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    13,
+    17,
+    256,
+    256
+   ],
+   "fillWidth": 0.9492,
+   "fillHeight": 0.9336,
+   "fill": 0.9492,
+   "centreOffset": [
+    0.0254,
+    0.0332
+   ]
+  },
+  {
+   "chest": "Hernand chest 10",
+   "item": "Mirror of Night",
+   "itemType": "Shield",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0090",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    24,
+    232,
+    232
+   ],
+   "fillWidth": 0.8125,
+   "fillHeight": 0.8125,
+   "fill": 0.8125,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand chest 11",
+   "item": "Lifsoth Large Shield",
+   "itemType": "Large Shield",
+   "icon": "itemicon_prefab_cd_phm_03_towershield_0011",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    82,
+    11,
+    176,
+    249
+   ],
+   "fillWidth": 0.3672,
+   "fillHeight": 0.9297,
+   "fill": 0.9297,
+   "centreOffset": [
+    0.0039,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Hernand chest 12",
+   "item": "Odeck's Protector Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_orcumer_hand_0002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    49,
+    28,
+    216,
+    224
+   ],
+   "fillWidth": 0.6523,
+   "fillHeight": 0.7656,
+   "fill": 0.7656,
+   "centreOffset": [
+    0.0176,
+    -0.0078
+   ]
+  },
+  {
+   "chest": "Hernand chest 13",
+   "item": "Duskfang Leather Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_cloak_24001_y",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    3,
+    227,
+    256
+   ],
+   "fillWidth": 0.7773,
+   "fillHeight": 0.9883,
+   "fill": 0.9883,
+   "centreOffset": [
+    -0.002,
+    0.0059
+   ]
+  },
+  {
+   "chest": "Hernand chest 14",
+   "item": "Sunset Reed Leather Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_bush_devil_cloak_0001_v",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    27,
+    0,
+    236,
+    256
+   ],
+   "fillWidth": 0.8164,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0137,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand chest 15",
+   "item": "Duskfang Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_set_0023_index03",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    38,
+    17,
+    218,
+    238
+   ],
+   "fillWidth": 0.7031,
+   "fillHeight": 0.8633,
+   "fill": 0.8633,
+   "centreOffset": [
+    0.0,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Hernand chest 16",
+   "item": "Isilon Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_0052_index06",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    14,
+    206,
+    239
+   ],
+   "fillWidth": 0.6641,
+   "fillHeight": 0.8789,
+   "fill": 0.8789,
+   "centreOffset": [
+    -0.0273,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Hernand chest 17",
+   "item": "Blackwing Leather Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_crowman_cloak_0001_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    12,
+    19,
+    256,
+    256
+   ],
+   "fillWidth": 0.9531,
+   "fillHeight": 0.9258,
+   "fill": 0.9531,
+   "centreOffset": [
+    0.0234,
+    0.0371
+   ]
+  },
+  {
+   "chest": "Hernand chest 18",
+   "item": "Counterweight Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_set_0081",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    57,
+    35,
+    204,
+    222
+   ],
+   "fillWidth": 0.5742,
+   "fillHeight": 0.7305,
+   "fill": 0.7305,
+   "centreOffset": [
+    0.0098,
+    0.002
+   ]
+  },
+  {
+   "chest": "Hernand chest 19",
+   "item": "Odeck's Protector Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_orcumer_foot_0002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    31,
+    195,
+    249
+   ],
+   "fillWidth": 0.6328,
+   "fillHeight": 0.8516,
+   "fill": 0.8516,
+   "centreOffset": [
+    -0.0547,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Hernand chest 20",
+   "item": "Goblin King's Treasure Dagger",
+   "itemType": "Dagger",
+   "icon": "itemicon_prefab_cd_phm_01_dagger_0079_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    63,
+    22,
+    191,
+    235
+   ],
+   "fillWidth": 0.5,
+   "fillHeight": 0.832,
+   "fill": 0.832,
+   "centreOffset": [
+    -0.0039,
+    0.002
+   ]
+  },
+  {
+   "chest": "Hernand chest 21",
+   "item": "Blackwing Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_m0001_00_crowman_hand_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    42,
+    16,
+    216,
+    241
+   ],
+   "fillWidth": 0.6797,
+   "fillHeight": 0.8789,
+   "fill": 0.8789,
+   "centreOffset": [
+    0.0039,
+    0.002
+   ]
+  },
+  {
+   "chest": "Hernand chest 22",
+   "item": "Blackwing Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_m0001_00_crowman_foot_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    49,
+    10,
+    208,
+    246
+   ],
+   "fillWidth": 0.6211,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand chest 23",
+   "item": "Hwando",
+   "itemType": "Longsword",
+   "icon": "itemicon_prefab_cd_phm_02_sword_0036",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    57,
+    0,
+    222,
+    256
+   ],
+   "fillWidth": 0.6445,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0449,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand chest 24",
+   "item": "Rhonid Large Shield",
+   "itemType": "Large Shield",
+   "icon": "itemicon_prefab_cd_phm_03_towershield_0120",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    72,
+    18,
+    183,
+    242
+   ],
+   "fillWidth": 0.4336,
+   "fillHeight": 0.875,
+   "fill": 0.875,
+   "centreOffset": [
+    -0.002,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Hernand chest 25",
+   "item": "Legionary's Gladius",
+   "itemType": "Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0071",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    38,
+    0,
+    220,
+    256
+   ],
+   "fillWidth": 0.7109,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0039,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand chest 26",
+   "item": "Hidden Treasure Map Piece 6",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_boardpaper_0136",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    65,
+    22,
+    185,
+    239
+   ],
+   "fillWidth": 0.4688,
+   "fillHeight": 0.8477,
+   "fill": 0.8477,
+   "centreOffset": [
+    -0.0117,
+    0.0098
+   ]
+  },
+  {
+   "chest": "Hernand chest 27",
+   "item": "Rabbit Leather Mask",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0204_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    58,
+    7,
+    207,
+    245
+   ],
+   "fillWidth": 0.582,
+   "fillHeight": 0.9297,
+   "fill": 0.9297,
+   "centreOffset": [
+    0.0176,
+    -0.0078
+   ]
+  },
+  {
+   "chest": "Hernand chest 28",
+   "item": "Alpha Wolf Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_0028_index02",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    37,
+    17,
+    218,
+    246
+   ],
+   "fillWidth": 0.707,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    -0.002,
+    0.0137
+   ]
+  },
+  {
+   "chest": "Kweiden chest 1",
+   "item": "Lucon Large Shield",
+   "itemType": "Large Shield",
+   "icon": "itemicon_prefab_cd_phm_03_towershield_0106",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    69,
+    23,
+    185,
+    235
+   ],
+   "fillWidth": 0.4531,
+   "fillHeight": 0.8281,
+   "fill": 0.8281,
+   "centreOffset": [
+    -0.0039,
+    0.0039
+   ]
+  },
+  {
+   "chest": "Kweiden chest 2",
+   "item": "Icewing Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_0008_03_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    0,
+    256,
+    233
+   ],
+   "fillWidth": 0.9102,
+   "fillHeight": 0.9102,
+   "fill": 0.9102,
+   "centreOffset": [
+    0.0449,
+    -0.0449
+   ]
+  },
+  {
+   "chest": "Kweiden chest 3",
+   "item": "Dagger of Dark Pursuit",
+   "itemType": "Dagger",
+   "icon": "itemicon_prefab_cd_phm_01_dagger_0049_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    58,
+    16,
+    196,
+    248
+   ],
+   "fillWidth": 0.5391,
+   "fillHeight": 0.9062,
+   "fill": 0.9062,
+   "centreOffset": [
+    -0.0039,
+    0.0156
+   ]
+  },
+  {
+   "chest": "Kweiden chest 4",
+   "item": "Icewing Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_0008_03_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    27,
+    218,
+    248
+   ],
+   "fillWidth": 0.7266,
+   "fillHeight": 0.8633,
+   "fill": 0.8633,
+   "centreOffset": [
+    -0.0117,
+    0.0371
+   ]
+  },
+  {
+   "chest": "Kweiden chest 5",
+   "item": "North Wind Shield",
+   "itemType": "Large Shield",
+   "icon": "itemicon_prefab_cd_phm_03_towershield_0099",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    69,
+    14,
+    193,
+    243
+   ],
+   "fillWidth": 0.4844,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    0.0117,
+    0.002
+   ]
+  },
+  {
+   "chest": "Kweiden chest 6",
+   "item": "Odeck's Protector Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_orcumer_ub_0002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    15,
+    24,
+    244,
+    256
+   ],
+   "fillWidth": 0.8945,
+   "fillHeight": 0.9062,
+   "fill": 0.9062,
+   "centreOffset": [
+    0.0059,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Kweiden chest 7",
+   "item": "Sigremon Greataxe",
+   "itemType": "Greataxe",
+   "icon": "itemicon_prefab_cd_phm_02_axe_0016",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    13,
+    35,
+    245,
+    256
+   ],
+   "fillWidth": 0.9062,
+   "fillHeight": 0.8633,
+   "fill": 0.9062,
+   "centreOffset": [
+    0.0039,
+    0.0684
+   ]
+  },
+  {
+   "chest": "Kweiden chest 8",
+   "item": "Hungering Fang Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_00_0375",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    42,
+    32,
+    215,
+    227
+   ],
+   "fillWidth": 0.6758,
+   "fillHeight": 0.7617,
+   "fill": 0.7617,
+   "centreOffset": [
+    0.002,
+    0.0059
+   ]
+  },
+  {
+   "chest": "Kweiden chest 9",
+   "item": "Red Rage",
+   "itemType": "Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0225_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    39,
+    0,
+    215,
+    256
+   ],
+   "fillWidth": 0.6875,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.0039,
+    0.0
+   ]
+  },
+  {
+   "chest": "Kweiden chest 10",
+   "item": "Hungering Fang Leather Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phm_00_ub_00_0375",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    40,
+    14,
+    224,
+    256
+   ],
+   "fillWidth": 0.7188,
+   "fillHeight": 0.9453,
+   "fill": 0.9453,
+   "centreOffset": [
+    0.0156,
+    0.0273
+   ]
+  },
+  {
+   "chest": "Kweiden chest 11",
+   "item": "Noble Man's Bow",
+   "itemType": "Bow",
+   "icon": "itemicon_prefab_cd_phm_04_bow_0020",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    41,
+    23,
+    192,
+    256
+   ],
+   "fillWidth": 0.5898,
+   "fillHeight": 0.9102,
+   "fill": 0.9102,
+   "centreOffset": [
+    -0.0449,
+    0.0449
+   ]
+  },
+  {
+   "chest": "Kweiden chest 12",
+   "item": "King's Dagger",
+   "itemType": "Dagger",
+   "icon": "itemicon_prefab_cd_phm_01_dagger_0032_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    67,
+    26,
+    199,
+    228
+   ],
+   "fillWidth": 0.5156,
+   "fillHeight": 0.7891,
+   "fill": 0.7891,
+   "centreOffset": [
+    0.0195,
+    -0.0039
+   ]
+  },
+  {
+   "chest": "Kweiden chest 13",
+   "item": "Lightning Bolt Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_titan_hand_0002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    41,
+    15,
+    236,
+    240
+   ],
+   "fillWidth": 0.7617,
+   "fillHeight": 0.8789,
+   "fill": 0.8789,
+   "centreOffset": [
+    0.041,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Kweiden chest 14",
+   "item": "Ashad Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phm_00_ub_00_0369",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    12,
+    20,
+    246,
+    256
+   ],
+   "fillWidth": 0.9141,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    0.0039,
+    0.0391
+   ]
+  },
+  {
+   "chest": "Kweiden chest 15",
+   "item": "Lightning Bolt Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_titan_hel_0002_d",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    63,
+    0,
+    197,
+    239
+   ],
+   "fillWidth": 0.5234,
+   "fillHeight": 0.9336,
+   "fill": 0.9336,
+   "centreOffset": [
+    0.0078,
+    -0.0332
+   ]
+  },
+  {
+   "chest": "Crimson Desert cave chest 1",
+   "item": "Oblivion of the Past",
+   "itemType": "Warhammer",
+   "icon": "itemicon_prefab_cd_phm_02_flexiblewarhammer_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    47,
+    23,
+    211,
+    256
+   ],
+   "fillWidth": 0.6406,
+   "fillHeight": 0.9102,
+   "fill": 0.9102,
+   "centreOffset": [
+    0.0039,
+    0.0449
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 1",
+   "item": "Plate Gloves of Cursed Soul",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_bliss_redknight_hand_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    11,
+    230,
+    245
+   ],
+   "fillWidth": 0.7969,
+   "fillHeight": 0.9141,
+   "fill": 0.9141,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 2",
+   "item": "Reins of Open Sky",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_00_0403",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    21,
+    233,
+    239
+   ],
+   "fillWidth": 0.7969,
+   "fillHeight": 0.8516,
+   "fill": 0.8516,
+   "centreOffset": [
+    0.0117,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 3",
+   "item": "Grace Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_0014_05_i",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    17,
+    43,
+    235,
+    217
+   ],
+   "fillWidth": 0.8516,
+   "fillHeight": 0.6797,
+   "fill": 0.8516,
+   "centreOffset": [
+    -0.0078,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 4",
+   "item": "Dark Ringleader's Cloth Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_ub_24004",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    13,
+    6,
+    256,
+    256
+   ],
+   "fillWidth": 0.9492,
+   "fillHeight": 0.9766,
+   "fill": 0.9766,
+   "centreOffset": [
+    0.0254,
+    0.0117
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 5",
+   "item": "Dark Ringleader's Cloth Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_0128_02_d",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    14,
+    4,
+    249,
+    256
+   ],
+   "fillWidth": 0.918,
+   "fillHeight": 0.9844,
+   "fill": 0.9844,
+   "centreOffset": [
+    0.0137,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 6",
+   "item": "Dark Ringleader's Cloth Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_cloak_24004_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    16,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9375,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0312
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 7",
+   "item": "Duskfang Leather Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_ub_24001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    16,
+    28,
+    256,
+    256
+   ],
+   "fillWidth": 0.9375,
+   "fillHeight": 0.8906,
+   "fill": 0.9375,
+   "centreOffset": [
+    0.0312,
+    0.0547
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 8",
+   "item": "Dark Ringleader's Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_0128_02",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    48,
+    36,
+    207,
+    219
+   ],
+   "fillWidth": 0.6211,
+   "fillHeight": 0.7148,
+   "fill": 0.7148,
+   "centreOffset": [
+    -0.002,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 9",
+   "item": "Hollow Visage",
+   "itemType": "Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0016_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    0,
+    221,
+    256
+   ],
+   "fillWidth": 0.7227,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 10",
+   "item": "Sunset Reed Leather Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_bush_devil_ub_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    24,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9062,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 1",
+   "item": "Plate Helm of Cursed Soul",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_m0001_00_bliss_redknight_hel_0001_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    0,
+    254,
+    253
+   ],
+   "fillWidth": 0.8633,
+   "fillHeight": 0.9883,
+   "fill": 0.9883,
+   "centreOffset": [
+    0.0605,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 2",
+   "item": "Bedure Chain Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_m0001_00_so_phm_cloak_24002_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    14,
+    17,
+    243,
+    256
+   ],
+   "fillWidth": 0.8945,
+   "fillHeight": 0.9336,
+   "fill": 0.9336,
+   "centreOffset": [
+    0.002,
+    0.0332
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 3",
+   "item": "Demenissian Hero's Musket",
+   "itemType": "Musket",
+   "icon": "itemicon_prefab_cd_phm_08_musket_0011",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    48,
+    0,
+    215,
+    256
+   ],
+   "fillWidth": 0.6523,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0137,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 4",
+   "item": "Wanderer of Faith Leather Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phw_00_cloak_00_0166_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    19,
+    25,
+    237,
+    256
+   ],
+   "fillWidth": 0.8516,
+   "fillHeight": 0.9023,
+   "fill": 0.9023,
+   "centreOffset": [
+    0.0,
+    0.0488
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 5",
+   "item": "Wanderer of Faith Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phw_00_hand_00_0166",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    46,
+    12,
+    216,
+    243
+   ],
+   "fillWidth": 0.6641,
+   "fillHeight": 0.9023,
+   "fill": 0.9023,
+   "centreOffset": [
+    0.0117,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Delesyia cave chest 1",
+   "item": "Carta Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_0007_index08",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    46,
+    45,
+    207,
+    219
+   ],
+   "fillWidth": 0.6289,
+   "fillHeight": 0.6797,
+   "fill": 0.6797,
+   "centreOffset": [
+    -0.0059,
+    0.0156
+   ]
+  },
+  {
+   "chest": "Delesyia cave chest 2",
+   "item": "Tidebreaker Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_00_0437_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    60,
+    221,
+    218
+   ],
+   "fillWidth": 0.7734,
+   "fillHeight": 0.6172,
+   "fill": 0.7734,
+   "centreOffset": [
+    -0.0234,
+    0.043
+   ]
+  },
+  {
+   "chest": "Delesyia cave chest 3",
+   "item": "Golden Shield",
+   "itemType": "Shield",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0113_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    38,
+    33,
+    219,
+    224
+   ],
+   "fillWidth": 0.707,
+   "fillHeight": 0.7461,
+   "fill": 0.7461,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Delesyia cave chest 4",
+   "item": "Golden Greed Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_set_0134_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    19,
+    12,
+    237,
+    246
+   ],
+   "fillWidth": 0.8516,
+   "fillHeight": 0.9141,
+   "fill": 0.9141,
+   "centreOffset": [
+    0.0,
+    0.0039
+   ]
+  },
+  {
+   "chest": "Crimson Desert cave chest 2",
+   "item": "Dark Marksman's Plate Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_samuel_cloak_0001_v",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    18,
+    8,
+    237,
+    256
+   ],
+   "fillWidth": 0.8555,
+   "fillHeight": 0.9688,
+   "fill": 0.9688,
+   "centreOffset": [
+    -0.002,
+    0.0156
+   ]
+  },
+  {
+   "chest": "Crimson Desert cave chest 3",
+   "item": "Golden Greathammer",
+   "itemType": "Greathammer",
+   "icon": "itemicon_prefab_cd_phm_02_hammer_0008_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    12,
+    239,
+    256
+   ],
+   "fillWidth": 0.8047,
+   "fillHeight": 0.9531,
+   "fill": 0.9531,
+   "centreOffset": [
+    0.0312,
+    0.0234
+   ]
+  },
+  {
+   "chest": "Crimson Desert cave chest 4",
+   "item": "Golden Greed Plate Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_so_phm_cloak_43013_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    42,
+    27,
+    221,
+    256
+   ],
+   "fillWidth": 0.6992,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    0.0137,
+    0.0527
+   ]
+  },
+  {
+   "chest": "Delesyia cave chest 5",
+   "item": "Goldlight Plate Helm",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phw_00_hel_00_0146_d",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    55,
+    0,
+    216,
+    256
+   ],
+   "fillWidth": 0.6289,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0293,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 6",
+   "item": "Plate Boots of Cursed Soul",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_bliss_redknight_foot_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    54,
+    11,
+    202,
+    245
+   ],
+   "fillWidth": 0.5781,
+   "fillHeight": 0.9141,
+   "fill": 0.9141,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 7",
+   "item": "Frostcursed Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_m0001_00_skullknight_foot_0003",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    42,
+    10,
+    214,
+    246
+   ],
+   "fillWidth": 0.6719,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 11",
+   "item": "Scorchflame Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_set_0023",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    45,
+    10,
+    211,
+    246
+   ],
+   "fillWidth": 0.6484,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 12",
+   "item": "Scorchflame Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_set_0043",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    15,
+    240,
+    240
+   ],
+   "fillWidth": 0.8438,
+   "fillHeight": 0.8789,
+   "fill": 0.8789,
+   "centreOffset": [
+    0.0156,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 13",
+   "item": "Plate Boots of the Fallen Kingdom",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_m0001_00_saigod_foot_00_0002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    49,
+    10,
+    207,
+    246
+   ],
+   "fillWidth": 0.6172,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 14",
+   "item": "Leather Armor of the Fallen Kingdom",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phm_m0001_00_saigod_ub_0002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    15,
+    29,
+    243,
+    256
+   ],
+   "fillWidth": 0.8906,
+   "fillHeight": 0.8867,
+   "fill": 0.8906,
+   "centreOffset": [
+    0.0039,
+    0.0566
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 15",
+   "item": "Plate Boots of the Shadows",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_m0001_00_death_knight_foot_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    37,
+    6,
+    210,
+    249
+   ],
+   "fillWidth": 0.6758,
+   "fillHeight": 0.9492,
+   "fill": 0.9492,
+   "centreOffset": [
+    -0.0176,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 16",
+   "item": "Survivor's Solitude",
+   "itemType": "Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0053",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    40,
+    0,
+    219,
+    256
+   ],
+   "fillWidth": 0.6992,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0059,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 17",
+   "item": "Plate Gloves of the Fallen Kingdom",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_m0001_00_saigod_hand_00_0002",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    37,
+    19,
+    220,
+    238
+   ],
+   "fillWidth": 0.7148,
+   "fillHeight": 0.8555,
+   "fill": 0.8555,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Kweiden cave chest 1",
+   "item": "Ashad Plate Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_00_0369",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    14,
+    215,
+    246
+   ],
+   "fillWidth": 0.7148,
+   "fillHeight": 0.9062,
+   "fill": 0.9062,
+   "centreOffset": [
+    -0.0176,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Kweiden cave chest 2",
+   "item": "Icewing Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_0008_03",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    58,
+    34,
+    211,
+    229
+   ],
+   "fillWidth": 0.5977,
+   "fillHeight": 0.7617,
+   "fill": 0.7617,
+   "centreOffset": [
+    0.0254,
+    0.0137
+   ]
+  },
+  {
+   "chest": "Kweiden cave chest 3",
+   "item": "Recipe: Grand Meal",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_boardpaper_0129",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    53,
+    5,
+    203,
+    248
+   ],
+   "fillWidth": 0.5859,
+   "fillHeight": 0.9492,
+   "fill": 0.9492,
+   "centreOffset": [
+    0.0,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Kweiden cave chest 4",
+   "item": "Roar of the Black Bear",
+   "itemType": "Warhammer",
+   "icon": "itemicon_prefab_cd_phm_02_warhammer_0021",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    43,
+    4,
+    250,
+    256
+   ],
+   "fillWidth": 0.8086,
+   "fillHeight": 0.9844,
+   "fill": 0.9844,
+   "centreOffset": [
+    0.0723,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 18",
+   "item": "Vaporwalker",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phm_00_foot_00_0453",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    4,
+    51,
+    249,
+    196
+   ],
+   "fillWidth": 0.957,
+   "fillHeight": 0.5664,
+   "fill": 0.957,
+   "centreOffset": [
+    -0.0059,
+    -0.0176
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 8",
+   "item": "Autumn Banquet Leather Boots",
+   "itemType": "Footwear",
+   "icon": "itemicon_prefab_cd_phw_00_foot_00_0161",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    73,
+    7,
+    192,
+    248
+   ],
+   "fillWidth": 0.4648,
+   "fillHeight": 0.9414,
+   "fill": 0.9414,
+   "centreOffset": [
+    0.0176,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 9",
+   "item": "Frostcursed Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_m0001_00_skullknight_hand_0003",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    14,
+    223,
+    242
+   ],
+   "fillWidth": 0.7422,
+   "fillHeight": 0.8906,
+   "fill": 0.8906,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 10",
+   "item": "Frostcursed Plate Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_m0001_00_skullknight_ub_0003",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    13,
+    26,
+    244,
+    256
+   ],
+   "fillWidth": 0.9023,
+   "fillHeight": 0.8984,
+   "fill": 0.9023,
+   "centreOffset": [
+    0.002,
+    0.0508
+   ]
+  },
+  {
+   "chest": "Crimson Desert cave chest 5",
+   "item": "Light of the Battlefield Cloth Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phw_00_cloak_00_0151_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    7,
+    222,
+    256
+   ],
+   "fillWidth": 0.7383,
+   "fillHeight": 0.9727,
+   "fill": 0.9727,
+   "centreOffset": [
+    -0.002,
+    0.0137
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 19",
+   "item": "Boss Bear Hat",
+   "itemType": "Headgear",
+   "icon": "itemicon_prefab_cd_phm_00_hel_0072_index02_d",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    20,
+    22,
+    235,
+    256
+   ],
+   "fillWidth": 0.8398,
+   "fillHeight": 0.9141,
+   "fill": 0.9141,
+   "centreOffset": [
+    -0.002,
+    0.043
+   ]
+  },
+  {
+   "chest": "Delesyia cave chest 6",
+   "item": "Skyblazer Leather Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_set_0140",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    41,
+    24,
+    213,
+    229
+   ],
+   "fillWidth": 0.6719,
+   "fillHeight": 0.8008,
+   "fill": 0.8008,
+   "centreOffset": [
+    -0.0039,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Delesyia strongbox 1 (dial)",
+   "item": "White Horn's Earring",
+   "itemType": "Earring",
+   "icon": "itemicon_prefab_cd_phm_00_earring_0014_l",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    94,
+    16,
+    170,
+    230
+   ],
+   "fillWidth": 0.2969,
+   "fillHeight": 0.8359,
+   "fill": 0.8359,
+   "centreOffset": [
+    0.0156,
+    -0.0195
+   ]
+  },
+  {
+   "chest": "Delesyia strongbox 2 (padlock)",
+   "item": "Relic of Darkness",
+   "itemType": "Necklace",
+   "icon": "itemicon_prefab_cd_phm_00_necklace_0024",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    55,
+    17,
+    206,
+    210
+   ],
+   "fillWidth": 0.5898,
+   "fillHeight": 0.7539,
+   "fill": 0.7539,
+   "centreOffset": [
+    0.0098,
+    -0.0566
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 1 (sliding jigsaw)",
+   "item": "Reventine Monastery Exclusive Document",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_boardpaper_0222",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    54,
+    8,
+    209,
+    250
+   ],
+   "fillWidth": 0.6055,
+   "fillHeight": 0.9453,
+   "fill": 0.9453,
+   "centreOffset": [
+    0.0137,
+    0.0039
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 2 (dial)",
+   "item": "Necklace of Lightning",
+   "itemType": "Necklace",
+   "icon": "itemicon_prefab_cd_phm_00_necklace_0017",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    55,
+    17,
+    206,
+    226
+   ],
+   "fillWidth": 0.5898,
+   "fillHeight": 0.8164,
+   "fill": 0.8164,
+   "centreOffset": [
+    0.0098,
+    -0.0254
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 3 (padlock)",
+   "item": "Recipe: Meal",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_boardpaper_0129",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    53,
+    5,
+    203,
+    248
+   ],
+   "fillWidth": 0.5859,
+   "fillHeight": 0.9492,
+   "fill": 0.9492,
+   "centreOffset": [
+    0.0,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Demeniss house chest 1",
+   "item": "Helfryn Leather Armor",
+   "itemType": "Armor",
+   "icon": "itemicon_prefab_cd_phm_00_ub_00_0052_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    14,
+    26,
+    242,
+    256
+   ],
+   "fillWidth": 0.8906,
+   "fillHeight": 0.8984,
+   "fill": 0.8984,
+   "centreOffset": [
+    0.0,
+    0.0508
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 4 (music box)",
+   "item": "Recipe: Extravagant Meal",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_boardpaper_0130",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    47,
+    10,
+    208,
+    239
+   ],
+   "fillWidth": 0.6289,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    -0.002,
+    -0.0137
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 5 (number wheel)",
+   "item": "Ogre's Ring",
+   "itemType": "Necklace",
+   "icon": "itemicon_prefab_cd_phm_00_necklace_0031",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    40,
+    16,
+    217,
+    209
+   ],
+   "fillWidth": 0.6914,
+   "fillHeight": 0.7539,
+   "fill": 0.7539,
+   "centreOffset": [
+    0.002,
+    -0.0605
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 6 (music box)",
+   "item": "Tarivian Necklace",
+   "itemType": "Necklace",
+   "icon": "itemicon_prefab_cd_phm_00_necklace_0006",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    39,
+    20,
+    217,
+    236
+   ],
+   "fillWidth": 0.6953,
+   "fillHeight": 0.8438,
+   "fill": 0.8438,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 7 (music box)",
+   "item": "Golden Deer's Tear",
+   "itemType": "Earring",
+   "icon": "itemicon_prefab_cd_phm_00_earring_0009",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    94,
+    17,
+    166,
+    233
+   ],
+   "fillWidth": 0.2812,
+   "fillHeight": 0.8438,
+   "fill": 0.8438,
+   "centreOffset": [
+    0.0078,
+    -0.0117
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 8 (number wheel)",
+   "item": "Ancient Earring",
+   "itemType": "Earring",
+   "icon": "itemicon_prefab_cd_phm_00_earring_0004",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    104,
+    24,
+    148,
+    224
+   ],
+   "fillWidth": 0.1719,
+   "fillHeight": 0.7812,
+   "fill": 0.7812,
+   "centreOffset": [
+    -0.0078,
+    -0.0156
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 9 (jigsaw)",
+   "item": "Sungrove Manor Key",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_key_0004",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    61,
+    31,
+    195,
+    234
+   ],
+   "fillWidth": 0.5234,
+   "fillHeight": 0.793,
+   "fill": 0.793,
+   "centreOffset": [
+    0.0,
+    0.0176
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 10 (sliding jigsaw)",
+   "item": "Karanda's Necklace",
+   "itemType": "Necklace",
+   "icon": "itemicon_prefab_cd_phm_00_necklace_0018",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    57,
+    18,
+    205,
+    229
+   ],
+   "fillWidth": 0.5781,
+   "fillHeight": 0.8242,
+   "fill": 0.8242,
+   "centreOffset": [
+    0.0117,
+    -0.0176
+   ]
+  },
+  {
+   "chest": "Demeniss strongbox 11 (number wheel)",
+   "item": "Witch's Earring",
+   "itemType": "Earring",
+   "icon": "itemicon_prefab_cd_phm_00_earring_0013_l",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    89,
+    23,
+    170,
+    196
+   ],
+   "fillWidth": 0.3164,
+   "fillHeight": 0.6758,
+   "fill": 0.6758,
+   "centreOffset": [
+    0.0059,
+    -0.0723
+   ]
+  },
+  {
+   "chest": "Demeniss house chest 2",
+   "item": "Frozen Anguish",
+   "itemType": "Longsword",
+   "icon": "itemicon_prefab_cd_phm_02_sword_0034",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    35,
+    0,
+    228,
+    256
+   ],
+   "fillWidth": 0.7539,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0137,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand strongbox 2 (sliding jigsaw)",
+   "item": "Flower Petal Earring",
+   "itemType": "Earring",
+   "icon": "itemicon_prefab_cd_phm_00_earring_0003",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    68,
+    26,
+    185,
+    230
+   ],
+   "fillWidth": 0.457,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.0059,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand strongbox 3 (music box)",
+   "item": "Recipe: Lavish Meal",
+   "itemType": null,
+   "icon": "itemicon_prefab_cd_t0000_boardpaper_0130",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    47,
+    10,
+    208,
+    239
+   ],
+   "fillWidth": 0.6289,
+   "fillHeight": 0.8945,
+   "fill": 0.8945,
+   "centreOffset": [
+    -0.002,
+    -0.0137
+   ]
+  },
+  {
+   "chest": "Hernand strongbox 4 (padlock)",
+   "item": "Finely Crafted Gold Necklace",
+   "itemType": "Necklace",
+   "icon": "itemicon_prefab_cd_phm_00_necklace_0010",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    39,
+    21,
+    217,
+    235
+   ],
+   "fillWidth": 0.6953,
+   "fillHeight": 0.8359,
+   "fill": 0.8359,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Hernand strongbox 5 (number wheel)",
+   "item": "Oath of Darkness",
+   "itemType": "Earring",
+   "icon": "itemicon_prefab_cd_phm_00_earring_0008",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    91,
+    24,
+    173,
+    229
+   ],
+   "fillWidth": 0.3203,
+   "fillHeight": 0.8008,
+   "fill": 0.8008,
+   "centreOffset": [
+    0.0156,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Hernand house chest 1",
+   "item": "Brass Warden's Plate Gloves",
+   "itemType": "Gloves",
+   "icon": "itemicon_prefab_cd_phm_00_hand_set_0134",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    13,
+    232,
+    241
+   ],
+   "fillWidth": 0.8125,
+   "fillHeight": 0.8906,
+   "fill": 0.8906,
+   "centreOffset": [
+    0.0,
+    -0.0039
+   ]
+  },
+  {
+   "chest": "Hernand strongbox 6 (jigsaw)",
+   "item": "Engraved Gold Earring",
+   "itemType": "Earring",
+   "icon": "itemicon_prefab_cd_phm_00_earring_0005",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    89,
+    29,
+    169,
+    224
+   ],
+   "fillWidth": 0.3125,
+   "fillHeight": 0.7617,
+   "fill": 0.7617,
+   "centreOffset": [
+    0.0039,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Kweiden strongbox 1 (padlock)",
+   "item": "Finely Crafted Gold Ring",
+   "itemType": "Ring",
+   "icon": "itemicon_prefab_cd_phm_00_ring_0005_l",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    55,
+    46,
+    202,
+    210
+   ],
+   "fillWidth": 0.5742,
+   "fillHeight": 0.6406,
+   "fill": 0.6406,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Kweiden house chest 1",
+   "item": "Icewing Plate Cloak",
+   "itemType": "Cloak",
+   "icon": "itemicon_prefab_cd_phm_00_cloak_00_0008_03_s",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    6,
+    256,
+    256
+   ],
+   "fillWidth": 1.0,
+   "fillHeight": 0.9766,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0,
+    0.0117
+   ]
+  },
+  {
+   "chest": "Kweiden strongbox 2 (all buttons)",
+   "item": "Ring of Lightning",
+   "itemType": "Ring",
+   "icon": "itemicon_prefab_cd_phm_00_ring_0011_l",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    67,
+    64,
+    202,
+    208
+   ],
+   "fillWidth": 0.5273,
+   "fillHeight": 0.5625,
+   "fill": 0.5625,
+   "centreOffset": [
+    0.0254,
+    0.0312
+   ]
+  },
+  {
+   "chest": "Kweiden strongbox 3 (one-stroke drawing)",
+   "item": "Flame Lantern",
+   "itemType": "Lantern",
+   "icon": "itemicon_prefab_cd_t0000_lantern_0004",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    54,
+    18,
+    212,
+    238
+   ],
+   "fillWidth": 0.6172,
+   "fillHeight": 0.8594,
+   "fill": 0.8594,
+   "centreOffset": [
+    0.0195,
+    0.0
+   ]
+  }
+ ],
+ "abyssItems": [
+  {
+   "chest": "Abyss bridge 1 chest 1",
+   "item": "Destruction I",
+   "icon": "itemicon_abyssgear_socket_normal_001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    28,
+    228,
+    229
+   ],
+   "fillWidth": 0.7773,
+   "fillHeight": 0.7852,
+   "fill": 0.7852,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss bridge 109 chest 1",
+   "item": "Vitality I",
+   "icon": "itemicon_abyssgear_socket_normal_015",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    28,
+    227,
+    228
+   ],
+   "fillWidth": 0.7773,
+   "fillHeight": 0.7812,
+   "fill": 0.7812,
+   "centreOffset": [
+    -0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss bridge 122 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss bridge 122 chest 2",
+   "item": "Composure II",
+   "icon": "itemicon_abyssgear_socket_normal_017",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    22,
+    22,
+    233,
+    234
+   ],
+   "fillWidth": 0.8242,
+   "fillHeight": 0.8281,
+   "fill": 0.8281,
+   "centreOffset": [
+    -0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss bridge 138 chest 1",
+   "item": "Frostward III",
+   "icon": "itemicon_abyssgear_socket_normal_096",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    31,
+    225,
+    225
+   ],
+   "fillWidth": 0.7578,
+   "fillHeight": 0.7578,
+   "fill": 0.7578,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss bridge 140 chest 1",
+   "item": "Vigor I",
+   "icon": "itemicon_abyssgear_socket_normal_013",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    22,
+    233,
+    234
+   ],
+   "fillWidth": 0.8203,
+   "fillHeight": 0.8281,
+   "fill": 0.8281,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss bridge 150 chest 1",
+   "item": "Fortification I",
+   "icon": "itemicon_abyssgear_socket_normal_021",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    22,
+    22,
+    236,
+    235
+   ],
+   "fillWidth": 0.8359,
+   "fillHeight": 0.832,
+   "fill": 0.8359,
+   "centreOffset": [
+    0.0039,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss bridge 151 chest 1",
+   "item": "Flameward II",
+   "icon": "itemicon_abyssgear_socket_normal_095",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    28,
+    227,
+    219
+   ],
+   "fillWidth": 0.7656,
+   "fillHeight": 0.7461,
+   "fill": 0.7656,
+   "centreOffset": [
+    0.0039,
+    -0.0176
+   ]
+  },
+  {
+   "chest": "Abyss bridge 152 chest 1",
+   "item": "Vitality III",
+   "icon": "itemicon_abyssgear_socket_normal_015",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    28,
+    227,
+    228
+   ],
+   "fillWidth": 0.7773,
+   "fillHeight": 0.7812,
+   "fill": 0.7812,
+   "centreOffset": [
+    -0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss bridge 162 chest 1",
+   "item": "Vigor III",
+   "icon": "itemicon_abyssgear_socket_normal_013",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    22,
+    233,
+    234
+   ],
+   "fillWidth": 0.8203,
+   "fillHeight": 0.8281,
+   "fill": 0.8281,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss bridge 176 chest 1",
+   "item": "Frostward II",
+   "icon": "itemicon_abyssgear_socket_normal_096",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    31,
+    225,
+    225
+   ],
+   "fillWidth": 0.7578,
+   "fillHeight": 0.7578,
+   "fill": 0.7578,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss bridge 189 chest 1",
+   "item": "Flameward III",
+   "icon": "itemicon_abyssgear_socket_normal_095",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    28,
+    227,
+    219
+   ],
+   "fillWidth": 0.7656,
+   "fillHeight": 0.7461,
+   "fill": 0.7656,
+   "centreOffset": [
+    0.0039,
+    -0.0176
+   ]
+  },
+  {
+   "chest": "Abyss bridge 23 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss bridge 23 chest 2",
+   "item": "Haste I",
+   "icon": "itemicon_abyssgear_socket_normal_074",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    29,
+    221,
+    219
+   ],
+   "fillWidth": 0.7227,
+   "fillHeight": 0.7422,
+   "fill": 0.7422,
+   "centreOffset": [
+    0.002,
+    -0.0156
+   ]
+  },
+  {
+   "chest": "Abyss bridge 89 chest 1",
+   "item": "Haste III",
+   "icon": "itemicon_abyssgear_socket_normal_074",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    29,
+    221,
+    219
+   ],
+   "fillWidth": 0.7227,
+   "fillHeight": 0.7422,
+   "fill": 0.7422,
+   "centreOffset": [
+    0.002,
+    -0.0156
+   ]
+  },
+  {
+   "chest": "Abyss bridge 91 chest 1",
+   "item": "Shockward II",
+   "icon": "itemicon_abyssgear_socket_normal_097",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    30,
+    230,
+    221
+   ],
+   "fillWidth": 0.7812,
+   "fillHeight": 0.7461,
+   "fill": 0.7812,
+   "centreOffset": [
+    0.0078,
+    -0.0098
+   ]
+  },
+  {
+   "chest": "Abyss bridge 91 chest 2",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss bridge 97 chest 1",
+   "item": "Fortification II",
+   "icon": "itemicon_abyssgear_socket_normal_021",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    22,
+    22,
+    236,
+    235
+   ],
+   "fillWidth": 0.8359,
+   "fillHeight": 0.832,
+   "fill": 0.8359,
+   "centreOffset": [
+    0.0039,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss bridge 99 chest 1",
+   "item": "Haste II",
+   "icon": "itemicon_abyssgear_socket_normal_074",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    36,
+    29,
+    221,
+    219
+   ],
+   "fillWidth": 0.7227,
+   "fillHeight": 0.7422,
+   "fill": 0.7422,
+   "centreOffset": [
+    0.002,
+    -0.0156
+   ]
+  },
+  {
+   "chest": "Abyss core island 1 chest 1",
+   "item": "Gourmet III",
+   "icon": "itemicon_abyssgear_socket_normal_093",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    28,
+    227,
+    229
+   ],
+   "fillWidth": 0.7617,
+   "fillHeight": 0.7852,
+   "fill": 0.7852,
+   "centreOffset": [
+    0.0059,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss core island 1 chest 2",
+   "item": "Efficiency III",
+   "icon": "itemicon_abyssgear_socket_normal_094",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    30,
+    227,
+    221
+   ],
+   "fillWidth": 0.7695,
+   "fillHeight": 0.7461,
+   "fill": 0.7695,
+   "centreOffset": [
+    0.002,
+    -0.0098
+   ]
+  },
+  {
+   "chest": "Abyss core island 2 chest 1",
+   "item": "Beastbane III",
+   "icon": "itemicon_abyssgear_socket_normal_088",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    22,
+    230,
+    228
+   ],
+   "fillWidth": 0.7734,
+   "fillHeight": 0.8047,
+   "fill": 0.8047,
+   "centreOffset": [
+    0.0117,
+    -0.0117
+   ]
+  },
+  {
+   "chest": "Abyss core island 2 chest 2",
+   "item": "Blessing of the Beast III",
+   "icon": "itemicon_abyssgear_socket_normal_102",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    29,
+    233,
+    228
+   ],
+   "fillWidth": 0.7969,
+   "fillHeight": 0.7773,
+   "fill": 0.7969,
+   "centreOffset": [
+    0.0117,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss core island 2 chest 3",
+   "item": "Primalbane III",
+   "icon": "itemicon_abyssgear_socket_normal_071",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    32,
+    223,
+    223
+   ],
+   "fillWidth": 0.7422,
+   "fillHeight": 0.7461,
+   "fill": 0.7461,
+   "centreOffset": [
+    0.0,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Abyss core island 3 chest 1",
+   "item": "Aptitude III",
+   "icon": "itemicon_abyssgear_socket_normal_105",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    33,
+    224,
+    223
+   ],
+   "fillWidth": 0.7461,
+   "fillHeight": 0.7422,
+   "fill": 0.7461,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss core island 3 chest 2",
+   "item": "Equestrian III",
+   "icon": "itemicon_abyssgear_socket_normal_116",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    31,
+    232,
+    231
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7812,
+   "fill": 0.793,
+   "centreOffset": [
+    0.0098,
+    0.0117
+   ]
+  },
+  {
+   "chest": "Abyss core island 3 chest 3",
+   "item": "Solidarity III",
+   "icon": "itemicon_abyssgear_socket_normal_107",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    25,
+    24,
+    232,
+    232
+   ],
+   "fillWidth": 0.8086,
+   "fillHeight": 0.8125,
+   "fill": 0.8125,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss core island 4 chest 1",
+   "item": "Spirit Transference",
+   "icon": "itemicon_abyssgear_socket_normal_018",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    23,
+    235,
+    235
+   ],
+   "fillWidth": 0.8281,
+   "fillHeight": 0.8281,
+   "fill": 0.8281,
+   "centreOffset": [
+    0.0039,
+    0.0039
+   ]
+  },
+  {
+   "chest": "Abyss core island 4 chest 2",
+   "item": "Fortune III",
+   "icon": "itemicon_abyssgear_socket_normal_091",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    29,
+    231,
+    230
+   ],
+   "fillWidth": 0.7812,
+   "fillHeight": 0.7852,
+   "fill": 0.7852,
+   "centreOffset": [
+    0.0117,
+    0.0059
+   ]
+  },
+  {
+   "chest": "Abyss core island 4 chest 3",
+   "item": "Bloodbane III",
+   "icon": "itemicon_abyssgear_socket_normal_086",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    25,
+    26,
+    231,
+    230
+   ],
+   "fillWidth": 0.8047,
+   "fillHeight": 0.7969,
+   "fill": 0.8047,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss core island 5 chest 1",
+   "item": "Disarm III",
+   "icon": "itemicon_abyssgear_socket_normal_027",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    27,
+    25,
+    233,
+    230
+   ],
+   "fillWidth": 0.8047,
+   "fillHeight": 0.8008,
+   "fill": 0.8047,
+   "centreOffset": [
+    0.0078,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Abyss core island 5 chest 2",
+   "item": "Infinite Arrows III",
+   "icon": "itemicon_abyssgear_socket_normal_092",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    26,
+    229,
+    229
+   ],
+   "fillWidth": 0.7773,
+   "fillHeight": 0.793,
+   "fill": 0.793,
+   "centreOffset": [
+    0.0059,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Abyss core island 5 chest 3",
+   "item": "Steelbane III",
+   "icon": "itemicon_abyssgear_socket_normal_058",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    33,
+    31,
+    225,
+    225
+   ],
+   "fillWidth": 0.75,
+   "fillHeight": 0.7578,
+   "fill": 0.7578,
+   "centreOffset": [
+    0.0039,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss core island 5 chest 4",
+   "item": "Stamina Transference",
+   "icon": "itemicon_abyssgear_socket_normal_016",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    26,
+    233,
+    230
+   ],
+   "fillWidth": 0.8164,
+   "fillHeight": 0.7969,
+   "fill": 0.8164,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss core island 6 chest 1",
+   "item": "Malicebane III",
+   "icon": "itemicon_abyssgear_socket_normal_087",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    32,
+    225,
+    225
+   ],
+   "fillWidth": 0.7539,
+   "fillHeight": 0.7539,
+   "fill": 0.7539,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss core island 6 chest 2",
+   "item": "Life Transference",
+   "icon": "itemicon_abyssgear_socket_normal_014",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    24,
+    25,
+    234,
+    235
+   ],
+   "fillWidth": 0.8203,
+   "fillHeight": 0.8203,
+   "fill": 0.8203,
+   "centreOffset": [
+    0.0039,
+    0.0078
+   ]
+  },
+  {
+   "chest": "Abyss core island 7 chest 1",
+   "item": "Energy Drain III",
+   "icon": "itemicon_abyssgear_socket_normal_106",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    29,
+    227,
+    228
+   ],
+   "fillWidth": 0.7734,
+   "fillHeight": 0.7773,
+   "fill": 0.7773,
+   "centreOffset": [
+    0.0,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss core island 7 chest 2",
+   "item": "Blessing of the Earth III",
+   "icon": "itemicon_abyssgear_socket_normal_100",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    27,
+    231,
+    229
+   ],
+   "fillWidth": 0.7891,
+   "fillHeight": 0.7891,
+   "fill": 0.7891,
+   "centreOffset": [
+    0.0078,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss core island 7 chest 3",
+   "item": "Abyssbane III",
+   "icon": "itemicon_abyssgear_socket_normal_089",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    32,
+    226,
+    226
+   ],
+   "fillWidth": 0.7578,
+   "fillHeight": 0.7578,
+   "fill": 0.7578,
+   "centreOffset": [
+    0.0039,
+    0.0039
+   ]
+  },
+  {
+   "chest": "Abyss core island 7 chest 4",
+   "item": "Blessing of Nature III",
+   "icon": "itemicon_abyssgear_socket_normal_101",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    29,
+    227,
+    226
+   ],
+   "fillWidth": 0.7617,
+   "fillHeight": 0.7695,
+   "fill": 0.7695,
+   "centreOffset": [
+    0.0059,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Abyss island 1 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 1001 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 113 chest 1",
+   "item": "Insight III",
+   "icon": "itemicon_abyssgear_socket_normal_003",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    31,
+    224,
+    224
+   ],
+   "fillWidth": 0.75,
+   "fillHeight": 0.7539,
+   "fill": 0.7539,
+   "centreOffset": [
+    0.0,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Abyss island 113 chest 2",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 121 chest 1",
+   "item": "Ascent III",
+   "icon": "itemicon_abyssgear_socket_normal_076",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    28,
+    229,
+    228
+   ],
+   "fillWidth": 0.7852,
+   "fillHeight": 0.7812,
+   "fill": 0.7852,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss island 13 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 13 chest 2",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 13 chest 3",
+   "item": "Destruction II",
+   "icon": "itemicon_abyssgear_socket_normal_001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    28,
+    228,
+    229
+   ],
+   "fillWidth": 0.7773,
+   "fillHeight": 0.7852,
+   "fill": 0.7852,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss island 144 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 158 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 158 chest 2",
+   "item": "Swift II",
+   "icon": "itemicon_abyssgear_socket_normal_082",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    31,
+    224,
+    223
+   ],
+   "fillWidth": 0.7539,
+   "fillHeight": 0.75,
+   "fill": 0.7539,
+   "centreOffset": [
+    -0.002,
+    -0.0039
+   ]
+  },
+  {
+   "chest": "Abyss island 158 chest 3",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 175 chest 1",
+   "item": "Vitality II",
+   "icon": "itemicon_abyssgear_socket_normal_015",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    28,
+    227,
+    228
+   ],
+   "fillWidth": 0.7773,
+   "fillHeight": 0.7812,
+   "fill": 0.7812,
+   "centreOffset": [
+    -0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss island 18 chest 1",
+   "item": "Shockward III",
+   "icon": "itemicon_abyssgear_socket_normal_097",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    30,
+    230,
+    221
+   ],
+   "fillWidth": 0.7812,
+   "fillHeight": 0.7461,
+   "fill": 0.7812,
+   "centreOffset": [
+    0.0078,
+    -0.0098
+   ]
+  },
+  {
+   "chest": "Abyss island 191 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 200 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 3 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 3 chest 2",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 3 chest 3",
+   "item": "Swift I",
+   "icon": "itemicon_abyssgear_socket_normal_082",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    31,
+    224,
+    223
+   ],
+   "fillWidth": 0.7539,
+   "fillHeight": 0.75,
+   "fill": 0.7539,
+   "centreOffset": [
+    -0.002,
+    -0.0039
+   ]
+  },
+  {
+   "chest": "Abyss island 36 chest 1",
+   "item": "Insight II",
+   "icon": "itemicon_abyssgear_socket_normal_003",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    31,
+    224,
+    224
+   ],
+   "fillWidth": 0.75,
+   "fillHeight": 0.7539,
+   "fill": 0.7539,
+   "centreOffset": [
+    0.0,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Abyss island 41 chest 1",
+   "item": "Blessing of the Forest I",
+   "icon": "itemicon_abyssgear_socket_normal_103",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    30,
+    228,
+    227
+   ],
+   "fillWidth": 0.7734,
+   "fillHeight": 0.7695,
+   "fill": 0.7734,
+   "centreOffset": [
+    0.0039,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss island 55 chest 1",
+   "item": "Ledgermain I",
+   "icon": "itemicon_abyssgear_socket_normal_099",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    30,
+    227,
+    224
+   ],
+   "fillWidth": 0.7695,
+   "fillHeight": 0.7578,
+   "fill": 0.7695,
+   "centreOffset": [
+    0.002,
+    -0.0039
+   ]
+  },
+  {
+   "chest": "Abyss island 55 chest 2",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 79 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 79 chest 2",
+   "item": "Ascent II",
+   "icon": "itemicon_abyssgear_socket_normal_076",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    28,
+    229,
+    228
+   ],
+   "fillWidth": 0.7852,
+   "fillHeight": 0.7812,
+   "fill": 0.7852,
+   "centreOffset": [
+    0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss island 79 chest 3",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 83 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 83 chest 2",
+   "item": "Composure I",
+   "icon": "itemicon_abyssgear_socket_normal_017",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    22,
+    22,
+    233,
+    234
+   ],
+   "fillWidth": 0.8242,
+   "fillHeight": 0.8281,
+   "fill": 0.8281,
+   "centreOffset": [
+    -0.002,
+    0.0
+   ]
+  },
+  {
+   "chest": "Abyss island 83 chest 3",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 84 chest 1",
+   "item": "Surge III",
+   "icon": "itemicon_abyssgear_socket_normal_023",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    29,
+    33,
+    227,
+    224
+   ],
+   "fillWidth": 0.7734,
+   "fillHeight": 0.7461,
+   "fill": 0.7734,
+   "centreOffset": [
+    0.0,
+    0.002
+   ]
+  },
+  {
+   "chest": "Abyss island 97 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 97 chest 2",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 99 chest 1",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Abyss island 99 chest 2",
+   "item": "Faded Abyss Artifact",
+   "icon": "itemicon_deactived_abyss_artifact",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    26,
+    38,
+    229,
+    242
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.7969,
+   "fill": 0.7969,
+   "centreOffset": [
+    -0.002,
+    0.0469
+   ]
+  }
+ ],
+ "uniqueItems": [
+  {
+   "chest": "Golden Sword",
+   "item": "Golden Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0166_index01_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    0,
+    210,
+    256
+   ],
+   "fillWidth": 0.7305,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.0449,
+    0.0
+   ]
+  },
+  {
+   "chest": "Constellation Helm",
+   "item": "Constellation Helm",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0389_f",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    27,
+    0,
+    230,
+    238
+   ],
+   "fillWidth": 0.793,
+   "fillHeight": 0.9297,
+   "fill": 0.9297,
+   "centreOffset": [
+    0.002,
+    -0.0352
+   ]
+  },
+  {
+   "chest": "Plate Helm of the Shadows",
+   "item": "Plate Helm of the Shadows",
+   "icon": "itemicon_prefab_cd_m0001_00_death_knight_hel_0001_f",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    54,
+    0,
+    203,
+    247
+   ],
+   "fillWidth": 0.582,
+   "fillHeight": 0.9648,
+   "fill": 0.9648,
+   "centreOffset": [
+    0.002,
+    -0.0176
+   ]
+  },
+  {
+   "chest": "Brimstone Gas Mask",
+   "item": "Brimstone Gas Mask",
+   "icon": "itemicon_prefab_cd_phm_00_hel_01_0373_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    28,
+    191,
+    222
+   ],
+   "fillWidth": 0.6211,
+   "fillHeight": 0.7578,
+   "fill": 0.7578,
+   "centreOffset": [
+    -0.0645,
+    -0.0117
+   ]
+  },
+  {
+   "chest": "Circuit Hijacking Helm",
+   "item": "Circuit Hijacking Helm",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0399_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    19,
+    21,
+    220,
+    215
+   ],
+   "fillWidth": 0.7852,
+   "fillHeight": 0.7578,
+   "fill": 0.7852,
+   "centreOffset": [
+    -0.0332,
+    -0.0391
+   ]
+  },
+  {
+   "chest": "Helm of Ignition",
+   "item": "Helm of Ignition",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0454_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    23,
+    35,
+    237,
+    218
+   ],
+   "fillWidth": 0.8359,
+   "fillHeight": 0.7148,
+   "fill": 0.8359,
+   "centreOffset": [
+    0.0078,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Helm of Knowledge",
+   "item": "Helm of Knowledge",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0391_f",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    18,
+    8,
+    239,
+    249
+   ],
+   "fillWidth": 0.8633,
+   "fillHeight": 0.9414,
+   "fill": 0.9414,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Marni Laser Helm",
+   "item": "Marni Laser Helm",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0363_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    50,
+    0,
+    256,
+    217
+   ],
+   "fillWidth": 0.8047,
+   "fillHeight": 0.8477,
+   "fill": 0.8477,
+   "centreOffset": [
+    0.0977,
+    -0.0762
+   ]
+  },
+  {
+   "chest": "Health Detection Device",
+   "item": "Health Detection Device",
+   "icon": "itemicon_prefab_cd_phm_00_hel_00_0399_index01_c",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    19,
+    21,
+    219,
+    215
+   ],
+   "fillWidth": 0.7812,
+   "fillHeight": 0.7578,
+   "fill": 0.7812,
+   "centreOffset": [
+    -0.0352,
+    -0.0391
+   ]
+  },
+  {
+   "chest": "Witters Plate Helm",
+   "item": "Witters Plate Helm",
+   "icon": "itemicon_prefab_cd_m0001_00_sir_catfish_hel_00_0001_i",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    23,
+    256,
+    232
+   ],
+   "fillWidth": 0.8789,
+   "fillHeight": 0.8164,
+   "fill": 0.8789,
+   "centreOffset": [
+    0.0605,
+    -0.002
+   ]
+  },
+  {
+   "chest": "Drake Shield",
+   "item": "Drake Shield",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0101",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    10,
+    19,
+    246,
+    238
+   ],
+   "fillWidth": 0.9219,
+   "fillHeight": 0.8555,
+   "fill": 0.9219,
+   "centreOffset": [
+    0.0,
+    0.002
+   ]
+  },
+  {
+   "chest": "Shotgun Shield",
+   "item": "Shotgun Shield",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0134",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    31,
+    21,
+    235,
+    231
+   ],
+   "fillWidth": 0.7969,
+   "fillHeight": 0.8203,
+   "fill": 0.8203,
+   "centreOffset": [
+    0.0195,
+    -0.0078
+   ]
+  },
+  {
+   "chest": "Runewalker Shield",
+   "item": "Runewalker Shield",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0132",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    18,
+    27,
+    237,
+    226
+   ],
+   "fillWidth": 0.8555,
+   "fillHeight": 0.7773,
+   "fill": 0.8555,
+   "centreOffset": [
+    -0.002,
+    -0.0059
+   ]
+  },
+  {
+   "chest": "Shield of Ringing",
+   "item": "Shield of Ringing",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0135",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    30,
+    227,
+    227
+   ],
+   "fillWidth": 0.7695,
+   "fillHeight": 0.7695,
+   "fill": 0.7695,
+   "centreOffset": [
+    0.002,
+    0.002
+   ]
+  },
+  {
+   "chest": "Gale Shield",
+   "item": "Gale Shield",
+   "icon": "itemicon_prefab_cd_phm_03_shield_0133",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    19,
+    16,
+    240,
+    241
+   ],
+   "fillWidth": 0.8633,
+   "fillHeight": 0.8789,
+   "fill": 0.8789,
+   "centreOffset": [
+    0.0059,
+    0.002
+   ]
+  },
+  {
+   "chest": "Bismuth Spear",
+   "item": "Bismuth Spear",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0114",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    45,
+    22,
+    198,
+    256
+   ],
+   "fillWidth": 0.5977,
+   "fillHeight": 0.9141,
+   "fill": 0.9141,
+   "centreOffset": [
+    -0.0254,
+    0.043
+   ]
+  },
+  {
+   "chest": "Thorn of Dark Pursuit",
+   "item": "Thorn of Dark Pursuit",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0021",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    46,
+    0,
+    256,
+    256
+   ],
+   "fillWidth": 0.8203,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0898,
+    0.0
+   ]
+  },
+  {
+   "chest": "Disruptor Spear",
+   "item": "Disruptor Spear",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0113",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    40,
+    20,
+    201,
+    256
+   ],
+   "fillWidth": 0.6289,
+   "fillHeight": 0.9219,
+   "fill": 0.9219,
+   "centreOffset": [
+    -0.0293,
+    0.0391
+   ]
+  },
+  {
+   "chest": "Flame Spear",
+   "item": "Flame Spear",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0044",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    0,
+    32,
+    212,
+    256
+   ],
+   "fillWidth": 0.8281,
+   "fillHeight": 0.875,
+   "fill": 0.875,
+   "centreOffset": [
+    -0.0859,
+    0.0625
+   ]
+  },
+  {
+   "chest": "Diverging Moon",
+   "item": "Diverging Moon",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0036",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    48,
+    24,
+    197,
+    256
+   ],
+   "fillWidth": 0.582,
+   "fillHeight": 0.9062,
+   "fill": 0.9062,
+   "centreOffset": [
+    -0.0215,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Circling Moon",
+   "item": "Circling Moon",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0037",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    48,
+    14,
+    202,
+    256
+   ],
+   "fillWidth": 0.6016,
+   "fillHeight": 0.9453,
+   "fill": 0.9453,
+   "centreOffset": [
+    -0.0117,
+    0.0273
+   ]
+  },
+  {
+   "chest": "Grasping Moon",
+   "item": "Grasping Moon",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0027",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    51,
+    6,
+    238,
+    256
+   ],
+   "fillWidth": 0.7305,
+   "fillHeight": 0.9766,
+   "fill": 0.9766,
+   "centreOffset": [
+    0.0645,
+    0.0117
+   ]
+  },
+  {
+   "chest": "Frostfang",
+   "item": "Frostfang",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0119",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    52,
+    17,
+    253,
+    256
+   ],
+   "fillWidth": 0.7852,
+   "fillHeight": 0.9336,
+   "fill": 0.9336,
+   "centreOffset": [
+    0.0957,
+    0.0332
+   ]
+  },
+  {
+   "chest": "Lightning Spear",
+   "item": "Lightning Spear",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0029",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    42,
+    14,
+    211,
+    256
+   ],
+   "fillWidth": 0.6602,
+   "fillHeight": 0.9453,
+   "fill": 0.9453,
+   "centreOffset": [
+    -0.0059,
+    0.0273
+   ]
+  },
+  {
+   "chest": "Soul Spear",
+   "item": "Soul Spear",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0021_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    49,
+    23,
+    255,
+    256
+   ],
+   "fillWidth": 0.8047,
+   "fillHeight": 0.9102,
+   "fill": 0.9102,
+   "centreOffset": [
+    0.0938,
+    0.0449
+   ]
+  },
+  {
+   "chest": "Propeller Spear",
+   "item": "Propeller Spear",
+   "icon": "itemicon_prefab_cd_phm_02_spear_0050",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    35,
+    24,
+    249,
+    256
+   ],
+   "fillWidth": 0.8359,
+   "fillHeight": 0.9062,
+   "fill": 0.9062,
+   "centreOffset": [
+    0.0547,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Acria Sword",
+   "item": "Acria Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0076_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    28,
+    0,
+    233,
+    256
+   ],
+   "fillWidth": 0.8008,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0098,
+    0.0
+   ]
+  },
+  {
+   "chest": "Knightlord's Sword",
+   "item": "Knightlord's Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0038",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    0,
+    220,
+    256
+   ],
+   "fillWidth": 0.7422,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    -0.0117,
+    0.0
+   ]
+  },
+  {
+   "chest": "Fated Shadow",
+   "item": "Fated Shadow",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0168",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    37,
+    0,
+    236,
+    256
+   ],
+   "fillWidth": 0.7773,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0332,
+    0.0
+   ]
+  },
+  {
+   "chest": "Spada Sword",
+   "item": "Spada Sword",
+   "icon": "itemicon_prefab_cd_phm_01_sword_0039",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    0,
+    230,
+    256
+   ],
+   "fillWidth": 0.7812,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0078,
+    0.0
+   ]
+  },
+  {
+   "chest": "Arben Greatsword",
+   "item": "Arben Greatsword",
+   "icon": "itemicon_prefab_cd_phw_02_sword_0005",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    37,
+    0,
+    248,
+    256
+   ],
+   "fillWidth": 0.8242,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0566,
+    0.0
+   ]
+  },
+  {
+   "chest": "Lubricant Sprayer",
+   "item": "Lubricant Sprayer",
+   "icon": "itemicon_prefab_cd_phm_00_bag_0070",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    55,
+    31,
+    249,
+    256
+   ],
+   "fillWidth": 0.7578,
+   "fillHeight": 0.8789,
+   "fill": 0.8789,
+   "centreOffset": [
+    0.0938,
+    0.0605
+   ]
+  },
+  {
+   "chest": "Myurdin's Ring",
+   "item": "Myurdin's Ring",
+   "icon": "itemicon_prefab_cd_t0000_lavemyurdin_ring_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    75,
+    65,
+    181,
+    200
+   ],
+   "fillWidth": 0.4141,
+   "fillHeight": 0.5273,
+   "fill": 0.5273,
+   "centreOffset": [
+    0.0,
+    0.0176
+   ]
+  },
+  {
+   "chest": "Fertilizer Sprayer",
+   "item": "Fertilizer Sprayer",
+   "icon": "itemicon_prefab_cd_phm_00_bag_0068",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    56,
+    19,
+    245,
+    256
+   ],
+   "fillWidth": 0.7383,
+   "fillHeight": 0.9258,
+   "fill": 0.9258,
+   "centreOffset": [
+    0.0879,
+    0.0371
+   ]
+  },
+  {
+   "chest": "Mask of the Devil of the Reed Field",
+   "item": "Mask of the Devil of the Reed Field",
+   "icon": "itemicon_prefab_cd_t0000_reeddevil_mask_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    18,
+    30,
+    238,
+    232
+   ],
+   "fillWidth": 0.8594,
+   "fillHeight": 0.7891,
+   "fill": 0.8594,
+   "centreOffset": [
+    0.0,
+    0.0117
+   ]
+  },
+  {
+   "chest": "Dewhaven Shotgun",
+   "item": "Dewhaven Shotgun",
+   "icon": "itemicon_prefab_cd_phm_07_shotgun_0089",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    54,
+    35,
+    198,
+    256
+   ],
+   "fillWidth": 0.5625,
+   "fillHeight": 0.8633,
+   "fill": 0.8633,
+   "centreOffset": [
+    -0.0078,
+    0.0684
+   ]
+  },
+  {
+   "chest": "Shadow of the Past Pistol",
+   "item": "Shadow of the Past Pistol",
+   "icon": "itemicon_prefab_cd_phm_06_pistol_0089",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    81,
+    22,
+    175,
+    234
+   ],
+   "fillWidth": 0.3672,
+   "fillHeight": 0.8281,
+   "fill": 0.8281,
+   "centreOffset": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "chest": "Serdin Greatsword",
+   "item": "Serdin Greatsword",
+   "icon": "itemicon_prefab_cd_phw_02_sword_0003",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    30,
+    0,
+    230,
+    256
+   ],
+   "fillWidth": 0.7812,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0078,
+    0.0
+   ]
+  },
+  {
+   "chest": "Verak Greatsword",
+   "item": "Verak Greatsword",
+   "icon": "itemicon_prefab_cd_phw_02_sword_0007",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    44,
+    0,
+    237,
+    256
+   ],
+   "fillWidth": 0.7539,
+   "fillHeight": 1.0,
+   "fill": 1.0,
+   "centreOffset": [
+    0.0488,
+    0.0
+   ]
+  },
+  {
+   "chest": "Double-Headed Axe of Greed",
+   "item": "Double-Headed Axe of Greed",
+   "icon": "itemicon_prefab_cd_phm_01_axe_0046_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    38,
+    24,
+    218,
+    256
+   ],
+   "fillWidth": 0.7031,
+   "fillHeight": 0.9062,
+   "fill": 0.9062,
+   "centreOffset": [
+    0.0,
+    0.0469
+   ]
+  },
+  {
+   "chest": "Kadel Mace",
+   "item": "Kadel Mace",
+   "icon": "itemicon_prefab_cd_phm_01_mace_0036_r",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    48,
+    5,
+    208,
+    256
+   ],
+   "fillWidth": 0.625,
+   "fillHeight": 0.9805,
+   "fill": 0.9805,
+   "centreOffset": [
+    0.0,
+    0.0098
+   ]
+  },
+  {
+   "chest": "Bleed Shotgun",
+   "item": "Bleed Shotgun",
+   "icon": "itemicon_prefab_cd_phm_07_shotgun_0006_index01",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    32,
+    30,
+    217,
+    256
+   ],
+   "fillWidth": 0.7227,
+   "fillHeight": 0.8828,
+   "fill": 0.8828,
+   "centreOffset": [
+    -0.0137,
+    0.0586
+   ]
+  },
+  {
+   "chest": "Hyde Crossbow",
+   "item": "Hyde Crossbow",
+   "icon": "itemicon_prefab_cd_phm_05_crossbow_0001",
+   "canvas": [
+    256,
+    256
+   ],
+   "box": [
+    17,
+    23,
+    243,
+    256
+   ],
+   "fillWidth": 0.8828,
+   "fillHeight": 0.9102,
+   "fill": 0.9102,
+   "centreOffset": [
+    0.0078,
+    0.0449
+   ]
+  }
+ ]
+}

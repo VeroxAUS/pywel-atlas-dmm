@@ -1,0 +1,146 @@
+{
+ "summary": {
+  "sectorsDecoded": 450,
+  "bytes": 106127155,
+  "nodes": 369353,
+  "nodesPerSector": 821,
+  "sectorsInGame": 2503
+ },
+ "tests": [
+  {
+   "name": "Demeniss chest 31",
+   "position": [
+    -7573.5986,
+    409.1481,
+    -5288.8135
+   ],
+   "sectors": 68,
+   "nodesDecoded": 38965,
+   "nearestNavNodeToStop": 2.1,
+   "roadToStopStraight": 723.8,
+   "navNodeNearRoad": 0.3,
+   "navPathFromRoadNode": null,
+   "detourFactor": null
+  },
+  {
+   "name": "Crimson Desert Abyss Nexus 36",
+   "position": [
+    -4418.5054,
+    659.445,
+    189.5424
+   ],
+   "sectors": 81,
+   "nodesDecoded": 77632,
+   "nearestNavNodeToStop": 1.5,
+   "roadToStopStraight": 771.5,
+   "navNodeNearRoad": 1.8,
+   "navPathFromRoadNode": null,
+   "detourFactor": null
+  },
+  {
+   "name": "Hernand cave chest 10",
+   "position": [
+    -10872.75,
+    426.5997,
+    -6463.6538
+   ],
+   "sectors": 70,
+   "nodesDecoded": 51362,
+   "nearestNavNodeToStop": 3.1,
+   "roadToStopStraight": 355.9,
+   "navNodeNearRoad": 35.3,
+   "navPathFromRoadNode": null,
+   "detourFactor": null
+  },
+  {
+   "name": "Hernand cave chest 15",
+   "position": [
+    -12861.6006,
+    926.4657,
+    -4105.7832
+   ],
+   "sectors": 72,
+   "nodesDecoded": 43482,
+   "nearestNavNodeToStop": 21.4,
+   "roadToStopStraight": 390.6,
+   "navNodeNearRoad": 11.4,
+   "navPathFromRoadNode": null,
+   "detourFactor": null
+  },
+  {
+   "name": "Hernand chest 2",
+   "position": [
+    -11779.4365,
+    1016.7322,
+    -5939.771
+   ],
+   "sectors": 72,
+   "nodesDecoded": 59355,
+   "nearestNavNodeToStop": 1.7,
+   "roadToStopStraight": 561.6,
+   "navNodeNearRoad": 0.2,
+   "navPathFromRoadNode": null,
+   "detourFactor": null
+  },
+  {
+   "name": "Hernand chest 13",
+   "position": [
+    -10321.9941,
+    601.0756,
+    -4803.9829
+   ],
+   "sectors": 81,
+   "nodesDecoded": 83716,
+   "nearestNavNodeToStop": 43.3,
+   "roadToStopStraight": 53.2,
+   "navNodeNearRoad": 31.4,
+   "navPathFromRoadNode": null,
+   "detourFactor": null
+  },
+  {
+   "name": "Hernand chest 26",
+   "position": [
+    -10413.4746,
+    648.5211,
+    -3097.7456
+   ],
+   "sectors": 81,
+   "nodesDecoded": 84387,
+   "nearestNavNodeToStop": 22.1,
+   "roadToStopStraight": 53.5,
+   "navNodeNearRoad": 10.0,
+   "navPathFromRoadNode": 35.5,
+   "detourFactor": 0.66
+  },
+  {
+   "name": "Hernand chest 27",
+   "position": [
+    -10250.25,
+    609.7579,
+    -3079.8352
+   ],
+   "sectors": 64,
+   "nodesDecoded": 66251,
+   "nearestNavNodeToStop": 0.6,
+   "roadToStopStraight": 39.4,
+   "navNodeNearRoad": 0.3,
+   "navPathFromRoadNode": null,
+   "detourFactor": null
+  },
+  {
+   "name": "Hernand Abyss Nexus 4",
+   "position": [
+    -12655.9258,
+    1044.522,
+    -4206.3867
+   ],
+   "sectors": 81,
+   "nodesDecoded": 50058,
+   "nearestNavNodeToStop": 10.7,
+   "roadToStopStraight": 415.5,
+   "navNodeNearRoad": 11.4,
+   "navPathFromRoadNode": null,
+   "detourFactor": null
+  }
+ ]
+}

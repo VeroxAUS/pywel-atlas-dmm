@@ -13,7 +13,7 @@
 //       removes the Bell and (v0.56) Greymane Shrine map markers.
 //     - Teleport observation (TeleportObserve.cpp, v0.55): watch-only logging
 //       of the game's own player-move functions, for the planned test-only
-//       teleporter. It moves nothing.
+//       teleporter. It moves nothing. Development builds only (v0.129).
 //     - Filter panel (FilterPanel.cpp, v0.62): the in-game Dear ImGui panel
 //       (F9), drawn in the game's own frames; v0.62 is not connected to
 //       the markers yet. Hooks only Windows' dxgi.dll.
@@ -26,6 +26,12 @@
 //   Both files are compiled with PYWEL_ATLAS_COMBINED defined, which removes
 //   their own DllMain and gives each a start function instead.
 //
+// RELEASE AND DEVELOPMENT BUILDS (v0.129)
+//   build.ps1 and build.ps1 -Test define PYWEL_ATLAS_DEV: the development
+//   builds, with the debug keys (F7, F8), the detailed per-part logs and the
+//   teleport observation. build.ps1 -Release leaves it out: no debug keys,
+//   no debug tools, and only the short pywel-atlas.log (ReleaseLog.cpp).
+//
 // KEY IDEAS
 //   MinHook - the small library both parts use to install their hooks. It
 //             must be initialized exactly once per process, so this file does
@@ -34,21 +40,27 @@
 //   Worker  - each part keeps its own background thread, exactly as before.
 //
 // KEYS IN THE COMBINED BUILD
-//   F7        save-detection checkpoint popup (unchanged).
-//   Shift+F7  map marker's "read the selected save" (was plain F7 there).
-//   F6, F8, F10 keep their map-marker meanings; F9 opens the filter panel.
+//   F7        save-detection checkpoint popup (development builds only).
+//   F8        diagnostic snapshot (development builds only).
+//   The player keys (panel, widget, markers on/off, skip stop) are
+//   rebindable; see Keybinds.cpp.
 // =============================================================================
 
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <windows.h>
+#include <stdlib.h>
 #include "../save-detection/vendor/minhook/include/MinHook.h"
+#include "ReleaseLog.h"
 
 // Start functions of the parts (defined in their own files).
 DWORD WINAPI PywelSaveDetectionRun(void* address);
 DWORD WINAPI PywelMapMarkerRun(void* address);
+#ifdef PYWEL_ATLAS_DEV
 // v0.55: watch-only teleport observation (TeleportObserve.cpp); moves nothing.
+// Development builds only; build.ps1 -Release does not compile that file.
 DWORD WINAPI PywelTeleportObserveRun(void* address);
+#endif
 // v0.62: the in-game filter panel (FilterPanel.cpp).
 DWORD WINAPI PywelFilterPanelRun(void* address);
 // v0.104: the route worker (RouteSystem.cpp): plans the collectible route.
@@ -59,6 +71,14 @@ DWORD WINAPI PywelTeleporterRun(void* address);
 #endif
 
 namespace {
+
+// v0.127: what the C runtime does when a "safe" string function (sprintf_s
+// and the like) gets a buffer that is too small: by default it ends the
+// whole game at once (v0.124-v0.126 crashed at launch that way, from one
+// over-long log line). With this handler the call returns -1 with an empty
+// string instead, so a too-long log line is lost, never the game. The mod
+// links its own copy of the C runtime (/MT), so this affects only the mod.
+void IgnoreInvalidParameter(const wchar_t*, const wchar_t*, const wchar_t*, unsigned int, uintptr_t) {}
 
 // Starts one part's worker thread; the handle is not needed afterwards.
 void StartPart(LPTHREAD_START_ROUTINE run, void* address) {
@@ -72,12 +92,21 @@ void StartPart(LPTHREAD_START_ROUTINE run, void* address) {
 // DllMain because Windows restricts what is safe while a DLL is loading. If
 // MinHook cannot start, neither part is started (no hooks are installed).
 DWORD WINAPI Start(void* address) {
+    _set_invalid_parameter_handler(IgnoreInvalidParameter);
+#ifdef PYWEL_ATLAS_DEV
+    PywelReleaseLog("Pywel Atlas 0.28.0 (development build) starting");
+#else
+    PywelReleaseLog("Pywel Atlas 0.28.0 starting");
+#endif
     if (MH_Initialize() != MH_OK) {
+        PywelReleaseLog("Could not start the hook library (MinHook); Pywel Atlas is off this session.");
         return 0;
     }
     StartPart(PywelSaveDetectionRun, address);
     StartPart(PywelMapMarkerRun, address);
+#ifdef PYWEL_ATLAS_DEV
     StartPart(PywelTeleportObserveRun, address);
+#endif
     StartPart(PywelFilterPanelRun, address);
     StartPart(PywelRouteRun, address);
 #ifdef PYWEL_ATLAS_TELEPORT

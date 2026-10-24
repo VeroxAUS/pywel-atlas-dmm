@@ -69,6 +69,10 @@
 //     game data. Save files are only opened for reading. It only writes its
 //     own log:
 //     %LOCALAPPDATA%\PywelAtlas\native-save-detection.log
+//     (development builds only, v0.129; the release build writes only the
+//     version, start-up and error lines to pywel-atlas.log, ReleaseLog.h).
+//   - F7 (the checkpoint popup) exists only in development builds
+//     (PYWEL_ATLAS_DEV, defined by build.ps1 and build.ps1 -Test).
 //   - Every hook passes all inputs through unchanged, returns the game's own
 //     result, and preserves the Windows "last error" value.
 //   - The worker and popup threads never follow (dereference) game pointers;
@@ -91,6 +95,11 @@
 #ifdef PYWEL_ATLAS_COMBINED
 // What this part tells the map-marker part in the combined mod.
 #include "../pywel-atlas/LoadedSave.h"
+// v0.129: the short player log (pywel-atlas.log) shared by all parts.
+#include "../pywel-atlas/ReleaseLog.h"
+#else
+// The standalone probe build has no player log.
+inline void PywelReleaseLog(const char*, ...) {}
 #endif
 
 namespace {
@@ -1737,8 +1746,9 @@ void PublishLoadedSave(const Summary& summary) {
 }
 #endif
 
+#ifdef PYWEL_ATLAS_DEV
 // =============================================================================
-// 6. F7 checkpoint popup
+// 6. F7 checkpoint popup (development builds only, v0.129)
 // =============================================================================
 
 // One copied notification snapshot at a time. The worker acquires ownership by
@@ -1842,6 +1852,7 @@ void NotifyCheckpoint(const Summary& summary) {
         Log("Confirmation thread unavailable; checkpoint remains recorded and logging continues.");
     }
 }
+#endif
 
 // Empties the queue: copies all waiting records out (holding the lock only
 // briefly), writes their log lines, and feeds each one to Correlate.
@@ -1974,7 +1985,7 @@ void Drain(Summary& summary) {
 
 // The worker thread. Opens the log, checks the game version and guard bytes,
 // installs all hooks, then loops forever: drain the queue, handle lost
-// records, and watch for F7.
+// records, and (development builds) watch for F7.
 DWORD WINAPI Run(void* address) {
     // Installed detours retain code addresses for process lifetime. Live ASI
     // unloading is unsupported; pin the module before any hook is installed.
@@ -1983,7 +1994,9 @@ DWORD WINAPI Run(void* address) {
         GET_MODULE_HANDLE_EX_FLAG_PIN, reinterpret_cast<LPCWSTR>(address), &pinned)) {
         return 0;
     }
+#ifdef PYWEL_ATLAS_DEV
     // Open (or create) %LOCALAPPDATA%\PywelAtlas\native-save-detection.log.
+    // The release build has no detailed log: Log() then writes nothing.
     wchar_t path[MAX_PATH] = {};
     if (FAILED(SHGetFolderPathW(nullptr, CSIDL_LOCAL_APPDATA, nullptr, 0, path))) {
         return 0;
@@ -1996,6 +2009,7 @@ DWORD WINAPI Run(void* address) {
     if (logFile == INVALID_HANDLE_VALUE) {
         return 0;
     }
+#endif
     char line[192];
     sprintf_s(line, "SESSION native save-load observation v0.60 pid=%lu tick=%llu; automaticLoadedSaveTrusted=0",
         GetCurrentProcessId(), GetTickCount64());
@@ -2008,12 +2022,14 @@ DWORD WINAPI Run(void* address) {
     if (pe->FileHeader.TimeDateStamp != kLoadTimestamp ||
         pe->OptionalHeader.SizeOfImage != kLoadImageSize) {
         Log("Unsupported executable; no observation installed.");
+        PywelReleaseLog("Save detection: unsupported game version; save detection is off.");
         return 0;
     }
     // Check every hooked function still starts with the expected guard bytes.
     for (const auto& site : kSaveLoadSites) {
         if (memcmp(base + site.rva, site.bytes, sizeof(site.bytes)) != 0) {
             Log("Save-load entry changed; no observation installed.");
+            PywelReleaseLog("Save detection: game code changed (guard bytes); save detection is off.");
             return 0;
         }
     }
@@ -2075,6 +2091,8 @@ DWORD WINAPI Run(void* address) {
             callbacks[index], originals[index]);
         if (status != MH_OK) {
             Log(MH_StatusToString(status));
+            PywelReleaseLog("Save detection: could not create its hooks (%s); save detection is off.",
+                MH_StatusToString(status));
 #ifdef PYWEL_ATLAS_COMBINED
             // Shared MinHook: remove only the hooks this part created.
             for (unsigned created = 0; created < index; ++created) {
@@ -2097,6 +2115,8 @@ DWORD WINAPI Run(void* address) {
 #endif
     if (status != MH_OK) {
         Log(MH_StatusToString(status));
+        PywelReleaseLog("Save detection: could not switch on its hooks (%s); save detection is off.",
+            MH_StatusToString(status));
         return 0;
     }
     // Start the Bell reader thread (section 5b). If it cannot start, the probe
@@ -2107,12 +2127,18 @@ DWORD WINAPI Run(void* address) {
         CloseHandle(reader);
     } else {
         Log("Bell reader thread unavailable; observation continues without Bell reads.");
+        PywelReleaseLog("Save detection: save reader thread could not start; progress will not update.");
     }
+    PywelReleaseLog("Save detection started.");
+#ifdef PYWEL_ATLAS_DEV
     Log("READY v0.60: eighteen guarded hooks (v0.60: four watch-only storage file methods copy the save folder when the start-up record is missing; rootSource=startup or use; conflicting roots withhold the selection); 200-range save writes ignored; last saved slot carried over when the selection re-forms in the same world; full user-key identity match and worker-owned diagnostic account/slot selection; boundary rechecked on every generation change. Diagnostic read-only Bell reads tagged with the selection serial; stale results discarded. Save writes by the selection's server child retarget Bell reads to the written slot. F7 foreground confirmation retained. No marker hooks or save writes.");
+#endif
     Summary summary = {};
     summary.generation = 1;
     LONG observedDrops = 0;
+#ifdef PYWEL_ATLAS_DEV
     bool previousF7 = false;
+#endif
     unsigned loops = 0;
     // Main loop, every 30 ms.
     while (true) {
@@ -2137,7 +2163,9 @@ DWORD WINAPI Run(void* address) {
             summary.keyIdentityMatch = false;
             UpdateSelection(summary);
         }
+#ifdef PYWEL_ATLAS_DEV
         // F7 only counts while the game window is in front, once per press.
+        // Development builds only (v0.129): the release has no F7 at all.
         DWORD foreground = 0;
         GetWindowThreadProcessId(GetForegroundWindow(), &foreground);
         bool f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
@@ -2205,6 +2233,7 @@ DWORD WINAPI Run(void* address) {
             f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
         }
         previousF7 = f7;
+#endif
         Sleep(30);
     }
 }

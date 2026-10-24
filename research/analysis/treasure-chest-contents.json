@@ -4,7 +4,7 @@
    "named": 189,
    "no spawn reason": 1,
    "named without item type": 10,
-   "named without description": 7
+   "named without description": 0
   },
   "Abyss Chest": {
    "no item row": 50,
@@ -13,7 +13,7 @@
    "named without description": 0
   },
   "itemRows": 6813,
-  "englishTexts": 13293
+  "englishTexts": 13575
  },
  "categories": {
   "Chest": [
@@ -389,7 +389,7 @@
     "equipTypeKey": null,
     "itemType": null,
     "descriptionId": "4306868650377329",
-    "description": null
+    "description": "A book containing knowledge on crafting Aeserion gear."
    },
    {
     "name": "Delesyia chest 2",
@@ -1951,7 +1951,7 @@
     "equipTypeKey": 1334259611,
     "itemType": "Large Shield",
     "descriptionId": "1247700884390001",
-    "description": null
+    "description": "A shield crafted from the rugged bark of an ancient tree. On a battlefield where a split-second decision determines life or death, ornate decorations are a mere luxury. It was crafted after the legend of a brave king who, when his shield shattered in combat, snatched up a piece of oak to continue the fight."
    },
    {
     "name": "Hernand chest 12",
@@ -2633,7 +2633,7 @@
     "equipTypeKey": 2667368044,
     "itemType": "Armor",
     "descriptionId": "477462924361841",
-    "description": null
+    "description": "A plate armor named after Ashad, an orc wanderer and freesword of the Crimson Desert. The delicate golden patterns etched upon the roughly forged, thick plates prove he was no mere barbarian. Its immense weight provides absolute stability, turning even a foe's mightiest blow into nothing more than a dull thud."
    },
    {
     "name": "Kweiden chest 15",
@@ -2721,7 +2721,7 @@
     "equipTypeKey": 3628286577,
     "itemType": "Gloves",
     "descriptionId": "4299262263296113",
-    "description": null
+    "description": "Special gloves designed to maximize friction on the palms. They are essential for rock climbing and serve as a lifeline when clinging to thrashing flying creatures. When worn with pairing boots that enhance grip, they allow the wearer to maintain a perfect stance, unbothered by even the most violent shake."
    },
    {
     "name": "Hernand cave chest 3",
@@ -3183,7 +3183,7 @@
     "equipTypeKey": 1963713749,
     "itemType": "Headgear",
     "descriptionId": "11167108243128433",
-    "description": null
+    "description": "A plate helm crafted to commemorate the construction of the Gate of Peace. A lush red plume rises from the golden headgear, making it stand out even from a distance. The visor conceals the wearer's expression to add a sense of gravity. It exudes a refined authority, whether on the battlefield or in a procession."
    },
    {
     "name": "Demeniss cave chest 6",
@@ -3271,7 +3271,7 @@
     "equipTypeKey": 3628286577,
     "itemType": "Gloves",
     "descriptionId": "519802711965809",
-    "description": null
+    "description": "Plate gloves once worn by Tristan, the Flame Knight. The sharp seams, crafted to mimic dragon claws, and the densely set metal studs are designed to parry enemy blades and provide a tight grip on one's weapon. Though blackened by countless battles, a lingering, ownerless warmth still dwells within the gloves."
    },
    {
     "name": "Hernand cave chest 13",
@@ -3535,7 +3535,7 @@
     "equipTypeKey": 3628286577,
     "itemType": "Gloves",
     "descriptionId": "519764057260145",
-    "description": null
+    "description": "Plate gloves worn by Skull Knight the Frostwarden. Black plates covering the back of the hand and long vambraces wrap firmly around the arms, their angular seams overlapping to an edge with every clench of the fists. A thin layer of frost clings to the surface, emitting a chilling aura at the slightest touch."
    },
    {
     "name": "Demeniss cave chest 10",

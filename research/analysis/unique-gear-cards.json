@@ -1,0 +1,444 @@
+{
+ "summary": {
+  "items": 43,
+  "cards": 43,
+  "withType": 41,
+  "withDescription": 43,
+  "withIcon": 43,
+  "statuses": {
+   "card": 43
+  }
+ },
+ "items": [
+  {
+   "name": "Golden Sword",
+   "itemKey": 1001524,
+   "itemName": "Golden_OneHandSword",
+   "english": "Golden Sword",
+   "itemType": "Sword",
+   "description": "A sword made of gold. Easily mistaken for a decorative piece, it is still fully usable as a weapon.",
+   "iconName": "ItemIcon_Prefab_cd_phm_01_sword_0166_index01_r",
+   "status": "card"
+  },
+  {
+   "name": "Constellation Helm",
+   "itemKey": 1000102,
+   "itemName": "Anamorphic_PlateArmor_Helm",
+   "english": "Constellation Helm",
+   "itemType": "Headgear",
+   "description": "A helm crafted at the Scholastone to research constellations. It allows the wearer to observe the beautiful stars that adorn the night sky. The deeper the darkness and the clearer the sky, the easier it is to find traces of starlight; in open areas with minimal light, one can just barely discern the outlines of hidden constellations.",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0389_F",
+   "status": "card"
+  },
+  {
+   "name": "Plate Helm of the Shadows",
+   "itemKey": 1000380,
+   "itemName": "DarknessKing_PlateArmor_Helm",
+   "english": "Plate Helm of the Shadows",
+   "itemType": "Headgear",
+   "description": "A plate helm once worn by Beloth, the Darksworn. An iron chain veil hangs beneath a faded crown, concealing the face to project a grotesque sense of intimidation. Every breath exhaled through the links instantly turns to frost, while a black chill lingers behind the veil, capable of freezing even the soul. Can be used to create a zone of ice.",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_death_knight_hel_0001_f",
+   "status": "card"
+  },
+  {
+   "name": "Brimstone Gas Mask",
+   "itemKey": 1000073,
+   "itemName": "Gas_Mask_Helm_I",
+   "english": "Brimstone Gas Mask",
+   "itemType": "Headgear",
+   "description": "Crude protective gear crafted from canvas soaked in a special neutralizer and fitted with airtight goggles. It perfectly filters out dense brimstone fumes and volcanic ash. This equipment ensures safe breathing and clear vision even in active volcanoes thick with the smoke of death, or in highly toxic wetlands.",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_01_0373_c",
+   "status": "card"
+  },
+  {
+   "name": "Circuit Hijacking Helm",
+   "itemKey": 1000202,
+   "itemName": "Hacking_PlateArmor_Helm",
+   "english": "Circuit Hijacking Helm",
+   "itemType": "Headgear",
+   "description": "A helm designed to detect and interfere with the flow of machinery. By unleashing subtle magnetic pulses, it disrupts the internal circuits of mechanical enemies and impairs their judgment.",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0399_c",
+   "status": "card"
+  },
+  {
+   "name": "Helm of Ignition",
+   "itemKey": 1000236,
+   "itemName": "Heat_PlateArmor_Helm",
+   "english": "Helm of Ignition",
+   "itemType": "Headgear",
+   "description": "A masterpiece for adventurers who finds even flint a nuisance. It detects and ignites nearby bonfires.",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0454_c",
+   "status": "card"
+  },
+  {
+   "name": "Helm of Knowledge",
+   "itemKey": 1000037,
+   "itemName": "Knowledge_PlateArmor_Helm",
+   "english": "Helm of Knowledge",
+   "itemType": "Headgear",
+   "description": "Helm crafted for the in-depth pursuit of knowledge. This tool is designed to decipher knowledge from a distance. When equipped, it allows the wearer to explore unknown knowledge from afar.",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0391_F",
+   "status": "card"
+  },
+  {
+   "name": "Marni Laser Helm",
+   "itemKey": 1001400,
+   "itemName": "Marni_Laser_Helm",
+   "english": "Marni Laser Helm",
+   "itemType": "Headgear",
+   "description": "An experimental plate helm designed by the genius Marni. The golden wings on either side accumulate energy to fire a destructive beam forward. However, due to its exceptionally long recharge time, it must be used sparingly for a decisive moment. Can use a beam attack.",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0363_c",
+   "status": "card"
+  },
+  {
+   "name": "Health Detection Device",
+   "itemKey": 1001236,
+   "itemName": "Scouter_HP_PlateArmor_Helm",
+   "english": "Health Detection Device",
+   "itemType": "Headgear",
+   "description": "A scouting helm integrated with unknown technology. The lenses allow the wearer to see through the target's state. Displays the {Staticinfo:Knowledge:Knowledge_Hp#Health} of nearby targets.",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0399_index01_c",
+   "status": "card"
+  },
+  {
+   "name": "Witters Plate Helm",
+   "itemKey": 2101011,
+   "itemName": "Witters_PlateArmor_Helm",
+   "english": "Witters Plate Helm",
+   "itemType": "Headgear",
+   "description": "A radiant helm discovered deep within a coastal cave. It bears an intimidating design, appearing as if a massive fish is swallowing the wearer's head. Despite being abandoned in damp caves for ages, it remains untarnished by rust, maintaining a brilliant, ethereal luster.",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_sir_catfish_hel_00_0001_i",
+   "status": "card"
+  },
+  {
+   "name": "Drake Shield",
+   "itemKey": 290021,
+   "itemName": "AbyssReward_Drake_Metal_OneHandShield",
+   "english": "Drake Shield",
+   "itemType": "Shield",
+   "description": "A shield once used by Tristan, the Flame Knight. It bears a device shaped like some unknown creature. It can unleash the force of the attacks the shield absorbed as fire.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_Shield_0101",
+   "status": "card"
+  },
+  {
+   "name": "Shotgun Shield",
+   "itemKey": 1001305,
+   "itemName": "Gun_OneHandShield",
+   "english": "Shotgun Shield",
+   "itemType": "Shield",
+   "description": "A shield that can absorb and store impact. It can use the force of the attacks the shield absorbed as a detonator for its shotgun.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_Shield_0134",
+   "status": "card"
+  },
+  {
+   "name": "Runewalker Shield",
+   "itemKey": 1000201,
+   "itemName": "LakeGolem_OnehandShield",
+   "english": "Runewalker Shield",
+   "itemType": "Shield",
+   "description": "A shield made from a piece of Vordis, the Runewalker's head after defeating it. It can unleash the force of the attacks the shield absorbed as a powerful pulse.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_Shield_0132",
+   "status": "card"
+  },
+  {
+   "name": "Shield of Ringing",
+   "itemKey": 1000125,
+   "itemName": "Sound_OneHandShield",
+   "english": "Shield of Ringing",
+   "itemType": "Shield",
+   "description": "A shield that can absorb and store impact. It can unleash the force of the attacks the shield absorbed as noise to temporarily deafen enemies.",
+   "iconName": "ItemIcon_Prefab_cd_phm_03_shield_0135",
+   "status": "card"
+  },
+  {
+   "name": "Gale Shield",
+   "itemKey": 1001192,
+   "itemName": "Wind_Power_OneHandShield",
+   "english": "Gale Shield",
+   "itemType": "Shield",
+   "description": "A shield that can absorb and store impact. It can unleash the force of the attacks the shield absorbed as wind.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_Shield_0133",
+   "status": "card"
+  },
+  {
+   "name": "Bismuth Spear",
+   "itemKey": 1001251,
+   "itemName": "Bismuth_TwoHandSpear",
+   "english": "Bismuth Spear",
+   "itemType": "Two-Handed Spear",
+   "description": "A spear made from bismuth ore. When struck, crystals grow through the victim's veins, turning the body rigid as stone and greatly slowing movement. A brief recharge time is required after an attack.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Spear_0114",
+   "status": "card"
+  },
+  {
+   "name": "Thorn of Dark Pursuit",
+   "itemKey": 310028,
+   "itemName": "DarkLeader_TwoHandGiantSpear",
+   "english": "Thorn of Dark Pursuit",
+   "itemType": "Two-Handed Spear",
+   "description": "A massive spear once wielded by Antumbra's Spear, one of Antumbra's three great deacons. A thorny ring stands out just beneath the blade. With this spear, Antumbra's Spear pierced souls to offer them to the darkness.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Spear_0021",
+   "status": "card"
+  },
+  {
+   "name": "Disruptor Spear",
+   "itemKey": 1001212,
+   "itemName": "EMP_TwoHandSpear",
+   "english": "Disruptor Spear",
+   "itemType": "Two-Handed Spear",
+   "description": "A spear crafted to prevent machine from overloading and going haywire. Swinging it unleashes an electromagnetic pulse that disrupts a machine's function.",
+   "iconName": "ItemIcon_Prefab_cd_phm_02_spear_0113",
+   "status": "card"
+  },
+  {
+   "name": "Flame Spear",
+   "itemKey": 1000451,
+   "itemName": "Fire_staff_spear_TwoHandSpear",
+   "english": "Flame Spear",
+   "itemType": "Two-Handed Spear",
+   "description": "A spear that spits fire. Designed by an engineer inspired by fire-breathing dragons, it was forged not merely to stab a single foe, but to face many at once. Fitted with a fuel tank, it can be used longer than the blazing spear.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Spear_0044",
+   "status": "card"
+  },
+  {
+   "name": "Diverging Moon",
+   "itemKey": 15706,
+   "itemName": "Legendary_Moonhead_01_TwoHandGiantSpear",
+   "english": "Diverging Moon",
+   "itemType": "Two-Handed Spear",
+   "description": "A spear once wielded by the New Moon Reaper of the Lunar Reapers. Its razor-sharp point is flanked by twin crescent-shaped blades, designed so that once it pierces you, you can't pull free.",
+   "iconName": "ItemIcon_Prefab_cd_phm_02_spear_0036",
+   "status": "card"
+  },
+  {
+   "name": "Circling Moon",
+   "itemKey": 15707,
+   "itemName": "Legendary_Moonhead_02_TwoHandGiantSpear",
+   "english": "Circling Moon",
+   "itemType": "Two-Handed Spear",
+   "description": "A spear once wielded by the Full Moon Reaper of the Lunar Reapers. Its short spearhead juts out, and behind it sits a circular ring-shaped blade that allows natural transition between slashing and stabbing.",
+   "iconName": "ItemIcon_Prefab_cd_phm_02_spear_0037",
+   "status": "card"
+  },
+  {
+   "name": "Grasping Moon",
+   "itemKey": 15702,
+   "itemName": "Legendary_Moonhead_TwoHandGiantSpear",
+   "english": "Grasping Moon",
+   "itemType": "Two-Handed Spear",
+   "description": "A spear once wielded by the Half Moon Reaper of the Lunar Reapers. Instead of a typical spearhead, it bears a massive half-moon blade, making it better suited for slashing and sweeping strikes than stabbing.",
+   "iconName": "ItemIcon_Prefab_cd_phm_02_spear_0027",
+   "status": "card"
+  },
+  {
+   "name": "Frostfang",
+   "itemKey": 15703,
+   "itemName": "Legendary_OwenCraber_TwoHandGiantSpear",
+   "english": "Frostfang",
+   "itemType": "Two-Handed Spear",
+   "description": "A spear once wielded by Gwen Kraber, captain of the Wolf Trackers. Its tip is long and straight, like the fang of a beast. With a steady grip, she would drive it in to take the life of her prey.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Spear_0119",
+   "status": "card"
+  },
+  {
+   "name": "Lightning Spear",
+   "itemKey": 1001163,
+   "itemName": "Lightning_TwoHandSpear",
+   "english": "Lightning Spear",
+   "itemType": "Two-Handed Spear",
+   "description": "A lightning spear crafted in Delesyia. Electricity runs along the tip, shocking anyone it pierces.",
+   "iconName": "ItemIcon_Prefab_cd_phm_02_spear_0029",
+   "status": "card"
+  },
+  {
+   "name": "Soul Spear",
+   "itemKey": 1001188,
+   "itemName": "Soul_TwoHandSpear",
+   "english": "Soul Spear",
+   "itemType": "Two-Handed Spear",
+   "description": "A spear forged from souls harvested by the followers of Antumbra.<br/>Delivering a finishing blow releases the trapped spirits within, eroding the sanity of nearby enemies. Requires a brief cooldown after an attack.",
+   "iconName": "ItemIcon_Prefab_cd_phm_02_spear_0021_index01",
+   "status": "card"
+  },
+  {
+   "name": "Propeller Spear",
+   "itemKey": 1001193,
+   "itemName": "Wind_TwoHandSpear",
+   "english": "Propeller Spear",
+   "itemType": "Two-Handed Spear",
+   "description": "A wind spear that unleashes powerful gusts. The thruster at the tip rapidly compresses the surrounding air, blasting out a fierce gust of wind when striking an enemy.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Spear_0050",
+   "status": "card"
+  },
+  {
+   "name": "Acria Sword",
+   "itemKey": 200919,
+   "itemName": "Archria_OneHandSword",
+   "english": "Acria Sword",
+   "itemType": "Sword",
+   "description": "A mysterious curved sword imbued with a radiant golden glow. Much like the history of the Crimson Desert, shrouded in mystery to outsiders, this weapon is equally enigmatic. Its ornate patterns and bizarre embellishments suggest the blade was forged for ritualistic purposes.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0076_R",
+   "status": "card"
+  },
+  {
+   "name": "Knightlord's Sword",
+   "itemKey": 200052,
+   "itemName": "Knight_King_OneHandSword",
+   "english": "Knightlord's Sword",
+   "itemType": "Sword",
+   "description": "An exquisite sword etched with intricate patterns along its blade. Once the weapon of a legendary hero who fought to protect the joy of the people. The current scabbard is a later addition; it was famously paired with an original matching scabbard that has since been lost to time. Though it possesses the elegance of a ceremonial piece, its edge remains surprisingly keen.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0038",
+   "status": "card"
+  },
+  {
+   "name": "Fated Shadow",
+   "itemKey": 1000578,
+   "itemName": "Old_Kliff_OneHandSword",
+   "english": "Fated Shadow",
+   "itemType": "Sword",
+   "description": "Goyen's sword. Traces of time it endured can be seen all over, yet its edge is honed sharper than any other blade. Some things only grow tougher the more they're worn. Enlightenment will begin where the swords of past and present cross.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0168",
+   "status": "card"
+  },
+  {
+   "name": "Spada Sword",
+   "itemKey": 200917,
+   "itemName": "Spada_OneHandSword",
+   "english": "Spada Sword",
+   "itemType": "Sword",
+   "description": "A sword that slew the Flame Dragon. Originally an honorable heirloom passed down through generations of Urdavah's Dragon Knights, it was turned to serve a new master after Tristan betrayed his homeland.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0039",
+   "status": "card"
+  },
+  {
+   "name": "Arben Greatsword",
+   "itemKey": 1002104,
+   "itemName": "Arven_Giant_TwoHandGiantBastard",
+   "english": "Arben Greatsword",
+   "itemType": "Giant Longsword",
+   "description": "A folding greatsword made by House Spencer. As the house faded into history, the arms it created scattered across Pywel through countless channels. Built with a special mechanism, the blade can be folded for carrying when not in use.",
+   "iconName": "ItemIcon_Prefab_CD_PHW_02_Sword_0005",
+   "status": "card"
+  },
+  {
+   "name": "Lubricant Sprayer",
+   "itemKey": 1003751,
+   "itemName": "Oil_Sprayer_BackPack",
+   "english": "Lubricant Sprayer",
+   "itemType": "Sprayer Pack",
+   "description": "A tool used to spray industrial lubricant onto machines. After filling the reservoir with lubricant, it can be applied wherever needed to reduce friction between mechanical parts and prevent breakdowns.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Bag_0070",
+   "status": "card"
+  },
+  {
+   "name": "Myurdin's Ring",
+   "itemKey": 1005406,
+   "itemName": "LaveMyurdin_Ring",
+   "english": "Myurdin's Ring",
+   "itemType": null,
+   "description": "The signet ring of the Black Bear leader. Corrosion has eaten through the metal from within, fusing it to the finger, and its once-distinct crest has melted beyond recognition.",
+   "iconName": "ItemIcon_Prefab_cd_t0000_lavemyurdin_ring_0001",
+   "status": "card"
+  },
+  {
+   "name": "Fertilizer Sprayer",
+   "itemKey": 1003750,
+   "itemName": "Fertilizer_Sprayer_BackPack",
+   "english": "Fertilizer Sprayer",
+   "itemType": "Sprayer Pack",
+   "description": "A tool used to provide rich nutrients to crops. After filling the reservoir with fertilizer, it can be sprayed in any place. It may emit a distinct foul odor, but it is all for the sake of growing healthy crops.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Bag_0068",
+   "status": "card"
+  },
+  {
+   "name": "Mask of the Devil of the Reed Field",
+   "itemKey": 1000234,
+   "itemName": "ReedDevil_Mask",
+   "english": "Mask of the Devil of the Reed Field",
+   "itemType": null,
+   "description": "Mask left behind by Count Grace's bastard son, who claimed to be the incarnation of the Devil of the Reed Field. It was neatly laid in its master's house.",
+   "iconName": "ItemIcon_Prefab_cd_t0000_reeddevil_mask_0001",
+   "status": "card"
+  },
+  {
+   "name": "Dewhaven Shotgun",
+   "itemKey": 370002,
+   "itemName": "Alida_OneHandShotgun",
+   "english": "Dewhaven Shotgun",
+   "itemType": "Shotgun",
+   "description": "A shotgun with a simple appearance. However, unlike the plain exterior, it was elaborately crafted with sturdy parts. While the technicians of Dewhaven are not uninterested in decorating the appearance of weapons, they prioritize practicality above all else.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_07_Shotgun_0089",
+   "status": "card"
+  },
+  {
+   "name": "Shadow of the Past Pistol",
+   "itemKey": 270011,
+   "itemName": "Alida_Restraint_OneHandPistol",
+   "english": "Shadow of the Past Pistol",
+   "itemType": "Pistol",
+   "description": "A pistol used by the Masked Liberator. When she thought no one was watching, she would occasionally draw the pistol and whisper with a sorrowful voice. While it is unknown what secrets it may have heard, the only answer the pistol can offer is a gunshot that blooms death.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_06_Pistol_0089",
+   "status": "card"
+  },
+  {
+   "name": "Serdin Greatsword",
+   "itemKey": 1002102,
+   "itemName": "Serdin_Giant_TwoHandGiantBastard",
+   "english": "Serdin Greatsword",
+   "itemType": "Giant Longsword",
+   "description": "A folding greatsword made by House Spencer. Purged in the name of the cause, the house has had all records and history erased. Built with a special mechanism, the blade can be folded for carrying when not in use.",
+   "iconName": "ItemIcon_Prefab_CD_PHW_02_Sword_0003",
+   "status": "card"
+  },
+  {
+   "name": "Verak Greatsword",
+   "itemKey": 1002106,
+   "itemName": "Verak_Giant_TwoHandGiantBastard",
+   "english": "Verak Greatsword",
+   "itemType": "Giant Longsword",
+   "description": "A folding greatsword made by House Spencer. Made with experimental techniques, it is not easy to handle—likely usable properly only by members of the house. Built with a special mechanism, the blade can be folded for carrying when not in use.",
+   "iconName": "ItemIcon_Prefab_CD_PHW_02_Sword_0007",
+   "status": "card"
+  },
+  {
+   "name": "Double-Headed Axe of Greed",
+   "itemKey": 12600,
+   "itemName": "Legendary_CaptainGoblin_OneHandAxe",
+   "english": "Double-Headed Axe of Greed",
+   "itemType": "Axe",
+   "description": "A double-edged axe specially ordered by Sizlek, the Insatiable. Though crafted to be light enough for one-handed use, it is more than capable of delivering a fatal attack. It vanished during transit.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_AXE_0046_R",
+   "status": "card"
+  },
+  {
+   "name": "Kadel Mace",
+   "itemKey": 220002,
+   "itemName": "Kadel_OneHandMace",
+   "english": "Kadel Mace",
+   "itemType": "Mace",
+   "description": "A practical mace made at a workshop in Demeniss. Its bud-shaped iron head delivers powerful impact to a single point, and the leather-wrapped grip prevents slipping even on long marches.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Mace_0036_R",
+   "status": "card"
+  },
+  {
+   "name": "Bleed Shotgun",
+   "itemKey": 370006,
+   "itemName": "Walter_OneHandShotgun",
+   "english": "Bleed Shotgun",
+   "itemType": "Shotgun",
+   "description": "A shotgun crafted by a technician of the Bleed Bandits. When their leader Walter Lanford ordered a flashy yet highly lethal shotgun, this prototype was hastily crafted. Though not exceptional, its performance was good enough to spare the technician from Walter's temper.",
+   "iconName": "ItemIcon_Prefab_cd_phm_07_shotgun_0006_index01",
+   "status": "card"
+  },
+  {
+   "name": "Hyde Crossbow",
+   "itemKey": 320001,
+   "itemName": "Hyde_OneHandCrossBow",
+   "english": "Hyde Crossbow",
+   "itemType": "Crossbow",
+   "description": "A crossbow built for durability and reliability. Exceptionally durable and unlikely to malfunction, it delivers steady performance even in harsh battlefield conditions. Its versatility makes it a fine choice as a main weapon in a wide range of combat situations.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_05_CrossBow_0001",
+   "status": "card"
+  }
+ ]
+}

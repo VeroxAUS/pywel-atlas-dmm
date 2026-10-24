@@ -21,6 +21,8 @@
 //     F6  load the marker JSON (NativeMarkerDefinition.cpp) and request creation.
 //     F7  read the selected save (NativeSaveReader.cpp) and enable Bell tracking.
 //     F8  write a diagnostic snapshot and briefly capture render state.
+//     (v0.129: F7 and F8 exist only in development builds, PYWEL_ATLAS_DEV;
+//     the release build has no F7 / F8 and no detailed log at all.)
 //     F9  choose which save slot to read.
 //     F10 stop generation and request removal.
 // - If the save says the Hernand Bell is completed, the worker requests removal
@@ -167,12 +169,16 @@ DWORD WINAPI Run(void* address) {
     wcscat_s(definitionPath, L"\\native-map-marker.json");
     wchar_t runtimeDirectory[MAX_PATH] = {};
     wcscpy_s(runtimeDirectory, path);
+#ifdef PYWEL_ATLAS_DEV
+    // The detailed log; the release build has none, so Log() writes nothing.
     wcscat_s(path, L"\\native-map-categories.log");
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
-#ifdef PYWEL_ATLAS_COMBINED
-    Log("Pywel Atlas combined v0.122 map markers (v0.122: no map-marker change (map code split into files); v0.121: no map-marker change (route line on its own canvases); v0.120: our markers share one zoom size curve (the Sealed Abyss Artifact's: 1.0 zoomed in to 0.7 zoomed out) instead of each icon type's own, so they stay the same size while zooming; v0.119: markers on / off keys rebindable in the panel's Keys section, keybinds.ini saved here; v0.118: no map-marker change (route line fixes only); v0.117: our markers' pictures get the class \"pywel-marker\" so the UI add-on v0.84 can give every category the same visible size (the game's own icons unchanged); markers load all at once: while any are missing, each map update checks every marker and creates as many as fit in 3 ms, instead of one per update; v0.116: no map-marker change (completion widget default place only); v0.115: route line on the minimap's own canvas too, called after each minimap update; v0.114: Constellation markers (13, game test icon type 409 with the Pywel Atlas star picture from the UI add-on v0.82, hidden once their challenge mission is completed); v0.113: no map-marker change (completion widget placement only); v0.112: unique gear markers open a knowledge card (item name, picture, stats, description) like the chests, and their label is just the item name; Defense Efficiency stat rows get the guard icon (UI add-on v0.81); v0.111: route line on the world map's own canvas, called after each world-map update; v0.110: completion tracker: per-region collected counts for the filter panel and the always-on widget (game regions, region-map.h), widget place and options in filters.ini; v0.109: chest card stat lines restyled like the inventory tooltip (style 3: two-column stat rows with stat icons, effect lines in the buff style with their own game icon, needs UI add-on v0.80), no blank lines; Vigor effect fixed (buff levels matched by number); v0.108: unique gear markers (chest icon type 226, 43 one-of-a-kind items, hidden once collected: reward items when their reward stage is completed, ground and quest items when picked up); v0.107: route line drawn with small stop dots and hidden on the world map while a knowledge card is open (route files only); Abyss Cresset hover text is just \"Abyss Cresset\"; v0.106: chest and Abyss chest knowledge cards list the item base stats (Attack, Defense, stat levels, gear effects) in the inventory tooltip font, siphon gear with a one-line explanation; v0.105: Abyss Cresset markers (game icon type 340, 101 cressets, hidden once their challenge mission is completed; F8 catalogue also lists the StandStone icons); v0.104: route line support: route stops (spots shown and not done, unknown or quest-locked) and read-only world-map and minimap view copies for the route overlay; v0.103: chest and Abyss chest card icons get a size class (pywel-icon-60..90, drawn by the UI add-on v0.79) so they look about the same size; v0.102: Abyss chest labels name their item; Abyss chests open the knowledge card (item, description, also-contains, item icon); v0.101: Abyss chests behind a quest stay hidden until it is done (quest pass over QuestSaveData); chest card picture via the name-copy hook 0x3d5f80, since 0x388e00 differed in memory; v0.100: chest knowledge cards show the item's inventory icon (stringinfo row swap at the card's picture lookup, name-checked); v0.99: Hernand strongbox 1 (sliding jigsaw) is an empty decoy: no marker, not counted; v0.98: our knowledge cards get their whole description as markup, one line per part with real line breaks (artifact steps and reward, recipe lines); v0.97: Abyss-island Nexus markers use the surface Nexus icon (type 234; type 235 followed the map camera); v0.96: knowledge card markup observation, logs only (format-text 0x647cb0, set-markup 0x3ed7f90 inside the card layout); v0.95: Abyss-island Nexus markers (type 235, 51 on the Abyss map, hidden once activated; the 2 Nexuses at Kliff's houses join the surface Nexuses, now 215); v0.94: lines inside a card paragraph joined with a middle dot (the card shows no line breaks); v0.93: Sealed Abyss Artifact markers open a knowledge card (challenge name, steps, reward); v0.92: chest card description as two paragraphs (item type, item text), no markup, generic chest paragraph blanked; v0.91: chest markers with a known item open the map's knowledge card (Treasure Chest card, item name as title, type and item description); v0.90: Sealed Abyss Artifact save read fixed (it rejected saves with two field containers, so every artifact was unknown); v0.89: knowledge card observation, logs only: focus fields, card fill, knowledge key, card layout texts; v0.88: Sealed Abyss Artifact markers (type 187, 141 artifacts, hidden once picked up; tooltip with the artifact's name); v0.87: chest contents on a second map-label line through <br>; v0.86: map tooltip texts on one line; Bells and Nexuses show their name only; v0.85: map tooltips for our markers (chest contents, Bell/shrine names, Nexus) through the game's own map label; v0.84: map tooltip observation, phase 0: logs tooltip text requests and map focus changes, no visible change; v0.83: Abyss Nexus markers turned off in the panel or with F10 are hidden with the game's own hide-reason function (bit 23) instead of removed, and shown again when turned on; read-only observation: layer settings of our icon types, hide bits of our world-map markers right after creation, Abyss Nexus hide-bit changes by name, 4 watched Nexus, 2 chest and 2 Abyss chest markers per round at 3 s / 10 s and on layer changes, with picture objects, container-list check and raw copies; markers on the world map and the minimap; surface Abyss Nexus markers (game icon type 234) until activated; minimap markers created with their own number and adopted once the game has built them; Greymane Shrine markers on, world map needs the Shrine Icons file mod; F8 lists icon types with a world-map look; game type 186/40/41 creations logged, our own markers left out of the sample list) - one native Bell icon (type 360) per not-completed Bell, one chest icon (type 226) per not-opened chest of the game's dedicated chest levels, caves/dungeons, puzzle strongboxes and house chests (190 chests; strongboxes from the save's field-object list, unknown ones hidden) and one chest icon (type 226) per not-opened Abyss chest (74, Abyss map layer) in the detected save, shown at every map zoom (zoom limit off on our own markers only); Greymane Shrine markers on (game shrine icon, type 186); up to 256 markers per category, checked 32 per map update (all of them while any are missing); F10 hides all, F6 shows again. A failed marker is retried every 5 s without blocking others. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap, world-create records (ours and the game's own shrine/Bell icons)");
-#else
+#endif
+#if defined(PYWEL_ATLAS_COMBINED) && defined(PYWEL_ATLAS_DEV)
+    // The version and change list (development builds only, v0.129).
+    Log("Pywel Atlas combined 0.28.0 map markers (v0.133: no map-marker change (route only); v0.132: height arrows on the world map within 300 m (cleared past 330 m), the minimap keeps 50 m; v0.131: no map-marker change (route fix only); v0.130: no map-marker change (route only); v0.129: no map-marker change (release build without debug tools: F7, F8, the diagnostics and this log only in development builds); v0.128: height arrows only on markers within 50 m of the player on the ground (cleared past 55 m); v0.127: no map-marker change (launch crash fix in the route log; mod-wide: string overflows no longer end the game); v0.126: up / down arrow on our markers more than 10 m above / below the player (cleared under 8 m; none across the surface / Abyss layer), on the world map and the minimap, needs UI add-on v0.88; v0.125: no map-marker change (panel tabs and keys only); v0.124: no map-marker change (route line fixes only); v0.122: no map-marker change (map code split into files); v0.121: no map-marker change (route line on its own canvases); v0.120: our markers share one zoom size curve (the Sealed Abyss Artifact's: 1.0 zoomed in to 0.7 zoomed out) instead of each icon type's own, so they stay the same size while zooming; v0.119: markers on / off keys rebindable in the panel's Keys section, keybinds.ini saved here; v0.118: no map-marker change (route line fixes only); v0.117: our markers' pictures get the class \"pywel-marker\" so the UI add-on v0.84 can give every category the same visible size (the game's own icons unchanged); markers load all at once: while any are missing, each map update checks every marker and creates as many as fit in 3 ms, instead of one per update; v0.116: no map-marker change (completion widget default place only); v0.115: route line on the minimap's own canvas too, called after each minimap update; v0.114: Constellation markers (13, game test icon type 409 with the Pywel Atlas star picture from the UI add-on v0.82, hidden once their challenge mission is completed); v0.113: no map-marker change (completion widget placement only); v0.112: unique gear markers open a knowledge card (item name, picture, stats, description) like the chests, and their label is just the item name; Defense Efficiency stat rows get the guard icon (UI add-on v0.81); v0.111: route line on the world map's own canvas, called after each world-map update; v0.110: completion tracker: per-region collected counts for the filter panel and the always-on widget (game regions, region-map.h), widget place and options in filters.ini; v0.109: chest card stat lines restyled like the inventory tooltip (style 3: two-column stat rows with stat icons, effect lines in the buff style with their own game icon, needs UI add-on v0.80), no blank lines; Vigor effect fixed (buff levels matched by number); v0.108: unique gear markers (chest icon type 226, 43 one-of-a-kind items, hidden once collected: reward items when their reward stage is completed, ground and quest items when picked up); v0.107: route line drawn with small stop dots and hidden on the world map while a knowledge card is open (route files only); Abyss Cresset hover text is just \"Abyss Cresset\"; v0.106: chest and Abyss chest knowledge cards list the item base stats (Attack, Defense, stat levels, gear effects) in the inventory tooltip font, siphon gear with a one-line explanation; v0.105: Abyss Cresset markers (game icon type 340, 101 cressets, hidden once their challenge mission is completed; F8 catalogue also lists the StandStone icons); v0.104: route line support: route stops (spots shown and not done, unknown or quest-locked) and read-only world-map and minimap view copies for the route overlay; v0.103: chest and Abyss chest card icons get a size class (pywel-icon-60..90, drawn by the UI add-on v0.79) so they look about the same size; v0.102: Abyss chest labels name their item; Abyss chests open the knowledge card (item, description, also-contains, item icon); v0.101: Abyss chests behind a quest stay hidden until it is done (quest pass over QuestSaveData); chest card picture via the name-copy hook 0x3d5f80, since 0x388e00 differed in memory; v0.100: chest knowledge cards show the item's inventory icon (stringinfo row swap at the card's picture lookup, name-checked); v0.99: Hernand strongbox 1 (sliding jigsaw) is an empty decoy: no marker, not counted; v0.98: our knowledge cards get their whole description as markup, one line per part with real line breaks (artifact steps and reward, recipe lines); v0.97: Abyss-island Nexus markers use the surface Nexus icon (type 234; type 235 followed the map camera); v0.96: knowledge card markup observation, logs only (format-text 0x647cb0, set-markup 0x3ed7f90 inside the card layout); v0.95: Abyss-island Nexus markers (type 235, 51 on the Abyss map, hidden once activated; the 2 Nexuses at Kliff's houses join the surface Nexuses, now 215); v0.94: lines inside a card paragraph joined with a middle dot (the card shows no line breaks); v0.93: Sealed Abyss Artifact markers open a knowledge card (challenge name, steps, reward); v0.92: chest card description as two paragraphs (item type, item text), no markup, generic chest paragraph blanked; v0.91: chest markers with a known item open the map's knowledge card (Treasure Chest card, item name as title, type and item description); v0.90: Sealed Abyss Artifact save read fixed (it rejected saves with two field containers, so every artifact was unknown); v0.89: knowledge card observation, logs only: focus fields, card fill, knowledge key, card layout texts; v0.88: Sealed Abyss Artifact markers (type 187, 141 artifacts, hidden once picked up; tooltip with the artifact's name); v0.87: chest contents on a second map-label line through <br>; v0.86: map tooltip texts on one line; Bells and Nexuses show their name only; v0.85: map tooltips for our markers (chest contents, Bell/shrine names, Nexus) through the game's own map label; v0.84: map tooltip observation, phase 0: logs tooltip text requests and map focus changes, no visible change; v0.83: Abyss Nexus markers turned off in the panel or with F10 are hidden with the game's own hide-reason function (bit 23) instead of removed, and shown again when turned on; read-only observation: layer settings of our icon types, hide bits of our world-map markers right after creation, Abyss Nexus hide-bit changes by name, 4 watched Nexus, 2 chest and 2 Abyss chest markers per round at 3 s / 10 s and on layer changes, with picture objects, container-list check and raw copies; markers on the world map and the minimap; surface Abyss Nexus markers (game icon type 234) until activated; minimap markers created with their own number and adopted once the game has built them; Greymane Shrine markers on, world map needs the Shrine Icons file mod; F8 lists icon types with a world-map look; game type 186/40/41 creations logged, our own markers left out of the sample list) - one native Bell icon (type 360) per not-completed Bell, one chest icon (type 226) per not-opened chest of the game's dedicated chest levels, caves/dungeons, puzzle strongboxes and house chests (190 chests; strongboxes from the save's field-object list, unknown ones hidden) and one chest icon (type 226) per not-opened Abyss chest (74, Abyss map layer) in the detected save, shown at every map zoom (zoom limit off on our own markers only); Greymane Shrine markers on (game shrine icon, type 186); up to 256 markers per category, checked 32 per map update (all of them while any are missing); F10 hides all, F6 shows again. A failed marker is retried every 5 s without blocking others. Observation: zoom windows per icon type, map zoom on F8, player position from the minimap, world-create records (ours and the game's own shrine/Bell icons)");
+#elif !defined(PYWEL_ATLAS_COMBINED)
     Log("Pywel Atlas selected-save refresh proof v0.32 - F9 selects a slot; F7 enables Bell tracking");
 #endif
     // Check the game executable's build timestamp and size from its PE header
@@ -184,12 +190,14 @@ DWORD WINAPI Run(void* address) {
     if (pe->FileHeader.TimeDateStamp != kExpectedTimestamp ||
         pe->OptionalHeader.SizeOfImage != kExpectedImageSize) {
         Log("Unsupported executable; no hooks installed.");
+        PywelReleaseLog("Map markers: unsupported game version; markers are off.");
         return 0;
     }
     // Guard bytes: every hooked or called site must still contain the expected code.
     for (const auto& site : kInspectSites) {
         if (memcmp(base + site.rva, site.context, sizeof(site.context)) != 0) {
             Log("Native entry changed; no hooks installed.");
+            PywelReleaseLog("Map markers: game code changed (guard bytes); markers are off.");
             return 0;
         }
     }
@@ -233,6 +241,8 @@ DWORD WINAPI Run(void* address) {
             static_cast<unsigned long long>(kInspectSites[siteIndex].rva), MH_StatusToString(status));
         Log(line);
         if (status != MH_OK) {
+            PywelReleaseLog("Map markers: could not create a hook (%s); markers are off.",
+                MH_StatusToString(status));
 #ifdef PYWEL_ATLAS_COMBINED
             // Shared MinHook: remove only the hooks this part created.
             for (unsigned created = 0; created < index; ++created) {
@@ -256,6 +266,8 @@ DWORD WINAPI Run(void* address) {
 #endif
     if (status != MH_OK) {
         Log(MH_StatusToString(status));
+        PywelReleaseLog("Map markers: could not switch on the hooks (%s); markers are off.",
+            MH_StatusToString(status));
         return 0;
     }
 #ifdef PYWEL_ATLAS_COMBINED
@@ -266,19 +278,24 @@ DWORD WINAPI Run(void* address) {
     InstallTooltipHook(base);
     InstallCardHooks(base);
 #endif
+    PywelReleaseLog("Map markers started.");
+#ifdef PYWEL_ATLAS_DEV
     Log("F6 requests one private chest for 3 minutes; open Pywel. No reload or saved pin is needed.");
     Log("F8 captures state. F10 disables and requests removal; keep/open Pywel to service it. Save identity is manual.");
+#endif
     // previousFx: was the key down on the last loop? A key "press" is down now
     // but not before, so holding a key does not repeat its action.
     bool previousF6 = false;
+#ifdef PYWEL_ATLAS_DEV
     bool previousF8 = false;
     bool previousF7 = false;
+    bool renderWindowPending = false;
+#endif
     bool previousF9 = false;
     bool previousF10 = false;
 #ifndef PYWEL_ATLAS_COMBINED
     ULONGLONG generationDeadline = 0; // Proof chest's 3-minute limit (not used combined).
 #endif
-    bool renderWindowPending = false;
     LONG lastRemovalOutcome = 0;
     LONG lastCreationOutcome = 0;
     // All selection/reader state belongs to this worker. Slot changes disable
@@ -334,7 +351,10 @@ DWORD WINAPI Run(void* address) {
         Drain();
 #ifdef PYWEL_ATLAS_COMBINED
         UpdateMarkers(markers);
+#ifdef PYWEL_ATLAS_DEV
+        // v0.80 layer observation, logs only (development builds, v0.129).
         LogLayerObservation();
+#endif
         InterlockedExchange(&markersEnabled, markers.enabled ? 1 : 0);
         // v0.64: save changed panel choices, at most once a second.
         if (InterlockedCompareExchange(&filtersDirty, 0, 0) && GetTickCount64() >= nextFiltersSave) {
@@ -348,26 +368,37 @@ DWORD WINAPI Run(void* address) {
         if (GetTickCount64() >= nextKeysSave) {
             if (!PywelKeybindsSaveIfDirty()) {
                 Log("keybinds.ini could not be written; trying again in a second.");
+                // The player log gets this once a session, not every second.
+                static bool keysErrorLogged = false;
+                if (!keysErrorLogged) {
+                    keysErrorLogged = true;
+                    PywelReleaseLog("Could not save keybinds.ini; key changes may be lost.");
+                }
             }
             nextKeysSave = GetTickCount64() + 1000;
         }
+#ifdef PYWEL_ATLAS_DEV
         // v0.53 observation: zoom records and player position (F8 also logs
         // the position at once; see the F8 block below).
         LogZoomAndPosition(false);
         // v0.57 observation: why world-icon creations are refused.
         LogWorldCreates();
 #endif
+#endif
         // Hotkeys count only while the game window is in front.
         DWORD foreground = 0;
         GetWindowThreadProcessId(GetForegroundWindow(), &foreground);
         bool focused = foreground == GetCurrentProcessId();
         bool f6 = (GetAsyncKeyState(VK_F6) & 0x8000) != 0;
+#ifdef PYWEL_ATLAS_DEV
+        // F7 / F8: development builds only (v0.129); the release reads neither.
         bool f8 = (GetAsyncKeyState(VK_F8) & 0x8000) != 0;
         bool f7 = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
 #ifdef PYWEL_ATLAS_COMBINED
         // Combined build: plain F7 is the save-detection checkpoint, so this
         // part's "read the selected save" action moves to Shift+F7.
         f7 = f7 && (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+#endif
 #endif
         bool f9 = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
         bool f10 = (GetAsyncKeyState(VK_F10) & 0x8000) != 0;
@@ -586,6 +617,7 @@ DWORD WINAPI Run(void* address) {
             }
             lastCreationOutcome = creation;
         }
+#ifdef PYWEL_ATLAS_DEV
         // --- F8: open a 2-second render capture window and log all counters. ---
         if (f8 && !previousF8 && focused) {
             InterlockedExchange64(&renderCaptureDeadline, static_cast<LONG64>(GetTickCount64() + 2000));
@@ -636,9 +668,10 @@ DWORD WINAPI Run(void* address) {
                 InterlockedCompareExchange(&privateScaleCalls, 0, 0));
             Log(line);
         }
-        previousF6 = f6;
         previousF8 = f8;
         previousF7 = f7;
+#endif
+        previousF6 = f6;
         previousF9 = f9;
         previousF10 = f10;
         Sleep(30);

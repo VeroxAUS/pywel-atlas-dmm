@@ -1,0 +1,2492 @@
+[
+ {
+  "level": "sector_-39_-17_indoor_1_1",
+  "uuid": [
+   654084621,
+   1591218399,
+   1281807315
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "grace_Build_0001_Phase00_00",
+  "uuid": [
+   711354178,
+   1591218452,
+   1006787795
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-21_indoor_2_1",
+  "uuid": [
+   209184485,
+   2084309409,
+   3105509695
+  ],
+  "gimmickKey": 1002888,
+  "alias": null
+ },
+ {
+  "level": "SplitHorn_Boss_Ibano_GoatThief_Item",
+  "uuid": [
+   2085193321,
+   352325930,
+   19981917
+  ],
+  "gimmickKey": 18010001,
+  "alias": "Mission_SplitHorn_Boss_Ibano_FirstMeet_0001"
+ },
+ {
+  "level": "Mission_GreymaneCamp_Contents_WagonTheft",
+  "uuid": [
+   3676143890,
+   1591218527,
+   1281807315
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_GreymaneCamp_Contents_WagonTheft_YannPaper"
+ },
+ {
+  "level": "sector_-42_-21_indoor_1_5",
+  "uuid": [
+   680445476,
+   3947892910,
+   3021822454
+  ],
+  "gimmickKey": 1002882,
+  "alias": null
+ },
+ {
+  "level": "sector_-38_-23_indoor_1_0",
+  "uuid": [
+   1101887598,
+   4279243086,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-41_-16_sub_2_7",
+  "uuid": [
+   393428824,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-47_3_sub_1_3",
+  "uuid": [
+   4040192167,
+   4279243134,
+   1617652448
+  ],
+  "gimmickKey": 1008474,
+  "alias": null
+ },
+ {
+  "level": "sector_-43_-14_sub_2_7",
+  "uuid": [
+   1290934004,
+   3204976890,
+   2972427960
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-36_-8_sub_1_2",
+  "uuid": [
+   1564479720,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_DelesyiaCastle_Forex",
+  "uuid": [
+   2238810574,
+   1445990766,
+   1420103439
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DelesyiaCastle_Forex_Paper"
+ },
+ {
+  "level": "sector_-42_-21_indoor_1_2",
+  "uuid": [
+   680444952,
+   3947892910,
+   3021822454
+  ],
+  "gimmickKey": 1002888,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_-21_indoor_2_0",
+  "uuid": [
+   4122789188,
+   4279242757,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   1079529957,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 1000287,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_IV_Evidence_0000"
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   1079527049,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 1006864,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_IV_Evidence_0001"
+ },
+ {
+  "level": "sector_-43_-16_sub_3_32",
+  "uuid": [
+   4090533008,
+   783552101,
+   1788231065
+  ],
+  "gimmickKey": 1002543,
+  "alias": null
+ },
+ {
+  "level": "sector_-43_-16_sub_3_32",
+  "uuid": [
+   2625838155,
+   1591217329,
+   3947466451
+  ],
+  "gimmickKey": 1002843,
+  "alias": null
+ },
+ {
+  "level": "sector_-43_-16_sub_3_35",
+  "uuid": [
+   2691958755,
+   1591217329,
+   3947466451
+  ],
+  "gimmickKey": 1002843,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-21_sub_2_6",
+  "uuid": [
+   1403234560,
+   1450446583,
+   1056489532
+  ],
+  "gimmickKey": 1001681,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-21_sub_2_7",
+  "uuid": [
+   2371636591,
+   4279242482,
+   164962784
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-35_-19_indoor_3_0",
+  "uuid": [
+   1419671968,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_-20_sub_2_3",
+  "uuid": [
+   940626533,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "04_aka_her_drain_01",
+  "uuid": [
+   4022944061,
+   1450446864,
+   1681732668
+  ],
+  "gimmickKey": 1002889,
+  "alias": null
+ },
+ {
+  "level": "04_aka_her_drain_01",
+  "uuid": [
+   4022943972,
+   1450446864,
+   1681732668
+  ],
+  "gimmickKey": 1002887,
+  "alias": null
+ },
+ {
+  "level": "Mission_ScholarStoneInstitute_All_Start",
+  "uuid": [
+   1807622891,
+   4279242947,
+   4258537952
+  ],
+  "gimmickKey": 1005671,
+  "alias": null
+ },
+ {
+  "level": "sector_-47_-19_sub_2_2",
+  "uuid": [
+   1994893390,
+   1450446578,
+   2218603580
+  ],
+  "gimmickKey": 1001012,
+  "alias": null
+ },
+ {
+  "level": "Mission_HernandCastle_Bruna",
+  "uuid": [
+   217455317,
+   1445990766,
+   1420103439
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_HernandCastle_Bruna_Paper"
+ },
+ {
+  "level": "sector_-42_-16_sub_3_56",
+  "uuid": [
+   1014894479,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-38_-12_indoor_2_0",
+  "uuid": [
+   77889204,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-45_-3",
+  "uuid": [
+   926821682,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "TrollUniversity_Brain_Lost_MasterGrundir_Phase00_00",
+  "uuid": [
+   965301119,
+   1450447582,
+   912704316
+  ],
+  "gimmickKey": 1006866,
+  "alias": "book_folktales_Nuclear"
+ },
+ {
+  "level": "sector_-42_-16_sub_2_13",
+  "uuid": [
+   1471927761,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-16_indoor_1_5",
+  "uuid": [
+   508086524,
+   1591218712,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   1140798261,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 1006864,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_V_Evidence_0001"
+ },
+ {
+  "level": "sector_-42_-16_sub_3_56",
+  "uuid": [
+   436771588,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   998201853,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 18010020,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_II_Evidence_0000"
+ },
+ {
+  "level": "sector_-39_0_indoor_2_8",
+  "uuid": [
+   3642102632,
+   1450447515,
+   2909694524
+  ],
+  "gimmickKey": 1006866,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0144_Phase00_00",
+  "uuid": [
+   1997421994,
+   1591218657,
+   1179029203
+  ],
+  "gimmickKey": 1001461,
+  "alias": null
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   1140795364,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 1001009,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_V_Evidence_0002"
+ },
+ {
+  "level": "sector_-43_-16_indoor_1_1",
+  "uuid": [
+   3081224520,
+   1591218341,
+   3740195795
+  ],
+  "gimmickKey": 1002843,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_4_sub_2_3",
+  "uuid": [
+   1541835521,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-43_-15_indoor_1_9",
+  "uuid": [
+   4168698305,
+   1591218483,
+   3947466451
+  ],
+  "gimmickKey": 1002889,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-21_indoor_1_5",
+  "uuid": [
+   2365406318,
+   4279242482,
+   164962784
+  ],
+  "gimmickKey": 18050001,
+  "alias": null
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   867880355,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 1000375,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_I_Evidence_0000"
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   867877581,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 18010020,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_I_Evidence_0001"
+ },
+ {
+  "level": "sector_-42_-15_sub_3_0",
+  "uuid": [
+   400816582,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "03_cd_dungeon_21_dungeon",
+  "uuid": [
+   1403720911,
+   1591218565,
+   1150148307
+  ],
+  "gimmickKey": 1010239,
+  "alias": null
+ },
+ {
+  "level": "Mission_Varnia_FriendNews",
+  "uuid": [
+   4269684869,
+   1445990767,
+   1420103439
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_Varnia_FriendNews_Paper"
+ },
+ {
+  "level": "sector_-42_-21_indoor_1_4",
+  "uuid": [
+   680445367,
+   3947892910,
+   3021822454
+  ],
+  "gimmickKey": 1002882,
+  "alias": null
+ },
+ {
+  "level": "grace_Build_0001_Phase00_00",
+  "uuid": [
+   1329336304,
+   1450447099,
+   1681732668
+  ],
+  "gimmickKey": 1001683,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-21_indoor_1_2",
+  "uuid": [
+   680444970,
+   3947892910,
+   3021822454
+  ],
+  "gimmickKey": 1002888,
+  "alias": null
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   1140798217,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 1001073,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_V_Evidence_0000"
+ },
+ {
+  "level": "sector_-42_-21_indoor_2_1",
+  "uuid": [
+   209449555,
+   2084309409,
+   3105509695
+  ],
+  "gimmickKey": 1002889,
+  "alias": null
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   1039882422,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 1000887,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_III_Evidence_0000"
+ },
+ {
+  "level": "sector_-42_-21_indoor_1_3",
+  "uuid": [
+   680445267,
+   3947892910,
+   3021822454
+  ],
+  "gimmickKey": 1002888,
+  "alias": null
+ },
+ {
+  "level": "Mission_GoldleafGuildhouse_Purge_Normal_Start",
+  "uuid": [
+   1039878255,
+   4279243102,
+   4258537952
+  ],
+  "gimmickKey": 18010020,
+  "alias": "GoldleafGuildhouse_Purge_Normal_Find_III_Evidence_0001"
+ },
+ {
+  "level": "GraymaneCamp_0001_Phase01_01",
+  "uuid": [
+   1889475364,
+   1450447107,
+   2543175484
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-16_sub_3_56",
+  "uuid": [
+   672423190,
+   4279243072,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-15_sub_3_4",
+  "uuid": [
+   447453342,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-16_sub_3_45",
+  "uuid": [
+   451492688,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "04_aka_Dungeon_03_Dungeon_04",
+  "uuid": [
+   556267680,
+   1591218563,
+   3740195795
+  ],
+  "gimmickKey": 1003717,
+  "alias": null
+ },
+ {
+  "level": "sector_-48_-22_sub_3_37",
+  "uuid": [
+   4090417097,
+   4279242757,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0144_Phase00_00",
+  "uuid": [
+   2447869685,
+   1591218657,
+   1179029203
+  ],
+  "gimmickKey": 1001460,
+  "alias": null
+ },
+ {
+  "level": "04_aka_Dungeon_11_Dungeon",
+  "uuid": [
+   746727112,
+   1591218563,
+   3740195795
+  ],
+  "gimmickKey": 1008474,
+  "alias": null
+ },
+ {
+  "level": "Mission_DelesyiaCastle_Maiden",
+  "uuid": [
+   1772447086,
+   1450447218,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DelesyiaCastle_Maiden_Paper"
+ },
+ {
+  "level": "sector_-44_-18_sub_3_12",
+  "uuid": [
+   329016485,
+   1450446627,
+   1056489532
+  ],
+  "gimmickKey": 1001012,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-21_indoor_1_4",
+  "uuid": [
+   2364820812,
+   1450446977,
+   3472670780
+  ],
+  "gimmickKey": 18050001,
+  "alias": null
+ },
+ {
+  "level": "sector_-32_-14_sub_2_3",
+  "uuid": [
+   733450392,
+   4279243058,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_OakenshieldManor_Serkis_Clue_Start",
+  "uuid": [
+   1915352700,
+   4279243023,
+   164962784
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_OakenshieldManor_Serkis_Clue_Clue_1"
+ },
+ {
+  "level": "sector_-44_-9_sub_1_1",
+  "uuid": [
+   256354243,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_OakenshieldManor_Serkis_Clue_Start",
+  "uuid": [
+   1915353765,
+   4279243023,
+   164962784
+  ],
+  "gimmickKey": 1001009,
+  "alias": "Mission_OakenshieldManor_Serkis_Clue_Piece_1"
+ },
+ {
+  "level": "sector_-34_-12_indoor_1_4",
+  "uuid": [
+   612890449,
+   1591218714,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "SplitHorn_Boss_UnexpectedGift_Phase00_00",
+  "uuid": [
+   518943484,
+   1450447599,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_SplitHorn_Boss_UnexpectedGift_HuntingMap"
+ },
+ {
+  "level": "Mission_OakenshieldManor_Serkis_Clue_Start",
+  "uuid": [
+   2100848911,
+   4279243023,
+   164962784
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_OakenshieldManor_Serkis_Clue_Clue_2"
+ },
+ {
+  "level": "sector_-33_-13_indoor_1_1",
+  "uuid": [
+   277319377,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 1001012,
+  "alias": null
+ },
+ {
+  "level": "sector_-34_-12_indoor_1_4",
+  "uuid": [
+   545713340,
+   1591218714,
+   1150148307
+  ],
+  "gimmickKey": 1006866,
+  "alias": null
+ },
+ {
+  "level": "sector_-46_-17_sub_1_2",
+  "uuid": [
+   475481685,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 1006866,
+  "alias": null
+ },
+ {
+  "level": "Mission_OakenshieldManor_Serkis_Clue_Start",
+  "uuid": [
+   2100848308,
+   4279243023,
+   164962784
+  ],
+  "gimmickKey": 1001009,
+  "alias": "Mission_OakenshieldManor_Serkis_Clue_Piece_2"
+ },
+ {
+  "level": "sector_-42_-15_sub_3_15",
+  "uuid": [
+   1250559971,
+   4279243112,
+   3429722848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-44_3_sub_1_1",
+  "uuid": [
+   459114673,
+   4279243108,
+   1617652448
+  ],
+  "gimmickKey": 1010102,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0002_Phase00_00_sub_1_0",
+  "uuid": [
+   1113044403,
+   1591218663,
+   1150148307
+  ],
+  "gimmickKey": 1010301,
+  "alias": "Alustin_Journal_Book_IV"
+ },
+ {
+  "level": "Mission_OakenshieldManor_Serkis_Clue_Start",
+  "uuid": [
+   2125919880,
+   4279243023,
+   164962784
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_OakenshieldManor_Serkis_Clue_Clue_3"
+ },
+ {
+  "level": "Mission_OakenshieldManor_Serkis_Clue_Start",
+  "uuid": [
+   2125919398,
+   4279243023,
+   164962784
+  ],
+  "gimmickKey": 1001009,
+  "alias": "Mission_OakenshieldManor_Serkis_Clue_Piece_3"
+ },
+ {
+  "level": "Mission_OakenshieldManor_Serkis_Clue_Start",
+  "uuid": [
+   2138622836,
+   4279243023,
+   164962784
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_OakenshieldManor_Serkis_Clue_Clue_4"
+ },
+ {
+  "level": "Mission_OakenshieldManor_Serkis_Clue_Start",
+  "uuid": [
+   2138624105,
+   4279243023,
+   164962784
+  ],
+  "gimmickKey": 1001009,
+  "alias": "Mission_OakenshieldManor_Serkis_Clue_Piece_4"
+ },
+ {
+  "level": "sector_-34_-9_sub_2_9",
+  "uuid": [
+   1599366496,
+   1450447277,
+   1450142268
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-41_-24_sub_3_36",
+  "uuid": [
+   737660407,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_-17_sub_2_13",
+  "uuid": [
+   1180505121,
+   2969309401,
+   2519699166
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-45_-18_sub_2_0",
+  "uuid": [
+   954940278,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-41_-24_indoor_2_3",
+  "uuid": [
+   2921626665,
+   1591218333,
+   1982440659
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Factory_Chocolate_0001_Phase00_00",
+  "uuid": [
+   236054139,
+   1450447245,
+   2241251132
+  ],
+  "gimmickKey": 1008570,
+  "alias": null
+ },
+ {
+  "level": "AbyssCore_Demeniss_0001_Phase00_00",
+  "uuid": [
+   3501797955,
+   1450447105,
+   912704316
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "sector_-18_-16_sub_3_50",
+  "uuid": [
+   217752860,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Quest_MarniDragon_Boss_DemenissLetter_Item",
+  "uuid": [
+   1024704494,
+   4279242473,
+   164962784
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-22_-11_sub_3_35",
+  "uuid": [
+   4025680034,
+   1450447256,
+   1450142268
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-38_-8_sub_2_9",
+  "uuid": [
+   1334997714,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_DemenissCastle_FieldVoice",
+  "uuid": [
+   442200306,
+   1450447216,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DemenissCastle_FieldVoice_Paper"
+ },
+ {
+  "level": "sector_-34_-12_indoor_2_5",
+  "uuid": [
+   3233083290,
+   1450446974,
+   1494999100
+  ],
+  "gimmickKey": 1002544,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_-20_sub_3_38",
+  "uuid": [
+   184985451,
+   4279243104,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "ReedDevil_Boss_Village_Mask_Item",
+  "uuid": [
+   3881567421,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "Mission_HernandCastle_Adelina",
+  "uuid": [
+   461406925,
+   1450447218,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_HernandCastle_Adelina_Paper"
+ },
+ {
+  "level": "sector_-42_-15_sub_3_19",
+  "uuid": [
+   441435388,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-45_-2_sub_3_10",
+  "uuid": [
+   4205066305,
+   4279242757,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_0_indoor_1_1",
+  "uuid": [
+   4237708908,
+   4279242757,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-51_-13_sub_1_3",
+  "uuid": [
+   169351710,
+   1450446981,
+   1140703292
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_Pailune_Aldred",
+  "uuid": [
+   1792328253,
+   1450447216,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_Pailune_Aldred_Paper"
+ },
+ {
+  "level": "sector_-36_-5_indoor_2_0",
+  "uuid": [
+   2236412,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-22_-1_sub_3_30",
+  "uuid": [
+   2955182145,
+   4279242975,
+   1617652448
+  ],
+  "gimmickKey": 1002618,
+  "alias": null
+ },
+ {
+  "level": "sector_-20_-6_sub_3_18",
+  "uuid": [
+   3553404495,
+   4279242975,
+   1617652448
+  ],
+  "gimmickKey": 1002629,
+  "alias": null
+ },
+ {
+  "level": "sector_-36_-5_sub_3_60",
+  "uuid": [
+   4276231785,
+   4279242757,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-22_-4_sub_3_15",
+  "uuid": [
+   3969741199,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0002_Phase00_00_sub_1_0",
+  "uuid": [
+   1116762541,
+   1591218663,
+   1150148307
+  ],
+  "gimmickKey": 1010301,
+  "alias": "Alustin_Journal_Book_VI"
+ },
+ {
+  "level": "sector_-34_-12_indoor_1_4",
+  "uuid": [
+   612545097,
+   1591218714,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-32_-15_sub_1_0",
+  "uuid": [
+   4116789952,
+   1450447606,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "CastleGrant_Node_Dem_Flame_Knights_0001_Phase00_00",
+  "uuid": [
+   3662790016,
+   1591218713,
+   1150148307
+  ],
+  "gimmickKey": 1001012,
+  "alias": null
+ },
+ {
+  "level": "04_aka_dungeon_witch_0001",
+  "uuid": [
+   3054703794,
+   1450447515,
+   2909694524
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "sector_-41_-14_sub_1_0",
+  "uuid": [
+   1489443766,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_Varnia_BoundbyLies",
+  "uuid": [
+   249691068,
+   1445990770,
+   1420103439
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_Varnia_BoundbyLies_Paper"
+ },
+ {
+  "level": "sector_-43_5_indoor_1_1",
+  "uuid": [
+   4216702960,
+   4279242757,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Quest_Node_Crim_HyenaDen_All",
+  "uuid": [
+   3478770293,
+   2969309246,
+   2519699166
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0079_Phase00_00_sub_1_1",
+  "uuid": [
+   3808659426,
+   4279243176,
+   3429722848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-21_-2_indoor_3_1",
+  "uuid": [
+   2972197478,
+   4279242975,
+   1617652448
+  ],
+  "gimmickKey": 1002619,
+  "alias": null
+ },
+ {
+  "level": "sector_-18_-15_indoor_1_8",
+  "uuid": [
+   241079405,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-23_-16_sub_3_2",
+  "uuid": [
+   29024211,
+   1450447516,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-37_-6_indoor_1_4",
+  "uuid": [
+   508563934,
+   3947892910,
+   3021822454
+  ],
+  "gimmickKey": 1002557,
+  "alias": null
+ },
+ {
+  "level": "sector_-47_-19_sub_3_14",
+  "uuid": [
+   4107217141,
+   4279243089,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_DelesyiaInstitute_Clue_Start",
+  "uuid": [
+   4183021615,
+   4279243035,
+   164962784
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DelesyiaInstitute_Clue_ResearchPaper"
+ },
+ {
+  "level": "Mission_Friendly_Legendary_Black_Lion",
+  "uuid": [
+   2064896532,
+   4279243122,
+   4258537952
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_Friendly_Legendary_Black_Lion_2"
+ },
+ {
+  "level": "sector_-26_-1_sub_3_33",
+  "uuid": [
+   274317668,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-26_-8_indoor_1_8",
+  "uuid": [
+   913738459,
+   4279243046,
+   1126394848
+  ],
+  "gimmickKey": 1008474,
+  "alias": null
+ },
+ {
+  "level": "Mission_DemenissCastle_Flint",
+  "uuid": [
+   2973972506,
+   1445990770,
+   1420103439
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DemenissCastle_Flint_Paper"
+ },
+ {
+  "level": "sector_-21_-6_sub_3_25",
+  "uuid": [
+   4159598760,
+   1591218304,
+   2990706131
+  ],
+  "gimmickKey": 1004807,
+  "alias": null
+ },
+ {
+  "level": "sector_-45_3_sub_3_30",
+  "uuid": [
+   3115627566,
+   4279242472,
+   164962784
+  ],
+  "gimmickKey": 18050001,
+  "alias": null
+ },
+ {
+  "level": "02_kwe_dungeon_13_dungeon",
+  "uuid": [
+   189403777,
+   1591218639,
+   3947466451
+  ],
+  "gimmickKey": 1010234,
+  "alias": null
+ },
+ {
+  "level": "Demeniss_Build_0004_Phase02_00",
+  "uuid": [
+   1745568787,
+   4279243046,
+   1126394848
+  ],
+  "gimmickKey": 1008474,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_-1_sub_3_27",
+  "uuid": [
+   4264601451,
+   4279242757,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-28_-16_sub_3_39",
+  "uuid": [
+   1248806753,
+   1450447609,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-46_1_sub_1_0",
+  "uuid": [
+   1505041530,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "AbyssCore_Demeniss_0001_Phase00_00",
+  "uuid": [
+   699969186,
+   1591218452,
+   1006787795
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_0_indoor_2_9",
+  "uuid": [
+   4251305281,
+   4279242757,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "AbyssCore_Demeniss_0001_Phase00_00",
+  "uuid": [
+   703582090,
+   1591218452,
+   1006787795
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "AbyssCore_Demeniss_0001_Phase00_00",
+  "uuid": [
+   696897921,
+   1591218452,
+   1006787795
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "Mission_DelesyiaCastle_Randel",
+  "uuid": [
+   1572533735,
+   1445990780,
+   1420103439
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DelesyiaCastle_Randel_Paper"
+ },
+ {
+  "level": "AbyssCore_CrimsonDesert_0001_Phase00_00",
+  "uuid": [
+   4247745113,
+   1450447105,
+   912704316
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "sector_-28_-16_sub_3_39",
+  "uuid": [
+   1250777731,
+   1450447609,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "CastleGrant_Node_Dem_Flame_Knights_0001_Phase00_00",
+  "uuid": [
+   3268450087,
+   1450447367,
+   1494999100
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "Mission_ThornRoseFort_Block_Start",
+  "uuid": [
+   3054328117,
+   1591218373,
+   1281807315
+  ],
+  "gimmickKey": 18050001,
+  "alias": null
+ },
+ {
+  "level": "03_cd_dungeon_0002",
+  "uuid": [
+   441827198,
+   1591218563,
+   1150148307
+  ],
+  "gimmickKey": 1008474,
+  "alias": null
+ },
+ {
+  "level": "02_kwe_dungeon_13_dungeon",
+  "uuid": [
+   187623585,
+   1591218639,
+   3947466451
+  ],
+  "gimmickKey": 1010236,
+  "alias": null
+ },
+ {
+  "level": "02_kwe_dungeon_13_dungeon",
+  "uuid": [
+   192221299,
+   1591218639,
+   3947466451
+  ],
+  "gimmickKey": 1010235,
+  "alias": null
+ },
+ {
+  "level": "sector_-44_2_sub_3_13",
+  "uuid": [
+   45647228,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-23_-8_indoor_2_0",
+  "uuid": [
+   254668343,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "02_kwe_dungeon_13_dungeon",
+  "uuid": [
+   2435545243,
+   4279243138,
+   2038457056
+  ],
+  "gimmickKey": 1002843,
+  "alias": null
+ },
+ {
+  "level": "DemenissCastle_Daily_TreasureBuried",
+  "uuid": [
+   3120032836,
+   4279243021,
+   4258537952
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "02_kwe_dungeon_13_dungeon",
+  "uuid": [
+   188053049,
+   1591218639,
+   3947466451
+  ],
+  "gimmickKey": 1010237,
+  "alias": null
+ },
+ {
+  "level": "Quest_BloodCoronation_PlaceOutOfLight_Item",
+  "uuid": [
+   479059799,
+   1450446963,
+   1056489532
+  ],
+  "gimmickKey": 1006866,
+  "alias": null
+ },
+ {
+  "level": "Mission_HernandCastle_Harveston",
+  "uuid": [
+   2837972294,
+   1450447218,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_HernandCastle_Harveston_Paper"
+ },
+ {
+  "level": "Mission_DemenissCastle_Fiona",
+  "uuid": [
+   2982405087,
+   1445990768,
+   1420103439
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DemenissCastle_Fiona_Paper"
+ },
+ {
+  "level": "sector_-32_-14_sub_3_56",
+  "uuid": [
+   911540506,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mission_DemenissCastle_RacingStage",
+  "uuid": [
+   1476139303,
+   1450447228,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DemenissCastle_RacingStage_Paper"
+ },
+ {
+  "level": "AbyssIsland_0083_Phase00_00",
+  "uuid": [
+   1381615289,
+   3204976890,
+   2972427960
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "02_kwe_Dungeon_02_Dungeon",
+  "uuid": [
+   382376370,
+   1591218559,
+   1150148307
+  ],
+  "gimmickKey": 1008474,
+  "alias": null
+ },
+ {
+  "level": "Mission_DelesyiaInstitute_Clue_Start",
+  "uuid": [
+   4153211258,
+   4279243035,
+   164962784
+  ],
+  "gimmickKey": 18010001,
+  "alias": "Mission_DelesyiaInstitute_Clue_CrimWeapon"
+ },
+ {
+  "level": "sector_-19_-17_sub_3_54",
+  "uuid": [
+   796250903,
+   4279243082,
+   1126394848
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "AbyssCore_Delesyia_0001_Phase00_00",
+  "uuid": [
+   2428900116,
+   1591218429,
+   1006787795
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "AbyssCore_Delesyia_0001_Phase00_00",
+  "uuid": [
+   2345398822,
+   1591218429,
+   1006787795
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "AbyssCore_Delesyia_0001_Phase00_00",
+  "uuid": [
+   2427058009,
+   1591218429,
+   1006787795
+  ],
+  "gimmickKey": 1002274,
+  "alias": null
+ },
+ {
+  "level": "sector_-26_-8_indoor_1_7",
+  "uuid": [
+   3889565206,
+   1591218715,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-20_-17_sub_2_0",
+  "uuid": [
+   205136902,
+   4279242758,
+   1617652448
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-37_-10_sub_1_0",
+  "uuid": [
+   1364323871,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0144_Phase00_00",
+  "uuid": [
+   1513712281,
+   1591218657,
+   1179029203
+  ],
+  "gimmickKey": 1001462,
+  "alias": null
+ },
+ {
+  "level": "Mission_DelesyiaCastle_Castiel",
+  "uuid": [
+   2038753518,
+   1445990772,
+   1420103439
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_DelesyiaCastle_Castiel_Paper"
+ },
+ {
+  "level": "sector_-18_-5_indoor_3_0",
+  "uuid": [
+   3325930449,
+   4279242975,
+   1617652448
+  ],
+  "gimmickKey": 1002625,
+  "alias": null
+ },
+ {
+  "level": "AbyssCore_Delesyia_0001_Phase00_00",
+  "uuid": [
+   640944215,
+   1591218452,
+   1006787795
+  ],
+  "gimmickKey": 1001459,
+  "alias": null
+ },
+ {
+  "level": "MarniDragon_Boss_MarniMeet_Gimmick",
+  "uuid": [
+   2477005731,
+   352325556,
+   2799997789
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "MarniDragon_Boss_MarniMeet_Gimmick",
+  "uuid": [
+   1963268002,
+   352325556,
+   2799997789
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "MarniDragon_Boss_Mansion",
+  "uuid": [
+   1897507195,
+   1450447105,
+   3472670780
+  ],
+  "gimmickKey": 1006864,
+  "alias": "MarniMansion_HyperSpace_Book"
+ },
+ {
+  "level": "02_kwe_dungeon_11_dungeon",
+  "uuid": [
+   4165486897,
+   1591218562,
+   1150148307
+  ],
+  "gimmickKey": 18020015,
+  "alias": null
+ },
+ {
+  "level": "sector_-26_-8_indoor_1_0",
+  "uuid": [
+   3839189923,
+   1591218715,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Calphade_After_Area_03_indoor_3_8",
+  "uuid": [
+   4020040759,
+   1591218713,
+   1150148307
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "sector_-31_-6_indoor_2_0",
+  "uuid": [
+   3728975701,
+   1591218839,
+   1150148307
+  ],
+  "gimmickKey": 1012128,
+  "alias": null
+ },
+ {
+  "level": "sector_-41_-13_sub_2_9",
+  "uuid": [
+   4024365469,
+   1450447375,
+   1681732668
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-36_-7_sub_1_2",
+  "uuid": [
+   1298962812,
+   1591218715,
+   1150148307
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "sector_-24_-5_indoor_2_0",
+  "uuid": [
+   2532049011,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 1006866,
+  "alias": null
+ },
+ {
+  "level": "sector_-45_-28_indoor_1_5",
+  "uuid": [
+   2713118707,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 1012492,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0002_Phase00_00_sub_1_0",
+  "uuid": [
+   1114915261,
+   1591218663,
+   1150148307
+  ],
+  "gimmickKey": 1010301,
+  "alias": "Alustin_Journal_Book_V"
+ },
+ {
+  "level": "sector_-18_-18_indoor_1_1",
+  "uuid": [
+   689117342,
+   1591218695,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0002_Phase00_00_sub_1_0",
+  "uuid": [
+   1110817941,
+   1591218663,
+   1150148307
+  ],
+  "gimmickKey": 1010301,
+  "alias": "Alustin_Journal_Book_III"
+ },
+ {
+  "level": "AbyssIsland_0002_Phase00_00_sub_1_0",
+  "uuid": [
+   1109053615,
+   1591218663,
+   1150148307
+  ],
+  "gimmickKey": 1010301,
+  "alias": "Alustin_Journal_Book_II"
+ },
+ {
+  "level": "sector_-26_-22_indoor_2_1",
+  "uuid": [
+   3984223620,
+   1450447612,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "SplitHorn_Boss_UnexpectedGift_Phase00_00",
+  "uuid": [
+   1241803322,
+   1450447598,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_SplitHorn_Boss_UnexpectedGift_WantedPaper_II"
+ },
+ {
+  "level": "SplitHorn_Boss_UnexpectedGift_Phase00_00",
+  "uuid": [
+   1238531039,
+   1450447598,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_SplitHorn_Boss_UnexpectedGift_WantedPaper_I"
+ },
+ {
+  "level": "sector_-34_-24_sub_2_12",
+  "uuid": [
+   1214558409,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 1001012,
+  "alias": null
+ },
+ {
+  "level": "sector_-47_-19_sub_2_2",
+  "uuid": [
+   1984220880,
+   1591218693,
+   1150148307
+  ],
+  "gimmickKey": 1010860,
+  "alias": null
+ },
+ {
+  "level": "sector_-34_-12_indoor_1_5",
+  "uuid": [
+   233537114,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "Crowman_Boss_WitchHouse_0001_Phase00_00",
+  "uuid": [
+   1000359332,
+   1450447424,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_Imp_Banquet_Boss_Battle_DemiansCall_UnSeal_Epistle"
+ },
+ {
+  "level": "sector_-32_-14_indoor_1_34",
+  "uuid": [
+   707348969,
+   1450447609,
+   2909694524
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "SplitHorn_Boss_UnexpectedGift_Phase00_00",
+  "uuid": [
+   1243287344,
+   1450447598,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_SplitHorn_Boss_UnexpectedGift_WantedPaper_III"
+ },
+ {
+  "level": "sector_-32_-14_indoor_1_2",
+  "uuid": [
+   1242113838,
+   1450447609,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-28_-16_sub_3_36",
+  "uuid": [
+   3940979255,
+   1450447612,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-28_-16_sub_3_36",
+  "uuid": [
+   2112389456,
+   1450447367,
+   1494999100
+  ],
+  "gimmickKey": 1006866,
+  "alias": null
+ },
+ {
+  "level": "sector_-44_-21_indoor_1_2",
+  "uuid": [
+   2144550988,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 1010860,
+  "alias": null
+ },
+ {
+  "level": "sector_-31_-15_indoor_1_2",
+  "uuid": [
+   3724010569,
+   1450447515,
+   2909694524
+  ],
+  "gimmickKey": 1006866,
+  "alias": null
+ },
+ {
+  "level": "sector_-31_-15_indoor_1_2",
+  "uuid": [
+   225877698,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-32_-18_sub_3_4",
+  "uuid": [
+   310194900,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "AbyssIsland_0002_Phase00_00_sub_1_0",
+  "uuid": [
+   1106943150,
+   1591218663,
+   1150148307
+  ],
+  "gimmickKey": 1010301,
+  "alias": "Alustin_Journal_Book_I"
+ },
+ {
+  "level": "sector_-28_-16_sub_3_38",
+  "uuid": [
+   3571264209,
+   1591218711,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-32_-18_sub_3_4",
+  "uuid": [
+   266978857,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "SplitHorn_Boss_UnexpectedGift_Phase00_00",
+  "uuid": [
+   1249049013,
+   1450447598,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": "Mission_SplitHorn_Boss_UnexpectedGift_WantedPaper_IV"
+ },
+ {
+  "level": "sector_-33_-13_indoor_1_1",
+  "uuid": [
+   282788663,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 1006866,
+  "alias": null
+ },
+ {
+  "level": "QuietSnowShelter_Block_Battle_Phase00_00",
+  "uuid": [
+   993217587,
+   1450447582,
+   912704316
+  ],
+  "gimmickKey": 1001012,
+  "alias": "book_folktales_Imp_Banquet"
+ },
+ {
+  "level": "sector_-33_-11_sub_3_35",
+  "uuid": [
+   4224332470,
+   1450447610,
+   1578688572
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-26_-8_indoor_1_0",
+  "uuid": [
+   3838571204,
+   1591218715,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-28_-16_sub_3_39",
+  "uuid": [
+   1219820262,
+   1450447609,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-32_-19_sub_3_58",
+  "uuid": [
+   3949813570,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "sector_-38_0_indoor_3_1",
+  "uuid": [
+   3575552517,
+   1450447515,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-32_-14_indoor_1_2",
+  "uuid": [
+   1193756107,
+   1450447609,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-18_-18_indoor_1_1",
+  "uuid": [
+   3442799467,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-32_-14_indoor_1_2",
+  "uuid": [
+   1242113530,
+   1450447609,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "02_kwe_Beighen_Dungeon_01",
+  "uuid": [
+   3902197605,
+   1591218712,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-41_-7_sub_2_3",
+  "uuid": [
+   3701848380,
+   1591218695,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Silver_Armor_Boss_Beacon_Phase00_00",
+  "uuid": [
+   1157977884,
+   1450447582,
+   912704316
+  ],
+  "gimmickKey": 1010860,
+  "alias": "book_folktales_CassiusMorten"
+ },
+ {
+  "level": "sector_-30_-18_sub_2_4",
+  "uuid": [
+   298085696,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-30_-18_sub_2_4",
+  "uuid": [
+   220057904,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_-10_sub_3_13",
+  "uuid": [
+   3450913386,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-39_-19_sub_2_0",
+  "uuid": [
+   1243575492,
+   1591218715,
+   1150148307
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "sector_-26_-8_indoor_1_0",
+  "uuid": [
+   4013481570,
+   1591218715,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "04_aka_dem_fort_0001_prison_01",
+  "uuid": [
+   4063363728,
+   1450447606,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-32_-15_sub_1_0",
+  "uuid": [
+   4122486177,
+   1450447606,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-33_-11_indoor_2_4",
+  "uuid": [
+   335242279,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-47_-19_sub_2_2",
+  "uuid": [
+   923034390,
+   1591218755,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-34_-10_sub_2_13",
+  "uuid": [
+   1624925032,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-22_-8_sub_3_9",
+  "uuid": [
+   2882107369,
+   1591218715,
+   1150148307
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "sector_-27_-1_sub_3_52",
+  "uuid": [
+   2580332870,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 1010860,
+  "alias": null
+ },
+ {
+  "level": "sector_-27_-1_sub_1_1",
+  "uuid": [
+   343872060,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 1010859,
+  "alias": null
+ },
+ {
+  "level": "sector_-27_-1_sub_3_30",
+  "uuid": [
+   455513648,
+   1591218840,
+   1150148307
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "sector_-22_-4_sub_3_15",
+  "uuid": [
+   3488810824,
+   1591218741,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-27_-1_indoor_1_1",
+  "uuid": [
+   502711808,
+   1591218758,
+   1150148307
+  ],
+  "gimmickKey": 1010860,
+  "alias": null
+ },
+ {
+  "level": "sector_-34_-12_indoor_1_4",
+  "uuid": [
+   612050083,
+   1591218714,
+   1150148307
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-26_-22_indoor_2_1",
+  "uuid": [
+   868900706,
+   1450447609,
+   2909694524
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "sector_-45_-3_indoor_1_0",
+  "uuid": [
+   3755944781,
+   1450447515,
+   2909694524
+  ],
+  "gimmickKey": 1006864,
+  "alias": null
+ },
+ {
+  "level": "sector_-46_-17_sub_1_2",
+  "uuid": [
+   458862965,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 1001012,
+  "alias": null
+ },
+ {
+  "level": "sector_-45_-12_sub_2_4",
+  "uuid": [
+   1521078379,
+   3222802591,
+   4221937741
+  ],
+  "gimmickKey": 18010020,
+  "alias": null
+ },
+ {
+  "level": "Mjordin_Boss_LavaMountain_Phase00_00",
+  "uuid": [
+   1125284047,
+   1450447582,
+   912704316
+  ],
+  "gimmickKey": 18010001,
+  "alias": "LaveMyurdin_Ring"
+ },
+ {
+  "level": "AbyssIsland_0079_Phase00_00_sub_1_1",
+  "uuid": [
+   592973478,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "sector_-35_-24_sub_3_45",
+  "uuid": [
+   3983232999,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "sector_-49_-2_sub_1_3",
+  "uuid": [
+   4071524969,
+   1450447580,
+   912704316
+  ],
+  "gimmickKey": 18010001,
+  "alias": null
+ },
+ {
+  "level": "sector_-42_-9_sub_2_13",
+  "uuid": [
+   448726338,
+   1450447607,
+   2909694524
+  ],
+  "gimmickKey": 1001009,
+  "alias": null
+ }
+]

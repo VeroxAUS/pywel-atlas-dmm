@@ -1,34 +1,675 @@
 {
-  "summary": "13 Constellations (landmark type 1000005, anamorphic_constellation), from static research on 2026-10-22/23. The exact positions were lost with that chat and must be re-derived.",
-  "constellations": [
-    { "index": 1, "name": "Shield", "region": "Demeniss" },
-    { "index": 2, "name": "Adventurer" },
-    {
-      "index": 3,
-      "name": "Wagon",
-      "note": "MapGenie does not name this point; matched by elimination"
-    },
-    { "index": 4, "name": "Hammer" },
-    { "index": 5, "name": "Woodland Spirit Owl" },
-    { "index": 6, "name": "Sealed Stone" },
-    { "index": 7, "name": "Ship" },
-    { "index": 8, "name": "Elephant" },
-    { "index": 9, "name": "Camel" },
-    { "index": 10, "name": "Goblin" },
-    { "index": 11, "name": "Black Dragon" },
-    { "index": 12, "name": "Giant" },
-    { "index": 13, "name": "Key" }
+ "constellations": [
+  {
+   "index": 1,
+   "level": "Anamorphic_0001_Phase00_00",
+   "uuid": [
+    1274387186,
+    3222802490,
+    1302046029
+   ],
+   "gamePosition": [
+    -8486.9,
+    614.44,
+    -1735.61
+   ],
+   "gameName": "Shield",
+   "mapGenieName": "Shield Constellation",
+   "mapGenieId": "mg:897965",
+   "region": "Demeniss",
+   "mapGenieDistance": 10.1,
+   "missionKey": 1001384,
+   "knowledgeKeys": [
+    1005371,
+    1001307
+   ]
+  },
+  {
+   "index": 2,
+   "level": "Anamorphic_0002_Phase00_00",
+   "uuid": [
+    155956618,
+    1591218237,
+    2842022867
+   ],
+   "gamePosition": [
+    -4794.33,
+    395.76,
+    -4570.07
+   ],
+   "gameName": "Adventurer",
+   "mapGenieName": "Adventurer Constellation",
+   "mapGenieId": "mg:897962",
+   "region": "Delesyia",
+   "mapGenieDistance": 18.8,
+   "missionKey": 1001385,
+   "knowledgeKeys": [
+    1005372,
+    1001308
+   ]
+  },
+  {
+   "index": 3,
+   "level": "Anamorphic_0003_Phase00_00",
+   "uuid": [
+    1530836982,
+    3222802492,
+    1302046029
+   ],
+   "gamePosition": [
+    -12419.73,
+    777.27,
+    -1168.91
+   ],
+   "gameName": "Wagon",
+   "mapGenieName": "Wagon Constellation",
+   "mapGenieId": "mg:606611",
+   "region": "Hernand",
+   "mapGenieDistance": 30.4,
+   "missionKey": 1001386,
+   "knowledgeKeys": [
+    1005373,
+    1001309
+   ]
+  },
+  {
+   "index": 4,
+   "level": "Anamorphic_0004_Phase00_00",
+   "uuid": [
+    2983628221,
+    3222802492,
+    1302046029
+   ],
+   "gamePosition": [
+    -8847.99,
+    712.12,
+    -1641.46
+   ],
+   "gameName": "Hammer",
+   "mapGenieName": "Hammer Constellation",
+   "mapGenieId": "mg:897966",
+   "region": "Demeniss",
+   "mapGenieDistance": 21.8,
+   "missionKey": 1001387,
+   "knowledgeKeys": [
+    1005374,
+    1001310
+   ]
+  },
+  {
+   "index": 5,
+   "level": "Anamorphic_0005_Phase00_00",
+   "uuid": [
+    2771255396,
+    3222802492,
+    1302046029
+   ],
+   "gamePosition": [
+    -11433.1,
+    738.16,
+    -96.26
+   ],
+   "gameName": "Treant_Owl",
+   "mapGenieName": "Woodland Spirit Owl Constellation",
+   "mapGenieId": "mg:897956",
+   "region": "Pailune",
+   "mapGenieDistance": 7.6,
+   "missionKey": 1001388,
+   "knowledgeKeys": [
+    1005375,
+    1001311
+   ]
+  },
+  {
+   "index": 6,
+   "level": "Anamorphic_0006_Phase00_00",
+   "uuid": [
+    4074257353,
+    4279242868,
+    1920976608
+   ],
+   "gamePosition": [
+    -11924.53,
+    843.32,
+    -5039.44
+   ],
+   "gameName": "Sealing_Stone",
+   "mapGenieName": "Sealed Stone Constellation",
+   "mapGenieId": "mg:897963",
+   "region": "Hernand",
+   "mapGenieDistance": 33.0,
+   "missionKey": 1001223,
+   "knowledgeKeys": [
+    1005376,
+    1001312
+   ]
+  },
+  {
+   "index": 7,
+   "level": "Anamorphic_0007_Phase00_00",
+   "uuid": [
+    3934297283,
+    4279242868,
+    1920976608
+   ],
+   "gamePosition": [
+    -5858.62,
+    396.4,
+    -5629.2
+   ],
+   "gameName": "Boat",
+   "mapGenieName": "Ship Constellation",
+   "mapGenieId": "mg:897957",
+   "region": "Delesyia",
+   "mapGenieDistance": 24.8,
+   "missionKey": 1001228,
+   "knowledgeKeys": [
+    1005377,
+    1001313
+   ]
+  },
+  {
+   "index": 8,
+   "level": "Anamorphic_0008_Phase00_00",
+   "uuid": [
+    3746664101,
+    4279242868,
+    1920976608
+   ],
+   "gamePosition": [
+    -5523.95,
+    552.44,
+    -4203.94
+   ],
+   "gameName": "Elephant",
+   "mapGenieName": "Elephant Constellation",
+   "mapGenieId": "mg:897961",
+   "region": "Delesyia",
+   "mapGenieDistance": 17.6,
+   "missionKey": 1001391,
+   "knowledgeKeys": [
+    1005378,
+    1001314
+   ]
+  },
+  {
+   "index": 9,
+   "level": "Anamorphic_0009_Phase00_00",
+   "uuid": [
+    4159773818,
+    4279242868,
+    1920976608
+   ],
+   "gamePosition": [
+    -7731.07,
+    696.4,
+    -90.95
+   ],
+   "gameName": "Camel",
+   "mapGenieName": "Camel Constellation",
+   "mapGenieId": "mg:897960",
+   "region": "Crimson Desert",
+   "mapGenieDistance": 8.6,
+   "missionKey": 1001392,
+   "knowledgeKeys": [
+    1005379,
+    1001315
+   ]
+  },
+  {
+   "index": 10,
+   "level": "Anamorphic_0010_Phase00_00",
+   "uuid": [
+    4097320638,
+    4279242868,
+    1920976608
+   ],
+   "gamePosition": [
+    -11948.69,
+    752.69,
+    -1114.14
+   ],
+   "gameName": "Goblin",
+   "mapGenieName": "Goblin Constellation",
+   "mapGenieId": "mg:897959",
+   "region": "Pailune",
+   "mapGenieDistance": 29.7,
+   "missionKey": 1001393,
+   "knowledgeKeys": [
+    1005380,
+    1001316
+   ]
+  },
+  {
+   "index": 11,
+   "level": "Anamorphic_0011_Phase00_00",
+   "uuid": [
+    4060612110,
+    4279242868,
+    1920976608
+   ],
+   "gamePosition": [
+    -9680.04,
+    672.41,
+    -5861.06
+   ],
+   "gameName": "Black_Dragon",
+   "mapGenieName": "Black Dragon Constellation",
+   "mapGenieId": "mg:897958",
+   "region": "Hernand",
+   "mapGenieDistance": 27.1,
+   "missionKey": 1001394,
+   "knowledgeKeys": [
+    1005381,
+    1001317
+   ]
+  },
+  {
+   "index": 12,
+   "level": "Anamorphic_0012_Phase00_00",
+   "uuid": [
+    4124965489,
+    4279242868,
+    1920976608
+   ],
+   "gamePosition": [
+    -7015.05,
+    676.63,
+    -483.33
+   ],
+   "gameName": "Black_Giant",
+   "mapGenieName": "Giant Constellation",
+   "mapGenieId": "mg:897954",
+   "region": "Crimson Desert",
+   "mapGenieDistance": 12.5,
+   "missionKey": 1001395,
+   "knowledgeKeys": [
+    1005382,
+    1001402
+   ]
+  },
+  {
+   "index": 13,
+   "level": "Anamorphic_0013_Phase00_00",
+   "uuid": [
+    3891687786,
+    4279242868,
+    1920976608
+   ],
+   "gamePosition": [
+    -6144.5,
+    405.48,
+    -3456.46
+   ],
+   "gameName": "Black_Key",
+   "mapGenieName": "Key Constellation",
+   "mapGenieId": "mg:897955",
+   "region": "Delesyia",
+   "mapGenieDistance": 20.7,
+   "missionKey": 1001396,
+   "knowledgeKeys": [
+    1005383,
+    1001403
+   ]
+  }
+ ],
+ "saves": {
+  "/mnt/user-data/uploads/pywel-atlas-dmm/research/vendor/work/full-save/save.save": [
+   {
+    "index": 1,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 2,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 3,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 4,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 5,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 6,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 7,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 8,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 9,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 10,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 11,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 12,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   },
+   {
+    "index": 13,
+    "mission": 5,
+    "knowledge": [
+     2,
+     1
+    ],
+    "completeRecord": true
+   }
   ],
-  "findings": [
-    "All 13 were found in the game data with exact positions, each within 33 m of a MapGenie constellation point. The positions were not preserved.",
-    "The MapGenie name order is the same as the order of the game's mission and knowledge keys.",
-    "Each constellation has a challenge mission named Challenge_Anamorphic_<Name>, at state 2 in every current save.",
-    "Each constellation has two knowledge entries, and none of the current saves contain them.",
-    "No native map icon template exists for constellations, so an existing icon must be reused (the user chooses which)."
+  "/mnt/user-data/uploads/pywel-atlas-dmm/research/vendor/work/sealed-artifact-test/a2-after-slot101.save": [
+   {
+    "index": 1,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 2,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 3,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 4,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 5,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 6,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 7,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 8,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 9,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 10,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 11,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 12,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 13,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   }
   ],
-  "hypothesis": "The mission moves to state 5 when the constellation is completed, since other finished missions sit at 5. Unconfirmed: no constellation is done in any save.",
-  "next": [
-    "The user makes a manual save near the Shield Constellation (before), aligns it with the Constellation Helm, saves again (after), and reports both slots.",
-    "Compare the two saves, then write research/scripts/export_constellation_links.py, re-deriving the positions."
+  "/mnt/user-data/uploads/slot108/save.save": [
+   {
+    "index": 1,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 2,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 3,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 4,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 5,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 6,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 7,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 8,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 9,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 10,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 11,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 12,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   },
+   {
+    "index": 13,
+    "mission": 2,
+    "knowledge": [
+     null,
+     null
+    ],
+    "completeRecord": false
+   }
   ]
+ }
 }

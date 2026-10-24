@@ -56,6 +56,11 @@
 #include "../pywel-atlas/RouteCanvas.h"
 // v0.119: rebindable keys (markers on / off; this worker saves keybinds.ini).
 #include "../pywel-atlas/Keybinds.h"
+// v0.129: the short player log (pywel-atlas.log) shared by all parts.
+#include "../pywel-atlas/ReleaseLog.h"
+#else
+// The standalone probe build has no player log.
+inline void PywelReleaseLog(const char*, ...) {}
 #endif
 #ifdef PYWEL_ATLAS_TELEPORT
 // Test build only (src/pywel-atlas/TestTeleporter.cpp): runs on the minimap thread.

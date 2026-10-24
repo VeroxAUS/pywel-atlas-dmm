@@ -1,0 +1,248 @@
+{
+ "alphaThreshold": 40,
+ "boxConvention": "left, top, right(excl), bottom(excl) within the crop",
+ "textures": [
+  {
+   "name": "cd_Icon_map_gimmick_abyss_mark",
+   "sheet": "cd_icon_map_00.dds",
+   "rect": [
+    695,
+    281,
+    52,
+    52
+   ],
+   "rectSize": [
+    52,
+    52
+   ],
+   "visible": [
+    0,
+    1,
+    51,
+    51
+   ],
+   "visibleWidth": 51,
+   "visibleHeight": 50
+  },
+  {
+   "name": "cd_icon_map_GreyManeTemple_minimap",
+   "sheet": "cd_icon_map_00.dds",
+   "rect": [
+    103,
+    701,
+    100,
+    100
+   ],
+   "rectSize": [
+    100,
+    100
+   ],
+   "visible": [
+    5,
+    4,
+    97,
+    96
+   ],
+   "visibleWidth": 92,
+   "visibleHeight": 92
+  },
+  {
+   "name": "cd_Icon_map_sealed_artifact_00",
+   "sheet": "cd_icon_map_00.dds",
+   "rect": [
+    443,
+    1,
+    100,
+    100
+   ],
+   "rectSize": [
+    100,
+    100
+   ],
+   "visible": [
+    10,
+    12,
+    90,
+    88
+   ],
+   "visibleWidth": 80,
+   "visibleHeight": 76
+  },
+  {
+   "name": "cd_Icon_map_standstone",
+   "sheet": "cd_icon_map_00.dds",
+   "rect": [
+    795,
+    551,
+    52,
+    52
+   ],
+   "rectSize": [
+    52,
+    52
+   ],
+   "visible": [
+    8,
+    1,
+    45,
+    51
+   ],
+   "visibleWidth": 37,
+   "visibleHeight": 50
+  },
+  {
+   "name": "cd_Icon_map_testgimmick11",
+   "sheet": "cd_icon_map_00.dds",
+   "rect": [
+    861,
+    929,
+    52,
+    52
+   ],
+   "rectSize": [
+    52,
+    52
+   ],
+   "visible": [
+    10,
+    10,
+    43,
+    43
+   ],
+   "visibleWidth": 33,
+   "visibleHeight": 33
+  },
+  {
+   "name": "cd_Icon_map_treasurebox",
+   "sheet": "cd_icon_map_00.dds",
+   "rect": [
+    948,
+    435,
+    52,
+    52
+   ],
+   "rectSize": [
+    52,
+    52
+   ],
+   "visible": [
+    5,
+    8,
+    47,
+    43
+   ],
+   "visibleWidth": 42,
+   "visibleHeight": 35
+  },
+  {
+   "name": "cd_Icon_map_bell_01",
+   "sheet": "cd_icon_map_04.dds",
+   "rect": [
+    1,
+    205,
+    154,
+    154
+   ],
+   "rectSize": [
+    154,
+    154
+   ],
+   "visible": [
+    25,
+    25,
+    129,
+    129
+   ],
+   "visibleWidth": 104,
+   "visibleHeight": 104
+  },
+  {
+   "name": "cd_Icon_map_gimmick_bell_01",
+   "sheet": "cd_icon_map_04.dds",
+   "rect": [
+    261,
+    957,
+    54,
+    54
+   ],
+   "rectSize": [
+    54,
+    54
+   ],
+   "visible": [
+    4,
+    7,
+    50,
+    47
+   ],
+   "visibleWidth": 46,
+   "visibleHeight": 40
+  },
+  {
+   "name": "cd_Icon_worldmap_treasurebox_00",
+   "sheet": "cd_icon_map_04.dds",
+   "rect": [
+    511,
+    317,
+    100,
+    100
+   ],
+   "rectSize": [
+    100,
+    100
+   ],
+   "visible": [
+    7,
+    20,
+    92,
+    81
+   ],
+   "visibleWidth": 85,
+   "visibleHeight": 61
+  },
+  {
+   "name": "cd_knowledgeimage_Knowledge_abyss_mark",
+   "sheet": "cd_knowledgeimage_knowledge_abyss_mark.dds",
+   "rect": [
+    0,
+    0,
+    512,
+    512
+   ],
+   "rectSize": [
+    512,
+    512
+   ],
+   "visible": [
+    61,
+    63,
+    451,
+    448
+   ],
+   "visibleWidth": 390,
+   "visibleHeight": 385
+  },
+  {
+   "name": "itemicon_prefab_cd_t0000_abyss_artifact_c_0001",
+   "sheet": "itemicon_prefab_cd_t0000_abyss_artifact_c_0001.dds",
+   "rect": [
+    0,
+    0,
+    256,
+    256
+   ],
+   "rectSize": [
+    256,
+    256
+   ],
+   "visible": [
+    22,
+    28,
+    233,
+    228
+   ],
+   "visibleWidth": 211,
+   "visibleHeight": 200
+  }
+ ]
+}

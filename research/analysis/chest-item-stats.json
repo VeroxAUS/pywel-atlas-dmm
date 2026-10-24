@@ -1,0 +1,6172 @@
+{
+ "summary": {
+  "surface": {
+   "stats": 140,
+   "stats (some left out)": 15,
+   "no lines": 24,
+   "no stats": 10,
+   "no item": 1
+  },
+  "abyss": {
+   "stats": 50,
+   "no stats": 24
+  },
+  "unique": {
+   "stats": 30,
+   "stats (some left out)": 9,
+   "no lines (some left out)": 2,
+   "no stats": 2
+  }
+ },
+ "surface": [
+  {
+   "chest": "Crimson Desert chest 1",
+   "item": "Light of the Battlefield Plate Gloves",
+   "itemName": "Demian_PlateArmor_Gloves_II",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 2",
+   "item": "Radiant Plate Boots",
+   "itemName": "Demian_Pure_White_Plate_Boots_I",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 3",
+   "item": "The Masked Liberator's Leather Gloves",
+   "itemName": "Volghan_Leather_Gloves",
+   "lines": [
+    "Attack 9",
+    "Defense 1",
+    "Critical Rate Lv 2",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "9",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 4",
+   "item": "Goldlight Plate Boots",
+   "itemName": "Demian_Plate_Boots_III",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 5",
+   "item": "Golden Greed Plate Boots",
+   "itemName": "Gaeljude_Plate_Boots",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 6",
+   "item": "Golden Greed Plate Armor",
+   "itemName": "Golden_PlateArmor_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 7",
+   "item": "Golden Greed Plate Helm",
+   "itemName": "Golden_PlateArmor_Helm",
+   "lines": [
+    "Defense 2",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Crimson Desert chest 8",
+   "item": "Goldlight Plate Gloves",
+   "itemName": "Demian_PlateArmor_Gloves_IV",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 9",
+   "item": "Leather Hat of Enlightenment",
+   "itemName": "Regglin_Boss_Helm",
+   "lines": [
+    "Defense 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 10",
+   "item": "The Masked Liberator's Cloth Cloak",
+   "itemName": "Heisellen_Fabric_Cloak",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Crimson Desert chest 11",
+   "item": "Goldlight Plate Cloak",
+   "itemName": "Demian_PlateArmor_Cloak_III",
+   "lines": [
+    "Defense 6"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 12",
+   "item": "Divine Echoes Bow",
+   "itemName": "AbyssReward_HolyEcho_OneHandBow",
+   "lines": [
+    "Attack 11"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 13",
+   "item": "Light of the Battlefield Plate Boots",
+   "itemName": "Demian_Plate_Boots_VI",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 14",
+   "item": "Light of the Battlefield Plate Armor",
+   "itemName": "Demian_PlateArmor_Armor_II",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 15",
+   "item": "Light of the Battlefield Plate Helm",
+   "itemName": "Demian_PlateArmor_Helm_VIII",
+   "lines": [
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert chest 16",
+   "item": "Greathammer of Fire",
+   "itemName": "Flame_SwordMan_TwoHandHammer",
+   "lines": [
+    "Attack 16",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "16",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 1",
+   "item": "Aeserion Gear Blueprint",
+   "itemName": "CraftingRecipe_Dragon_Weapon",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Delesyia chest 2",
+   "item": "Skyblazer Cloth Cloak",
+   "itemName": "Scalaphynion_Fabric_Cloak",
+   "lines": [
+    "Defense 6",
+    "Fire Resistance Lv 5"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Fire Resistance Lv 5",
+     "icon": "cd_icon_ability_FIRE",
+     "status": "fireresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 3",
+   "item": "Skyblazer Cloth Helm",
+   "itemName": "Scalaphynion_Fabric_Helm",
+   "lines": [
+    "Movement Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 4",
+   "item": "Finest Rhinard Cannon",
+   "itemName": "Rhinard_TwoHandCannon_I",
+   "lines": [
+    "Attack 11"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 5",
+   "item": "Skyblazer Cloth Armor",
+   "itemName": "Scalaphynion_Fabric_Armor",
+   "lines": [
+    "Defense 2",
+    "Movement Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 6",
+   "item": "Carta Plate Armor",
+   "itemName": "Carta_PlateArmor_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 7",
+   "item": "Lascaux Leather Boots",
+   "itemName": "Lascaux_Leather_Boots",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 8",
+   "item": "Legion Spearmen's Large Shield",
+   "itemName": "Hard_Thorn_OneHandTowerShield",
+   "lines": [
+    "Defense 6",
+    "Defense Efficiency 20"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "20",
+     "status": "guardpvrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 9",
+   "item": "Delesyian Longsword",
+   "itemName": "Delesian_Friend_Boss_TwoHandSword",
+   "lines": [
+    "Attack 14",
+    "Critical Rate Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "14",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 10",
+   "item": "Ancient Shield",
+   "itemName": "Ancient_Shield",
+   "lines": [
+    "Defense 1",
+    "Attack Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 2",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 11",
+   "item": "Frozen Heart Plate Boots",
+   "itemName": "Legendary_MarniGolem_Plate_Boots",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 12",
+   "item": "Red Needle",
+   "itemName": "Magnet_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 13",
+   "item": "Frozen Heart Plate Gloves",
+   "itemName": "Legendary_Orc_Plate_Glove",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 14",
+   "item": "Nazk Sword",
+   "itemName": "Legendary_DragonSlayer_OneHandSword",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 15",
+   "item": "Frozen Heart Plate Armor",
+   "itemName": "Legendary_MarniGolem_Plate_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 16",
+   "item": "Executioner of Darkness Plate Boots",
+   "itemName": "Demian_Plate_Boots_V",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 17",
+   "item": "Helm of Ignition",
+   "itemName": "Heat_PlateArmor_Helm",
+   "lines": [
+    "Defense 5",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_commoncooldownhelm Lv 1: no template",
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Delesyia chest 18",
+   "item": "The Masked Liberator's Leather Boots",
+   "itemName": "Stugrub_Leather_Boots",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 19",
+   "item": "Leonne Rapier",
+   "itemName": "Leone_OneHandRapier",
+   "lines": [
+    "Attack 11",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 20",
+   "item": "Executioner of Darkness Plate Helm",
+   "itemName": "Demian_PlateArmor_Helm_XI",
+   "lines": [
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 21",
+   "item": "Steelheart Horseshoes",
+   "itemName": "HorseShoe_HorseArmor_Shoe_III",
+   "lines": [
+    "Attack 5",
+    "Stamina: +4 every 1 sec"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "5",
+     "status": "ddd"
+    },
+    {
+     "kind": "effect",
+     "text": "Stamina: +4 every 1 sec",
+     "icon": "cd_icon_ability_stamina",
+     "status": "stamina"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 22",
+   "item": "Electro-Mecha Spear",
+   "itemName": "Marni_MachineKnight_TwoHandSpear",
+   "lines": [
+    "Attack 29",
+    "Movement Speed Lv 1",
+    "Lightning Weapon Attack"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "29",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Weapon Attack",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 23",
+   "item": "Recipe: Fine Meal",
+   "itemName": "Recipe_Surasang_03",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Delesyia chest 24",
+   "item": "Incomplete Masterpiece",
+   "itemName": "Lyfellen_TwoHandAxe",
+   "lines": [
+    "Attack 15",
+    "Critical Rate Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "15",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia chest 25",
+   "item": "Executioner of Darkness Plate Cloak",
+   "itemName": "Demian_PlateArmor_Cloak_V",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Delesyia chest 26",
+   "item": "Hidden Treasure Map Piece 8",
+   "itemName": "Hidden_TreasureMap_VIII",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Demeniss chest 1",
+   "item": "Wanderer of Faith's Plate Helm",
+   "itemName": "Demian_PlateArmor_Helm_V",
+   "lines": [
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 2",
+   "item": "Bedure Chain Mail",
+   "itemName": "Vdure_ChainMail_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 3",
+   "item": "Troll Hook Greataxe",
+   "itemName": "Khadiac_TwoHandAxe",
+   "lines": [
+    "Attack 14",
+    "Critical Rate Lv 3"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "14",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 3",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 4",
+   "item": "Plate Cloak of Cursed Soul",
+   "itemName": "Redknight_PlateArmor_Cloak",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss chest 5",
+   "item": "Plate Armor of Cursed Soul",
+   "itemName": "Redknight_PlateArmor_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 6",
+   "item": "Jester Leather Mask",
+   "itemName": "Abyss_Surreal_Wolf_Leather_Helm",
+   "lines": [
+    "Defense 1",
+    "Daze Immunity",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Demeniss chest 7",
+   "item": "Eastern Witch's Fan",
+   "itemName": "Witch_WingFan",
+   "lines": [
+    "Attack 10"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 8",
+   "item": "Wanderer of Faith Leather Armor",
+   "itemName": "Demian_Leather_Armor_VI",
+   "lines": [
+    "Defense 3",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 9",
+   "item": "Liberre Rapier",
+   "itemName": "Liberry_OneHandRapier",
+   "lines": [
+    "Attack 9",
+    "Attack Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "9",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 2",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 10",
+   "item": "Helfryn Leather Boots",
+   "itemName": "Hailbrin_Leather_Boots",
+   "lines": [
+    "Attack 9",
+    "Defense 1",
+    "Critical Rate Lv 2",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "9",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 11",
+   "item": "Wanderer of Faith Leather Boots",
+   "itemName": "DamianOnly_Leather_Boots_VI",
+   "lines": [
+    "Attack 9",
+    "Defense 1",
+    "Critical Rate Lv 2",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "9",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 12",
+   "item": "Dark Marksman's Plate Gloves",
+   "itemName": "Samuel_PlateArmor_Gloves",
+   "lines": [
+    "Attack 10",
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 13",
+   "item": "Dark Marksman's Plate Boots",
+   "itemName": "Samuel_Plate_Boots",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 14",
+   "item": "Crimson Chaser Chain Cloak",
+   "itemName": "Redsentinel_ChainMail_Cloak",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss chest 15",
+   "item": "Crimson Chaser Chain Gloves",
+   "itemName": "Redsentinel_PlateArmor_Gloves",
+   "lines": [
+    "Attack 10",
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 16",
+   "item": "Scorchflame Plate Helm",
+   "itemName": "Londel_PlateArmor_Helm",
+   "lines": [
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 17",
+   "item": "Autumn Banquet Plate Helm",
+   "itemName": "Demian_PlateArmor_Helm_VI",
+   "lines": [
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 18",
+   "item": "Autumn Banquet Cloth Cloak",
+   "itemName": "Demian_Fabric_Cloak_III",
+   "lines": [
+    "Defense 6"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 19",
+   "item": "Nagmore Leather Boots",
+   "itemName": "Nakmore_Leather_Boots",
+   "lines": [
+    "Attack 9",
+    "Defense 1",
+    "Critical Rate Lv 2",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "9",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 20",
+   "item": "Crimson Chaser Plate Helm",
+   "itemName": "Redsentinel_PlateArmor_Helm",
+   "lines": [
+    "Defense 2",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Demeniss chest 21",
+   "item": "Dark Marksman's Plate Armor",
+   "itemName": "Samuel_PlateArmor_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 22",
+   "item": "Autumn Banquet Leather Armor",
+   "itemName": "Demian_Leather_Armor_IV",
+   "lines": [
+    "Defense 3",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 23",
+   "item": "Odeck's Protector Plate Helm",
+   "itemName": "OrcuMer_PlateArmor_Helm",
+   "lines": [
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Demeniss chest 24",
+   "item": "Frostcursed Plate Helm",
+   "itemName": "SkullKnight_PlateArmor_Helm",
+   "lines": [
+    "Defense 2",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Demeniss chest 25",
+   "item": "Frostcursed Plate Cloak",
+   "itemName": "king_LostPeople_PlateArmor_Cloak",
+   "lines": [
+    "Defense 6",
+    "Ice Resistance Lv 5"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Ice Resistance Lv 5",
+     "icon": "cd_icon_ability_ICE",
+     "status": "iceresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 26",
+   "item": "Crimson Warden's Bow",
+   "itemName": "Robinhood_OneHandBow",
+   "lines": [
+    "Attack 11"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 27",
+   "item": "Helfryn Leather Gloves",
+   "itemName": "Hailbrin_Leather_Gloves",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 28",
+   "item": "Helfryn Leather Cloak",
+   "itemName": "Hailbrin_Leather_Cloak",
+   "lines": [
+    "Defense 6",
+    "Lightning Resistance Lv 5"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 5",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 29",
+   "item": "Scorchflame Plate Armor",
+   "itemName": "Paphneil_PlateArmor_Armor",
+   "lines": [
+    "Defense 14",
+    "Critical Rate Lv 2",
+    "Fire Resistance Lv 7"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "14",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Fire Resistance Lv 7",
+     "icon": "cd_icon_ability_FIRE",
+     "status": "fireresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 30",
+   "item": "Black Sun",
+   "itemName": "Bastion_OneHandShield",
+   "lines": [
+    "Defense 3",
+    "Defense Efficiency 5",
+    "Movement Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "5",
+     "status": "guardpvrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 2",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 31",
+   "item": "Sior Blaster",
+   "itemName": "Legendary_Abyss_OneHandCannon",
+   "lines": [
+    "Attack 10",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_abyss_onehandcannon Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Demeniss chest 32",
+   "item": "Elite Vanguard",
+   "itemName": "Wells_TwoHandGiantSpear",
+   "lines": [
+    "Attack 12",
+    "Attack Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 2",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 33",
+   "item": "Shield of Sacrifice",
+   "itemName": "Legendary_Soulknight_OneHandTowerShield",
+   "lines": [
+    "Defense 6",
+    "Defense Efficiency 20"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "20",
+     "status": "guardpvrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 34",
+   "item": "Executioner of Darkness Plate Gloves",
+   "itemName": "Demian_PlateArmor_Gloves_V",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss chest 35",
+   "item": "Autumn Banquet Leather Gloves",
+   "itemName": "Demian_Leather_Gloves_III",
+   "lines": [
+    "Attack 11",
+    "Defense 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 1",
+   "item": "Scorchflame Plate Cloak",
+   "itemName": "Paphneil_PlateArmor_Cloak",
+   "lines": [
+    "Fire Resistance Lv 5"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Fire Resistance Lv 5",
+     "icon": "cd_icon_ability_FIRE",
+     "status": "fireresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 2",
+   "item": "Sunset Reed Cloth Boots",
+   "itemName": "Reeddevil_Fabric_Boots",
+   "lines": [
+    "Attack 10",
+    "Movement Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 3",
+   "item": "Reindeer Cloak",
+   "itemName": "Camouflage_Reindeer_Cloak",
+   "lines": [
+    "Defense 6",
+    "Ice Resistance Lv 5"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Ice Resistance Lv 5",
+     "icon": "cd_icon_ability_ICE",
+     "status": "iceresistance"
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_set_passive_stealth_animal_deer Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Hernand chest 4",
+   "item": "Plate Gloves of the Shadows",
+   "itemName": "DarknessKing_PlateArmor_Gloves",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 5",
+   "item": "Leather Helm of the Fallen Kingdom",
+   "itemName": "Deer_King_Leather_Helm",
+   "lines": [
+    "Defense 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 6",
+   "item": "Plate Cloak of the Shadows",
+   "itemName": "DarknessKing_PlateArmor_Cloak",
+   "lines": [
+    "Fire Resistance Lv 7"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Fire Resistance Lv 7",
+     "icon": "cd_icon_ability_FIRE",
+     "status": "fireresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 7",
+   "item": "Plate Armor of the Shadows",
+   "itemName": "DarknessKing_PlateArmor_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 8",
+   "item": "Shield of Conviction",
+   "itemName": "Stephan_Bleed_Metal_OneHandTowerShield",
+   "lines": [
+    "Defense 4",
+    "Defense Efficiency 22"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "22",
+     "status": "guardpvrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 9",
+   "item": "Leather Cloak of the Fallen Kingdom",
+   "itemName": "Deerking_Leather_Cloak",
+   "lines": [
+    "Defense 6"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 10",
+   "item": "Mirror of Night",
+   "itemName": "Dark_King_Metal_OneHandShield",
+   "lines": [
+    "Defense 3",
+    "Defense Efficiency 5",
+    "Movement Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "5",
+     "status": "guardpvrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 2",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 11",
+   "item": "Lifsoth Large Shield",
+   "itemName": "Lipsort_OneHandTowerShield",
+   "lines": [
+    "Defense 4",
+    "Defense Efficiency 22"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "22",
+     "status": "guardpvrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 12",
+   "item": "Odeck's Protector Plate Gloves",
+   "itemName": "OrcuMer_PlateArmor_Gloves",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 13",
+   "item": "Duskfang Leather Cloak",
+   "itemName": "Hemon_Vindel_Leather_Cloak",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Hernand chest 14",
+   "item": "Sunset Reed Leather Cloak",
+   "itemName": "Reeddevil_Leather_Cloak",
+   "lines": [
+    "Defense 6"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 15",
+   "item": "Duskfang Leather Gloves",
+   "itemName": "Srasika_Leather_Gloves",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 16",
+   "item": "Isilon Leather Boots",
+   "itemName": "Isilon_Leather_Boots",
+   "lines": [
+    "Attack 11",
+    "Defense 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 17",
+   "item": "Blackwing Leather Cloak",
+   "itemName": "Douglas_Leather_Cloak",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Hernand chest 18",
+   "item": "Counterweight Leather Gloves",
+   "itemName": "Legendary_Deer_Leather_Gloves",
+   "lines": [
+    "Attack 11",
+    "Defense 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 19",
+   "item": "Odeck's Protector Plate Boots",
+   "itemName": "OrcuMer_Plate_Boots",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 20",
+   "item": "Goblin King's Treasure Dagger",
+   "itemName": "Legendary_Shakatu_OneHandDagger",
+   "lines": [
+    "Attack 12",
+    "Critical Rate Lv 5",
+    "10% chance to skin additional materials"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 5",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "10% chance to skin additional materials",
+     "icon": "cd_icon_ability_Material",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 21",
+   "item": "Blackwing Leather Gloves",
+   "itemName": "Douglas_Leather_Gloves",
+   "lines": [
+    "Attack 9",
+    "Defense 1",
+    "Critical Rate Lv 2",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "9",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 22",
+   "item": "Blackwing Leather Boots",
+   "itemName": "Bainian_Leather_Boots",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 23",
+   "item": "Hwando",
+   "itemName": "Hwando_TwoHandSword",
+   "lines": [
+    "Attack 16"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "16",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 24",
+   "item": "Rhonid Large Shield",
+   "itemName": "Ronied_OneHandTowerShield",
+   "lines": [
+    "Defense 4",
+    "Defense Efficiency 22"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "22",
+     "status": "guardpvrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 25",
+   "item": "Legionary's Gladius",
+   "itemName": "Archrika_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand chest 26",
+   "item": "Hidden Treasure Map Piece 6",
+   "itemName": "Hidden_TreasureMap_VI",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Hernand chest 27",
+   "item": "Rabbit Leather Mask",
+   "itemName": "Abyss_Surreal_Human_Leather_Helm",
+   "lines": [
+    "Defense 1",
+    "+2 Trust Gain",
+    "Daze Immunity",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "+2 Trust Gain",
+     "icon": "cd_icon_ability_affinity",
+     "status": null
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Hernand chest 28",
+   "item": "Alpha Wolf Helm",
+   "itemName": "Wolf_Chief_Leather_Helm",
+   "lines": [
+    "Defense 3"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_set_passive_stealth_animal_wolf Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Kweiden chest 1",
+   "item": "Lucon Large Shield",
+   "itemName": "Lucan_OneHandTowerShield",
+   "lines": [
+    "Defense 2",
+    "Defense Efficiency 25"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "25",
+     "status": "guardpvrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 2",
+   "item": "Icewing Plate Helm",
+   "itemName": "Entura_PlateArmor_Helm",
+   "lines": [
+    "Defense 2",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio_openablehelm Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Kweiden chest 3",
+   "item": "Dagger of Dark Pursuit",
+   "itemName": "DarkLeader_OneHandDagger",
+   "lines": [
+    "Attack 12",
+    "Critical Rate Lv 5"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 5",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 4",
+   "item": "Icewing Plate Boots",
+   "itemName": "Ladete_Plate_Boots",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 5",
+   "item": "North Wind Shield",
+   "itemName": "North_Warrior_OneHandTowerShield",
+   "lines": [
+    "Defense 6",
+    "Defense Efficiency 20"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "20",
+     "status": "guardpvrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 6",
+   "item": "Odeck's Protector Plate Armor",
+   "itemName": "OrcuMer_PlateArmor_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 7",
+   "item": "Sigremon Greataxe",
+   "itemName": "Cigrymon_TwoHandAxe",
+   "lines": [
+    "Attack 14",
+    "Critical Rate Lv 3"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "14",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 3",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 8",
+   "item": "Hungering Fang Leather Gloves",
+   "itemName": "Ludvic_Leather_Gloves",
+   "lines": [
+    "Attack 9",
+    "Defense 1",
+    "Critical Rate Lv 2",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "9",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 9",
+   "item": "Red Rage",
+   "itemName": "Ludvig_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 10",
+   "item": "Hungering Fang Leather Armor",
+   "itemName": "Ludvic_Leather_Armor",
+   "lines": [
+    "Defense 3",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 11",
+   "item": "Noble Man's Bow",
+   "itemName": "Legendary_Korea_OneHandBow",
+   "lines": [
+    "Attack 11"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 12",
+   "item": "King's Dagger",
+   "itemName": "Legendary_Kings_OneHandDagger",
+   "lines": [
+    "Attack 10",
+    "Attack Speed Lv 1",
+    "Critical Rate Lv 5",
+    "10% chance to skin additional materials"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 5",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "10% chance to skin additional materials",
+     "icon": "cd_icon_ability_Material",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 13",
+   "item": "Lightning Bolt Plate Gloves",
+   "itemName": "Titan_PlateArmor_Gloves",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 14",
+   "item": "Ashad Plate Armor",
+   "itemName": "Ashad_PlateArmor_Armor",
+   "lines": [
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden chest 15",
+   "item": "Lightning Bolt Plate Helm",
+   "itemName": "Titan_PlateArmor_Helm",
+   "lines": [
+    "Defense 2",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert cave chest 1",
+   "item": "Oblivion of the Past",
+   "itemName": "Mask_Liberator_TwoHandedWarHammer",
+   "lines": [
+    "Attack 16",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "16",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 1",
+   "item": "Plate Gloves of Cursed Soul",
+   "itemName": "Redknight_PlateArmor_Gloves",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 2",
+   "item": "Reins of Open Sky",
+   "itemName": "Optionary_NonSlip_Gloves",
+   "lines": [
+    "Attack 15",
+    "Defense 5",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "15",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_nonslip Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Hernand cave chest 3",
+   "item": "Grace Plate Helm",
+   "itemName": "Grace_PlateArmor_Helm",
+   "lines": [
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 4",
+   "item": "Dark Ringleader's Cloth Armor",
+   "itemName": "Tychaon_Fabric_Armor",
+   "lines": [
+    "Defense 2",
+    "Movement Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 5",
+   "item": "Dark Ringleader's Cloth Helm",
+   "itemName": "Chartian_Fabric_Helm",
+   "lines": [
+    "Movement Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 6",
+   "item": "Dark Ringleader's Cloth Cloak",
+   "itemName": "Tychaon_Fabric_Cloak",
+   "lines": [
+    "Defense 6"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 7",
+   "item": "Duskfang Leather Armor",
+   "itemName": "Hemon_Vindel_Leather_Armor",
+   "lines": [
+    "Defense 3",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 8",
+   "item": "Dark Ringleader's Leather Gloves",
+   "itemName": "Tikan_Leather_Gloves",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 9",
+   "item": "Hollow Visage",
+   "itemName": "AbyssReward_Reeddevil_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 10",
+   "item": "Sunset Reed Leather Armor",
+   "itemName": "Reeddevil_Leather_Armor",
+   "lines": [
+    "Defense 3",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss cave chest 1",
+   "item": "Plate Helm of Cursed Soul",
+   "itemName": "Redknight_PlateArmor_Helm",
+   "lines": [
+    "Defense 2",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 2",
+   "item": "Bedure Chain Cloak",
+   "itemName": "Vdure_ChainMail_Cloak",
+   "lines": [
+    "Defense 6"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss cave chest 3",
+   "item": "Demenissian Hero's Musket",
+   "itemName": "Legendary_DemenisMusket_OneHandMusket",
+   "lines": [
+    "Attack 13",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "13",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss cave chest 4",
+   "item": "Wanderer of Faith Leather Cloak",
+   "itemName": "Demian_Leather_Cloak_II",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss cave chest 5",
+   "item": "Wanderer of Faith Leather Gloves",
+   "itemName": "Demian_Leather_Gloves_IV",
+   "lines": [
+    "Attack 11",
+    "Defense 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia cave chest 1",
+   "item": "Carta Leather Gloves",
+   "itemName": "Carta_Leather_Gloves",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia cave chest 2",
+   "item": "Tidebreaker Boots",
+   "itemName": "IncreaseSwimmingSpeed_Plate_Boots",
+   "lines": [
+    "Attack 15",
+    "Defense 5",
+    "Movement Speed Lv 1",
+    "Tidebreaker ({Key:Key_Roll} while swimming)"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "15",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Tidebreaker ({Key:Key_Roll} while swimming)",
+     "icon": "cd_icon_ability_movement_speed",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia cave chest 3",
+   "item": "Golden Shield",
+   "itemName": "Gold_Armor_OneHandShield",
+   "lines": [
+    "Defense 1",
+    "Attack Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 2",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia cave chest 4",
+   "item": "Golden Greed Plate Gloves",
+   "itemName": "Gaeljude_PlateArmor_Gloves",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert cave chest 2",
+   "item": "Dark Marksman's Plate Cloak",
+   "itemName": "Samuel_PlateArmor_Cloak",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Crimson Desert cave chest 3",
+   "item": "Golden Greathammer",
+   "itemName": "MiddleBoss_GoldenArmor_TwoHandHammer_I",
+   "lines": [
+    "Attack 17"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "17",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert cave chest 4",
+   "item": "Golden Greed Plate Cloak",
+   "itemName": "Golden_PlateArmor_Cloak",
+   "lines": [
+    "Defense 6"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia cave chest 5",
+   "item": "Goldlight Plate Helm",
+   "itemName": "Demian_PlateArmor_Helm_IV",
+   "lines": [
+    "Defense 2",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio_openablehelm Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Demeniss cave chest 6",
+   "item": "Plate Boots of Cursed Soul",
+   "itemName": "Redknight_Plate_Boots",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss cave chest 7",
+   "item": "Frostcursed Plate Boots",
+   "itemName": "Skull_Knight_Plate_Boots",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 11",
+   "item": "Scorchflame Leather Boots",
+   "itemName": "Londel_Leather_Boots",
+   "lines": [
+    "Attack 9",
+    "Defense 1",
+    "Critical Rate Lv 2",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "9",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 12",
+   "item": "Scorchflame Plate Gloves",
+   "itemName": "Londel_PlateArmor_Gloves",
+   "lines": [
+    "Attack 10",
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 13",
+   "item": "Plate Boots of the Fallen Kingdom",
+   "itemName": "Deerking_Plate_Boots",
+   "lines": [
+    "Attack 10",
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 14",
+   "item": "Leather Armor of the Fallen Kingdom",
+   "itemName": "Deerking_Leather_Armor",
+   "lines": [
+    "Defense 3",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 15",
+   "item": "Plate Boots of the Shadows",
+   "itemName": "DarknessKing_PlateArmor_Boots",
+   "lines": [
+    "Attack 10",
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 16",
+   "item": "Survivor's Solitude",
+   "itemName": "Deer_King_OneHandSword",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 17",
+   "item": "Plate Gloves of the Fallen Kingdom",
+   "itemName": "Deerking_PlateArmor_Gloves",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden cave chest 1",
+   "item": "Ashad Plate Boots",
+   "itemName": "Ashad_PlateArmor_Boots",
+   "lines": [
+    "Attack 10",
+    "Defense 4"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden cave chest 2",
+   "item": "Icewing Plate Gloves",
+   "itemName": "Corvo_PlateArmor_Gloves",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden cave chest 3",
+   "item": "Recipe: Grand Meal",
+   "itemName": "Recipe_Surasang_00",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Kweiden cave chest 4",
+   "item": "Roar of the Black Bear",
+   "itemName": "Drunk_BlackBears_TwoHandedWarHamme",
+   "lines": [
+    "Attack 16",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "16",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand cave chest 18",
+   "item": "Vaporwalker",
+   "itemName": "WaterSliding_Plate_Boots",
+   "lines": [
+    "Attack 16",
+    "Defense 5",
+    "Skipping Stones ({Key:Key_Slide} in shallow water)"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "16",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Skipping Stones ({Key:Key_Slide} in shallow water)",
+     "icon": "cd_icon_ability_movement_speed",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss cave chest 8",
+   "item": "Autumn Banquet Leather Boots",
+   "itemName": "DamianOnly_Leather_Boots_IV",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss cave chest 9",
+   "item": "Frostcursed Plate Gloves",
+   "itemName": "Skull_Knight_PlateArmor_Gloves",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss cave chest 10",
+   "item": "Frostcursed Plate Armor",
+   "itemName": "king_LostPeople_PlateArmor_Armor",
+   "lines": [
+    "Defense 14",
+    "Movement Speed Lv 2",
+    "Ice Resistance Lv 7"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "14",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 2",
+     "status": "movespeedrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Ice Resistance Lv 7",
+     "icon": "cd_icon_ability_ICE",
+     "status": "iceresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Crimson Desert cave chest 5",
+   "item": "Light of the Battlefield Cloth Cloak",
+   "itemName": "Demian_Fabric_Cloak_I",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Hernand cave chest 19",
+   "item": "Boss Bear Hat",
+   "itemName": "Bear_Chief_Leather_Helm",
+   "lines": [
+    "Defense 3"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_set_passive_stealth_animal_bear Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Delesyia cave chest 6",
+   "item": "Skyblazer Leather Gloves",
+   "itemName": "Scalaphynion_Leather_Gloves",
+   "lines": [
+    "Attack 10",
+    "Defense 1",
+    "Critical Rate Lv 1",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "1",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Delesyia strongbox 1 (dial)",
+   "item": "White Horn's Earring",
+   "itemName": "WhiteHorn_Earring",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Delesyia strongbox 2 (padlock)",
+   "item": "Relic of Darkness",
+   "itemName": "Antumbra_DarkDeacon_Necklace",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss strongbox 1 (sliding jigsaw)",
+   "item": "Reventine Monastery Exclusive Document",
+   "itemName": "Paper_ReventineMonastery_Document",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Demeniss strongbox 2 (dial)",
+   "item": "Necklace of Lightning",
+   "itemName": "Titan_Necklace",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss strongbox 3 (padlock)",
+   "item": "Recipe: Meal",
+   "itemName": "Recipe_Surasang_05",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Demeniss house chest 1",
+   "item": "Helfryn Leather Armor",
+   "itemName": "Hailbrin_Leather_Armor",
+   "lines": [
+    "Defense 3",
+    "Lightning Resistance Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 1",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Demeniss strongbox 4 (music box)",
+   "item": "Recipe: Extravagant Meal",
+   "itemName": "Recipe_Surasang_01",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Demeniss strongbox 5 (number wheel)",
+   "item": "Ogre's Ring",
+   "itemName": "Legendary_Ogre_Ring",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss strongbox 6 (music box)",
+   "item": "Tarivian Necklace",
+   "itemName": "Tarif_Necklace",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss strongbox 7 (music box)",
+   "item": "Golden Deer's Tear",
+   "itemName": "Pattern_Diamond_Earring",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss strongbox 8 (number wheel)",
+   "item": "Ancient Earring",
+   "itemName": "Ancient_People_Earring",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss strongbox 9 (jigsaw)",
+   "item": "Sungrove Manor Key",
+   "itemName": "SungroveManor_HomeKey",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Demeniss strongbox 10 (sliding jigsaw)",
+   "item": "Karanda's Necklace",
+   "itemName": "Karanda_Necklace",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss strongbox 11 (number wheel)",
+   "item": "Witch's Earring",
+   "itemName": "Hexe_Earring",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Demeniss house chest 2",
+   "item": "Frozen Anguish",
+   "itemName": "AbyssReward_Skull_Knight_TwoHandSword",
+   "lines": [
+    "Attack 16"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "16",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand strongbox 1 (sliding jigsaw)",
+   "item": null,
+   "itemName": null,
+   "lines": [],
+   "status": "no item"
+  },
+  {
+   "chest": "Hernand strongbox 2 (sliding jigsaw)",
+   "item": "Flower Petal Earring",
+   "itemName": "Folorin_Earring",
+   "lines": [
+    "Defense 5"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand strongbox 3 (music box)",
+   "item": "Recipe: Lavish Meal",
+   "itemName": "Recipe_Surasang_02",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Hernand strongbox 4 (padlock)",
+   "item": "Finely Crafted Gold Necklace",
+   "itemName": "Detail_Gold_Necklace",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Hernand strongbox 5 (number wheel)",
+   "item": "Oath of Darkness",
+   "itemName": "Antumbra_DarkDeacon_Earring",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Hernand house chest 1",
+   "item": "Brass Warden's Plate Gloves",
+   "itemName": "Oongka_Plate_Glove",
+   "lines": [
+    "Attack 11",
+    "Defense 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hernand strongbox 6 (jigsaw)",
+   "item": "Engraved Gold Earring",
+   "itemName": "Pattern_Gold_Earring",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Kweiden strongbox 1 (padlock)",
+   "item": "Finely Crafted Gold Ring",
+   "itemName": "Detail_Gold_Ring",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Kweiden house chest 1",
+   "item": "Icewing Plate Cloak",
+   "itemName": "Corvo_PlateArmor_Cloak",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  },
+  {
+   "chest": "Kweiden strongbox 2 (all buttons)",
+   "item": "Ring of Lightning",
+   "itemName": "Legendary_Titan_Ring",
+   "lines": [
+    "Attack 4",
+    "Charge Lightning ({Key:Key_Skill_5_Start})"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "4",
+     "status": "ddd"
+    },
+    {
+     "kind": "effect",
+     "text": "Charge Lightning ({Key:Key_Skill_5_Start})",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kweiden strongbox 3 (one-stroke drawing)",
+   "item": "Flame Lantern",
+   "itemName": "Mjordin_Lantern",
+   "lines": [],
+   "parts": [],
+   "status": "no lines"
+  }
+ ],
+ "abyss": [
+  {
+   "chest": "Abyss bridge 1 chest 1",
+   "item": "Destruction I",
+   "itemName": "Item_Stat_AbyssGear_DDD_LV1",
+   "lines": [
+    "Attack 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "1",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 109 chest 1",
+   "item": "Vitality I",
+   "itemName": "Item_Stat_AbyssGear_HpRegen_LV1",
+   "lines": [
+    "Health: +0.2 every 1 sec"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Health: +0.2 every 1 sec",
+     "icon": "cd_icon_ability_vitality",
+     "status": "hp"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 122 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss bridge 122 chest 2",
+   "item": "Composure II",
+   "itemName": "Item_Stat_AbyssGear_MpRegen_LV2",
+   "lines": [
+    "Spirit: +0.2 every 1 sec"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Spirit: +0.2 every 1 sec",
+     "icon": "cd_icon_ability_mana",
+     "status": "mp"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 138 chest 1",
+   "item": "Frostward III",
+   "itemName": "Item_Stat_AbyssGear_IceResistance_LV3",
+   "lines": [
+    "Ice Resistance Lv 3"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Ice Resistance Lv 3",
+     "icon": "cd_icon_ability_ICE",
+     "status": "iceresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 140 chest 1",
+   "item": "Vigor I",
+   "itemName": "Item_Stat_AbyssGear_StaminaRegen_LV1",
+   "lines": [
+    "Stamina Regen +2%"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Stamina Regen +2%",
+     "icon": "cd_icon_ability_stamina",
+     "status": "stamina"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 150 chest 1",
+   "item": "Fortification I",
+   "itemName": "Item_Stat_AbyssGear_DPV_LV1",
+   "lines": [
+    "Defense 3"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 151 chest 1",
+   "item": "Flameward II",
+   "itemName": "Item_Stat_AbyssGear_FireResistance_LV2",
+   "lines": [
+    "Fire Resistance Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Fire Resistance Lv 2",
+     "icon": "cd_icon_ability_FIRE",
+     "status": "fireresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 152 chest 1",
+   "item": "Vitality III",
+   "itemName": "Item_Stat_AbyssGear_HpRegen_LV3",
+   "lines": [
+    "Health: +0.6 every 1 sec"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Health: +0.6 every 1 sec",
+     "icon": "cd_icon_ability_vitality",
+     "status": "hp"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 162 chest 1",
+   "item": "Vigor III",
+   "itemName": "Item_Stat_AbyssGear_StaminaRegen_LV3",
+   "lines": [
+    "Stamina Regen +6%"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Stamina Regen +6%",
+     "icon": "cd_icon_ability_stamina",
+     "status": "stamina"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 176 chest 1",
+   "item": "Frostward II",
+   "itemName": "Item_Stat_AbyssGear_IceResistance_LV2",
+   "lines": [
+    "Ice Resistance Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Ice Resistance Lv 2",
+     "icon": "cd_icon_ability_ICE",
+     "status": "iceresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 189 chest 1",
+   "item": "Flameward III",
+   "itemName": "Item_Stat_AbyssGear_FireResistance_LV3",
+   "lines": [
+    "Fire Resistance Lv 3"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Fire Resistance Lv 3",
+     "icon": "cd_icon_ability_FIRE",
+     "status": "fireresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 23 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss bridge 23 chest 2",
+   "item": "Haste I",
+   "itemName": "Item_Stat_AbyssGear_MoveSpeedRate_LV1",
+   "lines": [
+    "Movement Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 89 chest 1",
+   "item": "Haste III",
+   "itemName": "Item_Stat_AbyssGear_MoveSpeedRate_LV3",
+   "lines": [
+    "Movement Speed Lv 3"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 3",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 91 chest 1",
+   "item": "Shockward II",
+   "itemName": "Item_Stat_AbyssGear_ElectricityResistance_LV2",
+   "lines": [
+    "Lightning Resistance Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 2",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 91 chest 2",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss bridge 97 chest 1",
+   "item": "Fortification II",
+   "itemName": "Item_Stat_AbyssGear_DPV_LV2",
+   "lines": [
+    "Defense 6"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss bridge 99 chest 1",
+   "item": "Haste II",
+   "itemName": "Item_Stat_AbyssGear_MoveSpeedRate_LV2",
+   "lines": [
+    "Movement Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 2",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 1 chest 1",
+   "item": "Gourmet III",
+   "itemName": "Item_Skill_AbyssGear_FoodSkillLevelUp_LV3",
+   "lines": [
+    "Food Effect Lv +3"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Food Effect Lv +3",
+     "icon": "cd_icon_ability_HealLevelUp",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 1 chest 2",
+   "item": "Efficiency III",
+   "itemName": "Item_Skill_AbyssGear_ReduceCraftMaterial_LV3",
+   "lines": [
+    "9% chance to save 1 crafting material"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "9% chance to save 1 crafting material",
+     "icon": "cd_icon_ability_Material",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 2 chest 1",
+   "item": "Beastbane III",
+   "itemName": "Item_Skill_AbyssGear_CommonAnimal_AdditionalDamage_LV3",
+   "lines": [
+    "+12% damage to beasts"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+12% damage to beasts",
+     "icon": "cd_icon_ability_damage",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 2 chest 2",
+   "item": "Blessing of the Beast III",
+   "itemName": "Item_Skill_AbyssGear_CollectDrop_Animal_LV3",
+   "lines": [
+    "30% chance to skin additional materials"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "30% chance to skin additional materials",
+     "icon": "cd_icon_ability_Material",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 2 chest 3",
+   "item": "Primalbane III",
+   "itemName": "Item_Skill_AbyssGear_CommonGolem_AdditionalDamage_LV3",
+   "lines": [
+    "+12% damage to Walkers"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+12% damage to Walkers",
+     "icon": "cd_icon_ability_damage",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 3 chest 1",
+   "item": "Aptitude III",
+   "itemName": "Item_Skill_AbyssGear_SkillPointExp_LV3",
+   "lines": [
+    "+ 30% Skill EXP Gain"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+ 30% Skill EXP Gain",
+     "icon": "cd_icon_ability_SkillPointExp",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 3 chest 2",
+   "item": "Equestrian III",
+   "itemName": "Item_Skill_AbyssGear_Equip_AddHorseExp_LV3",
+   "lines": [
+    "+3 Horse EXP Gain"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+3 Horse EXP Gain",
+     "icon": "cd_icon_ability_horse_jumping",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 3 chest 3",
+   "item": "Solidarity III",
+   "itemName": "Item_Skill_AbyssGear_AddFrendly_LV3",
+   "lines": [
+    "+3 Trust Gain"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+3 Trust Gain",
+     "icon": "cd_icon_ability_affinity",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 4 chest 1",
+   "item": "Spirit Transference",
+   "itemName": "Item_Skill_AbyssGear_Attack_MPRecover_LV1",
+   "lines": [
+    "Spirit Siphon Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Spirit Siphon Lv 1",
+     "icon": "cd_icon_ability_mana",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 4 chest 2",
+   "item": "Fortune III",
+   "itemName": "Item_Skill_AbyssGear_AddMoneyDropRate_LV3",
+   "lines": [
+    "Silver acquired increased by 30%"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Silver acquired increased by 30%",
+     "icon": "cd_icon_ability_AddMoneyDropRate",
+     "status": "addmoneydroprate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 4 chest 3",
+   "item": "Bloodbane III",
+   "itemName": "Item_Skill_AbyssGear_CommonHumanoid_AdditionalDamage_LV3",
+   "lines": [
+    "+12% damage to humanoids"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+12% damage to humanoids",
+     "icon": "cd_icon_ability_damage",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 5 chest 1",
+   "item": "Disarm III",
+   "itemName": "Item_Skill_AbyssGear_EquipDropRate_LV3",
+   "lines": [
+    "3% chance to disarm enemies on hit"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "3% chance to disarm enemies on hit",
+     "icon": "cd_icon_ability_Material",
+     "status": "equipdroprate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 5 chest 2",
+   "item": "Infinite Arrows III",
+   "itemName": "Item_Skill_AbyssGear_BlockAmmoConsume_LV3",
+   "lines": [
+    "60% chance to not consume arrows"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "60% chance to not consume arrows",
+     "icon": "cd_icon_ability_bow",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 5 chest 3",
+   "item": "Steelbane III",
+   "itemName": "Item_Skill_AbyssGear_Machine_AdditionalDamage_LV3",
+   "lines": [
+    "+12% damage to machines"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+12% damage to machines",
+     "icon": "cd_icon_ability_damage",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 5 chest 4",
+   "item": "Stamina Transference",
+   "itemName": "Item_Skill_AbyssGear_Attack_SPRecover_LV1",
+   "lines": [
+    "Stamina Siphon Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Stamina Siphon Lv 1",
+     "icon": "cd_icon_ability_stamina",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 6 chest 1",
+   "item": "Malicebane III",
+   "itemName": "Item_Skill_AbyssGear_Boss_AdditionalDamage_LV3",
+   "lines": [
+    "+12% damage to mighty foes"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+12% damage to mighty foes",
+     "icon": "cd_icon_ability_damage",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 6 chest 2",
+   "item": "Life Transference",
+   "itemName": "Item_Skill_AbyssGear_Attack_HPRecover_LV1",
+   "lines": [
+    "Health Siphon Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Health Siphon Lv 1",
+     "icon": "cd_icon_ability_vitality",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 7 chest 1",
+   "item": "Energy Drain III",
+   "itemName": "Item_Skill_AbyssGear_AddKillSkillLevel_LV3",
+   "lines": [
+    "Bonus 3 Stamina restored upon defeating a faraway enemy"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Bonus 3 Stamina restored upon defeating a faraway enemy",
+     "icon": "cd_icon_ability_HealLevelUp",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 7 chest 2",
+   "item": "Blessing of the Earth III",
+   "itemName": "Item_Skill_AbyssGear_CollectDrop_Ore_LV3",
+   "lines": [
+    "30% chance to mine additional minerals"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "30% chance to mine additional minerals",
+     "icon": "cd_icon_ability_STONE",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 7 chest 3",
+   "item": "Abyssbane III",
+   "itemName": "Item_Skill_AbyssGear_Creature_AdditionalDamage_LV3",
+   "lines": [
+    "+12% damage to Abyssal creatures"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "+12% damage to Abyssal creatures",
+     "icon": "cd_icon_ability_damage",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss core island 7 chest 4",
+   "item": "Blessing of Nature III",
+   "itemName": "Item_Skill_AbyssGear_CollectDrop_Plant_LV3",
+   "lines": [
+    "30% chance to gather additional items"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "30% chance to gather additional items",
+     "icon": "cd_icon_ability_Material",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 1 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 1001 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 113 chest 1",
+   "item": "Insight III",
+   "itemName": "Item_Stat_AbyssGear_CriticalRate_LV3",
+   "lines": [
+    "Critical Rate Lv 3"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 3",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 113 chest 2",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 121 chest 1",
+   "item": "Ascent III",
+   "itemName": "Item_Stat_AbyssGear_ClimbSpeedRate_LV3",
+   "lines": [
+    "Climb Speed Multiplier 6%"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Climb Speed Multiplier 6%",
+     "icon": "cd_icon_ability_movement_speed",
+     "status": "climbspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 13 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 13 chest 2",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 13 chest 3",
+   "item": "Destruction II",
+   "itemName": "Item_Stat_AbyssGear_DDD_LV2",
+   "lines": [
+    "Attack 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "2",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 144 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 158 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 158 chest 2",
+   "item": "Swift II",
+   "itemName": "Item_Stat_AbyssGear_AttackSpeedRate_LV2",
+   "lines": [
+    "Attack Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 2",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 158 chest 3",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 175 chest 1",
+   "item": "Vitality II",
+   "itemName": "Item_Stat_AbyssGear_HpRegen_LV2",
+   "lines": [
+    "Health: +0.4 every 1 sec"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Health: +0.4 every 1 sec",
+     "icon": "cd_icon_ability_vitality",
+     "status": "hp"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 18 chest 1",
+   "item": "Shockward III",
+   "itemName": "Item_Stat_AbyssGear_ElectricityResistance_LV3",
+   "lines": [
+    "Lightning Resistance Lv 3"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Lightning Resistance Lv 3",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": "electricityresistance"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 191 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 200 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 3 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 3 chest 2",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 3 chest 3",
+   "item": "Swift I",
+   "itemName": "Item_Stat_AbyssGear_AttackSpeedRate_LV1",
+   "lines": [
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 36 chest 1",
+   "item": "Insight II",
+   "itemName": "Item_Stat_AbyssGear_CriticalRate_LV2",
+   "lines": [
+    "Critical Rate Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 41 chest 1",
+   "item": "Blessing of the Forest I",
+   "itemName": "Item_Skill_AbyssGear_CollectDrop_Log_LV1",
+   "lines": [
+    "10% chance to log additional timber"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "10% chance to log additional timber",
+     "icon": "cd_icon_ability_WOOD",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 55 chest 1",
+   "item": "Ledgermain I",
+   "itemName": "Item_Skill_AbyssGear_AdditionalThief_LV1",
+   "lines": [
+    "10% chance to pickpocket additional items"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "10% chance to pickpocket additional items",
+     "icon": "cd_icon_ability_Wanted_immune",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 55 chest 2",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 79 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 79 chest 2",
+   "item": "Ascent II",
+   "itemName": "Item_Stat_AbyssGear_ClimbSpeedRate_LV2",
+   "lines": [
+    "Climb Speed Multiplier 4%"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Climb Speed Multiplier 4%",
+     "icon": "cd_icon_ability_movement_speed",
+     "status": "climbspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 79 chest 3",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 83 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 83 chest 2",
+   "item": "Composure I",
+   "itemName": "Item_Stat_AbyssGear_MpRegen_LV1",
+   "lines": [
+    "Spirit: +0.1 every 1 sec"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Spirit: +0.1 every 1 sec",
+     "icon": "cd_icon_ability_mana",
+     "status": "mp"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 83 chest 3",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 84 chest 1",
+   "item": "Surge III",
+   "itemName": "Item_Stat_AbyssGear_SwimSpeedRate_LV3",
+   "lines": [
+    "Swim Speed Multiplier 6%"
+   ],
+   "parts": [
+    {
+     "kind": "effect",
+     "text": "Swim Speed Multiplier 6%",
+     "icon": "cd_icon_ability_movement_speed",
+     "status": "swimspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Abyss island 97 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 97 chest 2",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 99 chest 1",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Abyss island 99 chest 2",
+   "item": "Faded Abyss Artifact",
+   "itemName": "Deactived_Abyss_Artifact",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  }
+ ],
+ "unique": [
+  {
+   "chest": "Golden Sword",
+   "item": "Golden Sword",
+   "itemName": "Golden_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Constellation Helm",
+   "item": "Constellation Helm",
+   "itemName": "Anamorphic_PlateArmor_Helm",
+   "lines": [
+    "Defense 5",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Plate Helm of the Shadows",
+   "item": "Plate Helm of the Shadows",
+   "itemName": "DarknessKing_PlateArmor_Helm",
+   "lines": [
+    "Defense 2",
+    "Glacial Domain ({Key:Key_Skill_5_Start})",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Glacial Domain ({Key:Key_Skill_5_Start})",
+     "icon": "cd_icon_ability_ICE",
+     "status": null
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Brimstone Gas Mask",
+   "item": "Brimstone Gas Mask",
+   "itemName": "Gas_Mask_Helm_I",
+   "lines": [
+    "Defense 3",
+    "Brimstone Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Brimstone Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Circuit Hijacking Helm",
+   "item": "Circuit Hijacking Helm",
+   "itemName": "Hacking_PlateArmor_Helm",
+   "lines": [
+    "Defense 5",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Helm of Ignition",
+   "item": "Helm of Ignition",
+   "itemName": "Heat_PlateArmor_Helm",
+   "lines": [
+    "Defense 5",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_commoncooldownhelm Lv 1: no template",
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Helm of Knowledge",
+   "item": "Helm of Knowledge",
+   "itemName": "Knowledge_PlateArmor_Helm",
+   "lines": [
+    "Defense 5",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Marni Laser Helm",
+   "item": "Marni Laser Helm",
+   "itemName": "Marni_Laser_Helm",
+   "lines": [
+    "Defense 4",
+    "Laser ({Key:Key_Skill_5_Start})",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "4",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Laser ({Key:Key_Skill_5_Start})",
+     "icon": "cd_icon_ability_Skill",
+     "status": null
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Health Detection Device",
+   "item": "Health Detection Device",
+   "itemName": "Scouter_HP_PlateArmor_Helm",
+   "lines": [
+    "Defense 5",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio_openablehelm Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Witters Plate Helm",
+   "item": "Witters Plate Helm",
+   "itemName": "Witters_PlateArmor_Helm",
+   "lines": [
+    "Defense 2",
+    "Daze Immunity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "2",
+     "status": "dpv"
+    },
+    {
+     "kind": "effect",
+     "text": "Daze Immunity",
+     "icon": "cd_icon_ability_immune",
+     "status": null
+    }
+   ],
+   "status": "stats (some left out)",
+   "leftOut": [
+    "equip_passive_platehelm_audio Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Drake Shield",
+   "item": "Drake Shield",
+   "itemName": "AbyssReward_Drake_Metal_OneHandShield",
+   "lines": [
+    "Defense 3",
+    "Defense Efficiency 5",
+    "Movement Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "5",
+     "status": "guardpvrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 2",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Shotgun Shield",
+   "item": "Shotgun Shield",
+   "itemName": "Gun_OneHandShield",
+   "lines": [
+    "Defense 7",
+    "Defense Efficiency 13",
+    "Movement Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "7",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "13",
+     "status": "guardpvrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 2",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Runewalker Shield",
+   "item": "Runewalker Shield",
+   "itemName": "LakeGolem_OnehandShield",
+   "lines": [
+    "Defense 3",
+    "Defense Efficiency 5",
+    "Movement Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "3",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "5",
+     "status": "guardpvrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 2",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Shield of Ringing",
+   "item": "Shield of Ringing",
+   "itemName": "Sound_OneHandShield",
+   "lines": [
+    "Defense 5",
+    "Defense Efficiency 7",
+    "Attack Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "7",
+     "status": "guardpvrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 2",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Gale Shield",
+   "item": "Gale Shield",
+   "itemName": "Wind_Power_OneHandShield",
+   "lines": [
+    "Defense 6",
+    "Defense Efficiency 10",
+    "Attack Speed Lv 1",
+    "Movement Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "6",
+     "status": "dpv"
+    },
+    {
+     "kind": "stat",
+     "label": "Defense Efficiency",
+     "value": "10",
+     "status": "guardpvrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Bismuth Spear",
+   "item": "Bismuth Spear",
+   "itemName": "Bismuth_TwoHandSpear",
+   "lines": [
+    "Attack 27",
+    "Bismuth Affinity"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "27",
+     "status": "ddd"
+    },
+    {
+     "kind": "effect",
+     "text": "Bismuth Affinity",
+     "icon": "cd_icon_ability_BISMUTHEXTRAATTACK",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Thorn of Dark Pursuit",
+   "item": "Thorn of Dark Pursuit",
+   "itemName": "DarkLeader_TwoHandGiantSpear",
+   "lines": [
+    "Attack 13",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "13",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Disruptor Spear",
+   "item": "Disruptor Spear",
+   "itemName": "EMP_TwoHandSpear",
+   "lines": [
+    "Attack 27"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "27",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Flame Spear",
+   "item": "Flame Spear",
+   "itemName": "Fire_staff_spear_TwoHandSpear",
+   "lines": [
+    "Attack 27",
+    "Critical Rate Lv 1",
+    "Fire Weapon Attack"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "27",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Fire Weapon Attack",
+     "icon": "cd_icon_ability_FIRE",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Diverging Moon",
+   "item": "Diverging Moon",
+   "itemName": "Legendary_Moonhead_01_TwoHandGiantSpear",
+   "lines": [
+    "Attack 12",
+    "Attack Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 2",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Circling Moon",
+   "item": "Circling Moon",
+   "itemName": "Legendary_Moonhead_02_TwoHandGiantSpear",
+   "lines": [
+    "Attack 12",
+    "Attack Speed Lv 1",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Grasping Moon",
+   "item": "Grasping Moon",
+   "itemName": "Legendary_Moonhead_TwoHandGiantSpear",
+   "lines": [
+    "Attack 13",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "13",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Frostfang",
+   "item": "Frostfang",
+   "itemName": "Legendary_OwenCraber_TwoHandGiantSpear",
+   "lines": [
+    "Attack 13",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "13",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Lightning Spear",
+   "item": "Lightning Spear",
+   "itemName": "Lightning_TwoHandSpear",
+   "lines": [
+    "Attack 27",
+    "Movement Speed Lv 1",
+    "Lightning Weapon Attack"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "27",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Movement Speed",
+     "value": "Lv 1",
+     "status": "movespeedrate"
+    },
+    {
+     "kind": "effect",
+     "text": "Lightning Weapon Attack",
+     "icon": "cd_icon_ability_ELECTRIC",
+     "status": null
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Soul Spear",
+   "item": "Soul Spear",
+   "itemName": "Soul_TwoHandSpear",
+   "lines": [
+    "Attack 26"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "26",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Propeller Spear",
+   "item": "Propeller Spear",
+   "itemName": "Wind_TwoHandSpear",
+   "lines": [
+    "Attack 27",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "27",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Acria Sword",
+   "item": "Acria Sword",
+   "itemName": "Archria_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Knightlord's Sword",
+   "item": "Knightlord's Sword",
+   "itemName": "Knight_King_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Fated Shadow",
+   "item": "Fated Shadow",
+   "itemName": "Old_Kliff_OneHandSword",
+   "lines": [
+    "Attack 12"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "12",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Spada Sword",
+   "item": "Spada Sword",
+   "itemName": "Spada_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Arben Greatsword",
+   "item": "Arben Greatsword",
+   "itemName": "Arven_Giant_TwoHandGiantBastard",
+   "lines": [
+    "Attack 17"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "17",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Lubricant Sprayer",
+   "item": "Lubricant Sprayer",
+   "itemName": "Oil_Sprayer_BackPack",
+   "lines": [],
+   "parts": [],
+   "status": "no lines (some left out)",
+   "leftOut": [
+    "equip_passive_oil_spray Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Myurdin's Ring",
+   "item": "Myurdin's Ring",
+   "itemName": "LaveMyurdin_Ring",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Fertilizer Sprayer",
+   "item": "Fertilizer Sprayer",
+   "itemName": "Fertilizer_Sprayer_BackPack",
+   "lines": [],
+   "parts": [],
+   "status": "no lines (some left out)",
+   "leftOut": [
+    "equip_passive_fertilizer_spray Lv 1: no template"
+   ]
+  },
+  {
+   "chest": "Mask of the Devil of the Reed Field",
+   "item": "Mask of the Devil of the Reed Field",
+   "itemName": "ReedDevil_Mask",
+   "lines": [],
+   "parts": [],
+   "status": "no stats"
+  },
+  {
+   "chest": "Dewhaven Shotgun",
+   "item": "Dewhaven Shotgun",
+   "itemName": "Alida_OneHandShotgun",
+   "lines": [
+    "Attack 13",
+    "Critical Rate Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "13",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Shadow of the Past Pistol",
+   "item": "Shadow of the Past Pistol",
+   "itemName": "Alida_Restraint_OneHandPistol",
+   "lines": [
+    "Attack 11",
+    "Attack Speed Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 2",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Serdin Greatsword",
+   "item": "Serdin Greatsword",
+   "itemName": "Serdin_Giant_TwoHandGiantBastard",
+   "lines": [
+    "Attack 16",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "16",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Verak Greatsword",
+   "item": "Verak Greatsword",
+   "itemName": "Verak_Giant_TwoHandGiantBastard",
+   "lines": [
+    "Attack 15",
+    "Critical Rate Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "15",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Double-Headed Axe of Greed",
+   "item": "Double-Headed Axe of Greed",
+   "itemName": "Legendary_CaptainGoblin_OneHandAxe",
+   "lines": [
+    "Attack 10",
+    "Critical Rate Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Kadel Mace",
+   "item": "Kadel Mace",
+   "itemName": "Kadel_OneHandMace",
+   "lines": [
+    "Attack 11",
+    "Attack Speed Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "11",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Attack Speed",
+     "value": "Lv 1",
+     "status": "attackspeedrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Bleed Shotgun",
+   "item": "Bleed Shotgun",
+   "itemName": "Walter_OneHandShotgun",
+   "lines": [
+    "Attack 13",
+    "Critical Rate Lv 2"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "13",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 2",
+     "status": "criticalrate"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Hyde Crossbow",
+   "item": "Hyde Crossbow",
+   "itemName": "Hyde_OneHandCrossBow",
+   "lines": [
+    "Attack 18"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "18",
+     "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  }
+ ]
+}

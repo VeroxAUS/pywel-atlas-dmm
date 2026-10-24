@@ -1,5 +1,5 @@
 // =============================================================================
-// Pywel Atlas - in-game filter panel (FilterPanel.cpp, v0.62-v0.123)
+// Pywel Atlas - in-game filter panel (FilterPanel.cpp, v0.62-v0.133)
 // =============================================================================
 //
 // WHAT THIS FILE IS
@@ -71,6 +71,8 @@
 #include "RouteSystem.h"
 // v0.119: rebindable keys (the Keys section and the panel's hotkeys).
 #include "Keybinds.h"
+// v0.129: the short player log (pywel-atlas.log).
+#include "ReleaseLog.h"
 
 namespace {
 
@@ -293,7 +295,9 @@ void Note(const char* format, ...) {
     event.thread = GetCurrentThreadId();
     va_list arguments;
     va_start(arguments, format);
-    vsprintf_s(event.note, format, arguments);
+    // v0.127: a note longer than the buffer is cut short (vsprintf_s would
+    // stop the game, like the route log's start-up line did in v0.124-v0.126).
+    _vsnprintf_s(event.note, _TRUNCATE, format, arguments);
     va_end(arguments);
     Queue(event);
 }
@@ -570,6 +574,7 @@ void CreateImGuiOnce() {
     style.FrameBorderSize = 1.0f;
     style.ItemSpacing = ImVec2(10.0f, 6.0f);
     style.ItemInnerSpacing = ImVec2(8.0f, 4.0f);
+    style.TabRounding = 3.0f; // v0.125: like the buttons.
     ImVec4* colors = style.Colors;
     const ImVec4 gold(0.847f, 0.702f, 0.416f, 1.0f); // #d8b36a, headings and marks.
     const ImVec4 bronze(0.420f, 0.337f, 0.192f, 1.0f); // #6b5631, borders.
@@ -591,6 +596,23 @@ void CreateImGuiOnce() {
     colors[ImGuiCol_NavCursor] = gold;
     colors[ImGuiCol_PlotHistogram] = gold; // Progress bars, header and the F10 notice.
     colors[ImGuiCol_PopupBg] = ImVec4(0.078f, 0.067f, 0.051f, 0.96f); // Tooltips.
+    // v0.125: the tabs, the slider handle and the region list's highlight were
+    // still ImGui's default blue; they now use the same bronze and gold as the
+    // buttons. The selected tab is filled bronze with a gold top line, and the
+    // line under the tab bar is the selected tab's colour.
+    colors[ImGuiCol_Tab] = ImVec4(0.420f, 0.337f, 0.192f, 0.20f);
+    colors[ImGuiCol_TabHovered] = ImVec4(0.420f, 0.337f, 0.192f, 0.60f);
+    colors[ImGuiCol_TabSelected] = ImVec4(0.420f, 0.337f, 0.192f, 0.80f);
+    colors[ImGuiCol_TabSelectedOverline] = gold;
+    colors[ImGuiCol_TabDimmed] = ImVec4(0.420f, 0.337f, 0.192f, 0.15f);
+    colors[ImGuiCol_TabDimmedSelected] = ImVec4(0.420f, 0.337f, 0.192f, 0.55f);
+    colors[ImGuiCol_TabDimmedSelectedOverline] = bronze;
+    colors[ImGuiCol_SliderGrab] = ImVec4(0.722f, 0.576f, 0.306f, 1.0f); // #b8934e
+    colors[ImGuiCol_SliderGrabActive] = gold;
+    colors[ImGuiCol_Header] = ImVec4(0.420f, 0.337f, 0.192f, 0.30f);
+    colors[ImGuiCol_HeaderHovered] = ImVec4(0.420f, 0.337f, 0.192f, 0.50f);
+    colors[ImGuiCol_HeaderActive] = ImVec4(0.420f, 0.337f, 0.192f, 0.75f);
+    colors[ImGuiCol_TextSelectedBg] = ImVec4(0.420f, 0.337f, 0.192f, 0.50f);
     baseStyle = style;
     QueryPerformanceFrequency(&timerFrequency);
     QueryPerformanceCounter(&lastFrameTime);
@@ -652,6 +674,7 @@ bool CreateRenderer(void* swapchain, const KnownSwapchain& entry) {
     if (!ok) {
         Note("panel: could not create drawing resources for swapchain 0x%llx",
             reinterpret_cast<unsigned long long>(swapchain));
+        PywelReleaseLog("Panel: could not create its drawing resources; the panel cannot be shown.");
         Teardown("creation failed");
         return false;
     }
@@ -671,6 +694,7 @@ bool CreateRenderer(void* swapchain, const KnownSwapchain& entry) {
     info.SrvDescriptorFreeFn = FreeSrv;
     if (!ImGui_ImplDX12_Init(&info)) {
         Note("panel: ImGui DirectX 12 backend refused to start");
+        PywelReleaseLog("Panel: the DirectX 12 drawing backend refused to start; the panel cannot be shown.");
         Teardown("backend failed");
         return false;
     }
@@ -760,6 +784,8 @@ void CountCursorFrame(bool shown, bool moved, HCURSOR image, bool drawn, LONG ra
     cursorStats.rawY += rawY;
     cursorStats.lastImage = image;
     if (now - cursorStats.since >= 1000) {
+#ifdef PYWEL_ATLAS_DEV
+        // The "cursor" log line: development builds only (v0.129).
         RECT clip = {};
         GetClipCursor(&clip);
         Note("cursor frames=%u shown=%u moved=%u imageChanges=%u image=0x%llx settled=%s modeChanges=%u "
@@ -768,6 +794,7 @@ void CountCursorFrame(bool shown, bool moved, HCURSOR image, bool drawn, LONG ra
             reinterpret_cast<unsigned long long>(image), cursorFree ? "free" : "locked",
             cursorStats.modeChanges, cursorStats.drawnFrames, cursorStats.rawX, cursorStats.rawY,
             clip.left, clip.top, clip.right, clip.bottom);
+#endif
         HCURSOR keepImage = cursorStats.lastImage;
         POINT keepPos = cursorStats.lastPos;
         bool keepPosKnown = cursorStats.lastPosKnown;
@@ -987,6 +1014,11 @@ bool NotBindable(int key) {
         key == VK_RWIN || key == VK_APPS;
 }
 
+// v0.125: the frame in which the Hotkeys tab was last drawn. A key wait whose
+// tab is no longer shown (the player picked another tab) is cancelled, the
+// same as pressing Esc.
+int keysTabFrame = -1;
+
 // Starts waiting for a new key for `action`.
 void StartCapture(PywelKeyAction action) {
     for (int key = 0; key < 256; ++key) {
@@ -1109,9 +1141,11 @@ void BuildKeyRow(PywelKeyAction action) {
 
 // The Keys section (v0.123: the Hotkeys tab): one row per action and a
 // button that puts every key back to its default. Changes are saved by the
-// map-marker worker within about a second. PollCapture runs every frame
-// from BuildPanelContents, so leaving the tab never strands a key wait.
+// map-marker worker within about a second. Choosing another tab cancels a
+// key wait (BuildPanelContents).
 void BuildKeysSection() {
+    keysTabFrame = ImGui::GetFrameCount();
+    PollCapture();
     for (unsigned action = 0; action < kKeyActionCount; ++action) {
         BuildKeyRow(static_cast<PywelKeyAction>(action));
     }
@@ -1834,12 +1868,12 @@ const PanelTab kPanelTabs[] = {
 };
 
 // The panel's contents (v0.64 behaviour, v0.65 layout; v0.123: tabs).
-// ImGui remembers the chosen tab while the game runs. A key wait started
-// on the Hotkeys tab is checked every frame, whichever tab is shown.
+// ImGui remembers the chosen tab while the game runs. v0.125: a key wait
+// started on the Hotkeys tab ends, as if Esc were pressed, once another tab
+// is chosen.
 void BuildPanelContents() {
     BuildHeader();
     ImGui::Spacing();
-    PollCapture();
     if (ImGui::BeginTabBar("panelTabs")) {
         for (const PanelTab& tab : kPanelTabs) {
             if (ImGui::BeginTabItem(tab.name)) {
@@ -1848,6 +1882,10 @@ void BuildPanelContents() {
             }
         }
         ImGui::EndTabBar();
+    }
+    if (captureAction != kKeyActionCount && keysTabFrame != ImGui::GetFrameCount()) {
+        EndCapture();
+        Note("key wait cancelled (another tab chosen)");
     }
     ImGui::Spacing();
     char panelKey[32];
@@ -1917,8 +1955,9 @@ void BuildPanel() {
     ImGui::End();
 }
 
+#ifdef PYWEL_ATLAS_DEV
 // v0.68 cursor diagnostics while the panel is CLOSED, to compare with the
-// "cursor" lines written while it is open: does the game's own menu cursor
+// "cursor" lines written while it is open (development builds only, v0.129): does the game's own menu cursor
 // already change shape or blink without the panel? Summed per second; a line
 // is written only when the picture differs from the last line written, or
 // while the cursor image keeps changing (capped per session).
@@ -1984,6 +2023,7 @@ void WatchClosedCursor() {
     }
     InterlockedExchange(&closedCursorBusy, 0);
 }
+#endif
 
 // v0.104: after a drawing failure the route line waits this long before
 // trying again (GetTickCount64 time), so a failure is not retried every frame.
@@ -1998,7 +2038,9 @@ void DrawPanel(void* swapchain) {
     bool panelOpen = InterlockedCompareExchange(&panelVisible, 0, 0) != 0;
     bool hudDue = false; // v0.110: the completion widget, panel closed.
     if (!panelOpen) {
+#ifdef PYWEL_ATLAS_DEV
         WatchClosedCursor();
+#endif
         bool routeDue = static_cast<LONG64>(GetTickCount64()) >= InterlockedCompareExchange64(&routeOverlayRetryAt, 0, 0);
         hudDue = HudWanted();
         if (!routeDue || (!PywelRouteOverlayWanted() && !hudDue)) {
@@ -2122,6 +2164,11 @@ void DrawPanel(void* swapchain) {
     if (!ok) {
         Note("panel: drawing failed on swapchain 0x%llx; panel closed, route line paused for 5 s",
             reinterpret_cast<unsigned long long>(swapchain));
+        // The player log gets the first few only (this can repeat every 5 s).
+        static volatile LONG drawFailuresLogged = 0;
+        if (InterlockedIncrement(&drawFailuresLogged) <= 3) {
+            PywelReleaseLog("Panel: drawing failed; panel closed, route line paused for 5 s.");
+        }
         InterlockedExchange(&panelVisible, 0);
         InterlockedExchange64(&routeOverlayRetryAt, static_cast<LONG64>(GetTickCount64() + 5000));
     }
@@ -2500,6 +2547,7 @@ bool InstallFactoryHooks() {
     }
     if (!dxgi) {
         Log("dxgi.dll not found; no panel installed.");
+        PywelReleaseLog("Panel: dxgi.dll not found; the panel and route line are off.");
         return false;
     }
     const auto* base = reinterpret_cast<const BYTE*>(dxgi);
@@ -2514,6 +2562,7 @@ bool InstallFactoryHooks() {
     if (!createFactory ||
         FAILED(createFactory(__uuidof(IDXGIFactory2), reinterpret_cast<void**>(&factory))) || !factory) {
         Log("Could not create a DXGI factory to find its methods; no panel installed.");
+        PywelReleaseLog("Panel: could not find the DirectX methods; the panel and route line are off.");
         return false;
     }
     uintptr_t createSwapChain = VtableEntry(factory, kFactoryCreateSwapChain);
@@ -2616,14 +2665,21 @@ DWORD WINAPI Run(void* address) {
     }
     wcscat_s(path, L"\\PywelAtlas");
     CreateDirectoryW(path, nullptr);
+#ifdef PYWEL_ATLAS_DEV
+    // The detailed panel log; the release build has none (Log() writes nothing).
     wcscat_s(path, L"\\filter-panel.log");
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
-    Log("Pywel Atlas combined v0.123 filter panel (v0.123: panel split into tabs (Filters, Route, Completion, Hotkeys), one table row per tab; v0.122: no panel change (map code split into files); v0.121: no panel change (route line on its own canvases); v0.120: no panel change (map markers share one zoom size curve); v0.119: Keys section, every mod key rebindable, saved in keybinds.ini; v0.118: no panel change (route line fixes only); v0.117: no panel change (map markers load all at once); v0.116: completion widget default place centred above the minimap's date and area lines; v0.115: route Line style covers both maps, Crimson Route look; v0.114: Constellations row; v0.113: completion widget details grow upward when low on screen, default place above a low minimap, kept on screen; v0.111: Route section Line style (game canvas / overlay), road-following route lines; v0.110: completion tracker: Completion section and always-on region widget, Shift+F9 switches its details; v0.108: Unique gear row; v0.107: route stop dots, world-map route hidden while a knowledge card is open; Abyss Cressets row; Route section and route line overlay, drawn while a map is visible even with the panel closed; quest-locked count on the Abyss chest row; Abyss-island Nexus row; Sealed Abyss Artifacts row; Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui " IMGUI_VERSION);
+#endif
+#ifdef PYWEL_ATLAS_DEV
+    // The version and change list (development builds only, v0.129).
+    Log("Pywel Atlas combined 0.28.0 filter panel (v0.133: Route tab: the Look choice removed, at most 10 stops; v0.131: no panel change (route fix only); v0.130: no panel change (route only); v0.129: no panel change (release build without debug tools: cursor diagnostics and this log only in development builds); v0.127: panel log notes cut short instead of stopping the game when too long; v0.126: no panel change (height arrows); v0.125: tabs, slider and list highlights in the panel's bronze and gold; choosing another tab cancels a key wait; v0.124: Route tab: Look Painted / Plain for the world map line; v0.123: panel split into tabs (Filters, Route, Completion, Hotkeys), one table row per tab; v0.122: no panel change (map code split into files); v0.121: no panel change (route line on its own canvases); v0.120: no panel change (map markers share one zoom size curve); v0.119: Keys section, every mod key rebindable, saved in keybinds.ini; v0.118: no panel change (route line fixes only); v0.117: no panel change (map markers load all at once); v0.116: completion widget default place centred above the minimap's date and area lines; v0.115: route Line style covers both maps, Crimson Route look; v0.114: Constellations row; v0.113: completion widget details grow upward when low on screen, default place above a low minimap, kept on screen; v0.111: Route section Line style (game canvas / overlay), road-following route lines; v0.110: completion tracker: Completion section and always-on region widget, Shift+F9 switches its details; v0.108: Unique gear row; v0.107: route stop dots, world-map route hidden while a knowledge card is open; Abyss Cressets row; Route section and route line overlay, drawn while a map is visible even with the panel closed; quest-locked count on the Abyss chest row; Abyss-island Nexus row; Sealed Abyss Artifacts row; Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui " IMGUI_VERSION);
+#endif
     // (MinHook was initialized once by PywelAtlas.cpp before this part started.)
     if (!InstallFactoryHooks()) {
         return 0;
     }
+    PywelReleaseLog("Panel started.");
 
     ULONGLONG start = GetTickCount64();
     ULONGLONG lastRates = start;
@@ -2645,6 +2701,7 @@ DWORD WINAPI Run(void* address) {
         ULONGLONG now = GetTickCount64();
         if (!missedLogged && !newestSwapchain && now - start > 120000) {
             Log("No swapchain creation seen in the first 2 minutes (it may have happened before this part started); the panel cannot be shown this session.");
+            PywelReleaseLog("Panel: the game's screen setup was missed at start; the panel and route line cannot be shown this session.");
             missedLogged = true;
         }
         LONG drops = InterlockedCompareExchange(&droppedEvents, 0, 0);

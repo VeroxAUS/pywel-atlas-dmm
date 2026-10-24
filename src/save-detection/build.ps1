@@ -69,7 +69,9 @@ try {
     $applicationSources = @(
         (Join-Path $sourceDirectory 'NativeSaveLoadProbe.cpp'),
         (Join-Path $workspace 'src/marker-bell/NativeSaveReader.cpp'))
-    & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W4 /LD @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj /link "/OUT:$outputPath" /IMPLIB:NativeMapProbe.lib shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib
+    # v0.129: research probes keep their debug keys and logs (PYWEL_ATLAS_DEV,
+    # as in src/pywel-atlas/build.ps1 without -Release).
+    & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W4 /LD /DPYWEL_ATLAS_DEV @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj /link "/OUT:$outputPath" /IMPLIB:NativeMapProbe.lib shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib
     if ($LASTEXITCODE -ne 0) { throw 'Could not build the native map probe' }
 
     # --- Step 4: copy the license and README next to the .asi ----------------

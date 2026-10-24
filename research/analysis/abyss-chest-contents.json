@@ -1,0 +1,1520 @@
+{
+ "summary": {
+  "named": 50,
+  "default drop set": 24,
+  "distinct items": 51,
+  "surface check": {
+   "same item": 168,
+   "not resolved: not in gimmick list": 10,
+   "not resolved: reason not in gimmick row": 6,
+   "not resolved: default drop set with 0 items": 5
+  },
+  "englishTexts": 13575
+ },
+ "Abyss Chest": [
+  {
+   "name": "Abyss bridge 1 chest 1",
+   "uuid": [
+    2801313316,
+    1450447017,
+    1140703292,
+    0
+   ],
+   "level": "abyssbridge_0001_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x56bcd6bd",
+   "spawnReason": "Drop_Abyss_0001",
+   "source": "item",
+   "itemKey": 1002785,
+   "itemName": "Item_Stat_AbyssGear_DDD_LV1",
+   "textId": "4306928779919472",
+   "english": "Destruction I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 109 chest 1",
+   "uuid": [
+    2860491582,
+    1450447017,
+    1140703292,
+    0
+   ],
+   "level": "abyssbridge_0109_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x885ae6d6",
+   "spawnReason": "Drop_Abyss_0109",
+   "source": "item",
+   "itemKey": 1002822,
+   "itemName": "Item_Stat_AbyssGear_HpRegen_LV1",
+   "textId": "4307087693709424",
+   "english": "Vitality I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 122 chest 1",
+   "uuid": [
+    1678922642,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssbridge_0122_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss bridge 122 chest 2",
+   "uuid": [
+    2856202462,
+    1591218345,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0122_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x27865e0c",
+   "spawnReason": "Drop_Abyss_0122",
+   "source": "item",
+   "itemKey": 1002753,
+   "itemName": "Item_Stat_AbyssGear_MpRegen_LV2",
+   "textId": "4306791340966000",
+   "english": "Composure II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 138 chest 1",
+   "uuid": [
+    955864974,
+    1591218556,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0138_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x3ca16743",
+   "spawnReason": "Drop_Abyss_0138",
+   "source": "item",
+   "itemKey": 1002467,
+   "itemName": "Item_Stat_AbyssGear_IceResistance_LV3",
+   "textId": "4305562980319344",
+   "english": "Frostward III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 140 chest 1",
+   "uuid": [
+    2844277515,
+    1591218345,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0140_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x994ff00a",
+   "spawnReason": "Drop_Abyss_0140",
+   "source": "item",
+   "itemKey": 1002747,
+   "itemName": "Item_Stat_AbyssGear_StaminaRegen_LV1",
+   "textId": "4306765571162224",
+   "english": "Vigor I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 150 chest 1",
+   "uuid": [
+    2830077707,
+    1591218345,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0150_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x060af45e",
+   "spawnReason": "Drop_Abyss_0150",
+   "source": "item",
+   "itemKey": 1002794,
+   "itemName": "Item_Stat_AbyssGear_DPV_LV1",
+   "textId": "4306967434625136",
+   "english": "Fortification I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 151 chest 1",
+   "uuid": [
+    240629046,
+    1591218357,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0151_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xc55909bd",
+   "spawnReason": "Drop_Abyss_0151",
+   "source": "item",
+   "itemKey": 1001425,
+   "itemName": "Item_Stat_AbyssGear_FireResistance_LV2",
+   "textId": "4301087624396912",
+   "english": "Flameward II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 152 chest 1",
+   "uuid": [
+    2834740659,
+    1591218345,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0152_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xbbd8adf7",
+   "spawnReason": "Drop_Abyss_0152",
+   "source": "item",
+   "itemKey": 1002824,
+   "itemName": "Item_Stat_AbyssGear_HpRegen_LV3",
+   "textId": "4307096283644016",
+   "english": "Vitality III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 162 chest 1",
+   "uuid": [
+    3697801490,
+    1591218554,
+    2990706131,
+    0
+   ],
+   "level": "abyssbridge_0162_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xc7d9373e",
+   "spawnReason": "Drop_Abyss_0162",
+   "source": "item",
+   "itemKey": 1002751,
+   "itemName": "Item_Stat_AbyssGear_StaminaRegen_LV3",
+   "textId": "4306782751031408",
+   "english": "Vigor III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 176 chest 1",
+   "uuid": [
+    2820720008,
+    1591218345,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0176_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x43773bc4",
+   "spawnReason": "Drop_Abyss_0176",
+   "source": "item",
+   "itemKey": 1002389,
+   "itemName": "Item_Stat_AbyssGear_IceResistance_LV2",
+   "textId": "4305227972870256",
+   "english": "Frostward II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 189 chest 1",
+   "uuid": [
+    1062334340,
+    1591218357,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0189_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x93ccefca",
+   "spawnReason": "Drop_Abyss_0189",
+   "source": "item",
+   "itemKey": 1001426,
+   "itemName": "Item_Stat_AbyssGear_FireResistance_LV3",
+   "textId": "4301091919364208",
+   "english": "Flameward III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 23 chest 1",
+   "uuid": [
+    1789880781,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssbridge_0023_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss bridge 23 chest 2",
+   "uuid": [
+    1697248457,
+    1450447218,
+    4203164732,
+    0
+   ],
+   "level": "abyssbridge_0023_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xe4d61fff",
+   "spawnReason": "Drop_Abyss_0023",
+   "source": "item",
+   "itemKey": 1002813,
+   "itemName": "Item_Stat_AbyssGear_MoveSpeedRate_LV1",
+   "textId": "4307049039003760",
+   "english": "Haste I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 89 chest 1",
+   "uuid": [
+    2847897518,
+    1450447017,
+    1140703292,
+    0
+   ],
+   "level": "abyssbridge_0089_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x19f97032",
+   "spawnReason": "Drop_Abyss_0089",
+   "source": "item",
+   "itemKey": 1002815,
+   "itemName": "Item_Stat_AbyssGear_MoveSpeedRate_LV3",
+   "textId": "4307057628938352",
+   "english": "Haste III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 91 chest 1",
+   "uuid": [
+    2727420217,
+    1591218485,
+    1179029203,
+    0
+   ],
+   "level": "abyssbridge_0091_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x4cd56286",
+   "spawnReason": "Drop_Abyss_0091",
+   "source": "item",
+   "itemKey": 1002498,
+   "itemName": "Item_Stat_AbyssGear_ElectricityResistance_LV2",
+   "textId": "4305696124305520",
+   "english": "Shockward II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 91 chest 2",
+   "uuid": [
+    1741068642,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssbridge_0091_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss bridge 97 chest 1",
+   "uuid": [
+    2851635890,
+    1450447017,
+    1140703292,
+    0
+   ],
+   "level": "abyssbridge_0097_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xd04337d9",
+   "spawnReason": "Drop_Abyss_0097",
+   "source": "item",
+   "itemKey": 1002795,
+   "itemName": "Item_Stat_AbyssGear_DPV_LV2",
+   "textId": "4306971729592432",
+   "english": "Fortification II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss bridge 99 chest 1",
+   "uuid": [
+    2854741603,
+    1450447017,
+    1140703292,
+    0
+   ],
+   "level": "abyssbridge_0099_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x84412daf",
+   "spawnReason": "Drop_Abyss_0099",
+   "source": "item",
+   "itemKey": 1002814,
+   "itemName": "Item_Stat_AbyssGear_MoveSpeedRate_LV2",
+   "textId": "4307053333971056",
+   "english": "Haste II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 1 chest 1",
+   "uuid": [
+    4043237732,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0001_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x878c677c",
+   "spawnReason": "Drop_Abyss_Core_0001_01",
+   "source": "item",
+   "itemKey": 1002928,
+   "itemName": "Item_Skill_AbyssGear_FoodSkillLevelUp_LV3",
+   "textId": "4307542960242800",
+   "english": "Gourmet III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 1 chest 2",
+   "uuid": [
+    1008730335,
+    4279243251,
+    4084319712,
+    0
+   ],
+   "level": "abyssislandcore_0001_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x1fcfde11",
+   "spawnReason": "Drop_Abyss_Core_0001_02",
+   "source": "item",
+   "itemKey": 1002931,
+   "itemName": "Item_Skill_AbyssGear_ReduceCraftMaterial_LV3",
+   "textId": "4307555845144688",
+   "english": "Efficiency III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 2 chest 1",
+   "uuid": [
+    2895578842,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0002_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xc9b5026d",
+   "spawnReason": "Drop_Abyss_Core_0002_03",
+   "source": "item",
+   "itemKey": 1002913,
+   "itemName": "Item_Skill_AbyssGear_CommonAnimal_AdditionalDamage_LV3",
+   "textId": "4307478535733360",
+   "english": "Beastbane III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 2 chest 2",
+   "uuid": [
+    2515515417,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0002_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xcbaf67fa",
+   "spawnReason": "Drop_Abyss_Core_0002_02",
+   "source": "item",
+   "itemKey": 1002943,
+   "itemName": "Item_Skill_AbyssGear_CollectDrop_Animal_LV3",
+   "textId": "4307607384752240",
+   "english": "Blessing of the Beast III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 2 chest 3",
+   "uuid": [
+    2736615930,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0002_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xb3b90961",
+   "spawnReason": "Drop_Abyss_Core_0002_01",
+   "source": "item",
+   "itemKey": 1002907,
+   "itemName": "Item_Skill_AbyssGear_CommonGolem_AdditionalDamage_LV3",
+   "textId": "4307452765929584",
+   "english": "Primalbane III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 3 chest 1",
+   "uuid": [
+    665262521,
+    1591218591,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0003_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xc2b4f541",
+   "spawnReason": "Drop_Abyss_Core_0003_01",
+   "source": "item",
+   "itemKey": 1002952,
+   "itemName": "Item_Skill_AbyssGear_SkillPointExp_LV3",
+   "textId": "4307646039457904",
+   "english": "Aptitude III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 3 chest 2",
+   "uuid": [
+    451669526,
+    1591218591,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0003_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xf150393e",
+   "spawnReason": "Drop_Abyss_Core_0003_02",
+   "source": "item",
+   "itemKey": 1000531,
+   "itemName": "Item_Skill_AbyssGear_Equip_AddHorseExp_LV3",
+   "textId": "4297247923634288",
+   "english": "Equestrian III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 3 chest 3",
+   "uuid": [
+    606300356,
+    1591218591,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0003_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xa432c2d7",
+   "spawnReason": "Drop_Abyss_Core_0003_03",
+   "source": "item",
+   "itemKey": 1002522,
+   "itemName": "Item_Skill_AbyssGear_AddFrendly_LV3",
+   "textId": "4305799203520624",
+   "english": "Solidarity III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 4 chest 1",
+   "uuid": [
+    2339021254,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0004_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x8a4de286",
+   "spawnReason": "Drop_Abyss_Core_0004_02",
+   "source": "item",
+   "itemKey": 1003290,
+   "itemName": "Item_Skill_AbyssGear_Attack_MPRecover_LV1",
+   "textId": "4309097738403952",
+   "english": "Spirit Transference",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 4 chest 2",
+   "uuid": [
+    3460364985,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0004_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xd3e99201",
+   "spawnReason": "Drop_Abyss_Core_0004_03",
+   "source": "item",
+   "itemKey": 1002922,
+   "itemName": "Item_Skill_AbyssGear_AddMoneyDropRate_LV3",
+   "textId": "4307517190439024",
+   "english": "Fortune III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 4 chest 3",
+   "uuid": [
+    2336271412,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0004_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x7f4025fa",
+   "spawnReason": "Drop_Abyss_Core_0004_01",
+   "source": "item",
+   "itemKey": 1002904,
+   "itemName": "Item_Skill_AbyssGear_CommonHumanoid_AdditionalDamage_LV3",
+   "textId": "4307439881027696",
+   "english": "Bloodbane III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 5 chest 1",
+   "uuid": [
+    4105411219,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0005_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xa96d5048",
+   "spawnReason": "Drop_Abyss_Core_0005_04",
+   "source": "item",
+   "itemKey": 1003231,
+   "itemName": "Item_Skill_AbyssGear_EquipDropRate_LV3",
+   "textId": "4308844335333488",
+   "english": "Disarm III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 5 chest 2",
+   "uuid": [
+    3759066578,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0005_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xb495b284",
+   "spawnReason": "Drop_Abyss_Core_0005_03",
+   "source": "item",
+   "itemKey": 1002925,
+   "itemName": "Item_Skill_AbyssGear_BlockAmmoConsume_LV3",
+   "textId": "4307530075340912",
+   "english": "Infinite Arrows III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 5 chest 3",
+   "uuid": [
+    3530951790,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0005_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x25dd7a58",
+   "spawnReason": "Drop_Abyss_Core_0005_01",
+   "source": "item",
+   "itemKey": 1002898,
+   "itemName": "Item_Skill_AbyssGear_Machine_AdditionalDamage_LV3",
+   "textId": "4307414111223920",
+   "english": "Steelbane III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 5 chest 4",
+   "uuid": [
+    3844555866,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0005_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x77e9ee54",
+   "spawnReason": "Drop_Abyss_Core_0005_02",
+   "source": "item",
+   "itemKey": 1003291,
+   "itemName": "Item_Skill_AbyssGear_Attack_SPRecover_LV1",
+   "textId": "4309102033371248",
+   "english": "Stamina Transference",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 6 chest 1",
+   "uuid": [
+    1196529754,
+    4279243251,
+    4084319712,
+    0
+   ],
+   "level": "abyssislandcore_0006_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x0ec580e4",
+   "spawnReason": "Drop_Abyss_Core_0006_02",
+   "source": "item",
+   "itemKey": 1002910,
+   "itemName": "Item_Skill_AbyssGear_Boss_AdditionalDamage_LV3",
+   "textId": "4307465650831472",
+   "english": "Malicebane III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 6 chest 2",
+   "uuid": [
+    4037818909,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0006_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x616b100e",
+   "spawnReason": "Drop_Abyss_Core_0006_01",
+   "source": "item",
+   "itemKey": 1003281,
+   "itemName": "Item_Skill_AbyssGear_Attack_HPRecover_LV1",
+   "textId": "4309059083698288",
+   "english": "Life Transference",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 7 chest 1",
+   "uuid": [
+    4198132241,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0007_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xc24599c5",
+   "spawnReason": "Drop_Abyss_Core_0007_01",
+   "source": "item",
+   "itemKey": 1002955,
+   "itemName": "Item_Skill_AbyssGear_AddKillSkillLevel_LV3",
+   "textId": "4307658924359792",
+   "english": "Energy Drain III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 7 chest 2",
+   "uuid": [
+    746071794,
+    1591218591,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0007_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xa8e53b5b",
+   "spawnReason": "Drop_Abyss_Core_0007_02",
+   "source": "item",
+   "itemKey": 1002937,
+   "itemName": "Item_Skill_AbyssGear_CollectDrop_Ore_LV3",
+   "textId": "4307581614948464",
+   "english": "Blessing of the Earth III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 7 chest 3",
+   "uuid": [
+    4144792902,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0007_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xa90dcadd",
+   "spawnReason": "Drop_Abyss_Core_0007_04",
+   "source": "item",
+   "itemKey": 1002916,
+   "itemName": "Item_Skill_AbyssGear_Creature_AdditionalDamage_LV3",
+   "textId": "4307491420635248",
+   "english": "Abyssbane III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss core island 7 chest 4",
+   "uuid": [
+    4147613488,
+    1591218590,
+    1179029203,
+    0
+   ],
+   "level": "abyssislandcore_0007_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xbe467b72",
+   "spawnReason": "Drop_Abyss_Core_0007_03",
+   "source": "item",
+   "itemKey": 1002940,
+   "itemName": "Item_Skill_AbyssGear_CollectDrop_Plant_LV3",
+   "textId": "4307594499850352",
+   "english": "Blessing of Nature III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 1 chest 1",
+   "uuid": [
+    1599972655,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0001_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 1001 chest 1",
+   "uuid": [
+    1686880084,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_1001_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 113 chest 1",
+   "uuid": [
+    3346217315,
+    1450447262,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0113_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xb8ce157b",
+   "spawnReason": "Drop_Abyss_0113",
+   "source": "item",
+   "itemKey": 1002793,
+   "itemName": "Item_Stat_AbyssGear_CriticalRate_LV3",
+   "textId": "4306963139657840",
+   "english": "Insight III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 113 chest 2",
+   "uuid": [
+    1701717800,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0113_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 121 chest 1",
+   "uuid": [
+    3852130345,
+    1450447262,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0121_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x53bde2de",
+   "spawnReason": "Drop_Abyss_0121",
+   "source": "item",
+   "itemKey": 1002818,
+   "itemName": "Item_Stat_AbyssGear_ClimbSpeedRate_LV3",
+   "textId": "4307070513840240",
+   "english": "Ascent III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 13 chest 1",
+   "uuid": [
+    1612301124,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0013_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 13 chest 2",
+   "uuid": [
+    1604126736,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0013_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 13 chest 3",
+   "uuid": [
+    3475954324,
+    1450447262,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0013_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xda092b64",
+   "spawnReason": "Drop_Abyss_0013",
+   "source": "item",
+   "itemKey": 1002786,
+   "itemName": "Item_Stat_AbyssGear_DDD_LV2",
+   "textId": "4306933074886768",
+   "english": "Destruction II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 144 chest 1",
+   "uuid": [
+    1620900838,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0144_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 158 chest 1",
+   "uuid": [
+    1816400380,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0158_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 158 chest 2",
+   "uuid": [
+    1192072270,
+    4279243251,
+    4084319712,
+    0
+   ],
+   "level": "abyssisland_0158_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x599558db",
+   "spawnReason": "Drop_Abyss_0158",
+   "source": "item",
+   "itemKey": 1002811,
+   "itemName": "Item_Stat_AbyssGear_AttackSpeedRate_LV2",
+   "textId": "4307040449069168",
+   "english": "Swift II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 158 chest 3",
+   "uuid": [
+    421352041,
+    1450447287,
+    4203164732,
+    0
+   ],
+   "level": "abyssisland_0158_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 175 chest 1",
+   "uuid": [
+    3930461874,
+    3308261754,
+    459099801,
+    0
+   ],
+   "level": "abyssisland_0175_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x2e07f403",
+   "spawnReason": "Drop_Abyss_0175",
+   "source": "item",
+   "itemKey": 1002823,
+   "itemName": "Item_Stat_AbyssGear_HpRegen_LV2",
+   "textId": "4307091988676720",
+   "english": "Vitality II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 18 chest 1",
+   "uuid": [
+    2837710313,
+    1450447017,
+    1140703292,
+    0
+   ],
+   "level": "abyssisland_0018_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xee12ac38",
+   "spawnReason": "Drop_Abyss_0018",
+   "source": "item",
+   "itemKey": 1002499,
+   "itemName": "Item_Stat_AbyssGear_ElectricityResistance_LV3",
+   "textId": "4305700419272816",
+   "english": "Shockward III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 191 chest 1",
+   "uuid": [
+    1795513088,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0191_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 200 chest 1",
+   "uuid": [
+    485379192,
+    1450447287,
+    4203164732,
+    0
+   ],
+   "level": "abyssisland_0200_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 3 chest 1",
+   "uuid": [
+    1804305751,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0003_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 3 chest 2",
+   "uuid": [
+    1188162188,
+    4279243251,
+    4084319712,
+    0
+   ],
+   "level": "abyssisland_0003_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 3 chest 3",
+   "uuid": [
+    2804860049,
+    1450447017,
+    1140703292,
+    0
+   ],
+   "level": "abyssisland_0003_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x9cafb050",
+   "spawnReason": "Drop_Abyss_0003",
+   "source": "item",
+   "itemKey": 1002810,
+   "itemName": "Item_Stat_AbyssGear_AttackSpeedRate_LV1",
+   "textId": "4307036154101872",
+   "english": "Swift I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 36 chest 1",
+   "uuid": [
+    3132018410,
+    1450447262,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0036_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x899c477f",
+   "spawnReason": "Drop_Abyss_0036",
+   "source": "item",
+   "itemKey": 1002792,
+   "itemName": "Item_Stat_AbyssGear_CriticalRate_LV2",
+   "textId": "4306958844690544",
+   "english": "Insight II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 41 chest 1",
+   "uuid": [
+    3559034322,
+    1450447262,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0041_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xe940cb7a",
+   "spawnReason": "Drop_Abyss_0041",
+   "source": "item",
+   "itemKey": 1002944,
+   "itemName": "Item_Skill_AbyssGear_CollectDrop_Log_LV1",
+   "textId": "4307611679719536",
+   "english": "Blessing of the Forest I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 55 chest 1",
+   "uuid": [
+    3223303496,
+    1450447262,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0055_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xb1acc254",
+   "spawnReason": "Drop_Abyss_0055",
+   "source": "item",
+   "itemKey": 1002932,
+   "itemName": "Item_Skill_AbyssGear_AdditionalThief_LV1",
+   "textId": "4307560140111984",
+   "english": "Ledgermain I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 55 chest 2",
+   "uuid": [
+    1826651938,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0055_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 79 chest 1",
+   "uuid": [
+    1771102340,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0079_phase00_00_sub_1_0",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 79 chest 2",
+   "uuid": [
+    3797052265,
+    1450447262,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0079_phase00_00_sub_1_0",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xb010740d",
+   "spawnReason": "Drop_Abyss_0079",
+   "source": "item",
+   "itemKey": 1002817,
+   "itemName": "Item_Stat_AbyssGear_ClimbSpeedRate_LV2",
+   "textId": "4307066218872944",
+   "english": "Ascent II",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 79 chest 3",
+   "uuid": [
+    1762149295,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0079_phase00_00_sub_1_1",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 83 chest 1",
+   "uuid": [
+    1639385339,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0083_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 83 chest 2",
+   "uuid": [
+    3640157864,
+    1450447262,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0083_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0x5eb8e211",
+   "spawnReason": "Drop_Abyss_0083",
+   "source": "item",
+   "itemKey": 1002752,
+   "itemName": "Item_Stat_AbyssGear_MpRegen_LV1",
+   "textId": "4306787045998704",
+   "english": "Composure I",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 83 chest 3",
+   "uuid": [
+    1660316717,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0083_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 84 chest 1",
+   "uuid": [
+    699589205,
+    1450447263,
+    2733276476,
+    0
+   ],
+   "level": "abyssisland_0084_phase00_00",
+   "prefab": "gimmick_itembox_a_0009.prefab",
+   "gimmick": "itembox_09",
+   "reasonChecksum": "0xc6f14c1e",
+   "spawnReason": "Drop_Abyss_0084",
+   "source": "item",
+   "itemKey": 1002839,
+   "itemName": "Item_Stat_AbyssGear_SwimSpeedRate_LV3",
+   "textId": "4307160708153456",
+   "english": "Surge III",
+   "status": "named"
+  },
+  {
+   "name": "Abyss island 97 chest 1",
+   "uuid": [
+    1779498438,
+    1450447285,
+    1494999100,
+    0
+   ],
+   "level": "abyssisland_0097_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 97 chest 2",
+   "uuid": [
+    45630704,
+    1450447287,
+    4203164732,
+    0
+   ],
+   "level": "abyssisland_0097_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 99 chest 1",
+   "uuid": [
+    3495393536,
+    1450447286,
+    4203164732,
+    0
+   ],
+   "level": "abyssisland_0099_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  },
+  {
+   "name": "Abyss island 99 chest 2",
+   "uuid": [
+    3082132493,
+    1450447286,
+    4203164732,
+    0
+   ],
+   "level": "abyssisland_0099_phase00_00",
+   "prefab": "gimmick_itembox_a_0010.prefab",
+   "gimmick": "itembox_10",
+   "reasonChecksum": "0x00000000",
+   "source": "default drop set",
+   "dropSetKey": 170087,
+   "dropSetName": "DropSet_AbyssGear_Abyss_Box",
+   "itemKey": 75002,
+   "itemName": "Deactived_Abyss_Artifact",
+   "textId": "322131137134704",
+   "english": "Faded Abyss Artifact",
+   "status": "default drop set"
+  }
+ ]
+}

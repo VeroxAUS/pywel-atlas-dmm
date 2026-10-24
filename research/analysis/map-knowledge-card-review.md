@@ -288,3 +288,188 @@ Risks:
 - The Treasure Chest row's picture and layout are not yet seen in game.
 - `+0x2b6` (copied to `box+0x1a8` by `0xdba0e0`) is 1 for native Nexuses.
   Its meaning is unknown, so copy the native value (1) in our branch.
+
+## 8. Item picture, formatting and Sealed Artifacts (static, 2026-10-24)
+
+### 8.1 Where the card sets its picture (confirmed in code)
+
+- Layout file: `worldmapview.html` component `KnowledgeInfo`
+  (script `UIGamePlayControlKnowledgeDescription`). Its picture is
+  `#KnowledgeInfoImage` (script `UIGamePlayControlCommon_Background`,
+  inside `#KnowledgeInfoImageWrap`), selected through
+  `selector-knowledge-info-texture`.
+- In the layout `0xf09e70`, the picture's texture name is a string object
+  (`local_2e70`). It is filled with `0x3d5f80(&name, *(record+0x18))`, where
+  `record` comes from a string table lookup, and checked with `0x3f34410`.
+  The layout then calls, for every picture element in the box's list
+  (`box+0xd0`, count `box+0xd8`), **`0xe74740(backgroundElement, &name)`**.
+  If the texture does not exist it passes `"cd_knowledgeimage_00000000"`
+  instead.
+- `0xe74740` = "set this background element's texture by name". It looks
+  the name up in the UI texture manager (`0x3f321f0` / `0x3f322d0`, via
+  `vtable+0x110` → `+0x311e8`) and stores the texture. It is a 5-byte `jmp`
+  stub into the protected region; MinHook can hook such a stub, or the
+  call can be intercepted by the existing layout state.
+- Texture names are bare names without a path or extension, the same form
+  as `textureid(...)` in the CSS. Example: the Treasure Chest card uses
+  `cd_knowledgeimage_knowledge_gimmick_treasurebox`
+  (`ui/texture/image/knowledgeimage/...dds` in the packs).
+
+**Smallest hook point for another picture:** hook `0xe74740`. While our
+chest card is laid out (the same `chestLayoutIndex` state as the text
+swaps), pass a name object holding the item's icon texture name; otherwise
+call the original unchanged. The name object is a game string (first field
+`char*` buffer, then length/flags). The safe way is to copy the caller's
+object and only replace its text pointer. A phase-0 log line must confirm
+the object's layout first.
+
+### 8.2 Where an item's icon name lives (partly found)
+
+- Item icon textures are in `ui/texture/icon/` (8,067 files). Names are
+  like `itemicon_accessory_red_earring` or are prefab renders,
+  `ItemIcon_Prefab_CD_PHM_00_Earring_0003`.
+- The inventory icon code (`0xf3f4f0` and relatives, fallback
+  `"itemicon_unknown"` / `"itemicon_empty"`) gets the name from the
+  **`stringinfo` table** (`0x388e00(index)` → `record+0x18` = `char*`). The
+  index comes from the item instance through `0x240c800`.
+- Not found yet: which field of the iteminfo row holds that stringinfo
+  index. A scan for u32 values that point at `itemicon*` strings gave no
+  consistent offset. The index may be a 16-bit field, or may go through the
+  item's model/appearance (the `ItemIcon_Prefab_*` names follow the
+  equipment model names).
+- iteminfo rows hold no icon path as text (`.dds` appears only for book
+  page textures).
+
+Two ways to finish this: (a) more static work on `0x240c800` (how the item
+instance's icon index is derived from iteminfo); or (b) a logging build
+that records the name the inventory icon passes to `0x3f321f0` when the
+user opens the inventory. (b) only covers items the user owns, so (a) is
+needed for full coverage.
+
+### 8.3 Formatting (confirmed in code)
+
+- `0x3ed4e00` (set element text) itself converts `"<br>"` to `"\n"` before
+  storing the text. In v0.91, `"Cloak<br>A plate cloak..."` arrived as
+  `"Cloak\nA plate cloak..."`, and the description element showed the
+  `"\n"` as a space. So the element's style collapses line breaks
+  (`white-space: normal`). The description element is
+  `#KnowledgeInfoDiscriptionText` (`font-text-caption-minor-beige`, inside
+  `item-tooltip-description-wrap`). `"<br/>"` (with the slash) is not
+  converted, which is why recipe texts showed it literally.
+- Real line breaks inside one paragraph therefore need a style change, not
+  code: `white-space: pre-line` on `#KnowledgeInfoDiscriptionText` in
+  `worldmapview.css`, through the existing UI file-mod route (like the
+  Shrine Icons add-on). It would also apply to native cards; their texts
+  contain no `"\n"`, so they should look the same (unchecked).
+- Elements of a richer text class take another path: `0x3ed4e00` hands the
+  text to `0x3ea8110(element, text, flag)` when the element's class check
+  (`vtable+400`, class `0x6d66a80`) passes. That is probably a rich-text
+  element that understands markup. The card's description is not such an
+  element.
+- Styled parts the card already has (all in the same layout):
+  - `#KnowledgeInfoTitle` (`font-text-main`): the title, already swapped.
+  - `#KnowledgeLevelText` (`font-text-caption-white`, in
+    `#KnowledgeLevelWrap`, hidden by default).
+  - `#SkillAddInfoWrap`, with title `#SkillAddInfoTitle` (fixed local string
+    `UI_Knowledge_HowToLearn_Title`) and description `#SkillAddInfoDesc`
+    (`font-text-sub-white`). The game fills it for knowledge rows with
+    "how to learn" entries (`0xf10100` loops over the row's `+0x88` → `+0x78`
+    list; entry kinds 0/1/2/4/6 pick fixed labels). Extra info lines are
+    instanced from the template `SkillTreePanel` / `SkillAddInfoItem` by
+    `0xf102a0`.
+  - `#KnowledgeInfoConditionText` (red) and `#KnowledgeStageConditionText`.
+
+  Showing these for our chest needs either a knowledge row that has them
+  (the Treasure Chest row has none), or making the game show a hidden wrap
+  (a CSS state change on that element, as the game does with
+  `0x1435ca0a0` / `0x1435caec0`). That is more UI internals than the text
+  swap.
+
+### 8.4 Sealed Abyss Artifacts
+
+The same card mechanism fits. `knowledgeinfo` has
+`Knowledge_LevelGimmickIcon_SealedAbyssArtifact` at row `0x16fb`. With the
+v0.91 pieces generalised per category (flag `+0x2b7` on our verified
+type-187 markers, open card key `0x16fb`, swap title/paragraphs), the card
+could show `challengeName` as the title and `challengeText` /
+`challengeSteps` as the paragraphs from `data/sealed-artifact-links.json`.
+That is a data/table change plus a category check, no new hooks.
+
+### 8.5 Options, effort and risk
+
+| Option | What it gives | Effort | Risk |
+| --- | --- | --- | --- |
+| A. Sealed Artifact card | Card with challenge name and text | Small (tables + category check) | Low (same hooks as chests) |
+| B. Line breaks via CSS file mod | `"\n"`/`"<br>"` breaks inside a paragraph | Small (one CSS rule in the UI add-on) | Low; native cards to be eyeballed |
+| C. Item picture | The item's icon in the card's frame | Medium: 1 hook (`0xe74740`) + finding the icon name per item (8.2) | Medium: string object layout; icon fit in the round frame |
+| D. Styled info lines | "How to learn"-style styled rows | Large: CSS state changes, template instancing | Medium-high |
+
+Recommendation: A and B next (cheap, visible improvements). Then C, starting
+with static work on the item → icon name chain, plus a small logging
+probe on `0xe74740` to confirm the name object's layout. Skip D unless B
+is not enough.
+
+## 9. Why the card has "paragraphs", and how to get more lines (2026-10-24)
+
+### 9.1 What happened with line breaks
+
+- v0.93 add-on (`white-space: pre-line` in `worldmapview.css`): the game
+  failed to load the world map view at start-up and crashed (DMM: "Load
+  error, no mod matched", `UIHtmlLoader::preOpen` for
+  `WorldMapMercenarySkillInformationColumnList` and `FactionNodeInfo`). The
+  game's style files only use `normal`, `nowrap` and its own `pa-break`.
+- v0.94-test add-on (`white-space: pa-break`): loads fine, but no line
+  breaks. The CSS route is dropped; the add-on is back to shrines only.
+- v0.94 mod: lines inside a paragraph are joined with " · " as a stopgap.
+
+### 9.2 How the description becomes paragraphs (confirmed in code and data)
+
+- Knowledge descriptions are **markup**. The Treasure Chest row (`0x16fc`)
+  has the description "A mysterious chest hidden from prying eyes.<br/>It
+  may hold a bandit's plunder, ...". It holds one `<br/>`, i.e. two text
+  nodes.
+- The UI parses that markup into a node tree. `0x3eefde0` walks the tree:
+  element nodes (type 1, e.g. `<br/>`) are handled by `0x3eea4a0` and their
+  children are visited; **every text node (type 2) becomes its own text
+  element** through `0x3eef440` (create element `0x3ed3dd0`, set its text
+  with `0x3ed4e00` — return address `0x3eef5a1`, the "description" caller in
+  our logs — then append it with `0x3ed5b40`).
+- So the number of "paragraphs" is the number of text nodes in the
+  borrowed row's description, and the line break between them comes from
+  the `<br/>` element itself. A `"\n"` inside one text node is just a space.
+- Consequence for v0.93/v0.94: the Sealed Abyss Artifact row (`0x16fb`)
+  has a one-sentence description with **no** `<br/>`. Only one paragraph is
+  written, so our artifact paragraph 2 ("Reward: ...") is never used. The
+  title and paragraph 1 (the challenge) do show.
+- Row statistics (knowledgeinfo descriptions in English, by `<br/>` count):
+  0: 5,220; 1: 518; 2: 140; 3: 35; 4: 231; 5: 118; 6: 59; 7: 81; 8: 134 ...
+
+### 9.3 Ways to get any number of lines, ranked by risk
+
+1. **Swap the description markup before it is parsed (best, low risk once
+   found).** If the layout hands the whole description markup to one "set
+   markup" call, a hook there can pass our own markup for our card. The
+   candidates are `0x3ed7f90(element, markup, flag)` (26 callers; also used
+   by the info-line builder `0xf102a0` with flag 1) or `0x3d2ce00`. Our
+   markup would be, for example, "Footwear<br/>Plate boots of ...", or
+   "A recipe ...<br/>[Effect] ...<br/>※ When made ...", or "Step 1<br/>Step 2<br/>...<br/>Reward: ...".
+   The game then builds the elements and line breaks itself, any count, and
+   the paragraph swaps in `0x3ed4e00` can go. **Not yet confirmed which call
+   carries the description**: `0xf09e70` does not call `0x3ed7f90` directly.
+   A small logging step settles it: in the layout pass, log every
+   `0x3ed7f90` / `0x3d2ce00` call with its text (observe-only, same pattern
+   as v0.89).
+2. **Borrow a row with more text nodes (medium).** Pick, per category, a
+   knowledgeinfo row whose description has enough `<br/>` (e.g. 4-5 for
+   artifacts), ideally with a fitting picture, and fill paragraphs 1..N
+   through the existing `0x3ed4e00` swap (unused ones as ""). Downsides: the
+   picture changes to that row's, an empty paragraph may still leave a gap,
+   and the count is fixed per row.
+3. **Call the paragraph builder ourselves (high risk).** Calling
+   `0x3eef440` / `0x3ed3dd0` with the builder state from inside the layout
+   means using game UI internals outside their normal call path. Not
+   recommended.
+
+Recommendation: a v0.95 logging step for option 1 (one Thomas run: hover
+one of our chests and a native Nexus), then build the markup swap. Until
+then v0.94's " · " joins stay, and artifact rewards are not shown.

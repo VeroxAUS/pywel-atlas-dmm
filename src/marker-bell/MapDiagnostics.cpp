@@ -4,14 +4,15 @@
 // - Records zoom windows per icon type, the map zoom while F8 is active, and
 //   why the game refuses a world-map icon (world-create probe), and writes
 //   them to native-map-categories.log (LogZoomAndPosition).
-// - Diagnostics only: nothing here changes the map. Most of it is what the
-//   later release build leaves out.
+// - Diagnostics only: nothing here changes the map. v0.129: compiled only in
+//   the development builds (PYWEL_ATLAS_DEV); the release build leaves the
+//   whole file out, and its callers skip these calls.
 // Moved unchanged from NativeMapCategoryProbe.cpp in v0.122.
 #include "MapMarkerShared.h"
 
 namespace pywel_map {
 
-#ifdef PYWEL_ATLAS_COMBINED
+#if defined(PYWEL_ATLAS_COMBINED) && defined(PYWEL_ATLAS_DEV)
 
 SRWLOCK zoomLock = SRWLOCK_INIT;
 ZoomTypeRecord zoomTypes[64] = {}; // Waiting to be logged by the worker.

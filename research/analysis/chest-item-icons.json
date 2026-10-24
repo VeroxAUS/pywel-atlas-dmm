@@ -1,0 +1,1903 @@
+{
+ "summary": {
+  "icon": 189,
+  "no item": 1
+ },
+ "chests": [
+  {
+   "name": "Crimson Desert chest 1",
+   "itemName": "Demian_PlateArmor_Gloves_II",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hand_00_0151",
+   "iconKey": 2421176334,
+   "stringinfoRow": 17060,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hand_00_0151.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 2",
+   "itemName": "Demian_Pure_White_Plate_Boots_I",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_foot_00_0020",
+   "iconKey": 3067622233,
+   "stringinfoRow": 17098,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_foot_00_0020.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 3",
+   "itemName": "Volghan_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Hand_Set_0011_index03",
+   "iconKey": 3849862333,
+   "stringinfoRow": 16558,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_set_0011_index03.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 4",
+   "itemName": "Demian_Plate_Boots_III",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_foot_00_0020_index02",
+   "iconKey": 3401011865,
+   "stringinfoRow": 17080,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_foot_00_0020_index02.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 5",
+   "itemName": "Gaeljude_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_0008_index04",
+   "iconKey": 3009121287,
+   "stringinfoRow": 16767,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_0008_index04.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 6",
+   "itemName": "Golden_PlateArmor_Armor",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_so_phm_ub_43013",
+   "iconKey": 3009123580,
+   "stringinfoRow": 16749,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_so_phm_ub_43013.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 7",
+   "itemName": "Golden_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_set_0135_c",
+   "iconKey": 1287135706,
+   "stringinfoRow": 16784,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_set_0135_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 8",
+   "itemName": "Demian_PlateArmor_Gloves_IV",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hand_00_0146",
+   "iconKey": 3597479346,
+   "stringinfoRow": 17062,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hand_00_0146.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 9",
+   "itemName": "Regglin_Boss_Helm",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Hel_00_0408",
+   "iconKey": 1849856619,
+   "stringinfoRow": 16564,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_00_0408.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 10",
+   "itemName": "Heisellen_Fabric_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_DE_PHM_Cloak_23002_t",
+   "iconKey": 1868930469,
+   "stringinfoRow": 16406,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_de_phm_cloak_23002_t.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 11",
+   "itemName": "Demian_PlateArmor_Cloak_III",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_Cloak_00_0146_s",
+   "iconKey": 1075269814,
+   "stringinfoRow": 17058,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_cloak_00_0146_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 12",
+   "itemName": "AbyssReward_HolyEcho_OneHandBow",
+   "iconName": "ItemIcon_Prefab_CD_PHM_04_Bow_0015",
+   "iconKey": 2887190794,
+   "stringinfoRow": 18985,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_04_bow_0015.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 13",
+   "itemName": "Demian_Plate_Boots_VI",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_foot_00_0151",
+   "iconKey": 2042775728,
+   "stringinfoRow": 17076,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_foot_00_0151.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 14",
+   "itemName": "Demian_PlateArmor_Armor_II",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_ub_00_0151_u",
+   "iconKey": 2369639331,
+   "stringinfoRow": 17056,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_ub_00_0151_u.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 15",
+   "itemName": "Demian_PlateArmor_Helm_VIII",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hel_00_0151",
+   "iconKey": 926947344,
+   "stringinfoRow": 17068,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hel_00_0151.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert chest 16",
+   "itemName": "Flame_SwordMan_TwoHandHammer",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Hammer_0002",
+   "iconKey": 1225789987,
+   "stringinfoRow": 19234,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_hammer_0002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 1",
+   "itemName": "CraftingRecipe_Dragon_Weapon",
+   "iconName": "ItemIcon_Prefab_gimmick_item_book_01",
+   "iconKey": 2267360924,
+   "stringinfoRow": 10267,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_gimmick_item_book_01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 2",
+   "itemName": "Scalaphynion_Fabric_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_DE_PHM_Cloak_23001_s",
+   "iconKey": 179711543,
+   "stringinfoRow": 16357,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_de_phm_cloak_23001_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 3",
+   "itemName": "Scalaphynion_Fabric_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_0101_01",
+   "iconKey": 982996657,
+   "stringinfoRow": 16363,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_0101_01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 4",
+   "itemName": "Rhinard_TwoHandCannon_I",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Cannon_0065_index01",
+   "iconKey": 1512799619,
+   "stringinfoRow": 19100,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_cannon_0065_index01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 5",
+   "itemName": "Scalaphynion_Fabric_Armor",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_DE_PHM_UB_23001",
+   "iconKey": 2253925176,
+   "stringinfoRow": 16355,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_de_phm_ub_23001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 6",
+   "itemName": "Carta_PlateArmor_Armor",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_DE_PHM_UB_24004",
+   "iconKey": 1936223300,
+   "stringinfoRow": 16790,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_de_phm_ub_24004.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 7",
+   "itemName": "Lascaux_Leather_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_0105_index02",
+   "iconKey": 1192315632,
+   "stringinfoRow": 16599,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_0105_index02.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 8",
+   "itemName": "Hard_Thorn_OneHandTowerShield",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_TowerShield_0093",
+   "iconKey": 1042258789,
+   "stringinfoRow": 18940,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_towershield_0093.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 9",
+   "itemName": "Delesian_Friend_Boss_TwoHandSword",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Sword_0028",
+   "iconKey": 2315272448,
+   "stringinfoRow": 19529,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_sword_0028.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 10",
+   "itemName": "Ancient_Shield",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_Shield_0123",
+   "iconKey": 1330131695,
+   "stringinfoRow": 18677,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_shield_0123.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 11",
+   "itemName": "Legendary_MarniGolem_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_00_0362",
+   "iconKey": 844113819,
+   "stringinfoRow": 16769,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_00_0362.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 12",
+   "itemName": "Magnet_OneHandSword",
+   "iconName": "ItemIcon_Prefab_cd_phm_01_sword_0081",
+   "iconKey": 2814252405,
+   "stringinfoRow": 18770,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_sword_0081.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 13",
+   "itemName": "Legendary_Orc_Plate_Glove",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Hand_0362",
+   "iconKey": 1774730327,
+   "stringinfoRow": 16771,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_0362.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 14",
+   "itemName": "Legendary_DragonSlayer_OneHandSword",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0075",
+   "iconKey": 2311604566,
+   "stringinfoRow": 18841,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_sword_0075.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 15",
+   "itemName": "Legendary_MarniGolem_Plate_Armor",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_so_phm_ub_43014",
+   "iconKey": 656374105,
+   "stringinfoRow": 16743,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_ub_43014.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 16",
+   "itemName": "Demian_Plate_Boots_V",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_foot_00_0145",
+   "iconKey": 2066767146,
+   "stringinfoRow": 17100,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_foot_00_0145.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 17",
+   "itemName": "Heat_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0454_c",
+   "iconKey": 3315908401,
+   "stringinfoRow": 17187,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_00_0454_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 18",
+   "itemName": "Stugrub_Leather_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_0099_01_index05",
+   "iconKey": 1487100449,
+   "stringinfoRow": 16545,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_0099_01_index05.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 19",
+   "itemName": "Leone_OneHandRapier",
+   "iconName": "ItemIcon_Prefab_cd_phw_01_sword_0010_R",
+   "iconKey": 3078841677,
+   "stringinfoRow": 18630,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_01_sword_0010_r.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 20",
+   "itemName": "Demian_PlateArmor_Helm_XI",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hel_00_0169",
+   "iconKey": 1958583095,
+   "stringinfoRow": 17096,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hel_00_0169.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 21",
+   "itemName": "HorseShoe_HorseArmor_Shoe_III",
+   "iconName": "ItemIcon_Prefab_CD_R0002_00_Horse_Horseshoe_0004",
+   "iconKey": 1945868636,
+   "stringinfoRow": 18055,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_r0002_00_horse_horseshoe_0004.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 22",
+   "itemName": "Marni_MachineKnight_TwoHandSpear",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_spear_0115",
+   "iconKey": 1709005847,
+   "stringinfoRow": 19122,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_spear_0115.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 23",
+   "itemName": "Recipe_Surasang_03",
+   "iconName": "ItemIcon_prefab_CD_T0000_BoardPaper_0130",
+   "iconKey": 3702665890,
+   "stringinfoRow": 12440,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_boardpaper_0130.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 24",
+   "itemName": "Lyfellen_TwoHandAxe",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_AXE_0023",
+   "iconKey": 3210901001,
+   "stringinfoRow": 19204,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_axe_0023.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 25",
+   "itemName": "Demian_PlateArmor_Cloak_V",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_Cloak_00_0145_s",
+   "iconKey": 1276463778,
+   "stringinfoRow": 17086,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_cloak_00_0145_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia chest 26",
+   "itemName": "Hidden_TreasureMap_VIII",
+   "iconName": "ItemIcon_Prefab_cd_t0000_boardpaper_0138",
+   "iconKey": 3335895927,
+   "stringinfoRow": 12836,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_boardpaper_0138.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 1",
+   "itemName": "Demian_PlateArmor_Helm_V",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hel_00_0145",
+   "iconKey": 920190796,
+   "stringinfoRow": 17090,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hel_00_0145.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 2",
+   "itemName": "Vdure_ChainMail_Armor",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_SO_PHM_UB_24002",
+   "iconKey": 232748403,
+   "stringinfoRow": 16798,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_ub_24002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 3",
+   "itemName": "Khadiac_TwoHandAxe",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_AXE_0011",
+   "iconKey": 2368434191,
+   "stringinfoRow": 19206,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_axe_0011.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 4",
+   "itemName": "Redknight_PlateArmor_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_bliss_redknight_cloak_0001_s",
+   "iconKey": 650163958,
+   "stringinfoRow": 16820,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_bliss_redknight_cloak_0001_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 5",
+   "itemName": "Redknight_PlateArmor_Armor",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_bliss_redknight_ub_0001",
+   "iconKey": 4024206102,
+   "stringinfoRow": 16796,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_bliss_redknight_ub_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 6",
+   "itemName": "Abyss_Surreal_Wolf_Leather_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_set_0120_c",
+   "iconKey": 3632854871,
+   "stringinfoRow": 16665,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_set_0120_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 7",
+   "itemName": "Witch_WingFan",
+   "iconName": "itemicon_prefab_cd_t0000_wingfan_0001",
+   "iconKey": 1555556748,
+   "stringinfoRow": 19151,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_wingfan_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 8",
+   "itemName": "Demian_Leather_Armor_VI",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_ub_00_0166",
+   "iconKey": 2068110213,
+   "stringinfoRow": 16686,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_ub_00_0166.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 9",
+   "itemName": "Liberry_OneHandRapier",
+   "iconName": "ItemIcon_Prefab_cd_phw_01_sword_0024_R",
+   "iconKey": 4005056169,
+   "stringinfoRow": 18633,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_01_sword_0024_r.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 10",
+   "itemName": "Hailbrin_Leather_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_0052_index10",
+   "iconKey": 478529408,
+   "stringinfoRow": 16547,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_0052_index10.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 11",
+   "itemName": "DamianOnly_Leather_Boots_VI",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_foot_00_0166",
+   "iconKey": 4105721930,
+   "stringinfoRow": 16698,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_foot_00_0166.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 12",
+   "itemName": "Samuel_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_Samuel_hand_0001",
+   "iconKey": 2284413736,
+   "stringinfoRow": 16776,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_samuel_hand_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 13",
+   "itemName": "Samuel_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_Samuel_foot_0001",
+   "iconKey": 886645699,
+   "stringinfoRow": 16765,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_samuel_foot_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 14",
+   "itemName": "Redsentinel_ChainMail_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_Cloak_00_0350_s",
+   "iconKey": 1725040274,
+   "stringinfoRow": 16812,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_cloak_00_0350_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 15",
+   "itemName": "Redsentinel_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_0350",
+   "iconKey": 3076972465,
+   "stringinfoRow": 16842,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_0350.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 16",
+   "itemName": "Londel_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_0197_i",
+   "iconKey": 572469538,
+   "stringinfoRow": 16938,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_0197_i.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 17",
+   "itemName": "Demian_PlateArmor_Helm_VI",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hel_00_0161",
+   "iconKey": 1994150296,
+   "stringinfoRow": 17072,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hel_00_0161.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 18",
+   "itemName": "Demian_Fabric_Cloak_III",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_Cloak_00_0161_s",
+   "iconKey": 3010988109,
+   "stringinfoRow": 16449,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_cloak_00_0161_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 19",
+   "itemName": "Nakmore_Leather_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_0001_Index11",
+   "iconKey": 3640737789,
+   "stringinfoRow": 16601,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_0001_index11.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 20",
+   "itemName": "Redsentinel_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0350_c",
+   "iconKey": 3690527301,
+   "stringinfoRow": 16857,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_00_0350_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 21",
+   "itemName": "Samuel_PlateArmor_Armor",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_Samuel_UB_0001",
+   "iconKey": 2874979509,
+   "stringinfoRow": 16746,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_samuel_ub_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 22",
+   "itemName": "Demian_Leather_Armor_IV",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_ub_00_0161",
+   "iconKey": 1776596004,
+   "stringinfoRow": 16704,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_ub_00_0161.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 23",
+   "itemName": "OrcuMer_PlateArmor_Helm",
+   "iconName": "itemicon_prefab_cd_phm_m0001_00_orcumer_hel_0002_c",
+   "iconKey": 804223517,
+   "stringinfoRow": 16952,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_orcumer_hel_0002_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 24",
+   "itemName": "SkullKnight_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_skullknight_hel_0003_c",
+   "iconKey": 3095570096,
+   "stringinfoRow": 16854,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_skullknight_hel_0003_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 25",
+   "itemName": "king_LostPeople_PlateArmor_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_skullknight_Cloak_0003_s",
+   "iconKey": 3088540128,
+   "stringinfoRow": 16882,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_skullknight_cloak_0003_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 26",
+   "itemName": "Robinhood_OneHandBow",
+   "iconName": "ItemIcon_Prefab_cd_phm_04_bow_0014",
+   "iconKey": 2012846071,
+   "stringinfoRow": 18978,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_04_bow_0014.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 27",
+   "itemName": "Hailbrin_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_0052_index13",
+   "iconKey": 4001490861,
+   "stringinfoRow": 16555,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_0052_index13.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 28",
+   "itemName": "Hailbrin_Leather_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_Cloak_00_0052_index01_s",
+   "iconKey": 1814531389,
+   "stringinfoRow": 16530,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_cloak_00_0052_index01_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 29",
+   "itemName": "Paphneil_PlateArmor_Armor",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_SO_PHM_UB_25001",
+   "iconKey": 4022940053,
+   "stringinfoRow": 17114,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_ub_25001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 30",
+   "itemName": "Bastion_OneHandShield",
+   "iconName": "ItemIcon_Prefab_cd_phm_03_shield_0131",
+   "iconKey": 2781987877,
+   "stringinfoRow": 18675,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_shield_0131.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 31",
+   "itemName": "Legendary_Abyss_OneHandCannon",
+   "iconName": "ItemIcon_Prefab_CD_PHM_13_Fist_0011_L",
+   "iconKey": 3078182857,
+   "stringinfoRow": 18455,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_13_fist_0011_l.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 32",
+   "itemName": "Wells_TwoHandGiantSpear",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Spear_0051",
+   "iconKey": 820816845,
+   "stringinfoRow": 19304,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_spear_0051.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 33",
+   "itemName": "Legendary_Soulknight_OneHandTowerShield",
+   "iconName": "ItemIcon_Prefab_cd_phm_03_towershield_0119",
+   "iconKey": 3115237249,
+   "stringinfoRow": 18932,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_towershield_0119.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 34",
+   "itemName": "Demian_PlateArmor_Gloves_V",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hand_00_0145",
+   "iconKey": 3083380176,
+   "stringinfoRow": 17088,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hand_00_0145.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss chest 35",
+   "itemName": "Demian_Leather_Gloves_III",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hand_00_0161",
+   "iconKey": 2306069006,
+   "stringinfoRow": 16708,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hand_00_0161.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 1",
+   "itemName": "Paphneil_PlateArmor_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_SO_PHM_Cloak_25001_s",
+   "iconKey": 432105433,
+   "stringinfoRow": 16814,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_cloak_25001_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 2",
+   "itemName": "Reeddevil_Fabric_Boots",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_bush_devil_foot_0001",
+   "iconKey": 1008699350,
+   "stringinfoRow": 16359,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_bush_devil_foot_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 3",
+   "itemName": "Camouflage_Reindeer_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Cloak_00_0417_v",
+   "iconKey": 2944896330,
+   "stringinfoRow": 17314,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_cloak_00_0417_v.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 4",
+   "itemName": "DarknessKing_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_Death_knight_hand_0001",
+   "iconKey": 4162238477,
+   "stringinfoRow": 16836,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_death_knight_hand_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 5",
+   "itemName": "Deer_King_Leather_Helm",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_saigod_hel_0001_i",
+   "iconKey": 120433588,
+   "stringinfoRow": 16485,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_saigod_hel_0001_i.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 6",
+   "itemName": "DarknessKing_PlateArmor_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_Death_knight_Cloak_0001_s",
+   "iconKey": 3444678489,
+   "stringinfoRow": 16824,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_death_knight_cloak_0001_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 7",
+   "itemName": "DarknessKing_PlateArmor_Armor",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_Death_knight_UB_0001",
+   "iconKey": 2627546516,
+   "stringinfoRow": 16805,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_death_knight_ub_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 8",
+   "itemName": "Stephan_Bleed_Metal_OneHandTowerShield",
+   "iconName": "ItemIcon_Prefab_cd_phm_03_towershield_0045",
+   "iconKey": 499763852,
+   "stringinfoRow": 18950,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_towershield_0045.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 9",
+   "itemName": "Deerking_Leather_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_saigod_Cloak_0002_s",
+   "iconKey": 1557132965,
+   "stringinfoRow": 16495,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_saigod_cloak_0002_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 10",
+   "itemName": "Dark_King_Metal_OneHandShield",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_Shield_0090",
+   "iconKey": 2626400707,
+   "stringinfoRow": 18683,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_shield_0090.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 11",
+   "itemName": "Lipsort_OneHandTowerShield",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_TowerShield_0011",
+   "iconKey": 3659476854,
+   "stringinfoRow": 18938,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_towershield_0011.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 12",
+   "itemName": "OrcuMer_PlateArmor_Gloves",
+   "iconName": "itemicon_prefab_cd_phm_m0001_00_orcumer_hand_0002",
+   "iconKey": 3516777636,
+   "stringinfoRow": 16927,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_orcumer_hand_0002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 13",
+   "itemName": "Hemon_Vindel_Leather_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_SO_PHM_Cloak_24001_y",
+   "iconKey": 3238678514,
+   "stringinfoRow": 16469,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_cloak_24001_y.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 14",
+   "itemName": "Reeddevil_Leather_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_bush_devil_Cloak_0001_v",
+   "iconKey": 1818953935,
+   "stringinfoRow": 16532,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_bush_devil_cloak_0001_v.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 15",
+   "itemName": "Srasika_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_set_0023_index03",
+   "iconKey": 3572413653,
+   "stringinfoRow": 16560,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_set_0023_index03.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 16",
+   "itemName": "Isilon_Leather_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_0052_index06",
+   "iconKey": 2435197415,
+   "stringinfoRow": 16553,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_0052_index06.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 17",
+   "itemName": "Douglas_Leather_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_crowman_Cloak_0001_s",
+   "iconKey": 1366684116,
+   "stringinfoRow": 16471,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_crowman_cloak_0001_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 18",
+   "itemName": "Legendary_Deer_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_set_0081",
+   "iconKey": 4284160184,
+   "stringinfoRow": 16506,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_set_0081.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 19",
+   "itemName": "OrcuMer_Plate_Boots",
+   "iconName": "itemicon_prefab_cd_phm_m0001_00_orcumer_foot_0002",
+   "iconKey": 1497191692,
+   "stringinfoRow": 16912,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_orcumer_foot_0002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 20",
+   "itemName": "Legendary_Shakatu_OneHandDagger",
+   "iconName": "ItemIcon_Prefab_cd_phm_01_Dagger_0079_R",
+   "iconKey": 4004841222,
+   "stringinfoRow": 18473,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_dagger_0079_r.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 21",
+   "itemName": "Douglas_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_CrowMan_hand_0001",
+   "iconKey": 3539037760,
+   "stringinfoRow": 16500,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_crowman_hand_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 22",
+   "itemName": "Bainian_Leather_Boots",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_crowman_foot_0001",
+   "iconKey": 1472965101,
+   "stringinfoRow": 16475,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_crowman_foot_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 23",
+   "itemName": "Hwando_TwoHandSword",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Sword_0036",
+   "iconKey": 1210978909,
+   "stringinfoRow": 19532,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_sword_0036.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 24",
+   "itemName": "Ronied_OneHandTowerShield",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_TowerShield_0120",
+   "iconKey": 2505462487,
+   "stringinfoRow": 18944,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_towershield_0120.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 25",
+   "itemName": "Archrika_OneHandSword",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0071",
+   "iconKey": 2552338285,
+   "stringinfoRow": 18852,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_sword_0071.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 26",
+   "itemName": "Hidden_TreasureMap_VI",
+   "iconName": "ItemIcon_Prefab_cd_t0000_boardpaper_0136",
+   "iconKey": 666984027,
+   "stringinfoRow": 12832,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_boardpaper_0136.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 27",
+   "itemName": "Abyss_Surreal_Human_Leather_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_00_0204_c",
+   "iconKey": 436900848,
+   "stringinfoRow": 16667,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_00_0204_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand chest 28",
+   "itemName": "Wolf_Chief_Leather_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_Hel_0028_index02",
+   "iconKey": 2044905745,
+   "stringinfoRow": 17234,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_0028_index02.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 1",
+   "itemName": "Lucan_OneHandTowerShield",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_TowerShield_0106",
+   "iconKey": 788771579,
+   "stringinfoRow": 18942,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_towershield_0106.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 2",
+   "itemName": "Entura_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_0008_03_c",
+   "iconKey": 4076295425,
+   "stringinfoRow": 16943,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_0008_03_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 3",
+   "itemName": "DarkLeader_OneHandDagger",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Dagger_0049_R",
+   "iconKey": 190343444,
+   "stringinfoRow": 18482,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_dagger_0049_r.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 4",
+   "itemName": "Ladete_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_foot_0008_03_index01",
+   "iconKey": 267835569,
+   "stringinfoRow": 16900,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_0008_03_index01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 5",
+   "itemName": "North_Warrior_OneHandTowerShield",
+   "iconName": "ItemIcon_Prefab_CD_PHM_03_Towershield_0099",
+   "iconKey": 1163797181,
+   "stringinfoRow": 18952,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_towershield_0099.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 6",
+   "itemName": "OrcuMer_PlateArmor_Armor",
+   "iconName": "itemicon_prefab_cd_phm_m0001_00_orcumer_ub_0002",
+   "iconKey": 1164255004,
+   "stringinfoRow": 16874,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_orcumer_ub_0002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 7",
+   "itemName": "Cigrymon_TwoHandAxe",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_AXE_0016",
+   "iconKey": 3353385207,
+   "stringinfoRow": 19202,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_axe_0016.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 8",
+   "itemName": "Ludvic_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_00_0375",
+   "iconKey": 3095528408,
+   "stringinfoRow": 16481,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_00_0375.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 9",
+   "itemName": "Ludvig_OneHandSword",
+   "iconName": "ItemIcon_Prefab_cd_phm_01_sword_0225_r",
+   "iconKey": 415330222,
+   "stringinfoRow": 18809,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_sword_0225_r.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 10",
+   "itemName": "Ludvic_Leather_Armor",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_ub_00_0375",
+   "iconKey": 200752939,
+   "stringinfoRow": 16465,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_ub_00_0375.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 11",
+   "itemName": "Legendary_Korea_OneHandBow",
+   "iconName": "ItemIcon_Prefab_CD_PHM_04_Bow_0020",
+   "iconKey": 1538995121,
+   "stringinfoRow": 18981,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_04_bow_0020.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 12",
+   "itemName": "Legendary_Kings_OneHandDagger",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Dagger_0032_R",
+   "iconKey": 4057966448,
+   "stringinfoRow": 18476,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_dagger_0032_r.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 13",
+   "itemName": "Titan_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_Titan_Hand_0002",
+   "iconKey": 521401105,
+   "stringinfoRow": 16920,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_titan_hand_0002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 14",
+   "itemName": "Ashad_PlateArmor_Armor",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_ub_00_0369",
+   "iconKey": 500213063,
+   "stringinfoRow": 17028,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_ub_00_0369.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden chest 15",
+   "itemName": "Titan_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_titan_hel_0002_d",
+   "iconKey": 1379348105,
+   "stringinfoRow": 16945,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_titan_hel_0002_d.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert cave chest 1",
+   "itemName": "Mask_Liberator_TwoHandedWarHammer",
+   "iconName": "ItemIcon_Prefab_cd_phm_02_flexiblewarhammer_0001",
+   "iconKey": 74447797,
+   "stringinfoRow": 19258,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_flexiblewarhammer_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 1",
+   "itemName": "Redknight_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_bliss_redknight_hand_0001",
+   "iconKey": 2789214486,
+   "stringinfoRow": 16839,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_bliss_redknight_hand_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 2",
+   "itemName": "Optionary_NonSlip_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_00_0403",
+   "iconKey": 2827076713,
+   "stringinfoRow": 17270,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_00_0403.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 3",
+   "itemName": "Grace_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_0014_05_i",
+   "iconKey": 139934910,
+   "stringinfoRow": 17010,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_0014_05_i.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 4",
+   "itemName": "Tychaon_Fabric_Armor",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_SO_PHM_UB_24004",
+   "iconKey": 3049446076,
+   "stringinfoRow": 16365,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_ub_24004.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 5",
+   "itemName": "Chartian_Fabric_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_0128_02_d",
+   "iconKey": 2241370174,
+   "stringinfoRow": 16384,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_0128_02_d.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 6",
+   "itemName": "Tychaon_Fabric_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_SO_PHM_Cloak_24004_s",
+   "iconKey": 3589135872,
+   "stringinfoRow": 16372,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_cloak_24004_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 7",
+   "itemName": "Hemon_Vindel_Leather_Armor",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_SO_PHM_UB_24001",
+   "iconKey": 3181099384,
+   "stringinfoRow": 16490,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_ub_24001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 8",
+   "itemName": "Tikan_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Hand_0128_02",
+   "iconKey": 3996924763,
+   "stringinfoRow": 16502,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_0128_02.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 9",
+   "itemName": "AbyssReward_Reeddevil_OneHandSword",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0016_R",
+   "iconKey": 4019581640,
+   "stringinfoRow": 18806,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_sword_0016_r.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 10",
+   "itemName": "Reeddevil_Leather_Armor",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_bush_devil_ub_0001",
+   "iconKey": 3967620245,
+   "stringinfoRow": 16512,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_bush_devil_ub_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 1",
+   "itemName": "Redknight_PlateArmor_Helm",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_bliss_redknight_hel_0001_c",
+   "iconKey": 3728026846,
+   "stringinfoRow": 16852,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_bliss_redknight_hel_0001_c.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 2",
+   "itemName": "Vdure_ChainMail_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_SO_PHM_Cloak_24002_s",
+   "iconKey": 4253184606,
+   "stringinfoRow": 16809,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_so_phm_cloak_24002_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 3",
+   "itemName": "Legendary_DemenisMusket_OneHandMusket",
+   "iconName": "ItemIcon_Prefab_cd_phm_08_musket_0011",
+   "iconKey": 2870950988,
+   "stringinfoRow": 19050,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_08_musket_0011.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 4",
+   "itemName": "Demian_Leather_Cloak_II",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_Cloak_00_0166_s",
+   "iconKey": 2391308734,
+   "stringinfoRow": 16692,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_cloak_00_0166_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 5",
+   "itemName": "Demian_Leather_Gloves_IV",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hand_00_0166",
+   "iconKey": 3862276717,
+   "stringinfoRow": 16702,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hand_00_0166.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia cave chest 1",
+   "itemName": "Carta_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_0007_index08",
+   "iconKey": 1654554205,
+   "stringinfoRow": 16498,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_0007_index08.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia cave chest 2",
+   "itemName": "IncreaseSwimmingSpeed_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_foot_00_0437_index01",
+   "iconKey": 3975903984,
+   "stringinfoRow": 17281,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_00_0437_index01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia cave chest 3",
+   "itemName": "Gold_Armor_OneHandShield",
+   "iconName": "ItemIcon_Prefab_cd_phm_03_shield_0113_index01",
+   "iconKey": 757711613,
+   "stringinfoRow": 18687,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_03_shield_0113_index01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia cave chest 4",
+   "itemName": "Gaeljude_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_set_0134_index01",
+   "iconKey": 1011508234,
+   "stringinfoRow": 16778,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_set_0134_index01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert cave chest 2",
+   "itemName": "Samuel_PlateArmor_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_samuel_cloak_0001_v",
+   "iconKey": 1614246341,
+   "stringinfoRow": 16757,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_samuel_cloak_0001_v.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert cave chest 3",
+   "itemName": "MiddleBoss_GoldenArmor_TwoHandHammer_I",
+   "iconName": "ItemIcon_Prefab_cd_phm_02_hammer_0008_index01",
+   "iconKey": 707514638,
+   "stringinfoRow": 19240,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_hammer_0008_index01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert cave chest 4",
+   "itemName": "Golden_PlateArmor_Cloak",
+   "iconName": "ItemIcon_Prefab_CD_PHM_M0001_00_SO_PHM_Cloak_43013_s",
+   "iconKey": 1062650287,
+   "stringinfoRow": 16760,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_so_phm_cloak_43013_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia cave chest 5",
+   "itemName": "Demian_PlateArmor_Helm_IV",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_hel_00_0146_d",
+   "iconKey": 1695876506,
+   "stringinfoRow": 17070,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_hel_00_0146_d.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 6",
+   "itemName": "Redknight_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_bliss_redknight_foot_0001",
+   "iconKey": 979420645,
+   "stringinfoRow": 16897,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_bliss_redknight_foot_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 7",
+   "itemName": "Skull_Knight_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_skullknight_foot_0003",
+   "iconKey": 1739028434,
+   "stringinfoRow": 16828,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_skullknight_foot_0003.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 11",
+   "itemName": "Londel_Leather_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_Set_0023",
+   "iconKey": 4120221018,
+   "stringinfoRow": 16496,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_set_0023.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 12",
+   "itemName": "Londel_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Hand_Set_0043",
+   "iconKey": 3430150400,
+   "stringinfoRow": 16834,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_set_0043.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 13",
+   "itemName": "Deerking_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_saigod_foot_00_0002",
+   "iconKey": 1735087666,
+   "stringinfoRow": 16762,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_saigod_foot_00_0002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 14",
+   "itemName": "Deerking_Leather_Armor",
+   "iconName": "ItemIcon_Prefab_cd_phm_m0001_00_saigod_ub_0002",
+   "iconKey": 3079393894,
+   "stringinfoRow": 16488,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_m0001_00_saigod_ub_0002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 15",
+   "itemName": "DarknessKing_PlateArmor_Boots",
+   "iconName": "ItemIcon_Prefab_CD_M0001_00_Death_knight_foot_0001",
+   "iconKey": 2016457245,
+   "stringinfoRow": 16830,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_death_knight_foot_0001.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 16",
+   "itemName": "Deer_King_OneHandSword",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0053",
+   "iconKey": 1275405944,
+   "stringinfoRow": 18775,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_01_sword_0053.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 17",
+   "itemName": "Deerking_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_saigod_hand_00_0002",
+   "iconKey": 766603338,
+   "stringinfoRow": 16832,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_saigod_hand_00_0002.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden cave chest 1",
+   "itemName": "Ashad_PlateArmor_Boots",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_foot_00_0369",
+   "iconKey": 1924556863,
+   "stringinfoRow": 17018,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_00_0369.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden cave chest 2",
+   "itemName": "Corvo_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_0008_03",
+   "iconKey": 3894055272,
+   "stringinfoRow": 16845,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_0008_03.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden cave chest 3",
+   "itemName": "Recipe_Surasang_00",
+   "iconName": "ItemIcon_prefab_CD_T0000_BoardPaper_0129",
+   "iconKey": 1669255866,
+   "stringinfoRow": 12442,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_boardpaper_0129.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden cave chest 4",
+   "itemName": "Drunk_BlackBears_TwoHandedWarHamme",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Warhammer_0021",
+   "iconKey": 1004553538,
+   "stringinfoRow": 19252,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_warhammer_0021.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 18",
+   "itemName": "WaterSliding_Plate_Boots",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Foot_00_0453",
+   "iconKey": 3267029133,
+   "stringinfoRow": 17276,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_foot_00_0453.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 8",
+   "itemName": "DamianOnly_Leather_Boots_IV",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_foot_00_0161",
+   "iconKey": 4251535879,
+   "stringinfoRow": 16706,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_foot_00_0161.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 9",
+   "itemName": "Skull_Knight_PlateArmor_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_skullknight_hand_0003",
+   "iconKey": 948030518,
+   "stringinfoRow": 16918,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_skullknight_hand_0003.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss cave chest 10",
+   "itemName": "king_LostPeople_PlateArmor_Armor",
+   "iconName": "ItemIcon_Prefab_cd_m0001_00_skullknight_ub_0003",
+   "iconKey": 3574914357,
+   "stringinfoRow": 17117,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_m0001_00_skullknight_ub_0003.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Crimson Desert cave chest 5",
+   "itemName": "Demian_Fabric_Cloak_I",
+   "iconName": "ItemIcon_Prefab_cd_phw_00_Cloak_00_0151_s",
+   "iconKey": 749913635,
+   "stringinfoRow": 16445,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phw_00_cloak_00_0151_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand cave chest 19",
+   "itemName": "Bear_Chief_Leather_Helm",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hel_0072_index02_d",
+   "iconKey": 3525387187,
+   "stringinfoRow": 17236,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hel_0072_index02_d.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia cave chest 6",
+   "itemName": "Scalaphynion_Leather_Gloves",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_set_0140",
+   "iconKey": 3720579685,
+   "stringinfoRow": 16483,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_set_0140.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia strongbox 1 (dial)",
+   "itemName": "WhiteHorn_Earring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Earring_0014_L",
+   "iconKey": 3773802745,
+   "stringinfoRow": 13002,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_earring_0014_l.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Delesyia strongbox 2 (padlock)",
+   "itemName": "Antumbra_DarkDeacon_Necklace",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Necklace_0024",
+   "iconKey": 2327288940,
+   "stringinfoRow": 12939,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_necklace_0024.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 1 (sliding jigsaw)",
+   "itemName": "Paper_ReventineMonastery_Document",
+   "iconName": "ItemIcon_Prefab_CD_T0000_Boardpaper_0222",
+   "iconKey": 3391675459,
+   "stringinfoRow": 12408,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_boardpaper_0222.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 2 (dial)",
+   "itemName": "Titan_Necklace",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Necklace_0017",
+   "iconKey": 4167174458,
+   "stringinfoRow": 12936,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_necklace_0017.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 3 (padlock)",
+   "itemName": "Recipe_Surasang_05",
+   "iconName": "ItemIcon_prefab_CD_T0000_BoardPaper_0129",
+   "iconKey": 1669255866,
+   "stringinfoRow": 12442,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_boardpaper_0129.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss house chest 1",
+   "itemName": "Hailbrin_Leather_Armor",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_ub_00_0052_index01",
+   "iconKey": 3363727942,
+   "stringinfoRow": 16510,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_ub_00_0052_index01.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 4 (music box)",
+   "itemName": "Recipe_Surasang_01",
+   "iconName": "ItemIcon_prefab_CD_T0000_BoardPaper_0130",
+   "iconKey": 3702665890,
+   "stringinfoRow": 12440,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_boardpaper_0130.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 5 (number wheel)",
+   "itemName": "Legendary_Ogre_Ring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Necklace_0031",
+   "iconKey": 3909731757,
+   "stringinfoRow": 12933,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_necklace_0031.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 6 (music box)",
+   "itemName": "Tarif_Necklace",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Necklace_0006",
+   "iconKey": 3486371696,
+   "stringinfoRow": 12848,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_necklace_0006.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 7 (music box)",
+   "itemName": "Pattern_Diamond_Earring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Earring_0009",
+   "iconKey": 1656681818,
+   "stringinfoRow": 13011,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_earring_0009.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 8 (number wheel)",
+   "itemName": "Ancient_People_Earring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Earring_0004",
+   "iconKey": 98423289,
+   "stringinfoRow": 13020,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_earring_0004.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 9 (jigsaw)",
+   "itemName": "SungroveManor_HomeKey",
+   "iconName": "ItemIcon_Prefab_cd_t0000_key_0004",
+   "iconKey": 1722455367,
+   "stringinfoRow": 11987,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_key_0004.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 10 (sliding jigsaw)",
+   "itemName": "Karanda_Necklace",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Necklace_0018",
+   "iconKey": 869568172,
+   "stringinfoRow": 12948,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_necklace_0018.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss strongbox 11 (number wheel)",
+   "itemName": "Hexe_Earring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Earring_0013_l",
+   "iconKey": 990922401,
+   "stringinfoRow": 12999,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_earring_0013_l.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Demeniss house chest 2",
+   "itemName": "AbyssReward_Skull_Knight_TwoHandSword",
+   "iconName": "ItemIcon_Prefab_CD_PHM_02_Sword_0034",
+   "iconKey": 2385342326,
+   "stringinfoRow": 19505,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_02_sword_0034.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand strongbox 1 (sliding jigsaw)",
+   "itemName": null,
+   "status": "no item"
+  },
+  {
+   "name": "Hernand strongbox 2 (sliding jigsaw)",
+   "itemName": "Folorin_Earring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Earring_0003",
+   "iconKey": 1496433322,
+   "stringinfoRow": 12864,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_earring_0003.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand strongbox 3 (music box)",
+   "itemName": "Recipe_Surasang_02",
+   "iconName": "ItemIcon_prefab_CD_T0000_BoardPaper_0130",
+   "iconKey": 3702665890,
+   "stringinfoRow": 12440,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_boardpaper_0130.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand strongbox 4 (padlock)",
+   "itemName": "Detail_Gold_Necklace",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Necklace_0010",
+   "iconKey": 763948744,
+   "stringinfoRow": 12960,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_necklace_0010.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand strongbox 5 (number wheel)",
+   "itemName": "Antumbra_DarkDeacon_Earring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Earring_0008",
+   "iconKey": 2861129546,
+   "stringinfoRow": 13023,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_earring_0008.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand house chest 1",
+   "itemName": "Oongka_Plate_Glove",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_hand_set_0134",
+   "iconKey": 4260007526,
+   "stringinfoRow": 16773,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_hand_set_0134.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand strongbox 6 (jigsaw)",
+   "itemName": "Pattern_Gold_Earring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Earring_0005",
+   "iconKey": 2926499688,
+   "stringinfoRow": 13026,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_earring_0005.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden strongbox 1 (padlock)",
+   "itemName": "Detail_Gold_Ring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Ring_0005_L",
+   "iconKey": 1619666112,
+   "stringinfoRow": 12905,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_ring_0005_l.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden house chest 1",
+   "itemName": "Corvo_PlateArmor_Cloak",
+   "iconName": "ItemIcon_Prefab_cd_phm_00_Cloak_00_0008_03_s",
+   "iconKey": 3901867586,
+   "stringinfoRow": 16817,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_cloak_00_0008_03_s.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden strongbox 2 (all buttons)",
+   "itemName": "Legendary_Titan_Ring",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Ring_0011_L",
+   "iconKey": 3888648239,
+   "stringinfoRow": 12870,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_ring_0011_l.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Kweiden strongbox 3 (one-stroke drawing)",
+   "itemName": "Mjordin_Lantern",
+   "iconName": "ItemIcon_Prefab_CD_T0000_Lantern_0004",
+   "iconKey": 1810540986,
+   "stringinfoRow": 18314,
+   "iconEntries": 3,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_lantern_0004.dds",
+   "status": "icon"
+  }
+ ]
+}
