@@ -1687,11 +1687,26 @@ void UpdateBellReads(Summary& summary, bool pollFile) {
             result.serial, result.slot, result.summary.nexusCoverage, nexusSeen,
             result.summary.nexusesActivated, result.summary.nexusesUnknown);
         Log(line);
+        // v0.95: Abyss-island Nexuses, the same rule and passes as above.
+        unsigned islandSeen = 0;
+        for (unsigned word : result.summary.islandNexusSeenMask) {
+            islandSeen += static_cast<unsigned>(__popcnt(word));
+        }
+        sprintf_s(line, "ISLAND_NEXUS_READ serial=%u slot=%u coverage=%u discovered=%u activated=%u unknown=%u",
+            result.serial, result.slot, result.summary.islandNexusCoverage, islandSeen,
+            result.summary.islandNexusesActivated, result.summary.islandNexusesUnknown);
+        Log(line);
         // v0.88: Sealed Abyss Artifacts (their own pass; unknown ones stay hidden).
         sprintf_s(line, "SEALED_READ serial=%u slot=%u valid=%u coverage=%u pickedUp=%u unknown=%u error=%s",
             result.serial, result.slot, result.summary.artifactsValid ? 1u : 0u, result.summary.artifactCoverage,
             result.summary.artifactsPickedUp, result.summary.artifactsUnknown,
             result.summary.artifactError[0] ? result.summary.artifactError : "none");
+        Log(line);
+        // v0.108: unique gear (reward items from the quest pass, ground and
+        // quest items from the field pass; unknown ones stay hidden).
+        sprintf_s(line, "UNIQUE_GEAR_READ serial=%u slot=%u coverage=%u collected=%u unknown=%u",
+            result.serial, result.slot, result.summary.uniqueGearCoverage, result.summary.uniqueGearCollected,
+            result.summary.uniqueGearUnknown);
         Log(line);
     }
 }
@@ -1751,7 +1766,7 @@ void NotifyCheckpoint(const Summary& summary) {
         return;
     }
     // The latest accepted Bell result for the current selection, if any.
-    wchar_t bellLine[512] = {};
+    wchar_t bellLine[768] = {}; // v0.101: room for the quest-locked count.
     if (summary.bellValid) {
         // v0.56: shrines come from the same read ("unknown" if their pass failed).
         wchar_t shrines[64] = L"Greymane Shrines unknown";
@@ -1766,12 +1781,17 @@ void NotifyCheckpoint(const Summary& summary) {
                 summary.bell.artifactsPickedUp, summary.bell.artifactCoverage);
         }
         swprintf_s(bellLine, L"slot %u, serial %u: %u of %u Bells recorded, %u completed; Hernand Bell %ls; %ls; "
-            L"%u of %u chests opened (%u unknown); %u of %u Abyss chests opened; %u of %u Abyss Nexuses activated; %ls",
+            L"%u of %u chests opened (%u unknown); %u of %u Abyss chests opened (%u more after a quest); %u of %u Abyss Nexuses activated; "
+            L"%u of %u Abyss-island Nexuses activated; %ls; Unique gear: %u/%u collected",
             summary.bellSlot, summary.bellSerial, summary.bell.recorded, summary.bell.coverage,
             summary.bell.completed, summary.bell.hernandCompleted ? L"completed" : L"not completed", shrines,
             summary.bell.chestsOpened, summary.bell.chestCoverage, summary.bell.chestsUnknown,
-            summary.bell.abyssChestsOpened, summary.bell.abyssChestCoverage,
-            summary.bell.nexusesActivated, summary.bell.nexusCoverage, artifacts);
+            // v0.101: quest-locked Abyss chests are not counted as missing.
+            summary.bell.abyssChestsOpened, summary.bell.abyssChestCoverage - summary.bell.abyssChestsLocked,
+            summary.bell.abyssChestsLocked,
+            summary.bell.nexusesActivated, summary.bell.nexusCoverage,
+            summary.bell.islandNexusesActivated, summary.bell.islandNexusCoverage, artifacts,
+            summary.bell.uniqueGearCollected, summary.bell.uniqueGearCoverage); // v0.108.
     } else {
         swprintf_s(bellLine, L"none accepted yet for this selection");
     }

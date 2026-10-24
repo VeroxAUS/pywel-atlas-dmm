@@ -21,7 +21,8 @@ Build modes (all write into dist/ under the repository root)
   Categories (default)
       Runs two Python helpers first that generate embedded data (a default
       marker definition and verified "Bell" identities). Then compiles
-      NativeMapCategoryProbe.cpp together with NativeMarkerDefinition.cpp and
+      NativeMapCategoryProbe.cpp (v0.122: with the files it was split into,
+      see MapMarkerShared.h) together with NativeMarkerDefinition.cpp and
       NativeSaveReader.cpp.
       Produces dist/native-map-proof/PywelAtlasMapProbe.asi
   Inspect
@@ -94,6 +95,18 @@ if ($Mode -eq 'Categories') {
     # v0.88: the Sealed Abyss Artifact list read by NativeSaveReader.cpp.
     & $python -B (Join-Path $sourceDirectory 'prepare_sealed_artifact_links.py')
     if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Sealed Abyss Artifact list' }
+    # v0.95: the Abyss-island Nexus list read by NativeSaveReader.cpp.
+    & $python -B (Join-Path $sourceDirectory 'prepare_island_nexus_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss-island Nexus list' }
+    # v0.105: the Abyss Cresset list read by NativeSaveReader.cpp.
+    & $python -B (Join-Path $sourceDirectory 'prepare_cresset_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss Cresset list' }
+    # v0.114: the Constellation list read by NativeSaveReader.cpp.
+    & $python -B (Join-Path $sourceDirectory 'prepare_constellation_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Constellation list' }
+    # v0.108: the unique gear list read by NativeSaveReader.cpp.
+    & $python -B (Join-Path $sourceDirectory 'prepare_unique_gear_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the unique gear list' }
 }
 
 # ---------------------------------------------------------------------------
@@ -134,6 +147,11 @@ try {
     }
     $applicationSources = @((Join-Path $sourceDirectory $sourceName))
     if ($Mode -eq 'Categories') {
+        # v0.122: the files the Categories probe was split into.
+        foreach ($part in @('MapHooks.cpp', 'MapCategories.cpp', 'MarkerService.cpp', 'MarkerState.cpp',
+                'IconDefinitions.cpp', 'MapDiagnostics.cpp', 'MinimapMarkers.cpp', 'MapPublicApi.cpp')) {
+            $applicationSources += Join-Path $sourceDirectory $part
+        }
         # The Categories probe also needs the marker definition and save reader.
         $applicationSources += Join-Path $sourceDirectory 'NativeMarkerDefinition.cpp'
         $applicationSources += Join-Path $sourceDirectory 'NativeSaveReader.cpp'

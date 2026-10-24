@@ -1,11 +1,12 @@
 // =============================================================================
-// Pywel Atlas - in-game filter panel (FilterPanel.cpp, v0.62-v0.91)
+// Pywel Atlas - in-game filter panel (FilterPanel.cpp, v0.62-v0.123)
 // =============================================================================
 //
 // WHAT THIS FILE IS
 //   The user-approved in-game filter panel. It draws a small Dear ImGui
 //   window inside the game's own frames. F9 opens and closes it (Esc also
-//   closes it). Since v0.64 its checkboxes switch each marker category on or
+//   closes it; v0.119: the panel key and the others can be changed in its
+//   Keys section, Keybinds.h). Since v0.64 its checkboxes switch each marker category on or
 //   off (MarkerFilter.h; the map-marker part applies and saves the choices);
 //   v0.65 gives it a game-matching look, an X button and a width-only drag
 //   corner that scales everything. It keeps the v0.61 observation lines and
@@ -37,7 +38,9 @@
 //   - Hooks only Windows' DXGI functions (each address must lie inside
 //     dxgi.dll), never game code. No game memory is written and no game
 //     function is called.
-//   - While the panel is closed nothing is drawn; the hooks only count.
+//   - While the panel is closed nothing is drawn, except (v0.104) the route
+//     line while the route is on and a map is visible (RouteOverlay.cpp); no
+//     input is taken then. Otherwise the hooks only count.
 //   - Before a swapchain is resized or replaced, every reference this part
 //     holds to its images is released (after waiting for our GPU work), so
 //     the game's own resize or re-creation never fails because of us.
@@ -61,6 +64,13 @@
 #include "vendor/imgui/backends/imgui_impl_dx12.h"
 // v0.64: the marker categories, their counts and the saved choices.
 #include "MarkerFilter.h"
+// v0.104: the route line overlay and the panel's Route section.
+#include "RouteOverlay.h"
+// v0.110: the map views (is a map on screen?) and the minimap circle, for
+// the completion widget.
+#include "RouteSystem.h"
+// v0.119: rebindable keys (the Keys section and the panel's hotkeys).
+#include "Keybinds.h"
 
 namespace {
 
@@ -493,6 +503,18 @@ float SrgbToPq(float value) {
     return std::pow((0.8359375f + 18.8515625f * y) / (1.0f + 18.6875f * y), 78.84375f);
 }
 
+// v0.104: one colour in this frame's encoding (HDR10 converted, like the
+// panel's own colours in ApplyStyle), for the route line overlay.
+ImU32 FrameColour(const ImVec4& colour) {
+    ImVec4 encoded = colour;
+    if (renderer.colorSpace == DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020) {
+        encoded.x = SrgbToPq(colour.x);
+        encoded.y = SrgbToPq(colour.y);
+        encoded.z = SrgbToPq(colour.z);
+    }
+    return ImGui::ColorConvertFloat4ToU32(encoded);
+}
+
 // v0.65: the panel's zoom, set from its width (see BuildPanel) and applied
 // to everything (text, spacing, boxes) on the next frame.
 float panelZoom = 1.0f;
@@ -826,8 +848,11 @@ void UpdatePanelMouse(ImGuiIO& io, bool front) {
 // Hands keyboard and mouse state to ImGui (game window in front only).
 void FeedInput(ImGuiIO& io) {
     bool front = GameInFront();
+    // v0.119: while the Keys section waits for a new key, that key must not
+    // also press a panel button (Enter, Space) or move the selection.
+    bool keysFree = front && !PywelKeybindsCapturing();
     for (unsigned index = 0; index < _countof(kKeys); ++index) {
-        bool down = front && (GetAsyncKeyState(kKeys[index].virtualKey) & 0x8000) != 0;
+        bool down = keysFree && (GetAsyncKeyState(kKeys[index].virtualKey) & 0x8000) != 0;
         if (down != keyWasDown[index]) {
             io.AddKeyEvent(kKeys[index].key, down);
             keyWasDown[index] = down;
@@ -938,16 +963,205 @@ void SubclassOnce(HWND window) {
 // Section: drawing (called from the Present hooks)
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Section: v0.119 Keys section (rebinding the mod's hotkeys, Keybinds.h)
+// ---------------------------------------------------------------------------
+
+// Which action waits for a new key (kKeyActionCount = none), and the keys
+// already held when it started: only fresh presses count, so the click or
+// Enter that started the wait is never taken as the new key.
+PywelKeyAction captureAction = kKeyActionCount;
+bool captureHeld[256] = {};
+// A new key that another action already uses: the row that asked, the other
+// action, and the key. The row then offers Swap or Cancel.
+PywelKeyAction clashAction = kKeyActionCount;
+PywelKeyAction clashWith = kKeyActionCount;
+PywelKeyBinding clashBinding = {};
+
+// True for keys that cannot be bound on their own: mouse buttons (the panel
+// uses them), the Shift / Ctrl / Alt keys themselves and the Windows keys.
+bool NotBindable(int key) {
+    return key == VK_LBUTTON || key == VK_RBUTTON || key == VK_CANCEL || key == VK_MBUTTON ||
+        key == VK_XBUTTON1 || key == VK_XBUTTON2 || key == VK_SHIFT || key == VK_CONTROL ||
+        key == VK_MENU || (key >= VK_LSHIFT && key <= VK_RMENU) || key == VK_LWIN ||
+        key == VK_RWIN || key == VK_APPS;
+}
+
+// Starts waiting for a new key for `action`.
+void StartCapture(PywelKeyAction action) {
+    for (int key = 0; key < 256; ++key) {
+        captureHeld[key] = (GetAsyncKeyState(key) & 0x8000) != 0;
+    }
+    captureAction = action;
+    clashAction = kKeyActionCount;
+    PywelKeybindsSetCapturing(true);
+}
+
+// Stops waiting for a new key (also when the panel closes).
+void EndCapture() {
+    if (captureAction != kKeyActionCount) {
+        captureAction = kKeyActionCount;
+        PywelKeybindsSetCapturing(false);
+    }
+}
+
+// The Shift / Ctrl / Alt keys held right now, as Keybinds.h bits.
+unsigned char HeldModifiers() {
+    unsigned modifiers = 0;
+    modifiers |= (GetAsyncKeyState(VK_SHIFT) & 0x8000) ? kKeyShift : 0u;
+    modifiers |= (GetAsyncKeyState(VK_CONTROL) & 0x8000) ? kKeyCtrl : 0u;
+    modifiers |= (GetAsyncKeyState(VK_MENU) & 0x8000) ? kKeyAlt : 0u;
+    return static_cast<unsigned char>(modifiers);
+}
+
+// Called every drawn frame while the panel is open. While an action waits,
+// the first freshly pressed key (with the Shift / Ctrl / Alt held) becomes
+// its new key. Esc cancels; Backspace sets "no key" (not for the panel key,
+// which must always have one). A key another action uses asks first.
+void PollCapture() {
+    if (captureAction == kKeyActionCount) {
+        return;
+    }
+    if (!GameInFront()) {
+        EndCapture();
+        return;
+    }
+    int pressed = 0;
+    for (int key = 1; key < 256; ++key) {
+        bool down = (GetAsyncKeyState(key) & 0x8000) != 0;
+        if (down && !captureHeld[key] && !NotBindable(key) && !pressed) {
+            pressed = key;
+        }
+        captureHeld[key] = down;
+    }
+    if (!pressed) {
+        return;
+    }
+    PywelKeyAction action = captureAction;
+    EndCapture();
+    if (pressed == VK_ESCAPE || (pressed == VK_BACK && action == kKeyOpenPanel)) {
+        return;
+    }
+    PywelKeyBinding binding = {};
+    if (pressed != VK_BACK) {
+        binding.virtualKey = static_cast<unsigned short>(pressed);
+        binding.modifiers = HeldModifiers();
+    }
+    PywelKeyAction other = PywelKeybindUsedBy(binding, action);
+    if (other != kKeyActionCount) {
+        clashAction = action;
+        clashWith = other;
+        clashBinding = binding;
+        return;
+    }
+    PywelSetKeybind(action, binding);
+    char text[32];
+    PywelFormatKeybind(binding, text, sizeof(text));
+    Note("key: %s = %s", PywelKeyActionLabel(action), text);
+}
+
+// One Keys row: the action's name, and its key on a button that starts
+// waiting for a new key. Under it: a hint while waiting, a warning for keys
+// the game also uses, or the Swap / Cancel choice after a clash.
+void BuildKeyRow(PywelKeyAction action) {
+    const ImVec4 gold = ImGui::GetStyleColorVec4(ImGuiCol_PlotHistogram);
+    PywelKeyBinding binding = PywelGetKeybind(action);
+    char text[32];
+    if (captureAction == action) {
+        strcpy_s(text, "Press a key...");
+    } else {
+        PywelFormatKeybind(binding, text, sizeof(text));
+    }
+    ImGui::PushID(static_cast<int>(action));
+    // The key buttons line up in a column a little past the middle.
+    float column = ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x * 0.58f;
+    ImGui::AlignTextToFramePadding();
+    ImGui::TextUnformatted(PywelKeyActionLabel(action));
+    ImGui::SameLine(column);
+    if (ImGui::Button(text, ImVec2(-1.0f, 0.0f)) && captureAction == kKeyActionCount) {
+        StartCapture(action);
+    }
+    if (captureAction == action) {
+        ImGui::TextDisabled(action == kKeyOpenPanel ? "Esc cancels" : "Esc cancels \xc2\xb7 Backspace sets no key");
+    } else if (binding.virtualKey && !binding.modifiers && PywelKeyUsedByGame(binding.virtualKey)) {
+        ImGui::TextColored(gold, "The game also uses this key.");
+    }
+    if (clashAction == action) {
+        char wanted[32];
+        PywelFormatKeybind(clashBinding, wanted, sizeof(wanted));
+        ImGui::TextColored(gold, "%s is used by %s.", wanted, PywelKeyActionLabel(clashWith));
+        if (ImGui::SmallButton("Swap")) {
+            // The other action takes this row's old key; the panel key can
+            // never be left without one (PywelSetKeybind refuses "None").
+            PywelSetKeybind(clashWith, binding);
+            PywelSetKeybind(action, clashBinding);
+            clashAction = kKeyActionCount;
+            Note("key: %s = %s (swapped with %s)", PywelKeyActionLabel(action), wanted,
+                PywelKeyActionLabel(clashWith));
+        }
+        ImGui::SameLine();
+        if (ImGui::SmallButton("Cancel")) {
+            clashAction = kKeyActionCount;
+        }
+    }
+    ImGui::PopID();
+}
+
+// The Keys section (v0.123: the Hotkeys tab): one row per action and a
+// button that puts every key back to its default. Changes are saved by the
+// map-marker worker within about a second. PollCapture runs every frame
+// from BuildPanelContents, so leaving the tab never strands a key wait.
+void BuildKeysSection() {
+    for (unsigned action = 0; action < kKeyActionCount; ++action) {
+        BuildKeyRow(static_cast<PywelKeyAction>(action));
+    }
+    if (ImGui::Button("Reset to defaults")) {
+        EndCapture();
+        clashAction = kKeyActionCount;
+        PywelResetKeybinds();
+        Note("keys reset to defaults");
+    }
+}
+
+// The current key of an action as text ("F9"), for the panel's hints.
+void KeyName(PywelKeyAction action, char (&text)[32]) {
+    PywelFormatKeybind(PywelGetKeybind(action), text, sizeof(text));
+}
+
 // Last seen key states. Swapped atomically, because with frame generation
 // two threads can present at once and only one of them may see a key press.
 volatile LONG f9WasDown = 0;
 volatile LONG escapeWasDown = 0;
+volatile LONG shiftF9WasDown = 0; // v0.110.
 
 // F9 toggles the panel and Esc closes it (game window in front only).
+// v0.110: Shift+F9 toggles the completion widget's details instead, so plain
+// F9 ignores presses while Shift is held.
+// v0.119: both keys come from Keybinds.h (the f9 / shiftF9 names are kept);
+// their Shift / Ctrl / Alt must match exactly, so they never overlap. Esc
+// stays fixed. While the Keys section waits for a new key, nothing here
+// reacts, so pressing the panel key or Esc there does not close the panel.
 void PollHotkeys() {
     bool front = GameInFront();
-    LONG f9 = front && (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
-    LONG escape = front && (GetAsyncKeyState(VK_ESCAPE) & 0x8000) != 0;
+    bool capturing = PywelKeybindsCapturing();
+    LONG f9 = PywelKeybindDown(kKeyOpenPanel) ? 1 : 0;
+    LONG shiftF9 = PywelKeybindDown(kKeyWidgetSize) ? 1 : 0;
+    LONG escape = !capturing && front && (GetAsyncKeyState(VK_ESCAPE) & 0x8000) != 0;
+    if (capturing) {
+        // Count the keys as already held: the key just pressed as the new
+        // binding (say F9) must be let go before it can close the panel.
+        InterlockedExchange(&f9WasDown, 1);
+        InterlockedExchange(&shiftF9WasDown, 1);
+        InterlockedExchange(&escapeWasDown, 1);
+    }
+    if (shiftF9 && !InterlockedExchange(&shiftF9WasDown, shiftF9)) {
+        PywelHudSettings hud = PywelGetHudSettings();
+        hud.expanded = !hud.expanded;
+        PywelSetHudSettings(hud);
+        Note("completion widget %s (widget key)", hud.expanded ? "expanded" : "compact");
+    } else if (!shiftF9) {
+        InterlockedExchange(&shiftF9WasDown, 0);
+    }
     if (f9 && !InterlockedExchange(&f9WasDown, f9)) {
         LONG now = InterlockedCompareExchange(&panelVisible, 0, 0) ? 0 : 1;
         if (now) {
@@ -957,7 +1171,7 @@ void PollHotkeys() {
             InterlockedExchange(&panelJustOpened, 1);
         }
         InterlockedExchange(&panelVisible, now);
-        Note("panel %s (F9)", now ? "opened" : "closed");
+        Note("panel %s (panel key)", now ? "opened" : "closed");
     } else if (!f9) {
         InterlockedExchange(&f9WasDown, 0);
     }
@@ -967,6 +1181,13 @@ void PollHotkeys() {
         }
     } else if (!escape) {
         InterlockedExchange(&escapeWasDown, 0);
+    }
+    // v0.119: tell Keybinds.h whether the panel is open (other mod keys wait
+    // while it is), and stop waiting for a new key once it has closed.
+    bool open = InterlockedCompareExchange(&panelVisible, 0, 0) != 0;
+    PywelKeybindsSetPanelOpen(open);
+    if (!open) {
+        EndCapture();
     }
 }
 
@@ -988,7 +1209,9 @@ void BuildHeader() {
     if (ImGui::InvisibleButton("close", ImVec2(size, size))) {
         ClosePanel("X");
     }
-    ImGui::SetItemTooltip("Close (F9 or Esc)");
+    char panelKey[32];
+    KeyName(kKeyOpenPanel, panelKey);
+    ImGui::SetItemTooltip("Close (%s or Esc)", panelKey); // v0.119: current panel key.
     // Draw the X: dim normally, gold when the mouse is over it.
     ImU32 colour = ImGui::GetColorU32(ImGui::IsItemHovered() ? ImGuiCol_PlotHistogram : ImGuiCol_TextDisabled);
     float inset = size * 0.25f;
@@ -1020,7 +1243,13 @@ void BuildCategoryRow(unsigned category, const PywelMarkerCategoryStatus& status
     } else if (!status.saveKnown) {
         strcpy_s(count, "-");
     } else {
-        sprintf_s(count, "%u / %u", status.done, status.total);
+        // v0.101: quest-locked spots are neither done nor counted yet.
+        unsigned reachable = status.total - (status.locked < status.total ? status.locked : status.total);
+        if (status.locked) {
+            sprintf_s(count, "%u / %u, %u after a quest", status.done, reachable, status.locked);
+        } else {
+            sprintf_s(count, "%u / %u", status.done, reachable);
+        }
     }
     ImGui::SameLine();
     float width = ImGui::CalcTextSize(count).x;
@@ -1028,6 +1257,9 @@ void BuildCategoryRow(unsigned category, const PywelMarkerCategoryStatus& status
     ImGui::TextDisabled("%s", count);
     if (status.needsAddon) {
         ImGui::SetItemTooltip("World-map pins need the Pywel Atlas Shrine Icons file mod (install it in DMM). Minimap pins still work.");
+    } else if (status.available && status.saveKnown && status.locked) {
+        ImGui::SetItemTooltip("%u done, %u on the map, %u unlock after a quest", status.done, status.onMap,
+            status.locked);
     } else if (status.available && status.saveKnown) {
         ImGui::SetItemTooltip("%u done, %u on the map", status.done, status.onMap);
     }
@@ -1042,7 +1274,8 @@ void BuildCategoryRow(unsigned category, const PywelMarkerCategoryStatus& status
     if (status.available && status.total > 0) {
         ImDrawList* draw = ImGui::GetWindowDrawList();
         draw->AddRectFilled(start, ImVec2(end, start.y + height), ImGui::GetColorU32(ImGuiCol_FrameBg), height);
-        float filled = status.saveKnown ? static_cast<float>(status.done) / status.total : 0.0f;
+        unsigned reachable = status.total - (status.locked < status.total ? status.locked : status.total);
+        float filled = status.saveKnown && reachable ? static_cast<float>(status.done) / reachable : 0.0f;
         if (filled > 0.0f) {
             float barEnd = start.x + (end - start.x) * filled;
             barEnd = barEnd - start.x < height ? start.x + height : barEnd; // Always visible once started.
@@ -1053,14 +1286,517 @@ void BuildCategoryRow(unsigned category, const PywelMarkerCategoryStatus& status
     ImGui::Dummy(ImVec2(0.0f, height));
 }
 
-// The panel's contents (v0.64 behaviour, v0.65 layout).
-void BuildPanelContents() {
-    BuildHeader();
-    ImGui::Spacing();
+// ---------------------------------------------------------------------------
+// Section: v0.110 completion tracker (panel section and always-on widget)
+// ---------------------------------------------------------------------------
+//
+// The marker part counts collected spots per game region (MarkerFilter.h,
+// PywelGetRegionProgress). The panel lists them; the widget shows the area
+// the player is in, right under the minimap. Everything here runs on the
+// presenting thread under renderLock.
+
+// The widget's base widths at 1080 lines and zoom 1: the compact strip and
+// the expanded card. The saved width is always the compact one, so both
+// looks share one zoom.
+constexpr float kHudCompactWidth = 240.0f;
+constexpr float kHudExpandedWidth = 280.0f;
+// A map view copy younger than this means that map is on screen.
+constexpr ULONGLONG kHudFreshMs = 200;
+
+PywelRegionProgress hudProgress; // This frame's copy for the widget (large).
+float hudZoom = 1.0f; // Set from the widget window's width (like panelZoom).
+PywelHudSettings hudApplied = {}; // Settings the widget window last took or reported.
+bool hudAppliedValid = false;
+float hudReported[3] = {}; // Place last handed to the marker part (fractions).
+bool hudPressed = false; // A click started on the widget window.
+
+// v0.110: one completion row: label on the left, the count on the right and
+// a thin bar (done / total) under it, like the category rows.
+void BuildProgressRow(const char* label, unsigned done, unsigned total, bool saveKnown, bool here) {
+    const ImVec4 gold = ImGui::GetStyleColorVec4(ImGuiCol_PlotHistogram);
+    if (here) {
+        ImGui::TextColored(gold, "%s", label);
+    } else {
+        ImGui::TextUnformatted(label);
+    }
+    char count[48];
+    if (!saveKnown) {
+        strcpy_s(count, "-");
+    } else if (here && total > 0) {
+        sprintf_s(count, "%u%%  (%u / %u)", done * 100 / total, done, total);
+    } else {
+        sprintf_s(count, "%u / %u", done, total);
+    }
+    ImGui::SameLine();
+    float width = ImGui::CalcTextSize(count).x;
+    ImGui::SetCursorPosX(ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x - width);
+    ImGui::TextDisabled("%s", count);
+
+    // The bar, tucked under the text.
+    ImGuiStyle& style = ImGui::GetStyle();
+    float height = style.FramePadding.y;
+    ImVec2 start = ImGui::GetCursorScreenPos();
+    start.y -= style.ItemSpacing.y * 0.5f;
+    float end = start.x + ImGui::GetContentRegionAvail().x;
+    if (total > 0) {
+        ImDrawList* draw = ImGui::GetWindowDrawList();
+        draw->AddRectFilled(start, ImVec2(end, start.y + height), ImGui::GetColorU32(ImGuiCol_FrameBg), height);
+        float filled = saveKnown ? static_cast<float>(done) / total : 0.0f;
+        if (filled > 0.0f) {
+            float barEnd = start.x + (end - start.x) * filled;
+            barEnd = barEnd - start.x < height ? start.x + height : barEnd;
+            draw->AddRectFilled(start, ImVec2(barEnd, start.y + height),
+                ImGui::GetColorU32(ImGuiCol_PlotHistogram), height);
+        }
+    }
+    ImGui::Dummy(ImVec2(0.0f, height));
+}
+
+// v0.110: the Completion section: the area the player is in, the widget's
+// options, then every region group (collapsed) with its areas.
+void BuildCompletionSection() {
+    static PywelRegionProgress progress; // Large; render thread only.
+    if (!PywelGetRegionProgress(progress)) {
+        // v0.123: the tab would otherwise be empty.
+        ImGui::TextDisabled("Waiting for the loaded save.");
+        return;
+    }
+    // v0.123: drawn inside the panel's Completion tab, which names it.
+    if (progress.currentArea >= 0) {
+        const PywelRegionArea& area = progress.areas[progress.currentArea];
+        const char* group = progress.groups[area.group];
+        char label[96];
+        if (strcmp(area.name, "Other areas") == 0 || strcmp(area.name, group) == 0) {
+            sprintf_s(label, "Here: %s", group);
+        } else {
+            sprintf_s(label, "Here: %s", area.name);
+        }
+        BuildProgressRow(label, area.done, area.total, progress.saveKnown, true);
+    } else {
+        ImGui::TextDisabled("Here: -");
+    }
+
+    // The always-on widget's options (saved by the marker part).
+    PywelHudSettings hud = PywelGetHudSettings();
+    if (ImGui::Checkbox("Show on screen", &hud.shown)) {
+        PywelSetHudSettings(hud);
+    }
+    ImGui::SameLine();
+    if (ImGui::Checkbox("Show details", &hud.expanded)) {
+        PywelSetHudSettings(hud);
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Reset position")) {
+        hud.known = false; // Back to its default place under the minimap.
+        PywelSetHudSettings(hud);
+    }
+
+    if (ImGui::TreeNode("All regions")) {
+        for (unsigned group = 0; group < progress.groupCount; ++group) {
+            unsigned done = 0;
+            unsigned total = 0;
+            unsigned areas = 0;
+            for (unsigned area = 0; area < progress.areaCount; ++area) {
+                if (progress.areas[area].group == group) {
+                    done += progress.areas[area].done;
+                    total += progress.areas[area].total;
+                    ++areas;
+                }
+            }
+            if (areas <= 1) {
+                BuildProgressRow(progress.groups[group], done, total, progress.saveKnown, false);
+                continue;
+            }
+            bool open = ImGui::TreeNode(progress.groups[group]);
+            char count[48];
+            if (progress.saveKnown) {
+                sprintf_s(count, "%u / %u", done, total);
+            } else {
+                strcpy_s(count, "-");
+            }
+            ImGui::SameLine();
+            float width = ImGui::CalcTextSize(count).x;
+            ImGui::SetCursorPosX(ImGui::GetCursorPosX() + ImGui::GetContentRegionAvail().x - width);
+            ImGui::TextDisabled("%s", count);
+            if (open) {
+                for (unsigned area = 0; area < progress.areaCount; ++area) {
+                    if (progress.areas[area].group == group && progress.areas[area].total > 0) {
+                        BuildProgressRow(progress.areas[area].name, progress.areas[area].done,
+                            progress.areas[area].total, progress.saveKnown, false);
+                    }
+                }
+                ImGui::TreePop();
+            }
+        }
+        ImGui::TreePop();
+    }
+}
+
+// A colour given as 0xRRGGBB, in this frame's encoding (HDR10 converted).
+ImU32 HudColour(unsigned rgb, float alpha = 1.0f) {
+    return FrameColour(ImVec4(((rgb >> 16) & 0xff) / 255.0f, ((rgb >> 8) & 0xff) / 255.0f,
+        (rgb & 0xff) / 255.0f, alpha));
+}
+
+// Writes `text` at `size` pixels in the panel font; `at.x` is the right edge
+// when `right` is set. With no draw list it only measures. Returns the height.
+float HudText(ImDrawList* draw, float size, ImVec2 at, ImU32 colour, const char* text, bool right) {
+    ImFont* font = ImGui::GetFont();
+    ImVec2 extent = font->CalcTextSizeA(size, FLT_MAX, 0.0f, text);
+    if (draw) {
+        draw->AddText(font, size, ImVec2(right ? at.x - extent.x : at.x, at.y), colour, text);
+    }
+    return extent.y;
+}
+
+// A bar from `left` to `right`: the track, then the `filled` share (0..1).
+void HudBar(ImDrawList* draw, float left, float right, float top, float height, float filled, ImU32 colour) {
+    if (!draw) {
+        return;
+    }
+    draw->AddRectFilled(ImVec2(left, top), ImVec2(right, top + height), HudColour(0x2e2820), height * 0.5f);
+    if (filled > 0.0f) {
+        float end = left + (right - left) * (filled < 1.0f ? filled : 1.0f);
+        draw->AddRectFilled(ImVec2(left, top), ImVec2(end, top + height), colour, height * 0.5f);
+    }
+}
+
+// "done / total", with "-" for done while the save is not known.
+void HudCount(char (&text)[32], unsigned done, unsigned total, bool saveKnown) {
+    if (saveKnown) {
+        sprintf_s(text, "%u / %u", done, total);
+    } else {
+        sprintf_s(text, "- / %u", total);
+    }
+}
+
+// Lays out the widget's contents from hudProgress at `origin`, `width`
+// pixels wide, every size times `scale`. With no draw list it only measures.
+// Returns the box height.
+float LayoutHud(ImDrawList* draw, ImVec2 origin, float width, float scale, bool expanded) {
+    const PywelRegionProgress& progress = hudProgress;
+    bool saveKnown = progress.saveKnown;
+    bool mapped = progress.currentArea >= 0;
+    const PywelRegionArea* area = mapped ? &progress.areas[progress.currentArea] : nullptr;
+    const char* group = mapped ? progress.groups[area->group] : "";
+    // "Other areas" is the group's own land: name the group instead.
+    const char* title = !mapped ? "Unmapped area" : (strcmp(area->name, "Other areas") == 0 ? group : area->name);
+    char count[32] = {};
+    float share = 0.0f;
+    if (mapped) {
+        HudCount(count, area->done, area->total, saveKnown);
+        share = saveKnown && area->total > 0 ? static_cast<float>(area->done) / area->total : 0.0f;
+    }
+    ImU32 text = HudColour(0xe9e2d0);
+    ImU32 secondary = HudColour(0x9a917e);
+    ImU32 gold = HudColour(0xd8b36a);
+    float padX = (expanded ? 14.0f : 12.0f) * scale;
+    float padY = (expanded ? 10.0f : 8.0f) * scale;
+    float left = origin.x + padX;
+    float right = origin.x + width - padX;
+    float y = origin.y + padY;
+
+    if (!expanded) {
+        // Compact strip: area name and count on one line, a thin bar under it.
+        float line = HudText(draw, 15.0f * scale, ImVec2(left, y), gold, title, false);
+        if (mapped) {
+            float countHeight = HudText(nullptr, 14.0f * scale, ImVec2(), text, count, true);
+            HudText(draw, 14.0f * scale, ImVec2(right, y + (line - countHeight) * 0.5f), text, count, true);
+        }
+        y += line + 6.0f * scale;
+        if (mapped) {
+            HudBar(draw, left, right, y, 3.0f * scale, share, gold);
+        }
+        y += 3.0f * scale;
+        return y + padY - origin.y;
+    }
+
+    // Expanded card: title, group name under it and the % on the right.
+    float block = HudText(draw, 17.0f * scale, ImVec2(left, y), gold, title, false);
+    if (mapped && strcmp(title, group) != 0) {
+        block += 2.0f * scale;
+        block += HudText(draw, 13.0f * scale, ImVec2(left, y + block), secondary, group, false);
+    }
+    if (mapped) {
+        char percent[16];
+        if (saveKnown && area->total > 0) {
+            sprintf_s(percent, "%u%%", area->done * 100 / area->total);
+        } else {
+            strcpy_s(percent, "-");
+        }
+        float percentHeight = HudText(draw, 20.0f * scale, ImVec2(right, y), text, percent, true);
+        block = block > percentHeight ? block : percentHeight;
+    }
+    y += block;
+    if (!mapped) {
+        return y + padY - origin.y;
+    }
+    y += 6.0f * scale;
+    HudBar(draw, left, right, y, 4.0f * scale, share, gold);
+    y += 4.0f * scale;
+
+    // One row per category with spots in this area.
+    for (unsigned index = 0; index < progress.hereCategoryCount; ++index) {
+        const PywelHereCategory& category = progress.hereCategories[index];
+        char categoryCount[32];
+        HudCount(categoryCount, category.done, category.total, saveKnown);
+        y += (index == 0 ? 8.0f : 6.0f) * scale;
+        float line = HudText(draw, 13.0f * scale, ImVec2(left, y), text, category.name, false);
+        HudText(draw, 13.0f * scale, ImVec2(right, y), secondary, categoryCount, true);
+        y += line + 3.0f * scale;
+        bool full = saveKnown && category.done == category.total;
+        float filled = saveKnown && category.total > 0 ? static_cast<float>(category.done) / category.total : 0.0f;
+        HudBar(draw, left, right, y, 2.0f * scale, filled, full ? gold : HudColour(0xb8975a));
+        y += 2.0f * scale;
+    }
+
+    // A rule, then the whole group's count.
+    unsigned groupDone = 0;
+    unsigned groupTotal = 0;
+    for (unsigned other = 0; other < progress.areaCount; ++other) {
+        if (progress.areas[other].group == area->group) {
+            groupDone += progress.areas[other].done;
+            groupTotal += progress.areas[other].total;
+        }
+    }
+    char groupCount[32];
+    HudCount(groupCount, groupDone, groupTotal, saveKnown);
+    y += 8.0f * scale;
+    float rule = scale > 1.0f ? scale : 1.0f;
+    if (draw) {
+        draw->AddRectFilled(ImVec2(left, y), ImVec2(right, y + rule), HudColour(0x3a3024));
+    }
+    y += rule + 6.0f * scale;
+    float line = HudText(draw, 12.0f * scale, ImVec2(left, y), secondary, group, false);
+    HudText(draw, 12.0f * scale, ImVec2(right, y), secondary, groupCount, true);
+    y += line;
+    return y + padY - origin.y;
+}
+
+// Draws the whole widget (box, border, contents) at `origin`. `outline`
+// adds the faint gold frame that shows it can be moved (panel open).
+void DrawHud(ImDrawList* draw, ImVec2 origin, float width, float scale, bool expanded, bool outline) {
+    float height = LayoutHud(nullptr, origin, width, scale, expanded);
+    float rounding = (expanded ? 8.0f : 6.0f) * scale;
+    ImVec2 end(origin.x + width, origin.y + height);
+    draw->AddRectFilled(origin, end, HudColour(0x14110d, 0.88f), rounding);
+    draw->AddRect(origin, end, HudColour(0x6b5631), rounding);
+    LayoutHud(draw, origin, width, scale, expanded);
+    if (outline) {
+        draw->AddRect(ImVec2(origin.x - 2.0f, origin.y - 2.0f), ImVec2(end.x + 2.0f, end.y + 2.0f),
+            HudColour(0xd8b36a, 0.5f), rounding + 2.0f);
+    }
+}
+
+// The widget's zoom from its saved width (compact base), or 1 if none.
+float HudZoomFrom(const PywelHudSettings& hud, float factor) {
+    if (!hud.known) {
+        return 1.0f;
+    }
+    float zoom = hud.width * renderer.width / (kHudCompactWidth * factor);
+    return zoom < 0.6f ? 0.6f : (zoom > 3.0f ? 3.0f : zoom);
+}
+
+// v0.113: where the widget's box goes. The saved y (hud=) is always the top
+// of the COMPACT strip. v0.110-v0.112 never moved the top edge when the
+// details opened, so their saved y is that same edge and loads unchanged.
+// Low on screen (the compact strip's centre in the lower half) the box keeps
+// the compact strip's BOTTOM edge instead, so the details grow upward.
+
+// True when a compact strip with its top at `compactTop` sits low on screen.
+bool HudAnchoredLow(float compactTop, float compactHeight) {
+    return compactTop + compactHeight * 0.5f >= renderer.height * 0.5f;
+}
+
+// v0.116: how far above a low minimap's centre the default widget's bottom
+// sits, in minimap radii (the radius PywelRouteMinimapCircle gives: half of
+// #MinimapDisplay's width). Clears the game's date and area lines, which
+// reach about 2.0 radii above the centre (user screenshots, 2026-10-24).
+constexpr float kHudAboveMinimap = 2.1f;
+bool hudDefaultLogged = false; // The default place was logged since the last saved place.
+
+// The compact strip's top-left: its saved place, or by the minimap circle:
+// v0.116: centred above the game's date and area lines when the circle is
+// low on screen (a bottom-left minimap), else right-aligned under it. 0.80 /
+// 0.30 of the screen while the circle is unknown. `width` is the box's width
+// in its current look.
+ImVec2 HudCompactPlace(const PywelHudSettings& hud, float width, float compactHeight, float factor) {
+    float screenWidth = static_cast<float>(renderer.width);
+    float screenHeight = static_cast<float>(renderer.height);
+    if (hud.known) {
+        hudDefaultLogged = false; // Log the default again after a Reset.
+        return ImVec2(hud.x * screenWidth, hud.y * screenHeight);
+    }
+    PywelMinimapView view = {};
+    float centreX = 0.0f;
+    float centreY = 0.0f;
+    float radius = 0.0f;
+    if (PywelGetMinimapView(view) &&
+        PywelRouteMinimapCircle(view, screenWidth, screenHeight, centreX, centreY, radius)) {
+        if (centreY >= screenHeight * 0.5f) {
+            ImVec2 place(centreX - width * 0.5f, centreY - kHudAboveMinimap * radius - compactHeight);
+            if (!hudDefaultLogged) {
+                Note("completion widget default place: minimap circle centre (%.1f, %.1f) radius %.1f; "
+                    "strip (%.1f, %.1f) %.1f x %.1f, bottom %.1f (before keeping it on screen)",
+                    centreX, centreY, radius, place.x, place.y, width, compactHeight, place.y + compactHeight);
+                hudDefaultLogged = true;
+            }
+            return place;
+        }
+        return ImVec2(centreX + radius - width, centreY + radius + 12.0f * factor);
+    }
+    return ImVec2(screenWidth * 0.80f, screenHeight * 0.30f);
+}
+
+// The box's top-left, for a box `width` x `height` whose compact strip has
+// its top-left at `compact`: low on screen the bottom edges line up. The box
+// is then kept fully inside the screen.
+ImVec2 HudBoxPlace(ImVec2 compact, float width, float height, float compactHeight) {
+    float top = HudAnchoredLow(compact.y, compactHeight) ? compact.y + compactHeight - height : compact.y;
+    float maxLeft = renderer.width - width;
+    float maxTop = renderer.height - height;
+    float left = compact.x < maxLeft ? compact.x : maxLeft;
+    top = top < maxTop ? top : maxTop;
+    return ImVec2(left > 0.0f ? left : 0.0f, top > 0.0f ? top : 0.0f);
+}
+
+// The reverse of HudBoxPlace (without the clamp), for a box the player
+// moved: the compact strip's top. Bottom-anchored if that leaves the strip
+// low on screen, else top-anchored, so the two never disagree.
+float HudCompactTop(float boxTop, float height, float compactHeight) {
+    float lowTop = boxTop + height - compactHeight;
+    return HudAnchoredLow(lowTop, compactHeight) ? lowTop : boxTop;
+}
+
+// True when the widget is due with the panel closed: switched on, the
+// minimap on screen and the world map not (so it hides where the minimap does).
+bool HudWanted() {
+    if (!PywelGetHudSettings().shown) {
+        return false;
+    }
+    ULONGLONG now = GetTickCount64();
+    PywelMinimapView minimap = {};
+    PywelWorldMapView world = {};
+    bool minimapFresh = PywelGetMinimapView(minimap) && now - minimap.tick < kHudFreshMs;
+    bool worldFresh = PywelGetWorldMapView(world) && now - world.tick < kHudFreshMs;
+    return minimapFresh && !worldFresh;
+}
+
+// Panel closed: draws the widget at its saved place; no window, no input.
+void DrawHudClosed() {
+    if (!PywelGetRegionProgress(hudProgress)) {
+        return;
+    }
+    PywelHudSettings hud = PywelGetHudSettings();
+    float factor = ImGui::GetStyle().FontScaleDpi;
+    float zoom = HudZoomFrom(hud, factor);
+    float width = (hud.expanded ? kHudExpandedWidth : kHudCompactWidth) * factor * zoom;
+    float scale = factor * zoom;
+    float compactHeight = LayoutHud(nullptr, ImVec2(), width, scale, false);
+    float height = LayoutHud(nullptr, ImVec2(), width, scale, hud.expanded);
+    ImVec2 box = HudBoxPlace(HudCompactPlace(hud, width, compactHeight, factor), width, height, compactHeight);
+    DrawHud(ImGui::GetForegroundDrawList(), box, width, scale, hud.expanded, false);
+}
+
+// Panel open: the widget as its own window, so it can be dragged and its
+// corner can set the width (the zoom follows). A click without a drag
+// switches compact/expanded. Begun before BuildPanel, so the panel stays on
+// top. The place is handed to the marker part once the mouse is released.
+void BuildHudWindow() {
+    PywelHudSettings hud = PywelGetHudSettings();
+    if (!hud.shown || !PywelGetRegionProgress(hudProgress)) {
+        return;
+    }
+    float screenWidth = static_cast<float>(renderer.width);
+    float screenHeight = static_cast<float>(renderer.height);
+    float factor = ImGui::GetStyle().FontScaleDpi;
+    float base = (hud.expanded ? kHudExpandedWidth : kHudCompactWidth) * factor;
+
+    // Take the saved settings when they changed elsewhere (first frame, Reset,
+    // Shift+F9, the panel checkbox), and keep following the default place
+    // until the widget is moved.
+    bool reapply = !hudAppliedValid || hud.known != hudApplied.known || hud.expanded != hudApplied.expanded ||
+        (hud.known && (hud.x != hudApplied.x || hud.y != hudApplied.y || hud.width != hudApplied.width)) ||
+        (!hud.known && !hudPressed);
+    if (reapply) {
+        hudZoom = HudZoomFrom(hud, factor);
+    }
+    float width = base * hudZoom;
+    float height = LayoutHud(nullptr, ImVec2(), width, factor * hudZoom, hud.expanded);
+    float compactHeight = LayoutHud(nullptr, ImVec2(), width, factor * hudZoom, false); // v0.113.
+    if (reapply) {
+        ImVec2 place = HudBoxPlace(HudCompactPlace(hud, width, compactHeight, factor), width, height, compactHeight);
+        ImGui::SetNextWindowPos(place, ImGuiCond_Always);
+        ImGui::SetNextWindowSize(ImVec2(width, height), ImGuiCond_Always);
+        hudApplied = hud;
+        hudAppliedValid = true;
+        hudReported[0] = place.x / screenWidth;
+        hudReported[1] = HudCompactTop(place.y, height, compactHeight) / screenHeight;
+        hudReported[2] = hudZoom * kHudCompactWidth * factor / screenWidth;
+    }
+    // The height always fits the contents; only the width can be dragged.
+    ImGui::SetNextWindowSizeConstraints(ImVec2(base * 0.6f, height),
+        ImVec2(base * 3.0f < screenWidth ? base * 3.0f : screenWidth, height));
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowMinSize, ImVec2(1.0f, 1.0f));
+    ImGui::Begin("##Completion widget", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground |
+        ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse |
+        ImGuiWindowFlags_NoFocusOnAppearing);
+    ImVec2 position = ImGui::GetWindowPos();
+    ImVec2 size = ImGui::GetWindowSize();
+    float zoom = size.x / base;
+    hudZoom = zoom < 0.6f ? 0.6f : (zoom > 3.0f ? 3.0f : zoom);
+    DrawHud(ImGui::GetWindowDrawList(), position, size.x, factor * hudZoom, hud.expanded, true);
+    ImGui::Dummy(ImVec2(size.x, height));
+
+    // A click that did not drag switches compact/expanded.
+    ImGuiIO& io = ImGui::GetIO();
+    if (ImGui::IsMouseClicked(0) && ImGui::IsWindowHovered()) {
+        hudPressed = true;
+    }
+    if (ImGui::IsMouseReleased(0)) {
+        float still = 4.0f * factor;
+        if (hudPressed && io.MouseDragMaxDistanceSqr[0] < still * still) {
+            hud.expanded = !hud.expanded;
+            PywelSetHudSettings(hud);
+        }
+        hudPressed = false;
+    }
+
+    // Report a moved or resized widget once the mouse button is released
+    // (v0.113: y as the compact strip's top, see HudCompactTop).
+    float place[3] = {position.x / screenWidth, HudCompactTop(position.y, height, compactHeight) / screenHeight,
+        hudZoom * kHudCompactWidth * factor / screenWidth};
+    bool changed = false;
+    for (unsigned index = 0; index < 3; ++index) {
+        changed = changed || std::fabs(place[index] - hudReported[index]) > 0.0005f;
+    }
+    if (changed && !io.MouseDown[0]) {
+        hud.known = true;
+        hud.x = place[0];
+        hud.y = place[1];
+        hud.width = place[2];
+        PywelSetHudSettings(hud);
+        hudApplied = hud;
+        memcpy(hudReported, place, sizeof(hudReported));
+    }
+    ImGui::End();
+    ImGui::PopStyleVar(3);
+}
+
+// v0.123: the Filters tab: the marker category rows and Show all / Hide all
+// (the panel's whole contents before v0.123).
+void BuildFiltersTab() {
     if (!PywelMarkersEnabled()) {
         // A style colour, so it is converted for HDR like the rest.
+        // v0.119: names the player's current keys.
+        char offKey[32];
+        char onKey[32];
+        KeyName(kKeyMarkersOff, offKey);
+        KeyName(kKeyMarkersOn, onKey);
         ImGui::TextColored(ImGui::GetStyleColorVec4(ImGuiCol_PlotHistogram),
-            "All markers are hidden (F10). F6 shows them.");
+            "All markers are hidden (%s). %s shows them.", offKey, onKey);
         ImGui::Spacing();
     }
     for (unsigned category = 0; category < kPywelMarkerCategories; ++category) {
@@ -1081,8 +1817,42 @@ void BuildPanelContents() {
             PywelSetMarkerCategoryShown(category, false);
         }
     }
+}
+
+// v0.123: the panel's tabs, left to right. Each row is the tab's name and
+// the function that draws its contents. To add a tab, write its function
+// and add one row here; nothing else needs to change.
+struct PanelTab {
+    const char* name;
+    void (*build)();
+};
+const PanelTab kPanelTabs[] = {
+    {"Filters", BuildFiltersTab},
+    {"Route", PywelRouteBuildPanelSection},    // v0.104, RouteOverlay.cpp.
+    {"Completion", BuildCompletionSection},    // v0.110.
+    {"Hotkeys", BuildKeysSection},             // v0.119.
+};
+
+// The panel's contents (v0.64 behaviour, v0.65 layout; v0.123: tabs).
+// ImGui remembers the chosen tab while the game runs. A key wait started
+// on the Hotkeys tab is checked every frame, whichever tab is shown.
+void BuildPanelContents() {
+    BuildHeader();
     ImGui::Spacing();
-    ImGui::TextDisabled("Saved automatically \xc2\xb7 F9 or Esc closes");
+    PollCapture();
+    if (ImGui::BeginTabBar("panelTabs")) {
+        for (const PanelTab& tab : kPanelTabs) {
+            if (ImGui::BeginTabItem(tab.name)) {
+                tab.build();
+                ImGui::EndTabItem();
+            }
+        }
+        ImGui::EndTabBar();
+    }
+    ImGui::Spacing();
+    char panelKey[32];
+    KeyName(kKeyOpenPanel, panelKey);
+    ImGui::TextDisabled("Saved automatically \xc2\xb7 %s or Esc closes", panelKey);
 }
 
 // Size constraint: keep the width the player chose, but make the height
@@ -1215,13 +1985,25 @@ void WatchClosedCursor() {
     InterlockedExchange(&closedCursorBusy, 0);
 }
 
-// Draws the panel onto the image `swapchain` is about to show. Called before
-// the real Present; never throws work at the game except through its queue.
+// v0.104: after a drawing failure the route line waits this long before
+// trying again (GetTickCount64 time), so a failure is not retried every frame.
+volatile LONG64 routeOverlayRetryAt = 0;
+
+// Draws the panel (and, v0.104, the route line) onto the image `swapchain`
+// is about to show. Called before the real Present; never throws work at the
+// game except through its queue. The route line is drawn even while the
+// panel is closed; then no input is taken and no cursor is drawn.
 void DrawPanel(void* swapchain) {
     PollHotkeys();
-    if (!InterlockedCompareExchange(&panelVisible, 0, 0)) {
+    bool panelOpen = InterlockedCompareExchange(&panelVisible, 0, 0) != 0;
+    bool hudDue = false; // v0.110: the completion widget, panel closed.
+    if (!panelOpen) {
         WatchClosedCursor();
-        return;
+        bool routeDue = static_cast<LONG64>(GetTickCount64()) >= InterlockedCompareExchange64(&routeOverlayRetryAt, 0, 0);
+        hudDue = HudWanted();
+        if (!routeDue || (!PywelRouteOverlayWanted() && !hudDue)) {
+            return;
+        }
     }
     if (InterlockedCompareExchange(&creatingSwapchain, 0, 0)) {
         return;
@@ -1246,6 +2028,7 @@ void DrawPanel(void* swapchain) {
         Teardown("another swapchain is now shown");
         if (!CreateRenderer(swapchain, entry)) {
             InterlockedExchange(&panelVisible, 0); // Do not retry every frame.
+            InterlockedExchange64(&routeOverlayRetryAt, static_cast<LONG64>(GetTickCount64() + 5000));
             ReleaseSRWLockExclusive(&renderLock);
             return;
         }
@@ -1285,11 +2068,25 @@ void DrawPanel(void* swapchain) {
             lastFrameTime = now;
             io.DeltaTime = delta > 0.0001f ? delta : 0.0001f;
             io.DisplaySize = ImVec2(static_cast<float>(renderer.width), static_cast<float>(renderer.height));
-            FeedInput(io);
+            if (panelOpen) {
+                FeedInput(io);
+            } else {
+                io.MouseDrawCursor = false; // v0.104: route line only; no cursor, no input.
+            }
             ApplyStyle(); // v0.65: last frame's zoom applies to everything.
             ImGui_ImplDX12_NewFrame();
             ImGui::NewFrame();
-            BuildPanel();
+            if (panelOpen) {
+                BuildHudWindow(); // v0.110: movable while the panel is open.
+                BuildPanel();
+            }
+            // v0.104: the route line, over everything (the panel draws its own
+            // window above it only where they overlap).
+            PywelRouteDrawOverlay(ImGui::GetForegroundDrawList(), static_cast<float>(renderer.width),
+                static_cast<float>(renderer.height), FrameColour);
+            if (hudDue) {
+                DrawHudClosed(); // v0.110: the completion widget.
+            }
             ImGui::Render();
 
             // Our drawing: image from "being shown" to "drawable", draw, back.
@@ -1323,9 +2120,10 @@ void DrawPanel(void* swapchain) {
         swapchain3->Release();
     }
     if (!ok) {
-        Note("panel: drawing failed on swapchain 0x%llx; panel closed",
+        Note("panel: drawing failed on swapchain 0x%llx; panel closed, route line paused for 5 s",
             reinterpret_cast<unsigned long long>(swapchain));
         InterlockedExchange(&panelVisible, 0);
+        InterlockedExchange64(&routeOverlayRetryAt, static_cast<LONG64>(GetTickCount64() + 5000));
     }
     ReleaseSRWLockExclusive(&renderLock);
 }
@@ -1821,7 +2619,7 @@ DWORD WINAPI Run(void* address) {
     wcscat_s(path, L"\\filter-panel.log");
     logFile = CreateFileW(path, GENERIC_WRITE, FILE_SHARE_READ, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
-    Log("Pywel Atlas combined v0.91 filter panel (Sealed Abyss Artifacts row; Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui " IMGUI_VERSION);
+    Log("Pywel Atlas combined v0.123 filter panel (v0.123: panel split into tabs (Filters, Route, Completion, Hotkeys), one table row per tab; v0.122: no panel change (map code split into files); v0.121: no panel change (route line on its own canvases); v0.120: no panel change (map markers share one zoom size curve); v0.119: Keys section, every mod key rebindable, saved in keybinds.ini; v0.118: no panel change (route line fixes only); v0.117: no panel change (map markers load all at once); v0.116: completion widget default place centred above the minimap's date and area lines; v0.115: route Line style covers both maps, Crimson Route look; v0.114: Constellations row; v0.113: completion widget details grow upward when low on screen, default place above a low minimap, kept on screen; v0.111: Route section Line style (game canvas / overlay), road-following route lines; v0.110: completion tracker: Completion section and always-on region widget, Shift+F9 switches its details; v0.108: Unique gear row; v0.107: route stop dots, world-map route hidden while a knowledge card is open; Abyss Cressets row; Route section and route line overlay, drawn while a map is visible even with the panel closed; quest-locked count on the Abyss chest row; Abyss-island Nexus row; Sealed Abyss Artifacts row; Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui " IMGUI_VERSION);
     // (MinHook was initialized once by PywelAtlas.cpp before this part started.)
     if (!InstallFactoryHooks()) {
         return 0;

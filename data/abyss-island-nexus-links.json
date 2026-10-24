@@ -1,0 +1,1026 @@
+{
+  "version": 1,
+  "category": "Abyss-island Nexus (AbyssRuins_AbyssIsland, _Quest, _Housing)",
+  "infoKeys": [
+    1000008,
+    1000053,
+    1000114
+  ],
+  "discoveredRule": "DiscoveredLevelGimmickSceneObjectSaveData record with the row's infoKey and this UUID",
+  "activatedRule": "FieldSaveData._fieldGimmickSaveDataList record for this UUID with reason 1, reset never and state 353047760 or 1537827618 (2255254665 = not yet)",
+  "nativeIcon": {
+    "type": 235,
+    "templateType": 28866,
+    "templateName": "MapIcon_Abyss_Ruins",
+    "category": "0x21"
+  },
+  "locations": [
+    {
+      "name": "Abyss-island Nexus 1 (Alustin)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2268573942,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10249.1043,
+        1832.4061,
+        -4042.565
+      ],
+      "level": "abyssisland_0001_phase00_00",
+      "mapGenieId": "mg:550148",
+      "mapGenieDistance": 3.5
+    },
+    {
+      "name": "Abyss-island Nexus 2 (Alustin)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2293023749,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10665.498,
+        1794.6936,
+        -3700.3325
+      ],
+      "level": "abyssisland_0002_phase00_00",
+      "mapGenieId": "mg:550147",
+      "mapGenieDistance": 6.5
+    },
+    {
+      "name": "Abyss-island Nexus 3 (Spire Of The Stars)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2396535545,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11211.3789,
+        1807.3542,
+        -6125.5605
+      ],
+      "level": "abyssisland_0003_phase00_00",
+      "mapGenieId": "mg:552240",
+      "mapGenieDistance": 16.5
+    },
+    {
+      "name": "Abyss-island Nexus 9 (Jump Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2864431278,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -9476.1465,
+        2001.2483,
+        -2919.0269
+      ],
+      "level": "abyssisland_0009_phase00_00",
+      "mapGenieId": "mg:550185",
+      "mapGenieDistance": 4.8
+    },
+    {
+      "name": "Abyss-island Nexus 13 (Alustin)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2874773431,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8920.291,
+        2183.2522,
+        -4850.2769
+      ],
+      "level": "abyssisland_0013_phase00_00",
+      "mapGenieId": "mg:554211",
+      "mapGenieDistance": 17.0
+    },
+    {
+      "name": "Abyss-island Nexus 14 (Spire Of Ringing Truth)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2882868116,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10876.334,
+        1891.3358,
+        -1282.8843
+      ],
+      "level": "abyssisland_0014_phase00_00",
+      "mapGenieId": "mg:556655",
+      "mapGenieDistance": 12.0
+    },
+    {
+      "name": "Abyss-island Nexus 16 (Spire Of Ringing Truth)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2889901033,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11984.0947,
+        1844.325,
+        -776.7908
+      ],
+      "level": "abyssisland_0016_phase00_00",
+      "mapGenieId": "mg:550192",
+      "mapGenieDistance": 4.5
+    },
+    {
+      "name": "Abyss-island Nexus 18 (Clock Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        81244070,
+        1591218559,
+        2990706131,
+        0
+      ],
+      "gamePosition": [
+        -5816.4038,
+        1773.7996,
+        -2698.5464
+      ],
+      "level": "abyssisland_0018_phase00_00",
+      "mapGenieId": "mg:554204",
+      "mapGenieDistance": 15.0
+    },
+    {
+      "name": "Abyss-island Nexus 23 (Spire Of The Stars)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2943382996,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -12033.7197,
+        1821.8721,
+        -4716.4443
+      ],
+      "level": "abyssisland_0023_phase00_00",
+      "mapGenieId": "mg:550191",
+      "mapGenieDistance": 2.8
+    },
+    {
+      "name": "Abyss-island Nexus 36 (Clock Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3082079837,
+        1591218357,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -4387.3418,
+        1839.2614,
+        -1651.3742
+      ],
+      "level": "abyssisland_0036_phase00_00",
+      "mapGenieId": "mg:564705",
+      "mapGenieDistance": 5.1
+    },
+    {
+      "name": "Abyss-island Nexus 41 (Spire Of Ringing Truth)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2985467815,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11133.5469,
+        1789.3624,
+        221.7146
+      ],
+      "level": "abyssisland_0041_phase00_00",
+      "mapGenieId": "mg:556622",
+      "mapGenieDistance": 8.1
+    },
+    {
+      "name": "Abyss-island Nexus 55 (Spire Of Ringing Truth)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2993345312,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10599.1094,
+        1894.8632,
+        -1791.5637
+      ],
+      "level": "abyssisland_0055_phase00_00",
+      "mapGenieId": "mg:553690",
+      "mapGenieDistance": 16.2
+    },
+    {
+      "name": "Abyss-island Nexus 79 (0079_Phase00_00)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3015548248,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7800.0981,
+        1964.3743,
+        -578.2614
+      ],
+      "level": "abyssisland_0079_phase00_00_sub_1_0",
+      "mapGenieId": "mg:550187",
+      "mapGenieDistance": 4.8
+    },
+    {
+      "name": "Abyss-island Nexus 83 (Jijeong Temple Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3025060432,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7950.499,
+        1828.0919,
+        -5221.0957
+      ],
+      "level": "abyssisland_0083_phase00_00",
+      "mapGenieId": "mg:550190",
+      "mapGenieDistance": 3.7
+    },
+    {
+      "name": "Abyss-island Nexus 84 (Frozen Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3030954541,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8488.0732,
+        1786.4203,
+        -379.1497
+      ],
+      "level": "abyssisland_0084_phase00_00",
+      "mapGenieId": "mg:554358",
+      "mapGenieDistance": 15.2
+    },
+    {
+      "name": "Abyss-island Nexus 89 (Spire Of The Stars)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3054722250,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -12206.0039,
+        2058.113,
+        -3175.4185
+      ],
+      "level": "abyssisland_0089_phase00_00",
+      "mapGenieId": "mg:553678",
+      "mapGenieDistance": 8.6
+    },
+    {
+      "name": "Abyss-island Nexus 91 (Clock Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2669854466,
+        1450447136,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -6953.8428,
+        2895.843,
+        -2961.343
+      ],
+      "level": "abyssisland_0091_phase00_00",
+      "mapGenieId": "mg:564702",
+      "mapGenieDistance": 5.6
+    },
+    {
+      "name": "Abyss-island Nexus 97 (Wisdom Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3064352926,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10059.7334,
+        1786.4022,
+        -6023.2485
+      ],
+      "level": "abyssisland_0097_phase00_00",
+      "mapGenieId": "mg:556395",
+      "mapGenieDistance": 8.9
+    },
+    {
+      "name": "Abyss-island Nexus 99 (Spire Of The Stars)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3071471488,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11117.2793,
+        1825.8427,
+        -4093.5073
+      ],
+      "level": "abyssisland_0099_phase00_00",
+      "mapGenieId": "mg:553673",
+      "mapGenieDistance": 3.5
+    },
+    {
+      "name": "Abyss-island Nexus 109 (Spire Of Ringing Truth)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3075733818,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -11661.5928,
+        1992.1757,
+        894.2913
+      ],
+      "level": "abyssisland_0109_phase00_00",
+      "mapGenieId": "mg:556616",
+      "mapGenieDistance": 0.6
+    },
+    {
+      "name": "Abyss-island Nexus 113 (Clock Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3090721644,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -4856.7163,
+        1806.5538,
+        -1925.5682
+      ],
+      "level": "abyssisland_0113_phase00_00",
+      "mapGenieId": "mg:564708",
+      "mapGenieDistance": 2.2
+    },
+    {
+      "name": "Abyss-island Nexus 121 (Sun Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3095787566,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7135.7412,
+        1891.761,
+        -466.8524
+      ],
+      "level": "abyssisland_0121_phase00_00",
+      "mapGenieId": "mg:550189",
+      "mapGenieDistance": 4.1
+    },
+    {
+      "name": "Abyss-island Nexus 122 (Jijeong Temple Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3649887045,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7894.1235,
+        1806.3203,
+        -5612.3931
+      ],
+      "level": "abyssisland_0122_phase00_00",
+      "mapGenieId": "mg:559900",
+      "mapGenieDistance": 16.4
+    },
+    {
+      "name": "Abyss-island Nexus 131 (Spire Of Ringing Truth)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3293135946,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -12107.4658,
+        1837.8591,
+        -13.6268
+      ],
+      "level": "abyssisland_0131_phase00_00",
+      "mapGenieId": "mg:550193",
+      "mapGenieDistance": 4.1
+    },
+    {
+      "name": "Abyss-island Nexus 137 (Clock Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3298290871,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -6398.8813,
+        1981.7032,
+        -2986.2048
+      ],
+      "level": "abyssisland_0137_phase00_00",
+      "mapGenieId": "mg:564667",
+      "mapGenieDistance": 4.6
+    },
+    {
+      "name": "Abyss-island Nexus 138 (Frozen Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3309790566,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7840.3281,
+        1847.9237,
+        290.9057
+      ],
+      "level": "abyssisland_0138_phase00_00",
+      "mapGenieId": "mg:558542",
+      "mapGenieDistance": 4.9
+    },
+    {
+      "name": "Abyss-island Nexus 140 (Jump Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3325851455,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8668.6432,
+        1752.9126,
+        -2116.354
+      ],
+      "level": "abyssisland_0140_phase00_00",
+      "mapGenieId": "mg:550186",
+      "mapGenieDistance": 3.4
+    },
+    {
+      "name": "Abyss-island Nexus 144 (Alustin)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3329098331,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8518.9883,
+        1726.4509,
+        -4906.7715
+      ],
+      "level": "abyssisland_0144_phase00_00",
+      "mapGenieId": "mg:556404",
+      "mapGenieDistance": 15.7
+    },
+    {
+      "name": "Abyss-island Nexus 150 (Wisdom Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3332493063,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -9755.6885,
+        1792.8777,
+        -6425.9653
+      ],
+      "level": "abyssisland_0150_phase00_00",
+      "mapGenieId": "mg:552237",
+      "mapGenieDistance": 32.6
+    },
+    {
+      "name": "Abyss-island Nexus 151 (Sun Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3342244870,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -6958.3086,
+        1775.1356,
+        -1157.7312
+      ],
+      "level": "abyssisland_0151_phase00_00",
+      "mapGenieId": "mg:561598",
+      "mapGenieDistance": 5.1
+    },
+    {
+      "name": "Abyss-island Nexus 152 (Spire Of Ringing Truth)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3345987639,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -9788.7891,
+        1800.7513,
+        162.233
+      ],
+      "level": "abyssisland_0152_phase00_00",
+      "mapGenieId": "mg:556648",
+      "mapGenieDistance": 6.0
+    },
+    {
+      "name": "Abyss-island Nexus 158 (Spire Of The Stars)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3349199490,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10519.1611,
+        1815.1802,
+        -5288.6865
+      ],
+      "level": "abyssisland_0158_phase00_00",
+      "mapGenieId": "mg:552249",
+      "mapGenieDistance": 11.1
+    },
+    {
+      "name": "Abyss-island Nexus 162 (Jump Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3361268823,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -9019.7861,
+        1805.5989,
+        -1655.3763
+      ],
+      "level": "abyssisland_0162_phase00_00",
+      "mapGenieId": "mg:555642",
+      "mapGenieDistance": 0.9
+    },
+    {
+      "name": "Abyss-island Nexus 175 (Spire Of Ringing Truth)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3364533413,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -10611.2207,
+        1813.5143,
+        814.5283
+      ],
+      "level": "abyssisland_0175_phase00_00",
+      "mapGenieId": "mg:556641",
+      "mapGenieDistance": 23.6
+    },
+    {
+      "name": "Abyss-island Nexus 176 (Frozen Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2659936932,
+        1591218357,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -8161.7895,
+        1970.8248,
+        -1325.7922
+      ],
+      "level": "abyssisland_0176_phase00_00",
+      "mapGenieId": "mg:551235",
+      "mapGenieDistance": 1.5
+    },
+    {
+      "name": "Abyss-island Nexus 189 (Sun Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3386278125,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7496.8618,
+        1956.5453,
+        -863.4337
+      ],
+      "level": "abyssisland_0189_phase00_00",
+      "mapGenieId": "mg:550188",
+      "mapGenieDistance": 1.7
+    },
+    {
+      "name": "Abyss-island Nexus 191 (Spire Of The Stars)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3392251379,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -12432.1191,
+        1754.5023,
+        -5206.2354
+      ],
+      "level": "abyssisland_0191_phase00_00",
+      "mapGenieId": "mg:551944",
+      "mapGenieDistance": 8.7
+    },
+    {
+      "name": "Abyss-island Nexus 200 (Frozen Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3395838596,
+        1450446993,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -5843.0552,
+        1993.4216,
+        322.9561
+      ],
+      "level": "abyssisland_0200_phase00_00",
+      "mapGenieId": "mg:558549",
+      "mapGenieDistance": 12.1
+    },
+    {
+      "name": "Abyss-island Nexus 201 (Jijeong Temple Tower)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        3695044238,
+        1450447135,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7893.3262,
+        2987.1201,
+        -4142.2612
+      ],
+      "level": "abyssisland_0201_phase00_00",
+      "mapGenieId": "mg:564645",
+      "mapGenieDistance": 1.6
+    },
+    {
+      "name": "Abyss-island Nexus 1001 (Hyper Space)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2927882836,
+        1591218389,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -4758.0205,
+        1865.0343,
+        -5230.6816
+      ],
+      "level": "abyssisland_1001_phase00_00",
+      "mapGenieId": "mg:566123",
+      "mapGenieDistance": 18.3
+    },
+    {
+      "name": "Abyss-island Nexus 1002 (Hyper Space)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2933146549,
+        1591218389,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -5655.9463,
+        1802.2264,
+        -4029.9915
+      ],
+      "level": "abyssisland_1002_phase00_00",
+      "mapGenieId": "mg:566120",
+      "mapGenieDistance": 13.6
+    },
+    {
+      "name": "Abyss-island Nexus 1003 (Hyper Space)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2921192412,
+        1591218389,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -3445.8992,
+        1888.1643,
+        -5519.9141
+      ],
+      "level": "abyssisland_1003_phase00_00",
+      "mapGenieId": "mg:571999",
+      "mapGenieDistance": 11.1
+    },
+    {
+      "name": "Abyss-island Nexus 1004 (Hyper Space)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        2952215856,
+        1591218389,
+        1179029203,
+        0
+      ],
+      "gamePosition": [
+        -4323.2163,
+        1789.7794,
+        -4521.3315
+      ],
+      "level": "abyssisland_1004_phase00_00",
+      "mapGenieId": "mg:566121",
+      "mapGenieDistance": 5.5
+    },
+    {
+      "name": "Abyss-island Nexus 1005 (Hyper Space)",
+      "kind": "island",
+      "infoKey": 1000008,
+      "uuid": [
+        4089096347,
+        1591218419,
+        2990706131,
+        0
+      ],
+      "gamePosition": [
+        -3761.3931,
+        1974.0099,
+        -4534.2847
+      ],
+      "level": "abyssisland_1005_phase00_00",
+      "mapGenieId": "mg:566122",
+      "mapGenieDistance": 0.6
+    },
+    {
+      "name": "Abyss core Nexus 1",
+      "kind": "quest",
+      "infoKey": 1000114,
+      "uuid": [
+        4117529307,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7947.0239,
+        2156.5522,
+        -2571.792
+      ],
+      "level": "abyssislandcore_0001_phase00_00",
+      "mapGenieId": "mg:557873",
+      "mapGenieDistance": 1.5
+    },
+    {
+      "name": "Abyss core Nexus 2",
+      "kind": "quest",
+      "infoKey": 1000114,
+      "uuid": [
+        4127994021,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8088.2695,
+        2329.8064,
+        -2421.4946
+      ],
+      "level": "abyssislandcore_0002_phase00_00",
+      "mapGenieId": "mg:557874",
+      "mapGenieDistance": 2.0
+    },
+    {
+      "name": "Abyss core Nexus 3",
+      "kind": "quest",
+      "infoKey": 1000114,
+      "uuid": [
+        4139515132,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -8108.8545,
+        2223.3145,
+        -2303.5686
+      ],
+      "level": "abyssislandcore_0003_phase00_00",
+      "mapGenieId": "mg:559872",
+      "mapGenieDistance": 4.3
+    },
+    {
+      "name": "Abyss core Nexus 4",
+      "kind": "quest",
+      "infoKey": 1000114,
+      "uuid": [
+        4157896708,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7722.2539,
+        2322.4583,
+        -2631.2371
+      ],
+      "level": "abyssislandcore_0004_phase00_00",
+      "mapGenieId": "mg:557872",
+      "mapGenieDistance": 3.7
+    },
+    {
+      "name": "Abyss core Nexus 5",
+      "kind": "quest",
+      "infoKey": 1000114,
+      "uuid": [
+        4220438040,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7414.1011,
+        2329.7019,
+        -2325.3333
+      ],
+      "level": "abyssislandcore_0005_phase00_00",
+      "mapGenieId": "mg:557869",
+      "mapGenieDistance": 10.2
+    },
+    {
+      "name": "Abyss core Nexus 6",
+      "kind": "quest",
+      "infoKey": 1000114,
+      "uuid": [
+        4227921699,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7764.5303,
+        2341.2173,
+        -1898.397
+      ],
+      "level": "abyssislandcore_0006_phase00_00",
+      "mapGenieId": "mg:557875",
+      "mapGenieDistance": 18.6
+    },
+    {
+      "name": "Abyss core Nexus 7",
+      "kind": "quest",
+      "infoKey": 1000114,
+      "uuid": [
+        4234311446,
+        1450447276,
+        2733276476,
+        0
+      ],
+      "gamePosition": [
+        -7606.9292,
+        2181.9138,
+        -2146.7356
+      ],
+      "level": "abyssislandcore_0007_phase00_00",
+      "mapGenieId": "mg:557870",
+      "mapGenieDistance": 8.1
+    },
+    {
+      "name": "Kliff's house Nexus 1",
+      "kind": "housing",
+      "infoKey": 1000053,
+      "uuid": [
+        2065503041,
+        1450447186,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -10356.0195,
+        613.1619,
+        -4443.5566
+      ],
+      "level": "kliffhouse_useartifact_0001_phase00_00_sub_1_0",
+      "mapGenieId": "mg:555141",
+      "mapGenieDistance": 21.2
+    },
+    {
+      "name": "Kliff's house Nexus 2",
+      "kind": "housing",
+      "infoKey": 1000053,
+      "uuid": [
+        4119105389,
+        1591218527,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9958.0898,
+        666.2692,
+        261.6863
+      ],
+      "level": "kliffhouse_useartifact_0002_phase00_00_sub_1_0",
+      "mapGenieId": "mg:554291",
+      "mapGenieDistance": 14.4
+    }
+  ]
+}

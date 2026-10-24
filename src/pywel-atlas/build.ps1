@@ -74,6 +74,28 @@ if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss Nexus list' }
 # v0.88: the Sealed Abyss Artifact list.
 & $python -B (Join-Path $markerBell 'prepare_sealed_artifact_links.py')
 if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Sealed Abyss Artifact list' }
+# v0.95: the Abyss-island Nexus list (its 2 housing Nexuses go to the surface list above).
+& $python -B (Join-Path $markerBell 'prepare_island_nexus_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss-island Nexus list' }
+# v0.105: the Abyss Cresset list (cresset markers and the save reader's quest pass).
+& $python -B (Join-Path $markerBell 'prepare_cresset_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss Cresset list' }
+# v0.114: the Constellation list (constellation markers and the save reader's quest pass).
+& $python -B (Join-Path $markerBell 'prepare_constellation_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Constellation list' }
+# v0.108: the unique gear list (unique gear markers and the save reader's quest and field passes).
+& $python -B (Join-Path $markerBell 'prepare_unique_gear_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the unique gear list' }
+# v0.111: the world map's road network for the route line, read from the
+# user's own game install (road-graph.h; game data, so not committed). It
+# needs the research Python, whose lz4 module reads the game's packs.
+$researchPython = Join-Path $workspace 'research/vendor/.venv/Scripts/python.exe'
+& $researchPython -B (Join-Path $sourceDirectory 'prepare_road_graph.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not build the road network (road-graph.h)' }
+# v0.117: every marker category must have an even size in the UI add-on
+# (MARKER_SIZES in build_ui_patch.py); stops the build if one is missing.
+& $researchPython -B (Join-Path $workspace 'src/pywel-atlas-ui/build_ui_patch.py') --check
+if ($LASTEXITCODE -ne 0) { throw 'A marker category has no size in build_ui_patch.py (MARKER_SIZES)' }
 if ($Test) {
     # Test build only: the teleporter's named target list.
     & $python -B (Join-Path $sourceDirectory 'prepare_teleport_targets.py')
@@ -125,8 +147,28 @@ try {
         (Join-Path $sourceDirectory 'TeleportObserve.cpp'),
         # v0.62: the in-game filter panel (Dear ImGui, drawn in the game's frame).
         (Join-Path $sourceDirectory 'FilterPanel.cpp'),
+        # v0.104: the collectible route (planner, worker and snapshots, line overlay).
+        (Join-Path $sourceDirectory 'RoutePlanner.cpp'),
+        (Join-Path $sourceDirectory 'RouteSystem.cpp'),
+        (Join-Path $sourceDirectory 'RouteOverlay.cpp'),
+        # v0.111: roads, road-following legs and the world map's own canvas line.
+        (Join-Path $sourceDirectory 'RoadGraph.cpp'),
+        (Join-Path $sourceDirectory 'RouteLegs.cpp'),
+        (Join-Path $sourceDirectory 'RouteCanvas.cpp'),
+        # v0.119: rebindable keys (keybinds.ini and the panel's Keys section).
+        (Join-Path $sourceDirectory 'Keybinds.cpp'),
         (Join-Path $saveDetection 'NativeSaveLoadProbe.cpp'),
+        # v0.122: the map-marker part, split into files by job (no behaviour
+        # change; MapMarkerShared.h lists what they share).
         (Join-Path $markerBell 'NativeMapCategoryProbe.cpp'),
+        (Join-Path $markerBell 'MapHooks.cpp'),
+        (Join-Path $markerBell 'MapCategories.cpp'),
+        (Join-Path $markerBell 'MarkerService.cpp'),
+        (Join-Path $markerBell 'MarkerState.cpp'),
+        (Join-Path $markerBell 'IconDefinitions.cpp'),
+        (Join-Path $markerBell 'MapDiagnostics.cpp'),
+        (Join-Path $markerBell 'MinimapMarkers.cpp'),
+        (Join-Path $markerBell 'MapPublicApi.cpp'),
         (Join-Path $markerBell 'NativeMarkerDefinition.cpp'),
         (Join-Path $markerBell 'NativeSaveReader.cpp'))
     $defines = @('/DPYWEL_ATLAS_COMBINED')

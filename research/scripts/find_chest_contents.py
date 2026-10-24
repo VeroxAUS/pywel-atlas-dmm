@@ -83,14 +83,29 @@ def item_text_id(row):
     return None
 
 
+def text_ids(data):
+    """Yield (end offset, text id) for each length-prefixed digit string in `data`.
+
+    A text id is stored as [u32 length][exactly that many digits]. The id is
+    sliced by its length, not matched greedily: the u32 after it can start
+    with a byte that is an ASCII digit (0x30-0x39), and a greedy match would
+    swallow it and then reject the id (fix from export_sealed_artifact_links.py).
+    """
+    for match in re.finditer(rb"[\x05-\x18]\x00\x00\x00(?=\d)", data):
+        start = match.end()
+        digits = data[start:start + data[match.start()]]
+        if digits.isdigit():
+            yield start + len(digits), digits.decode()
+
+
 def equip_type_texts(texts):
     """Return {equip type key: English type name} from equiptypeinfo and equiptype.paloc."""
     names = {}
     for key, row in load_table("equiptypeinfo").items():
         # The row holds the type's text id as a length-prefixed digit string.
-        match = re.search(rb"[\x05-\x18]\x00\x00\x00(\d{5,24})", row)
-        if match and match.group(1).decode() in texts:
-            names[key] = texts[match.group(1).decode()]
+        found = next((text_id for _, text_id in text_ids(row)), None)
+        if found in texts:
+            names[key] = texts[found]
     return names
 
 
@@ -113,10 +128,9 @@ def item_description_id(row, text_id):
     (usually the name id + 1; measured on the chest items, v0.91).
     """
     start = row.find(text_id.encode()) + len(text_id)
-    for match in re.finditer(rb"[\x05-\x18]\x00\x00\x00(\d{5,24})", row[start:]):
-        digits = match.group(1)
-        if len(digits) == row[start + match.start()] and digits.decode() != text_id:
-            return digits.decode()
+    for _, found in text_ids(row[start:]):
+        if found != text_id:
+            return found
     return None
 
 
@@ -126,11 +140,7 @@ def read_paloc(path):
     texts = {}
     # Entry: [8 bytes][u32 length][id digits][u32 length][UTF-8 text]. Find
     # each "length + digits" and accept it only if a sane text follows.
-    for match in re.finditer(rb"[\x05-\x18]\x00\x00\x00(\d{5,24})", data):
-        digits = match.group(1)
-        if len(digits) != data[match.start()]:
-            continue
-        position = match.end()
+    for position, text_id in text_ids(data):
         if position + 4 > len(data):
             continue
         length = struct.unpack_from("<I", data, position)[0]
@@ -140,7 +150,7 @@ def read_paloc(path):
             text = data[position + 4:position + 4 + length].decode("utf-8")
         except UnicodeDecodeError:
             continue
-        texts.setdefault(digits.decode(), text)
+        texts.setdefault(text_id, text)
     return texts
 
 

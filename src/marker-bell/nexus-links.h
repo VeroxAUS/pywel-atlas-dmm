@@ -4,6 +4,7 @@
 // (see NativeSaveReader.cpp).
 #pragma once
 constexpr uint32_t kNexusInfoKey = 1000001; // "AbyssRuins_Field" in the level-gimmick table.
+constexpr uint32_t kHousingNexusInfoKey = 1000053; // "AbyssRuins_Housing": the last 2 rows (v0.95).
 struct NexusLink { const char* name; uint32_t uuid[4]; float position[3]; };
 constexpr NexusLink kNexusLinks[] = {
     {"Crimson Desert Abyss Nexus 1", {2828228085u, 1591217967u, 1150148307u, 0u}, {-5040.0469f, 416.2446f, -2774.394f}},
@@ -219,4 +220,6 @@ constexpr NexusLink kNexusLinks[] = {
     {"Kweiden Abyss Nexus 38", {1828571956u, 1591218646u, 1150148307u, 0u}, {-9537.0742f, 616.8093f, -859.454f}},
     {"Kweiden Abyss Nexus 39", {1806730323u, 1591218646u, 1150148307u, 0u}, {-10940.6621f, 1016.0722f, -307.181f}},
     {"Kweiden Abyss Nexus 40", {1794418197u, 1591218646u, 1150148307u, 0u}, {-8913.9971f, 616.7446f, -1104.8821f}},
+    {"Kliff's house Nexus 1", {2065503041u, 1450447186u, 3472670780u, 0u}, {-10356.0195f, 613.1619f, -4443.5566f}},
+    {"Kliff's house Nexus 2", {4119105389u, 1591218527u, 1150148307u, 0u}, {-9958.0898f, 666.2692f, 261.6863f}},
 };

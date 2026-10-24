@@ -17,6 +17,10 @@
 //     - Filter panel (FilterPanel.cpp, v0.62): the in-game Dear ImGui panel
 //       (F9), drawn in the game's own frames; v0.62 is not connected to
 //       the markers yet. Hooks only Windows' dxgi.dll.
+//     - Route (RouteSystem.cpp, RoutePlanner.cpp, RouteOverlay.cpp, v0.104):
+//       plans a tour of the nearest collectibles still to do and draws it as
+//       a line on the world map and the minimap. Its own worker thread; the
+//       line is drawn by the filter panel's frame code. Reads only.
 //     - Test teleporter (TestTeleporter.cpp): ONLY in the separate test build
 //       PywelAtlasTest.asi (build.ps1 -Test defines PYWEL_ATLAS_TELEPORT).
 //   Both files are compiled with PYWEL_ATLAS_COMBINED defined, which removes
@@ -47,6 +51,8 @@ DWORD WINAPI PywelMapMarkerRun(void* address);
 DWORD WINAPI PywelTeleportObserveRun(void* address);
 // v0.62: the in-game filter panel (FilterPanel.cpp).
 DWORD WINAPI PywelFilterPanelRun(void* address);
+// v0.104: the route worker (RouteSystem.cpp): plans the collectible route.
+DWORD WINAPI PywelRouteRun(void* address);
 #ifdef PYWEL_ATLAS_TELEPORT
 // Test build only (PywelAtlasTest.asi): the test teleporter's worker.
 DWORD WINAPI PywelTeleporterRun(void* address);
@@ -73,6 +79,7 @@ DWORD WINAPI Start(void* address) {
     StartPart(PywelMapMarkerRun, address);
     StartPart(PywelTeleportObserveRun, address);
     StartPart(PywelFilterPanelRun, address);
+    StartPart(PywelRouteRun, address);
 #ifdef PYWEL_ATLAS_TELEPORT
     StartPart(PywelTeleporterRun, address);
 #endif

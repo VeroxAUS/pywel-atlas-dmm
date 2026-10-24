@@ -3474,7 +3474,9 @@
       "level": "sector_-39_-20_sub_3_38",
       "prefab": "gimmick_treasurebox_jigsaw_move_safe_02.prefab",
       "mapGenieId": "mg:544510",
-      "mapGenieDistance": 40.0
+      "mapGenieDistance": 40.0,
+      "decoy": true,
+      "decoyEvidence": "Hernand strongbox 1 (sliding jigsaw): no spawn reason in its level object or sub-level, not in levelgimmicksceneobjectinfo, same MapGenie point as strongbox 2 12.9 m away; the user confirmed in game 2026-10-24 that it holds nothing and the sliding puzzle (strongbox 2) gives the Folorin Earring."
     },
     {
       "name": "Hernand strongbox 2 (sliding jigsaw)",

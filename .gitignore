@@ -20,3 +20,6 @@ deps/
 
 # Research-only third-party tools (downloaded, never part of the mod)
 research/vendor/
+
+# v0.111: generated from the user's game install at build time (game data)
+src/pywel-atlas/road-graph.h

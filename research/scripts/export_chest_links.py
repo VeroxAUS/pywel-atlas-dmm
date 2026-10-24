@@ -80,6 +80,15 @@ STRONGBOX_KINDS = {
 # levels stay out: their boxes may not exist in a given save).
 ALWAYS_PLACED = ("terrain", "content-chest-level")
 
+# v0.99: placed chest objects that hold nothing (UUID's first three words ->
+# evidence). They keep their row but get "decoy": true, so no marker is made.
+DECOYS = {
+    (655958064, 4279242738, 645817056, 0): (
+        "Hernand strongbox 1 (sliding jigsaw): no spawn reason in its level object or sub-level, not in "
+        "levelgimmicksceneobjectinfo, same MapGenie point as strongbox 2 12.9 m away; the user confirmed in game "
+        "2026-10-24 that it holds nothing and the sliding puzzle (strongbox 2) gives the Folorin Earring."),
+}
+
 
 def check_row(uuid, position):
     """Stop with an error if a chest's UUID or position has an odd shape."""
@@ -313,6 +322,15 @@ def main():
     rows += strongbox_rows(placements, points, {tuple(row["uuid"]) for row in rows})
     if len({tuple(row["uuid"]) for row in rows}) != len(rows):
         raise ValueError("A chest UUID repeats")
+    # v0.99: chests that are not real reward chests stay in the list (marker
+    # numbers come from row order) but are flagged, so the mod never marks them.
+    for row in rows:
+        evidence = DECOYS.get(tuple(row["uuid"]))
+        if evidence:
+            row["decoy"] = True
+            row["decoyEvidence"] = evidence
+    if sum(1 for row in rows if row.get("decoy")) != len(DECOYS):
+        raise ValueError("A decoy UUID is not in the chest list")
 
     output = {
         "version": 3,

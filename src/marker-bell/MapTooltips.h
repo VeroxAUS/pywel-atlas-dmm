@@ -198,16 +198,30 @@ void BuildTooltipTexts() {
                     strcpy_s(text, kTooltipTextSize, "Treasure Chest");
                 }
             } else if (category == kAbyssChestCategory) {
-                strcpy_s(text, kTooltipTextSize, "Treasure Chest");
-            } else if (category == kNexusCategory) {
+                // v0.102: the Abyss chest's item on a second line, like the surface chests.
+                const char* contents = kAbyssChestContents[index];
+                if (contents) {
+                    sprintf_s(text, kTooltipTextSize, "Treasure Chest%s%s", kTooltipLineBreak, contents);
+                } else {
+                    strcpy_s(text, kTooltipTextSize, "Treasure Chest");
+                }
+            } else if (category == kNexusCategory || category == kIslandNexusCategory) {
+                // v0.95: island Nexuses use the same label as surface ones.
                 strcpy_s(text, kTooltipTextSize, "Abyss Nexus");
+            } else if (category == kCressetCategory) {
+                // v0.105: just the kind; the cresset's name is left out (user, v0.105 run).
+                strcpy_s(text, kTooltipTextSize, "Abyss Cresset");
+            } else if (category == kUniqueGearCategory) {
+                // v0.112: just the item's name (user: no source line).
+                strcpy_s(text, kTooltipTextSize, MarkerName(category, index));
             } else if (category == kArtifactCategory) {
                 // v0.88: the kind, then the artifact's name on a second line
                 // ("Shield of Unchanging Will I"), like a chest's contents.
                 sprintf_s(text, kTooltipTextSize, "Sealed Abyss Artifact%s%s", kTooltipLineBreak,
                     MarkerName(category, index));
             } else {
-                // Bells and shrines: just the name ("Demeniss Bell"; user, v0.85 run).
+                // Bells, shrines and (v0.114) constellations: just the name
+                // ("Demeniss Bell", "Shield Constellation"; user, v0.85 run).
                 strcpy_s(text, kTooltipTextSize, MarkerName(category, index));
             }
         }

@@ -19,7 +19,10 @@
 //    dedicated chest levels and (v0.59) caves and dungeons (chest-links.h,
 //    type key 1000007 "TreasureBox"), and (v0.69) the Abyss chests, and
 //    (v0.79) which surface Abyss Nexuses are discovered (nexus-links.h, type
-//    key 1000001 "AbyssRuins_Field").
+//    key 1000001 "AbyssRuins_Field"; v0.95: also the 2 at Kliff's houses,
+//    key 1000053 "AbyssRuins_Housing"), and (v0.95) which Abyss-island
+//    Nexuses are discovered (island-nexus-links.h, type key 1000008 or
+//    1000114, one per row).
 // 6. v0.56: walks the same decoded data a second, separate time, this time
 //    only the player's "knowledge" list, and notes which Greymane Shrines the
 //    save records as found (knowledge entry at level 2; shrine-links.h). If
@@ -27,8 +30,9 @@
 // 7. v0.68: a third separate walk reads only the field-object list (objects
 //    placed in the world whose state the game remembers) and notes which
 //    puzzle strongboxes and surface itemboxes are opened, and (v0.79) which
-//    Abyss Nexuses are activated. If that pass fails, those boxes and the
-//    Nexuses are reported as unknown; Bells and other chests are unaffected.
+//    Abyss Nexuses are activated (v0.95: also the Abyss-island Nexuses). If
+//    that pass fails, those boxes and the Nexuses are reported as unknown;
+//    Bells and other chests are unaffected.
 // 7b. v0.88: a fourth separate walk of the same field-object list notes which
 //    Sealed Abyss Artifacts are picked up (artifact-links.h). If it fails,
 //    only the artifacts are reported as unknown.
@@ -58,7 +62,11 @@
 #include "shrine-links.h"
 #include "chest-links.h"
 #include "nexus-links.h"
+#include "island-nexus-links.h"
 #include "artifact-links.h"
+#include "cresset-links.h"
+#include "unique-gear-links.h"
+#include "constellation-links.h"
 
 namespace {
 // ===========================================================================
@@ -379,6 +387,12 @@ struct Record {
     uint32_t gimmickKey = 0; // _gimmickInfoKey.
     bool gimmickKnown = false;
     std::vector<std::array<uint32_t, 4>> disabled; // _levelOrigin_disabledSceneObjectUuidList.
+    // Quest pass (v0.101): one MissionStateData or QuestStateData entry.
+    bool quest = false; // A QuestStateData entry (else MissionStateData).
+    bool stage = false; // v0.108: a StageStateData entry (_key is a StageKey).
+    uint32_t progressKey = 0; // _key (MissionKey or, v0.108, StageKey) or _questKey (QuestKey).
+    uint8_t progressState = 0; // _state (QuestStateType; 5 = completed). Absent = 0.
+    bool progressKeyKnown = false;
 };
 // What the save says about one known Bell.
 struct BellState {
@@ -409,6 +423,15 @@ struct ArtifactState {
     bool pickedUp = false; // A record in the studied "picked up" shape.
     bool unexpected = false; // A record unlike that shape (makes it unknown).
 };
+// What the save says about one known Abyss Cresset (v0.105, quest pass);
+// (v0.114) also used for the Constellations, which follow the same rule.
+struct CressetState {
+    bool recorded = false; // Its challenge mission has a record.
+    bool done = false; // That record has state 5 (completed).
+};
+// v0.108: a ground or quest unique gear item that was picked up has a
+// field record with this reason that never resets (the user's saves).
+constexpr uint32_t kGearReasonPickedUp = 2;
 // What the save says about one known Greymane Shrine.
 struct ShrineState {
     bool seen = false; // Its knowledge entry exists (any level).
@@ -421,7 +444,10 @@ enum class Pass {
     Knowledge, // KnowledgeSaveData._list (Greymane Shrines)
     Field, // FieldSaveData._fieldGimmickSaveDataList (strongboxes, v0.68)
     Artifacts, // The same list, read again for Sealed Abyss Artifacts (v0.88)
+    Quests, // QuestSaveData._missionStateList and _questStateList (chest gates, v0.101), _stageStateData (v0.108)
 };
+// Mission and quest state that has a completion time in the saves studied.
+constexpr uint8_t kProgressCompleted = 5;
 
 // ===========================================================================
 // Section: reflection parser
@@ -446,9 +472,21 @@ class Reflection {
     std::array<ChestState, _countof(kAbyssChestLinks)> abyssChests = {}; // v0.69.
     std::array<ChestState, _countof(kNexusLinks)> nexuses = {}; // v0.79, Bell pass: discovered.
     std::array<FieldChestState, _countof(kNexusLinks)> fieldNexuses = {}; // v0.79, field pass: activated.
+    std::array<ChestState, _countof(kIslandNexusLinks)> islandNexuses = {}; // v0.95, Bell pass: discovered.
+    std::array<FieldChestState, _countof(kIslandNexusLinks)> fieldIslandNexuses = {}; // v0.95, field pass.
     std::array<ArtifactState, _countof(kArtifactLinks)> artifacts = {}; // v0.88, artifact pass.
+    std::array<bool, kChestGateCount + 1> gatesOpen = {}; // v0.101, quest pass (+1: never zero-sized).
+    std::array<CressetState, _countof(kCressetLinks)> cressets = {}; // v0.105, quest pass.
+    std::array<CressetState, _countof(kConstellationLinks)> constellations = {}; // v0.114, quest pass.
+    // v0.108: unique gear collected: reward rows from the quest pass's stage
+    // list, ground and quest rows from the field pass.
+    std::array<bool, _countof(kUniqueGearLinks)> uniqueGear = {};
     size_t objectsVisited = 0; // Safety counter against huge or looping data.
     bool listVisited = false; // Did we actually see the list field this pass needs?
+    bool questListVisited = false; // Quest pass: the second list (_questStateList).
+    bool readingQuestList = false; // Quest pass: entries being read are quest (not mission) entries.
+    bool stageListVisited = false; // Quest pass (v0.108): the stage list (_stageStateData).
+    bool readingStageList = false; // Quest pass: entries being read are stage entries.
 
     // Read a 4-byte element count and reject anything above `maximum`.
     uint32_t Count(uint32_t maximum = 1000000) {
@@ -503,6 +541,52 @@ class Reflection {
     // Abyss Nexus (all four UUID numbers equal; parts use other fourth
     // numbers), note its state.
     void Match(const Record& record) {
+        if (pass == Pass::Quests) {
+            // v0.108: a reward item is collected when its reward scene's
+            // stage is completed. Stage keys are their own numbers, so stage
+            // entries never count as missions or quests below.
+            if (record.stage) {
+                if (!record.progressKeyKnown || record.progressState != kProgressCompleted) {
+                    return;
+                }
+                for (unsigned index = 0; index < uniqueGear.size(); ++index) {
+                    const auto& link = kUniqueGearLinks[index];
+                    if (link.source == kUniqueGearReward && link.stageKey == record.progressKey) {
+                        uniqueGear[index] = true;
+                    }
+                }
+                return;
+            }
+            // v0.105: a cresset's challenge is a mission: any record of it
+            // makes the cresset known, state 5 makes it done.
+            if (record.progressKeyKnown && !record.quest) {
+                for (unsigned index = 0; index < cressets.size(); ++index) {
+                    if (kCressetLinks[index].missionKey == record.progressKey) {
+                        cressets[index].recorded = true;
+                        cressets[index].done = cressets[index].done || record.progressState == kProgressCompleted;
+                    }
+                }
+                // v0.114: a constellation's challenge is a mission too.
+                for (unsigned index = 0; index < constellations.size(); ++index) {
+                    if (kConstellationLinks[index].missionKey == record.progressKey) {
+                        constellations[index].recorded = true;
+                        constellations[index].done =
+                            constellations[index].done || record.progressState == kProgressCompleted;
+                    }
+                }
+            }
+            // v0.101: a gate is open when its mission (or quest) record says completed.
+            if (!record.progressKeyKnown || record.progressState != kProgressCompleted) {
+                return;
+            }
+            for (unsigned gate = 0; gate < kChestGateCount; ++gate) {
+                bool kindFits = kChestGates[gate].kind == (record.quest ? kChestGateQuestCompleted : kChestGateMissionCompleted);
+                if (kindFits && kChestGates[gate].key == record.progressKey) {
+                    gatesOpen[gate] = true;
+                }
+            }
+            return;
+        }
         if (pass == Pass::Artifacts) {
             if (!record.originKnown) {
                 return;
@@ -529,6 +613,25 @@ class Reflection {
             for (unsigned index = 0; index < _countof(kNexusLinks); ++index) {
                 if (memcmp(kNexusLinks[index].uuid, record.origin.data(), sizeof(kNexusLinks[index].uuid)) == 0) {
                     NoteFieldState(fieldNexuses[index], record);
+                }
+            }
+            // v0.95: an activated Abyss-island Nexus ("abyssruins_useartifact_04")
+            // has the same record shape and "opened" state (the user's saves).
+            for (unsigned index = 0; index < _countof(kIslandNexusLinks); ++index) {
+                const auto& link = kIslandNexusLinks[index];
+                if (memcmp(link.uuid, record.origin.data(), sizeof(link.uuid)) == 0) {
+                    NoteFieldState(fieldIslandNexuses[index], record);
+                }
+            }
+            // v0.108: a picked-up ground or quest item: its UUID's first 3
+            // numbers, reason 2, never resets. Other records leave it "not
+            // collected" (one that resets would not be a one-only item).
+            bool pickedUp = record.reasonKnown && record.reason == kGearReasonPickedUp &&
+                record.resetKnown && record.reset == kBoxResetNever;
+            for (unsigned index = 0; pickedUp && index < uniqueGear.size(); ++index) {
+                const auto& link = kUniqueGearLinks[index];
+                if (link.source != kUniqueGearReward && memcmp(link.uuid, record.origin.data(), sizeof(link.uuid)) == 0) {
+                    uniqueGear[index] = true;
                 }
             }
             return;
@@ -563,11 +666,19 @@ class Reflection {
             }
         }
         // v0.79: a discovered Abyss Nexus: its own key and UUID, no flags.
-        if (record.key == kNexusInfoKey) {
+        // v0.95: the housing Nexuses (last rows) have their own key.
+        if (record.key == kNexusInfoKey || record.key == kHousingNexusInfoKey) {
             for (unsigned index = 0; index < _countof(kNexusLinks); ++index) {
                 if (memcmp(kNexusLinks[index].uuid, record.uuid.data(), sizeof(kNexusLinks[index].uuid)) == 0) {
                     nexuses[index].seen = true;
                 }
+            }
+        }
+        // v0.95: a discovered Abyss-island Nexus: its row's own key and UUID, no flags.
+        for (unsigned index = 0; index < _countof(kIslandNexusLinks); ++index) {
+            const auto& link = kIslandNexusLinks[index];
+            if (record.key == link.infoKey && memcmp(link.uuid, record.uuid.data(), sizeof(link.uuid)) == 0) {
+                islandNexuses[index].seen = true;
             }
         }
         // v0.69: Abyss chests use the same "TreasureBox" key and UUID rule.
@@ -596,6 +707,22 @@ class Reflection {
     void Scalar(const Property& property, size_t size, Record* record) {
         const uint8_t* value = reader.Take(size);
         if (!record) {
+            return;
+        }
+        if (pass == Pass::Quests) {
+            // v0.101: the entry's key and state, each in its exact studied shape.
+            if (property.name == "_key" || property.name == "_questKey") {
+                bool fits = record->quest ? property.name == "_questKey" && property.typeName == "QuestKey"
+                    : record->stage ? property.name == "_key" && property.typeName == "StageKey"
+                                    : property.name == "_key" && property.typeName == "MissionKey";
+                Require(fits && size == 4, "Unexpected quest/mission key representation.");
+                record->progressKey = Load32(value);
+                record->progressKeyKnown = true;
+            } else if (property.name == "_state") {
+                Require(property.typeName == "QuestStateType" && size == 1 && value[0] <= 16,
+                    "Unexpected quest/mission state representation.");
+                record->progressState = value[0];
+            }
             return;
         }
         if (pass == Pass::Field || pass == Pass::Artifacts) {
@@ -691,6 +818,11 @@ class Reflection {
         // Field and artifact passes: likewise, every entry must be a FieldGimmickSaveData.
         Require(!record || (pass != Pass::Field && pass != Pass::Artifacts) || type.name == "FieldGimmickSaveData",
             "Unexpected field entry type.");
+        // Quest pass (v0.101): mission-list entries must be MissionStateData,
+        // quest-list entries QuestStateData, (v0.108) stage-list entries StageStateData.
+        Require(!record || pass != Pass::Quests ||
+            type.name == (readingQuestList ? "QuestStateData" : readingStageList ? "StageStateData" : "MissionStateData"),
+            "Unexpected quest/mission entry type.");
         Require(bitmapSize >= (type.properties.size() + 7) / 8, "Property bitmap too short.");
         size_t start = reader.offset;
         reader.Skip(1); // Version >=10 object flag.
@@ -704,6 +836,8 @@ class Reflection {
             }
         }
         Record item;
+        item.quest = pass == Pass::Quests && readingQuestList;
+        item.stage = pass == Pass::Quests && readingStageList;
         for (size_t index = 0; index < type.properties.size(); ++index) {
             const Property& property = type.properties[index];
             bool array = Array(property.kind);
@@ -722,13 +856,23 @@ class Reflection {
                     property.name == "_discoveredLevelGimmickSceneObjectSaveDataList";
             } else if (pass == Pass::Knowledge) {
                 captureList = type.name == "KnowledgeSaveData" && property.name == "_list";
+            } else if (pass == Pass::Quests) {
+                // v0.101: both lists of the quest container; v0.108: its stage list too.
+                captureList = type.name == "QuestSaveData" && (property.name == "_missionStateList" ||
+                    property.name == "_questStateList" || property.name == "_stageStateData");
             } else {
                 // Field and artifact passes read the same list.
                 captureList = type.name == "FieldSaveData" && property.name == "_fieldGimmickSaveDataList";
             }
             if (captureList) {
                 Require(property.kind == 6 || property.kind == 7, "Unsupported record list representation.");
-                listVisited = true;
+                if (pass == Pass::Quests && property.name == "_questStateList") {
+                    questListVisited = true;
+                } else if (pass == Pass::Quests && property.name == "_stageStateData") {
+                    stageListVisited = true;
+                } else {
+                    listVisited = true;
+                }
             }
             // Version 15+: arrays start with a 1-byte marker; 1 means "nothing stored".
             if (version >= 15 && array && reader.U8() == 1) {
@@ -786,9 +930,18 @@ class Reflection {
                 if (unknownCount > 0) {
                     reader.Skip(static_cast<size_t>(unknownCount) * (hasNames ? 12 : 8));
                 }
+                // Quest pass: entries know which of its lists they are in.
+                bool outerQuestList = readingQuestList;
+                bool outerStageList = readingStageList;
+                if (captureList && pass == Pass::Quests) {
+                    readingQuestList = property.name == "_questStateList";
+                    readingStageList = property.name == "_stageStateData";
+                }
                 for (uint32_t entry = 0; entry < count; ++entry) {
                     Object(depth + 1, captureList, false, 0, hasNames);
                 }
+                readingQuestList = outerQuestList;
+                readingStageList = outerStageList;
                 break;
             }
             case 10: {
@@ -837,6 +990,12 @@ public:
     // Per-Nexus field records of the last ReadFieldChests() (v0.79).
     const auto& FieldNexuses() const { return fieldNexuses; }
 
+    // Per-island-Nexus "discovered" results of the last Read() (v0.95; same pass).
+    const auto& IslandNexuses() const { return islandNexuses; }
+
+    // Per-island-Nexus field records of the last ReadFieldChests() (v0.95).
+    const auto& FieldIslandNexuses() const { return fieldIslandNexuses; }
+
     // Parse the decoded save and return the per-shrine results (v0.56).
     auto ReadShrines() {
         pass = Pass::Knowledge;
@@ -859,6 +1018,34 @@ public:
         Parse("FieldSaveData");
         return artifacts;
     }
+
+    // Parse the decoded save and return, per chest gate, whether its mission
+    // or quest is completed (v0.101).
+    auto ReadQuests() {
+        pass = Pass::Quests;
+        Parse("QuestSaveData");
+        return gatesOpen;
+    }
+
+    // The Abyss Cresset results of the last quest pass (v0.105; call after
+    // ReadQuests).
+    const auto& Cressets() const {
+        return cressets;
+    }
+
+    // The Constellation results of the last quest pass (v0.114; call after
+    // ReadQuests).
+    const auto& Constellations() const {
+        return constellations;
+    }
+
+    // v0.108: unique gear collected: reward rows after ReadQuests, ground
+    // and quest rows after ReadFieldChests.
+    const auto& UniqueGear() const { return uniqueGear; }
+
+    // v0.108: did the last ReadQuests see the stage list? (Not required for
+    // the quest pass, so a save without it only makes reward items unknown.)
+    bool StageListVisited() const { return stageListVisited; }
 
 private:
     // Order: header and versions, type table, optional name table, object
@@ -936,8 +1123,10 @@ private:
             failure = "Save has no unique supported knowledge container/list.";
         } else if (fieldList) {
             failure = "Save has no supported field-object container/list.";
+        } else if (pass == Pass::Quests) {
+            failure = "Save has no unique supported quest container/lists.";
         }
-        Require(containersFit && listVisited, failure);
+        Require(containersFit && listVisited && (pass != Pass::Quests || questListVisited), failure);
     }
 };
 
@@ -1041,27 +1230,52 @@ FileRead ReadStable(const std::wstring& source) {
     }
     throw std::runtime_error("Save is still changing; no completion was inferred.");
 }
+// v0.108: notes one unique gear row's result in `summary`.
+void NoteUniqueGear(NativeSaveSummary& summary, unsigned index, bool collected, bool unknown) {
+    unsigned bit = 1u << (index % 32);
+    summary.uniqueGearCollected += collected ? 1 : 0;
+    summary.uniqueGearUnknown += unknown ? 1 : 0;
+    summary.uniqueGearCollectedMask[index / 32] |= collected ? bit : 0u;
+    summary.uniqueGearUnknownMask[index / 32] |= unknown ? bit : 0u;
+}
+
 // Copy the per-chest results of a successful Bell pass into `summary` (v0.58),
 // then (v0.68) add the field-object pass for field-rule chests and (v0.79)
-// Abyss Nexuses. That pass is a separate parse: if it fails, only field-rule
-// chests not already opened by the Bells' list, and the Nexuses, become
-// unknown; it never throws.
-template <typename States, typename NexusStates>
-void FillChests(const States& chests, const NexusStates& nexuses, const Bytes& plain, NativeSaveSummary& summary) {
+// Abyss Nexuses, (v0.95) also the Abyss-island Nexuses. That pass is a
+// separate parse: if it fails, only field-rule chests not already opened by
+// the Bells' list, and the Nexuses, become unknown; it never throws.
+template <typename States, typename NexusStates, typename IslandStates>
+void FillChests(const States& chests, const NexusStates& nexuses, const IslandStates& islandNexuses,
+    const Bytes& plain, NativeSaveSummary& summary) {
     static_assert(_countof(kChestLinks) <= 32 * _countof(summary.chestSeenMask),
         "Chest masks hold at most 256 chests");
     static_assert(_countof(kNexusLinks) <= 32 * _countof(summary.nexusSeenMask),
         "Nexus masks hold at most 256 Nexuses");
+    static_assert(_countof(kIslandNexusLinks) <= 32 * _countof(summary.islandNexusSeenMask),
+        "Island Nexus masks hold at most 256 Nexuses");
     std::array<FieldChestState, _countof(kChestLinks)> field = {};
     std::array<FieldChestState, _countof(kNexusLinks)> nexusField = {};
+    std::array<FieldChestState, _countof(kIslandNexusLinks)> islandField = {};
+    std::array<bool, _countof(kUniqueGearLinks)> gear = {}; // v0.108.
     summary.chestFieldValid = false;
     try {
         Reflection fieldReader(plain);
         field = fieldReader.ReadFieldChests();
         nexusField = fieldReader.FieldNexuses();
+        islandField = fieldReader.FieldIslandNexuses();
+        gear = fieldReader.UniqueGear();
         summary.chestFieldValid = true;
     } catch (const std::exception& exception) {
         strncpy_s(summary.chestFieldError, exception.what(), _TRUNCATE);
+    }
+    // v0.108: ground and quest unique gear (the reward rows come from FillQuests).
+    static_assert(_countof(kUniqueGearLinks) <= 32 * _countof(summary.uniqueGearCollectedMask),
+        "Unique gear masks hold at most 256 items");
+    summary.uniqueGearCoverage = static_cast<unsigned>(_countof(kUniqueGearLinks));
+    for (unsigned index = 0; index < gear.size(); ++index) {
+        if (kUniqueGearLinks[index].source != kUniqueGearReward) {
+            NoteUniqueGear(summary, index, summary.chestFieldValid && gear[index], !summary.chestFieldValid);
+        }
     }
     // v0.79: Nexuses. Activated only by an explicit "opened" field record.
     summary.nexusCoverage = static_cast<unsigned>(nexuses.size());
@@ -1077,8 +1291,27 @@ void FillChests(const States& chests, const NexusStates& nexuses, const Bytes& p
         summary.nexusActivatedMask[index / 32] |= activated ? bit : 0u;
         summary.nexusUnknownMask[index / 32] |= unknown ? bit : 0u;
     }
-    summary.chestCoverage = static_cast<unsigned>(chests.size());
+    // v0.95: Abyss-island Nexuses, the same rule as the surface Nexuses.
+    summary.islandNexusCoverage = static_cast<unsigned>(islandNexuses.size());
+    for (unsigned index = 0; index < islandNexuses.size(); ++index) {
+        unsigned bit = 1u << (index % 32);
+        const FieldChestState& state = islandField[index];
+        bool unknown = !summary.chestFieldValid || state.unexpected || (state.opened && state.closed);
+        bool activated = !unknown && state.opened;
+        bool seen = islandNexuses[index].seen || state.records > 0;
+        summary.islandNexusesActivated += activated ? 1 : 0;
+        summary.islandNexusesUnknown += unknown ? 1 : 0;
+        summary.islandNexusSeenMask[index / 32] |= seen ? bit : 0u;
+        summary.islandNexusActivatedMask[index / 32] |= activated ? bit : 0u;
+        summary.islandNexusUnknownMask[index / 32] |= unknown ? bit : 0u;
+    }
+    summary.chestCoverage = 0;
     for (unsigned index = 0; index < chests.size(); ++index) {
+        // v0.99: decoy rows (a placed chest that holds nothing) are not counted.
+        if (kChestLinks[index].decoy) {
+            continue;
+        }
+        ++summary.chestCoverage;
         unsigned bit = 1u << (index % 32);
         bool seen = chests[index].seen || field[index].records > 0;
         bool opened = chests[index].opened;
@@ -1169,6 +1402,91 @@ void FillArtifacts(const Bytes& plain, NativeSaveSummary& summary) {
         strncpy_s(summary.artifactError, exception.what(), _TRUNCATE);
     }
 }
+
+// Fifth, independent pass (v0.101): which chest quest gates are open, and
+// (v0.105) which Abyss Cressets are done. A failure here leaves questsValid
+// false (gated chests and every cresset unknown) with the reason in
+// questError; it never throws, so every other result is kept as it is.
+void FillQuests(const Bytes& plain, NativeSaveSummary& summary) {
+    static_assert(kChestGateCount <= 32, "The gate mask holds at most 32 gates");
+    static_assert(_countof(kCressetLinks) <= 32 * _countof(summary.cressetDoneMask),
+        "The cresset masks hold at most 256 cressets");
+    summary.cressetCoverage = static_cast<unsigned>(_countof(kCressetLinks));
+    static_assert(_countof(kConstellationLinks) <= 32 * _countof(summary.constellationDoneMask),
+        "The constellation masks hold at most 256 constellations");
+    summary.constellationCoverage = static_cast<unsigned>(_countof(kConstellationLinks));
+    try {
+        Reflection reflection(plain);
+        auto gates = reflection.ReadQuests();
+        for (unsigned gate = 0; gate < kChestGateCount; ++gate) {
+            summary.gateOpenMask |= gates[gate] ? 1u << gate : 0u;
+        }
+        // Same rule as the markers: gate closed and no seen/opened record.
+        for (unsigned index = 0; index < _countof(kAbyssChestLinks); ++index) {
+            uint8_t gate = kAbyssChestLinks[index].gate;
+            unsigned bit = 1u << (index % 32);
+            bool recorded = ((summary.abyssChestSeenMask[index / 32] | summary.abyssChestOpenedMask[index / 32]) & bit) != 0;
+            if (gate != kNoChestGate && !((summary.gateOpenMask >> gate) & 1u) && !recorded) {
+                ++summary.abyssChestsLocked;
+            }
+        }
+        // v0.105: cressets: done = mission completed; no mission record = unknown.
+        const auto& cressets = reflection.Cressets();
+        for (unsigned index = 0; index < cressets.size(); ++index) {
+            unsigned bit = 1u << (index % 32);
+            bool unknown = !cressets[index].recorded;
+            bool done = !unknown && cressets[index].done;
+            summary.cressetsDone += done ? 1 : 0;
+            summary.cressetsUnknown += unknown ? 1 : 0;
+            summary.cressetDoneMask[index / 32] |= done ? bit : 0u;
+            summary.cressetUnknownMask[index / 32] |= unknown ? bit : 0u;
+        }
+        // v0.114: constellations: the same rule as the cressets.
+        const auto& constellations = reflection.Constellations();
+        for (unsigned index = 0; index < constellations.size(); ++index) {
+            unsigned bit = 1u << (index % 32);
+            bool unknown = !constellations[index].recorded;
+            bool done = !unknown && constellations[index].done;
+            summary.constellationsDone += done ? 1 : 0;
+            summary.constellationsUnknown += unknown ? 1 : 0;
+            summary.constellationDoneMask[index / 32] |= done ? bit : 0u;
+            summary.constellationUnknownMask[index / 32] |= unknown ? bit : 0u;
+        }
+        // v0.108: reward unique gear: collected = its stage completed; no
+        // stage list in the save = unknown.
+        bool stagesKnown = reflection.StageListVisited();
+        const auto& gear = reflection.UniqueGear();
+        for (unsigned index = 0; index < gear.size(); ++index) {
+            if (kUniqueGearLinks[index].source == kUniqueGearReward) {
+                NoteUniqueGear(summary, index, stagesKnown && gear[index], !stagesKnown);
+            }
+        }
+        summary.questsValid = true;
+    } catch (const std::exception& exception) {
+        summary.questsValid = false;
+        summary.gateOpenMask = 0;
+        summary.abyssChestsLocked = 0;
+        summary.cressetsDone = 0;
+        summary.cressetsUnknown = summary.cressetCoverage;
+        for (unsigned word = 0; word < _countof(summary.cressetDoneMask); ++word) {
+            summary.cressetDoneMask[word] = 0;
+            summary.cressetUnknownMask[word] = 0xFFFFFFFFu;
+        }
+        summary.constellationsDone = 0;
+        summary.constellationsUnknown = summary.constellationCoverage;
+        for (unsigned word = 0; word < _countof(summary.constellationDoneMask); ++word) {
+            summary.constellationDoneMask[word] = 0;
+            summary.constellationUnknownMask[word] = 0xFFFFFFFFu;
+        }
+        // v0.108: reward unique gear unknown too (ground rows keep their field result).
+        for (unsigned index = 0; index < _countof(kUniqueGearLinks); ++index) {
+            if (kUniqueGearLinks[index].source == kUniqueGearReward) {
+                NoteUniqueGear(summary, index, false, true);
+            }
+        }
+        strncpy_s(summary.questError, exception.what(), _TRUNCATE);
+    }
+}
 } // namespace
 
 // ===========================================================================
@@ -1197,11 +1515,12 @@ bool ReadSelectedBellSave(const wchar_t* runtimeDirectory, unsigned slot, Native
         auto states = reflection.Read();
         // v0.58: chests come from the same pass and list as the Bells;
         // v0.68: strongboxes also from their own field-object pass.
-        FillChests(reflection.Chests(), reflection.Nexuses(), plain, summary);
+        FillChests(reflection.Chests(), reflection.Nexuses(), reflection.IslandNexuses(), plain, summary);
         FillAbyssChests(reflection.AbyssChests(), summary);
         summary.coverage = static_cast<unsigned>(states.size());
         FillShrines(plain, summary);
         FillArtifacts(plain, summary);
+        FillQuests(plain, summary); // v0.101: chest quest gates.
         // Build the JSON report text by hand.
         std::ostringstream report;
         FILETIME now = {};
@@ -1265,7 +1584,7 @@ bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned 
         auto states = reflection.Read();
         // v0.58: chests come from the same pass and list as the Bells;
         // v0.68: strongboxes also from their own field-object pass.
-        FillChests(reflection.Chests(), reflection.Nexuses(), plain, summary);
+        FillChests(reflection.Chests(), reflection.Nexuses(), reflection.IslandNexuses(), plain, summary);
         FillAbyssChests(reflection.AbyssChests(), summary);
         summary.coverage = static_cast<unsigned>(states.size());
         static_assert(_countof(kBellLinks) <= 32, "Bell masks hold at most 32 Bells");
@@ -1283,6 +1602,7 @@ bool ReadBellSaveAt(const wchar_t* accountFolder, const char* account, unsigned 
         FillShrines(plain, summary);
         // v0.88: Sealed Abyss Artifacts, likewise a separate pass.
         FillArtifacts(plain, summary);
+        FillQuests(plain, summary); // v0.101: chest quest gates.
         modified = snapshot.modified;
         return true;
     } catch (const std::exception& exception) {

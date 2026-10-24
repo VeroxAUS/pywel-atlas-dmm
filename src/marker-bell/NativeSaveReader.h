@@ -73,6 +73,17 @@ struct NativeSaveSummary {
     unsigned nexusSeenMask[8]; // Discovered (or any field record exists).
     unsigned nexusActivatedMask[8];
     unsigned nexusUnknownMask[8];
+    // v0.95: Abyss-island Nexuses (island-nexus-links.h; the 51 on the Abyss
+    // map), the same rule and passes as the surface Nexuses: discovered from
+    // the Bell pass (each row's own type key), activated from the field-object
+    // pass. Unknown ones are in islandNexusUnknownMask: never treat them as
+    // "not activated".
+    unsigned islandNexusCoverage; // How many known island Nexuses this build checks for.
+    unsigned islandNexusesActivated; // How many the save explicitly marks as activated.
+    unsigned islandNexusesUnknown; // How many are in islandNexusUnknownMask.
+    unsigned islandNexusSeenMask[8]; // Discovered (or any field record exists).
+    unsigned islandNexusActivatedMask[8];
+    unsigned islandNexusUnknownMask[8];
     // v0.88: Sealed Abyss Artifacts (artifact-links.h), from a fourth,
     // independent pass over the field-object list. artifactsValid false =
     // unknown (that pass failed; see artifactError): never treat that as "not
@@ -85,6 +96,45 @@ struct NativeSaveSummary {
     unsigned artifactPickedUpMask[8];
     unsigned artifactUnknownMask[8];
     char artifactError[96]; // Why the artifact pass failed ("" when it succeeded).
+    // v0.101: quest gates of chests (chest-links.h kChestGates), from a fifth,
+    // independent pass over QuestSaveData. Bit g of gateOpenMask = gate g is
+    // open (its mission or quest record has state 5, completed). questsValid
+    // false = unknown (that pass failed; see questError): never treat that as
+    // "gate closed". Other results are unaffected.
+    bool questsValid;
+    unsigned gateOpenMask;
+    // Abyss chests whose gate is closed and that have no seen/opened record
+    // (no marker until the quest is done; left out of the F7 total).
+    unsigned abyssChestsLocked;
+    char questError[96]; // Why the quest pass failed ("" when it succeeded).
+    // v0.105: Abyss Cressets (cresset-links.h), from the same quest pass:
+    // done = the cresset's challenge mission has a record at state 5
+    // (completed); a record at another state = not done yet. A cresset whose
+    // mission has no record at all is in cressetUnknownMask (never treated as
+    // "not done"). questsValid false makes every cresset unknown.
+    unsigned cressetCoverage; // How many known cressets this build checks for.
+    unsigned cressetsDone; // How many the save explicitly marks as done.
+    unsigned cressetsUnknown; // How many are in cressetUnknownMask.
+    unsigned cressetDoneMask[8];
+    unsigned cressetUnknownMask[8];
+    // v0.108: unique gear (unique-gear-links.h). Reward items from the quest
+    // pass's stage list (collected = the reward scene's stage at state 5);
+    // ground and quest items from the field pass (collected = a record of
+    // the item with reason 2 that never resets). A failed pass (or no stage
+    // list) puts its items in uniqueGearUnknownMask: never "not collected".
+    unsigned uniqueGearCoverage; // How many known items this build checks for.
+    unsigned uniqueGearCollected; // How many the save marks as collected.
+    unsigned uniqueGearUnknown; // How many are in uniqueGearUnknownMask.
+    unsigned uniqueGearCollectedMask[8];
+    unsigned uniqueGearUnknownMask[8];
+    // v0.114: Constellations (constellation-links.h), same quest pass and
+    // same rule as the cressets: done = the challenge mission's record at
+    // state 5; no record = unknown; questsValid false = every one unknown.
+    unsigned constellationCoverage; // How many known constellations this build checks for.
+    unsigned constellationsDone; // How many the save explicitly marks as done.
+    unsigned constellationsUnknown; // How many are in constellationUnknownMask.
+    unsigned constellationDoneMask[8];
+    unsigned constellationUnknownMask[8];
 };
 
 // Returns the display name for a chest index ("Hernand chest 8"), or "" if out of range.

@@ -1,0 +1,2235 @@
+{
+  "version": 1,
+  "category": "Abyss Cresset (Puzzle_StandStone 1000004, Adventure_StandStone 1000103)",
+  "doneRule": "QuestSaveData._missionStateList record for missionKey with _state 5; a record at another state = not done; no record = unknown",
+  "nativeIcon": {
+    "type": 340,
+    "templateType": null,
+    "templateName": "MapIcon_StandStone",
+    "category": "0xffffffff"
+  },
+  "locations": [
+    {
+      "name": "Precipice of Silence",
+      "uuid": [
+        509286967,
+        1450446810,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -12572.82,
+        1131.15,
+        -4188.57
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0001",
+      "level": "Challenge_Standstone_Adventure_0001",
+      "mission": "challenge_standstone_adventure_0001",
+      "missionKey": 1000094,
+      "mapGenieId": "mg:550266",
+      "mapGenieDistance": 22.8
+    },
+    {
+      "name": "Giant Hand of the Windy Hills",
+      "uuid": [
+        3550255871,
+        1450446874,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -11746.07,
+        866.72,
+        -153.23
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0002",
+      "level": "Challenge_Standstone_Adventure_0002",
+      "mission": "challenge_standstone_adventure_0002",
+      "missionKey": 1000303,
+      "mapGenieId": "mg:550976",
+      "mapGenieDistance": 10.6
+    },
+    {
+      "name": "Breathless Lake",
+      "uuid": [
+        3168080409,
+        1450446570,
+        2218603580,
+        0
+      ],
+      "gamePosition": [
+        -8010.26,
+        638.3,
+        -1338.14
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0003",
+      "level": "Challenge_Standstone_Adventure_0003",
+      "mission": "challenge_standstone_adventure_0003",
+      "missionKey": 1000120,
+      "mapGenieId": "mg:552612",
+      "mapGenieDistance": 11.0
+    },
+    {
+      "name": "Peak's Green Bloom",
+      "uuid": [
+        347011051,
+        1450446810,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -7277.54,
+        401.14,
+        -4814.9
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0004",
+      "level": "Challenge_Standstone_Adventure_0004",
+      "mission": "challenge_standstone_adventure_0004",
+      "missionKey": 1000577,
+      "mapGenieId": "mg:555681",
+      "mapGenieDistance": 22.2
+    },
+    {
+      "name": "Lava Under Snowy Plains",
+      "uuid": [
+        3255812224,
+        1450446570,
+        2218603580,
+        0
+      ],
+      "gamePosition": [
+        -10721.13,
+        927.1,
+        -107.83
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0005",
+      "level": "Challenge_Standstone_Adventure_0005",
+      "mission": "challenge_standstone_adventure_0005",
+      "missionKey": 1000145,
+      "mapGenieId": "mg:554801",
+      "mapGenieDistance": 14.0
+    },
+    {
+      "name": "Blazing Sand",
+      "uuid": [
+        431430137,
+        1450446808,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -4031.17,
+        658.9,
+        -206.6
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0006",
+      "level": "Challenge_Standstone_Adventure_0006",
+      "mission": "challenge_standstone_adventure_0006",
+      "missionKey": 1000437,
+      "mapGenieId": "mg:555161",
+      "mapGenieDistance": 71.5
+    },
+    {
+      "name": "A Detailed Glance",
+      "uuid": [
+        1327826909,
+        3758100436,
+        2263460684,
+        0
+      ],
+      "gamePosition": [
+        -11446.18,
+        848.69,
+        -7114.1
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0007",
+      "level": "Challenge_Standstone_Adventure_0007",
+      "mission": "challenge_standstone_adventure_0007",
+      "missionKey": 1000448,
+      "mapGenieId": "mg:550637",
+      "mapGenieDistance": 20.6
+    },
+    {
+      "name": "Giant Hand of Everfrost",
+      "uuid": [
+        1150978163,
+        3758100436,
+        2263460684,
+        0
+      ],
+      "gamePosition": [
+        -12150.45,
+        1090.43,
+        -3299.28
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0008",
+      "level": "Challenge_Standstone_Adventure_0008",
+      "mission": "challenge_standstone_adventure_0008",
+      "missionKey": 1000450,
+      "mapGenieId": "mg:550274",
+      "mapGenieDistance": 38.3
+    },
+    {
+      "name": "Trial of the Sandscale",
+      "uuid": [
+        1100690352,
+        3758100436,
+        2263460684,
+        0
+      ],
+      "gamePosition": [
+        -7574.83,
+        683.0,
+        -193.99
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0009",
+      "level": "Challenge_Standstone_Adventure_0009",
+      "mission": "challenge_standstone_adventure_0009",
+      "missionKey": 1000451,
+      "mapGenieId": "mg:554875",
+      "mapGenieDistance": 14.8
+    },
+    {
+      "name": "The Southern End",
+      "uuid": [
+        2675867020,
+        1450446570,
+        2218603580,
+        0
+      ],
+      "gamePosition": [
+        -2606.13,
+        369.58,
+        -6655.53
+      ],
+      "region": "Delesyia",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0010",
+      "level": "Challenge_Standstone_Adventure_0010",
+      "mission": "challenge_standstone_adventure_0010",
+      "missionKey": 1000465,
+      "mapGenieId": "mg:554973",
+      "mapGenieDistance": 27.9
+    },
+    {
+      "name": "The Desert Oasis",
+      "uuid": [
+        3337492614,
+        1450446570,
+        2218603580,
+        0
+      ],
+      "gamePosition": [
+        -4152.24,
+        624.69,
+        977.01
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0011",
+      "level": "Challenge_Standstone_Adventure_0011",
+      "mission": "challenge_standstone_adventure_0011",
+      "missionKey": 1000656,
+      "mapGenieId": "mg:549660",
+      "mapGenieDistance": 1.8
+    },
+    {
+      "name": "Cliffside Marine Erosion Pillar",
+      "uuid": [
+        2950355437,
+        1450446832,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -4252.28,
+        371.24,
+        -3599.92
+      ],
+      "region": "Delesyia",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0012",
+      "level": "Challenge_Standstone_Adventure_0012",
+      "mission": "challenge_standstone_adventure_0012",
+      "missionKey": 1000657,
+      "mapGenieId": "mg:557531",
+      "mapGenieDistance": 18.4
+    },
+    {
+      "name": "A Hill Guided by Light",
+      "uuid": [
+        3271183642,
+        1450446832,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -10224.62,
+        590.47,
+        -4145.62
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0013",
+      "level": "Challenge_Standstone_Adventure_0013",
+      "mission": "challenge_standstone_adventure_0013",
+      "missionKey": 1000658,
+      "mapGenieId": "mg:544009",
+      "mapGenieDistance": 20.9
+    },
+    {
+      "name": "Guide in the Darkness",
+      "uuid": [
+        1928178957,
+        3758100474,
+        2263460684,
+        0
+      ],
+      "gamePosition": [
+        -10732.41,
+        705.22,
+        -2610.6
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0014",
+      "level": "Challenge_Standstone_Adventure_0014",
+      "mission": "challenge_standstone_adventure_0014",
+      "missionKey": 1000288,
+      "mapGenieId": "mg:545675",
+      "mapGenieDistance": 17.3
+    },
+    {
+      "name": "Where Sky Meets Earth",
+      "uuid": [
+        3486496737,
+        1450446852,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -9077.6,
+        620.43,
+        -5007.05
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0015",
+      "level": "Challenge_Standstone_Adventure_0015",
+      "mission": "challenge_standstone_adventure_0015",
+      "missionKey": 1000871,
+      "mapGenieId": "mg:546906",
+      "mapGenieDistance": 18.5
+    },
+    {
+      "name": "Rock Worn Down by the Ocean Wind",
+      "uuid": [
+        3531617280,
+        1450446852,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -7731.41,
+        358.11,
+        -5938.76
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0016",
+      "level": "Challenge_Standstone_Adventure_0016",
+      "mission": "challenge_standstone_adventure_0016",
+      "missionKey": 1000872,
+      "mapGenieId": "mg:555816",
+      "mapGenieDistance": 26.5
+    },
+    {
+      "name": "An Unreachable End",
+      "uuid": [
+        3567632468,
+        1450446852,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -9353.65,
+        521.07,
+        -6407.98
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0017",
+      "level": "Challenge_Standstone_Adventure_0017",
+      "mission": "challenge_standstone_adventure_0017",
+      "missionKey": 1000873,
+      "mapGenieId": "mg:551977",
+      "mapGenieDistance": 20.2
+    },
+    {
+      "name": "Rock Atop the Altar",
+      "uuid": [
+        3591160906,
+        1450446852,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -7146.26,
+        469.49,
+        -5521.34
+      ],
+      "region": "Delesyia",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0018",
+      "level": "Challenge_Standstone_Adventure_0018",
+      "mission": "challenge_standstone_adventure_0018",
+      "missionKey": 1000874,
+      "mapGenieId": "mg:554506",
+      "mapGenieDistance": 22.9
+    },
+    {
+      "name": "Subtle Gap",
+      "uuid": [
+        4001222163,
+        1450446852,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -9634.8,
+        597.31,
+        -3689.68
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0019",
+      "level": "Challenge_Standstone_Adventure_0019",
+      "mission": "challenge_standstone_adventure_0019",
+      "missionKey": 1000875,
+      "mapGenieId": "mg:545339",
+      "mapGenieDistance": 21.7
+    },
+    {
+      "name": "Haven Past the Snowfall",
+      "uuid": [
+        3779918592,
+        1450446852,
+        977155132,
+        0
+      ],
+      "gamePosition": [
+        -12966.61,
+        1208.98,
+        -4655.05
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0020",
+      "level": "Challenge_Standstone_Adventure_0020",
+      "mission": "challenge_standstone_adventure_0020",
+      "missionKey": 1000876,
+      "mapGenieId": "mg:545731",
+      "mapGenieDistance": 29.8
+    },
+    {
+      "name": "Windcrest",
+      "uuid": [
+        302911503,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11610.15,
+        980.57,
+        -6272.82
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0021",
+      "level": "Challenge_Standstone_Adventure_0021",
+      "mission": "challenge_standstone_adventure_0021",
+      "missionKey": 1000331,
+      "mapGenieId": "mg:550587",
+      "mapGenieDistance": 29.1
+    },
+    {
+      "name": "Hill of the Abandoned",
+      "uuid": [
+        809797803,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11112.3,
+        802.34,
+        -6279.22
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0022",
+      "level": "Challenge_Standstone_Adventure_0022",
+      "mission": "challenge_standstone_adventure_0022",
+      "missionKey": 1002843,
+      "mapGenieId": "mg:550594",
+      "mapGenieDistance": 26.0
+    },
+    {
+      "name": "Wrecked Dream",
+      "uuid": [
+        827256701,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8913.21,
+        351.3,
+        -6487.02
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0023",
+      "level": "Challenge_Standstone_Adventure_0023",
+      "mission": "challenge_standstone_adventure_0023",
+      "missionKey": 1003204,
+      "mapGenieId": "mg:551525",
+      "mapGenieDistance": 24.3
+    },
+    {
+      "name": "Hill of Serenity",
+      "uuid": [
+        870182611,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8141.7,
+        526.64,
+        -5565.58
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0024",
+      "level": "Challenge_Standstone_Adventure_0024",
+      "mission": "challenge_standstone_adventure_0024",
+      "missionKey": 1003205,
+      "mapGenieId": "mg:553724",
+      "mapGenieDistance": 35.8
+    },
+    {
+      "name": "The Stairway Falls",
+      "uuid": [
+        883524731,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8107.48,
+        386.0,
+        -6075.53
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0025",
+      "level": "Challenge_Standstone_Adventure_0025",
+      "mission": "challenge_standstone_adventure_0025",
+      "missionKey": 1003206,
+      "mapGenieId": "mg:552255",
+      "mapGenieDistance": 30.3
+    },
+    {
+      "name": "Strange Rift",
+      "uuid": [
+        930925663,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7745.99,
+        404.35,
+        -5506.13
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0026",
+      "level": "Challenge_Standstone_Adventure_0026",
+      "mission": "challenge_standstone_adventure_0026",
+      "missionKey": 1003207,
+      "mapGenieId": "mg:551676",
+      "mapGenieDistance": 33.4
+    },
+    {
+      "name": "Peak of Enlightenment",
+      "uuid": [
+        953190561,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7333.64,
+        547.49,
+        -4759.85
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0027",
+      "level": "Challenge_Standstone_Adventure_0027",
+      "mission": "challenge_standstone_adventure_0027",
+      "missionKey": 1003208,
+      "mapGenieId": "mg:553040",
+      "mapGenieDistance": 27.6
+    },
+    {
+      "name": "Sanctuary of Reflection",
+      "uuid": [
+        971878967,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7337.77,
+        451.77,
+        -4654.83
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0028",
+      "level": "Challenge_Standstone_Adventure_0028",
+      "mission": "challenge_standstone_adventure_0028",
+      "missionKey": 1003209,
+      "mapGenieId": "mg:553042",
+      "mapGenieDistance": 39.8
+    },
+    {
+      "name": "Thunderwater Falls",
+      "uuid": [
+        996845728,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7173.16,
+        397.37,
+        -4331.55
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0029",
+      "level": "Challenge_Standstone_Adventure_0029",
+      "mission": "challenge_standstone_adventure_0029",
+      "missionKey": 1003210,
+      "mapGenieId": "mg:552970",
+      "mapGenieDistance": 20.1
+    },
+    {
+      "name": "Edge of Learning",
+      "uuid": [
+        1079546348,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7726.07,
+        465.61,
+        -4874.09
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0030",
+      "level": "Challenge_Standstone_Adventure_0030",
+      "mission": "challenge_standstone_adventure_0030",
+      "missionKey": 1003211,
+      "mapGenieId": "mg:551724",
+      "mapGenieDistance": 18.3
+    },
+    {
+      "name": "Threefold Fork",
+      "uuid": [
+        1035662137,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5827.68,
+        509.07,
+        -2419.78
+      ],
+      "region": "Demeniss",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0031",
+      "level": "Challenge_Standstone_Adventure_0031",
+      "mission": "challenge_standstone_adventure_0031",
+      "missionKey": 1003212,
+      "mapGenieId": "mg:551516",
+      "mapGenieDistance": 24.2
+    },
+    {
+      "name": "The Secret-Laden Cave",
+      "uuid": [
+        1095760430,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4976.24,
+        392.74,
+        -4834.43
+      ],
+      "region": "Delesyia",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0032",
+      "level": "Challenge_Standstone_Adventure_0032",
+      "mission": "challenge_standstone_adventure_0032",
+      "missionKey": 1003213,
+      "mapGenieId": "mg:595664",
+      "mapGenieDistance": 20.6
+    },
+    {
+      "name": "Peak of the Innovative Mind",
+      "uuid": [
+        1125115110,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -3790.24,
+        593.05,
+        -5157.14
+      ],
+      "region": "Delesyia",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0033",
+      "level": "Challenge_Standstone_Adventure_0033",
+      "mission": "challenge_standstone_adventure_0033",
+      "missionKey": 1003214,
+      "mapGenieId": "mg:553922",
+      "mapGenieDistance": 50.6
+    },
+    {
+      "name": "Cape of Hope",
+      "uuid": [
+        1142945458,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6170.49,
+        618.82,
+        -5085.0
+      ],
+      "region": "Delesyia",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0034",
+      "level": "Challenge_Standstone_Adventure_0034",
+      "mission": "challenge_standstone_adventure_0034",
+      "missionKey": 1003215,
+      "mapGenieId": "mg:553629",
+      "mapGenieDistance": 17.8
+    },
+    {
+      "name": "Hunters Overlook",
+      "uuid": [
+        1301784516,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7160.63,
+        444.87,
+        -5286.96
+      ],
+      "region": "Delesyia",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0035",
+      "level": "Challenge_Standstone_Adventure_0035",
+      "mission": "challenge_standstone_adventure_0035",
+      "missionKey": 1003216,
+      "mapGenieId": "mg:552504",
+      "mapGenieDistance": 15.0
+    },
+    {
+      "name": "Forgotten Cliff",
+      "uuid": [
+        1361507249,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4306.68,
+        741.25,
+        2236.04
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0036",
+      "level": "Challenge_Standstone_Adventure_0036",
+      "mission": "challenge_standstone_adventure_0036",
+      "missionKey": 1003217,
+      "mapGenieId": "mg:553639",
+      "mapGenieDistance": 55.5
+    },
+    {
+      "name": "Saltshade Hill",
+      "uuid": [
+        1407859915,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4993.79,
+        748.57,
+        1372.47
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0037",
+      "level": "Challenge_Standstone_Adventure_0037",
+      "mission": "challenge_standstone_adventure_0037",
+      "missionKey": 1003218,
+      "mapGenieId": "mg:551590",
+      "mapGenieDistance": 1.5
+    },
+    {
+      "name": "Everflowing Spring",
+      "uuid": [
+        1430819009,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4783.2,
+        673.83,
+        1568.87
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0038",
+      "level": "Challenge_Standstone_Adventure_0038",
+      "mission": "challenge_standstone_adventure_0038",
+      "missionKey": 1003219,
+      "mapGenieId": "mg:553635",
+      "mapGenieDistance": 31.1
+    },
+    {
+      "name": "Crimson Ridge Cresset",
+      "uuid": [
+        1471679674,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -5557.18,
+        733.15,
+        325.97
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0039",
+      "level": "Challenge_Standstone_Adventure_0039",
+      "mission": "challenge_standstone_adventure_0039",
+      "missionKey": 1003220,
+      "mapGenieId": "mg:558055",
+      "mapGenieDistance": 5.6
+    },
+    {
+      "name": "Hangman's Crest",
+      "uuid": [
+        1505620188,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4220.79,
+        672.43,
+        -1494.2
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0040",
+      "level": "Challenge_Standstone_Adventure_0040",
+      "mission": "challenge_standstone_adventure_0040",
+      "missionKey": 1003221,
+      "mapGenieId": "mg:552338",
+      "mapGenieDistance": 16.1
+    },
+    {
+      "name": "Peak of Abundance",
+      "uuid": [
+        1575841672,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -3678.0,
+        635.22,
+        -1160.54
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0041",
+      "level": "Challenge_Standstone_Adventure_0041",
+      "mission": "challenge_standstone_adventure_0041",
+      "missionKey": 1003222,
+      "mapGenieId": "mg:557809",
+      "mapGenieDistance": 13.8
+    },
+    {
+      "name": "Arehaza Peak",
+      "uuid": [
+        1613625200,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4854.64,
+        607.11,
+        -1800.81
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0042",
+      "level": "Challenge_Standstone_Adventure_0042",
+      "mission": "challenge_standstone_adventure_0042",
+      "missionKey": 1003223,
+      "mapGenieId": "mg:552336",
+      "mapGenieDistance": 76.3
+    },
+    {
+      "name": "Hill of Grief",
+      "uuid": [
+        1638003179,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -7832.34,
+        792.86,
+        -236.26
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0043",
+      "level": "Challenge_Standstone_Adventure_0043",
+      "mission": "challenge_standstone_adventure_0043",
+      "missionKey": 1003224,
+      "mapGenieId": "mg:554872",
+      "mapGenieDistance": 14.1
+    },
+    {
+      "name": "Remnants of Ruin",
+      "uuid": [
+        1633105060,
+        1591218613,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -7698.09,
+        691.95,
+        107.78
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0044",
+      "level": "Challenge_Standstone_Adventure_0044",
+      "mission": "challenge_standstone_adventure_0044",
+      "missionKey": 1003225,
+      "mapGenieId": "mg:554868",
+      "mapGenieDistance": 17.6
+    },
+    {
+      "name": "The Desert's End",
+      "uuid": [
+        1567432546,
+        1591218613,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -6196.89,
+        649.52,
+        1010.54
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0045",
+      "level": "Challenge_Standstone_Adventure_0045",
+      "mission": "challenge_standstone_adventure_0045",
+      "missionKey": 1003226,
+      "mapGenieId": "mg:553057",
+      "mapGenieDistance": 8.5
+    },
+    {
+      "name": "Howlsands Dunes",
+      "uuid": [
+        1493970311,
+        1591218613,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -5114.29,
+        729.95,
+        964.8
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0046",
+      "level": "Challenge_Standstone_Adventure_0046",
+      "mission": "challenge_standstone_adventure_0046",
+      "missionKey": 1003227,
+      "mapGenieId": "mg:553657",
+      "mapGenieDistance": 11.1
+    },
+    {
+      "name": "Mushroomcap Cliff",
+      "uuid": [
+        1403458231,
+        1591218613,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4424.87,
+        676.67,
+        2627.24
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0047",
+      "level": "Challenge_Standstone_Adventure_0047",
+      "mission": "challenge_standstone_adventure_0047",
+      "missionKey": 1003228,
+      "mapGenieId": "mg:553641",
+      "mapGenieDistance": 47.4
+    },
+    {
+      "name": "Ivory Marches Garden",
+      "uuid": [
+        1384391651,
+        1591218613,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -4495.69,
+        645.61,
+        3023.0
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0048",
+      "level": "Challenge_Standstone_Adventure_0048",
+      "mission": "challenge_standstone_adventure_0048",
+      "missionKey": 1003229,
+      "mapGenieId": "mg:553654",
+      "mapGenieDistance": 3.7
+    },
+    {
+      "name": "Whitesand Cliff",
+      "uuid": [
+        1358138985,
+        1591218613,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -3806.49,
+        717.47,
+        3706.56
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0049",
+      "level": "Challenge_Standstone_Adventure_0049",
+      "mission": "challenge_standstone_adventure_0049",
+      "missionKey": 1003230,
+      "mapGenieId": "mg:551589",
+      "mapGenieDistance": 5.6
+    },
+    {
+      "name": "Cliff of Ruination",
+      "uuid": [
+        1328687066,
+        1591218613,
+        3740195795,
+        0
+      ],
+      "gamePosition": [
+        -11685.91,
+        880.52,
+        72.5
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0050",
+      "level": "Challenge_Standstone_Adventure_0050",
+      "mission": "challenge_standstone_adventure_0050",
+      "missionKey": 1003231,
+      "mapGenieId": "mg:550977",
+      "mapGenieDistance": 12.9
+    },
+    {
+      "name": "Silverwolf Mountain",
+      "uuid": [
+        1779480692,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10872.53,
+        809.35,
+        755.14
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0051",
+      "level": "Challenge_Standstone_Adventure_0051",
+      "mission": "challenge_standstone_adventure_0051",
+      "missionKey": 1003232,
+      "mapGenieId": "mg:554279",
+      "mapGenieDistance": 13.7
+    },
+    {
+      "name": "The Sage's Rest",
+      "uuid": [
+        2144062639,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -11223.32,
+        863.49,
+        -1422.94
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0052",
+      "level": "Challenge_Standstone_Adventure_0052",
+      "mission": "challenge_standstone_adventure_0052",
+      "missionKey": 1003233,
+      "mapGenieId": "mg:554899",
+      "mapGenieDistance": 14.8
+    },
+    {
+      "name": "Where the Stars Linger",
+      "uuid": [
+        1827284884,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -10470.54,
+        686.77,
+        1241.8
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0053",
+      "level": "Challenge_Standstone_Adventure_0053",
+      "mission": "challenge_standstone_adventure_0053",
+      "missionKey": 1003234,
+      "mapGenieId": "mg:553977",
+      "mapGenieDistance": 9.9
+    },
+    {
+      "name": "Hill of Longing",
+      "uuid": [
+        1849838365,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9411.96,
+        779.22,
+        147.82
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0054",
+      "level": "Challenge_Standstone_Adventure_0054",
+      "mission": "challenge_standstone_adventure_0054",
+      "missionKey": 1003235,
+      "mapGenieId": "mg:550963",
+      "mapGenieDistance": 27.8
+    },
+    {
+      "name": "Silverwolf Lake",
+      "uuid": [
+        1895470252,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9953.61,
+        656.82,
+        577.61
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0055",
+      "level": "Challenge_Standstone_Adventure_0055",
+      "mission": "challenge_standstone_adventure_0055",
+      "missionKey": 1003236,
+      "mapGenieId": "mg:552034",
+      "mapGenieDistance": 12.0
+    },
+    {
+      "name": "Ancestor's Rest",
+      "uuid": [
+        1929027341,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -9638.83,
+        629.02,
+        -242.81
+      ],
+      "region": "Pailune",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0056",
+      "level": "Challenge_Standstone_Adventure_0056",
+      "mission": "challenge_standstone_adventure_0056",
+      "missionKey": 1003237,
+      "mapGenieId": "mg:550122",
+      "mapGenieDistance": 17.6
+    },
+    {
+      "name": "Peak of Grief",
+      "uuid": [
+        1956589092,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -8102.33,
+        853.09,
+        -451.48
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0057",
+      "level": "Challenge_Standstone_Adventure_0057",
+      "mission": "challenge_standstone_adventure_0057",
+      "missionKey": 1003238,
+      "mapGenieId": "mg:553623",
+      "mapGenieDistance": 20.0
+    },
+    {
+      "name": "The Dragon's Gaze",
+      "uuid": [
+        1996192940,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -6828.31,
+        992.4,
+        -64.54
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0058",
+      "level": "Challenge_Standstone_Adventure_0058",
+      "mission": "challenge_standstone_adventure_0058",
+      "missionKey": 1003239,
+      "mapGenieId": "mg:551507",
+      "mapGenieDistance": 20.5
+    },
+    {
+      "name": "Seasand Waymark",
+      "uuid": [
+        2037411940,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -4686.95,
+        817.22,
+        -103.72
+      ],
+      "region": "Crimson Desert",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0059",
+      "level": "Challenge_Standstone_Adventure_0059",
+      "mission": "challenge_standstone_adventure_0059",
+      "missionKey": 1003240,
+      "mapGenieId": "mg:555160",
+      "mapGenieDistance": 32.0
+    },
+    {
+      "name": "Watcher on the Cliff",
+      "uuid": [
+        2070386713,
+        1450447285,
+        1681732668,
+        0
+      ],
+      "gamePosition": [
+        -12370.5,
+        979.79,
+        -2703.11
+      ],
+      "region": "Hernand",
+      "kind": "adventure",
+      "alias": "Challenge_Standstone_Adventure_0060",
+      "level": "Challenge_Standstone_Adventure_0060",
+      "mission": "challenge_standstone_adventure_0060",
+      "missionKey": 1003241,
+      "mapGenieId": "mg:550472",
+      "mapGenieDistance": 27.4
+    },
+    {
+      "name": "Abyss Cresset in the Steel Mountains",
+      "uuid": [
+        3620685094,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -9606.25,
+        644.87,
+        -5749.54
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Bell_0001",
+      "level": "Puzzle_Bell_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_bell_0001",
+      "missionKey": 1000467,
+      "mapGenieId": "mg:545748",
+      "mapGenieDistance": 26.2
+    },
+    {
+      "name": "Abyss Cresset of the Trembling Woods",
+      "uuid": [
+        3635591320,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -9034.35,
+        473.43,
+        -5181.71
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_Crank_0002",
+      "level": "Puzzle_Crank_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_crank_0002",
+      "missionKey": 1000468,
+      "mapGenieId": "mg:545754",
+      "mapGenieDistance": 2.7
+    },
+    {
+      "name": "Deepfog Basin Everfrost Ruins Abyss Cresset",
+      "uuid": [
+        3175883507,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -12337.08,
+        793.45,
+        -1597.23
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Height_0001",
+      "level": "Puzzle_Height_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_height_0001",
+      "missionKey": 1000469,
+      "mapGenieId": "mg:553713",
+      "mapGenieDistance": 14.2
+    },
+    {
+      "name": "Duskwood Hill Ruins",
+      "uuid": [
+        3939675137,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -11344.77,
+        635.8,
+        -4294.55
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Height_0002",
+      "level": "Puzzle_Height_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_height_0002",
+      "missionKey": 1000470,
+      "mapGenieId": "mg:549821",
+      "mapGenieDistance": 2.9
+    },
+    {
+      "name": "Dragon's Stone Chamber Ruins",
+      "uuid": [
+        4046785820,
+        1450447101,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -10394.04,
+        588.21,
+        -4507.14
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_HugeHintPuzzle_Dungeon_0001",
+      "level": "Puzzle_HugeHintPuzzle_Dungeon_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_hugehintpuzzle_dungeon_0001",
+      "missionKey": 1001894,
+      "mapGenieId": "mg:545739",
+      "mapGenieDistance": 24.1
+    },
+    {
+      "name": "Hidden Chamber of Wisdom Ruins",
+      "uuid": [
+        3092531696,
+        1450447192,
+        2637968444,
+        0
+      ],
+      "gamePosition": [
+        -10732.02,
+        858.78,
+        -685.38
+      ],
+      "region": "Pailune",
+      "kind": "puzzle",
+      "alias": "Puzzle_HugeHintPuzzle_Dungeon_0002",
+      "level": "Puzzle_HugeHintPuzzle_Dungeon_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_hugehintpuzzle_dungeon_0002",
+      "missionKey": 1001896,
+      "mapGenieId": "mg:553658",
+      "mapGenieDistance": 18.5
+    },
+    {
+      "name": "Secret Chamber of the Golden Plains Ruins",
+      "uuid": [
+        4141371626,
+        1445990748,
+        319030031,
+        0
+      ],
+      "gamePosition": [
+        -8293.72,
+        516.06,
+        -2526.21
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_HugeHintPuzzle_Dungeon_0003",
+      "level": "Puzzle_HugeHintPuzzle_Dungeon_0003_StandStone",
+      "mission": "challenge_standstone_puzzle_hugehintpuzzle_dungeon_0003",
+      "missionKey": 1001897,
+      "mapGenieId": "mg:550079",
+      "mapGenieDistance": 33.0
+    },
+    {
+      "name": "The Screaming Vault Ruins",
+      "uuid": [
+        2370809928,
+        1445990744,
+        319030031,
+        0
+      ],
+      "gamePosition": [
+        -8915.34,
+        536.37,
+        -3537.07
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_HugeHintPuzzle_Dungeon_0004",
+      "level": "Puzzle_HugeHintPuzzle_Dungeon_0004_StandStone",
+      "mission": "challenge_standstone_puzzle_hugehintpuzzle_dungeon_0004",
+      "missionKey": 1001898,
+      "mapGenieId": "mg:552395",
+      "mapGenieDistance": 23.7
+    },
+    {
+      "name": "Memory-Laden Ruins",
+      "uuid": [
+        3031856485,
+        1445990748,
+        319030031,
+        0
+      ],
+      "gamePosition": [
+        -4439.58,
+        410.83,
+        -2774.56
+      ],
+      "region": "Delesyia",
+      "kind": "puzzle",
+      "alias": "Puzzle_HugeHintPuzzle_Jungle_0001",
+      "level": "Puzzle_HugeHintPuzzle_Jungle_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_hugehintpuzzle_jungle_0001",
+      "missionKey": 1002103,
+      "mapGenieId": "mg:552378",
+      "mapGenieDistance": 27.3
+    },
+    {
+      "name": "Azure Moon Labyrinth Ruins",
+      "uuid": [
+        108796935,
+        1445990741,
+        319030031,
+        0
+      ],
+      "gamePosition": [
+        -11389.55,
+        622.81,
+        -4552.26
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_HugeHintPuzzle_Pororin_0001",
+      "level": "Puzzle_HugeHintPuzzle_Pororin_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_hugehintpuzzle_pororin_0001",
+      "missionKey": 1002104,
+      "mapGenieId": "mg:549822",
+      "mapGenieDistance": 13.2
+    },
+    {
+      "name": "Timberdale Cliff Ruins",
+      "uuid": [
+        3356155450,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -6795.66,
+        400.11,
+        -4678.82
+      ],
+      "region": "Delesyia",
+      "kind": "puzzle",
+      "alias": "Puzzle_JiJeongTa_0001",
+      "level": "Puzzle_Jijeongta_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_jijeongta_0001",
+      "missionKey": 1000471,
+      "mapGenieId": "mg:556924",
+      "mapGenieDistance": 70.6
+    },
+    {
+      "name": "Timberdale Gorge Ruins Ancient Ruins",
+      "uuid": [
+        3374378502,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -6321.04,
+        514.19,
+        -5089.76
+      ],
+      "region": "Delesyia",
+      "kind": "puzzle",
+      "alias": "Puzzle_JiJeongTa_0002",
+      "level": "Puzzle_Jijeongta_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_jijeongta_0002",
+      "missionKey": 1000472,
+      "mapGenieId": "mg:553628",
+      "mapGenieDistance": 29.2
+    },
+    {
+      "name": "Abyss Cresset of the Hunter's Cabin",
+      "uuid": [
+        3191490513,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -11346.17,
+        811.15,
+        -3028.87
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Lamp_0001",
+      "level": "Puzzle_Lamp_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_lamp_0001",
+      "missionKey": 1000473,
+      "mapGenieId": "mg:546183",
+      "mapGenieDistance": 20.3
+    },
+    {
+      "name": "Wiggling Hill Ruins",
+      "uuid": [
+        3541966488,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -7453.16,
+        541.41,
+        -2106.28
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_Lamp_0002",
+      "level": "Puzzle_Lamp_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_lamp_0002",
+      "missionKey": 1000474,
+      "mapGenieId": "mg:557299",
+      "mapGenieDistance": 10.9
+    },
+    {
+      "name": "Abyss Cresset",
+      "uuid": [
+        3392736639,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -3928.16,
+        426.92,
+        -4899.61
+      ],
+      "region": "Delesyia",
+      "kind": "puzzle",
+      "alias": "Puzzle_Lifting_0001",
+      "level": "Puzzle_Lifting_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_lifting_0001",
+      "missionKey": 1000475,
+      "mapGenieId": "mg:554036",
+      "mapGenieDistance": 11.8
+    },
+    {
+      "name": "Black Wall Ancient Ruins",
+      "uuid": [
+        3849034768,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -9198.67,
+        702.67,
+        366.93
+      ],
+      "region": "Pailune",
+      "kind": "puzzle",
+      "alias": "Puzzle_Lifting_0002",
+      "level": "Puzzle_Lifting_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_lifting_0002",
+      "missionKey": 1000476,
+      "mapGenieId": "mg:554307",
+      "mapGenieDistance": 19.5
+    },
+    {
+      "name": "Abyss Cresset of Meandering Hills",
+      "uuid": [
+        3077042684,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -10922.76,
+        710.51,
+        -3663.27
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Lifting_0003",
+      "level": "Puzzle_Lifting_0003_StandStone",
+      "mission": "challenge_standstone_puzzle_lifting_0003",
+      "missionKey": 1001425,
+      "mapGenieId": "mg:544020",
+      "mapGenieDistance": 39.2
+    },
+    {
+      "name": "Maze of Burhum",
+      "uuid": [
+        3477303530,
+        1450447177,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -7470.87,
+        733.49,
+        -798.35
+      ],
+      "region": "Crimson Desert",
+      "kind": "puzzle",
+      "alias": "Puzzle_Maze_0001",
+      "level": "Puzzle_Maze_0001_StandStone",
+      "mission": "Maze_0001_Burhum",
+      "missionKey": 1000443,
+      "mapGenieId": "mg:560931",
+      "mapGenieDistance": 15.4
+    },
+    {
+      "name": "Ancient Rift Maze",
+      "uuid": [
+        3447546583,
+        1450447177,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -10581.88,
+        599.36,
+        -1412.55
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Maze_0002",
+      "level": "Puzzle_Maze_0002_StandStone",
+      "mission": "Maze_0002_AncientRuin",
+      "missionKey": 1000441,
+      "mapGenieId": "mg:549615",
+      "mapGenieDistance": 23.3
+    },
+    {
+      "name": "Smoking Lands Desert Mouth Maze",
+      "uuid": [
+        3536621034,
+        1450447177,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -7813.06,
+        607.12,
+        -1054.67
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_Maze_0004",
+      "level": "Puzzle_Maze_0004_StandStone",
+      "mission": "Maze_0004_Canyon",
+      "missionKey": 1000401,
+      "mapGenieId": "mg:554499",
+      "mapGenieDistance": 13.0
+    },
+    {
+      "name": "Scarlet Dawn Village",
+      "uuid": [
+        3502854246,
+        1450447177,
+        3472670780,
+        0
+      ],
+      "gamePosition": [
+        -5253.92,
+        712.67,
+        -764.44
+      ],
+      "region": "Crimson Desert",
+      "kind": "puzzle",
+      "alias": "Puzzle_Maze_0005",
+      "level": "Puzzle_Maze_0005_StandStone",
+      "mission": "Maze_0005",
+      "missionKey": 1000228,
+      "mapGenieId": "mg:555137",
+      "mapGenieDistance": 37.3
+    },
+    {
+      "name": "Abyss Cresset of Drakesfall Gorge",
+      "uuid": [
+        3215442309,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -9664.93,
+        707.87,
+        -1795.98
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Mugunghwa_0001",
+      "level": "Puzzle_Mugunghwa_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_mugunghwa_0001",
+      "missionKey": 1001023,
+      "mapGenieId": "mg:546391",
+      "mapGenieDistance": 13.0
+    },
+    {
+      "name": "Abyss Cresset",
+      "uuid": [
+        3415079876,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -3942.85,
+        500.42,
+        -5412.06
+      ],
+      "region": "Delesyia",
+      "kind": "puzzle",
+      "alias": "Puzzle_Mugunghwa_0002",
+      "level": "Puzzle_Mugunghwa_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_mugunghwa_0002",
+      "missionKey": 1001024,
+      "mapGenieId": "mg:553929",
+      "mapGenieDistance": 22.6
+    },
+    {
+      "name": "Abyss Cresset of Duskwood",
+      "uuid": [
+        2844214996,
+        1591217938,
+        2990706131,
+        0
+      ],
+      "gamePosition": [
+        -11389.18,
+        703.44,
+        -3785.52
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Omok_0001",
+      "level": "Puzzle_Omok_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_omok_0001",
+      "missionKey": 1000477,
+      "mapGenieId": "mg:546458",
+      "mapGenieDistance": 17.1
+    },
+    {
+      "name": "Beardtree Hills Rock Ruins",
+      "uuid": [
+        3440283336,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -4842.53,
+        378.33,
+        -3209.03
+      ],
+      "region": "Delesyia",
+      "kind": "puzzle",
+      "alias": "Puzzle_OneTouchDrawing_0001",
+      "level": "Puzzle_OneTouchDrawing_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_onetouchdrawing_0001",
+      "missionKey": 1000479,
+      "mapGenieId": "mg:555682",
+      "mapGenieDistance": 44.7
+    },
+    {
+      "name": "Precipice of Echoes Ruins",
+      "uuid": [
+        3776240132,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -11515.64,
+        649.63,
+        -5374.83
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_OneTouchDrawing_0002",
+      "level": "Puzzle_OneTouchDrawing_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_onetouchdrawing_0002",
+      "missionKey": 1000480,
+      "mapGenieId": "mg:550242",
+      "mapGenieDistance": 14.9
+    },
+    {
+      "name": "Abyss Cresset of Calphade",
+      "uuid": [
+        3237298407,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -12079.11,
+        739.55,
+        -2227.14
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_PushSlab_0001",
+      "level": "Puzzle_PushSlab_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_pushslab_0001",
+      "missionKey": 1000481,
+      "mapGenieId": "mg:545486",
+      "mapGenieDistance": 48.1
+    },
+    {
+      "name": "Five-Finger Mountain Icy Ruins",
+      "uuid": [
+        3877129945,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -11912.81,
+        750.97,
+        84.81
+      ],
+      "region": "Pailune",
+      "kind": "puzzle",
+      "alias": "Puzzle_PushSlab_0003",
+      "level": "Puzzle_PushSlab_0003_StandStone",
+      "mission": "challenge_standstone_puzzle_pushslab_0003",
+      "missionKey": 1000482,
+      "mapGenieId": "mg:553867",
+      "mapGenieDistance": 47.1
+    },
+    {
+      "name": "Five Finger Mountain Valley Ruins Puzzle",
+      "uuid": [
+        3903848298,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -11508.47,
+        753.48,
+        864.06
+      ],
+      "region": "Pailune",
+      "kind": "puzzle",
+      "alias": "Puzzle_Rotate_0001",
+      "level": "Puzzle_Rotate_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_rotate_0001",
+      "missionKey": 1000483,
+      "mapGenieId": "mg:553666",
+      "mapGenieDistance": 7.2
+    },
+    {
+      "name": "Red River Ruins",
+      "uuid": [
+        3339102717,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -4620.34,
+        494.06,
+        -2102.84
+      ],
+      "region": "Crimson Desert",
+      "kind": "puzzle",
+      "alias": "Puzzle_Rotate_0002",
+      "level": "Puzzle_Rotate_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_rotate_0002",
+      "missionKey": 1000484,
+      "mapGenieId": "mg:552333",
+      "mapGenieDistance": 12.1
+    },
+    {
+      "name": "Bamboo Forest Seonangdang Ruins",
+      "uuid": [
+        3565188408,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -7218.1,
+        418.03,
+        -4373.66
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_StandStone_0001",
+      "level": "Puzzle_StandStone_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_standstone_0001",
+      "missionKey": 1000485,
+      "mapGenieId": "mg:549619",
+      "mapGenieDistance": 59.7
+    },
+    {
+      "name": "Abyss Cresset",
+      "uuid": [
+        3576983284,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -8419.32,
+        591.72,
+        -1564.29
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_StandStone_0002",
+      "level": "Puzzle_StandStone_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_standstone_0002",
+      "missionKey": 1000486,
+      "mapGenieId": "mg:552834",
+      "mapGenieDistance": 19.3
+    },
+    {
+      "name": "Halssius Conflux Ruins",
+      "uuid": [
+        3792131244,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -9262.02,
+        538.22,
+        -4312.09
+      ],
+      "region": "Pywel",
+      "kind": "puzzle",
+      "alias": "Puzzle_Statue_0001",
+      "level": "Puzzle_Statue_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_statue_0001",
+      "missionKey": 1000857,
+      "mapGenieId": "mg:546941",
+      "mapGenieDistance": 17.0
+    },
+    {
+      "name": "Abyss Cresset of Sunrise Plains",
+      "uuid": [
+        3804813854,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -10513.02,
+        612.23,
+        -5409.33
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Statue_0002",
+      "level": "Puzzle_Statue_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_statue_0002",
+      "missionKey": 1000487,
+      "mapGenieId": "mg:545602",
+      "mapGenieDistance": 47.8
+    },
+    {
+      "name": "Golden Plains Ruins",
+      "uuid": [
+        3595409136,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -8512.38,
+        538.69,
+        -2488.45
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_Statue_0003",
+      "level": "Puzzle_Statue_0003_StandStone",
+      "mission": "challenge_standstone_puzzle_statue_0003",
+      "missionKey": 1000488,
+      "mapGenieId": "mg:552436",
+      "mapGenieDistance": 26.9
+    },
+    {
+      "name": "Abyss Cresset of The Grey Forest Ruins",
+      "uuid": [
+        3515793323,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -3530.36,
+        412.38,
+        -5324.08
+      ],
+      "region": "Delesyia",
+      "kind": "puzzle",
+      "alias": "Puzzle_Statue_0004",
+      "level": "Puzzle_Statue_0004_StandStone",
+      "mission": "challenge_standstone_puzzle_statue_0004",
+      "missionKey": 1001022,
+      "mapGenieId": "mg:553920",
+      "mapGenieDistance": 21.9
+    },
+    {
+      "name": "Arboria Forest Ruins",
+      "uuid": [
+        3314934224,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -10115.95,
+        691.53,
+        -2644.32
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Sting_0001",
+      "level": "Puzzle_Sting_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_sting_0001",
+      "missionKey": 1000489,
+      "mapGenieId": "mg:546985",
+      "mapGenieDistance": 16.4
+    },
+    {
+      "name": "Fuming Lands Ruins",
+      "uuid": [
+        3611216211,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -7657.64,
+        657.17,
+        -1277.03
+      ],
+      "region": "Demeniss",
+      "kind": "puzzle",
+      "alias": "Puzzle_Sting_0002",
+      "level": "Puzzle_Sting_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_sting_0002",
+      "missionKey": 1000490,
+      "mapGenieId": "mg:555676",
+      "mapGenieDistance": 17.2
+    },
+    {
+      "name": "Beardtree Hills Sunflower Ruins Cresset",
+      "uuid": [
+        3527898801,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -4537.52,
+        400.48,
+        -3212.84
+      ],
+      "region": "Delesyia",
+      "kind": "puzzle",
+      "alias": "Puzzle_Vane_0001",
+      "level": "Puzzle_Vane_0001_StandStone",
+      "mission": "challenge_standstone_puzzle_vane_0001",
+      "missionKey": 1000491,
+      "mapGenieId": "mg:549638",
+      "mapGenieDistance": 73.0
+    },
+    {
+      "name": "Silver Wolf Mountain Ruins",
+      "uuid": [
+        3918529188,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -10579.0,
+        848.3,
+        -508.47
+      ],
+      "region": "Pailune",
+      "kind": "puzzle",
+      "alias": "Puzzle_Vane_0002",
+      "level": "Puzzle_Vane_0002_StandStone",
+      "mission": "challenge_standstone_puzzle_vane_0002",
+      "missionKey": 1000492,
+      "mapGenieId": "mg:554804",
+      "mapGenieDistance": 15.4
+    },
+    {
+      "name": "Haunted Hill Ruins",
+      "uuid": [
+        3821343808,
+        1450447091,
+        2031870012,
+        0
+      ],
+      "gamePosition": [
+        -10991.61,
+        787.92,
+        -3090.04
+      ],
+      "region": "Hernand",
+      "kind": "puzzle",
+      "alias": "Puzzle_Vane_0003",
+      "level": "Puzzle_Vane_0003_StandStone",
+      "mission": "challenge_standstone_puzzle_vane_0003",
+      "missionKey": 1000034,
+      "mapGenieId": "mg:550298",
+      "mapGenieDistance": 20.5
+    }
+  ]
+}
