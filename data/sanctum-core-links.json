@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "category": "Sanctum Core (Kuku Pot Item)",
+  "doneRule": "QuestSaveData._missionStateList record for missionKey (Witch mission) with _state 5 = cleansed = done; a record at another state = not done; no record = unknown; missionKey 0 = no save rule, never hidden",
+  "nativeIcon": {
+    "type": 376,
+    "templateType": 29100,
+    "templateName": "MapIcon_Gimmick_KuKu_Battery",
+    "category": "0xffffffff"
+  },
+  "locations": [
+    {
+      "name": "Core of Absolution",
+      "sanctum": "Absolution",
+      "missionKey": 1000687,
+      "gamePosition": [
+        -11778.79,
+        1016.73,
+        -5921.82
+      ],
+      "heightFrom": "nearest landmark object, 18 m away (approximate)",
+      "region": "Hernand",
+      "mapGenieId": "mg:557292"
+    },
+    {
+      "name": "Core of Atonement",
+      "sanctum": "Atonement",
+      "missionKey": 1000262,
+      "gamePosition": [
+        -11426.77,
+        807.89,
+        -3233.72
+      ],
+      "heightFrom": "nearest landmark object, 53 m away (approximate)",
+      "region": "Hernand",
+      "mapGenieId": "mg:557293"
+    },
+    {
+      "name": "Core of Benediction",
+      "sanctum": "Benediction",
+      "missionKey": 1000990,
+      "gamePosition": [
+        -12421.59,
+        1051.41,
+        -3564.46
+      ],
+      "heightFrom": "nearest landmark object, 13 m away (approximate)",
+      "region": "Hernand",
+      "mapGenieId": "mg:557291"
+    },
+    {
+      "name": "Core of Deliverance",
+      "sanctum": "Deliverance",
+      "missionKey": 1001473,
+      "gamePosition": [
+        -10673.19,
+        705.22,
+        -2548.1
+      ],
+      "heightFrom": "nearest landmark object, 86 m away (approximate)",
+      "region": "Hernand",
+      "mapGenieId": "mg:557294"
+    },
+    {
+      "name": "Core of Devotion",
+      "sanctum": "Devotion",
+      "missionKey": 1001475,
+      "gamePosition": [
+        -6472.64,
+        580.45,
+        -5147.0
+      ],
+      "heightFrom": "nearest landmark object, 3 m away (approximate)",
+      "region": "Delesyia",
+      "mapGenieId": "mg:557295"
+    },
+    {
+      "name": "Core of Exaltation",
+      "sanctum": "Exaltation",
+      "missionKey": 1000992,
+      "gamePosition": [
+        -10287.51,
+        781.14,
+        599.89
+      ],
+      "heightFrom": "nearest landmark object, 32 m away (approximate)",
+      "region": "Pailune",
+      "mapGenieId": "mg:557296"
+    },
+    {
+      "name": "Core of Expiation",
+      "sanctum": "Expiation",
+      "missionKey": 1001479,
+      "gamePosition": [
+        -9181.83,
+        766.76,
+        -1648.64
+      ],
+      "heightFrom": "nearest landmark object, 43 m away (approximate)",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557297"
+    },
+    {
+      "name": "Core of Faith",
+      "sanctum": "Faith",
+      "missionKey": 0,
+      "gamePosition": [
+        -3187.51,
+        473.0,
+        -5674.97
+      ],
+      "heightFrom": "nearest landmark object, 26 m away (approximate)",
+      "region": "Delesyia",
+      "mapGenieId": "mg:557298"
+    },
+    {
+      "name": "Core of Mortification",
+      "sanctum": "Mortification",
+      "missionKey": 0,
+      "gamePosition": [
+        -7658.46,
+        598.5,
+        -2065.24
+      ],
+      "heightFrom": "nearest landmark object, 30 m away (approximate)",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557863"
+    },
+    {
+      "name": "Core of Oblation",
+      "sanctum": "Oblation",
+      "missionKey": 0,
+      "gamePosition": [
+        -3414.71,
+        389.77,
+        -4486.9
+      ],
+      "heightFrom": "nearest landmark object, 11 m away (approximate)",
+      "region": "Delesyia",
+      "mapGenieId": "mg:557301"
+    },
+    {
+      "name": "Core of Penitence",
+      "sanctum": "Penitence",
+      "missionKey": 1000989,
+      "gamePosition": [
+        -9390.47,
+        601.99,
+        -5008.56
+      ],
+      "heightFrom": "nearest landmark object, 37 m away (approximate)",
+      "region": "Hernand",
+      "mapGenieId": "mg:557302"
+    },
+    {
+      "name": "Core of Renunciation",
+      "sanctum": "Renunciation",
+      "missionKey": 1001481,
+      "gamePosition": [
+        -5113.7,
+        521.09,
+        -2282.49
+      ],
+      "heightFrom": "nearest landmark object, 15 m away (approximate)",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:557303"
+    },
+    {
+      "name": "Core of Revelation",
+      "sanctum": "Revelation",
+      "missionKey": 1001482,
+      "gamePosition": [
+        -7188.59,
+        413.89,
+        -4250.33
+      ],
+      "heightFrom": "nearest landmark object, 29 m away (approximate)",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557304"
+    },
+    {
+      "name": "Core of Solace",
+      "sanctum": "Solace",
+      "missionKey": 1000993,
+      "gamePosition": [
+        -10489.55,
+        833.17,
+        -635.18
+      ],
+      "heightFrom": "nearest landmark object, 12 m away (approximate)",
+      "region": "Pailune",
+      "mapGenieId": "mg:557305"
+    },
+    {
+      "name": "Core of Temperance",
+      "sanctum": "Temperance",
+      "missionKey": 1000694,
+      "gamePosition": [
+        -9964.05,
+        579.87,
+        -4872.22
+      ],
+      "heightFrom": "nearest landmark object, 25 m away (approximate)",
+      "region": "Hernand",
+      "mapGenieId": "mg:557306"
+    },
+    {
+      "name": "Core of Veneration",
+      "sanctum": "Veneration",
+      "missionKey": 1001476,
+      "gamePosition": [
+        -4031.86,
+        556.32,
+        -5099.39
+      ],
+      "heightFrom": "nearest landmark object, 40 m away (approximate)",
+      "region": "Delesyia",
+      "mapGenieId": "mg:557307"
+    }
+  ]
+}
