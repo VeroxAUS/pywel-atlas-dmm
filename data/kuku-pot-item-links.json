@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "category": "Kuku Pot Item (Abyss Cell No. 1, Power Cores, Aeserion Scales)",
+  "doneRule": "FieldSaveData._fieldGimmickSaveDataList record with origin = uuid, _gimmickInfoKey = gimmickKey, reason 1 or 2, reset never, own uuid in the disabled list = taken; any other record = unknown; no record = not taken",
+  "nativeIcon": {
+    "type": 376,
+    "templateType": 29100,
+    "templateName": "MapIcon_Gimmick_KuKu_Battery",
+    "category": "0xffffffff"
+  },
+  "locations": [
+    {
+      "name": "Abyss Cell No. 1",
+      "prefab": "gimmick_abysscore_0001",
+      "gimmickKey": 1002274,
+      "uuid": [
+        711354178,
+        1591218452,
+        1006787795,
+        0
+      ],
+      "level": "grace_build_0001_phase00_00",
+      "gamePosition": [
+        -9883.98,
+        583.32,
+        -5834.47
+      ],
+      "region": "Hernand",
+      "mapGenieId": "mg:558100",
+      "mapGenieDistance": 10.5
+    },
+    {
+      "name": "Abyss Cell No. 1",
+      "prefab": "gimmick_abysscore_0001",
+      "gimmickKey": 1002274,
+      "uuid": [
+        3501797955,
+        1450447105,
+        912704316,
+        0
+      ],
+      "level": "abysscore_demeniss_0001_phase00_00",
+      "gamePosition": [
+        -8979.51,
+        627.91,
+        -2968.14
+      ],
+      "region": "Demeniss",
+      "mapGenieId": "mg:555172",
+      "mapGenieDistance": 32.4
+    },
+    {
+      "name": "Abyss Cell No. 1",
+      "prefab": "gimmick_abysscore_0001",
+      "gimmickKey": 1002274,
+      "uuid": [
+        705599509,
+        1591218452,
+        1006787795,
+        0
+      ],
+      "level": "abysscore_demeniss_0001_phase00_00",
+      "gamePosition": [
+        -8495.05,
+        617.03,
+        -1009.66
+      ],
+      "region": "Demeniss",
+      "mapGenieId": "mg:558538",
+      "mapGenieDistance": 7.4
+    },
+    {
+      "name": "Abyss Cell No. 1",
+      "prefab": "gimmick_abysscore_0001",
+      "gimmickKey": 1002274,
+      "uuid": [
+        696897921,
+        1591218452,
+        1006787795,
+        0
+      ],
+      "level": "abysscore_demeniss_0001_phase00_00",
+      "gamePosition": [
+        -8486.38,
+        681.12,
+        -968.52
+      ],
+      "region": "Demeniss",
+      "mapGenieId": "mg:558537",
+      "mapGenieDistance": 10.0
+    },
+    {
+      "name": "Abyss Cell No. 1",
+      "prefab": "gimmick_abysscore_0001",
+      "gimmickKey": 1002274,
+      "uuid": [
+        2345398822,
+        1591218429,
+        1006787795,
+        0
+      ],
+      "level": "abysscore_delesyia_0001_phase00_00",
+      "gamePosition": [
+        -5275.61,
+        392.49,
+        -4049.52
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:561843",
+      "mapGenieDistance": 20.2
+    },
+    {
+      "name": "Abyss Cell No. 1",
+      "prefab": "gimmick_abysscore_0001",
+      "gimmickKey": 1002274,
+      "uuid": [
+        4247745113,
+        1450447105,
+        912704316,
+        0
+      ],
+      "level": "abysscore_crimsondesert_0001_phase00_00",
+      "gamePosition": [
+        -4035.24,
+        659.42,
+        -200.09
+      ],
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:606587",
+      "mapGenieDistance": 76.2
+    },
+    {
+      "name": "Abyss Cell No. 1 x2",
+      "prefab": "gimmick_abysscore_0001",
+      "gimmickKey": 1002274,
+      "uuid": [
+        2428900116,
+        1591218429,
+        1006787795,
+        0
+      ],
+      "level": "abysscore_delesyia_0001_phase00_00",
+      "gamePosition": [
+        -5229.65,
+        395.77,
+        -4040.01
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:561844",
+      "mapGenieDistance": 17.1
+    },
+    {
+      "name": "Aeserion Scales",
+      "prefab": "gimmick_snake_boss_scales_01",
+      "gimmickKey": 1005694,
+      "uuid": [
+        385856421,
+        1450447233,
+        1083623228,
+        0
+      ],
+      "level": "sector_-28_-23_sub_1_0",
+      "gamePosition": [
+        -7071.92,
+        459.22,
+        -5787.42
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:563591",
+      "mapGenieDistance": 12.4
+    },
+    {
+      "name": "Power Core - Casket of Illusions",
+      "prefab": "gimmick_attach_abyss_core_0003",
+      "gimmickKey": 1001461,
+      "uuid": [
+        654830712,
+        1591218452,
+        1006787795,
+        0
+      ],
+      "level": "abysscore_hernand_0001_phase00_00",
+      "gamePosition": [
+        -10580.64,
+        565.15,
+        -4073.22
+      ],
+      "region": "Hernand",
+      "mapGenieId": "mg:556138",
+      "mapGenieDistance": 24.4
+    },
+    {
+      "name": "Power Core - Casket of Illusions",
+      "prefab": "gimmick_attach_abyss_core_0003",
+      "gimmickKey": 1001461,
+      "uuid": [
+        647160136,
+        1591218452,
+        1006787795,
+        0
+      ],
+      "level": "abysscore_delesyia_0001_phase00_00",
+      "gamePosition": [
+        -4970.33,
+        350.33,
+        -3489.98
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:596029",
+      "mapGenieDistance": 25.8
+    },
+    {
+      "name": "Power Core - Gate of Collapse",
+      "prefab": "gimmick_attach_abyss_core_0001",
+      "gimmickKey": 1001459,
+      "uuid": [
+        640944215,
+        1591218452,
+        1006787795,
+        0
+      ],
+      "level": "abysscore_delesyia_0001_phase00_00",
+      "gamePosition": [
+        -5130.35,
+        383.92,
+        -4225.25
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:554996",
+      "mapGenieDistance": 20.5
+    }
+  ]
+}
