@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "category": "Hidden Treasure Map pieces (Hidden_TreasureMap_I..XII)",
+  "doneRule": "KnowledgeSaveData._list holds the piece's knowledgeKey (Knowledge_Hidden_TreasureMap_<n>) at any level = picked up; no entry = not yet; the knowledge pass failing = unknown. Checked against the fully completed save (all 12 present) on 2026-10-25; the chest copies of pieces 6 and 8 set the same key.",
+  "nativeIcon": {
+    "type": 408,
+    "templateType": 29132,
+    "templateName": "MapIcon_TestGimmick10",
+    "category": "0xffffffff",
+    "note": "the game's other unused test icon; the UI add-on 0.11.0 gives it the game's treasure map item picture (itemicon_itemgroup_etc_treasuremap), tinted"
+  },
+  "sources": "Positions and UUIDs: the level files (ground-items research, single-placement-items.json). Knowledge keys: the game's knowledgeinfo table. Solution chests: MapGenie Treasure Map Solution points matched to data/treasure-chest-links.json.",
+  "locations": [
+    {
+      "name": "Hidden Treasure Map Piece 1",
+      "piece": 1,
+      "item": "Hidden_TreasureMap_I",
+      "itemKey": 1002144,
+      "knowledgeKey": 1000671,
+      "uuid": [
+        1334997714,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -9675.65,
+        708.11,
+        -1894.18
+      ],
+      "level": "sector_-38_-8_sub_2_9.palevel",
+      "solutionChest": {
+        "name": "Hernand chest 1",
+        "uuid": [
+          3181687831,
+          1450446538,
+          2637968444,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 2",
+      "piece": 2,
+      "item": "Hidden_TreasureMap_II",
+      "itemKey": 1002171,
+      "knowledgeKey": 1000672,
+      "uuid": [
+        1564479720,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -9102.46,
+        739.78,
+        -1884.36
+      ],
+      "level": "sector_-36_-8_sub_1_2.palevel",
+      "solutionChest": {
+        "name": "Hernand chest 4",
+        "uuid": [
+          755279913,
+          1450446531,
+          1140703292,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 3",
+      "piece": 3,
+      "item": "Hidden_TreasureMap_III",
+      "itemKey": 1002205,
+      "knowledgeKey": 1000673,
+      "uuid": [
+        1364323871,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -9401.15,
+        669.66,
+        -2549.6
+      ],
+      "level": "sector_-37_-10_sub_1_0.palevel",
+      "solutionChest": {
+        "name": "Demeniss chest 9",
+        "uuid": [
+          2903737093,
+          1450446542,
+          1056489532,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 4",
+      "piece": 4,
+      "item": "Hidden_TreasureMap_IV",
+      "itemKey": 1002206,
+      "knowledgeKey": 1000674,
+      "uuid": [
+        1541835521,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -9887.53,
+        643.18,
+        1080.66
+      ],
+      "level": "sector_-39_4_sub_2_3.palevel",
+      "solutionChest": {
+        "name": "Demeniss chest 29",
+        "uuid": [
+          930374071,
+          1450446536,
+          2637968444,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 5",
+      "piece": 5,
+      "item": "Hidden_TreasureMap_V",
+      "itemKey": 1002207,
+      "knowledgeKey": 1000675,
+      "uuid": [
+        1399977340,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -6300.29,
+        399.63,
+        -3274.2
+      ],
+      "level": "sector_-25_-13_indoor_3_0.palevel",
+      "solutionChest": {
+        "name": "Demeniss chest 1",
+        "uuid": [
+          3580229536,
+          3222802584,
+          1822861389,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 6",
+      "piece": 6,
+      "item": "Hidden_TreasureMap_VI",
+      "itemKey": 1002208,
+      "knowledgeKey": 1001807,
+      "uuid": [
+        1419671968,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -8954.54,
+        532.53,
+        -4665.07
+      ],
+      "level": "sector_-35_-19_indoor_3_0.palevel",
+      "solutionChest": {
+        "name": "Demeniss chest 8",
+        "uuid": [
+          25735867,
+          1450446529,
+          2637968444,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 7",
+      "piece": 7,
+      "item": "Hidden_TreasureMap_VII",
+      "itemKey": 1002209,
+      "knowledgeKey": 1001826,
+      "uuid": [
+        1471927761,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -10502.36,
+        586.18,
+        -3934.92
+      ],
+      "level": "sector_-42_-16_sub_2_13.palevel",
+      "solutionChest": {
+        "name": "Delesyia chest 15",
+        "uuid": [
+          2054748770,
+          1450446623,
+          1494999100,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 8",
+      "piece": 8,
+      "item": "Hidden_TreasureMap_VIII",
+      "itemKey": 1002210,
+      "knowledgeKey": 1001830,
+      "uuid": [
+        1489443766,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -10448.86,
+        584.55,
+        -3531.28
+      ],
+      "level": "sector_-41_-14_sub_1_0.palevel",
+      "solutionChest": {
+        "name": "Delesyia chest 14",
+        "uuid": [
+          2072025724,
+          3222802114,
+          1822861389,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 9",
+      "piece": 9,
+      "item": "Hidden_TreasureMap_IX",
+      "itemKey": 1002211,
+      "knowledgeKey": 1001885,
+      "uuid": [
+        1505041530,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -11725.52,
+        834.37,
+        289.1
+      ],
+      "level": "sector_-46_1_sub_1_0.palevel",
+      "solutionChest": {
+        "name": "Kweiden chest 6",
+        "uuid": [
+          1630562554,
+          1450446528,
+          1140703292,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 10",
+      "piece": 10,
+      "item": "Hidden_TreasureMap_X",
+      "itemKey": 1002212,
+      "knowledgeKey": 1002097,
+      "uuid": [
+        1521078379,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -11344.81,
+        812.03,
+        -3027.81
+      ],
+      "level": "sector_-45_-12_sub_2_4.palevel",
+      "solutionChest": {
+        "name": "Crimson Desert chest 6",
+        "uuid": [
+          4183623579,
+          3222802206,
+          1789175885,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 11",
+      "piece": 11,
+      "item": "Hidden_TreasureMap_XI",
+      "itemKey": 1002213,
+      "knowledgeKey": 1002099,
+      "uuid": [
+        1624925032,
+        3222802591,
+        4221937741,
+        0
+      ],
+      "gamePosition": [
+        -8509.63,
+        549.03,
+        -2407.38
+      ],
+      "level": "sector_-34_-10_sub_2_13.palevel",
+      "solutionChest": {
+        "name": "Crimson Desert cave chest 1",
+        "uuid": [
+          1144003738,
+          1450446589,
+          1083623228,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Hidden Treasure Map Piece 12",
+      "piece": 12,
+      "item": "Hidden_TreasureMap_XII",
+      "itemKey": 1002395,
+      "knowledgeKey": 1003575,
+      "uuid": [
+        1599366496,
+        1450447277,
+        1450142268,
+        0
+      ],
+      "gamePosition": [
+        -8622.33,
+        541.46,
+        -2121.38
+      ],
+      "level": "sector_-34_-9_sub_2_9.palevel",
+      "solutionChest": {
+        "name": "Demeniss cave chest 8",
+        "uuid": [
+          3124330059,
+          1591218274,
+          3947466451,
+          0
+        ]
+      }
+    }
+  ]
+}

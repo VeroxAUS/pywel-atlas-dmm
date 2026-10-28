@@ -1,0 +1,5362 @@
+{
+  "version": 1,
+  "category": "Memory Fragment (Knowledge_Visione_Chip_*, plain and Alustin journal)",
+  "doneRule": "collected = KnowledgeSaveData._list holds knowledgeKey (any _level); missing = not collected",
+  "placementChoice": "one placement per knowledge key: MapGenie-paired (name agreeing, then closest), else the visione_chip level, else a non-sector/non-rematch level, else the first",
+  "nativeIcon": {
+    "type": 222,
+    "templateType": null,
+    "templateName": "MapIcon_Item_Visione_Memory_Chip",
+    "category": "0xffffffff",
+    "look": "0x16f1",
+    "note": "world layout in worldmapicon.thtml with zoom window 0.88 0.93 1 1 (like the Bell icon); minimap layout in minimapicon.thtml; templateType needs one F8 run with the catalogue filter widened to Item names"
+  },
+  "locations": [
+    {
+      "name": "The Alchemist's Chamber",
+      "knowledgeKey": 1000539,
+      "gameName": "Knowledge_Visione_Chip_Alustainroom",
+      "uuid": [
+        3112149175,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10553.2,
+        649.46,
+        -3791.96
+      ],
+      "level": "sector_-42_-15_sub_3_19",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Sword of the Cursed",
+      "knowledgeKey": 1000542,
+      "gameName": "Knowledge_Visione_Chip_Splithornrobber",
+      "uuid": [
+        3181711982,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10381.23,
+        588.54,
+        -4534.64
+      ],
+      "level": "sector_-41_-18_sub_2_3",
+      "region": "Hernand",
+      "mapGenieId": "mg:546634",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Serkis's Study",
+      "knowledgeKey": 1000544,
+      "gameName": "Knowledge_Visione_Chip_Oakenshieldmanor",
+      "uuid": [
+        22142547,
+        1450447120,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10759.31,
+        630.82,
+        -3882.38
+      ],
+      "level": "sector_-43_-16_sub_2_15",
+      "region": "Hernand",
+      "mapGenieId": "mg:546330",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "St. Halssius's House of Healing",
+      "knowledgeKey": 1000550,
+      "gameName": "Knowledge_Visione_Chip_Halsius",
+      "uuid": [
+        3208190457,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -9374.25,
+        579.43,
+        -4208.31
+      ],
+      "level": "sector_-37_-17_sub_3_37",
+      "region": "Hernand",
+      "mapGenieId": "mg:546820",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Glenbright Manor Storage",
+      "knowledgeKey": 1000551,
+      "gameName": "Knowledge_Visione_Chip_GraceMansionStorage",
+      "uuid": [
+        3245524867,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10534.33,
+        629.28,
+        -5284.53
+      ],
+      "level": "sector_-42_-21_sub_2_7",
+      "region": "Hernand",
+      "mapGenieId": "mg:546839",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Glenbright Manor",
+      "knowledgeKey": 1000552,
+      "gameName": "Knowledge_Visione_Chip_GraceMansion",
+      "uuid": [
+        3269887131,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10526.18,
+        632.79,
+        -5296.55
+      ],
+      "level": "sector_-42_-21_sub_2_7",
+      "region": "Hernand",
+      "mapGenieId": "mg:546836",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Pot Artisans",
+      "knowledgeKey": 1000557,
+      "gameName": "Knowledge_Visione_Chip_Kukucraft",
+      "uuid": [
+        3299757636,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -11224.58,
+        707.11,
+        -3913.55
+      ],
+      "level": "sector_-44_-16_sub_2_8",
+      "region": "Hernand",
+      "mapGenieId": "mg:555484",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Scholastone Celestial Telescope",
+      "knowledgeKey": 1000564,
+      "gameName": "Knowledge_Visione_Chip_Trolluniversity",
+      "uuid": [
+        3307065141,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -12048.07,
+        836.62,
+        -5157.15
+      ],
+      "level": "sector_-48_-21_sub_1_3",
+      "region": "Hernand",
+      "mapGenieId": "mg:552155",
+      "kind": "plain",
+      "placements": 55
+    },
+    {
+      "name": "Hernand Banquet Hall",
+      "knowledgeKey": 1000572,
+      "gameName": "Knowledge_Visione_Chip_HernandcastleBallroom",
+      "uuid": [
+        3318493722,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10625.8,
+        638.43,
+        -3722.57
+      ],
+      "level": "sector_-42_-15_sub_3_15",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Hernand Office",
+      "knowledgeKey": 1000577,
+      "gameName": "Knowledge_Visione_Chip_HernandcastleChamber",
+      "uuid": [
+        3365299713,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10546.38,
+        649.93,
+        -3819.89
+      ],
+      "level": "sector_-42_-15_sub_3_19",
+      "region": "Hernand",
+      "mapGenieId": "mg:555102",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Demeniss Orphanage",
+      "knowledgeKey": 1000580,
+      "gameName": "Knowledge_Visione_Chip_DemenissOrphanage",
+      "uuid": [
+        3337828513,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -8464.5,
+        536.61,
+        -2654.85
+      ],
+      "level": "sector_-34_-11_sub_2_13",
+      "region": "Demeniss",
+      "mapGenieId": "mg:555560",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Crow's Ambush",
+      "knowledgeKey": 1000586,
+      "gameName": "Knowledge_Visione_Chip_Crowmanribentain",
+      "uuid": [
+        3343481218,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -8405.1,
+        537.07,
+        -2645.94
+      ],
+      "level": "sector_-33_-11_sub_3_33",
+      "region": "Demeniss",
+      "mapGenieId": "mg:943108",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Azerian Manor",
+      "knowledgeKey": 1000587,
+      "gameName": "Knowledge_Visione_Chip_Azureiansister",
+      "uuid": [
+        3415367871,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -8341.18,
+        534.68,
+        -3248.8
+      ],
+      "level": "sector_-33_-13_sub_3_24",
+      "region": "Demeniss",
+      "mapGenieId": "mg:549913",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Gorthak",
+      "knowledgeKey": 1000588,
+      "gameName": "Knowledge_Visione_Chip_Orcneutralzone",
+      "uuid": [
+        3421619387,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -6525.37,
+        435.52,
+        -4000.39
+      ],
+      "level": "sector_-26_-16_sub_1_0",
+      "region": "Delesyia",
+      "mapGenieId": "mg:562552",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Marni's Secret Laboratory",
+      "knowledgeKey": 1000589,
+      "gameName": "Knowledge_Visione_Chip_Marnisecretplace",
+      "uuid": [
+        3441422950,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -4273.55,
+        355.01,
+        -5510.15
+      ],
+      "level": "sector_-17_-22_sub_1_0",
+      "region": "Delesyia",
+      "mapGenieId": "mg:563551",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Old Tree",
+      "knowledgeKey": 1000592,
+      "gameName": "Knowledge_Visione_Chip_Pailoonoldtree",
+      "uuid": [
+        3377702327,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -9312.61,
+        618.18,
+        -1098.18
+      ],
+      "level": "sector_-37_-5_sub_1_3",
+      "region": "Pailune",
+      "mapGenieId": "mg:561761",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Myurdin and Ludvig",
+      "knowledgeKey": 1000595,
+      "gameName": "Knowledge_Visione_Chip_Mjordinludvig",
+      "uuid": [
+        3385231456,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10695.84,
+        973.93,
+        121.85
+      ],
+      "level": "sector_-42_0_sub_3_36",
+      "region": "Pailune",
+      "mapGenieId": "mg:557765",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Runaway",
+      "knowledgeKey": 1000625,
+      "gameName": "Knowledge_Visione_Chip_Pailoonwatergate",
+      "uuid": [
+        3395179584,
+        1450447119,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -9414.5,
+        618.79,
+        -1159.58
+      ],
+      "level": "sector_-37_-5_sub_1_0",
+      "region": "Pailune",
+      "mapGenieId": "mg:559629",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Azerian's Whereabouts",
+      "knowledgeKey": 1001487,
+      "gameName": "Knowledge_Visione_Chip_Mansion_Marseille_Memory_I",
+      "uuid": [
+        1289817596,
+        1450447150,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -8257.62,
+        517.83,
+        -3112.38
+      ],
+      "level": "quest_bloodcoronation_placeoutoflight_item",
+      "region": "Demeniss",
+      "mapGenieId": "mg:555146",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Bastier's Co-conspirators",
+      "knowledgeKey": 1001488,
+      "gameName": "Knowledge_Visione_Chip_Mansion_Marseille_Memory_II",
+      "uuid": [
+        1293763187,
+        1450447150,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -8277.67,
+        513.91,
+        -3104.49
+      ],
+      "level": "quest_bloodcoronation_placeoutoflight_item",
+      "region": "Demeniss",
+      "mapGenieId": "mg:549918",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Memory of Byron's Manor",
+      "knowledgeKey": 1001489,
+      "gameName": "Knowledge_Visione_Chip_Mansion_Byron_Memory",
+      "uuid": [
+        1297225058,
+        1450447150,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -8303.55,
+        566.64,
+        -2247.93
+      ],
+      "level": "quest_bloodcoronation_placeoutoflight_item",
+      "region": "Demeniss",
+      "mapGenieId": "mg:552484",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "The Blood Coronation",
+      "knowledgeKey": 1001503,
+      "gameName": "Knowledge_Visione_Chip_Bloodcoronation",
+      "uuid": [
+        2206423637,
+        1450447196,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -8081.57,
+        561.47,
+        -3495.84
+      ],
+      "level": "quest_bloodcoronation_castlemarni",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557652",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Memories of the Disconnected Truth",
+      "knowledgeKey": 1001784,
+      "gameName": "Knowledge_Visione_Chip_Abyss_Platform_01",
+      "uuid": [
+        4515971,
+        1450447243,
+        1469433660,
+        0
+      ],
+      "gamePosition": [
+        -5140.04,
+        1850.39,
+        -1944.76
+      ],
+      "level": "abyssbridge_0113_phase00_00",
+      "region": "Abyss",
+      "mapGenieId": "mg:566111",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "How to Use the Visione",
+      "knowledgeKey": 1002214,
+      "gameName": "Knowledge_Visione_Chip_MarniFirstMeet",
+      "uuid": [
+        1355889842,
+        1591218450,
+        1006787795,
+        0
+      ],
+      "gamePosition": [
+        -4589.38,
+        400.3,
+        -4571.36
+      ],
+      "level": "sector_-18_-18_sub_2_0",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Shadows Within the Ether Fragment",
+      "knowledgeKey": 1003062,
+      "gameName": "Knowledge_Visione_Chip_Abyss_Platform_02",
+      "uuid": [
+        2624676665,
+        1450447246,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -5803.34,
+        1774.26,
+        -2664.72
+      ],
+      "level": "abyssisland_0018_phase00_00",
+      "region": "Abyss",
+      "mapGenieId": "mg:606006",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Memories of the Loop of Life",
+      "knowledgeKey": 1003063,
+      "gameName": "Knowledge_Visione_Chip_Abyss_Platform_03",
+      "uuid": [
+        2602752785,
+        1450447246,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -10506.66,
+        1795.24,
+        956.42
+      ],
+      "level": "abyssisland_0175_phase00_00",
+      "region": "Abyss",
+      "mapGenieId": "mg:556645",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "The Missing Cow",
+      "knowledgeKey": 1003567,
+      "gameName": "Knowledge_Visione_Chip_Bremer",
+      "uuid": [
+        2735743369,
+        352325930,
+        19981917,
+        0
+      ],
+      "gamePosition": [
+        -10135.75,
+        547.2,
+        -3964.86
+      ],
+      "level": "splithorn_boss_bremer_cowhorn_item",
+      "region": "Hernand",
+      "mapGenieId": "mg:544051",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Hornless Goats",
+      "knowledgeKey": 1003568,
+      "gameName": "Knowledge_Visione_Chip_Ibano",
+      "uuid": [
+        2266560196,
+        352325930,
+        19981917,
+        0
+      ],
+      "gamePosition": [
+        -10404.07,
+        536.29,
+        -3990.08
+      ],
+      "level": "splithorn_boss_ibano_goatthief_item",
+      "region": "Hernand",
+      "mapGenieId": "mg:544052",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Lair of Animal Thieves",
+      "knowledgeKey": 1003573,
+      "gameName": "Knowledge_Visione_Chip_ThiefCave",
+      "uuid": [
+        2750092866,
+        352325930,
+        19981917,
+        0
+      ],
+      "gamePosition": [
+        -10289.79,
+        534.66,
+        -4583.09
+      ],
+      "level": "splithorn_boss_thiefcave_child1_item",
+      "region": "Hernand",
+      "mapGenieId": "mg:544064",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Suspicious Religion",
+      "knowledgeKey": 1003577,
+      "gameName": "Knowledge_Visione_Chip_AntumbraFanatic",
+      "uuid": [
+        553492219,
+        4279242968,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -10450.32,
+        584.32,
+        -3532.41
+      ],
+      "level": "sector_-41_-14_sub_1_0",
+      "region": "Hernand",
+      "mapGenieId": "mg:550992",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Hidden Treasure",
+      "knowledgeKey": 1003578,
+      "gameName": "Knowledge_Visione_Chip_HiddenTreasure",
+      "uuid": [
+        550162095,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -10446.73,
+        538.48,
+        -3693.64
+      ],
+      "level": "sector_-41_-15_sub_2_2",
+      "region": "Hernand",
+      "mapGenieId": "mg:546942",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Statue of the Goddess of Justice",
+      "knowledgeKey": 1003579,
+      "gameName": "Knowledge_Visione_Chip_LadyJustice",
+      "uuid": [
+        544195733,
+        1450447065,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10674.55,
+        635.4,
+        -3258.36
+      ],
+      "level": "sector_-42_-13_sub_2_3",
+      "region": "Hernand",
+      "mapGenieId": "mg:546107",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Bloodied Hills",
+      "knowledgeKey": 1003581,
+      "gameName": "Knowledge_Visione_Chip_NamelessHeorGrave",
+      "uuid": [
+        2036799696,
+        1450447635,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9954.49,
+        618.71,
+        -2899.26
+      ],
+      "level": "sector_-39_-12",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Unidentified Corpse",
+      "knowledgeKey": 1003582,
+      "gameName": "Knowledge_Visione_Chip_JohnDoe",
+      "uuid": [
+        404649603,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -10311.81,
+        590.34,
+        -3675.32
+      ],
+      "level": "sector_-41_-15_sub_2_6",
+      "region": "Hernand",
+      "mapGenieId": "mg:545594",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Birch Forest Grave",
+      "knowledgeKey": 1003583,
+      "gameName": "Knowledge_Visione_Chip_TreeForestTomb",
+      "uuid": [
+        2506042389,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11365.75,
+        807.28,
+        -3027.65
+      ],
+      "level": "sector_-45_-12_sub_2_4",
+      "region": "Hernand",
+      "mapGenieId": "mg:546176",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Treetop Wagon",
+      "knowledgeKey": 1003584,
+      "gameName": "Knowledge_Visione_Chip_WagonOnATree",
+      "uuid": [
+        600610503,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -10519.55,
+        633.17,
+        -4779.33
+      ],
+      "level": "sector_-42_-19_sub_1_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:546835",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Abandoned House",
+      "knowledgeKey": 1003585,
+      "gameName": "Knowledge_Visione_Chip_AbandonedHouse",
+      "uuid": [
+        1303717353,
+        1591218393,
+        1281807315,
+        0
+      ],
+      "gamePosition": [
+        -9407.93,
+        668.29,
+        -2544.57
+      ],
+      "level": "sector_-37_-10_sub_1_0",
+      "region": "Hernand",
+      "mapGenieId": "mg:552418",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "A Strange Skull",
+      "knowledgeKey": 1003586,
+      "gameName": "Knowledge_Visione_Chip_WeirdSkull",
+      "uuid": [
+        756285239,
+        1450447065,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11588.65,
+        647.75,
+        -5376.36
+      ],
+      "level": "sector_-46_-22_sub_1_3",
+      "region": "Hernand",
+      "mapGenieId": "mg:550231",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "A Suspicious Sculptor",
+      "knowledgeKey": 1003587,
+      "gameName": "Knowledge_Visione_Chip_Sculptor",
+      "uuid": [
+        3520770223,
+        1591218399,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -10503.31,
+        583.0,
+        -3944.08
+      ],
+      "level": "sector_-42_-16_sub_2_13",
+      "region": "Hernand",
+      "mapGenieId": "mg:544053",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "H.A.L.L.",
+      "knowledgeKey": 1003588,
+      "gameName": "Knowledge_Visione_Chip_Hall",
+      "uuid": [
+        1152902962,
+        1450447065,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11703.98,
+        802.62,
+        -3846.77
+      ],
+      "level": "sector_-46_-16_indoor_3_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:551633",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Right Hand Boulder",
+      "knowledgeKey": 1003589,
+      "gameName": "Knowledge_Visione_Chip_RightHandStone",
+      "uuid": [
+        711896456,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -12164.12,
+        1093.83,
+        -3285.28
+      ],
+      "level": "sector_-48_-13_sub_1_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:550275",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Hernand Gallows",
+      "knowledgeKey": 1003590,
+      "gameName": "Knowledge_Visione_Chip_HernandGibbet",
+      "uuid": [
+        1335301098,
+        1591218393,
+        1281807315,
+        0
+      ],
+      "gamePosition": [
+        -10735.3,
+        625.87,
+        -3810.27
+      ],
+      "level": "sector_-42_-15_sub_3_2",
+      "region": "Hernand",
+      "mapGenieId": "mg:552220",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "The Crow and the Lunatic",
+      "knowledgeKey": 1003592,
+      "gameName": "Knowledge_Visione_Chip_Suspiciouscult",
+      "uuid": [
+        1023168220,
+        1591218393,
+        1281807315,
+        0
+      ],
+      "gamePosition": [
+        -9144.83,
+        495.76,
+        -4121.68
+      ],
+      "level": "sector_-36_-17_sub_2_11",
+      "region": "Hernand",
+      "mapGenieId": "mg:552325",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Boulder Crash Site",
+      "knowledgeKey": 1003593,
+      "gameName": "Knowledge_Visione_Chip_MeteorHouse",
+      "uuid": [
+        1010780847,
+        1591218403,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -8955.16,
+        532.53,
+        -4665.22
+      ],
+      "level": "sector_-35_-19_sub_2_8",
+      "region": "Demeniss",
+      "mapGenieId": "mg:595982",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Abandoned House on the Water",
+      "knowledgeKey": 1003594,
+      "gameName": "Knowledge_Visione_Chip_RuinedHouse",
+      "uuid": [
+        952060622,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -7453.93,
+        498.02,
+        -2963.72
+      ],
+      "level": "sector_-30_-12_sub_2_7",
+      "region": "Demeniss",
+      "mapGenieId": "mg:596585",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Dyer on the Water",
+      "knowledgeKey": 1003595,
+      "gameName": "Knowledge_Visione_Chip_RuinedHouse_II",
+      "uuid": [
+        1227965031,
+        1591218403,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -7267.96,
+        467.93,
+        -3247.13
+      ],
+      "level": "sector_-29_-13_sub_2_6",
+      "region": "Demeniss",
+      "mapGenieId": "mg:563534",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Sky Galleon",
+      "knowledgeKey": 1003596,
+      "gameName": "Knowledge_Visione_Chip_Shipwreck",
+      "uuid": [
+        4005933248,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6024.0,
+        457.86,
+        -3721.84
+      ],
+      "level": "sector_-24_-15_sub_3_15",
+      "region": "Delesyia",
+      "mapGenieId": "mg:562513",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Communal Ritual",
+      "knowledgeKey": 1003597,
+      "gameName": "Knowledge_Visione_Chip_LakeAltar",
+      "uuid": [
+        319662816,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10185.18,
+        726.33,
+        -725.37
+      ],
+      "level": "sector_-40_-3_sub_1_0",
+      "region": "Pailune",
+      "mapGenieId": "mg:553660",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Signs of Misfortune",
+      "knowledgeKey": 1003598,
+      "gameName": "Knowledge_Visione_Chip_LongleafTree_OmenMisfortune",
+      "uuid": [
+        1262506125,
+        1591218400,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11165.95,
+        676.66,
+        948.99
+      ],
+      "level": "sector_-44_3_indoor_1_0",
+      "region": "Pailune",
+      "mapGenieId": "mg:557539",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Beginning of the Hunt",
+      "knowledgeKey": 1003599,
+      "gameName": "Knowledge_Visione_Chip_LongleafTree_HuntBegin",
+      "uuid": [
+        1285921355,
+        1591218400,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11348.92,
+        747.89,
+        51.7
+      ],
+      "level": "sector_-45_0_indoor_1_0",
+      "region": "Pailune",
+      "mapGenieId": "mg:596590",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Day of the Longleaf Tribe",
+      "knowledgeKey": 1003600,
+      "gameName": "Knowledge_Visione_Chip_LongleafTree_DailyLife",
+      "uuid": [
+        1292577975,
+        1591218400,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9693.89,
+        670.8,
+        1112.06
+      ],
+      "level": "sector_-38_4_indoor_1_0",
+      "region": "Pailune",
+      "mapGenieId": "mg:557548",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Five-Finger Mountain",
+      "knowledgeKey": 1003601,
+      "gameName": "Knowledge_Visione_Chip_FiveFingerMountain",
+      "uuid": [
+        310403829,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11744.82,
+        866.88,
+        -156.51
+      ],
+      "level": "sector_-46_-1_sub_1_0",
+      "region": "Pailune",
+      "mapGenieId": "mg:557480",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "The Sword's Grave and Throne",
+      "knowledgeKey": 1003602,
+      "gameName": "Knowledge_Visione_Chip_SwordAndThrone",
+      "uuid": [
+        303111251,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11722.16,
+        839.07,
+        255.15
+      ],
+      "level": "sector_-46_0_sub_1_2",
+      "region": "Pailune",
+      "mapGenieId": "mg:553746",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Remains of the Giants",
+      "knowledgeKey": 1003603,
+      "gameName": "Knowledge_Visione_Chip_GiantBone",
+      "uuid": [
+        299162978,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11780.71,
+        822.11,
+        949.84
+      ],
+      "level": "sector_-47_3_sub_1_3",
+      "region": "Pailune",
+      "mapGenieId": "mg:552289",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Broken Watermill",
+      "knowledgeKey": 1003604,
+      "gameName": "Knowledge_Visione_Chip_BrokenMill",
+      "uuid": [
+        288307343,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9902.84,
+        642.49,
+        1082.75
+      ],
+      "level": "sector_-39_4_sub_2_3",
+      "region": "Pailune",
+      "mapGenieId": "mg:553969",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Giant Ballista",
+      "knowledgeKey": 1003605,
+      "gameName": "Knowledge_Visione_Chip_GiantBallista",
+      "uuid": [
+        295147233,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10988.48,
+        992.56,
+        251.58
+      ],
+      "level": "sector_-43_0_sub_1_2",
+      "region": "Pailune",
+      "mapGenieId": "mg:559925",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Axe-Studded Tree",
+      "knowledgeKey": 1003606,
+      "gameName": "Knowledge_Visione_Chip_TreeOfAxes",
+      "uuid": [
+        280586025,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9841.31,
+        669.68,
+        489.14
+      ],
+      "level": "sector_-39_1_sub_2_14",
+      "region": "Pailune",
+      "mapGenieId": "mg:557754",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Mushroom Cave",
+      "knowledgeKey": 1003607,
+      "gameName": "Knowledge_Visione_Chip_MushroomCave",
+      "uuid": [
+        105500436,
+        1450447136,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -3804.71,
+        386.11,
+        -6012.55
+      ],
+      "level": "sector_-15_-24_sub_1_0",
+      "region": "Delesyia",
+      "mapGenieId": "mg:606626",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Bones of the Bandits' Victims",
+      "knowledgeKey": 1003608,
+      "gameName": "Knowledge_Visione_Chip_Bonesrobbed",
+      "uuid": [
+        4018156579,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6131.41,
+        414.52,
+        -3629.84
+      ],
+      "level": "sector_-24_-15_sub_2_8",
+      "region": "Delesyia",
+      "mapGenieId": "mg:562514",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Sinkhole",
+      "knowledgeKey": 1003609,
+      "gameName": "Knowledge_Visione_Chip_Sinkhole",
+      "uuid": [
+        3999795171,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4411.39,
+        385.82,
+        -4662.33
+      ],
+      "level": "sector_-18_-19_sub_1_3",
+      "region": "Delesyia",
+      "mapGenieId": "mg:563544",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Mysterious Cave Entrance",
+      "knowledgeKey": 1003611,
+      "gameName": "Knowledge_Visione_Chip_CaveEntrance",
+      "uuid": [
+        989861706,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -9102.31,
+        739.77,
+        -1884.36
+      ],
+      "level": "sector_-36_-8_sub_1_2",
+      "region": "Demeniss",
+      "mapGenieId": "mg:552874",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Lightning-Struck Tree",
+      "knowledgeKey": 1003612,
+      "gameName": "Knowledge_Visione_Chip_LightningstrikeTree",
+      "uuid": [
+        2586727321,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10160.8,
+        579.78,
+        -4129.58
+      ],
+      "level": "sector_-40_-17_sub_2_11",
+      "region": "Hernand",
+      "mapGenieId": "mg:546881",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Abandoned Bell",
+      "knowledgeKey": 1003613,
+      "gameName": "Knowledge_Visione_Chip_DumpBell",
+      "uuid": [
+        819428464,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -9414.95,
+        658.66,
+        -5946.96
+      ],
+      "level": "sector_-37_-24_sub_1_2",
+      "region": "Hernand",
+      "mapGenieId": "mg:545742",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Corrupted Feral Dog",
+      "knowledgeKey": 1003614,
+      "gameName": "Knowledge_Visione_Chip_SafetyFlowerBush",
+      "uuid": [
+        1898910661,
+        1450447635,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -11183.77,
+        765.95,
+        -5691.8
+      ],
+      "level": "sector_-44_-23",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Crashed Cloudcart",
+      "knowledgeKey": 1003616,
+      "gameName": "Knowledge_Visione_Chip_FallenBallon",
+      "uuid": [
+        854844705,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -11421.71,
+        860.12,
+        -6356.7
+      ],
+      "level": "sector_-45_-25_sub_1_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:552133",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Timeworn Graves",
+      "knowledgeKey": 1003617,
+      "gameName": "Knowledge_Visione_Chip_OldGrave",
+      "uuid": [
+        3585411142,
+        1591218399,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -12315.25,
+        794.32,
+        -1534.99
+      ],
+      "level": "sector_-49_-6_sub_1_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:557423",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Wide Roots Hideout",
+      "knowledgeKey": 1003618,
+      "gameName": "Knowledge_Visione_Chip_GiantRoots",
+      "uuid": [
+        999186984,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -10417.63,
+        674.75,
+        -1164.84
+      ],
+      "level": "sector_-41_-5_indoor_2_0",
+      "region": "Hernand",
+      "mapGenieId": "mg:552017",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Abandoned Anchor",
+      "knowledgeKey": 1003619,
+      "gameName": "Knowledge_Visione_Chip_AnchorForest",
+      "uuid": [
+        649958448,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -10170.01,
+        703.69,
+        -1487.32
+      ],
+      "level": "sector_-40_-6_sub_2_3",
+      "region": "Hernand",
+      "mapGenieId": "mg:561082",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Forest Memorial Stone",
+      "knowledgeKey": 1003620,
+      "gameName": "Knowledge_Visione_Chip_KnottedHollow",
+      "uuid": [
+        337952024,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11233.07,
+        708.5,
+        695.39
+      ],
+      "level": "sector_-44_2_sub_1_2",
+      "region": "Pailune",
+      "mapGenieId": "mg:561766",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Volstein Ruins",
+      "knowledgeKey": 1003621,
+      "gameName": "Knowledge_Visione_Chip_BolsteinnRuins",
+      "uuid": [
+        748064905,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10750.93,
+        710.76,
+        850.79
+      ],
+      "level": "sector_-42_3_sub_1_0",
+      "region": "Pailune",
+      "mapGenieId": "mg:557544",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Vanished Statue",
+      "knowledgeKey": 1003622,
+      "gameName": "Knowledge_Visione_Chip_MissingStatue",
+      "uuid": [
+        634704910,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4628.2,
+        401.13,
+        -4763.89
+      ],
+      "level": "sector_-19_-19_sub_2_7",
+      "region": "Delesyia",
+      "mapGenieId": "mg:941082",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Abandoned House",
+      "knowledgeKey": 1003623,
+      "gameName": "Knowledge_Visione_Chip_ForsakenHome",
+      "uuid": [
+        623157193,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4637.84,
+        351.62,
+        -3677.38
+      ],
+      "level": "sector_-19_-15_sub_1_3",
+      "region": "Delesyia",
+      "mapGenieId": "mg:595934",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Ironcrawler Thief's Hideout",
+      "knowledgeKey": 1003624,
+      "gameName": "Knowledge_Visione_Chip_TrainThief",
+      "uuid": [
+        647650968,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5563.16,
+        466.78,
+        -4427.42
+      ],
+      "level": "sector_-22_-18_sub_1_2",
+      "region": "Delesyia",
+      "mapGenieId": "mg:606621",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "The Traitor's End",
+      "knowledgeKey": 1003625,
+      "gameName": "Knowledge_Visione_Chip_BrokenWindmill",
+      "uuid": [
+        2102324531,
+        1450447635,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9940.93,
+        741.1,
+        -2470.92
+      ],
+      "level": "sector_-39_-10",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Dungeon",
+      "knowledgeKey": 1003626,
+      "gameName": "Knowledge_Visione_Chip_Dungeon",
+      "uuid": [
+        1903054645,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -9685.3,
+        694.28,
+        -1923.55
+      ],
+      "level": "04_aka_dungeon_16_dungeon",
+      "region": "Hernand",
+      "mapGenieId": "mg:551657",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Someone Living Under a Bridge",
+      "knowledgeKey": 1003627,
+      "gameName": "Knowledge_Visione_Chip_HumanUnderBridge",
+      "uuid": [
+        1758534841,
+        1591218393,
+        1281807315,
+        0
+      ],
+      "gamePosition": [
+        -10424.61,
+        532.55,
+        -4193.16
+      ],
+      "level": "sector_-41_-17_sub_3_37",
+      "region": "Hernand",
+      "mapGenieId": "mg:551938",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Pororin Cave",
+      "knowledgeKey": 1003628,
+      "gameName": "Knowledge_Visione_Chip_PororinCave",
+      "uuid": [
+        1781611172,
+        1591218393,
+        1281807315,
+        0
+      ],
+      "gamePosition": [
+        -9851.02,
+        561.67,
+        -5057.67
+      ],
+      "level": "sector_-39_-20_sub_2_3",
+      "region": "Hernand",
+      "mapGenieId": "mg:545767",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Roofless House",
+      "knowledgeKey": 1003629,
+      "gameName": "Knowledge_Visione_Chip_Roofless",
+      "uuid": [
+        898046608,
+        1450447065,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10111.91,
+        544.96,
+        -3833.28
+      ],
+      "level": "sector_-40_-15_sub_2_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:546286",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Wildlife Park Passageway",
+      "knowledgeKey": 1003631,
+      "gameName": "Knowledge_Visione_Chip_ZooHole",
+      "uuid": [
+        1133711402,
+        1591218393,
+        1281807315,
+        0
+      ],
+      "gamePosition": [
+        -8043.64,
+        507.07,
+        -3633.69
+      ],
+      "level": "sector_-32_-15_sub_2_14",
+      "region": "Demeniss",
+      "mapGenieId": "mg:596026",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Creaky Fishing Dock",
+      "knowledgeKey": 1003633,
+      "gameName": "Knowledge_Visione_Chip_FishingSpot",
+      "uuid": [
+        3671579131,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7999.76,
+        549.97,
+        -1825.11
+      ],
+      "level": "sector_-32_-8_sub_1_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:559620",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Shipwreck in Silence",
+      "knowledgeKey": 1003634,
+      "gameName": "Knowledge_Visione_Chip_SilenceShipwreck",
+      "uuid": [
+        3703615654,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8045.15,
+        350.41,
+        -5306.34
+      ],
+      "level": "sector_-32_-21_sub_1_1",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557797",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Unknown Cave",
+      "knowledgeKey": 1003636,
+      "gameName": "Knowledge_Visione_Chip_UnknownCave",
+      "uuid": [
+        811230093,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -9503.56,
+        602.2,
+        -2860.44
+      ],
+      "level": "sector_-38_-12_sub_2_15",
+      "region": "Hernand",
+      "mapGenieId": "mg:552419",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Ominous Prophecy",
+      "knowledgeKey": 1003637,
+      "gameName": "Knowledge_Visione_Chip_OminousProphecy",
+      "uuid": [
+        2175981011,
+        1591218403,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -9711.72,
+        563.88,
+        -4260.72
+      ],
+      "level": "sector_-38_-17_indoor_3_0",
+      "region": "Hernand",
+      "mapGenieId": "mg:550979",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Mother and Son",
+      "knowledgeKey": 1003638,
+      "gameName": "Knowledge_Visione_Chip_MotherAndSon",
+      "uuid": [
+        1177820824,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -9784.79,
+        568.64,
+        -4171.78
+      ],
+      "level": "sector_-39_-17_sub_2_13",
+      "region": "Hernand",
+      "mapGenieId": "mg:551992",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Abandoned Ranch",
+      "knowledgeKey": 1003639,
+      "gameName": "Knowledge_Visione_Chip_EmptyRanch",
+      "uuid": [
+        1256952164,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -9197.32,
+        500.04,
+        -4129.11
+      ],
+      "level": "sector_-36_-17_sub_3_41",
+      "region": "Hernand",
+      "mapGenieId": "mg:552323",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Old King of the Sea",
+      "knowledgeKey": 1003640,
+      "gameName": "Knowledge_Visione_Chip_OldKingOfTheSea",
+      "uuid": [
+        1698919806,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -6851.68,
+        350.84,
+        -3917.23
+      ],
+      "level": "sector_-27_-16_sub_3_38",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557267",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Stranded Merchant Vessel",
+      "knowledgeKey": 1003641,
+      "gameName": "Knowledge_Visione_Chip_DestroyedMerchantShip",
+      "uuid": [
+        1726794030,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -7063.71,
+        351.3,
+        -4248.3
+      ],
+      "level": "sector_-28_-17_sub_1_0",
+      "region": "Demeniss",
+      "mapGenieId": "mg:553018",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Settlement Beneath the Cliff",
+      "knowledgeKey": 1003642,
+      "gameName": "Knowledge_Visione_Chip_CliffUnderHome",
+      "uuid": [
+        1764842103,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -8651.5,
+        457.76,
+        -6266.31
+      ],
+      "level": "sector_-34_-25_sub_1_2",
+      "region": "Demeniss",
+      "mapGenieId": "mg:554464",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Bounty's Net",
+      "knowledgeKey": 1003643,
+      "gameName": "Knowledge_Visione_Chip_FishermanPlace",
+      "uuid": [
+        1800074797,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -10048.58,
+        351.79,
+        -5978.53
+      ],
+      "level": "sector_-40_-24_sub_1_3",
+      "region": "Hernand",
+      "mapGenieId": "mg:544751",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Upper Nas River Dam",
+      "knowledgeKey": 1003644,
+      "gameName": "Knowledge_Visione_Chip_riverdam",
+      "uuid": [
+        2205350191,
+        1591218403,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -11189.63,
+        580.73,
+        -5125.43
+      ],
+      "level": "sector_-44_-21_sub_2_11",
+      "region": "Hernand",
+      "mapGenieId": "mg:552306",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Empty Coffin",
+      "knowledgeKey": 1003645,
+      "gameName": "Knowledge_Visione_Chip_emptycoffin",
+      "uuid": [
+        781513906,
+        1450447065,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10026.52,
+        716.24,
+        -2369.67
+      ],
+      "level": "sector_-40_-10_sub_2_12",
+      "region": "Hernand",
+      "mapGenieId": "mg:553896",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Halssius Apothecary",
+      "knowledgeKey": 1003647,
+      "gameName": "Knowledge_Visione_Chip_pharmacy",
+      "uuid": [
+        929254475,
+        1450447065,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9821.13,
+        571.83,
+        -4166.25
+      ],
+      "level": "sector_-39_-17_indoor_1_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:551990",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Hernand Encampment",
+      "knowledgeKey": 1003648,
+      "gameName": "Knowledge_Visione_Chip_hernandcampsite",
+      "uuid": [
+        963905689,
+        1450447065,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9401.48,
+        581.53,
+        -3979.87
+      ],
+      "level": "sector_-37_-16_sub_2_12",
+      "region": "Demeniss",
+      "mapGenieId": "mg:552357",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Ivynook",
+      "knowledgeKey": 1003649,
+      "gameName": "Knowledge_Visione_Chip_vinevillage",
+      "uuid": [
+        2622393357,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11307.44,
+        830.51,
+        -3387.23
+      ],
+      "level": "sector_-45_-14_sub_3_54",
+      "region": "Hernand",
+      "mapGenieId": "mg:551997",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Guardian Deity Altar",
+      "knowledgeKey": 1003650,
+      "gameName": "Knowledge_Visione_Chip_guardiandeity",
+      "uuid": [
+        2631727922,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9421.78,
+        558.43,
+        -4504.53
+      ],
+      "level": "sector_-37_-18_sub_2_2",
+      "region": "Hernand",
+      "mapGenieId": "mg:544591",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Petrified Humans",
+      "knowledgeKey": 1003651,
+      "gameName": "Knowledge_Visione_Chip_PetrifiedHumans",
+      "uuid": [
+        3655607338,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9100.83,
+        494.59,
+        -5500.8
+      ],
+      "level": "sector_-36_-22_sub_2_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:941118",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Bloody Farmhouse",
+      "knowledgeKey": 1003652,
+      "gameName": "Knowledge_Visione_Chip_BloodyFarmhouse",
+      "uuid": [
+        3663054390,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8508.2,
+        548.02,
+        -2394.61
+      ],
+      "level": "sector_-34_-10_sub_2_13",
+      "region": "Demeniss",
+      "mapGenieId": "mg:552434",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "A House Between Rocks",
+      "knowledgeKey": 1003653,
+      "gameName": "Knowledge_Visione_Chip_RockShelter",
+      "uuid": [
+        997047231,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -8338.46,
+        394.05,
+        -5220.03
+      ],
+      "level": "sector_-33_-21_sub_1_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:556905",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Dire Situation",
+      "knowledgeKey": 1003654,
+      "gameName": "Knowledge_Visione_Chip_DesperateSituation",
+      "uuid": [
+        1820841500,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -10387.76,
+        350.79,
+        -6455.47
+      ],
+      "level": "sector_-41_-26",
+      "region": "Hernand",
+      "mapGenieId": "mg:551247",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Freesword Dwelling",
+      "knowledgeKey": 1003655,
+      "gameName": "Knowledge_Visione_Chip_OrcCamp",
+      "uuid": [
+        1845001555,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -6514.07,
+        443.74,
+        -3453.72
+      ],
+      "level": "sector_-26_-14_sub_3_48",
+      "region": "Demeniss",
+      "mapGenieId": "mg:561889",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "News of War",
+      "knowledgeKey": 1003656,
+      "gameName": "Knowledge_Visione_Chip_WarNews",
+      "uuid": [
+        1203803270,
+        2969309401,
+        2519699166,
+        0
+      ],
+      "gamePosition": [
+        -11454.9,
+        783.71,
+        -2870.11
+      ],
+      "level": "sector_-45_-12_sub_3_14",
+      "region": "Hernand",
+      "mapGenieId": "mg:546190",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "The Forbidden Call",
+      "knowledgeKey": 1003657,
+      "gameName": "Knowledge_Visione_Chip_GiantBoots",
+      "uuid": [
+        3708103102,
+        4279243546,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -8380.95,
+        653.95,
+        -841.9
+      ],
+      "level": "sector_-33_-4",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Corpse of an Adventurer",
+      "knowledgeKey": 1003659,
+      "gameName": "Knowledge_Visione_Chip_FallenExplorer",
+      "uuid": [
+        1103351850,
+        4279242969,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -7753.67,
+        352.74,
+        -5220.46
+      ],
+      "level": "sector_-31_-21_sub_1_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557798",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Hollow Tree",
+      "knowledgeKey": 1003660,
+      "gameName": "Knowledge_Visione_Chip_BigTreeRoots",
+      "uuid": [
+        3667852491,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7341.1,
+        402.47,
+        -4095.09
+      ],
+      "level": "sector_-29_-16_sub_1_0",
+      "region": "Demeniss",
+      "mapGenieId": "mg:553677",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Castle Ruins Encampment",
+      "knowledgeKey": 1003661,
+      "gameName": "Knowledge_Visione_Chip_castleruincamp",
+      "uuid": [
+        1164553275,
+        1450447065,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11669.52,
+        840.4,
+        -3305.42
+      ],
+      "level": "sector_-46_-13_sub_2_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:555145",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Painted Cavern",
+      "knowledgeKey": 1003662,
+      "gameName": "Knowledge_Visione_Chip_PaintedCave",
+      "uuid": [
+        3684643497,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8102.18,
+        444.03,
+        -4647.14
+      ],
+      "level": "sector_-32_-19_sub_2_11",
+      "region": "Demeniss",
+      "mapGenieId": "mg:556659",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Oasis Hearth",
+      "knowledgeKey": 1003665,
+      "gameName": "Knowledge_Visione_Chip_OasisShelter",
+      "uuid": [
+        4160814844,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4812.05,
+        674.77,
+        1557.33
+      ],
+      "level": "sector_-19_6_sub_1_0",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:558073",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Old Quarry",
+      "knowledgeKey": 1003666,
+      "gameName": "Knowledge_Visione_Chip_OldQuarry",
+      "uuid": [
+        705466213,
+        1450447496,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -4750.35,
+        632.0,
+        433.35
+      ],
+      "level": "sector_-19_1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:571755",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Sand Dunes",
+      "knowledgeKey": 1003667,
+      "gameName": "Knowledge_Visione_Chip_SandHole",
+      "uuid": [
+        4272910750,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4898.91,
+        604.24,
+        -946.47
+      ],
+      "level": "sector_-20_-4_sub_1_1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:562323",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Ashen Rift",
+      "knowledgeKey": 1003668,
+      "gameName": "Knowledge_Visione_Chip_GreyRift",
+      "uuid": [
+        103645619,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4034.87,
+        682.25,
+        -162.22
+      ],
+      "level": "sector_-16_-1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:558045",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Skull and Sword",
+      "knowledgeKey": 1003669,
+      "gameName": "Knowledge_Visione_Chip_BoneAndSword",
+      "uuid": [
+        755575266,
+        1591218393,
+        1281807315,
+        0
+      ],
+      "gamePosition": [
+        -8801.76,
+        533.27,
+        -3978.96
+      ],
+      "level": "sector_-35_-16_sub_2_6",
+      "region": "Demeniss",
+      "mapGenieId": "mg:561139",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Helmara Scrap Graveyard",
+      "knowledgeKey": 1003671,
+      "gameName": "Knowledge_Visione_Chip_HelmaraVillageScrapGrave",
+      "uuid": [
+        118754826,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5779.25,
+        634.32,
+        -403.75
+      ],
+      "level": "sector_-23_-2_sub_2_3",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:596204",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Shattered Token",
+      "knowledgeKey": 1003672,
+      "gameName": "Knowledge_Visione_Chip_HatRock",
+      "uuid": [
+        3763477112,
+        4279243546,
+        4258537952,
+        0
+      ],
+      "gamePosition": [
+        -7778.38,
+        1974.71,
+        -478.27
+      ],
+      "level": "abyssisland_0079_phase00_00_sub_1_1",
+      "region": "Abyss",
+      "mapGenieId": "mg:1044065",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Unidentifiable Corpse",
+      "knowledgeKey": 1003673,
+      "gameName": "Knowledge_Visione_Chip_DemJohnDoe",
+      "uuid": [
+        3616185826,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8651.99,
+        529.6,
+        -3975.93
+      ],
+      "level": "sector_-34_-16_sub_2_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:595981",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Ruins by the Saltroad Camp",
+      "knowledgeKey": 1003674,
+      "gameName": "Knowledge_Visione_Chip_SaltRoadRuins",
+      "uuid": [
+        99952227,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4572.7,
+        656.18,
+        2175.42
+      ],
+      "level": "sector_-18_8_sub_1_0",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:558069",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Desert Swamp",
+      "knowledgeKey": 1003675,
+      "gameName": "Knowledge_Visione_Chip_DesertSwamp",
+      "uuid": [
+        127841598,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5511.25,
+        548.33,
+        -1421.48
+      ],
+      "level": "sector_-22_-6_sub_2_3",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:596244",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Sacred Chalice",
+      "knowledgeKey": 1003676,
+      "gameName": "Knowledge_Visione_Chip_HolyGlass",
+      "uuid": [
+        4128143887,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4004.4,
+        631.26,
+        1169.88
+      ],
+      "level": "sector_-16_4",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:565558",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Well of Enlightenment",
+      "knowledgeKey": 1003677,
+      "gameName": "Knowledge_Visione_Chip_WisdomWell",
+      "uuid": [
+        4133735768,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8009.24,
+        691.69,
+        -591.16
+      ],
+      "level": "sector_-32_-3_sub_3_50",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:560903",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Bloodstained Street",
+      "knowledgeKey": 1003678,
+      "gameName": "Knowledge_Visione_Chip_CarnageStreet",
+      "uuid": [
+        138202495,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4185.89,
+        598.23,
+        -1470.24
+      ],
+      "level": "sector_-17_-6_sub_1_1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:562334",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Verheim Ruins",
+      "knowledgeKey": 1003679,
+      "gameName": "Knowledge_Visione_Chip_VerheimRuins",
+      "uuid": [
+        126524439,
+        1450447136,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11194.12,
+        694.54,
+        1052.75
+      ],
+      "level": "sector_-44_4_sub_1_0",
+      "region": "Pailune",
+      "mapGenieId": "mg:557530",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Rocking Boulder",
+      "knowledgeKey": 1003680,
+      "gameName": "Knowledge_Visione_Chip_RockingStone",
+      "uuid": [
+        638522841,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5709.86,
+        484.49,
+        -2695.17
+      ],
+      "level": "sector_-23_-11_sub_1_1",
+      "region": "Delesyia",
+      "mapGenieId": "mg:561779",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Shipyard Wood Knot",
+      "knowledgeKey": 1003681,
+      "gameName": "Knowledge_Visione_Chip_WoodKnot",
+      "uuid": [
+        631072486,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6054.63,
+        428.07,
+        -3647.29
+      ],
+      "level": "sector_-24_-15_sub_2_9",
+      "region": "Delesyia",
+      "mapGenieId": "mg:562512",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "A Well with a Story",
+      "knowledgeKey": 1003682,
+      "gameName": "Knowledge_Visione_Chip_StoryWell",
+      "uuid": [
+        3633794000,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7472.72,
+        537.32,
+        -2589.15
+      ],
+      "level": "sector_-30_-11_sub_2_14",
+      "region": "Demeniss",
+      "mapGenieId": "mg:895590",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Branch of Birds",
+      "knowledgeKey": 1003683,
+      "gameName": "Knowledge_Visione_Chip_CrowdedBranch",
+      "uuid": [
+        3647943622,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6718.83,
+        470.68,
+        -3002.19
+      ],
+      "level": "sector_-27_-12_sub_2_7",
+      "region": "Demeniss",
+      "mapGenieId": "mg:561024",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Breezeblown Knoll Cave",
+      "knowledgeKey": 1003684,
+      "gameName": "Knowledge_Visione_Chip_MuralCave",
+      "uuid": [
+        3718829227,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6153.22,
+        521.7,
+        -2405.53
+      ],
+      "level": "sector_-25_-10_sub_1_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:596558",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Keglord Garnier Mk. XXIII",
+      "knowledgeKey": 1003685,
+      "gameName": "Knowledge_Visione_Chip_BaronBarrel",
+      "uuid": [
+        1295625474,
+        1450447200,
+        2543175484,
+        0
+      ],
+      "gamePosition": [
+        -8246.05,
+        513.63,
+        -3102.85
+      ],
+      "level": "sector_-33_-13_sub_2_15",
+      "region": "Demeniss",
+      "mapGenieId": "mg:941094",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Abandoned Mining Village",
+      "knowledgeKey": 1003686,
+      "gameName": "Knowledge_Visione_Chip_AbandonedMineVillage",
+      "uuid": [
+        2635881598,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -12791.17,
+        950.45,
+        -5798.73
+      ],
+      "level": "sector_-50_-23_sub_1_0",
+      "region": "Hernand",
+      "mapGenieId": "mg:554479",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Desert Shipwreck",
+      "knowledgeKey": 1003688,
+      "gameName": "Knowledge_Visione_Chip_DesertShipwreck",
+      "uuid": [
+        4169493703,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4371.78,
+        663.96,
+        1881.78
+      ],
+      "level": "sector_-18_7",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:565562",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Oasis Headstone",
+      "knowledgeKey": 1003689,
+      "gameName": "Knowledge_Visione_Chip_OasisMonument",
+      "uuid": [
+        4246310563,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4550.77,
+        646.23,
+        3049.69
+      ],
+      "level": "sector_-18_11_sub_1_2",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:555144",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Pit of Death",
+      "knowledgeKey": 1003691,
+      "gameName": "Knowledge_Visione_Chip_DeathSandpit",
+      "uuid": [
+        4276205494,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7807.97,
+        641.57,
+        13.66
+      ],
+      "level": "sector_-31_0_sub_1_0",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:554869",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Unstable Rock",
+      "knowledgeKey": 1003692,
+      "gameName": "Knowledge_Visione_Chip_PrecariousRock",
+      "uuid": [
+        4148263894,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5110.49,
+        688.79,
+        -494.72
+      ],
+      "level": "sector_-20_-2_sub_1_0",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:596667",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Mushroom Rock",
+      "knowledgeKey": 1003693,
+      "gameName": "Knowledge_Visione_Chip_MushroomRock",
+      "uuid": [
+        4175303928,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4616.18,
+        668.16,
+        1632.96
+      ],
+      "level": "sector_-19_6_sub_1_1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:591936",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Garden of the Gods",
+      "knowledgeKey": 1003694,
+      "gameName": "Knowledge_Visione_Chip_GodsGarden",
+      "uuid": [
+        4180569016,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6882.91,
+        969.31,
+        42.15
+      ],
+      "level": "sector_-27_0_sub_1_0",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:561190",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Empty Grave",
+      "knowledgeKey": 1003695,
+      "gameName": "Knowledge_Visione_Chip_OwnerlessGrave",
+      "uuid": [
+        642972320,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -3672.61,
+        403.23,
+        -4911.54
+      ],
+      "level": "sector_-15_-20_sub_1_3",
+      "region": "Delesyia",
+      "mapGenieId": "mg:572001",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Dead Tree",
+      "knowledgeKey": 1003696,
+      "gameName": "Knowledge_Visione_Chip_DeadTree",
+      "uuid": [
+        92434482,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7254.05,
+        588.95,
+        -1584.09
+      ],
+      "level": "sector_-29_-7_sub_1_3",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:560448",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Square Rock",
+      "knowledgeKey": 1003697,
+      "gameName": "Knowledge_Visione_Chip_RectangularStone",
+      "uuid": [
+        4285814303,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6079.1,
+        589.1,
+        998.61
+      ],
+      "level": "sector_-24_3",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:565554",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Ruins Excavation",
+      "knowledgeKey": 1003698,
+      "gameName": "Knowledge_Visione_Chip_RuinsSite",
+      "uuid": [
+        107046553,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4220.4,
+        617.12,
+        -779.23
+      ],
+      "level": "sector_-17_-4_sub_3_58",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:562336",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Iguana Hatchery",
+      "knowledgeKey": 1003699,
+      "gameName": "Knowledge_Visione_Chip_IguanaHatchery",
+      "uuid": [
+        123737266,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5961.85,
+        659.7,
+        302.83
+      ],
+      "level": "sector_-24_1_sub_1_1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:596663",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Barrick's Hideout",
+      "knowledgeKey": 1003700,
+      "gameName": "Knowledge_Visione_Chip_Bariklair",
+      "uuid": [
+        110324992,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -3715.99,
+        575.36,
+        -1207.21
+      ],
+      "level": "sector_-15_-5_sub_1_1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:596568",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Mossy Generator",
+      "knowledgeKey": 1003701,
+      "gameName": "Knowledge_Visione_Chip_MossyGenerator",
+      "uuid": [
+        3557151196,
+        1591218403,
+        1150148307,
+        0
+      ],
+      "gamePosition": [
+        -3496.09,
+        357.38,
+        -4663.72
+      ],
+      "level": "sector_-14_-19_sub_2_11",
+      "region": "Delesyia",
+      "mapGenieId": "mg:606563",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Mistwood Hunters' Hideout",
+      "knowledgeKey": 1003703,
+      "gameName": "Knowledge_Visione_Chip_EntHunterLair",
+      "uuid": [
+        316581018,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9938.47,
+        691.85,
+        748.14
+      ],
+      "level": "sector_-39_2_sub_1_2",
+      "region": "Pailune",
+      "mapGenieId": "mg:553903",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Ridgehunter Tannery",
+      "knowledgeKey": 1003704,
+      "gameName": "Knowledge_Visione_Chip_RidgehunterLeatherMaker",
+      "uuid": [
+        335524318,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11475.91,
+        724.35,
+        -408.17
+      ],
+      "level": "sector_-45_-2_sub_3_9",
+      "region": "Pailune",
+      "mapGenieId": "mg:557483",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Coast Windmill Shipwreck",
+      "knowledgeKey": 1003706,
+      "gameName": "Knowledge_Visione_Chip_WindmillCoastShipWreck",
+      "uuid": [
+        585358655,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4129.37,
+        350.83,
+        -4449.02
+      ],
+      "level": "sector_-17_-18_sub_1_3",
+      "region": "Delesyia",
+      "mapGenieId": "mg:554978",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Stonemire Ruins",
+      "knowledgeKey": 1003707,
+      "gameName": "Knowledge_Visione_Chip_StonemireRuins",
+      "uuid": [
+        593183861,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4779.83,
+        387.76,
+        -4568.62
+      ],
+      "level": "sector_-19_-18_sub_1_0",
+      "region": "Delesyia",
+      "mapGenieId": "mg:941123",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Gorgerock Watchtower",
+      "knowledgeKey": 1003708,
+      "gameName": "Knowledge_Visione_Chip_ValleyRockWatchTower",
+      "uuid": [
+        130889849,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5390.17,
+        528.86,
+        -1884.33
+      ],
+      "level": "sector_-22_-8_sub_1_3",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:595963",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Savage Fangs Monument",
+      "knowledgeKey": 1003709,
+      "gameName": "Knowledge_Visione_Chip_SavageFangStele",
+      "uuid": [
+        160016288,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5073.0,
+        492.88,
+        -1813.84
+      ],
+      "level": "sector_-20_-8_sub_2_10",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:596242",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Reventine Winery",
+      "knowledgeKey": 1003710,
+      "gameName": "Knowledge_Visione_Chip_ReventineWinery",
+      "uuid": [
+        3621551652,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9464.8,
+        615.73,
+        -3006.52
+      ],
+      "level": "sector_-37_-12_sub_2_2",
+      "region": "Demeniss",
+      "mapGenieId": "mg:556689",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Hayroof Farm Windmill",
+      "knowledgeKey": 1003711,
+      "gameName": "Knowledge_Visione_Chip_HayroofFarmWindmill",
+      "uuid": [
+        3920024420,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7806.02,
+        544.0,
+        -3382.56
+      ],
+      "level": "sector_-31_-14_sub_3_50",
+      "region": "Demeniss",
+      "mapGenieId": "mg:560344",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Horseshoe Lake Burrow",
+      "knowledgeKey": 1003712,
+      "gameName": "Knowledge_Visione_Chip_HoopLakeCave",
+      "uuid": [
+        3659479163,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6323.12,
+        397.94,
+        -3525.29
+      ],
+      "level": "sector_-25_-14_sub_1_0",
+      "region": "Demeniss",
+      "mapGenieId": "mg:555119",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Cabin by the Waterfall",
+      "knowledgeKey": 1003713,
+      "gameName": "Knowledge_Visione_Chip_WaterFallsCabin",
+      "uuid": [
+        569167448,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6313.7,
+        400.24,
+        -4491.22
+      ],
+      "level": "sector_-25_-18_sub_2_3",
+      "region": "Delesyia",
+      "mapGenieId": "mg:554077",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Restricted Area",
+      "knowledgeKey": 1003714,
+      "gameName": "Knowledge_Visione_Chip_NoEenterZone",
+      "uuid": [
+        3700342926,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7049.12,
+        351.29,
+        -5171.94
+      ],
+      "level": "sector_-28_-21_sub_1_2",
+      "region": "Delesyia",
+      "mapGenieId": "mg:561589",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Future of Demeniss",
+      "knowledgeKey": 1003715,
+      "gameName": "Knowledge_Visione_Chip_DemenissFuture",
+      "uuid": [
+        3912833124,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8090.06,
+        554.62,
+        -3463.79
+      ],
+      "level": "sector_-32_-14_sub_2_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557647",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "The Life-Devouring Rock",
+      "knowledgeKey": 1003716,
+      "gameName": "Knowledge_Visione_Chip_EndlessDanger",
+      "uuid": [
+        1873409244,
+        1450447635,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9415.96,
+        614.51,
+        -5065.16
+      ],
+      "level": "sector_-37_-20",
+      "region": "Hernand",
+      "mapGenieId": "mg:947250",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Blocked Supply Route",
+      "knowledgeKey": 1003717,
+      "gameName": "Knowledge_Visione_Chip_BlockedSupply",
+      "uuid": [
+        3422465888,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10545.06,
+        655.66,
+        -3817.13
+      ],
+      "level": "sector_-42_-15_sub_3_19",
+      "region": "Hernand",
+      "mapGenieId": "mg:555105",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Goblins of Fort Hellwood",
+      "knowledgeKey": 1003718,
+      "gameName": "Knowledge_Visione_Chip_HellWoodFortGoblin",
+      "uuid": [
+        3430161130,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10564.83,
+        660.33,
+        -3797.06
+      ],
+      "level": "sector_-42_-15_sub_3_19",
+      "region": "Hernand",
+      "mapGenieId": "mg:555107",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Oakenshield Manor Reception Room",
+      "knowledgeKey": 1003719,
+      "gameName": "Knowledge_Visione_Chip_OakenshieldManorhall",
+      "uuid": [
+        3441113422,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10747.51,
+        625.77,
+        -3896.42
+      ],
+      "level": "sector_-42_-16_sub_2_8",
+      "region": "Hernand",
+      "mapGenieId": "mg:546902",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Bluemont Manor Alley",
+      "knowledgeKey": 1003720,
+      "gameName": "Knowledge_Visione_Chip_BluemontManorAlley",
+      "uuid": [
+        3445443690,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10716.83,
+        617.24,
+        -3902.58
+      ],
+      "level": "sector_-42_-16_sub_2_8",
+      "region": "Hernand",
+      "mapGenieId": "mg:551769",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Antumbra's Ritual Site",
+      "knowledgeKey": 1003722,
+      "gameName": "Knowledge_Visione_Chip_AntumbraAltar",
+      "uuid": [
+        273777448,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9736.04,
+        620.41,
+        -479.48
+      ],
+      "level": "sector_-39_-2_sub_1_1",
+      "region": "Pailune",
+      "mapGenieId": "mg:557519",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Turquoise Rock Pools",
+      "knowledgeKey": 1003723,
+      "gameName": "Knowledge_Visione_Chip_SkyBluePool",
+      "uuid": [
+        4282382960,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -3811.95,
+        589.65,
+        2979.09
+      ],
+      "level": "sector_-15_11",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:558064",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Desolate Monolith Altar",
+      "knowledgeKey": 1003724,
+      "gameName": "Knowledge_Visione_Chip_StoneAltar",
+      "uuid": [
+        4165458980,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4535.04,
+        660.21,
+        176.18
+      ],
+      "level": "sector_-18_0",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:558047",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "A Painter's Regret",
+      "knowledgeKey": 1003727,
+      "gameName": "Knowledge_Visione_Chip_PainterRegret",
+      "uuid": [
+        608628718,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4356.69,
+        383.02,
+        -3995.39
+      ],
+      "level": "sector_-18_-16_sub_2_7",
+      "region": "Delesyia",
+      "mapGenieId": "mg:570051",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Wings of Steel",
+      "knowledgeKey": 1003728,
+      "gameName": "Knowledge_Visione_Chip_IronWing",
+      "uuid": [
+        603877129,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4403.95,
+        384.01,
+        -3959.09
+      ],
+      "level": "sector_-18_-16_sub_3_49",
+      "region": "Delesyia",
+      "mapGenieId": "mg:549891",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Bell of Delesyia",
+      "knowledgeKey": 1003729,
+      "gameName": "Knowledge_Visione_Chip_DelesyiaBell",
+      "uuid": [
+        600457253,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4443.22,
+        406.94,
+        -3879.03
+      ],
+      "level": "sector_-18_-16_sub_3_56",
+      "region": "Delesyia",
+      "mapGenieId": "mg:554936",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Mental Reconditioning",
+      "knowledgeKey": 1003730,
+      "gameName": "Knowledge_Visione_Chip_MentalCareRoom",
+      "uuid": [
+        612057605,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4394.61,
+        409.62,
+        -3805.5
+      ],
+      "level": "sector_-18_-15_sub_3_28",
+      "region": "Delesyia",
+      "mapGenieId": "mg:570052",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Vat'nholl Camp",
+      "knowledgeKey": 1003731,
+      "gameName": "Knowledge_Visione_Chip_VatnhollCamp",
+      "uuid": [
+        323120636,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -12180.65,
+        714.81,
+        -764.55
+      ],
+      "level": "sector_-48_-3_sub_2_1",
+      "region": "Pailune",
+      "mapGenieId": "mg:555183",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Snowy Plains Hearth",
+      "knowledgeKey": 1003732,
+      "gameName": "Knowledge_Visione_Chip_MerchantRefuge",
+      "uuid": [
+        327126696,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -12174.09,
+        706.69,
+        -888.48
+      ],
+      "level": "sector_-48_-4_sub_2_6",
+      "region": "Pailune",
+      "mapGenieId": "mg:552013",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Giant Bone Pile",
+      "knowledgeKey": 1003733,
+      "gameName": "Knowledge_Visione_Chip_DinosaurBones",
+      "uuid": [
+        149204592,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4716.24,
+        470.08,
+        -2471.09
+      ],
+      "level": "sector_-19_-10_sub_1_1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:554075",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Path of Giant Bones",
+      "knowledgeKey": 1003734,
+      "gameName": "Knowledge_Visione_Chip_RordOfBones",
+      "uuid": [
+        4269840173,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5129.82,
+        661.07,
+        -182.55
+      ],
+      "level": "sector_-21_-1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:558336",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Dolmen",
+      "knowledgeKey": 1003735,
+      "gameName": "Knowledge_Visione_Chip_Bolmen",
+      "uuid": [
+        620030666,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4505.33,
+        409.4,
+        -3024.37
+      ],
+      "level": "sector_-18_-12_sub_1_0",
+      "region": "Delesyia",
+      "mapGenieId": "mg:595967",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Timberdale Cabin",
+      "knowledgeKey": 1003736,
+      "gameName": "Knowledge_Visione_Chip_LoggingCabin",
+      "uuid": [
+        615968159,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6415.72,
+        416.87,
+        -4512.91
+      ],
+      "level": "sector_-26_-18_sub_1_1",
+      "region": "Delesyia",
+      "mapGenieId": "mg:556925",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Rockshard Valley Ruins",
+      "knowledgeKey": 1003737,
+      "gameName": "Knowledge_Visione_Chip_RockCreviceRuinse",
+      "uuid": [
+        114162189,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4416.4,
+        673.21,
+        -298.91
+      ],
+      "level": "sector_-18_-2_sub_2_14",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:596680",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Withered Path",
+      "knowledgeKey": 1003738,
+      "gameName": "Knowledge_Visione_Chip_DeadTreeRoad",
+      "uuid": [
+        82599080,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7670.82,
+        663.88,
+        -717.75
+      ],
+      "level": "sector_-30_-3_sub_1_0",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:562489",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Empty House of Arcosa",
+      "knowledgeKey": 1003739,
+      "gameName": "Knowledge_Visione_Chip_ArcosaHouse",
+      "uuid": [
+        86205305,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5614.15,
+        530.69,
+        -1856.62
+      ],
+      "level": "sector_-22_-8_sub_3_35",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:596621",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Old Battlefield",
+      "knowledgeKey": 1003740,
+      "gameName": "Knowledge_Visione_Chip_OldBattlefield",
+      "uuid": [
+        254601948,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9062.37,
+        694.04,
+        348.65
+      ],
+      "level": "sector_-36_1_sub_1_1",
+      "region": "Pailune",
+      "mapGenieId": "mg:571824",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Blood-Soaked Gravestone",
+      "knowledgeKey": 1003741,
+      "gameName": "Knowledge_Visione_Chip_BloodTombstone",
+      "uuid": [
+        4009523075,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5343.21,
+        511.51,
+        -5040.24
+      ],
+      "level": "sector_-21_-20_sub_1_0",
+      "region": "Delesyia",
+      "mapGenieId": "mg:562277",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Clifftop Coffin",
+      "knowledgeKey": 1003742,
+      "gameName": "Knowledge_Visione_Chip_precipicecoffin",
+      "uuid": [
+        626644724,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4281.1,
+        392.53,
+        -3557.54
+      ],
+      "level": "sector_-17_-14",
+      "region": "Delesyia",
+      "mapGenieId": "mg:595933",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Jungle Ruins",
+      "knowledgeKey": 1003745,
+      "gameName": "Knowledge_Visione_Chip_JungleRuins",
+      "uuid": [
+        152784623,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4468.28,
+        570.6,
+        -1569.35
+      ],
+      "level": "sector_-18_-7_sub_2_14",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:595950",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Rockveil Ruins",
+      "knowledgeKey": 1003746,
+      "gameName": "Knowledge_Visione_Chip_RockshroudRuins",
+      "uuid": [
+        156700703,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4989.8,
+        553.37,
+        -1636.83
+      ],
+      "level": "sector_-20_-7_sub_1_3",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:595970",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Remote Ruins",
+      "knowledgeKey": 1003747,
+      "gameName": "Knowledge_Visione_Chip_BursadaIslandRuins",
+      "uuid": [
+        134609328,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4429.6,
+        466.1,
+        -2383.07
+      ],
+      "level": "sector_-18_-10_sub_1_1",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:570812",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Burial Mound",
+      "knowledgeKey": 1003748,
+      "gameName": "Knowledge_Visione_Chip_ZianeTomb",
+      "uuid": [
+        251558585,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9713.59,
+        665.34,
+        474.72
+      ],
+      "level": "sector_-38_1_sub_2_8",
+      "region": "Pailune",
+      "mapGenieId": "mg:553925",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Shipwreck Oak Barrel",
+      "knowledgeKey": 1003749,
+      "gameName": "Knowledge_Visione_Chip_ShipWreckOakBarrel",
+      "uuid": [
+        258597462,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10284.42,
+        651.81,
+        1139.53
+      ],
+      "level": "sector_-41_4_sub_1_1",
+      "region": "Pailune",
+      "mapGenieId": "mg:571846",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Silverbrook Ruins",
+      "knowledgeKey": 1003750,
+      "gameName": "Knowledge_Visione_Chip_SilverbrookRuins",
+      "uuid": [
+        573118309,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -5288.07,
+        393.45,
+        -4038.64
+      ],
+      "level": "sector_-21_-16_sub_2_1",
+      "region": "Delesyia",
+      "mapGenieId": "mg:549900",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Wooden Pavillion",
+      "knowledgeKey": 1003751,
+      "gameName": "Knowledge_Visione_Chip_WoodenGazebo",
+      "uuid": [
+        589297307,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4592.28,
+        368.81,
+        -3891.68
+      ],
+      "level": "sector_-18_-16_sub_2_8",
+      "region": "Delesyia",
+      "mapGenieId": "mg:561846",
+      "kind": "plain",
+      "placements": 2
+    },
+    {
+      "name": "Pailune Secret Vault",
+      "knowledgeKey": 1003752,
+      "gameName": "Knowledge_Visione_Chip_PailuneSecretBase",
+      "uuid": [
+        729861354,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10364.62,
+        720.0,
+        835.65
+      ],
+      "level": "sector_-41_3_sub_1_1",
+      "region": "Pailune",
+      "mapGenieId": "mg:555061",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Eerie Pit",
+      "knowledgeKey": 1003753,
+      "gameName": "Knowledge_Visione_Chip_ScaryHole",
+      "uuid": [
+        738956951,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10644.22,
+        688.41,
+        936.31
+      ],
+      "level": "sector_-42_3_sub_2_9",
+      "region": "Pailune",
+      "mapGenieId": "mg:561690",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Hunters of Odeck",
+      "knowledgeKey": 1003754,
+      "gameName": "Knowledge_Visione_Chip_OdeckHunterCamp",
+      "uuid": [
+        744547401,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10641.3,
+        687.62,
+        959.34
+      ],
+      "level": "sector_-42_3_sub_2_11",
+      "region": "Pailune",
+      "mapGenieId": "mg:557547",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Cliff Edge Altar",
+      "knowledgeKey": 1003755,
+      "gameName": "Knowledge_Visione_Chip_EdgeAltar",
+      "uuid": [
+        3651497726,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7299.82,
+        540.93,
+        -4642.93
+      ],
+      "level": "sector_-29_-19_sub_2_11",
+      "region": "Demeniss",
+      "mapGenieId": "mg:552996",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Hayroof Farm Fireflies",
+      "knowledgeKey": 1003756,
+      "gameName": "Knowledge_Visione_Chip_FireFlySwarm",
+      "uuid": [
+        3638203629,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6997.96,
+        547.82,
+        -2332.12
+      ],
+      "level": "sector_-28_-10_sub_2_14",
+      "region": "Demeniss",
+      "mapGenieId": "mg:597461",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Demeniss Cabin",
+      "knowledgeKey": 1003758,
+      "gameName": "Knowledge_Visione_Chip_DemenissCabin",
+      "uuid": [
+        3690921653,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6675.89,
+        370.58,
+        -4413.92
+      ],
+      "level": "sector_-27_-18_sub_3_51",
+      "region": "Delesyia",
+      "mapGenieId": "mg:557004",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Weeping Rocks",
+      "knowledgeKey": 1003759,
+      "gameName": "Knowledge_Visione_Chip_CryingRock",
+      "uuid": [
+        3679622659,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8750.98,
+        634.48,
+        -1298.08
+      ],
+      "level": "sector_-35_-6_sub_1_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:554840",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Grave of Warriors' Axes",
+      "knowledgeKey": 1003760,
+      "gameName": "Knowledge_Visione_Chip_VikingTomb",
+      "uuid": [
+        284146382,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10046.3,
+        758.31,
+        -828.3
+      ],
+      "level": "sector_-40_-4_sub_1_3",
+      "region": "Pailune",
+      "mapGenieId": "mg:559630",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Inside of the Delesyian Institute",
+      "knowledgeKey": 1003761,
+      "gameName": "Knowledge_Visione_Chip_DelesiaAcademy",
+      "uuid": [
+        596988755,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4392.14,
+        389.96,
+        -3984.05
+      ],
+      "level": "sector_-18_-16_sub_3_27",
+      "region": "Delesyia",
+      "mapGenieId": "mg:549887",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Eldertree Research Camp",
+      "knowledgeKey": 1003762,
+      "gameName": "Knowledge_Visione_Chip_GodTreeCamp",
+      "uuid": [
+        3710660581,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7570.4,
+        410.43,
+        -5486.15
+      ],
+      "level": "sector_-30_-22_sub_3_15",
+      "region": "Demeniss",
+      "mapGenieId": "mg:551677",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "The Skull Collector's Wagon",
+      "knowledgeKey": 1003763,
+      "gameName": "Knowledge_Visione_Chip_BoneCollectorWagon",
+      "uuid": [
+        4014255481,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4703.39,
+        372.2,
+        -3418.97
+      ],
+      "level": "sector_-19_-14_sub_1_3",
+      "region": "Delesyia",
+      "mapGenieId": "mg:560129",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "An Experiment to Reach Marni",
+      "knowledgeKey": 1003764,
+      "gameName": "Knowledge_Visione_Chip_TestToMarni",
+      "uuid": [
+        580293070,
+        1450447134,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -3025.94,
+        463.27,
+        -4558.33
+      ],
+      "level": "sector_-12_-18_sub_3_9",
+      "region": "Delesyia",
+      "mapGenieId": "mg:563442",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Vellua Hill Archery Range",
+      "knowledgeKey": 1003765,
+      "gameName": "Knowledge_Visione_Chip_ArcheryRange",
+      "uuid": [
+        3714478392,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10278.81,
+        434.36,
+        -5878.55
+      ],
+      "level": "sector_-41_-23_sub_2_5",
+      "region": "Hernand",
+      "mapGenieId": "mg:555203",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Stories of the Maids",
+      "knowledgeKey": 1003766,
+      "gameName": "Knowledge_Visione_Chip_MaidsTales",
+      "uuid": [
+        3722242480,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8099.48,
+        554.61,
+        -3493.16
+      ],
+      "level": "sector_-32_-14_sub_2_3",
+      "region": "Demeniss",
+      "mapGenieId": "mg:557653",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Wrecked Trading Ship",
+      "knowledgeKey": 1003767,
+      "gameName": "Knowledge_Visione_Chip_WreckedTradingShip",
+      "uuid": [
+        3694928593,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -6975.93,
+        350.49,
+        -4804.03
+      ],
+      "level": "sector_-28_-19_sub_1_1",
+      "region": "Delesyia",
+      "mapGenieId": "mg:556923",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Bountiful Harvest",
+      "knowledgeKey": 1003769,
+      "gameName": "Knowledge_Visione_Chip_BumperCrop",
+      "uuid": [
+        3930492687,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8329.59,
+        533.93,
+        -3239.59
+      ],
+      "level": "sector_-33_-13_sub_3_26",
+      "region": "Demeniss",
+      "mapGenieId": "mg:549912",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Brookfield Manor",
+      "knowledgeKey": 1003770,
+      "gameName": "Knowledge_Visione_Chip_BrookFieldManor",
+      "uuid": [
+        3923650934,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7797.98,
+        538.75,
+        -3379.77
+      ],
+      "level": "sector_-31_-14_sub_3_50",
+      "region": "Demeniss",
+      "mapGenieId": "mg:560345",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Lioncrest Manor",
+      "knowledgeKey": 1003771,
+      "gameName": "Knowledge_Visione_Chip_LioncrestManor",
+      "uuid": [
+        3449364191,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10845.96,
+        654.88,
+        -3737.75
+      ],
+      "level": "sector_-43_-15_sub_3_26",
+      "region": "Hernand",
+      "mapGenieId": "mg:547529",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Dante and the Bleed",
+      "knowledgeKey": 1003772,
+      "gameName": "Knowledge_Visione_Chip_DanteAndBleed",
+      "uuid": [
+        2606692688,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10511.18,
+        554.67,
+        -4110.06
+      ],
+      "level": "sector_-42_-17_sub_3_54",
+      "region": "Hernand",
+      "mapGenieId": "mg:551939",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Lioncrest Watchtower",
+      "knowledgeKey": 1003773,
+      "gameName": "Knowledge_Visione_Chip_UpLionTower",
+      "uuid": [
+        2613130894,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10970.07,
+        661.51,
+        -3931.7
+      ],
+      "level": "sector_-43_-16_sub_3_35",
+      "region": "Hernand",
+      "mapGenieId": "mg:553624",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Broken Raft",
+      "knowledgeKey": 1003774,
+      "gameName": "Knowledge_Visione_Chip_BrokenRaft",
+      "uuid": [
+        3707071888,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8920.85,
+        351.22,
+        -6483.92
+      ],
+      "level": "sector_-35_-26",
+      "region": "Demeniss",
+      "mapGenieId": "mg:553730",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Fireside Story",
+      "knowledgeKey": 1003775,
+      "gameName": "Knowledge_Visione_Chip_FiresideTale",
+      "uuid": [
+        3927130701,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -8341.17,
+        538.43,
+        -3250.85
+      ],
+      "level": "sector_-33_-13_sub_3_24",
+      "region": "Demeniss",
+      "mapGenieId": "mg:549911",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Report on Roothold",
+      "knowledgeKey": 1003776,
+      "gameName": "Knowledge_Visione_Chip_RootFortress",
+      "uuid": [
+        3417476099,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10547.4,
+        642.93,
+        -3804.46
+      ],
+      "level": "sector_-42_-15_sub_3_19",
+      "region": "Hernand",
+      "mapGenieId": "mg:546889",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Riverward Outpost Dispatch",
+      "knowledgeKey": 1003777,
+      "gameName": "Knowledge_Visione_Chip_RiverwardOutpost",
+      "uuid": [
+        3435599489,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -10560.24,
+        642.94,
+        -3777.84
+      ],
+      "level": "sector_-42_-15_sub_3_25",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Mysterious Giant Tower",
+      "knowledgeKey": 1003778,
+      "gameName": "Knowledge_Visione_Chip_MysteryTower",
+      "uuid": [
+        2617004609,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11371.87,
+        817.97,
+        -3508.85
+      ],
+      "level": "sector_-45_-14_sub_1_1",
+      "region": "Hernand",
+      "mapGenieId": "mg:555260",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Stone Lantern Keeper's Patrol",
+      "knowledgeKey": 1003781,
+      "gameName": "Knowledge_Visione_Chip_LampkeeperPatrol",
+      "uuid": [
+        2627997809,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -11392.37,
+        795.37,
+        -2957.88
+      ],
+      "level": "sector_-45_-12_sub_2_6",
+      "region": "Hernand",
+      "mapGenieId": "mg:546188",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Ruler of the Oasis",
+      "knowledgeKey": 1003782,
+      "gameName": "Knowledge_Visione_Chip_DesertCrocodile",
+      "uuid": [
+        4157723433,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -4169.73,
+        625.41,
+        996.67
+      ],
+      "level": "sector_-17_3",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:553656",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Smugglers' Dock",
+      "knowledgeKey": 1003783,
+      "gameName": "Knowledge_Visione_Chip_SmugglerDock",
+      "uuid": [
+        3687690112,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -7253.26,
+        400.93,
+        -3859.9
+      ],
+      "level": "sector_-29_-16_sub_2_14",
+      "region": "Demeniss",
+      "mapGenieId": "mg:553675",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Meteorite",
+      "knowledgeKey": 1003784,
+      "gameName": "Knowledge_Visione_Chip_Meteor",
+      "uuid": [
+        2516260590,
+        1450447133,
+        912704316,
+        0
+      ],
+      "gamePosition": [
+        -9593.32,
+        614.48,
+        -3562.23
+      ],
+      "level": "sector_-38_-14_sub_1_0",
+      "region": "Hernand",
+      "mapGenieId": "mg:550088",
+      "kind": "plain",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #1",
+      "knowledgeKey": 1005014,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0001",
+      "uuid": [
+        68894838,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -10541.03,
+        1796.83,
+        -3824.39
+      ],
+      "level": "visione_chip",
+      "region": "Abyss",
+      "mapGenieId": "mg:1044113",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #2",
+      "knowledgeKey": 1005015,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0002",
+      "uuid": [
+        82529751,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -12113.73,
+        1837.59,
+        -6.24
+      ],
+      "level": "visione_chip",
+      "region": "Abyss",
+      "mapGenieId": "mg:1044097",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #3",
+      "knowledgeKey": 1005016,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0003",
+      "uuid": [
+        86165412,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9827.77,
+        645.35,
+        5.37
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:944592",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #4",
+      "knowledgeKey": 1005017,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0004",
+      "uuid": [
+        96079245,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9410.04,
+        779.2,
+        146.26
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:949202",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #5",
+      "knowledgeKey": 1005018,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0005",
+      "uuid": [
+        101387753,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -10280.27,
+        579.62,
+        -5154.58
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:954956",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #7",
+      "knowledgeKey": 1005019,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0006",
+      "uuid": [
+        112106574,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -10527.58,
+        596.97,
+        -3452.33
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:944607",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #8",
+      "knowledgeKey": 1005020,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0007",
+      "uuid": [
+        117043568,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -10360.46,
+        535.56,
+        -4010.4
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:948080",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #16",
+      "knowledgeKey": 1005021,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0008",
+      "uuid": [
+        122200414,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -11334.66,
+        778.57,
+        -696.63
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:942668",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #17",
+      "knowledgeKey": 1005022,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0009",
+      "uuid": [
+        127467934,
+        1450447410,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -8033.62,
+        416.64,
+        -3844.03
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #18",
+      "knowledgeKey": 1005023,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0010",
+      "uuid": [
+        872716481,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7796.31,
+        629.91,
+        -1462.55
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #19",
+      "knowledgeKey": 1005024,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0011",
+      "uuid": [
+        1303110418,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7617.41,
+        599.03,
+        -2070.33
+      ],
+      "level": "visione_chip",
+      "region": "Demeniss",
+      "mapGenieId": "mg:957102",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #25",
+      "knowledgeKey": 1005025,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0012",
+      "uuid": [
+        1307284738,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -8612.46,
+        486.11,
+        -4939.46
+      ],
+      "level": "visione_chip",
+      "region": "Demeniss",
+      "mapGenieId": "mg:942665",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #26",
+      "knowledgeKey": 1005026,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0013",
+      "uuid": [
+        1310824911,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9518.53,
+        630.68,
+        -201.59
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #35",
+      "knowledgeKey": 1005027,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0014",
+      "uuid": [
+        1314317052,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9765.65,
+        633.52,
+        -72.5
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:943186",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #36",
+      "knowledgeKey": 1005028,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0015",
+      "uuid": [
+        1316632012,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9681.14,
+        663.8,
+        348.29
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:1044510",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #38",
+      "knowledgeKey": 1005029,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0016",
+      "uuid": [
+        1320971545,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7930.38,
+        528.62,
+        -3234.39
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #39",
+      "knowledgeKey": 1005030,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0017",
+      "uuid": [
+        1324178274,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9652.76,
+        659.54,
+        199.49
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:1043014",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #45",
+      "knowledgeKey": 1005031,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0018",
+      "uuid": [
+        1326605524,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -10717.87,
+        994.8,
+        110.37
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #46",
+      "knowledgeKey": 1005032,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0019",
+      "uuid": [
+        1328795726,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9555.03,
+        617.01,
+        -808.82
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:943743",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #47",
+      "knowledgeKey": 1005033,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0020",
+      "uuid": [
+        1332447781,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -12636.46,
+        961.42,
+        -3350.14
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:941902",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #48",
+      "knowledgeKey": 1005034,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0021",
+      "uuid": [
+        688658140,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -4469.71,
+        383.4,
+        -3933.04
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #53",
+      "knowledgeKey": 1005035,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0022",
+      "uuid": [
+        710459107,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -8065.34,
+        554.54,
+        -3531.54
+      ],
+      "level": "visione_chip",
+      "region": "Demeniss",
+      "mapGenieId": "mg:1044521",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #54",
+      "knowledgeKey": 1005036,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0023",
+      "uuid": [
+        713588966,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7885.82,
+        1982.6,
+        -552.64
+      ],
+      "level": "visione_chip",
+      "region": "Abyss",
+      "mapGenieId": "mg:1044064",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #59",
+      "knowledgeKey": 1005037,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0024",
+      "uuid": [
+        715492592,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -6469.03,
+        538.59,
+        -2169.45
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #60",
+      "knowledgeKey": 1005038,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0025",
+      "uuid": [
+        719724227,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -6492.36,
+        568.74,
+        -1924.73
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #61",
+      "knowledgeKey": 1005039,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0026",
+      "uuid": [
+        820814342,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -10092.67,
+        748.75,
+        812.36
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #62",
+      "knowledgeKey": 1005040,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0027",
+      "uuid": [
+        851273218,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -12725.63,
+        1029.11,
+        -2873.69
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:944568",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #66",
+      "knowledgeKey": 1005041,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0028",
+      "uuid": [
+        861343941,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7645.35,
+        604.19,
+        -4867.3
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #67",
+      "knowledgeKey": 1005042,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0029",
+      "uuid": [
+        865708315,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -12018.68,
+        882.16,
+        -4766.38
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:943109",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #71",
+      "knowledgeKey": 1005043,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0030",
+      "uuid": [
+        868296055,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -12080.83,
+        860.98,
+        -5010.14
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:943739",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #72",
+      "knowledgeKey": 1005044,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0031",
+      "uuid": [
+        2014975192,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -8412.82,
+        536.26,
+        -2640.97
+      ],
+      "level": "visione_chip",
+      "region": "Demeniss",
+      "mapGenieId": "mg:555557",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #77",
+      "knowledgeKey": 1005045,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0032",
+      "uuid": [
+        2018554534,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7192.2,
+        591.85,
+        -1232.16
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #78",
+      "knowledgeKey": 1005046,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0033",
+      "uuid": [
+        2020095288,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9841.12,
+        614.5,
+        -2815.3
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:942158",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #82",
+      "knowledgeKey": 1005047,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0034",
+      "uuid": [
+        2021722004,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9446.75,
+        617.81,
+        -1087.17
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:943187",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #83",
+      "knowledgeKey": 1005048,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0035",
+      "uuid": [
+        2023438460,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -9729.91,
+        621.68,
+        -454.38
+      ],
+      "level": "visione_chip",
+      "region": "Pailune",
+      "mapGenieId": "mg:949206",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #89",
+      "knowledgeKey": 1005049,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0036",
+      "uuid": [
+        2026436790,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -6524.25,
+        971.55,
+        79.12
+      ],
+      "level": "visione_chip",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:941903",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #90",
+      "knowledgeKey": 1005050,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0037",
+      "uuid": [
+        2028901985,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -10729.45,
+        605.1,
+        -3988.65
+      ],
+      "level": "visione_chip",
+      "region": "Hernand",
+      "mapGenieId": "mg:941901",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #98",
+      "knowledgeKey": 1005051,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0038",
+      "uuid": [
+        2032987129,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7465.76,
+        541.96,
+        -4814.25
+      ],
+      "level": "visione_chip",
+      "region": null,
+      "mapGenieId": null,
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #99",
+      "knowledgeKey": 1005052,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0039",
+      "uuid": [
+        2035333800,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7826.43,
+        1967.78,
+        -501.62
+      ],
+      "level": "visione_chip",
+      "region": "Abyss",
+      "mapGenieId": "mg:1044063",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #100",
+      "knowledgeKey": 1005053,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0040",
+      "uuid": [
+        2037435988,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7478.49,
+        453.18,
+        -4599.24
+      ],
+      "level": "visione_chip",
+      "region": "Demeniss",
+      "mapGenieId": "mg:943740",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #106",
+      "knowledgeKey": 1005054,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0041",
+      "uuid": [
+        2040031894,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -6831.91,
+        991.83,
+        -68.19
+      ],
+      "level": "visione_chip",
+      "region": "Crimson Desert",
+      "mapGenieId": "mg:1044520",
+      "kind": "journal",
+      "placements": 1
+    },
+    {
+      "name": "Archive Entry #107",
+      "knowledgeKey": 1005055,
+      "gameName": "Knowledge_Visione_Chip_Alustin_Journal_0042",
+      "uuid": [
+        2046852597,
+        1450447415,
+        1578688572,
+        0
+      ],
+      "gamePosition": [
+        -7764.19,
+        2335.79,
+        -2293.54
+      ],
+      "level": "visione_chip",
+      "region": "Abyss",
+      "mapGenieId": "mg:1044121",
+      "kind": "journal",
+      "placements": 1
+    }
+  ],
+  "notPlaced": [
+    {
+      "knowledgeKey": 1003574,
+      "gameName": "Knowledge_Visione_Chip_Witch_Kidnapped_Memory",
+      "name": "Memory of the Kidnapped Witch"
+    },
+    {
+      "knowledgeKey": 1003580,
+      "gameName": "Knowledge_Visione_Chip_UndertheBridge",
+      "name": "The Beginning of Greed"
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+ "count": 29,
+ "items": {
+  "Soul_TwoHandSpear": {
+   "name": "Soul Spear",
+   "titleId": "469848806339379605",
+   "descriptionId": "469848806339379606",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the secondary weapon slot.",
+    "Finish off a weakened enemy to fire souls forward, dealing damage from a distance.",
+    "This effect has a 10-second cooldown."
+   ]
+  },
+  "Legendary_Titan_Ring": {
+   "name": "Ring of Lightning",
+   "titleId": "1092803949716570517",
+   "descriptionId": "1092803949716570518",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} to select the {StaticInfo:Item:Legendary_Titan_Ring} from the special equipment slot, then press {Key:Key_Skill_5} to use it.",
+    "Deals lightning damage to nearby enemies.",
+    "Stand in the rain for 2 minutes to use it. When the rain stops, any stored energy will dissipate."
+   ]
+  },
+  "Fire_staff_spear_TwoHandSpear": {
+   "name": "Flame Spear",
+   "titleId": "1626148328494334357",
+   "descriptionId": "1626148328494334358",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the secondary weapon slot.",
+    "Deals fire damage to the target.",
+    "This effect can be charged up to 5 times, with each charge having a 5-second cooldown."
+   ]
+  },
+  "Anamorphic_PlateArmor_Helm": {
+   "name": "Constellation Helm",
+   "titleId": "2437567384144314773",
+   "descriptionId": "2437567384144314774",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} from the special equipment slot to select {StaticInfo:Item:Anamorphic_PlateArmor_Helm}, then press {Key:Key_Skill_5_Start} to use it.",
+    "Reveals constellations that were previously hidden."
+   ]
+  },
+  "Bismuth_TwoHandSpear": {
+   "name": "Bismuth Spear",
+   "titleId": "2611491045413749141",
+   "descriptionId": "2611491045413749142",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the secondary weapon slot.",
+    "Deals bismuth damage to the target.",
+    "This effect can be charged up to 3 times, with each charge having a 5-second cooldown."
+   ]
+  },
+  "Gun_OneHandShield": {
+   "name": "Shotgun Shield",
+   "titleId": "2612966448284303765",
+   "descriptionId": "2612966448284303766",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the shield slot.",
+    "Block 3 enemy attacks to gain 1 charge. Press {Key:Key_Skill_2} to fire a burst of bullets.",
+    "This effect can be charged up to 3 times."
+   ]
+  },
+  "Hacking_PlateArmor_Helm": {
+   "name": "Circuit Hijacking Helm",
+   "titleId": "2895707336540684693",
+   "descriptionId": "2895707336540684694",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} to select the {StaticInfo:Item:Hacking_PlateArmor_Helm} from the special equipment slot, then press {Key:Key_Skill_5_Start} to use it.",
+    "Hold {Key:Key_Guard} to aim, then release {Key:Key_Guard} when an enemy is detected to hijack its circuit.",
+    "It has a 10-sec cooldown."
+   ]
+  },
+  "Tarif_Necklace": {
+   "name": "Tarivian Necklace",
+   "titleId": "6412204517286216085",
+   "descriptionId": "6412204517286216086",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the necklace slot.",
+    "When critically wounded, the magic within the necklace grants you another chance at life, fully restoring your Health.",
+    "This effect has a 30-minute cooldown."
+   ]
+  },
+  "Fertilizer_Sprayer_BackPack": {
+   "name": "Fertilizer Sprayer",
+   "titleId": "6863281769626468757",
+   "descriptionId": "6863281769626468758",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the ranged weapon slot.",
+    "Hold {Key:Key_SubAttack} to ready and aim the sprayer.",
+    "Once aimed, press {Key:Key_HardAttack_DownOnce} to spray the fertilizer.",
+    "This effect can be charged up to 20 times, with each charge having a 30-second cooldown."
+   ]
+  },
+  "DarknessKing_PlateArmor_Helm": {
+   "name": "Plate Helm of the Shadows",
+   "titleId": "7214025553685250453",
+   "descriptionId": "7214025553685250454",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} to select the {StaticInfo:Item:DarknessKing_PlateArmor_Helm} from the special equipment slot, then press {Key:Key_Skill_5_Start} to use it.",
+    "It releases a cloud of frost that deals damage over time.",
+    "This effect has a 10-second cooldown."
+   ]
+  },
+  "Abyss_Surreal_Wolf_Leather_Helm": {
+   "name": "Jester Leather Mask",
+   "titleId": "7446995063835459989",
+   "descriptionId": "7446995063835459990",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the headgear slot.",
+    "Grants immunity to being dazed."
+   ]
+  },
+  "LakeGolem_OnehandShield": {
+   "name": "Runewalker Shield",
+   "titleId": "7899536513476592021",
+   "descriptionId": "7899536513476592022",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the shield slot.",
+    "Block 3 enemy attacks to gain 1 charge. Press {Key:Key_Skill_2} to unleash a pulse that deals damage.",
+    "This effect can be charged up to 3 times."
+   ]
+  },
+  "Marni_Laser_Helm": {
+   "name": "Marni Laser Helm",
+   "titleId": "8119525554421498261",
+   "descriptionId": "8119525554421498262",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} to select {StaticInfo:Item:Marni_Laser_Helm} from the special equipment slot, then press {Key:Key_Skill_5_Start} to use it.",
+    "Looking at an enemy will automatically mark them as a target and fire the laser.",
+    "This effect has a 1-minute cooldown."
+   ]
+  },
+  "Wind_Power_OneHandShield": {
+   "name": "Gale Shield",
+   "titleId": "8583742052318052757",
+   "descriptionId": "8583742052318052758",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the shield slot.",
+    "Block 3 enemy attacks to gain 1 charge. Press {Key:Key_Skill_2} to release a gust of wind.",
+    "This effect can be charged up to 3 times."
+   ]
+  },
+  "Witch_WingFan": {
+   "name": "Eastern Witch's Fan",
+   "titleId": "9374114355173392789",
+   "descriptionId": "9374114355173392790",
+   "parts": [
+    "Press {Key:Key_HardAttack} to conjure a gust of wind that knocks back your enemies.",
+    "Press {Key:Key_Skill_1} to summon a whirlwind that sweeps enemies away.",
+    "Press {Key:Key_Skill_6_Start} to throw and retrieve the fan, dealing damage to enemies.",
+    "Press {Key:Key_Skill_7_Start} to pull nearby enemies together and strike them down with a powerful lightning.",
+    "Press {Key:HudSkillSlotPress} to select the {StaticInfo:Item:Witch_WingFan} from the special equipment slot.",
+    "Press {Key:Key_Skill_5_Start} to sweep away the clouds and clear up the sky.",
+    "This effect has a 10-minute cooldown."
+   ]
+  },
+  "Oil_Sprayer_BackPack": {
+   "name": "Lubricant Sprayer",
+   "titleId": "9514991923887079829",
+   "descriptionId": "9514991923887079830",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the ranged weapon slot.",
+    "Hold {Key:Key_SubAttack} to ready and aim the {StaticInfo:Item:Oil_Sprayer_BackPack}.",
+    "Press {Key:Key_HardAttack} to spray lubricant."
+   ]
+  },
+  "Scouter_HP_PlateArmor_Helm": {
+   "name": "Health Detection Device",
+   "titleId": "9909749197060440469",
+   "descriptionId": "9909749197060440470",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} to select the {StaticInfo:Item:Scouter_HP_PlateArmor_Helm} from the special equipment slot, then press {Key:Key_Skill_5_Start} to use it.",
+    "When equipped, the target's {Staticinfo:Knowledge:Knowledge_Hp} will be visible to you."
+   ]
+  },
+  "AbyssReward_Drake_Metal_OneHandShield": {
+   "name": "Drake Shield",
+   "titleId": "10623753863246643605",
+   "descriptionId": "10623753863246643606",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the shield slot.",
+    "Block 3 enemy attacks to gain 1 charge. Press {Key:Key_Skill_2} to deal fire damage.",
+    "This effect can be charged up to 3 times."
+   ]
+  },
+  "Knowledge_PlateArmor_Helm": {
+   "name": "Helm of Knowledge",
+   "titleId": "10850772468574978453",
+   "descriptionId": "10850772468574978454",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} to select the Helm of Knowledge from the special equipment slot, then press {Key:Key_Skill_5_Start} to use it. Hold {Key:Key_Guard} and aim at a target to acquire knowledge from afar.",
+    "Using Blinding Flash or lighting the lantern while wearing the helm reveals nearby targets whose knowledge you have not yet acquired."
+   ]
+  },
+  "Lightning_TwoHandSpear": {
+   "name": "Lightning Spear",
+   "titleId": "11100575583350817173",
+   "descriptionId": "11100575583350817174",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the secondary weapon slot.",
+    "Deals lightning damage to the target.",
+    "This effect can be charged up to 5 times, with each charge having a 5-second cooldown."
+   ]
+  },
+  "Optionary_NonSlip_Gloves": {
+   "name": "Reins of Open Sky",
+   "titleId": "12659306892531597717",
+   "descriptionId": "12659306892531597718",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip them from the gloves slot.",
+    "It reduces the chance of slipping when pressing {Key:Key_ClimbIng} to hang onto walls."
+   ]
+  },
+  "Sound_OneHandShield": {
+   "name": "Shield of Ringing",
+   "titleId": "12713825347666182549",
+   "descriptionId": "12713825347666182550",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the shield slot.",
+    "Block 3 enemy attacks to gain 1 charge. Press {Key:Key_Skill_2} to release a sound wave that disorients enemies.",
+    "This effect can be charged up to 3 times."
+   ]
+  },
+  "IncreaseSwimmingSpeed_Plate_Boots": {
+   "name": "Tidebreaker Boots",
+   "titleId": "12974735956539081109",
+   "descriptionId": "12974735956539081110",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip them from the footwear slot.",
+    "Press {Key:Key_Evade} while swimming to burst forward a short distance.",
+    "This effect can be charged up to 3 times, with each charge having a 10-second cooldown."
+   ]
+  },
+  "Wind_TwoHandSpear": {
+   "name": "Propeller Spear",
+   "titleId": "15484456227160719765",
+   "descriptionId": "15484456227160719766",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the secondary weapon slot.",
+    "Shoots wind forward to knock back the target.",
+    "This effect can be charged up to 5 times, with each charge having a 5-second cooldown."
+   ]
+  },
+  "Folorin_Earring": {
+   "name": "Flower Petal Earring",
+   "titleId": "16230321428900086165",
+   "descriptionId": "16230321428900086166",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} to select the {StaticInfo:Item:Folorin_Earring} from the special equipment slot, then press {Key:Key_Skill_5} to use it.",
+    "The earing will play a melody, and using it again will stop the melody."
+   ]
+  },
+  "WaterSliding_Plate_Boots": {
+   "name": "Vaporwalker",
+   "titleId": "16282436815472820629",
+   "descriptionId": "16282436815472820630",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip them from the footwear slot.",
+    "Press {Key:Key_Slide} while running on land to slide into water and glide across the surface.",
+    "This effect can be charged up to 3 times, with each charge having a 10-second cooldown."
+   ]
+  },
+  "Heat_PlateArmor_Helm": {
+   "name": "Helm of Ignition",
+   "titleId": "16664528943054848405",
+   "descriptionId": "16664528943054848406",
+   "parts": [
+    "Press {Key:HudSkillSlotPress} to select the {StaticInfo:Item:Heat_PlateArmor_Helm} from the special equipment slot, then press {Key:Key_Skill_5_Start} to use it.",
+    "It lights bonfires within a certain radius."
+   ]
+  },
+  "EMP_TwoHandSpear": {
+   "name": "Disruptor Spear",
+   "titleId": "17730867875524116885",
+   "descriptionId": "17730867875524116886",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the secondary weapon slot.",
+    "Shoots electro-magnetic pulses forward, causing mechanical malfunctions.",
+    "This effect can be charged up to 3 times, with each charge having a 10-second cooldown."
+   ]
+  },
+  "Marni_MachineKnight_TwoHandSpear": {
+   "name": "Electro-Mecha Spear",
+   "titleId": "18228146237096329621",
+   "descriptionId": "18228146237096329622",
+   "parts": [
+    "Press {Key:HudQuickSlotPress} to equip it from the secondary weapon slot.",
+    "Deals lightning damage to the target.",
+    "This effect can be charged up to 5 times, with each charge having a 5-second cooldown."
+   ]
+  }
+ }
+}
