@@ -1,6 +1,6 @@
 {
  "summary": {
-  "icon": 189,
+  "icon": 190,
   "no item": 1
  },
  "chests": [
@@ -1897,6 +1897,16 @@
    "stringinfoRow": 18314,
    "iconEntries": 3,
    "textureFile": "ui/texture/icon/itemicon_prefab_cd_t0000_lantern_0004.dds",
+   "status": "icon"
+  },
+  {
+   "name": "Hernand strongbox 7 (padlock)",
+   "itemName": "Optionary_Monk_Necklace",
+   "iconName": "ItemIcon_Prefab_CD_PHM_00_Necklace_0003",
+   "iconKey": 3110236561,
+   "stringinfoRow": 12857,
+   "iconEntries": 1,
+   "textureFile": "ui/texture/icon/itemicon_prefab_cd_phm_00_necklace_0003.dds",
    "status": "icon"
   }
  ]

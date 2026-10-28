@@ -1,12 +1,12 @@
 {
  "summary": {
-  "items": 43,
-  "cards": 43,
-  "withType": 41,
-  "withDescription": 43,
-  "withIcon": 43,
+  "items": 44,
+  "cards": 44,
+  "withType": 42,
+  "withDescription": 44,
+  "withIcon": 44,
   "statuses": {
-   "card": 43
+   "card": 44
   }
  },
  "items": [
@@ -438,6 +438,16 @@
    "itemType": "Crossbow",
    "description": "A crossbow built for durability and reliability. Exceptionally durable and unlikely to malfunction, it delivers steady performance even in harsh battlefield conditions. Its versatility makes it a fine choice as a main weapon in a wide range of combat situations.",
    "iconName": "ItemIcon_Prefab_CD_PHM_05_CrossBow_0001",
+   "status": "card"
+  },
+  {
+   "name": "Acria Sword",
+   "itemKey": 200919,
+   "itemName": "Archria_OneHandSword",
+   "english": "Acria Sword",
+   "itemType": "Sword",
+   "description": "A mysterious curved sword imbued with a radiant golden glow. Much like the history of the Crimson Desert, shrouded in mystery to outsiders, this weapon is equally enigmatic. Its ornate patterns and bizarre embellishments suggest the blade was forged for ritualistic purposes.",
+   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0076_R",
    "status": "card"
   }
  ]

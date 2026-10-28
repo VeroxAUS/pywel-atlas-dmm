@@ -89,6 +89,17 @@ DECOYS = {
         "2026-10-24 that it holds nothing and the sliding puzzle (strongbox 2) gives the Folorin Earring."),
 }
 
+# v0.134: placed boxes the level-tree scan could not place (gate class
+# "not-in-level-tree") but that are real: UUID's first three words -> evidence.
+# They go after every other row so the existing marker IDs stay the same.
+EXTRA_STRONGBOXES = {
+    (1001164380, 3947892908, 3021822454): (
+        "Hillside Manor second-floor bedroom padlock safe (Saint's Necklace): placed in "
+        "sector_-42_-16_indoor_1_41, paired MapGenie point mg:546914 14.9 m away, no quest or mission "
+        "level owns it; strongbox guides (gfinityesports, allthings.how) describe it as reachable and "
+        "ungated. Checked against crimsondb/th.gl on 2026-10-27; neither lists single chests."),
+}
+
 
 def check_row(uuid, position):
     """Stop with an error if a chest's UUID or position has an odd shape."""
@@ -215,6 +226,44 @@ def strongbox_rows(placements, points, taken):
     return rows
 
 
+def extra_strongbox_rows(placements, points, existing):
+    """Real strongboxes that the level-tree scan left out (EXTRA_STRONGBOXES), in the dict's order."""
+    gates = json.loads((ROOT / "research" / "analysis" / "chest-gate-classification.json")
+                       .read_text(encoding="utf-8"))
+    spots = {}
+    for spot in placements["spots"]:
+        for chest in spot["chests"]:
+            spots[tuple(chest["uuid"][:3])] = (spot, chest)
+    items = {tuple(item["uuid"][:3]): item for item in gates["chests"]}
+    taken = {tuple(row["uuid"]) for row in existing}
+    rows = []
+    numbers = {}
+    for key in EXTRA_STRONGBOXES:
+        item = items[key]
+        spot, chest = spots[key]
+        kind = strongbox_kind(item["prefab"])
+        if kind is None or tuple(chest["uuid"]) in taken:
+            raise ValueError(f"Extra strongbox {key} is not a new field-rule box")
+        region = MAPGENIE_REGIONS.get(spot.get("mapGenieRegion") or "Pywel", spot.get("mapGenieRegion") or "Pywel")
+        position = chest["gamePosition"]
+        check_row(list(chest["uuid"]), position)
+        # Number on from the region's existing strongbox rows.
+        numbers[region] = numbers.get(region, sum(row["name"].startswith(f"{region} strongbox ")
+                                                  for row in existing)) + 1
+        point = points.get(spot.get("mapGenieId")) if (spot.get("mapGenieDistance") or 999) <= 80 else None
+        rows.append({
+            "name": f"{region} strongbox {numbers[region]} ({kind})",
+            "rule": "field",
+            "uuid": chest["uuid"],
+            "gamePosition": position,
+            "level": item["level"].lower(),
+            "prefab": chest["prefab"],
+            "mapGenieId": point["id"] if point else None,
+            "mapGenieDistance": spot.get("mapGenieDistance") if point else None,
+        })
+    return rows
+
+
 def abyss_name(level):
     """Readable place of an Abyss level ("Abyss island 13", "Abyss core island 5")."""
     match = re.fullmatch(r"Abyss(IslandCore|Island|Bridge)_(\d+)_Phase00_00(?:_sub_\d+_\d+)?", level)
@@ -320,6 +369,7 @@ def main():
         row["rule"] = "list"
     # v0.68: field-rule boxes go last (stable marker IDs for the rows above).
     rows += strongbox_rows(placements, points, {tuple(row["uuid"]) for row in rows})
+    rows += extra_strongbox_rows(placements, points, rows)
     if len({tuple(row["uuid"]) for row in rows}) != len(rows):
         raise ValueError("A chest UUID repeats")
     # v0.99: chests that are not real reward chests stay in the list (marker

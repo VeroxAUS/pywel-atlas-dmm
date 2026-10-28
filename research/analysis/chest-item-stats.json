@@ -1,7 +1,7 @@
 {
  "summary": {
   "surface": {
-   "stats": 140,
+   "stats": 141,
    "stats (some left out)": 15,
    "no lines": 24,
    "no stats": 10,
@@ -12,7 +12,7 @@
    "no stats": 24
   },
   "unique": {
-   "stats": 30,
+   "stats": 31,
    "stats (some left out)": 9,
    "no lines (some left out)": 2,
    "no stats": 2
@@ -4077,6 +4077,23 @@
    "lines": [],
    "parts": [],
    "status": "no lines"
+  },
+  {
+   "chest": "Hernand strongbox 7 (padlock)",
+   "item": "Saint's Necklace",
+   "itemName": "Optionary_Monk_Necklace",
+   "lines": [
+    "Defense 5"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Defense",
+     "value": "5",
+     "status": "dpv"
+    }
+   ],
+   "status": "stats"
   }
  ],
  "abyss": [
@@ -6164,6 +6181,30 @@
      "label": "Attack",
      "value": "18",
      "status": "ddd"
+    }
+   ],
+   "status": "stats"
+  },
+  {
+   "chest": "Acria Sword",
+   "item": "Acria Sword",
+   "itemName": "Archria_OneHandSword",
+   "lines": [
+    "Attack 10",
+    "Critical Rate Lv 1"
+   ],
+   "parts": [
+    {
+     "kind": "stat",
+     "label": "Attack",
+     "value": "10",
+     "status": "ddd"
+    },
+    {
+     "kind": "stat",
+     "label": "Critical Rate",
+     "value": "Lv 1",
+     "status": "criticalrate"
     }
    ],
    "status": "stats"

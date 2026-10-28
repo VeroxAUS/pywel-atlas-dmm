@@ -211,6 +211,7 @@ constexpr ChestLink kChestLinks[] = {
     {"Kweiden house chest 1", {3393125302u, 3222802170u, 1789175885u, 0u}, {-11321.3408f, 779.6671f, -699.3804f}, kChestRuleField, false, 255},
     {"Kweiden strongbox 2 (all buttons)", {240902234u, 4279242811u, 645817056u, 0u}, {-11617.0107f, 801.9489f, 563.4619f}, kChestRuleField, false, 255},
     {"Kweiden strongbox 3 (one-stroke drawing)", {3906132523u, 4279242810u, 645817056u, 0u}, {-12269.3896f, 727.3544f, -827.029f}, kChestRuleField, false, 255},
+    {"Hernand strongbox 7 (padlock)", {1001164380u, 3947892908u, 3021822454u, 0u}, {-10545.2354f, 612.0974f, -3866.4021f}, kChestRuleField, false, 255},
 };
 // Abyss chests (v0.69): same record and key as above; shown with the chest icon (v0.70).
 constexpr ChestLink kAbyssChestLinks[] = {

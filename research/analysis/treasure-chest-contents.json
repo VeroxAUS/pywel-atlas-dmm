@@ -1,7 +1,7 @@
 {
  "summary": {
   "Chest": {
-   "named": 189,
+   "named": 190,
    "no spawn reason": 1,
    "named without item type": 10,
    "named without description": 0
@@ -4186,6 +4186,28 @@
     "itemType": "Lantern",
     "descriptionId": "43151536423025",
     "description": "A sturdy lantern made of iron. The thin iron trim recreates the shape of a burning flame. Said to be preferred by men for its substantial weight and decorative appeal."
+   },
+   {
+    "name": "Hernand strongbox 7 (padlock)",
+    "uuid": [
+     1001164380,
+     3947892908,
+     3021822454,
+     0
+    ],
+    "level": "sector_-42_-16_indoor_1_41",
+    "spawnReasons": [
+     "Drop_Optionary_Monk_Necklace"
+    ],
+    "itemKey": 1000972,
+    "itemName": "Optionary_Monk_Necklace",
+    "textId": "4299142004211824",
+    "english": "Saint's Necklace",
+    "status": "named",
+    "equipTypeKey": 41248863,
+    "itemType": "Necklace",
+    "descriptionId": "4299142004211825",
+    "description": "A relic said to be an object that belonged to a saint who served Solumen. By stabilizing the wearer's breathing and relieving muscle fatigue, it rapidly restores depleted {StaticInfo:Knowledge:Knowledge_Sp#Stamina}."
    }
   ],
   "Abyss Chest": [

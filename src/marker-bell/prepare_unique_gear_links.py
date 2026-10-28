@@ -27,8 +27,9 @@ def main():
     directory = Path(__file__).resolve().parent
     mapping = json.loads((directory.parents[1] / "data" / "unique-gear-links.json").read_text(encoding="utf-8"))
     items = mapping["items"]
-    if len(items) != 43:
-        raise ValueError("Expected 43 unique gear items")
+    # 0.29.1: 44 items, the second Acria Sword (lying in the Ancestors' Ruins) added.
+    if len(items) != 44:
+        raise ValueError("Expected 44 unique gear items")
     lines = [
         "// Generated from data/unique-gear-links.json by prepare_unique_gear_links.py - do not edit by hand.",
         "// Collected (see NativeSaveReader.cpp): a reward item when the save's stage list holds stageKey at",

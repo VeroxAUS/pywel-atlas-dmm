@@ -25,7 +25,12 @@ What it does:
     effect lines), 2 two columns like the inventory tooltip's stat rows,
     3 the same with the inventory's stat icons (Thomas's choice). v0.112 adds
     the unique gear card tables (kUniqueGear*, see unique_gear_lines) and
-    the Defense Efficiency icon (STAT_ICON_OVERRIDES). The header stays plain ASCII: every
+    the Defense Efficiency icon (STAT_ICON_OVERRIDES). 0.14.0 adds each
+    special item's game guide text (research/analysis/special-item-guides.json,
+    find_special_item_guides.py; see guide_for and GUIDE_ACTIVATIONS). 0.29.1
+    adds an optional muted last line to a card: a unique gear item's "note" in
+    data/unique-gear-links.json, and CHEST_NOTES for chests (both say where
+    a second copy of the item is). The header stays plain ASCII: every
     non-ASCII byte is written as an \\xNN escape. The script stops with an
     error if the rows do not match the chest list, a label or title is longer
     than 100 bytes, or a card paragraph is longer than 3000 bytes.
@@ -51,6 +56,12 @@ MAX_DESCRIPTION_BYTES = 3000
 # worldmapview #KnowledgeInfoDiscriptionText).
 STAT_LINE_CSS = "font-text-caption-minor-white"
 NOTE_LINE_CSS = "font-text-caption-minor-beige"
+# 0.29.1: a muted last line for chests whose item also exists elsewhere, by
+# chest name in data/treasure-chest-links.json. Unique gear keeps its notes
+# in data/unique-gear-links.json ("note").
+CHEST_NOTES = {
+    "Delesyia chest 17": "Another Helm of Ignition is on display in a large tent.",
+}
 # v0.109: the inventory tooltip's buff yellow and its muted gray
 # (cdcommon_font.css, 15 px like the card text).
 EFFECT_LINE_CSS = "font-text-caption-minor-yellow"
@@ -68,6 +79,64 @@ STAT_ICON_CLASSES = {
 # icon the game uses for its guard effects (cd_icon_ability_GUARDCRASH;
 # Thomas's choice, 2026-10-24).
 STAT_ICON_OVERRIDES = {"guardpvrate": "pywel-stat-guardpvrate"}
+# 0.14.0: special items with a key in an effect row ("Glacial Domain
+# ({Key:...})", Thomas's layout A): the row keeps its name, and under it
+# comes "Press [KEY] ... to activate <effect>." and then what it does, both
+# from the item's game guide text (ui.paloc, special-item-guides.json).
+# Value: (activation sentence, what it does or None = the guide's own parts
+# after its equip/select step). Tidebreaker and Skipping Stones use the
+# guide's key and condition (the effect row's template differs); their
+# "what it does" is the guide's own sentence cut to follow the activation.
+GUIDE_ACTIVATIONS = {
+    "DarknessKing_PlateArmor_Helm": ("Press {Key:Key_Skill_5_Start} to activate Glacial Domain.", None),
+    "Marni_Laser_Helm": ("Press {Key:Key_Skill_5_Start} to activate Laser.", None),
+    "IncreaseSwimmingSpeed_Plate_Boots": (
+        "Press {Key:Key_Evade} while swimming to activate Tidebreaker.",
+        "Burst forward a short distance. This effect can be charged up to 3 times, with each charge having a"
+        " 10-second cooldown."),
+    "WaterSliding_Plate_Boots": (
+        "Press {Key:Key_Slide} while running on land to activate Skipping Stones.",
+        "Slide into water and glide across the surface. This effect can be charged up to 3 times, with each"
+        " charge having a 10-second cooldown."),
+    "Legendary_Titan_Ring": ("Press {Key:Key_Skill_5} to activate Charge Lightning.", None),
+}
+# The guide's equip/select step ("Press {Key:HudQuickSlotPress} to equip it
+# from the ... slot.", "Press {Key:HudSkillSlotPress} to select ...").
+GUIDE_SLOT_STEP = re.compile(r"Press \{Key:Hud(?:QuickSlot|SkillSlot)Press\}")
+GUIDE_USE_KEY = re.compile(r"then press (\{Key:[A-Za-z0-9_]+\}) to use it\.\s*(.*)$")
+GUIDES = None
+
+
+def guide_for(item_name):
+    """Return (activation sentence or None, [guide lines]) for one item, or (None, []) without a guide (0.14.0).
+
+    The guide's parts, minus its equip/select step; a select step that ends
+    "then press {Key:X} to use it." keeps "Press {Key:X} to use it." and
+    whatever follows it. All parts are joined into one plain line.
+    """
+    global GUIDES
+    if GUIDES is None:
+        GUIDES = json.loads((Path(__file__).resolve().parents[2] / "research" / "analysis" /
+                             "special-item-guides.json").read_text(encoding="utf-8"))["items"]
+    guide = GUIDES.get(item_name or "")
+    if not guide:
+        return None, []
+    kept = []
+    for part in guide["parts"]:
+        if GUIDE_SLOT_STEP.match(part):
+            use = GUIDE_USE_KEY.search(part)
+            if use:
+                kept.append(f"Press {use.group(1)} to use it. {use.group(2)}".strip())
+            continue
+        kept.append(part)
+    activation, does = GUIDE_ACTIVATIONS.get(item_name, (None, None))
+    if activation and does is None:
+        # The activation sentence already names the key: drop the guide's own "Press ... to use it.".
+        kept = [re.sub(r"^Press \{Key:[A-Za-z0-9_]+\} to use it\.\s*", "", part) for part in kept]
+    line = does or " ".join(part for part in kept if part)
+    return activation, [line] if line else []
+
+
 # v0.109: the card styles, in kCardStatStyle order (table name suffix).
 # "IconsNoBuff" is style 3 without the effect lines' buff icons (the mod's
 # kCardBuffIconsOn off; those icons need the UI add-on v0.80).
@@ -137,6 +206,9 @@ def main():
         if record["name"] != link["name"] or record["uuid"] != link["uuid"]:
             raise ValueError(f"Contents row {record['name']!r} does not match chest {link['name']!r}")
 
+    unknown = set(CHEST_NOTES) - {link["name"] for link in links}
+    if unknown:
+        raise ValueError(f"CHEST_NOTES names chests that are not in the list: {sorted(unknown)}")
     stats = item_stats(root, "surface", [record["name"] for record in contents])
 
     # Tables in chest order; None becomes nullptr.
@@ -150,6 +222,7 @@ def main():
         name = record.get("english") if named else None
         item_type = record.get("itemType") if named else None
         description = record.get("description") if named else None
+        item_name = record.get("itemName")
         # Map label line: "Witch's Earring (Earring)".
         labels.append(f"{name} ({item_type})" if name and item_type else name)
         # Knowledge card title: the item name alone.
@@ -158,8 +231,10 @@ def main():
         # Knowledge card description markup (v0.98): type, then (v0.106) the
         # stat lines, then the item's own lines; one table per style (v0.109).
         body = description_lines(description)
+        # 0.29.1: the muted "second copy" line, if any (CHEST_NOTES).
+        note = CHEST_NOTES.get(record["name"])
         for index, style in enumerate(CARD_STYLES):
-            styled[style].append(style_markup(index, item_type, stat_parts, body, None)
+            styled[style].append(style_markup(index, item_type, stat_parts, body, note, item_name)
                                  if name and (item_type or body) else None)
 
     lines = [
@@ -251,7 +326,7 @@ def abyss_chest_lines(root):
     stats = item_stats(root, "abyss", [card["name"] for card in cards])
     labels, titles, first, second, icons = [], [], [], [], []
     styled = {style: [] for style in CARD_STYLES}
-    for card, stat_parts in zip(cards, stats):
+    for link, card, stat_parts in zip(links, cards, stats):
         name = card.get("english") if card.get("status") == "card" else None
         parts = description_lines(card.get("description"))
         also = [f"Also contains: {card['alsoContains']}"] if card.get("alsoContains") else []
@@ -263,7 +338,8 @@ def abyss_chest_lines(root):
         # v0.106: the gear's effect first (what it does), then its text;
         # v0.109: one table per style, "Also contains" muted from style 1 on.
         for index, style in enumerate(CARD_STYLES):
-            styled[style].append(style_markup(index, None, stat_parts, parts, also[0] if also else None)
+            styled[style].append(style_markup(index, None, stat_parts, parts, also[0] if also else None,
+                                              card.get("itemName"))
                                  if name and body else None)
         icons.append(card.get("iconName") if name else None)
     lines = table_lines("kAbyssChestContents", "Abyss chest map label line 2: item name", labels, links, MAX_TEXT_BYTES)
@@ -340,16 +416,19 @@ def unique_gear_lines(root):
     fills = {row["icon"]: row["fill"] for row in sizes["uniqueItems"] if "fill" in row}
     titles, first, second, icons, steps = [], [], [], [], []
     styled = {style: [] for style in CARD_STYLES}
-    for card, stat_parts in zip(cards, stats):
+    for link, card, stat_parts in zip(links, cards, stats):
         name = card.get("english") if card.get("status") == "card" else None
         item_type = card.get("itemType") if name else None
+        item_name = card.get("itemName")
         body = description_lines(card.get("description")) if name else []
+        # 0.29.1: the item's "note" (where a second copy is), as a muted last line.
+        note = link.get("note")
         titles.append(name)
         paragraph1, paragraph2 = card_paragraphs(item_type, card.get("description")) if name else (None, None)
         first.append(paragraph1)
         second.append(paragraph2)
         for index, style in enumerate(CARD_STYLES):
-            styled[style].append(style_markup(index, item_type, stat_parts, body, None)
+            styled[style].append(style_markup(index, item_type, stat_parts, body, note, item_name)
                                  if name and (item_type or body) else None)
         icon = card.get("iconName") if name else None
         icons.append(icon)
@@ -450,7 +529,7 @@ def div(css, inner):
     return f'<div css="{css}">{inner}</div>'
 
 
-def style_markup(style, item_type, parts, body, also):
+def style_markup(style, item_type, parts, body, also, item_name=None):
     """Return the card description markup for one chest in card style 0..3 (v0.109).
 
     parts: the item's stat parts (find_item_stats.py), body: the item's own
@@ -470,7 +549,12 @@ def style_markup(style, item_type, parts, body, also):
         classes).
     After each siphon effect comes our explanation (SIPHON_EXPLANATIONS) in
     the beige description font, from style 1 on as its own div.
+    0.14.0: a special item's guide text (guide_for) as plain lines: under
+    the effect row that has a key (its "(...)" part replaced by the
+    activation sentence and what it does), else after the last row.
+    Plain lines stay outside our divs, so the game expands their {Key:...}.
     """
+    activation, guide_lines = guide_for(item_name)
     def notes(text):
         return [note for start, note in SIPHON_EXPLANATIONS.items() if text.startswith(start)]
 
@@ -486,39 +570,61 @@ def style_markup(style, item_type, parts, body, also):
             return div(f"item-tooltip-buff-stat-icon {buff_icon_class(part['icon'])}", "")
         return icon(part["status"])
 
+    placed = False  # The guide went under a key effect row.
     if style == 0:
         lines = [item_type] if item_type else []
         for part in parts:
             text = f"{part['label']} {part['value']}" if part["kind"] == "stat" else part["text"]
+            if part["kind"] == "effect" and activation and "{" in text:
+                lines += [split_placeholder(text)[0], activation] + guide_lines
+                placed = True
+                continue
             lines += [text] + notes(text)
+        if guide_lines and not placed:
+            lines += guide_lines
         return card_markup(lines + body + ([also] if also else []))
 
-    markup = ""
+    # Pieces: ("div", markup) or ("text", line); text lines in a row get <br/> between them.
+    pieces = []
     if item_type:
-        markup += div(NOTE_LINE_CSS if style == 1 else MUTED_LINE_CSS, markup_text(item_type))
+        pieces.append(("div", div(NOTE_LINE_CSS if style == 1 else MUTED_LINE_CSS, markup_text(item_type))))
     for part in parts:
         if part["kind"] == "stat":
             label, value = markup_text(part["label"]), markup_text(part["value"])
             if style == 1:
-                markup += div(STAT_LINE_CSS, f"{label} {value}")
+                pieces.append(("div", div(STAT_LINE_CSS, f"{label} {value}")))
             else:
-                markup += div("item-tooltip-stat-wrap2", icon(part["status"])
+                pieces.append(("div", div("item-tooltip-stat-wrap2", icon(part["status"])
                               + div("item-tooltip-sub-stat-label-wrap item-tooltip-sub-stat2",
                                     div(f"item-tooltip-sub-stat-label {STAT_LINE_CSS}", label))
-                              + div("item-tooltip-stat-info-wrap", div(f"stat-common-value {STAT_LINE_CSS}", value)))
+                              + div("item-tooltip-stat-info-wrap", div(f"stat-common-value {STAT_LINE_CSS}", value)))))
             continue
         text, outside = split_placeholder(markup_text(part["text"]))
         if style == 1:
-            markup += div(EFFECT_LINE_CSS, text)
+            pieces.append(("div", div(EFFECT_LINE_CSS, text)))
         else:
-            markup += div("item-tooltip-buff-stat-set", effect_icon(part)
-                          + div(f"item-tooltip-buff-stat-value multi-line-text-buff {EFFECT_LINE_CSS}", text))
-        # Its placeholder part as plain text after the div (own line).
-        markup += outside
+            pieces.append(("div", div("item-tooltip-buff-stat-set", effect_icon(part)
+                          + div(f"item-tooltip-buff-stat-value multi-line-text-buff {EFFECT_LINE_CSS}", text))))
+        if outside and activation:
+            # 0.14.0: the key part becomes the activation sentence and what it does.
+            pieces += [("text", markup_text(line)) for line in [activation] + guide_lines]
+            placed = True
+        elif outside:
+            # Its placeholder part as plain text after the div (own line).
+            pieces.append(("text", outside))
         for note in notes(text):
-            markup += div(NOTE_LINE_CSS, markup_text(note))
-    if parts and body:
-        markup += "<br/>"
+            pieces.append(("div", div(NOTE_LINE_CSS, markup_text(note))))
+    if guide_lines and not placed:
+        pieces += [("text", markup_text(line)) for line in guide_lines]
+    markup = ""
+    for index, (kind, piece) in enumerate(pieces):
+        if kind == "text" and index and pieces[index - 1][0] == "text":
+            markup += "<br/>"
+        markup += piece
+    if pieces and body:
+        # A gap before the item text: after a div one <br/> gives an empty
+        # line (the div already ended its line), after a text line two.
+        markup += "<br/>" if pieces[-1][0] == "div" else "<br/><br/>"
     markup += "<br/>".join(markup_text(line) for line in body)
     if also:
         markup += div(MUTED_LINE_CSS, markup_text(also))

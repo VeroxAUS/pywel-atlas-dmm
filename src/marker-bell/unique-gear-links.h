@@ -52,4 +52,5 @@ constexpr UniqueGearLink kUniqueGearLinks[] = {
     {"Kadel Mace", 220002u, kUniqueGearGround, {-11112.23f, 669.69f, 1302.32f}, 0u, {541695841u, 4279243084u, 1617652448u}},
     {"Bleed Shotgun", 370006u, kUniqueGearGround, {-11748.17f, 709.55f, -4119.01f}, 0u, {575696201u, 4279243046u, 1126394848u}},
     {"Hyde Crossbow", 320001u, kUniqueGearGround, {-12152.71f, 785.81f, -5258.08f}, 0u, {2251985241u, 352324874u, 489074269u}},
+    {"Acria Sword", 200919u, kUniqueGearGround, {-4432.17f, 660.55f, -258.81f}, 0u, {1403720911u, 1591218565u, 1150148307u}},
 };

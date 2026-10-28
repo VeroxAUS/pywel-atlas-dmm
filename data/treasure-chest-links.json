@@ -3667,6 +3667,25 @@
       "prefab": "gimmick_treasurebox_onetouchdrawing_01.prefab",
       "mapGenieId": "mg:552012",
       "mapGenieDistance": 14.6
+    },
+    {
+      "name": "Hernand strongbox 7 (padlock)",
+      "rule": "field",
+      "uuid": [
+        1001164380,
+        3947892908,
+        3021822454,
+        0
+      ],
+      "gamePosition": [
+        -10545.2354,
+        612.0974,
+        -3866.4021
+      ],
+      "level": "sector_-42_-16_indoor_1_41",
+      "prefab": "gimmick_treasurebox_padlock_safe_05.prefab",
+      "mapGenieId": "mg:546914",
+      "mapGenieDistance": 14.9
     }
   ]
 }
