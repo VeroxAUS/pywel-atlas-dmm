@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "category": "Egg (Kuku Bird Egg, Wyvern Egg)",
+  "doneRule": "FieldSaveData._fieldGimmickSaveDataList record with origin = uuid, _gimmickInfoKey = gimmickKey, reason 1, reset never, own uuid in the disabled list = taken; any other record = unknown; no record = not taken. Matched by UUID alone: _ownerLevelName is the parent sector, not the sub-level.",
+  "nativeIcon": {
+    "type": 376,
+    "templateType": 29100,
+    "templateName": "MapIcon_Gimmick_KuKu_Battery",
+    "category": "0xffffffff",
+    "note": "the game's own egg icon (type 394 MapIcon_Gimmick_Map_Egg) has a minimap layout only, no world-map layout, so the Kuku battery icon is used"
+  },
+  "locations": [
+    {
+      "name": "Kuku Bird Egg",
+      "prefab": "gimmick_egg_kuku_0001",
+      "gimmickKey": 1011326,
+      "uuid": [
+        1611195199,
+        1591218729,
+        1150148307,
+        0
+      ],
+      "level": "sector_-35_-24_sub_2_10",
+      "gamePosition": [
+        -8932.34,
+        640.87,
+        -5930.02
+      ],
+      "region": "Demeniss",
+      "mapGenieId": "mg:607393",
+      "mapGenieDistance": 28.3
+    },
+    {
+      "name": "Kuku Bird Egg",
+      "prefab": "gimmick_egg_kuku_0001",
+      "gimmickKey": 1011326,
+      "uuid": [
+        3053289127,
+        1450447455,
+        1903127100,
+        0
+      ],
+      "level": "sector_-35_-24_sub_1_0",
+      "gamePosition": [
+        -8912.99,
+        590.38,
+        -6094.39
+      ],
+      "region": "Demeniss",
+      "mapGenieId": "mg:954508",
+      "mapGenieDistance": 22.8
+    },
+    {
+      "name": "Kuku Bird Egg",
+      "prefab": "gimmick_egg_kuku_0001",
+      "gimmickKey": 1011326,
+      "uuid": [
+        3014656685,
+        1450447455,
+        1903127100,
+        0
+      ],
+      "level": "sector_-35_-25_sub_1_0",
+      "gamePosition": [
+        -8833.54,
+        354.58,
+        -6352.2
+      ],
+      "region": "Demeniss",
+      "mapGenieId": "mg:606618",
+      "mapGenieDistance": 24.9
+    },
+    {
+      "name": "Kuku Bird Egg",
+      "prefab": "gimmick_egg_kuku_0001",
+      "gimmickKey": 1011326,
+      "uuid": [
+        2915352485,
+        1450447455,
+        1903127100,
+        0
+      ],
+      "level": "sector_-34_-25_sub_1_2",
+      "gamePosition": [
+        -8631.37,
+        540.24,
+        -6189.89
+      ],
+      "region": "Demeniss",
+      "mapGenieId": "mg:954506",
+      "mapGenieDistance": 28.0
+    },
+    {
+      "name": "Kuku Bird Egg",
+      "prefab": "gimmick_egg_kuku_0001",
+      "gimmickKey": 1011326,
+      "uuid": [
+        3158696539,
+        1450447455,
+        1903127100,
+        0
+      ],
+      "level": "sector_-34_-25_sub_1_3",
+      "gamePosition": [
+        -8464.83,
+        401.77,
+        -6180.67
+      ],
+      "region": "Demeniss",
+      "mapGenieId": "mg:601827",
+      "mapGenieDistance": 32.2
+    },
+    {
+      "name": "Wyvern Egg",
+      "prefab": "gimmick_egg_wyvern_0001",
+      "gimmickKey": 1011327,
+      "uuid": [
+        2258836917,
+        1450447455,
+        1903127100,
+        0
+      ],
+      "level": "sector_-27_-22_sub_1_2",
+      "gamePosition": [
+        -6891.21,
+        605.74,
+        -5400.32
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:606595",
+      "mapGenieDistance": 58.3
+    },
+    {
+      "name": "Wyvern Egg",
+      "prefab": "gimmick_egg_wyvern_0001",
+      "gimmickKey": 1011327,
+      "uuid": [
+        1180039084,
+        1591218782,
+        1150148307,
+        0
+      ],
+      "level": "sector_-27_-21_sub_1_2",
+      "gamePosition": [
+        -6801.81,
+        569.26,
+        -5199.15
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:606571",
+      "mapGenieDistance": 13.8
+    },
+    {
+      "name": "Wyvern Egg",
+      "prefab": "gimmick_egg_wyvern_0001",
+      "gimmickKey": 1011327,
+      "uuid": [
+        1611703556,
+        4279243331,
+        1211860192,
+        0
+      ],
+      "level": "sector_-27_-21_sub_2_7",
+      "gamePosition": [
+        -6673.11,
+        535.54,
+        -5306.76
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:606572",
+      "mapGenieDistance": 21.6
+    },
+    {
+      "name": "Wyvern Egg",
+      "prefab": "gimmick_egg_wyvern_0001",
+      "gimmickKey": 1011327,
+      "uuid": [
+        2190834177,
+        1450447455,
+        1903127100,
+        0
+      ],
+      "level": "sector_-26_-23_sub_1_1",
+      "gamePosition": [
+        -6553.35,
+        449.05,
+        -5824.76
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:953540",
+      "mapGenieDistance": 20.2
+    },
+    {
+      "name": "Wyvern Egg",
+      "prefab": "gimmick_egg_wyvern_0001",
+      "gimmickKey": 1011327,
+      "uuid": [
+        2356681451,
+        1450447455,
+        1903127100,
+        0
+      ],
+      "level": "sector_-25_-22_sub_1_2",
+      "gamePosition": [
+        -6321.82,
+        499.64,
+        -5425.87
+      ],
+      "region": "Delesyia",
+      "mapGenieId": "mg:606519",
+      "mapGenieDistance": 8.0
+    }
+  ]
+}
