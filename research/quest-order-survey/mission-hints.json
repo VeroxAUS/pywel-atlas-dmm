@@ -1,0 +1,1109 @@
+{
+ "Challenge_AbyssIslandCore_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Abyssone_End_0001)",
+   "givenByMissions": [
+    "Challenge_AbyssIslandCore",
+    "Mission_Epilogue_Ending_ComeBackHome_0"
+   ]
+  }
+ ],
+ "Challenge_AbyssIslandCore_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Abyssone_End_0001)",
+   "givenByMissions": [
+    "Challenge_AbyssIslandCore",
+    "Mission_Epilogue_Ending_ComeBackHome_0"
+   ]
+  }
+ ],
+ "Challenge_AbyssIslandCore_2": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Abyssone_End_0001)",
+   "givenByMissions": [
+    "Challenge_AbyssIslandCore",
+    "Mission_Epilogue_Ending_ComeBackHome_0"
+   ]
+  }
+ ],
+ "Challenge_AbyssIslandCore_3": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Abyssone_End_0001)",
+   "givenByMissions": [
+    "Challenge_AbyssIslandCore",
+    "Mission_Epilogue_Ending_ComeBackHome_0"
+   ]
+  }
+ ],
+ "Challenge_AbyssIslandCore_4": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Abyssone_End_0001)",
+   "givenByMissions": [
+    "Challenge_AbyssIslandCore",
+    "Mission_Epilogue_Ending_ComeBackHome_0"
+   ]
+  }
+ ],
+ "Challenge_AbyssIslandCore_5": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Abyssone_End_0001)",
+   "givenByMissions": [
+    "Challenge_AbyssIslandCore",
+    "Mission_Epilogue_Ending_ComeBackHome_0"
+   ]
+  }
+ ],
+ "Challenge_AbyssIslandCore_6": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Abyssone_End_0001)",
+   "givenByMissions": [
+    "Challenge_AbyssIslandCore",
+    "Mission_Epilogue_Ending_ComeBackHome_0"
+   ]
+  }
+ ],
+ "Mission_Minigame_II_CushionBall_I_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Minigame_CushionBall)"
+  }
+ ],
+ "Mission_MuiquunVillage_Block_OwlsoftheMist_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Liberation_Village_Muiquun)"
+  }
+ ],
+ "Mission_HyenaDen_Block_Boss_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Wanted_Hyenamolar)",
+   "givenByMissions": [
+    "Mission_HyenaDen_Block_Start"
+   ]
+  }
+ ],
+ "Mission_Urdavah_Academic_Normal_Start_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Urdavah_Reserch_I)"
+  }
+ ],
+ "Mission_Urdavah_Academic_Normal_WindEnergy_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Urdavah_Reserch_I)"
+  }
+ ],
+ "Mission_Urdavah_Academic_Normal_GoldVein_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Urdavah_Reserch_I)"
+  }
+ ],
+ "Mission_Urdavah_Academic_Normal_HighEnergy_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Urdavah_Reserch_I)"
+  }
+ ],
+ "Mission_Varnia_Khalid_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Crim_Khalid)",
+   "givenByMissions": [
+    "Mission_Varnia_Khalid_1"
+   ]
+  }
+ ],
+ "Mission_Varnia_Beatrice_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Crim_Beatrice)",
+   "givenByMissions": [
+    "Mission_Varnia_Beatrice_4"
+   ]
+  }
+ ],
+ "Mission_Varnia_Sniks_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Crim_Sniks)",
+   "givenByMissions": [
+    "Mission_Varnia_Sniks_5"
+   ]
+  }
+ ],
+ "Mission_Varnia_Noor_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Crim_Noor)",
+   "givenByMissions": [
+    "Mission_Varnia_Noor_2"
+   ]
+  }
+ ],
+ "Mission_Varnia_Esperd_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Crim_Esperd)",
+   "givenByMissions": [
+    "Mission_Varnia_Esperd_1"
+   ]
+  }
+ ],
+ "Mission_Varnia_Khadin_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Crim_Khadin)",
+   "givenByMissions": [
+    "Mission_Varnia_Khadin_2"
+   ]
+  }
+ ],
+ "Mission_Varnia_Omar_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Crim_Omar)",
+   "givenByMissions": [
+    "Mission_Varnia_Omar_5"
+   ]
+  }
+ ],
+ "Mission_HyenaDen_All_Daughter_Start_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Tomaso_LoastWoodDoll)",
+   "givenByMissions": [
+    "Mission_HyenaDen_Block_Complete_0",
+    "Mission_HyenaDen_All_Daughter_Start_0"
+   ]
+  }
+ ],
+ "Mission_MuiquunVillage_CarriageWorkshop_Normal_Start_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_MuiquunVillage_CarriageWorkshop)",
+   "givenByMissions": [
+    "Mission_MuiquunVillage_CarriageWorkshop_Normal_Collector_1"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Maiden_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Maiden)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Maiden_6"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Skaldar_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Skaldar)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Skaldar_1"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Randel_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Randel)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Randel_4"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Doni_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Doni)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Doni_5"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Martina_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Martina)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Martina_1"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Forex_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Forex)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Forex_6"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Lior_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Lior)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Lior_2"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Merrigrain_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Merrigrain)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Merrigrain_1"
+   ]
+  }
+ ],
+ "Mission_DelesyiaCastle_Rainier_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Del_Rainier)",
+   "givenByMissions": [
+    "Mission_DelesyiaCastle_Rainier_2"
+   ]
+  }
+ ],
+ "Mission_DelesyiaInstitute_Normal_BigBone_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_DelesyiaInstitute_Reserch_I)"
+  }
+ ],
+ "Mission_DelesyiaInstitute_Normal_IronEagle_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_DelesyiaInstitute_Reserch_I)"
+  }
+ ],
+ "Mission_DelesyiaInstitute_Normal_Mercury_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_DelesyiaInstitute_Reserch_I)"
+  }
+ ],
+ "Mission_DelesyiaInstitute_Normal_Train_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_DelesyiaInstitute_Reserch_III)"
+  }
+ ],
+ "Mission_Dewhaven_Research_ElectroKineticEnergy_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dewhaven_Reserch_I)"
+  }
+ ],
+ "Mission_Dewhaven_Research_ElectroToolDesign_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dewhaven_Reserch_I)"
+  }
+ ],
+ "Mission_Dewhaven_Research_RazorClam_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dewhaven_Reserch_I)"
+  }
+ ],
+ "Mission_Dewhaven_Research_HighConductWeapon_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dewhaven_Reserch_IV)"
+  }
+ ],
+ "Mission_EastCourt_Block_Start_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Dem_EastCourt,2)",
+   "givenByMissions": [
+    "Mission_BrookfieldManor_Elemore_MoonReaper_Normal_Start_1"
+   ]
+  }
+ ],
+ "Mission_WestCourt_Block_Start_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Dem_WestCourt,2)",
+   "givenByMissions": [
+    "Mission_BrookfieldManor_Elemore_MoonReaper_Normal_Start_1"
+   ]
+  }
+ ],
+ "Mission_SouthCourt_Block_Start_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Dem_SouthCourt,2)",
+   "givenByMissions": [
+    "Mission_BrookfieldManor_Elemore_MoonReaper_Normal_Start_1"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Zarkon_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Zarkon)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Zarkon_2"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Geoffroi_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Geoffroi)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Geoffroi_2"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Palga_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Palga)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Palga"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Linda_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Linda)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Linda_3"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Orlonel_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Orlonel)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Orlonel_3"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Kike_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Kike)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Kike_2"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Fiona_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Fiona)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Fiona_4"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Eliza_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Eliza)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Eliza_5"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_Flint_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_Flint)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_Flint_4"
+   ]
+  }
+ ],
+ "Mission_DemenissCastle_GrainHart_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Dem_GrainHart)",
+   "givenByMissions": [
+    "Mission_DemenissCastle_GrainHart_1"
+   ]
+  }
+ ],
+ "Mission_CaliburnClan_II_DemenissZoo_Boss_Start_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_TheScarletExcecutioner)",
+   "givenByMissions": [
+    "Mission_CaliburnClan_II_DemenissZoo_Boss_Start_0"
+   ]
+  }
+ ],
+ "Mission_GateOfTruth_StoneGolem_Block_AncientRuin_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_ClockRockAnamorphic)"
+  }
+ ],
+ "Mission_GateOfTruth_StoneGolem_Block_AncientRuin_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_RoofRockAnamorphic)"
+  }
+ ],
+ "Mission_WindmereManor_Byron_FullPlateArmorTroll_Boss_Start_2": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Letter_Azureian_Secret)"
+  }
+ ],
+ "Mission_WindmereManor_Byron_FullPlateArmorTroll_Boss_Battle_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Dem_BurnhandQuarry)",
+   "givenByMissions": [
+    "Mission_WindmereManor_Byron_FullPlateArmorTroll_Boss_Start_1"
+   ]
+  }
+ ],
+ "Mission_GreystoneManor_Felix_Normal_Start_2": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_WantedPaper_0008)"
+  }
+ ],
+ "Mission_GreystoneManor_Felix_Normal_Start_3": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Criminal_Dante_1)",
+   "givenByMissions": [
+    "Mission_GreystoneManor_Felix_Normal_Start",
+    "Mission_GreystoneManor_Felix_Normal_Start_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Rhett_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Rhett)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Rhett_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Raine_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Raine)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Raine_3"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Turnuli_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Turnuli)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Turnuli_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Anbella_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Anbella)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Anbella_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Tina_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Tina)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Tina_1"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Bran_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Bran)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Bran_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Aldun_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Aldun)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Aldun_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Bruna_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Bruna)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Bruna_6"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Grana_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Grana)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Grana_1"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Ugmum_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Ugmum)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Ugmum_3"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Delkin_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Delkin)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Delkin_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Dahlia_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Dahlia)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Dahlia_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Yjork_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Yjork)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Yjork_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Berdo_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Berdo)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Berdo_1"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Shirg_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Shirg)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Shirg_1"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Frox_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Frox)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Frox_1"
+   ]
+  }
+ ],
+ "Mission_RiventainMonastery_StolenMap_All_Start_3": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Ulzok_Stolen_Map)",
+   "givenByMissions": [
+    "Mission_RiventainMonastery_StolenMap_All_Start"
+   ]
+  }
+ ],
+ "Mission_ReventineMonastery_Normal_Start_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_GoldenDocument)",
+   "givenByMissions": [
+    "Mission_ReventineMonastery_Normal_Start"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Peregrine_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Peregrine)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Peregrine_1"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Timmyr_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Timmyr)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Timmyr_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Harveston_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Harveston)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Harveston_6"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Drianna_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Drianna)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Drianna_5"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Gloin_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Gloin)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Gloin_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Matilda_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Matilda)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Matilda_2"
+   ]
+  }
+ ],
+ "Mission_HernandCastle_Adelina_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Her_Adelina)",
+   "givenByMissions": [
+    "Mission_HernandCastle_Adelina_6"
+   ]
+  }
+ ],
+ "Mission_Her_Wanted_Criminal_Warren_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_WantedPaper_0009)",
+   "givenByMissions": [
+    "Mission_Her_Wanted_Criminal_Warren_1"
+   ]
+  }
+ ],
+ "Mission_PororinVillage_HiddenPororin_Normal_Challenge_I_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_HiddenPororin_Waterfall)",
+   "givenByMissions": [
+    "Mission_PororinVillage_HiddenPororin_Normal_Polan_End_0"
+   ]
+  }
+ ],
+ "Mission_PororinVillage_HiddenPororin_Normal_Challenge_II_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_HiddenPororin_Desert)",
+   "givenByMissions": [
+    "Mission_PororinVillage_HiddenPororin_Normal_Polan_End_0"
+   ]
+  }
+ ],
+ "Mission_PororinVillage_HiddenPororin_Normal_Challenge_III_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_HiddenPororin_Cradle)",
+   "givenByMissions": [
+    "Mission_PororinVillage_HiddenPororin_Normal_Polan_End_0"
+   ]
+  }
+ ],
+ "Mission_PororinVillage_HiddenPororin_Normal_Challenge_IV_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_HiddenPororin_Maze)",
+   "givenByMissions": [
+    "Mission_PororinVillage_HiddenPororin_Normal_Polan_End_0"
+   ]
+  }
+ ],
+ "Mission_PororinVillage_Trembling_Woods_Normal_Sacred_4": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Enter_Pororin)",
+   "givenByMissions": [
+    "Mission_PororinVillage_Trembling_Woods_Normal_Sacred",
+    "Mission_PororinVillage_Trembling_Woods_Normal_Sacred_3"
+   ]
+  }
+ ],
+ "Mission_PororinVillage_Trembling_Woods_Normal_Sacred_5": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Lost_Pororin_Sacred)",
+   "givenByMissions": [
+    "Mission_PororinVillage_Trembling_Woods_Normal_Sacred",
+    "Mission_PororinVillage_Trembling_Woods_Normal_Sacred_4"
+   ]
+  }
+ ],
+ "Mission_PororinVillage_Normal_KeepFocus_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Pororin_Reserch_I)"
+  }
+ ],
+ "Mission_PororinVillage_Normal_AboutJijeongta_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Pororin_Reserch_I)"
+  }
+ ],
+ "Mission_PororinVillage_Normal_GrowJijeongta_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Pororin_Reserch_VI)"
+  }
+ ],
+ "Mission_PororinVillage_Normal_OriginPororinTool_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Pororin_Reserch_VIII)"
+  }
+ ],
+ "ScholarStoneInstitute_Academic_Normal_Start_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Scholastone_Reserch_I)"
+  }
+ ],
+ "ScholarStoneInstitute_Academic_Normal_RocketEngine_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Scholastone_Reserch_I)"
+  }
+ ],
+ "ScholarStoneInstitute_Academic_Normal_KudzuFarm_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Scholastone_Reserch_I)"
+  }
+ ],
+ "ScholarStoneInstitute_Academic_Normal_AncientAbyss_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Scholastone_Reserch_II)"
+  },
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Research_Airballoon_Altitude_II)"
+  }
+ ],
+ "Mission_SeniaVillage_Block_Start_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_her_Seniavillage, 1)",
+   "givenByMissions": [
+    "Mission_SeniaVillage_Block_Start_0"
+   ]
+  }
+ ],
+ "Mission_VelluaVillage_Block_Request_Help_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Her_VelluaVillage)",
+   "givenByMissions": [
+    "Mission_Velluavillage_LighthouseConstruction_Start_0",
+    "Mission_VelluaVillage_Block_Request_Help_0",
+    "Mission_VelluaVillage_Block_Request_Help_1"
+   ]
+  }
+ ],
+ "Mission_LonelyJackal_BloodGolem_Boss_Start_2": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Wanted_BloodWalkerCrussis)"
+  }
+ ],
+ "Mission_LongbranchVillage_EntTreasure_Start_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_MazeForestEntKey)",
+   "givenByMissions": [
+    "Mission_LongleafTreeVillage_VanishedMist_0"
+   ]
+  }
+ ],
+ "Mission_Pailune_RonHardt_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_RonHardt)",
+   "givenByMissions": [
+    "Mission_Pailune_RonHardt_2"
+   ]
+  }
+ ],
+ "Mission_Pailune_Terinand_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Terinand)",
+   "givenByMissions": [
+    "Mission_Pailune_Terinand_2"
+   ]
+  }
+ ],
+ "Mission_Pailune_Gorio_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Gorio)",
+   "givenByMissions": [
+    "Mission_Pailune_Gorio_2"
+   ]
+  }
+ ],
+ "Mission_Pailune_Henri_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Henri)",
+   "givenByMissions": [
+    "Mission_Pailune_Henri_3"
+   ]
+  }
+ ],
+ "Mission_Pailune_Aeba_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Aeba)",
+   "givenByMissions": [
+    "Mission_Pailune_Aeba_2"
+   ]
+  }
+ ],
+ "Mission_Pailune_Bargul_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Bargul)",
+   "givenByMissions": [
+    "Mission_Pailune_Bargul_2"
+   ]
+  }
+ ],
+ "Mission_Pailune_Lenard_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Lenard)",
+   "givenByMissions": [
+    "Mission_Pailune_Lenard_5"
+   ]
+  }
+ ],
+ "Mission_Pailune_Baris_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Baris)",
+   "givenByMissions": [
+    "Mission_Pailune_Baris_2"
+   ]
+  }
+ ],
+ "Mission_Pailune_Gonthyr_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Gonthyr)",
+   "givenByMissions": [
+    "Mission_Pailune_Gonthyr_1"
+   ]
+  }
+ ],
+ "Mission_Pailune_Lora_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Lora)",
+   "givenByMissions": [
+    "Mission_Pailune_Lora_2"
+   ]
+  }
+ ],
+ "Mission_Pailune_Aldred_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Aldred)",
+   "givenByMissions": [
+    "Mission_Pailune_Aldred_5"
+   ]
+  }
+ ],
+ "Mission_Pailune_Ratko_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Ratko)",
+   "givenByMissions": [
+    "Mission_Pailune_Ratko_1"
+   ]
+  }
+ ],
+ "Mission_Pailune_Richart_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kwe_Richart)",
+   "givenByMissions": [
+    "Mission_Pailune_Richart_2"
+   ]
+  }
+ ],
+ "Mission_GorthakIronMaker_Research_BestSkill_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_GorthakIron_Reserch_I)"
+  }
+ ],
+ "Mission_GorthakIronMaker_Research_FireWeapon_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_GorthakIron_Reserch_I)"
+  }
+ ],
+ "Mission_GorthakIronMaker_Research_Sulfur_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_GorthakIron_Reserch_I)"
+  }
+ ],
+ "Mission_GorthakIronMaker_Research_EfficientMineral_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_GorthakIron_Reserch_IV)"
+  }
+ ],
+ "Mission_Shadow_Whisper_Cave_Witch_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Isolation_Witch_Hint)",
+   "givenByMissions": [
+    "Mission_Imp_Banquet_Boss_Battle_0"
+   ]
+  }
+ ],
+ "Mission_UnexpectedGift_Liftable_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Kukubird_MarniFirstMeet)",
+   "givenByMissions": [
+    "Mission_UnexpectedGift_Liftable_0"
+   ]
+  }
+ ],
+ "Mission_SplitHorn_Boss_Bremer_FirstMeet_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_SplitHorn_Bremer_LostCow)",
+   "givenByMissions": [
+    "Mission_SplitHorn_Boss_Battle_1"
+   ]
+  }
+ ],
+ "Mission_SplitHorn_Boss_Ibano_FirstMeet_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_SplitHorn_Ibano_GoatHorn)",
+   "givenByMissions": [
+    "Mission_SplitHorn_Boss_Battle_1"
+   ]
+  }
+ ],
+ "Mission_SplitHorn_Boss_Willian_FirstMeet_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_SplitHorn_Willian_FindSheep)",
+   "givenByMissions": [
+    "Mission_SplitHorn_Boss_Battle_1"
+   ]
+  }
+ ],
+ "Mission_SplitHorn_Boss_ThiefCave_0": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_SplitHorn_ThiefCave)",
+   "givenByMissions": [
+    "Mission_SplitHorn_Boss_Battle_1"
+   ]
+  }
+ ],
+ "Mission_GreyWolf_Camp_RepairCamp_Cook_1": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Recipe_Meat_Porridge)"
+  }
+ ],
+ "Mission_TrollUniversity_Scholastone_3": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Node_Her_ScholastoneInstitute)",
+   "givenByMissions": [
+    "Mission_TrollUniversity_Scholastone_2",
+    "Mission_TrollUniversity_Brain_Lost_MasterGrundir_1"
+   ]
+  }
+ ],
+ "Mission_Crowman_Boss_Request_3": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_CrowFeather)",
+   "givenByMissions": [
+    "Mission_Crowman_Boss_Request_2"
+   ]
+  }
+ ],
+ "Mission_Ludvig_Boss_Danger_BlueMistVillage_3": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_Ludvig_Boss_Danger_BlueMistVillage)"
+  }
+ ],
+ "Goblin_Master_Doo_ShadowTemple_2": [
+  {
+   "kind": "knowledge",
+   "term": "Knowledge(Knowledge_MasterDooTest_ShadowTemple)",
+   "givenByMissions": [
+    "Goblin_Master_Doo_ShadowTemple_1"
+   ]
+  }
+ ]
+}

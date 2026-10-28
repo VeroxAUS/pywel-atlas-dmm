@@ -1,0 +1,36 @@
+{
+ "stageRows": 52082,
+ "stagesWithPosition": 43478,
+ "missionsWithPosition": 64,
+ "missions": 6864,
+ "questsWithPosition": 353,
+ "quests": 1098,
+ "nodeMissionDistanceCheck": {
+  "pairs": 3,
+  "medianDistance": 146,
+  "within300": 3,
+  "within1000": 3
+ },
+ "questRegions": {
+  "Her": 102,
+  "Crim": 63,
+  "Dem": 60,
+  "Kwe": 59,
+  "Del": 54,
+  "Cal": 7,
+  "Neut": 5,
+  "DesertFragment": 1,
+  "Hernand": 1,
+  "Abyssone": 1
+ },
+ "missionRegions": {
+  "Her": 23,
+  "Dem": 17,
+  "Kwe": 9,
+  "Del": 6,
+  "Crim": 5,
+  "Cal": 2,
+  "Abyssone": 1,
+  "Neut": 1
+ }
+}

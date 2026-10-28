@@ -1,0 +1,382 @@
+{
+ "decodedEdgesUsed": 919,
+ "edgeCheckPerSaveEvents": {
+  "A_2106": {
+   "prereqFirst": 317,
+   "prereqAfter": 582
+  },
+  "B_2796": {
+   "prereqFirst": 138,
+   "prereqAfter": 160
+  },
+  "C_3268": {
+   "prereqFirst": 22,
+   "prereqAfter": 16
+  }
+ },
+ "edgeSupportAllThree": {
+  "supported": 287,
+  "contradictedInAnySave": 613,
+  "untestable": 19
+ },
+ "edgeSupportBandC": {
+  "supported": 141,
+  "contradictedInAnySave": 166,
+  "untestable": 612
+ },
+ "allThree": {
+  "savesCompared": [
+   "A_2106",
+   "B_2796",
+   "C_3268"
+  ],
+  "missionsInAll": 1448,
+  "groups": 88,
+  "pairsWithinGroup": 40566,
+  "unanimousPairs": 28029,
+  "closePairs": 10046,
+  "closePairsUnanimous": 8124,
+  "estimatedForcedShareOfClosePairs": 0.745,
+  "closeUnanimousPairsConfirmedByEdge": 0,
+  "closeUnanimousPairsWithoutEdge": 8124,
+  "sampleCandidatesWithoutEdge": [
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MonsterWave"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MachineTheFall_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MonsterWave_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_GorthakIronMaker",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Meet_Yann",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon_1",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Meet_Yann_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_TransmissionTower"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_1",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_3",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_2",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MonsterWave_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_GorthakIronMaker_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MonsterWave_2"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon_2",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MachineTheFall"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_SteelMillEscape"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_SteelMillEscape_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MachineTheFall_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_MonsterWave"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_MachineTheFall_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon_0",
+    "Mission_MarniDragon_Boss_Valgash"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_MonsterWave_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Meet_Yann",
+    "Mission_MarniDragon_Boss_Valgash"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon_1",
+    "Mission_MarniDragon_Boss_Valgash"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Meet_Yann_0",
+    "Mission_MarniDragon_Boss_Valgash"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_TransmissionTower"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon",
+    "Mission_MarniDragon_Boss_Valgash"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_3"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_2"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_MonsterWave_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_0"
+   ]
+  ]
+ },
+ "BandC": {
+  "savesCompared": [
+   "B_2796",
+   "C_3268"
+  ],
+  "missionsInAll": 1454,
+  "groups": 88,
+  "pairsWithinGroup": 40637,
+  "unanimousPairs": 32339,
+  "closePairs": 6349,
+  "closePairsUnanimous": 5704,
+  "estimatedForcedShareOfClosePairs": 0.797,
+  "closeUnanimousPairsConfirmedByEdge": 0,
+  "closeUnanimousPairsWithoutEdge": 5704,
+  "sampleCandidatesWithoutEdge": [
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MonsterWave"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_CollectingKeyChallenge_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MachineTheFall_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MonsterWave_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_GorthakIronMaker",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_Underground"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Meet_Yann",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon_1",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Meet_Yann_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_TransmissionTower"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_1",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_3",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MarniMansion_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MarniMeet_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_2",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MarniMansion_2"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MonsterWave_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_Audience"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_Audience_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_CollectingKeyChallenge_2"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MarniMansion_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_GorthakIronMaker_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MonsterWave_2"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_CollectingKeyChallenge_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MarniMansion"
+   ],
+   [
+    "Mission_MarniDragon_Boss_MeetDemianinNeut_Delpheon_2",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_BurnSilver_RobotMaker_I",
+    "Mission_MarniDragon_Boss_TransmissionTower_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_TransmissionTower_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_CollectingKeyChallenge"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MachineTheFall"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_SteelMillEscape"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_SteelMillEscape_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_Underground_0"
+   ],
+   [
+    "Mission_MarniDragon_Boss_TransmissionTower_0",
+    "Mission_MarniDragon_Boss_MachineTheFall_1"
+   ],
+   [
+    "Mission_MarniDragon_Boss_Valgash",
+    "Mission_MarniDragon_Boss_MonsterWave"
+   ]
+  ]
+ }
+}

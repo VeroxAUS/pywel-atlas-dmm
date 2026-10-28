@@ -1,0 +1,185 @@
+{
+ "consistency": {
+  "edgesFromBefore": 593,
+  "edgesFromAfter": 577,
+  "inBoth": 577,
+  "onlyBefore": 16,
+  "onlyAfter": 0,
+  "union": 593
+ },
+ "perSave": {
+  "before": {
+   "A_2106": {
+    "notBothTimed": 543,
+    "predFirst": 48,
+    "predAfter": 2
+   },
+   "B_2796": {
+    "notBothTimed": 549,
+    "predFirst": 44
+   },
+   "C_3268": {
+    "notBothTimed": 550,
+    "predFirst": 43
+   }
+  },
+  "after": {
+   "A_2106": {
+    "notBothTimed": 527,
+    "predFirst": 48,
+    "predAfter": 2
+   },
+   "B_2796": {
+    "notBothTimed": 533,
+    "predFirst": 44
+   },
+   "C_3268": {
+    "notBothTimed": 534,
+    "predFirst": 43
+   }
+  },
+  "union": {
+   "A_2106": {
+    "notBothTimed": 543,
+    "predFirst": 48,
+    "predAfter": 2
+   },
+   "B_2796": {
+    "notBothTimed": 549,
+    "predFirst": 44
+   },
+   "C_3268": {
+    "notBothTimed": 550,
+    "predFirst": 43
+   }
+  }
+ },
+ "verdicts": {
+  "before": {
+   "supportedInAllTimed": 48,
+   "contradictedInAny": 2,
+   "untestable": 543
+  },
+  "after": {
+   "supportedInAllTimed": 48,
+   "contradictedInAny": 2,
+   "untestable": 527
+  },
+  "union": {
+   "supportedInAllTimed": 48,
+   "contradictedInAny": 2,
+   "untestable": 543
+  }
+ },
+ "mainStory": {
+  "chapterQuests": 41,
+  "edgesAmongThem": 47,
+  "orderedByTopologicalLayer": 41,
+  "layers": [
+   [
+    "Quest_Intro",
+    "Quest_Epilogue_BackGroundStage"
+   ],
+   [
+    "Quest_IntroHernand"
+   ],
+   [
+    "Quest_MeetAlustain_Test"
+   ],
+   [
+    "Quest_MeetAlustain_Alchemist_CrowWing"
+   ],
+   [
+    "Quest_Splithorn_Boss_UnexpectedGift",
+    "Quest_SplitHorn_Boss_ThiefCave"
+   ],
+   [
+    "Quest_SplitHorn_Boss"
+   ],
+   [
+    "Quest_GreyWolf_Camp"
+   ],
+   [
+    "Quest_ReedDevil_Boss_Battle"
+   ],
+   [
+    "Quest_ReedDevil_Boss_ForGraymane"
+   ],
+   [
+    "Quest_Imp_Banquet_Boss_Battle",
+    "Quest_KukuBird_Kuku",
+    "Quest_Crowman_Boss_Ribentain"
+   ],
+   [
+    "Quest_GraymaneDay",
+    "Quest_TrollUniversity_Brain"
+   ],
+   [
+    "Quest_Silver_Armor_Boss_Celester"
+   ],
+   [
+    "Quest_Silver_Armor_Boss_RecaptureBase",
+    "Quest_Silver_Armor_Boss_SecuringBase"
+   ],
+   [
+    "Quest_Silver_Armor_Boss_Battle"
+   ],
+   [
+    "Quest_Ludvig_Boss_DawnFog",
+    "Quest_BloodCoronation_TolsteinGuide"
+   ],
+   [
+    "Quest_Ludvig_Boss_Jackal",
+    "Quest_BloodCoronation_PlaceOutOfLight"
+   ],
+   [
+    "Quest_Mjordin_Boss_LavaMountain",
+    "Quest_BloodCoronation_WitchDukeAndDream"
+   ],
+   [
+    "Quest_Chase_TraitorDwayne",
+    "Quest_Goblin_Master_Doo_Trial"
+   ],
+   [
+    "Quest_Goblin_Master_Doo_Trial_Blackstar",
+    "Quest_Goblin_Master_Doo_Trial_OldKliff",
+    "Quest_Goblin_Master_Doo_Trial_JijeongTemple",
+    "Quest_Goblin_Master_Doo_Trial_Hexe"
+   ],
+   [
+    "Quest_Goblin_Master_Doo_Meet"
+   ],
+   [
+    "Quest_Goblin_Master_Doo_Blood_Throne"
+   ],
+   [
+    "Quest_MarniDragon_Boss_MachineCity",
+    "Quest_MarniDragon_Boss_IronWorks"
+   ],
+   [
+    "Quest_MarniDragon_Boss_GoldenStar",
+    "Quest_MarniDragon_Boss_CounterAttack"
+   ],
+   [
+    "Quest_Caliburn_Boss_MusketSiege"
+   ],
+   [
+    "Quest_Caliburn_Boss_MyurdinUmbra"
+   ],
+   [
+    "Quest_Epilogue_Ending"
+   ]
+  ],
+  "cycleOrUnreached": [],
+  "edgesGoingToAnEarlierChapter": 0
+ },
+ "coverage": {
+  "questsDecoded": 1097,
+  "questsInAnyEdge": 611,
+  "playerQuestsConsidered": 686,
+  "playerQuestsInAnyEdge": 201,
+  "playerQuestsWithAPredecessor": 177,
+  "playerQuestsWithASuccessor": 79,
+  "successorEntriesWithCondition": 34
+ }
+}

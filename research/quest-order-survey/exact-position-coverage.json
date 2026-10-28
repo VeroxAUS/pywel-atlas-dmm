@@ -1,0 +1,35 @@
+{
+ "scriptsParsed": 2504,
+ "scriptsFailed": {},
+ "scriptsWithAnchor": 2501,
+ "scriptsWithCharacters": 1832,
+ "questsWithExactPosition": 468,
+ "playerQuests": 694,
+ "playerQuestsWithExactPosition": 391,
+ "mainChapterQuestsWithExactPosition": 40,
+ "mainChapterQuests": 41,
+ "questNodeWithExactPosition": 264,
+ "questFactionWithExactPosition": 39,
+ "missionsWithExactPosition": 1910,
+ "missions": 6864,
+ "plainMissionsWithExactPosition": 1814,
+ "challengeMissionsWithExactPosition": 12,
+ "questsWithNpcNames": 446,
+ "accuracy": {
+  "vsFactionNode": {
+   "pairs": 241,
+   "median": 433,
+   "within500": 131
+  },
+  "vsStageXYZ": {
+   "pairs": 76,
+   "median": 233,
+   "within500": 52
+  },
+  "vsRoadFiles": {
+   "pairs": 103,
+   "median": 508,
+   "within500": 50
+  }
+ }
+}

@@ -1,0 +1,3242 @@
+{
+ "Func_LevelSequencerSpawn": {
+  "title": "Stage collection automatically extracted from Level",
+  "description": null
+ },
+ "Challenge_Abyss": {
+  "title": "The Abyss",
+  "description": "Restoration"
+ },
+ "Challenge_Abyssruins": {
+  "title": "Abyss Nexus",
+  "description": null
+ },
+ "Challenge_Standstone_Adventure": {
+  "title": "Secret Places",
+  "description": "Wandering Footsteps"
+ },
+ "Challenge_Standstone_Puzzle": {
+  "title": "Ancient Ruins",
+  "description": "The Thread in the Forest"
+ },
+ "Challenge_Maze": {
+  "title": "Mazes",
+  "description": "Winding Paths"
+ },
+ "Challenge_ShadowTemple": {
+  "title": "Sanctums",
+  "description": "The Forgotten Sun"
+ },
+ "Challenge_Discover": {
+  "title": "Spires",
+  "description": "Land Meets Sky"
+ },
+ "Challenge_Anamorphic": {
+  "title": "Constellations",
+  "description": "Maps of the Night"
+ },
+ "Challenge_LegendAnimal": {
+  "title": "Legendary Animals",
+  "description": "Hazy Tales"
+ },
+ "Challenge_WildBeasts_Boss_Reward": {
+  "title": "New Power",
+  "description": "Primal Frenzy"
+ },
+ "Challenge_LegendAnimal_II": {
+  "title": "Mysterious Animals",
+  "description": "The Truth Unveiled"
+ },
+ "Challenge_Minigame_II": {
+  "title": "Toys",
+  "description": "A Fragment of Forgotten Childhood"
+ },
+ "Challenge_Pet_I": {
+  "title": "Pets",
+  "description": "Little Companions for the Adventure"
+ },
+ "Challenge_SealedArtifact_Mastery_OneHandSword": {
+  "title": "Sword",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Shield": {
+  "title": "Shield",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Bow": {
+  "title": "Bow",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Spear": {
+  "title": "Spear",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_TwohandWeapon": {
+  "title": "Two-Handed Weapon",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Cannon": {
+  "title": "Blaster",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Rapier": {
+  "title": "Rapier and Shield",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Gun": {
+  "title": "Gun",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_SpecialWeapon": {
+  "title": "Special Equipment",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Vehicle": {
+  "title": "Horse",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Battle": {
+  "title": "Training",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Skirmish": {
+  "title": "Battle",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Mastery_Operation": {
+  "title": "Operation",
+  "description": "Goyen's Advice"
+ },
+ "Challenge_SealedArtifact_Hunting": {
+  "title": "Hunting",
+  "description": "White Crow's Gaze"
+ },
+ "Challenge_SealedArtifact_Living": {
+  "title": "Life",
+  "description": "White Crow's Gaze"
+ },
+ "Challenge_SealedArtifact_Trust": {
+  "title": "Trade",
+  "description": "White Crow's Gaze"
+ },
+ "Challenge_SealedArtifact_Crime": {
+  "title": "Above the Law",
+  "description": "Master Du's Dare"
+ },
+ "Challenge_SealedArtifact_ChallengeAndChange": {
+  "title": "Challenges and Changes",
+  "description": "Alustin's Trials"
+ },
+ "Contents_MiniGame_PistolShot_Mission": {
+  "title": "Shooting",
+  "description": null
+ },
+ "Contents_MiniGame_Armwrest_Mission": {
+  "title": "Test of Strength",
+  "description": null
+ },
+ "Contents_MiniGame_Duel_Unarmed_Mission": {
+  "title": "Duel",
+  "description": null
+ },
+ "Contents_MiniGame_Race_Mission": {
+  "title": "Racing",
+  "description": null
+ },
+ "Contents_MiniGame_Seotda_Mission": {
+  "title": "Mind Games",
+  "description": null
+ },
+ "Contents_MiniGame_ArrowShot": {
+  "title": "Archery Contest",
+  "description": null
+ },
+ "Contents_MiniGame_PistolShot": {
+  "title": "Shooting Contest",
+  "description": null
+ },
+ "Contents_MiniGame_Armwrest": {
+  "title": "Arm Wrestling",
+  "description": null
+ },
+ "Contents_MiniGame_Handwrest": {
+  "title": "Hand Wrestling",
+  "description": null
+ },
+ "Contents_MiniGame_Duel_Unarmed": {
+  "title": "Unarmed Duel",
+  "description": null
+ },
+ "Contents_MiniGame_Duel": {
+  "title": "Unarmed Duel - Mixed Martial Arts",
+  "description": null
+ },
+ "Contents_MiniGame_Duel_Wrestling": {
+  "title": "Wrestling Match",
+  "description": null
+ },
+ "Contents_MiniGame_Duel_Spear": {
+  "title": "Spearsmanship Contest",
+  "description": null
+ },
+ "Contents_MiniGame_Duel_MainWeapon": {
+  "title": "Swordsmanship Contest",
+  "description": null
+ },
+ "Contents_MiniGame_Race": {
+  "title": "Horse Racing",
+  "description": null
+ },
+ "Contents_MiniGame_RockPaperSci": {
+  "title": "Rock, Paper, Scissors",
+  "description": null
+ },
+ "Contents_MiniGame_Seotda": {
+  "title": "Duo",
+  "description": null
+ },
+ "Contents_MiniGame_Variant_Seotda": {
+  "title": "Five-Card",
+  "description": null
+ },
+ "Contents_MiniGame_Seotda_I": {
+  "title": "Duo",
+  "description": null
+ },
+ "Contents_MiniGame_Variant_Seotda_I": {
+  "title": "Five-Card",
+  "description": null
+ },
+ "Contents_Pet": {
+  "title": "Pet Spawn Stage",
+  "description": null
+ },
+ "Contents_WeatherChange_Sunny": {
+  "title": "Clear Weather",
+  "description": null
+ },
+ "Contents_WeatherChange_Precipitation": {
+  "title": "Rainfall Weather Spawn Stage",
+  "description": null
+ },
+ "Contents_WeatherChange_WindSpeed": {
+  "title": "Windy Weather Spawn Stage",
+  "description": null
+ },
+ "Contents_WeatherChange_WindDegree": {
+  "title": "Wind Angle Spawn Stage",
+  "description": null
+ },
+ "Contents_WeatherChange_Cloud": {
+  "title": "Cloud Weather Spawn Stage",
+  "description": null
+ },
+ "Contents_SpawnMainRoad_TradeNews": {
+  "title": "News on Royal Trading",
+  "description": null
+ },
+ "Contents_SpawnMainRoad_ContentsAdvice": {
+  "title": "Content Guide",
+  "description": null
+ },
+ "Contents_Bounty_Hunter": {
+  "title": "Bounty Hunter",
+  "description": null
+ },
+ "Contents_Police": {
+  "title": "Guard",
+  "description": null
+ },
+ "Contents_Police_BlockRoad": {
+  "title": "Guard Blocking the Path",
+  "description": null
+ },
+ "Contents_treasurebox_Backpack": {
+  "title": "Treasure Trader",
+  "description": null
+ },
+ "Contents_Treasure_Hunter": {
+  "title": "Desert Treasure Hunter",
+  "description": null
+ },
+ "Contents_Reward": {
+  "title": "Reward Item",
+  "description": null
+ },
+ "Quest_HumanDocumentary_ScheduleMiseenscene": {
+  "title": "Human Documentary: Schedule Mise-en-scene",
+  "description": null
+ },
+ "Quest_HumanDocumentary_Her": {
+  "title": "Human Documentaries",
+  "description": null
+ },
+ "Quest_HumanDocumentary_Dem": {
+  "title": "Human Documentaries",
+  "description": null
+ },
+ "Quest_HumanDocumentary_Cal": {
+  "title": "Human Documentaries",
+  "description": null
+ },
+ "Quest_HumanDocumentary_Pai": {
+  "title": "Human Documentaries",
+  "description": null
+ },
+ "Quest_HumanDocumentary_Tom": {
+  "title": "Human Documentaries",
+  "description": null
+ },
+ "Quest_HumanDocumentary_Del": {
+  "title": "Human Documentaries",
+  "description": null
+ },
+ "Quest_HumanDocumentary_Bar": {
+  "title": "Human Documentaries",
+  "description": null
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_I": {
+  "title": "Human Documentaries: Random Spawn - Varnia Outskirts Bridge",
+  "description": null
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_II": {
+  "title": "Human Documentaries: Random Spawn - Varnia Prayer Stone I",
+  "description": null
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_III": {
+  "title": "Human Documentaries: Random Spawn - Varnia Prayer Room I",
+  "description": null
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_IV": {
+  "title": "Human Documentaries: Random Spawn - Varnia Prayer Stone II",
+  "description": null
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_V": {
+  "title": "Human Documentaries: Random Spawn - The Bridge to Varnia",
+  "description": null
+ },
+ "Quest_Node_Del_WindCliffFort_Boss_Block": {
+  "title": "The Wyvernflames",
+  "description": null
+ },
+ "Quest_GreyWolf_Camp_PailuneOperation": {
+  "title": "Hope from Ashes",
+  "description": null
+ },
+ "Quest_Graymane_BaseCamp_Pailune": {
+  "title": "Homeward",
+  "description": null
+ },
+ "Quest_Graymane_BaseCamp_Pailune_After": {
+  "title": "Base Camp",
+  "description": null
+ },
+ "Quest_Node_Cal_CalphadeCastle_Normal": {
+  "title": "Calphade",
+  "description": null
+ },
+ "Quest_Node_Cal_HohenmarkRuins_Block": {
+  "title": "White Blizzard",
+  "description": null
+ },
+ "Quest_Node_Cal_CalphadeNorthDepot_CounterAttack_Normal": {
+  "title": "For a Stronger Shield",
+  "description": null
+ },
+ "Quest_Node_Cal_Node_Cal_CalphadeChurch_Normal": {
+  "title": "Church of Calphade",
+  "description": null
+ },
+ "Quest_Node_Crim_DesolateStoneAltar_Ogre_Boss": {
+  "title": "Overlord of the Desolate Monoliths",
+  "description": null
+ },
+ "Quest_Node_Crim_EnlightenShrine_Goblin_Treasure_Trove_All": {
+  "title": "Goblin Treasure Vault Faction",
+  "description": null
+ },
+ "Quest_Node_Crim_BurhumVillage_Block": {
+  "title": "War Song of the Dusk",
+  "description": null
+ },
+ "Quest_Node_Crim_BurhumVillage_Normal": {
+  "title": "Dying Well",
+  "description": null
+ },
+ "Quest_Node_Crim_DesertOasis_Bismuthqueen_Block": {
+  "title": "The Oreback Crab in the Desert",
+  "description": null
+ },
+ "Quest_Node_Crim_FortManub_Block": {
+  "title": "The Faceless",
+  "description": null
+ },
+ "Quest_Node_Crim_HelmaraVillage_SandCrawler_Block": {
+  "title": "When the Trembling Stops",
+  "description": null
+ },
+ "Quest_Node_Crim_BatiharVillage_Block": {
+  "title": "Marauder of the Desert",
+  "description": null
+ },
+ "Quest_Node_Crim_BatiharVillage_Normal": {
+  "title": "Workshop Forged in Revenge",
+  "description": null
+ },
+ "Quest_Node_Crim_PowerStation_SubInner_Block": {
+  "title": "The Helms Ambush near the Generator",
+  "description": null
+ },
+ "Quest_Node_Crim_HowlsandsCamp_OutLaw": {
+  "title": "Outlaws of the Desert",
+  "description": null
+ },
+ "Quest_Node_Crim_HowlsandsCamp_Normal": {
+  "title": "Howlsands Camp Liberation",
+  "description": null
+ },
+ "Quest_Node_Crim_IsvatuFortress_Block_Boss": {
+  "title": "Bullets Piercing the Sandstorm",
+  "description": null
+ },
+ "Quest_Node_Crim_MuiquunVillage_Block_OwlsoftheMist": {
+  "title": "Raiders in Muiquun",
+  "description": null
+ },
+ "Quest_Node_Crim_RedMountainFort_Block_GoldenArmor_Boss": {
+  "title": "Where Greed Takes Root",
+  "description": null
+ },
+ "Quest_Node_Crim_StompsandFortRuins_Boss_Block": {
+  "title": "Savage Fang",
+  "description": null
+ },
+ "Quest_Node_Crim_Tashkalp_All": {
+  "title": "Tommaso All",
+  "description": null
+ },
+ "Quest_Node_Crim_Tashkalp_Normal": {
+  "title": "Tommaso Faction",
+  "description": null
+ },
+ "Quest_Node_Crim_Tashkalp_Wanted": {
+  "title": "Outlaws in Tommaso",
+  "description": null
+ },
+ "Quest_Node_Crim_BoneArena_Block": {
+  "title": "Emperor of the Bonepit",
+  "description": null
+ },
+ "Quest_Node_Crim_HyenaDen_Block": {
+  "title": "Sovereign Wastes",
+  "description": null
+ },
+ "Quest_Node_Crim_Urdavah_Normal": {
+  "title": "Urdavah",
+  "description": null
+ },
+ "Quest_Faction_Urdavah_Academic_Normal": {
+  "title": "Urdavah Research Institute",
+  "description": null
+ },
+ "Quest_Faction_Urdavah_ResearchStop_Reserch_V": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_Urdavah_ResearchStop_Reserch_IV": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Node_Crim_Varnia_Wanted": {
+  "title": "Outlaws in Varnia",
+  "description": null
+ },
+ "Quest_Node_Crim_Varnia_FinaleStory": {
+  "title": "Tales After Crimson Desert",
+  "description": null
+ },
+ "Quest_Node_Crim_Varnia_Daily": {
+  "title": "Tales from the Corners of Crimson Desert",
+  "description": null
+ },
+ "Quest_Node_Crim_Varnia_Operation": {
+  "title": "A Favor for Crimson Desert",
+  "description": null
+ },
+ "Quest_Node_Crim_Crimson_Mountains_Station_Normal": {
+  "title": "Crimson Mountains Transit Station",
+  "description": null
+ },
+ "Quest_Node_Crim_Varnia_MerchantStory": {
+  "title": "Tales of the Crimson Desert Merchants",
+  "description": null
+ },
+ "Quest_Node_Crim_Varnia_CitizenStory": {
+  "title": "Tales of the Crimson Desert Residents",
+  "description": null
+ },
+ "Quest_Node_Crim_HyenaDen_All": {
+  "title": "Father's Love",
+  "description": null
+ },
+ "Quest_Node_Crim_Saltroad_Camp_Block": {
+  "title": "Goldenscales on the Saltroad",
+  "description": null
+ },
+ "Quest_Node_Crim_MuiquunVillage_Normal_BountyHunting": {
+  "title": "Town of Outlaws",
+  "description": null
+ },
+ "Quest_Node_Crim_MuiquunVillage_CarriageWorkshop_Normal": {
+  "title": "Muiquun's Black Market",
+  "description": null
+ },
+ "Quest_Node_Crim_SaltroadTradePost_TruthontheSand_Normal": {
+  "title": "The Truth on the Sand",
+  "description": null
+ },
+ "Quest_Node_Crim_Tashkalp_FruitofGreed_Normal": {
+  "title": "Harvest of Greed",
+  "description": null
+ },
+ "Quest_Node_Crim_ShadowdeepForest_Block": {
+  "title": "Eyes in the Gloomy Forest",
+  "description": null
+ },
+ "Quest_Node_Crim_GiantsYardForwardCamp_Block": {
+  "title": "Giant's Yard",
+  "description": null
+ },
+ "Quest_Node_Crim_BursadaCastleRuins_Block": {
+  "title": "Hunters of the Abandoned Castle Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_GiantsYardReasearch_WatchTower_Block": {
+  "title": "Those Who Constrict the Research Expedition",
+  "description": null
+ },
+ "Quest_Node_Crim_FlowingSandVillage_Block": {
+  "title": "Trap of the Shifting Sand",
+  "description": null
+ },
+ "Quest_Node_Crim_RockVillage_Block": {
+  "title": "The Fangs Beneath the Rock",
+  "description": null
+ },
+ "Quest_Node_Crim_AsaharamCamp_Block": {
+  "title": "Goldenscales of the Desert",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaCastle_All": {
+  "title": "Delesyia Faction",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaCastle_Block": {
+  "title": "Delesyia Faction",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaCastle_Wanted": {
+  "title": "Outlaws in Delesyia",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaCastle_FinaleStory": {
+  "title": "Tales After Delesyia",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaCastle_Daily": {
+  "title": "Tales from the Corners of Delesyia",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaCastle_Operation": {
+  "title": "A Favor for Delesyia",
+  "description": null
+ },
+ "Quest_Node_Del_LoggingCampTransferStation_Normal": {
+  "title": "Logging Camp Flag Stop",
+  "description": null
+ },
+ "Quest_Node_Del_Drywind_Valley_Station_Normal": {
+  "title": "Drywind Valley Ironcrawler Station",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaCastle_MerchantStory": {
+  "title": "Tales of the Delesyian Merchants",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaCastle_CitizenStory": {
+  "title": "Tales of the Delesyian Residents",
+  "description": null
+ },
+ "Quest_Node_Del_RedfoxTradePost_Questioning_Normal": {
+  "title": "Broken Silence",
+  "description": null
+ },
+ "Quest_Node_Del_DewhavenCastle_Disappeared_Normal": {
+  "title": "Dark Shadow Within the Village",
+  "description": null
+ },
+ "Quest_Node_Del_StonewardCastleRuins_Block": {
+  "title": "The Cairn's Castle Wall",
+  "description": null
+ },
+ "Quest_Node_Del_BenusThiefCamp_Block": {
+  "title": "The Fort of the Mountain Pass",
+  "description": null
+ },
+ "Quest_Node_Del_MarniMansion_HyperSpace": {
+  "title": "Eternal Corridor",
+  "description": null
+ },
+ "Quest_Node_Del_DelesyiaChurch_All": {
+  "title": "Church of Delesyia",
+  "description": null
+ },
+ "Quest_Faction_DelesyiaInstitute_Normal": {
+  "title": "Institute of Delesyia",
+  "description": null
+ },
+ "Quest_Faction_DelesyiaInstitute_ResearchStop_Reserch_V": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_DelesyiaInstitute_ResearchStop_Reserch_IV": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_DelesyiaInstitute_Clue_Normal": {
+  "title": "Shadows of Knowledge",
+  "description": null
+ },
+ "Quest_Faction_The_Delesyian_Alliance_All": {
+  "title": "Dewhaven Faction",
+  "description": null
+ },
+ "Quest_Node_Del_Dewhaven_Normal": {
+  "title": "Dewhaven Keep",
+  "description": null
+ },
+ "Quest_Node_Del_Dewhaven_Research": {
+  "title": "Dewhaven Research Institute",
+  "description": null
+ },
+ "Quest_Faction_Dewhaven_ResearchStop_Reserch_V": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_Dewhaven_ResearchStop_Reserch_IV": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_Marni_Mine_Fortress_Airplane_Boss": {
+  "title": "Wings across the Sky",
+  "description": null
+ },
+ "Quest_Faction_Marni_Mine_Fortress_Block": {
+  "title": "Aerial Border",
+  "description": null
+ },
+ "Quest_Node_Del_MarniAirLab_Normal": {
+  "title": "Aeronautical Research Base",
+  "description": null
+ },
+ "Quest_Node_Del_MarniLab_Block": {
+  "title": "Forbidden Transplant",
+  "description": null
+ },
+ "Quest_Node_Del_MarniLab_Normal": {
+  "title": "Marni's Laboratorium",
+  "description": null
+ },
+ "Quest_Node_Del_StarVillage_Normal": {
+  "title": "Flickering Starlight",
+  "description": null
+ },
+ "Quest_Node_Del_MarniOilRig_Block": {
+  "title": "Closed Power",
+  "description": null
+ },
+ "Quest_Node_Del_MarniOilRig_FixOilRig_Normal": {
+  "title": "Abandoned Drilling Rig",
+  "description": null
+ },
+ "Quest_Node_Del_MarniOilRig_Normal": {
+  "title": "Drilling Rig",
+  "description": null
+ },
+ "Quest_Node_Del_MarniMechFactory_Block": {
+  "title": "Plating Debris",
+  "description": null
+ },
+ "Quest_Node_Del_MarniMechFactory_Normal": {
+  "title": "Marni Mechworks",
+  "description": null
+ },
+ "Quest_Node_Del_WestOutpost_Normal": {
+  "title": "Marni's Western Outpost",
+  "description": null
+ },
+ "Quest_Node_Del_NorthOutpost_Normal": {
+  "title": "Marni's Northern Outpost",
+  "description": null
+ },
+ "Quest_Node_Del_EastOutpost_Normal": {
+  "title": "Marni's Eastern Outpost",
+  "description": null
+ },
+ "Quest_Node_Del_Watchtower_I_Normal": {
+  "title": "Marni Coast Windmill Watchtower",
+  "description": null
+ },
+ "Quest_Node_Del_MarniPark_All": {
+  "title": "Marni Park All",
+  "description": null
+ },
+ "Quest_Node_Del_MarniWorkshop_Block": {
+  "title": "Marni's Masterium",
+  "description": null
+ },
+ "Quest_Node_Del_MarniWorkshop_Normal": {
+  "title": "Marni's Masterium",
+  "description": null
+ },
+ "Quest_Node_Del_SaltMine_Normal": {
+  "title": "Marni's Salt Mine",
+  "description": null
+ },
+ "Quest_Node_Del_MarniWorkshopEastGate_Block": {
+  "title": "Masterium East Gate",
+  "description": null
+ },
+ "Quest_Node_Del_MarniWorkshopEastGate_Normal": {
+  "title": "Masterium East Gate",
+  "description": null
+ },
+ "Quest_Node_Del_MarniWorkshopNorthEastGate_Block": {
+  "title": "Masterium Northeast Gate",
+  "description": null
+ },
+ "Quest_Node_Del_MarniWorkshopNorthEastGate_Normal": {
+  "title": "Masterium Northeast Gate",
+  "description": null
+ },
+ "Quest_Node_Del_MarniCliffSecretBase_Normal": {
+  "title": "Marni's Hideout",
+  "description": null
+ },
+ "Quest_Node_Del_MarniAirCastle_MarniPatrol": {
+  "title": "Flying Fortress Orbian Roaming the Delesyian Continent",
+  "description": null
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Block": {
+  "title": "Aeserion, the Great Serpent",
+  "description": null
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Priscus": {
+  "title": "Priscus the Ancient",
+  "description": null
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Praevus": {
+  "title": "Praevus the Ancient",
+  "description": null
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Primus": {
+  "title": "Primus the Ancient",
+  "description": null
+ },
+ "Quest_Faction_LandSpider_Swamp_Boss": {
+  "title": "Lake Stoneback Crab",
+  "description": null
+ },
+ "Quest_Node_Del_Timberton_All": {
+  "title": "Timberton",
+  "description": null
+ },
+ "Quest_Faction_Marni_Barrier_Fortress_Blockade": {
+  "title": "Locked Barrier",
+  "description": null
+ },
+ "Quest_Node_Del_ValvegardWallFort_Normal": {
+  "title": "Marni's Valvegard Garrison",
+  "description": null
+ },
+ "Quest_Node_Dem_AzerianManor_All": {
+  "title": "Azerian Manor",
+  "description": null
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Block_Request": {
+  "title": "Deathchime",
+  "description": null
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Normal": {
+  "title": "After Bloodsteel Liberation",
+  "description": null
+ },
+ "Quest_Node_Dem_BrookfieldManor_Elemore_All": {
+  "title": "Elemore Faction",
+  "description": null
+ },
+ "Quest_Node_Dem_BrookfieldManor_Elemore_MoonReaper_Normal": {
+  "title": "Lunar Judgment",
+  "description": null
+ },
+ "Quest_Faction_Demeniss_All": {
+  "title": "Demeniss Faction",
+  "description": null
+ },
+ "Quest_Node_Dem_EastCourt_Block": {
+  "title": "Eastern Demeniss Blockade",
+  "description": null
+ },
+ "Quest_Node_Dem_WestCourt_Block": {
+  "title": "Western Demeniss Blockade",
+  "description": null
+ },
+ "Quest_Node_Dem_SouthCourt_Block": {
+  "title": "Southern Demeniss Blockade",
+  "description": null
+ },
+ "Quest_Node_Dem_DemenissArmory_Block": {
+  "title": "Demeniss Armory Blockade",
+  "description": null
+ },
+ "Quest_Node_Dem_EastCourt_Normal": {
+  "title": "Eastern Demeniss After Liberation",
+  "description": null
+ },
+ "Quest_Node_Dem_WestCourt_Normal": {
+  "title": "Western Demeniss After Liberation",
+  "description": null
+ },
+ "Quest_Node_Dem_SouthCourt_Normal": {
+  "title": "Southern Demeniss After Liberation",
+  "description": null
+ },
+ "Quest_Node_Dem_DemenissArmory_Normal": {
+  "title": "Demeniss Armory After Liberation",
+  "description": null
+ },
+ "Quest_Node_Dem_DemenissCastle_FinaleStory": {
+  "title": "Tales After Demeniss",
+  "description": null
+ },
+ "Quest_Node_Dem_DemenissCastle_Daily": {
+  "title": "Tales from the Corners of Demeniss",
+  "description": null
+ },
+ "Quest_Node_Dem_DemenissCastle_Operation": {
+  "title": "A Favor for Demeniss",
+  "description": null
+ },
+ "Quest_Node_Dem_DemenissCastle_MerchantStory": {
+  "title": "Tales of the Demenissian Merchants",
+  "description": null
+ },
+ "Quest_Node_Dem_DemenissCastle_CitizenStory": {
+  "title": "Tales of the Demenissian Residents",
+  "description": null
+ },
+ "Quest_Node_Dem_TreasureBuried": {
+  "title": "Someone's Letter",
+  "description": null
+ },
+ "Quest_Node_Dem_AzerianManor_CarriageWorkshop": {
+  "title": "Suspicious Farm",
+  "description": null
+ },
+ "Quest_Node_Dem_JijeongTemple_HiddenCave_Normal": {
+  "title": "Mushrooms Growing Among Poison",
+  "description": null
+ },
+ "Quest_Faction_Demeniss_Wanted": {
+  "title": "Outlaws in Demeniss",
+  "description": null
+ },
+ "Quest_Node_Dem_GrayRockShipyard_Block": {
+  "title": "Gunshots Blocking the Flow of Water",
+  "description": null
+ },
+ "Quest_Node_Dem_GrayRockQuarry_Block": {
+  "title": "Gunshot Throughout the Rocks",
+  "description": null
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Block": {
+  "title": "Castle Sealed by Fire",
+  "description": null
+ },
+ "Quest_Node_Dem_NorthOutpost_Block": {
+  "title": "Hunter's Outpost",
+  "description": null
+ },
+ "Quest_Node_Dem_DemenissCathedral_All": {
+  "title": "Cathedral of Demeniss",
+  "description": null
+ },
+ "Quest_Node_Dem_EastDemenissChurch_All": {
+  "title": "Church of East Demeniss",
+  "description": null
+ },
+ "Quest_Node_Dem_WestDemenissChurch_All": {
+  "title": "Church of West Demeniss",
+  "description": null
+ },
+ "Quest_Faction_Cannon_Forge_Normal": {
+  "title": "Cannon Foundry",
+  "description": null
+ },
+ "Quest_Faction_Armor_Smithy_Normal": {
+  "title": "Stronghelm Forge",
+  "description": null
+ },
+ "Quest_Node_Dem_EyeOfIce_All": {
+  "title": "Frozen Crater Faction",
+  "description": null
+ },
+ "Quest_Node_Dem_EyeOfIce_Block": {
+  "title": "Lantern-lit Frost",
+  "description": null
+ },
+ "Quest_Node_Dem_EyeOfIceAltar_Block": {
+  "title": "Frozen Iris",
+  "description": null
+ },
+ "Quest_Node_Dem_FrostFort_Block": {
+  "title": "Hidden Space",
+  "description": null
+ },
+ "Quest_Node_Kwe_QuietSnowShelter_Nivalisthe_Block": {
+  "title": "Skull Knight Monster Schedule at the Snowhaven Hearth",
+  "description": null
+ },
+ "Quest_Node_Dem_Flame_Knights_Block": {
+  "title": "Flame Knights",
+  "description": null
+ },
+ "Quest_Node_Dem_Flame_Knights_Normal": {
+  "title": "Flame Knights Castle After Liberation",
+  "description": null
+ },
+ "Quest_Node_Neut_GoldenGoblinWineMaker_Block": {
+  "title": "Helms Stopping the Oven",
+  "description": null
+ },
+ "Quest_Node_Dem_GoldenGoblinBrewery_Normal": {
+  "title": "Sweet Factory",
+  "description": null
+ },
+ "Quest_Node_Dem_NightExpeditionCamp_Block": {
+  "title": "Blade at the Precipice",
+  "description": null
+ },
+ "Quest_Node_Dem_ThornRoseFort_BeforeWar": {
+  "title": "Thornbriar Fortress Before War",
+  "description": null
+ },
+ "Quest_Node_Dem_ThornRoseFort_Normal": {
+  "title": "Thornbriar Fortress Liberation",
+  "description": null
+ },
+ "Quest_Node_Dem_SilvermoonHQ_All": {
+  "title": "East Demenissian Territory",
+  "description": null
+ },
+ "Quest_Node_Dem_SilvermoonHQ_Block": {
+  "title": "The Day the Moonlight Waned",
+  "description": null
+ },
+ "Quest_Node_Dem_HuntersCabin_Block": {
+  "title": "Hunter's Cabin",
+  "description": null
+ },
+ "Quest_Faction_CaliburnClan_II_DemenissZoo_Boss": {
+  "title": "The Crimson Warden",
+  "description": null
+ },
+ "Quest_Faction_CaliburnClan_II_Zoo": {
+  "title": "Southern Demenissian Territory Wildlife Park",
+  "description": null
+ },
+ "Quest_Node_Dem_KingMountainDigSite_Block": {
+  "title": "Trembles from Below",
+  "description": null
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_All": {
+  "title": "Midnight Circus",
+  "description": null
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_Circus_Normal": {
+  "title": "Midnight Circus",
+  "description": null
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_Normal": {
+  "title": "Midnight Circus",
+  "description": null
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_Circus_After": {
+  "title": "Midnight Circus",
+  "description": null
+ },
+ "Quest_Node_Dem_TarivVillage_All": {
+  "title": "Moving Painting in Tariv",
+  "description": null
+ },
+ "Quest_Node_Dem_TarivVillage_GuardianTree_Normal": {
+  "title": "The Light of Tariv",
+  "description": null
+ },
+ "Quest_Node_Dem_GateOfTruth_All": {
+  "title": "The Gate of Truth",
+  "description": null
+ },
+ "Quest_Node_Dem_GateOfTruth_StoneGolem_Block": {
+  "title": "Guardian of the Ancient Ruins",
+  "description": null
+ },
+ "Quest_Node_Dem_WindmereManor_Byron_All": {
+  "title": "Byron Noble Faction",
+  "description": null
+ },
+ "Quest_Node_Dem_WindmereManor_HorseRace_Normal": {
+  "title": "Where the Wind Blows",
+  "description": null
+ },
+ "Quest_Node_Dem_WindmereManor_Byron_FullPlateArmorTroll_Boss": {
+  "title": "The Dark Justiciar",
+  "description": null
+ },
+ "Quest_Node_Dem_NorthOutpost_Normal": {
+  "title": "North Watch Outpost Liberation",
+  "description": null
+ },
+ "Quest_Node_Her_BluemontManor_Rupert_Normal": {
+  "title": "Estate in Dismay",
+  "description": null
+ },
+ "Quest_Node_Her_KarinQuarry_Normal": {
+  "title": "Bluemont Manor",
+  "description": null
+ },
+ "Quest_Node_Her_BluemontWineHouse_PervinFort_Block": {
+  "title": "Continuing Concern",
+  "description": null
+ },
+ "Quest_Node_Her_MuckrootRanch_Artifact": {
+  "title": "Boulder from the Sky",
+  "description": null
+ },
+ "Quest_Node_Her_RuinedChapel_Block": {
+  "title": "Ruined Chapel",
+  "description": null
+ },
+ "Quest_Node_Her_RuinedChapel_Normal": {
+  "title": "Ruined Chapel",
+  "description": null
+ },
+ "Quest_Node_Her_FortAnvil_Block": {
+  "title": "Silent Anvil",
+  "description": null
+ },
+ "Quest_Node_Her_FortAnvil_Normal": {
+  "title": "After Liberation of Fort Anvil",
+  "description": null
+ },
+ "Quest_Node_Her_HellwoodSlaveCamp_All": {
+  "title": "Rocca's Hill Slave Camp All",
+  "description": null
+ },
+ "Quest_Node_Her_HellwoodSlaveCamp_Block": {
+  "title": "Flame Melting the Chains",
+  "description": null
+ },
+ "Quest_Faction_Hellhounds_Block": {
+  "title": "The Hellhounds",
+  "description": null
+ },
+ "Quest_Faction_Hellhounds_Normal": {
+  "title": "Fort Hellwood Normal",
+  "description": null
+ },
+ "Quest_Faction_Bleed_Ruffians_Block": {
+  "title": "On the Speartip Once Again",
+  "description": null
+ },
+ "Quest_Faction_GraceDominion_All": {
+  "title": "Grace Estate",
+  "description": null
+ },
+ "Quest_Node_Her_WindHillFactory_Block": {
+  "title": "Drifton",
+  "description": null
+ },
+ "Quest_Node_Her_WindHillFactory_FlyWagon": {
+  "title": "Wagon in the Skies",
+  "description": null
+ },
+ "Quest_Node_Her_GlenbrightManor_Grace_Block": {
+  "title": "The Owner of Glenbright Manor",
+  "description": null
+ },
+ "Quest_Node_Her_FlowerDustBeeFarm_Normal": {
+  "title": "Pollengarth Apiary",
+  "description": null
+ },
+ "Quest_Node_Her_GoldleafGuildhouse_Purge_Normal": {
+  "title": "Extinguishing the Last Flames",
+  "description": null
+ },
+ "Quest_Faction_GoldleafGuildhouse_SubInner_Normal": {
+  "title": "Inner Base of the Goldleaf Merchant Guild",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents": {
+  "title": "Record of the Greymanes",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Pet": {
+  "title": "The Greymanes' New Fangs",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_WagonTheft": {
+  "title": "Strongbox with Wheels",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Dyeing": {
+  "title": "Brightening the Spirits",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Seotda": {
+  "title": "Chance to Make a Fortune",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_EquipmentCraft": {
+  "title": "The First Steps of Little Marksmen",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Wanted": {
+  "title": "Sweet Taste of Bounties",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Felling": {
+  "title": "The Price of a Hangover",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_HorseRace": {
+  "title": "Riding with Pride",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Trade": {
+  "title": "Golden News from Yann",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Cook": {
+  "title": "A Taste of Home",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Fishing": {
+  "title": "Words Left by the Riverside",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_RoyalSupply": {
+  "title": "Favorable Trade",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Armwrestling": {
+  "title": "Strength Held in the Fingertips",
+  "description": null
+ },
+ "Quest_Faction_Graymane_BaseCamp": {
+  "title": "Base Camp",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv2": {
+  "title": "Embers of Return",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv3": {
+  "title": "Gathered Will",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv4": {
+  "title": "Solid Foundation",
+  "description": null
+ },
+ "Quest_Faction_Graymane_Scout": {
+  "title": "Reuniting with Comrades",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_Donation": {
+  "title": "For a Better Tomorrow",
+  "description": null
+ },
+ "Quest_Node_Her_GreymaneCamp_FriendStory": {
+  "title": "Tales of the Greymanes",
+  "description": null
+ },
+ "Quest_Node_Her_InksworthPrinter_Normal": {
+  "title": "Hernand Bindery",
+  "description": null
+ },
+ "Quest_Node_Her_GreystoneManor_Felix_Normal": {
+  "title": "Family Concerns",
+  "description": null
+ },
+ "Quest_Node_Her_SouthQuarry_Block_CubeWalker": {
+  "title": "Shackle-Breaking Hammer",
+  "description": null
+ },
+ "Quest_Node_Her_SouthQuarry_Normal": {
+  "title": "Southern Quarry",
+  "description": null
+ },
+ "Quest_Node_Her_RodbelFishingDock_Block": {
+  "title": "Bleed Bandits Threatening the Fishing Village",
+  "description": null
+ },
+ "Quest_Node_Her_HalsiusHospital_All": {
+  "title": "St. Halssius's House of Healing All",
+  "description": null
+ },
+ "Quest_Finale": {
+  "title": "Finale",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_All": {
+  "title": "Hernand Factions",
+  "description": null
+ },
+ "Quest_Node_Her_HowlingCave_Boss": {
+  "title": "Legendary Wolf",
+  "description": null
+ },
+ "Quest_Node_Her_RootFort_Block": {
+  "title": "Frozen Eldertree",
+  "description": null
+ },
+ "Quest_Node_Her_RootFort_Normal": {
+  "title": "Roothold",
+  "description": null
+ },
+ "Quest_Node_Her_DrakefallCastle_Normal": {
+  "title": "Drakesfall Castle Liberation",
+  "description": null
+ },
+ "Quest_Node_Her_WillkommPost_Normal": {
+  "title": "Vilkom Outpost Liberation",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_FinaleStory": {
+  "title": "Tales after Hernand",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_Daily": {
+  "title": "Tales from the Corners of Hernand",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_Operation": {
+  "title": "A Favor for Hernand",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_CucuIcemoorCastleRuins": {
+  "title": "Invention of the Workshop",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_Roberts_CollectionBox": {
+  "title": "A Friendly Encounter",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_MerchantStory": {
+  "title": "Tales of the Hernandian Merchants",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_CitizenStory": {
+  "title": "Tales of the Hernandian Residents",
+  "description": null
+ },
+ "Quest_Node_Her_CalphadeCastle_MerchantStory": {
+  "title": "Tales of the Calphadean Merchants",
+  "description": null
+ },
+ "Quest_Node_Her_CalphadeCastle_CitizenStory": {
+  "title": "Tales of the Calphadean Residents",
+  "description": null
+ },
+ "Quest_Node_Her_Friendly_Legendary": {
+  "title": "Legendary Animals",
+  "description": null
+ },
+ "Quest_Node_Her_GoldleafGuildhouse_InnocentSon_Normal": {
+  "title": "Seed of Truth",
+  "description": null
+ },
+ "Quest_Node_Cal_CalphadeCastle_Misappropriation_Normal": {
+  "title": "Ambition in the Ruins",
+  "description": null
+ },
+ "Quest_Node_Her_ScholastoneInstitute_WeightOfKnowledge_Normal": {
+  "title": "The Weight of Knowledge",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_Normal": {
+  "title": "Hernand Factions",
+  "description": null
+ },
+ "Quest_Node_Her_HernandNorthGate_Normal": {
+  "title": "Hernand North Gate",
+  "description": null
+ },
+ "Quest_Node_Her_HernandCastle_Wanted": {
+  "title": "Outlaws in Hernand",
+  "description": null
+ },
+ "Quest_Node_Her_WillkommPost_Block": {
+  "title": "Fangs Caught at the Outpost",
+  "description": null
+ },
+ "Quest_Node_Her_BellanorHuntingGrounds_Block": {
+  "title": "Traces on the Hunting Ground",
+  "description": null
+ },
+ "Quest_Node_Her_RiverwardOutpost_Block": {
+  "title": "Gunshots Heard Throughout the Mountains",
+  "description": null
+ },
+ "Quest_Node_Her_HernandBeacon_Block": {
+  "title": "Blindfolded Threat",
+  "description": null
+ },
+ "Quest_Node_Cal_WolfFang_Mine_Block": {
+  "title": "Shadow Over the Mine",
+  "description": null
+ },
+ "Quest_Node_Her_WisdomTower_Block": {
+  "title": "Spire of Insight",
+  "description": null
+ },
+ "Quest_Node_Her_AnvilHill_Block": {
+  "title": "Blade on an Anvil",
+  "description": null
+ },
+ "Quest_Node_Her_DrakefallCastle_Block": {
+  "title": "Masked Hunter",
+  "description": null
+ },
+ "Quest_Node_Her_StoneTowerVillage_Block": {
+  "title": "Collapsed Stone Tower",
+  "description": null
+ },
+ "Quest_Faction_Hernand_Church_All": {
+  "title": "Church of Hernand",
+  "description": null
+ },
+ "Quest_Node_Her_KharonsoLake_Block": {
+  "title": "The Sleeping Heart",
+  "description": null
+ },
+ "Quest_Node_Her_LioncrestManor_Alfonso_All": {
+  "title": "House Alfonso",
+  "description": null
+ },
+ "Quest_Node_Her_LioncrestManor_Alfonso_Normal": {
+  "title": "House of Spears",
+  "description": null
+ },
+ "Quest_Node_Her_LioncrestManor_Alfonso_AbyssTrace_Normal": {
+  "title": "Transcendent Structure",
+  "description": null
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_All": {
+  "title": "Serkis Manor All",
+  "description": null
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_Clue_Normal": {
+  "title": "Secret of the Lost Seal",
+  "description": null
+ },
+ "Quest_Node_Her_IcemoorCastleRuins_Block": {
+  "title": "Lord Amidst the Ruins",
+  "description": null
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_FortWarspike_Boss": {
+  "title": "The Nemesis' Demise",
+  "description": null
+ },
+ "Quest_Node_Her_BloomwoodRanch_HorseRace_Normal": {
+  "title": "Hooves Through the Wind",
+  "description": null
+ },
+ "Quest_Silver_Armor_Her_Beacon": {
+  "title": "For Whom the Bell Tolls",
+  "description": null
+ },
+ "Quest_Faction_PororinVillage_All": {
+  "title": "Pororin",
+  "description": null
+ },
+ "Quest_Faction_PororinVillage_Bell_All": {
+  "title": "Bell Tolling in Pywel",
+  "description": null
+ },
+ "Quest_Node_Her_PororinVillage_HiddenPororin_Normal": {
+  "title": "Children of the Woods",
+  "description": null
+ },
+ "Quest_Node_Her_PororinVillage_Trembling_Woods_Ent_Normal": {
+  "title": "Trembling Woods",
+  "description": null
+ },
+ "Quest_Faction_PororinVillage_Normal": {
+  "title": "Pororin Research Institute",
+  "description": null
+ },
+ "Quest_Faction_PororinVillage_ResearchStop_Reserch_V": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_PororinVillage_ResearchStop_Reserch_VI": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_PororinVillage_Shaipresent_All": {
+  "title": "Help",
+  "description": null
+ },
+ "Quest_Faction_ScholarStoneInstitute_Academic_Normal": {
+  "title": "Scholastone Research Institute",
+  "description": null
+ },
+ "Quest_Faction_ScholarStoneInstitue_ResearchStop_Reserch_V": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_ScholarStoneInstitue_ResearchStop_Reserch_IV": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Node_Her_ScholarStoneInstitute_All": {
+  "title": "What the Stars left Behind",
+  "description": null
+ },
+ "Quest_Node_Her_ScholarStoneInstitute_AnamorphicSword": {
+  "title": "Where Starlight Converges",
+  "description": null
+ },
+ "Quest_Node_Her_SeniaVillage_Block": {
+  "title": "Where Land Meets Sky",
+  "description": null
+ },
+ "Quest_Node_Her_SeniaVillage_Normal": {
+  "title": "Senia",
+  "description": null
+ },
+ "Quest_Node_Her_SeniaVillage_HolyRelic_Normal": {
+  "title": "Missing Relic",
+  "description": null
+ },
+ "Quest_Node_Her_Slum_All": {
+  "title": "Hernand Beggars' Alliance",
+  "description": null
+ },
+ "Quest_Node_Her_Slum_Normal": {
+  "title": "Beggars' Alliance",
+  "description": null
+ },
+ "Quest_Node_Her_Slum_NobleCure_Normal": {
+  "title": "Plague Over the Wall",
+  "description": null
+ },
+ "Quest_Node_Her_SpiderCastle_Block": {
+  "title": "Queen of the Silkspun Citadel",
+  "description": null
+ },
+ "Quest_Node_Her_SpiderCastle_DrugFactory_Normal": {
+  "title": "Abandoned Factory",
+  "description": null
+ },
+ "Quest_Node_Her_ArboriaVillage_Normal": {
+  "title": "Arboria",
+  "description": null
+ },
+ "Quest_Node_Her_VelluaVillage_All": {
+  "title": "Vellua All",
+  "description": null
+ },
+ "Quest_Node_Her_VelluaVillage_Block": {
+  "title": "Beyond the Silent Waves",
+  "description": null
+ },
+ "Quest_Node_Her_VelluaVillage_Normal": {
+  "title": "Vellua",
+  "description": null
+ },
+ "Quest_Node_Her_VelluaVillage_Girl_Rescue_Normal": {
+  "title": "The Girl Lost in the Mists",
+  "description": null
+ },
+ "Quest_Node_Kwe_AshclawKeep_Block": {
+  "title": "Ashclaw Keep",
+  "description": null
+ },
+ "Quest_Node_Kwe_AshclawKeep_Normal": {
+  "title": "Ashclaw Keep",
+  "description": null
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Block": {
+  "title": "Dark Shadow Engulfing the Fort",
+  "description": null
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Normal": {
+  "title": "Vat'nholl Fortress",
+  "description": null
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Normal": {
+  "title": "Steinnfell Fortress",
+  "description": null
+ },
+ "Quest_Node_Kwe_FortAskelund_Normal": {
+  "title": "Fort Askelund Normal",
+  "description": null
+ },
+ "Quest_Node_Kwe_BeighenVillage_Normal": {
+  "title": "Beighen",
+  "description": null
+ },
+ "Quest_Node_Kwe_BeighenVillage_Pailune_Block": {
+  "title": "Pailune Beighen Occupied",
+  "description": null
+ },
+ "Quest_Node_Kwe_BeighenCandlery_Normal": {
+  "title": "Beighen Candlery",
+  "description": null
+ },
+ "Quest_Node_Kwe_BeighenCandlery_Pailune_Block": {
+  "title": "Pailune Beighen Candlery Occupied",
+  "description": null
+ },
+ "Quest_Node_Kwe_BeighenBasketMaker_Normal": {
+  "title": "Beighen Weavery",
+  "description": null
+ },
+ "Quest_Node_Kwe_StellenManor_Normal": {
+  "title": "Stellen Manor",
+  "description": null
+ },
+ "Quest_Faction_Antumbra_Sanctum_All": {
+  "title": "Antumbra Background",
+  "description": null
+ },
+ "Quest_Faction_Antumbra_Sanctum_Block": {
+  "title": "Darkness over the Sanctum",
+  "description": null
+ },
+ "Quest_Node_Kwe_SpireOfRuination_Boss": {
+  "title": "Cloister of Ruination",
+  "description": null
+ },
+ "Quest_Node_Kwe_SpireOfRingingTruth_All": {
+  "title": "Goblin Tower",
+  "description": null
+ },
+ "Quest_Node_Kwe_HarpyNest_All": {
+  "title": "Karanda",
+  "description": null
+ },
+ "Quest_Node_Kwe_HarpyNest_Boss_Block": {
+  "title": "Nest of White Feathers",
+  "description": null
+ },
+ "Quest_Node_Kwe_LonelyJackal_BloodGolem_Boss": {
+  "title": "Bloodied Path",
+  "description": null
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_All": {
+  "title": "Longleaf Forest",
+  "description": null
+ },
+ "Quest_Node_Kwe_LongleafTreeForest_Boss": {
+  "title": "Fog over the Forest",
+  "description": null
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_Block": {
+  "title": "Longleaf Forest Lost to Darkness",
+  "description": null
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_Normal": {
+  "title": "Bright Longleaf Forest",
+  "description": null
+ },
+ "Quest_Node_Kwe_RidgehunterLeatherMaker_Normal": {
+  "title": "Forest Drowned in Mud",
+  "description": null
+ },
+ "Quest_Node_Kwe_LongbranchVillage_EntTreasure": {
+  "title": "Woodland Spirit's Treasure",
+  "description": null
+ },
+ "Quest_Node_Kwe_OdeckVillage_Boss_Block": {
+  "title": "Executioner of Justice",
+  "description": null
+ },
+ "Quest_Node_Kwe_WildhuntCamp_Normal": {
+  "title": "Beast Hunters' Camp Liberation",
+  "description": null
+ },
+ "Quest_Node_OdeckVillage_Normal": {
+  "title": "Odeck",
+  "description": null
+ },
+ "Quest_Node_Kwe_GeneralTomb_Block": {
+  "title": "Slumbering Soul",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_All": {
+  "title": "Pailune Faction",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_Normal": {
+  "title": "Pailune Faction",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_GreyWolfCamp_Normal": {
+  "title": "Greymane Camp in Pailune",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_RescuePailuneLeader_Normal": {
+  "title": "Crossroads of Succession",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_RoketBag_Normal": {
+  "title": "The Giant's Leap",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_Wanted": {
+  "title": "Outlaws in Pailune",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_FinaleStory": {
+  "title": "Tales After Pailune",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_Daily": {
+  "title": "Tales from the Corners of Pailune",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_MerchantStory": {
+  "title": "Tales of the Pailunese Merchants",
+  "description": null
+ },
+ "Quest_Node_Kwe_Pailune_CitizenStory": {
+  "title": "Tales of the Pailunese Residents",
+  "description": null
+ },
+ "Quest_Node_Kwe_DoubleStepPass_Block": {
+  "title": "Border with Two Edges",
+  "description": null
+ },
+ "Quest_Node_Kwe_RidgePath_Block": {
+  "title": "Black Breath on a Ridge",
+  "description": null
+ },
+ "Quest_Node_Kwe_Brokenford_Block": {
+  "title": "Claws Hidden in the Forest",
+  "description": null
+ },
+ "Quest_Node_Kwe_RidgehunterLeatherMaker_Block": {
+  "title": "Fog-swallowed Tannery",
+  "description": null
+ },
+ "Quest_Node_Kwe_WildhuntCamp_Block": {
+  "title": "Trace Trackers",
+  "description": null
+ },
+ "Quest_Node_Kwe_SkallcoveVillage_Normal": {
+  "title": "Skallcove",
+  "description": null
+ },
+ "Quest_Node_Kwe_TotemfeltVillage_Normal": {
+  "title": "Totemfelt",
+  "description": null
+ },
+ "Quest_Node_Kwe_SkoghornVillage_All": {
+  "title": "Skoghorn Faction",
+  "description": null
+ },
+ "Quest_Node_Kwe_SkoghornVillage_Normal": {
+  "title": "Skoghorn",
+  "description": null
+ },
+ "Quest_Node_Kwe_QuietSnowShelter_Block": {
+  "title": "Soul Shepherd",
+  "description": null
+ },
+ "Quest_Node_Kwe_QuietSnowShelter_Normal": {
+  "title": "Snowhaven Hearth",
+  "description": null
+ },
+ "Quest_Node_Kwe_SvinholtRanch_Normal": {
+  "title": "Svinholt Ranch",
+  "description": null
+ },
+ "Quest_Node_Kwe_HorpbothHarpoonery_Normal": {
+  "title": "Halbert Harpoonery",
+  "description": null
+ },
+ "Quest_Node_Kwe_WindsongMountain_All": {
+  "title": "Titan",
+  "description": null
+ },
+ "Quest_Node_Kwe_SkallcoveVillage_Block": {
+  "title": "Where Lightning Strikes",
+  "description": null
+ },
+ "Quest_Node_Kwe_WindsongMountain_MasterThunder_Boss_Block": {
+  "title": "Master of Thunder",
+  "description": null
+ },
+ "Quest_Node_Her_BellanorBeacon_Normal": {
+  "title": "Bellanor Beacon Liberation",
+  "description": null
+ },
+ "Quest_Node_Her_RiverwardOutpost_Normal": {
+  "title": "Riverward Outpost Liberation",
+  "description": null
+ },
+ "Quest_Node_Her_DeepForestBeacon_Normal": {
+  "title": "Deepwoods Beacon Liberation",
+  "description": null
+ },
+ "Quest_Node_Del_StonewardCastleRuins_Normal": {
+  "title": "Stoneward Ruins Liberation",
+  "description": null
+ },
+ "Quest_Node_Cal_WolfFang_Watch_Normal": {
+  "title": "Stormtalon Ridge Guard Post Liberation",
+  "description": null
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Normal": {
+  "title": "Scorchrock Castle Liberation",
+  "description": null
+ },
+ "Quest_Node_Kwe_DoubleStepPass_Normal": {
+  "title": "Twinpath Post Liberation",
+  "description": null
+ },
+ "Quest_Node_Kwe_RidgePath_Normal": {
+  "title": "Ridgepath Post Liberation",
+  "description": null
+ },
+ "Quest_Node_Del_DewhavenLoggingCamp_Normal": {
+  "title": "Dewhaven Logging Camp Liberation",
+  "description": null
+ },
+ "Quest_Node_Neut_GorthakIronworks_Normal": {
+  "title": "Red Orcs Faction",
+  "description": null
+ },
+ "Quest_Node_Neut_GorthakIronMaker_Research": {
+  "title": "Gorthak Ironworks Research Institute",
+  "description": null
+ },
+ "Quest_Faction_GorthakIron_ResearchStop_Reserch_V": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_GorthakIron_ResearchStop_Reserch_IV": {
+  "title": "Halted Research",
+  "description": null
+ },
+ "Quest_Faction_GorthakIron_Normal_KuKuATAG": {
+  "title": "Pot and Weapons",
+  "description": null
+ },
+ "Quest_Node_Neut_MarnisOutpost_All": {
+  "title": "Church of Hernand",
+  "description": null
+ },
+ "Quest_Faction_Marni_OutPost_Block": {
+  "title": "Abandoned Trade Route",
+  "description": null
+ },
+ "Quest_Node_Neut_MarnisOutpost_Normal": {
+  "title": "Marni's Outpost",
+  "description": null
+ },
+ "Quest_Node_ThiefCamp_Her": {
+  "title": "Defeat enemies around the camp",
+  "description": null
+ },
+ "Quest_Node_ThiefCamp_Dem": {
+  "title": "Defeat enemies around the camp",
+  "description": null
+ },
+ "Quest_Node_ThiefCamp_Del": {
+  "title": "Defeat enemies around the camp",
+  "description": null
+ },
+ "Quest_Node_ThiefCamp_Kwe": {
+  "title": "Defeat enemies around the camp",
+  "description": null
+ },
+ "Quest_Node_ThiefCamp_Crim": {
+  "title": "Defeat enemies around the camp",
+  "description": null
+ },
+ "Quest_Node_Shipwreck_Her": {
+  "title": "Defeat enemies around the shipwreck",
+  "description": null
+ },
+ "Quest_Node_Shipwreck_Dem": {
+  "title": "Defeat enemies around the shipwreck",
+  "description": null
+ },
+ "Quest_Node_Shipwreck_Del": {
+  "title": "Defeat enemies around the shipwreck",
+  "description": null
+ },
+ "Quest_Node_Shipwreck_Crim": {
+  "title": "Defeat enemies around the shipwreck",
+  "description": null
+ },
+ "Quest_Node_AbandonedCabin_Her": {
+  "title": "Defeat enemies around the cabin",
+  "description": null
+ },
+ "Quest_Node_AbandonedCabin_Dem": {
+  "title": "Defeat enemies around the cabin",
+  "description": null
+ },
+ "Quest_Node_AbandonedCabin_Del": {
+  "title": "Defeat enemies around the cabin",
+  "description": null
+ },
+ "Quest_Node_AbandonedCabin_Kwe": {
+  "title": "Defeat enemies around the cabin",
+  "description": null
+ },
+ "Quest_Node_AbandonedCabin_Crim": {
+  "title": "Defeat enemies around the cabin",
+  "description": null
+ },
+ "Quest_Node_Ruins_Her": {
+  "title": "Defeat enemies around the ruins",
+  "description": null
+ },
+ "Quest_Node_Ruins_Dem": {
+  "title": "Defeat enemies around the ruins",
+  "description": null
+ },
+ "Quest_Node_Ruins_Del": {
+  "title": "Defeat enemies around the ruins",
+  "description": null
+ },
+ "Quest_Node_Ruins_Kwe": {
+  "title": "Defeat enemies around the ruins",
+  "description": null
+ },
+ "Quest_Node_Ruins_Crim": {
+  "title": "Defeat enemies around the ruins",
+  "description": null
+ },
+ "Quest_Node_WatchTower_Her": {
+  "title": "Defeat enemies around the watchtower",
+  "description": null
+ },
+ "Quest_Node_WatchTower_Her_Normal": {
+  "title": "North Hernand Watchtower Liberation",
+  "description": null
+ },
+ "Quest_Node_Her_SnowMountain_WatchTower_Normal": {
+  "title": "Everfrost Watchtower Liberation",
+  "description": null
+ },
+ "Quest_Node_WatchTower_Del": {
+  "title": "Defeat enemies around the watchtower",
+  "description": null
+ },
+ "Quest_Node_Del_Watchtower_II_Normal": {
+  "title": "Drywind Valley Watchtower Liberation",
+  "description": null
+ },
+ "Quest_Node_Her_PervinFort_Reoccupation": {
+  "title": "Re-Blockade - Fort Perwin",
+  "description": null
+ },
+ "Quest_Node_Her_PervinFort_Invasion": {
+  "title": "Engagement - Fort Perwin",
+  "description": null
+ },
+ "Quest_Node_Her_PervinFort_Reconstruction": {
+  "title": "Reconstruct - Fort Perwin",
+  "description": null
+ },
+ "Quest_Node_Her_FortWarspike_Reoccupation": {
+  "title": "Re-blockaded - Fort Warspike",
+  "description": null
+ },
+ "Quest_Node_Her_FortWarspike_Invasion": {
+  "title": "Engagement - Fort Warspike",
+  "description": null
+ },
+ "Quest_Node_Her_FortWarspike_Reconstruction": {
+  "title": "Reconstruct - Fort Warspike",
+  "description": null
+ },
+ "Quest_Node_Her_FortAnvil_Reoccupation": {
+  "title": "Re-Blockade - Fort Anvil",
+  "description": null
+ },
+ "Quest_Node_Her_FortAnvil_Invasion": {
+  "title": "Engagement - Fort Anvil",
+  "description": null
+ },
+ "Quest_Node_Her_FortAnvil_Reconstruction": {
+  "title": "Reconstruct - Fort Anvil",
+  "description": null
+ },
+ "Quest_Node_Her_KarinQuarry_Reoccupation": {
+  "title": "Re-Blockade - Karin Quarry",
+  "description": null
+ },
+ "Quest_Node_Her_KarinQuarry_Invasion": {
+  "title": "Engagement - Karin Quarry",
+  "description": null
+ },
+ "Quest_Node_Her_KarinQuarry_Reconstruction": {
+  "title": "Reconstruct - Karin Quarry",
+  "description": null
+ },
+ "Quest_Node_Her_SouthQuarry_Reoccupation": {
+  "title": "Re-Blockade - Southern Quarry",
+  "description": null
+ },
+ "Quest_Node_Her_SouthQuarry_Invasion": {
+  "title": "Engagement - Southern Quarry",
+  "description": null
+ },
+ "Quest_Node_Her_SouthQuarry_Reconstruction": {
+  "title": "Reconstruct - Southern Quarry",
+  "description": null
+ },
+ "Quest_Node_Her_FortHellwood_Reoccupation": {
+  "title": "Re-blockaded - Fort Hellwood",
+  "description": null
+ },
+ "Quest_Node_Her_FortHellwood_Invasion": {
+  "title": "Engagement - Fort Hellwood",
+  "description": null
+ },
+ "Quest_Node_Her_FortHellwood_Reconstruction": {
+  "title": "Reconstruct - Fort Hellwood",
+  "description": null
+ },
+ "Quest_Node_Her_RootFort_Reoccupation": {
+  "title": "Re-blockaded - Roothold",
+  "description": null
+ },
+ "Quest_Node_Her_RootFort_Invasion": {
+  "title": "Engagement - Roothold",
+  "description": null
+ },
+ "Quest_Node_Her_RootFort_Reconstruction": {
+  "title": "Reconstruct - Roothold",
+  "description": null
+ },
+ "Quest_Node_Her_DragonKillCastle_Reoccupation": {
+  "title": "Re-Blockade - Drakesfall Castle",
+  "description": null
+ },
+ "Quest_Node_Her_DragonKillCastle_Invasion": {
+  "title": "Engagement - Drakesfall Castle",
+  "description": null
+ },
+ "Quest_Node_Her_DragonKillCastle_Reconstruction": {
+  "title": "Reconstruct - Drakesfall Castle",
+  "description": null
+ },
+ "Quest_Node_Kwe_FortAskelund_Reoccupation": {
+  "title": "Re-Blockade - Fort Askelund",
+  "description": null
+ },
+ "Quest_Node_Kwe_FortAskelund_Invasion": {
+  "title": "Engagement - Fort Askelund",
+  "description": null
+ },
+ "Quest_Node_Kwe_FortAskelund_Reconstruction": {
+  "title": "Reconstruct - Fort Askelund",
+  "description": null
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Reoccupation": {
+  "title": "Re-Blockade - Vat'nholl Fortress",
+  "description": null
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Invasion": {
+  "title": "Engagement - Vat'nholl Fortress",
+  "description": null
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Reconstruction": {
+  "title": "Reconstruct - Vat'nholl Fortress",
+  "description": null
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Reoccupation": {
+  "title": "Re-Blockade - Steinnfell Fortress",
+  "description": null
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Invasion": {
+  "title": "Engagement - Steinnfell Fortress",
+  "description": null
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Reconstruction": {
+  "title": "Reconstruct - Steinnfell Fortress",
+  "description": null
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Reoccupation": {
+  "title": "Re-Blockade - Bloodsteel Camp",
+  "description": null
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Invasion": {
+  "title": "Engagement - Bloodsteel Camp",
+  "description": null
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Reconstruction": {
+  "title": "Reconstruct - Bloodsteel Camp",
+  "description": null
+ },
+ "Quest_Node_Dem_Flame_Knights_Reoccupation": {
+  "title": "Re-Blockade - Flame Knights Castle",
+  "description": null
+ },
+ "Quest_Node_Dem_Flame_Knights_Invasion": {
+  "title": "Engagement - Flame Knights Castle",
+  "description": null
+ },
+ "Quest_Node_Dem_Flame_Knights_Reconstruction": {
+  "title": "Reconstruct - Flame Knights Castle",
+  "description": null
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Reoccupation": {
+  "title": "Re-Blockade - Scorchrock Castle",
+  "description": null
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Invasion": {
+  "title": "Engagement - Scorchrock Castle",
+  "description": null
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Reconstruction": {
+  "title": "Reconstruct - Scorchrock Castle",
+  "description": null
+ },
+ "Quest_Node_Dem_BurnhandQuarry_Reoccupation": {
+  "title": "Re-blockaded - Burnhand Quarry",
+  "description": null
+ },
+ "Quest_Node_Dem_BurnhandQuarry_Invasion": {
+  "title": "Engagement - Burnhand Quarry",
+  "description": null
+ },
+ "Quest_Node_Dem_BurnhandQuarry_Reconstruction": {
+  "title": "Reconstruct - Burnhand Quarry",
+  "description": null
+ },
+ "Quest_Node_Del_MarniMechFactory_Reoccupation": {
+  "title": "Re-blockaded - Marni Mechworks",
+  "description": null
+ },
+ "Quest_Node_Del_MarniMechFactory_Reconstruction": {
+  "title": "Reconstruct - Marni Mechworks",
+  "description": null
+ },
+ "Quest_Node_Del_ValvegardWallFort_Reoccupation": {
+  "title": "Re-blockaded - Valvegard Garrison",
+  "description": null
+ },
+ "Quest_Node_Del_ValvegardWallFort_Reconstruction": {
+  "title": "Reconstruct - Valvegard Garrison",
+  "description": null
+ },
+ "Quest_Node_Del_MarniAirLab_Reoccupation": {
+  "title": "Re-blockaded - Aeronautical Research Base",
+  "description": null
+ },
+ "Quest_Node_Del_MarniAirLab_Reconstruction": {
+  "title": "Reconstruct - Aeronautical Research Base",
+  "description": null
+ },
+ "Quest_Node_Neut_MarnisOutpost_Reoccupation": {
+  "title": "Re-blockaded - Marni's Outpost",
+  "description": null
+ },
+ "Quest_Node_Neut_MarnisOutpost_Reconstruction": {
+  "title": "Reconstruct - Marni's Outpost",
+  "description": null
+ },
+ "Quest_Node_Del_MarniLab_Reoccupation": {
+  "title": "Re-blockaded - Marni's Laboratorium",
+  "description": null
+ },
+ "Quest_Node_Del_MarniLab_Reconstruction": {
+  "title": "Reconstruct - Marni's Laboratorium",
+  "description": null
+ },
+ "Quest_Node_Del_WindCliffFort_Reoccupation": {
+  "title": "Re-Blockade - Fort Windridge",
+  "description": null
+ },
+ "Quest_Node_Del_WindCliffFort_Invasion": {
+  "title": "Engagement - Fort Windridge",
+  "description": null
+ },
+ "Quest_Node_Del_WindCliffFort_Reconstruction": {
+  "title": "Reconstruct - Fort Windridge",
+  "description": null
+ },
+ "Quest_Node_Crim_RedMountainFort_Reoccupation": {
+  "title": "Re-Blockade - Crimson Mountains Fortress",
+  "description": null
+ },
+ "Quest_Node_Crim_RedMountainFort_Invasion": {
+  "title": "Engagement - Crimson Mountains Fortress",
+  "description": null
+ },
+ "Quest_Node_Crim_RedMountainFort_Reconstruction": {
+  "title": "Reconstruct - Crimson Mountains Fortress",
+  "description": null
+ },
+ "Quest_Node_Crim_FortManub_Reoccupation": {
+  "title": "Re-Blockade - Fort Manub",
+  "description": null
+ },
+ "Quest_Node_Crim_FortManub_Invasion": {
+  "title": "Engagement - Fort Manub",
+  "description": null
+ },
+ "Quest_Node_Crim_FortManub_Reconstruction": {
+  "title": "Reconstruct - Fort Manub",
+  "description": null
+ },
+ "Quest_Node_Crim_IsvatuFortress_Reoccupation": {
+  "title": "Re-Blockaded - Izvatu Fortress",
+  "description": null
+ },
+ "Quest_Node_Crim_IsvatuFortress_Invasion": {
+  "title": "Engagement - Izvatu Fortress",
+  "description": null
+ },
+ "Quest_Node_Crim_IsvatuFortress_Reconstruction": {
+  "title": "Reconstruct - Izvatu Fortress",
+  "description": null
+ },
+ "Quest_Node_Her_DrakefallBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Drakesfall Gorge Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_ArboriaBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Arboria Forest Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_MountainAreaBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Hernandian Mountains Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_ShadowforestBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Duskwood Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_RoccaHillBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Southern Rocca's Hill Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_SunrisePlainBanditCamp_I_Reoccupation": {
+  "title": "Re-blockaded - Sunrise Plains Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_FoggyWindBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Mistwind Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_RiverTerraceBanditCamp_Reoccupation": {
+  "title": "Faction Spawn - Southern Riverside Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_RiverTerraceBanditCamp_I_Reoccupation": {
+  "title": "Faction Spawn - Northern Riverside Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_AnvilHillBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Anvil Hill Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_RoccaHillBanditCamp_I_Reoccupation": {
+  "title": "Re-blockaded - Northern Rocca's Hill Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_HowlingHillCamp_Reoccupation": {
+  "title": "Re-blockaded - Haunted Hill Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_GreenFieldHillyAreaCamp_Reoccupation": {
+  "title": "Re-blockaded - Greenfield Highlands Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_GreenFieldThiefCamp_Reoccupation": {
+  "title": "Re-blockaded - Greenfield Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_GreenHillThiefCamp_Reoccupation": {
+  "title": "Re-blockaded - Greenhill Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_SteelMountainsCamp_Reoccupation": {
+  "title": "Re-blockaded - Steel Mountains Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_SouthernDeepForestCamp_Reoccupation": {
+  "title": "Re-blockaded - Southern Deepwoods Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_SunrisePlainBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Sunrise Cliff Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_WhiteMountainBanditCamp_Reoccupation": {
+  "title": "Re-blockaded - Argent Peaks Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Her_EastGoblinCamp_Reoccupation": {
+  "title": "Re-blockaded - Eastern Goblin Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Hernand_Bandit_I_Reoccupation": {
+  "title": "Re-blockaded - Hernand Bandits' Outpost",
+  "description": null
+ },
+ "Quest_Node_Dem_BanditCamp_I_Reoccupation": {
+  "title": "Re-blockaded - Ironwood Forest Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Dem_BanditCamp_II_Reoccupation": {
+  "title": "Re-blockaded - Ironwood Basin Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Dem_BanditCamp_III_Reoccupation": {
+  "title": "Re-blockaded - Riverside Cliff Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Dem_BanditCamp_IV_Reoccupation": {
+  "title": "Re-blockaded - Ironwood Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Dem_SouthendCamp_Reoccupation": {
+  "title": "Re-blockaded - Eldertree Research Camp",
+  "description": null
+ },
+ "Quest_Node_Dem_CrescentCamp_Reoccupation": {
+  "title": "Re-blockaded - Crescent Camp",
+  "description": null
+ },
+ "Quest_Node_Del_BanditCamp_I_Reoccupation": {
+  "title": "Re-blockaded - Coastal Cliff Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Del_BanditCamp_II_Reoccupation": {
+  "title": "Re-blockaded - Benus River Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Del_BanditCamp_III_Reoccupation": {
+  "title": "Re-blockaded - Timberdale Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_SeabreezeRuin_Reoccupation": {
+  "title": "Re-blockaded - Seawind Ruins",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_I_Reoccupation": {
+  "title": "Re-blockaded - Deepwoods Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_II_Reoccupation": {
+  "title": "Re-blockaded - Southern Pailune Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_III_Reoccupation": {
+  "title": "Re-blockaded - Denn River Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_IV_Reoccupation": {
+  "title": "Re-blockaded - Mountain Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_V_Reoccupation": {
+  "title": "Re-blockaded - Northern Pailune Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_VI_Reoccupation": {
+  "title": "Re-blockaded - Black Wall Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_VII_Reoccupation": {
+  "title": "Re-blockaded - Snowfield Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_VIII_Reoccupation": {
+  "title": "Re-blockaded - Five-Finger Mountain Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_BanditCamp_IX_Reoccupation": {
+  "title": "Re-blockaded - Wayward Woods Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Kwe_PitfallCamp_Reoccupation": {
+  "title": "Re-blockaded - Pitfall Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_I_Reoccupation": {
+  "title": "Re-blockaded - Redrock Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_II_Reoccupation": {
+  "title": "Re-blockaded - Izvatu Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_III_Reoccupation": {
+  "title": "Re-blockaded - Rockledge Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_IV_Reoccupation": {
+  "title": "Re-blockaded - Saltshade Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_VI_Reoccupation": {
+  "title": "Re-blockaded - Sandshift Basin Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_VII_Reoccupation": {
+  "title": "Re-blockaded - Rockshade Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_VIII_Reoccupation": {
+  "title": "Re-blockaded - Gloomy Forest Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_IX_Reoccupation": {
+  "title": "Re-blockaded - Wasteshade Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_X_Reoccupation": {
+  "title": "Re-blockaded - Desertshade Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_XI_Reoccupation": {
+  "title": "Re-blockaded - Saltroad Edge Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_XIV_Reoccupation": {
+  "title": "Re-blockaded - Damp Rainforest Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_ArimajahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Arima-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_KhafijahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Khafi-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_GhadirjahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Ghadir-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_QudimjahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Qudim-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_YalwijahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Yalwi-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_ShiqarjahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Shiqar-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_SakhajahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Sakha-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BaisunjahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Baisun-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_MustawijahrCamp_Reoccupation": {
+  "title": "Re-blockaded - Mustawi-jahr Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_AsaharamCamp_Reoccupation": {
+  "title": "Re-blockaded - Asaha-ram Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_KuhteramCamp_Reoccupation": {
+  "title": "Re-blockaded - Kuhte-ram Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_HariyahramCamp_Reoccupation": {
+  "title": "Re-blockaded - Hariyah-ram Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_KharatiramCamp_Reoccupation": {
+  "title": "Re-blockaded - Kharati-ram Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_MakharamCamp_Reoccupation": {
+  "title": "Re-blockaded - Makha-ram Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_XII_Reoccupation": {
+  "title": "Re-blockaded - Border Trail Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_BanditCamp_XIII_Reoccupation": {
+  "title": "Re-blockaded - Valley of the Moon Bandit Camp",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0012_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0014_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0015_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0016_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0017_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0018_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0022_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0023_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0020_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0021_Reoccupation": {
+  "title": "Re-blockaded - Desert Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0024_Reoccupation": {
+  "title": "Re-blockaded - Jungle Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0025_Reoccupation": {
+  "title": "Re-blockaded - Jungle Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0026_Reoccupation": {
+  "title": "Re-blockaded - Jungle Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_Ruins_0027_Reoccupation": {
+  "title": "Re-blockaded - Jungle Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_SandslumberRuins_Reoccupation": {
+  "title": "Re-blockaded - Sandrest Ruins",
+  "description": null
+ },
+ "Quest_Node_Crim_StonecrackRuins_Reoccupation": {
+  "title": "Re-blockaded - Rockshard Valley Ruins",
+  "description": null
+ },
+ "Quest_Node_Her_WitchHouse_Inactive_Narration_All": {
+  "title": "Witch Background",
+  "description": null
+ },
+ "Quest_Node_Her_Shadow_Whisper_Cave_Witch": {
+  "title": "Refined Power",
+  "description": null
+ },
+ "Quest_Node_Her_WitchHouse_Witch_Normal": {
+  "title": "The Witch of Wisdom",
+  "description": null
+ },
+ "Quest_Node_Kwe_RedLake_Witch_Normal": {
+  "title": "The Witch of Kindness",
+  "description": null
+ },
+ "Quest_Node_Dem_HiddenCave_Witch_Normal": {
+  "title": "The Witch of Humility",
+  "description": null
+ },
+ "Quest_Node_Crimson_Desert_Witch_Normal": {
+  "title": "The Witch of Strength",
+  "description": null
+ },
+ "Quest_Node_Wayward_Woods_Witch_Normal": {
+  "title": "Wayward Woods Witch",
+  "description": null
+ },
+ "Quest_Node_Del_BraveNest_Armor": {
+  "title": "Flight",
+  "description": null
+ },
+ "Quest_Intro": {
+  "title": "Ambush",
+  "description": null
+ },
+ "Quest_IntroHernand": {
+  "title": "The Great Unknown",
+  "description": null
+ },
+ "Quest_MeetAlustain_Test": {
+  "title": "Trials of Kindness",
+  "description": null
+ },
+ "Quest_MeetAlustain_Alchemist_CrowWing": {
+  "title": "Traces",
+  "description": null
+ },
+ "Quest_MeetAlustain_BackGroundStage": {
+  "title": "Alustin",
+  "description": null
+ },
+ "Quest_Splithorn_Boss_UnexpectedGift": {
+  "title": "Unexpected Gift",
+  "description": null
+ },
+ "Quest_SplitHorn_Boss_ThiefCave": {
+  "title": "Hernand in Chaos",
+  "description": null
+ },
+ "Quest_SplitHorn_Boss": {
+  "title": "The End of Greed",
+  "description": null
+ },
+ "Quest_SplitHorn_Boss_BackGroundStage": {
+  "title": "Hornsplitter",
+  "description": null
+ },
+ "Quest_GreyWolf_Camp": {
+  "title": "Homestead",
+  "description": null
+ },
+ "Quest_ReedDevil_Boss_Battle": {
+  "title": "The Face Behind the Mask",
+  "description": null
+ },
+ "Quest_ReedDevil_Boss_ForGraymane": {
+  "title": "Pioneering",
+  "description": null
+ },
+ "Quest_GreyWolf_Camp_BackGroundStage": {
+  "title": "Howling Hill (Old Greymane Camp)",
+  "description": null
+ },
+ "Quest_ReedDevil_Boss_BackGroundStage": {
+  "title": "Reed Devil",
+  "description": null
+ },
+ "Quest_KukuBird_Kuku": {
+  "title": "Mysterious Pot",
+  "description": null
+ },
+ "Quest_GraymaneDay": {
+  "title": "Daily Life",
+  "description": null
+ },
+ "Quest_TrollUniversity_Brain": {
+  "title": "Forbidden Knowledge",
+  "description": null
+ },
+ "Quest_KukuBird_Kuku_BackGroundStage": {
+  "title": "Mysterious Pot",
+  "description": null
+ },
+ "Quest_TrollUniversity_BackGroundStage": {
+  "title": "Scholastone Institute",
+  "description": null
+ },
+ "Quest_Imp_Banquet_Boss_Battle": {
+  "title": "Guest Unbidden",
+  "description": null
+ },
+ "Quest_Crowman_Boss_Ribentain": {
+  "title": "Black and White",
+  "description": null
+ },
+ "Quest_Imp_Banquet_Boss_BackGroundStage": {
+  "title": "Banquet Hall Imp",
+  "description": null
+ },
+ "Quest_Crowman_Boss_BackGroundStage": {
+  "title": "Crowcaller",
+  "description": null
+ },
+ "Quest_Silver_Armor_Boss_Celester": {
+  "title": "Blazing Beacon",
+  "description": null
+ },
+ "Quest_Silver_Armor_Boss_SecuringBase": {
+  "title": "Below the Banners",
+  "description": null
+ },
+ "Quest_Silver_Armor_Boss_RecaptureBase": {
+  "title": "Turning Tides",
+  "description": null
+ },
+ "Quest_Silver_Armor_Boss_Battle": {
+  "title": "The Unyielding Shields",
+  "description": null
+ },
+ "Quest_Silver_Armor_Boss_BackGroundStage": {
+  "title": "Calphade",
+  "description": null
+ },
+ "Quest_Ludvig_Boss_DawnFog": {
+  "title": "Morning Mist",
+  "description": null
+ },
+ "Quest_Ludvig_Boss_Jackal": {
+  "title": "Dawn",
+  "description": null
+ },
+ "Quest_Mjordin_Boss_LavaMountain": {
+  "title": "Decisive Battle",
+  "description": null
+ },
+ "Quest_Chase_TraitorDwayne": {
+  "title": "Twisted Fate",
+  "description": null
+ },
+ "Quest_Ludvig_Boss_BackGroundStage": {
+  "title": "Ludvig Open Stages",
+  "description": null
+ },
+ "Quest_Mjordin_Boss_BackGroundStage": {
+  "title": "Myurdin",
+  "description": null
+ },
+ "Quest_BloodCoronation_TolsteinGuide": {
+  "title": "Ashen Steps",
+  "description": null
+ },
+ "Quest_BloodCoronation_PlaceOutOfLight": {
+  "title": "Demeniss Bound",
+  "description": null
+ },
+ "Quest_BloodCoronation_WitchDukeAndDream": {
+  "title": "Traitor",
+  "description": null
+ },
+ "Quest_BloodCoronation_Caliburn_BackGroundStage": {
+  "title": "The Blood Coronation",
+  "description": null
+ },
+ "Quest_Goblin_Master_Doo_Trial": {
+  "title": "The Calling",
+  "description": null
+ },
+ "Quest_Goblin_Master_Doo_Trial_Blackstar": {
+  "title": "Shattered Ties",
+  "description": null
+ },
+ "Quest_Goblin_Master_Doo_Trial_OldKliff": {
+  "title": "Thinning Blade",
+  "description": null
+ },
+ "Quest_Goblin_Master_Doo_Trial_JijeongTemple": {
+  "title": "Six Statues and the Beast",
+  "description": null
+ },
+ "Quest_Goblin_Master_Doo_Trial_Hexe": {
+  "title": "Veiled Witch",
+  "description": null
+ },
+ "Quest_Goblin_Master_Doo_Meet": {
+  "title": "Enlightenment",
+  "description": null
+ },
+ "Quest_Goblin_Master_Doo_Blood_Throne": {
+  "title": "Bloodstained Throne",
+  "description": null
+ },
+ "Quest_Goblin_Master_BackGroundStage": {
+  "title": "Stage Always Open for Sage of the Desert",
+  "description": null
+ },
+ "Quest_MarniDragon_Boss_IronWorks": {
+  "title": "Hidden Ace",
+  "description": null
+ },
+ "Quest_MarniDragon_Boss_CounterAttack": {
+  "title": "Greater Firepower",
+  "description": null
+ },
+ "Quest_OrcNeutralZone_BackGroundStage": {
+  "title": "Gorthak",
+  "description": null
+ },
+ "Quest_MarniDragon_Boss_MachineCity": {
+  "title": "Brave New World",
+  "description": null
+ },
+ "Quest_MarniDragon_Boss_GoldenStar": {
+  "title": "Foreboding Shadow",
+  "description": null
+ },
+ "Quest_MarniDragon_Boss_BackGroundStage": {
+  "title": "Challenger to the Gods",
+  "description": null
+ },
+ "Quest_Caliburn_Boss_MusketSiege": {
+  "title": "The Final Battle",
+  "description": null
+ },
+ "Quest_Caliburn_Boss_MyurdinUmbra": {
+  "title": "The Void",
+  "description": null
+ },
+ "Quest_Caliburn_Boss_BackGroundStage": {
+  "title": "Musket of Demeniss",
+  "description": null
+ },
+ "Quest_Epilogue_Ending": {
+  "title": "Journey's End",
+  "description": null
+ },
+ "Quest_Epilogue_Abyss": {
+  "title": "???",
+  "description": null
+ },
+ "Quest_Epilogue_BackGroundStage": {
+  "title": "Epilogue",
+  "description": null
+ },
+ "Gate_Entrance": {
+  "title": "Castle Gate Entrance Stage",
+  "description": null
+ },
+ "Shop_Hernand": {
+  "title": "Hernand",
+  "description": null
+ },
+ "Shop_VelluaVillage": {
+  "title": "Vellua",
+  "description": null
+ },
+ "Shop_EquinsherSaddlery": {
+  "title": "Equinsher Saddlery",
+  "description": null
+ },
+ "Shop_StoneTowerVillage": {
+  "title": "Cairn House",
+  "description": null
+ },
+ "Shop_Kharonso": {
+  "title": "Kharonso",
+  "description": null
+ },
+ "Shop_Pororin": {
+  "title": "Pororin",
+  "description": null
+ },
+ "Shop_Pororin_Pet": {
+  "title": "Pororin",
+  "description": null
+ },
+ "Shop_Calphade": {
+  "title": "Calphade",
+  "description": null
+ },
+ "Shop_Demeniss": {
+  "title": "Demeniss",
+  "description": null
+ },
+ "Shop_Demeniss_Pet": {
+  "title": "Demeniss Pet Shop",
+  "description": null
+ },
+ "Shop_Tariv": {
+  "title": "Tariv",
+  "description": null
+ },
+ "Shop_IronbarrelWeaponFactory": {
+  "title": "Ironbarrel Armory",
+  "description": null
+ },
+ "Shop_FrameVillage": {
+  "title": "Easelbury",
+  "description": null
+ },
+ "Shop_HiddenGroveRanch": {
+  "title": "Hidden Grove Ranch",
+  "description": null
+ },
+ "Shop_TombstoneWorkshop": {
+  "title": "Headstone Workshop",
+  "description": null
+ },
+ "Shop_GreenfieldFarm": {
+  "title": "Greenfield Farm",
+  "description": null
+ },
+ "Shop_SunsetDyehouse": {
+  "title": "Sunset Dyehouse",
+  "description": null
+ },
+ "Shop_RustleleafFarm": {
+  "title": "Rustleleaf Farm",
+  "description": null
+ },
+ "Shop_DemenissZoo": {
+  "title": "Demeniss Wildlife Park",
+  "description": null
+ },
+ "Shop_Delesyian": {
+  "title": "Delesyia",
+  "description": null
+ },
+ "Shop_Timberton": {
+  "title": "Timberton",
+  "description": null
+ },
+ "Shop_Pailune": {
+  "title": "Pailune",
+  "description": null
+ },
+ "Shop_Beighen": {
+  "title": "Beighen",
+  "description": null
+ },
+ "Shop_Skoghorn": {
+  "title": "Skoghorn",
+  "description": null
+ },
+ "Shop_Odeck": {
+  "title": "Odeck",
+  "description": null
+ },
+ "Shop_Tashkalp": {
+  "title": "Tommaso",
+  "description": null
+ },
+ "Shop_Varnia": {
+  "title": "Varnia",
+  "description": null
+ },
+ "Shop_Muiquun": {
+  "title": "Muiquun",
+  "description": null
+ },
+ "Shop_Trade_FortManub": {
+  "title": "Fort Manub",
+  "description": null
+ },
+ "Shop_Trade_IsvatuFortress": {
+  "title": "Izvatu Fortress",
+  "description": null
+ },
+ "Shop_Trade_RedMountainFort": {
+  "title": "Crimson Mountains Fortress",
+  "description": null
+ },
+ "Shop_Wanderer": {
+  "title": "Wandering Merchant",
+  "description": null
+ },
+ "Shop_Smuggler": {
+  "title": "Alley Vendors",
+  "description": null
+ },
+ "Shop_Church_Hernand": {
+  "title": "Church of Hernand",
+  "description": null
+ },
+ "Shop_Church_ReventineMonastery": {
+  "title": "Reventine Monastery",
+  "description": null
+ },
+ "Shop_Church_Kharonso": {
+  "title": "Church of Kharonso",
+  "description": null
+ },
+ "Shop_Church_Calphade": {
+  "title": "Church of Calphade",
+  "description": null
+ },
+ "Shop_Church_Demeniss": {
+  "title": "Cathedral of Demeniss",
+  "description": null
+ },
+ "Shop_Church_DemenissEast": {
+  "title": "Church of East Demeniss",
+  "description": null
+ },
+ "Shop_Church_DemenissWest": {
+  "title": "Church of West Demeniss",
+  "description": null
+ },
+ "Shop_Church_Delecyian": {
+  "title": "Church of Delesyia",
+  "description": null
+ },
+ "Shop_Church_Pailune": {
+  "title": "Church of Pailune",
+  "description": null
+ },
+ "Shop_Witch_Hernand": {
+  "title": "Hernand",
+  "description": null
+ },
+ "Shop_Witch_Demeniss": {
+  "title": "Demeniss",
+  "description": null
+ },
+ "Shop_Witch_Pailune": {
+  "title": "Pailune",
+  "description": null
+ },
+ "Shop_Witch_Urdavah": {
+  "title": "Urdavah",
+  "description": null
+ },
+ "Shop_Witch_Hernand_Isolation": {
+  "title": "Hernand",
+  "description": null
+ },
+ "Shop_Contribution_Hernand": {
+  "title": "Hernand",
+  "description": null
+ },
+ "Shop_Contribution_Demeniss": {
+  "title": "Demeniss",
+  "description": null
+ },
+ "Shop_Contribution_Delecyian": {
+  "title": "Delesyia",
+  "description": null
+ },
+ "Shop_Contribution_Pailoon": {
+  "title": "Pailune",
+  "description": null
+ },
+ "Shop_Contribution_Tashkalp": {
+  "title": "Tashkalp",
+  "description": null
+ },
+ "Shop_Contribution_Varnia": {
+  "title": "Varnia",
+  "description": null
+ },
+ "Shop_RoyalSupply_Hernand": {
+  "title": "Hernand",
+  "description": null
+ },
+ "Shop_RoyalSupply_Delesyia": {
+  "title": "Delesyia",
+  "description": null
+ },
+ "Shop_RoyalSupply_Demeniss": {
+  "title": "Demeniss",
+  "description": null
+ },
+ "Shop_RoyalSupply_Varnia": {
+  "title": "Varnia",
+  "description": null
+ },
+ "Shop_Research_ScholarStone": {
+  "title": "Scholastone",
+  "description": null
+ },
+ "Shop_Research_Pororin": {
+  "title": "Pororin",
+  "description": null
+ },
+ "Shop_Research_Urdavah": {
+  "title": "Urdavah",
+  "description": null
+ },
+ "Shop_Research_OrcNeutralZone": {
+  "title": "Gorthak Ironworks",
+  "description": null
+ },
+ "Shop_Research_DelesyiaInstitute": {
+  "title": "The Delesyian Institute",
+  "description": null
+ },
+ "Shop_Research_Dewhaven": {
+  "title": "Dewhaven",
+  "description": null
+ },
+ "Shop_Trade_GoldleafGuildhouse": {
+  "title": "Goldleaf Merchant Guild",
+  "description": null
+ },
+ "Shop_Trade_RedWindTradingAssociation": {
+  "title": "Redwind Merchant Guild",
+  "description": null
+ },
+ "Shop_Trade_SilvermoonTroll": {
+  "title": "Silvermoon Trade Group",
+  "description": null
+ },
+ "Shop_Trade_Demenissian_Trader": {
+  "title": "Demeniss-Affiliated Trading Post",
+  "description": null
+ },
+ "Shop_Faction_Hernand": {
+  "title": "Hernand",
+  "description": null
+ },
+ "Shop_Faction_Demeniss": {
+  "title": "Demeniss",
+  "description": null
+ },
+ "Shop_Faction_Delesyian": {
+  "title": "Delesyia",
+  "description": null
+ },
+ "Shop_Faction_Pailune": {
+  "title": "Pailune",
+  "description": null
+ },
+ "Shop_Faction_CrimsonDesert": {
+  "title": "Crimson Desert",
+  "description": null
+ },
+ "Shop_Street_Trader_GoldleafGuildhouse": {
+  "title": "Goldleaf Merchant Guild",
+  "description": null
+ },
+ "Shop_Street_Trader_Silvermoon": {
+  "title": "Silvermoon Trade Group",
+  "description": null
+ },
+ "Shop_Street_Trader_Redwind": {
+  "title": "Redwind Merchant Guild",
+  "description": null
+ },
+ "Shop_Street_Trader": {
+  "title": "Free Trading",
+  "description": null
+ },
+ "Schedule_AbyssRuins": {
+  "title": "Abyss Nexus Monster Schedule",
+  "description": null
+ },
+ "Schedule_Her_Animal": {
+  "title": "Hernand Animal Schedule",
+  "description": null
+ },
+ "Schedule_Tus_Animal": {
+  "title": "Calphade Animal Schedule",
+  "description": null
+ },
+ "Schedule_Dem_Animal": {
+  "title": "Demeniss Animal Schedule",
+  "description": null
+ },
+ "Schedule_Del_Animal": {
+  "title": "Delesyia Animal Schedule",
+  "description": null
+ },
+ "Schedule_Kwe_Animal": {
+  "title": "Pailune Animal Schedule",
+  "description": null
+ },
+ "Schedule_CD_Animal": {
+  "title": "Crimson Desert Animal Schedule",
+  "description": null
+ },
+ "Schedule_Beast": {
+  "title": "Carnivorous Animals",
+  "description": null
+ },
+ "Schedule_Her_Monster": {
+  "title": "Hernand - Monster Schedule",
+  "description": null
+ },
+ "Schedule_Tus_Monster": {
+  "title": "Calphade Monster Schedule",
+  "description": null
+ },
+ "Schedule_Dem_Monster": {
+  "title": "Demeniss Monster Schedule",
+  "description": null
+ },
+ "Schedule_CD_Monster": {
+  "title": "Crimson Desert Monster Schedule",
+  "description": null
+ },
+ "Schedule_Kwe_Monster": {
+  "title": "Pailunese Monster Schedule",
+  "description": null
+ },
+ "Schedule_Del_Monster": {
+  "title": "Delesyia Monster Schedule",
+  "description": null
+ },
+ "Schedule_Monster_Creature_Region": {
+  "title": "Creature Schedule",
+  "description": null
+ },
+ "Schedule_Unique_Npc": {
+  "title": "Unique NPC Schedule",
+  "description": null
+ },
+ "Schedule_Her_Npc": {
+  "title": "Hernand NPC Schedule",
+  "description": null
+ },
+ "Schedule_Tus_Npc": {
+  "title": "Calphade NPC Schedule",
+  "description": null
+ },
+ "Schedule_Dem_Npc": {
+  "title": "Demeniss NPC Schedule",
+  "description": null
+ },
+ "Schedule_Del_Npc": {
+  "title": "Delesyia NPC Schedule",
+  "description": null
+ },
+ "Schedule_Kwe_Npc": {
+  "title": "Pailune NPC Schedule",
+  "description": null
+ },
+ "Schedule_CD_Npc": {
+  "title": "Crimson Desert NPC Schedule",
+  "description": null
+ },
+ "Schedule_Puzzle": {
+  "title": "Puzzle Monster Schedule",
+  "description": null
+ },
+ "Schedule_Her_Thief": {
+  "title": "Hernand Thugs and Bandit Camp Schedule",
+  "description": null
+ },
+ "Schedule_Tus_Thief": {
+  "title": "Calphade Thugs and Bandit Camp Schedule",
+  "description": null
+ },
+ "Schedule_Dem_Thief": {
+  "title": "Demeniss Thugs and Bandit Camp Schedule",
+  "description": null
+ },
+ "Schedule_CD_Thief": {
+  "title": "Crimson Desert Thug and Bandit Camp Schedule",
+  "description": null
+ },
+ "Schedule_Kwe_Thief": {
+  "title": "Pailune Thugs and Bandit Camp Schedule",
+  "description": null
+ },
+ "Schedule_Del_Thief": {
+  "title": "Delesyia Thugs and Bandit Camp Schedule",
+  "description": null
+ },
+ "Schedule_Tower": {
+  "title": "Tower Monster Schedule",
+  "description": null
+ },
+ "Contents_Spawn": {
+  "title": "Spawn Content",
+  "description": null
+ },
+ "Contents_GetOut_Region": {
+  "title": "Restricted Area Stage",
+  "description": null
+ },
+ "Func_GameplayVariable": {
+  "title": "GameplayVariable Check Quest",
+  "description": null
+ },
+ "Func_GameplayVariable_Enhanced": {
+  "title": "GameplayVariable Check Quest",
+  "description": null
+ },
+ "Func_Shop": {
+  "title": "Shops and Stores",
+  "description": null
+ },
+ "Func_Contents": {
+  "title": "Contents",
+  "description": null
+ },
+ "Func_MiniGame": {
+  "title": "Minigames",
+  "description": null
+ },
+ "Func_Challenge": {
+  "title": "Challenges",
+  "description": null
+ },
+ "Func_SpawnStage": {
+  "title": "Police/Crime Spawn",
+  "description": null
+ },
+ "Func_Pet": {
+  "title": "Pet Stages",
+  "description": null
+ },
+ "Func_Monster": {
+  "title": "Monster Schedule",
+  "description": null
+ },
+ "Func_Thiefcamp": {
+  "title": "All Bandit Camps",
+  "description": null
+ },
+ "Func_Npc": {
+  "title": "NPC Schedule",
+  "description": null
+ },
+ "Func_Animal": {
+  "title": "Animal Schedule",
+  "description": null
+ },
+ "Func_HumanDocumentary": {
+  "title": "People Documentaries",
+  "description": null
+ },
+ "Func_AnimalDocumentary": {
+  "title": "Animal Documentaries",
+  "description": null
+ },
+ "AnimalDocumentary_Her": {
+  "title": "Hernand Animals Collection",
+  "description": null
+ },
+ "AnimalDocumentary_Shield": {
+  "title": "Calphade Animals Collection",
+  "description": null
+ },
+ "AnimalDocumentary_Dem": {
+  "title": "Demeniss Animals Collection",
+  "description": null
+ },
+ "AnimalDocumentary_Del": {
+  "title": "Delesyia Animals Collection",
+  "description": null
+ },
+ "AnimalDocumentary_Kwe": {
+  "title": "Pailune Animals Collection",
+  "description": null
+ },
+ "AnimalDocumentary_CD": {
+  "title": "Crimson Desert Animals Collection",
+  "description": null
+ }
+}

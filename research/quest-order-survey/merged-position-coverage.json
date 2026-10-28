@@ -1,0 +1,89 @@
+{
+ "paseqScriptsScanned": 2461,
+ "questsWithPosition": 971,
+ "quests": 1098,
+ "playerQuestsWithPosition": 599,
+ "playerQuests": 694,
+ "mainChapterQuestsWithPosition": 40,
+ "mainChapterQuests": 41,
+ "questNodeWithPosition": 471,
+ "questFactionWithPosition": 39,
+ "missionsWithPosition": 2025,
+ "missions": 6864,
+ "plainMissionsWithPosition": 1928,
+ "challengeMissionsWithPosition": 12,
+ "sourceMixQuests": {
+  "stageXYZ": 278,
+  "paseqScan": 171,
+  "road": 78,
+  "node": 444
+ },
+ "sourceMixMissions": {
+  "paseqScan": 1379,
+  "road": 465,
+  "node": 178,
+  "stageXYZ": 3
+ },
+ "agreement": {
+  "quest:paseqScan vs stageXYZ": {
+   "pairs": 26,
+   "median": 982,
+   "within500": 11
+  },
+  "quest:road vs paseqScan": {
+   "pairs": 54,
+   "median": 5122,
+   "within500": 7
+  },
+  "quest:node vs road": {
+   "pairs": 63,
+   "median": 449,
+   "within500": 33
+  },
+  "quest:node vs paseqScan": {
+   "pairs": 241,
+   "median": 490,
+   "within500": 123
+  },
+  "quest:node vs stageXYZ": {
+   "pairs": 35,
+   "median": 89,
+   "within500": 29
+  },
+  "quest:road vs stageXYZ": {
+   "pairs": 14,
+   "median": 409,
+   "within500": 10
+  },
+  "mission:road vs paseqScan": {
+   "pairs": 392,
+   "median": 4160,
+   "within500": 63
+  },
+  "mission:node vs paseqScan": {
+   "pairs": 125,
+   "median": 1360,
+   "within500": 50
+  },
+  "mission:paseqScan vs stageXYZ": {
+   "pairs": 54,
+   "median": 3222,
+   "within500": 5
+  },
+  "mission:node vs road": {
+   "pairs": 3,
+   "median": 45,
+   "within500": 3
+  },
+  "mission:node vs stageXYZ": {
+   "pairs": 3,
+   "median": 146,
+   "within500": 3
+  },
+  "mission:road vs stageXYZ": {
+   "pairs": 4,
+   "median": 20,
+   "within500": 3
+  }
+ }
+}

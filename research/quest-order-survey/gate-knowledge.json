@@ -1,0 +1,4367 @@
+{
+ "summary": {
+  "swim": {
+   "entries": 2,
+   "withGiverMission": 0
+  },
+  "dragon": {
+   "entries": 32,
+   "withGiverMission": 8
+  },
+  "wyvern": {
+   "entries": 10,
+   "withGiverMission": 1
+  },
+  "torch": {
+   "entries": 4,
+   "withGiverMission": 1
+  },
+  "camp": {
+   "entries": 113,
+   "withGiverMission": 8
+  },
+  "wagon": {
+   "entries": 14,
+   "withGiverMission": 2
+  },
+  "ship": {
+   "entries": 46,
+   "withGiverMission": 1
+  },
+  "mount": {
+   "entries": 43,
+   "withGiverMission": 2
+  },
+  "balloon": {
+   "entries": 6,
+   "withGiverMission": 1
+  },
+  "hook": {
+   "entries": 1,
+   "withGiverMission": 0
+  },
+  "cart": {
+   "entries": 1,
+   "withGiverMission": 0
+  },
+  "tool": {
+   "entries": 24,
+   "withGiverMission": 0
+  },
+  "permit": {
+   "entries": 51,
+   "withGiverMission": 0
+  },
+  "pet_": {
+   "entries": 16,
+   "withGiverMission": 0
+  },
+  "skill_": {
+   "entries": 187,
+   "withGiverMission": 0
+  },
+  "paper_": {
+   "entries": 175,
+   "withGiverMission": 56
+  },
+  "boat": {
+   "entries": 3,
+   "withGiverMission": 3
+  },
+  "ballista": {
+   "entries": 3,
+   "withGiverMission": 0
+  },
+  "airship": {
+   "entries": 4,
+   "withGiverMission": 1
+  },
+  "abyssteleport": {
+   "entries": 1,
+   "withGiverMission": 1
+  },
+  "teleport": {
+   "entries": 3,
+   "withGiverMission": 0
+  },
+  "glide": {
+   "entries": 3,
+   "withGiverMission": 0
+  },
+  "dive": {
+   "entries": 1,
+   "withGiverMission": 0
+  },
+  "abyssgate": {
+   "entries": 93,
+   "withGiverMission": 15
+  },
+  "abysstransmitter": {
+   "entries": 40,
+   "withGiverMission": 39
+  }
+ },
+ "entries": {
+  "swim": [
+   {
+    "knowledge": "Knowledge_SwimSpeedRate",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Stat_AbyssGear_SwimSpeedRate_LV1",
+    "givenBy": []
+   }
+  ],
+  "dragon": [
+   {
+    "knowledge": "Knowledge_Unique_Varnia_Dragon",
+    "givenBy": [
+     {
+      "mission": "Goblin_Master_Doo_Urdavah_Blackstar_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_DragonKillCastle",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Big_KomodoDragon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_DragonFly",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Marni_MachineDragonFly",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Marni_GolemDragon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SilverWolf_Moutain_DragonBreath",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SnapDragon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Boss_Reward_DragonParts",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Legendary_MarniDragon_OneHandCannon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_DragonSlayerLeader_OneHandCannon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Legendary_DragonSlayer_OneHandSword",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_CooltimeReduce_DragonII",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Legendary_Dragon_OneHandSword",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Dragon_OneHandDagger",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Dragon_OneHandBow",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Dragon_OneHandMace",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Dragon_TwoHandAlebard",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Dragon_TwoHandAxe",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Legendary_Dragon_TwoHandGiantSpear",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Dragon_TwoHandSword",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Dragon_TwoHandedWarHammer",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Dragon_TwoHandGiantHammer",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_KuKu_Dragon_Armor",
+    "givenBy": [
+     {
+      "mission": "Mission_MarniDragon_Boss_GoldenStar_Start_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_book_folktales_GolemDragon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_book_folktales_Varnia_Dragon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_AncientRuinAnamorphic_Black_Dragon",
+    "givenBy": [
+     {
+      "mission": "Challenge_Anamorphic_Black_Dragon_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Paper_MarniDragon_Boss_Rescue",
+    "givenBy": [
+     {
+      "mission": "Mission_MarniDragon_Boss_MarniMeet_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_BossRematch_TristanDragonbane",
+    "givenBy": [
+     {
+      "mission": "Mission_Flame_Knights_Block_Ask_4",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_CallDragon",
+    "givenBy": [
+     {
+      "mission": "Mission_MarniDragon_Boss_GoldenStar_BlowingWind_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Anamorphic_Black_Dragon",
+    "givenBy": [
+     {
+      "mission": "Challenge_Anamorphic_Black_Dragon_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_TristanDragonbane",
+    "givenBy": [
+     {
+      "mission": "Mission_Flame_Knights_Block_Ask_4",
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "wyvern": [
+   {
+    "knowledge": "Knowledge_Faction_WyvernTamers",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_AbandonedWyvernNest",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_ForsakenWyvernNest",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_DesolateWyvernNest",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_ForgottenWyvernNest",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Wyvern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Tree_Brothers_Cliff_OldWyvern_NestSite",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Book_WyvernJournal",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Wyvern_Species_Memo",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Dimension_Wyvern",
+    "givenBy": [
+     {
+      "mission": "Mission_Caliburn_Boss_MyurdinUmbra_Battle_0",
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "torch": [
+   {
+    "knowledge": "Knowledge_Node_Her_TorchlightBeacon",
+    "givenBy": [
+     {
+      "mission": "Mission_Silver_Armor_Boss_Beacon_2",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_TorchlightCabin",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_lamp_standtorch_01_on",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_lamp_standtorch_02_on",
+    "givenBy": []
+   }
+  ],
+  "camp": [
+   {
+    "knowledge": "Knowledge_Node_Cal_CalphadeLoggingCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_GreymaneCamp",
+    "givenBy": [
+     {
+      "mission": "Mission_ForGraymane_Complete_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_FraueCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_HellwoodSlaveCamp",
+    "givenBy": [
+     {
+      "mission": "Mission_HellwoodSlaveCamp_Block_Start_0",
+      "level": 1
+     },
+     {
+      "mission": "Mission_HellwoodSlaveCamp_BridgeConstruction_Start_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_PervinPrisonCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_EastGoblinCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_DrakefallBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_ArboriaBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_ShadowforestBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_RoccaHillBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_AnvilRiversideBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_SunrisePlainBanditCamp_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_FoggyWindBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_RiverTerraceBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_RiverTerraceBanditCamp_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_AnvilHillBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_RoccaHillBanditCamp_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_HowlingHillCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_GreenFieldHillyAreaCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_GreenFieldThiefCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_GreenHillThiefCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_SouthernDeepForestCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_SunrisePlainBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_Temporary_Camp",
+    "givenBy": [
+     {
+      "mission": "Mission_Intro_After_Horse_1",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_PailuneCampsite_Graymane",
+    "givenBy": [
+     {
+      "mission": "Graymane_BaseCamp_Pailune_Start_2",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_AshclawSlaveCamp",
+    "givenBy": [
+     {
+      "mission": "Mission_Dwayne_Boss_Oongka_III_4",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_CampBjornlund",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_TrovakCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_IV",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_V",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_VI",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_VII",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_VIII",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_BanditCamp_IX",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_DemArmyCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_NightExpeditionCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_MoonRiverExpeditionCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_BloodsteelCamp",
+    "givenBy": [
+     {
+      "mission": "Mission_BloodsteelCamp_Block_Request_Karzul_Battle_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_BanditCamp_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_BanditCamp_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_BanditCamp_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_BanditCamp_IV",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_SouthendCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_CrescentCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_WildhuntCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_PitfallCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_FrostCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_GreenFieldCliffCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_JungleScoutCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_DemArmyScoutCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_HowlsandsCamp_RestArea_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_BloodsteelCamp_RestArea_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_DewhavenLoggingCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Neut_GorthakLoggingCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Neut_DelpheonWestCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Neut_DelpheonNorthCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_DuskwayCamp_Station",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_LoggingCampTransferStation",
+    "givenBy": [
+     {
+      "mission": "Mission_RustfieldScrapyard_TransferStationConstruction_Start_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_BenusThiefCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_BanditCamp_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_BanditCamp_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_BanditCamp_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_VarniaSaltroadCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_DuskwayCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_GiantsYardForwardCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_GiantsYardExtractionCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_DesertFreeswordCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_SaltroadCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_StompsandCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_ShadowcliffWatchCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_HowlsandsCamp",
+    "givenBy": [
+     {
+      "mission": "Mission_Crim_HowlsandsCamp_Trade_Attack_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_ArimajahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_KhafijahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_GhadirjahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_QudimjahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_YalwijahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_ShiqarjahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_SakhajahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BaisunjahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_MustawijahrCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_AsaharamCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_MakharamCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_KuhteramCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_HariyahramCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_KharatiramCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_IV",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_VI",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_VII",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_VIII",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_IX",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_X",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_XI",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_XII",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_XIII",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_BanditCamp_XIV",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_RedWindTradingAssociation_Trader_VarniaSaltroadCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Collection_Prop_Campfire",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_craft_cook_campfire_04",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_craft_cook_campfire_05",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_hernandcampsite",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_castleruincamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_OrcCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_GodTreeCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_VatnhollCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_OdeckHunterCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Camp_Worker",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_LevelGimmickIcon_CampFire",
+    "givenBy": []
+   }
+  ],
+  "wagon": [
+   {
+    "knowledge": "Knowledge_Node_Her_TimberWagonFactory",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_SouthWagonFactory",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_WheelsmithWagonFactory",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Riding_Wagon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_HernandCastle_UnderWagon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_HernandCastle_UnderWagon_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_AncientRuinAnamorphic_Wagon",
+    "givenBy": [
+     {
+      "mission": "Challenge_Anamorphic_Wagon_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_WagonOnATree",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_BoneCollectorWagon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Anamorphic_Wagon",
+    "givenBy": [
+     {
+      "mission": "Challenge_Anamorphic_Wagon_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Wagon_Village_Chief",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Wagon_TwoHorseFourWheel_Player_1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Wagon_TwoHorseFourWheel_Player_2",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Wagon_TwoHorseFourWheel_Player_3",
+    "givenBy": []
+   }
+  ],
+  "ship": [
+   {
+    "knowledge": "Knowledge_Node_Her_Shipwreck_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_Shipwreck_0002",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_Shipwreck_0003",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_GrayRockShipyard",
+    "givenBy": [
+     {
+      "mission": "Mission_Node_Dem_GrayRockShipyard_Block_Start_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_Shipwreck_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_Shipwreck_0002",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_Shipwreck_0003",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_Shipwreck_0004",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_Shipwreck_0006",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_Shipwreck_0007",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_Shipwreck_0008",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_Shipwreck_0005",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Neut_BragokShipFactory",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0002",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0003",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0004",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0005",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0006",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0007",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0008",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0009",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0010",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0011",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0012",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_Shipwreck_0014",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_Shipwreck_0004",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Shipwreck_Shore",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_Shipwreck_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_SilenceShipwreck",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_DestroyedMerchantShip",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_WreckedTradingShip",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_Shipwreck",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_WindmillCoastShipWreck",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_ShipWreckOakBarrel",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_DesertShipwreck",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Faction_GoldLeaf_Membership_Pledge",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ship_Wait",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ship_MoveLv1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ship_MoveLv2",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ship_MoveLv3",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ship_Cannon_Front",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ship_Cannon_Right",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ship_Cannon_Left",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ship_Cannon_Back",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Ship_Constellation_Mural",
+    "givenBy": []
+   }
+  ],
+  "mount": [
+   {
+    "knowledge": "Knowledge_Node_Her_MountainAreaBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_SteelMountainsCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_WhiteMountainBanditCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Kwe_WindsongMountain",
+    "givenBy": [
+     {
+      "mission": "Mission_WindsongMountain_Block_Start_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_KingMountainDigSite",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Dem_KingMountainHollow",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_WhiteMountainOutpost",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_WhiteMountainScoutCamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_SnowMountain_WatchTower",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Del_BenusMountain_WatchTower",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Her_Mountain_of_Frozen_Souls_RestArea_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_Rockshard_Mountain_Station",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_Crimson_Mountains_Station",
+    "givenBy": [
+     {
+      "mission": "Mission_HelmaraVillage_TransferStationConstruction_Start_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Node_Crim_RedMountainFort",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_MountainGoat",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Snow_Mountain_Goat",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WinterMountain_Basin",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Mountain_of_Frozen_Souls",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_White_Mountains",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Steel_Mountains",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_ThornRose_Mount",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Deadfire_Mountain",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Kingshield_Mountain",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Five_Finger_Mountain",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Scorched_Mountain",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Mount_Benus",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Crimson_Mountains",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Rockshard_Mountain",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Benus_Mount_Coastal_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Arrowhead_Mountain_Coastal_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_wolffangs_mountain_Time_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WolfFangs_Mountain_TwinRock_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WolfFangs_Mountain_Crevice_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_White_Mountains_Vampire_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_King_ShieldMountain_Silver_Mine",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Benus_Mount_Salt_Mine",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WolfMolar_Mountain_WhiteStone_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WolfMolar_Mountain_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Steel_Mountains_Cave",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_FiveFingerMountain",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Faction_Urdavah_Mount_Study",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Mounting",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Mount",
+    "givenBy": []
+   }
+  ],
+  "balloon": [
+   {
+    "knowledge": "Knowledge_CircusBalloon",
+    "givenBy": [
+     {
+      "mission": "Mission_TheLaughingMarionette_Normal_SecretNight_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Research_Airballoon_Altitude_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Research_Airballoon_Altitude_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Riding_Balloon_Summoner_1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Riding_Balloon_Summoner_2",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Riding_Balloon_Summoner_3",
+    "givenBy": []
+   }
+  ],
+  "hook": [
+   {
+    "knowledge": "Knowledge_Hook_Ford",
+    "givenBy": []
+   }
+  ],
+  "cart": [
+   {
+    "knowledge": "Knowledge_Collection_Prop_Kineticart",
+    "givenBy": []
+   }
+  ],
+  "tool": [
+   {
+    "knowledge": "Knowledge_Collection_Prop_Tool",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Living_ToolAxe",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Living_ToolAxe_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Living_ToolAxe_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_tool_FlowerHanger_01",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_tool_FlowerHanger_02",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_tool_blacksmithstone",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_machinemantis_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_machinemantis_0001_index01",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_machinemantis_0001_index02",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_machinemantis_0001_index03",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_goldenstar_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_goldenstar_0002",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_goldenstar_0003",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_whitehorn_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Pororin_Reserch_OriginPororinTool",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Dewhaven_Reserch_ElectroToolDesign",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_workboard_0004",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_flyer_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_workboard_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_workboard_0002",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_workboard_0003",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_tool_paper_runewalkervordis_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_LevelGimmickIcon_Tool_Carpenter",
+    "givenBy": []
+   }
+  ],
+  "permit": [
+   {
+    "knowledge": "Knowledge_Permit_Her_Furniture",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Dem_Furniture",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Del_Furniture",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Kwe_Furniture",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Her_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Cal_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Dem_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Tar_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_DemZoo_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Del_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Pai_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Tash_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Var_Costume",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Her_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Kha_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Cal_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Dem_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Tar_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Str_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Del_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Pai_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Skog_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Odeck_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Var_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Tash_Equipment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Her_Tavern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Cal_Tavern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Kha_Tavern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Dem_Tavern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Del_Tavern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Pai_Tavern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Tash_Tavern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Var_Tavern",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Her_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Cal_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Del_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Pai_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Bei_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Dem_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Tash_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Var_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Vellua_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Skog_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Her_Seed",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Cal_Seed",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Dem_Seed",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Del_Seed",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Pai_Seed",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Tash_Seed",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Permit_Var_Seed",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Gate_Del_Castle_Permit",
+    "givenBy": []
+   }
+  ],
+  "pet_": [
+   {
+    "knowledge": "Knowledge_Pet_Phoenix_Feather",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0002",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0003",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0004",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0005",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0006",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0006_index01",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0007",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0008",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0008_index01",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0009",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0013",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0014",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0015",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_gimmick_in_dpf_carpet_0016",
+    "givenBy": []
+   }
+  ],
+  "skill_": [
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_LandMash_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_SoulStrike_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CrowAttack_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_FlashCombo_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_SwordAura_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_FrostBreath_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_FireBreath_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_LightningBreath_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_EnlightenmentWave_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_DarkenRobe_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_DogClaw_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Forgotten_General",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Ogre",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Antumbra_Spear",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CrowStorm_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_SmashStorm_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CresecentAura_1_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CresecentAura_2_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CresecentAura_3_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_FrostSpike_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AbsoluteDefense_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_ArrowRain_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Merrick",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_LightningStab_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Antumbra_TwoHandRod",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_TarandusWarrior_WarHammer",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Bastier",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Karanda",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_FrostDeath_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Primus",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_DarkChase_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Leebur",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_QueenSpider",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Praevus",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Priscus",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Skevald",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AtorDrone_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_PhantomStab_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_LanFord",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_ImpBoss",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Catfish_BodySlam_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Titan",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_EnergyBurst_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Muscan",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Machine_AdditionalDamage_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CommonHexe_AdditionalDamage_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CommonHumanoid_AdditionalDamage_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CommonGolem_AdditionalDamage_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Boss_AdditionalDamage_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CommonAnimal_AdditionalDamage_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Creature_AdditionalDamage_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AbyssGrass_Immune",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Hyena_PoisonImmune",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Immune_Bismuth",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_DAM_UP_RotationBash",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AddMoneyDropRate_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_EquipDropRate_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_BlockAmmoConsume_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_FoodSkillLevelUp_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_ReduceCraftMaterial_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AdditionalThief_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CollectDrop_Ore_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CollectDrop_Plant_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CollectDrop_Animal_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_ContributionExp_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_SkillPointExp_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_CollectDrop_Log_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AddFrendly_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Equip_AddHorseExp_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Equip_AddPetFriendly_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AddKillSkillLevel_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Attack_HPRecover_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Attack_MPRecover_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Attack_SPRecover_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_Combo_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_PlateArmor_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_LeatherArmor_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Recipe_Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_FabricArmor_LV1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseWait",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseMoveLv1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseMoveLv2",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseMoveLv3",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseMoveLv4",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_SpecialRidingMoveLv4",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseMoveLv5",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseDrift",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseMoveLv5_100",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseStamina",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseRushAttack",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SKill_HorseJump",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SKill_HorseDoubleJump",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SKill_HorsePowerJump",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SKill_HorseLateralMove",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SKill_HorseSit",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseKick",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SKill_HorseIntimidateLv2",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SKill_HorseIntimidateLv4",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseSwimWait",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseSwimLv1",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseSwimLv2",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseWaterSprint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseInstantAcc",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorseInstantAcc_Combo",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_SKill_HorseFastStart",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_HorsePawStamp",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_RidingNorAttack",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_RidingHardAttack",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_RidingDash",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_Dash",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_Gatling",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_Cannon",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_MultiShot",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_EMP",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_OverHeating",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_FlameThrower",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_Laser",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_Tongs",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_WarMachine_welding",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Attack",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Evade",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Breath",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_StaminaRegen",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Attack_Fire",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Breath_Fire",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Attack_Ice",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Breath_Ice",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Attack_Lightning",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_Breath_Lightning",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_TriStar_MultiAttack",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Farming_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Farming_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Farming_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ranching_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ranching_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ranching_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Logging_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Logging_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Logging_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Mining_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Mining_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Mining_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Forging_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Forging_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Forging_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Strengthening_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Strengthening_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Strengthening_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Fishing_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Fishing_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Fishing_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Foodprocessing_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Foodprocessing_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Foodprocessing_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Service_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Service_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Service_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Smelting_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Smelting_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Smelting_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Drawing_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Drawing_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Drawing_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Weaving_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Weaving_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Weaving_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Building_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Building_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Building_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Engineering_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Engineering_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Engineering_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Refining_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Crafting_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Crafting_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Crafting_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ornamenting_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ornamenting_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Ornamenting_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Gathering_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Gathering_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Gathering_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Banking_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Banking_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Banking_III",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_SuperWorker",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_Worker_Fighting_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Skill_LearnSpot_Unknown",
+    "givenBy": []
+   }
+  ],
+  "paper_": [
+   {
+    "knowledge": "Knowledge_Quest_Paper_Bastion_Secret",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Letter",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_WantedPaper_Traitor_Hit_List",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_gimmick_leatherpaper_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Crowman_Adoptation",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Ward_List",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Gregor_Letter",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Gregor_Record",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_MasterDoo_Ideology",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Antumbra_Contract",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_UltimateWeapon_Blueprint_01",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_UltimateWeapon_Blueprint_02",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Orc_TechnicalList",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_CaliburnSoldiers_Letter",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_WhiteCrow_Witch_Letter",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Military_Notice",
+    "givenBy": [
+     {
+      "mission": "Mission_BloodCoronation_BastionDead_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_DemenissPolice",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_DeadHunter_Journal",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Heresy_WarningFlyer",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Verdict_Treason",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_LongleafForest_PatrolRecord",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Askelund_Judgment",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Child_Notice",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Child_Notice_02",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Child_Notice_03",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Child_Notice_04",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Beighen_Notice",
+    "givenBy": [
+     {
+      "mission": "Mission_LonelyJackal_BloodGolem_Boss_Start_2",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Dismissal_Document",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Navy_Inquiry_Report",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Sentry_Journal",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_MoonScribbles_01",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_MoonScribbles_02",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_MoonScribbles_03",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Torn_Order",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Zoo_Flyer",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Seizure_Tag",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Delinquency_Notice",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Heresy_Registry",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_MineFortress_Blueprint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Engineer_Working_Memo",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_LaserTank_Blueprint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Marnihouse_Blueprint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_BioExperiment_Blueprint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Balthazar_Memo",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_WantedPaper_Arsonist_TheFaceless",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Bankruptcy_Document",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Merrick_SeizureList",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Merrick_Letter",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_NoblePropertyList",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Merchant_Warning",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Hyena_Cave_Recapture",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Cult_Order",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Quest_Paper_Lumberjack_Testimony",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Stamina_Hint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Nature_Hint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Progression_Hint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Propagation_Guide",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_HowToRemoveCrime",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_TaxStatement",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_HowToMakeFundAccount",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_HowToQuenching",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_FromYann",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_LongLeafForest",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_KuKuATAG",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Bruna",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Bruna_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Bruna_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Forex",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Forex_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Forex_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_FriendNews",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_FriendNews_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_FriendNews_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Fiona",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Fiona_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_FieldVoice",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_FieldVoice_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Aldred",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Aldred_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Aldred_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_BoundbyLies",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_BoundbyLies_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Lenard",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Lenard_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Adelina",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Adelina_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Adelina_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Maiden",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Maiden_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Maiden_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Harveston",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Harveston_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Harveston_II",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Flint",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Flint_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Castiel",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Castiel_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_VegetableBox",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Beatrice",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Eliza",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Eliza_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Omar",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Omar_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_BraveToLove",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Ugmum",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Drianna",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Drianna_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Randel",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Randel_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Doni",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Doni_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_SecretSip",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_SecretSip_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_RacingStage",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_RacingStage_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Sniks",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Paper_Sniks_I",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0052",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Rinaldo_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0008",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0025",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Giovanni_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0012",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Fabrizio_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0007",
+    "givenBy": [
+     {
+      "mission": "Mission_Her_Wanted_Criminal_Salvatore_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0001",
+    "givenBy": [
+     {
+      "mission": "Mission_Her_Wanted_Criminal_Simon_de_Montfort_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0059",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0009",
+    "givenBy": [
+     {
+      "mission": "Mission_Her_Wanted_Criminal_Warren_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0006",
+    "givenBy": [
+     {
+      "mission": "Mission_Her_Wanted_Criminal_Bianca_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0014",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Selene_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0021",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Elala_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0005",
+    "givenBy": [
+     {
+      "mission": "Mission_Her_Wanted_Criminal_Blix_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0017",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Boggle_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0015",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Sizzle_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0016",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Blurt_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0028",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Zlira_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0011",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Gruul_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0024",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Borzak_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0022",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Surugor_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0002",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0013",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Gruultar_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0004",
+    "givenBy": [
+     {
+      "mission": "Mission_Her_Wanted_Criminal_Alessio_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0019",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Urga_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0026",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Morga_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0003",
+    "givenBy": [
+     {
+      "mission": "Mission_Her_Wanted_Criminal_Haldin_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0023",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Durin_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0029",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Talgrim_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0020",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Helya_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0027",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Lilhind_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0038",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Ivar_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0034",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Rolf_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0031",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Thorfinn_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0035",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Ulf_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0032",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Sigrid_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0036",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Eira_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0039",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Snaggle_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0037",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Krunk_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0040",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Snira_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0033",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Slurk_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0044",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Tariq_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0045",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Zahir_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0050",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Hakim_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0047",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0041",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Krizhar_Start_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0048",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Brogar_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0049",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Varka_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0042",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Barik_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0043",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Sigrun_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0101",
+    "givenBy": [
+     {
+      "mission": "Mission_Her_Wanted_Criminal_Billy_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0102",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Gunnar_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0103",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Henrik_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0104",
+    "givenBy": [
+     {
+      "mission": "Mission_Dem_Wanted_Criminal_Eskil_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0105",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Brooks_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0106",
+    "givenBy": [
+     {
+      "mission": "Mission_Del_Wanted_Criminal_Ovis_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0107",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Patrick_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0108",
+    "givenBy": [
+     {
+      "mission": "Mission_Kwe_Wanted_Criminal_Jonathan_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0109",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Frok_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_WantedPaper_0110",
+    "givenBy": [
+     {
+      "mission": "Mission_Tashkalp_Wanted_Normal_Brol_1",
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "boat": [
+   {
+    "knowledge": "Knowledge_OrientalWitch_BrokenSailBoat",
+    "givenBy": [
+     {
+      "mission": "Mission_BloodCoronation_EastWitch_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_AncientRuinAnamorphic_Boat",
+    "givenBy": [
+     {
+      "mission": "Challenge_Anamorphic_Boat_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "Knowledge_Anamorphic_Boat",
+    "givenBy": [
+     {
+      "mission": "Challenge_Anamorphic_Boat_0",
+      "level": 2
+     }
+    ]
+   }
+  ],
+  "ballista": [
+   {
+    "knowledge": "Knowledge_GiantBallista_Book",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Visione_Chip_GiantBallista",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Riding_Ballista",
+    "givenBy": []
+   }
+  ],
+  "airship": [
+   {
+    "knowledge": "Knowledge_Book_MarniAirship_Journal",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Book_Airship_Journal",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Airship_Merchant",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Marni_AirShip_II",
+    "givenBy": [
+     {
+      "mission": "Mission_MarniDragon_Boss_MonsterWave_2",
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "abyssteleport": [
+   {
+    "knowledge": "Knowledge_Paper_AbyssTeleport",
+    "givenBy": [
+     {
+      "mission": "Mission_SplitHorn_Boss_Battle_0",
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "teleport": [
+   {
+    "knowledge": "Knowledge_BlackWolf_Teleport",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Damian_BlackWolf_Teleport",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Oongka_BlackWolf_Teleport",
+    "givenBy": []
+   }
+  ],
+  "glide": [
+   {
+    "knowledge": "Knowledge_Damian_ShieldGlider",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Damian_ShieldGlider_MoveFast",
+    "givenBy": []
+   },
+   {
+    "knowledge": "Knowledge_Damian_ShieldGlider_SuperDash",
+    "givenBy": []
+   }
+  ],
+  "dive": [
+   {
+    "knowledge": "Knowledge_SkyDive",
+    "givenBy": []
+   }
+  ],
+  "abyssgate": [
+   {
+    "knowledge": "Knowledge_LevelGimmickIcon_AbyssGate",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0002",
+    "givenBy": [
+     {
+      "mission": "Mission_MeetAlustain_Alchemist_Chamber_2",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0003",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0009",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0013",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0014",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0016",
+    "givenBy": [
+     {
+      "mission": "Mission_SnakeTemple_Boss_Block_Priscus_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0018",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0023",
+    "givenBy": [
+     {
+      "mission": "Mission_SpireOfTheStars_LinkBand_1",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0036",
+    "givenBy": [
+     {
+      "mission": "Mission_HowlsandsCamp_Boss_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0041",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0055",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0079",
+    "givenBy": [
+     {
+      "mission": "Goblin_Master_Doo_OldKliff_1",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0083",
+    "givenBy": [
+     {
+      "mission": "Mission_JiJeongTemple_Normal_ChiefMonk_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0084",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0089",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0091",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0097",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0099",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0109",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0113",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0121",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0122",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0131",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0137",
+    "givenBy": [
+     {
+      "mission": "Challenge_Discover_ClockTower_1",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0138",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0140",
+    "givenBy": [
+     {
+      "mission": "Challenge_Discover_JumpTower_1",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0144",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0150",
+    "givenBy": [
+     {
+      "mission": "Challenge_Discover_WisdomTower_1",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0151",
+    "givenBy": [
+     {
+      "mission": "Mission_Goblin_Master_Doo_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0152",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0158",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0162",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0175",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0176",
+    "givenBy": [
+     {
+      "mission": "Challenge_Discover_FrozenTower_1",
+      "level": 2
+     },
+     {
+      "mission": "Mission_EyeOfIce_Block_Start_1",
+      "level": 1
+     },
+     {
+      "mission": "Mission_HexeMarie_Boss_Battle_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0184",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0185",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0189",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0191",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0200",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0205",
+    "givenBy": [
+     {
+      "mission": "Mission_Caliburn_Boss_FinalAbyss_Roof_0",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_End0006",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_End0007",
+    "givenBy": [
+     {
+      "mission": "Mission_Epilogue_Ending_ComeBackHome_0",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_1001",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_1002",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_1003",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_1004",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_1005",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0001_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0002_AbyssIsland",
+    "givenBy": [
+     {
+      "mission": "Mission_MeetAlustain_Alustain_Witch_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0003_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0009_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0013_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0014_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0016_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0018_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0023_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0036_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0041_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0055_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0079_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0083_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0084_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0089_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0091_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0097_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0099_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0109_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0113_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0121_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0122_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0131_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0137_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0138_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0140_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0144_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0150_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0151_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0152_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0158_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0162_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0175_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0176_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0184_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0185_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0189_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0191_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0200_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_0205_AbyssIsland",
+    "givenBy": [
+     {
+      "mission": "Mission_Caliburn_Boss_AwakenCaliburn_Battle_1",
+      "level": 2
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssGate_0206_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_End0006_AbyssIsland",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssGate_1001_AbyssIsland",
+    "givenBy": []
+   }
+  ],
+  "abysstransmitter": [
+   {
+    "knowledge": "AbyssTransmitter_0001",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0001_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0002",
+    "givenBy": [
+     {
+      "mission": "Mission_MeetAlustain_Alustain_WhiteWolf_3",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0003",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0003_2",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0009",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0009_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0013",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0013_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0014",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0014_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0016",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0016_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0018",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0018_2",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0023",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0023_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0036",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0036_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0041",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0041_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0055",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0055_4",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0079",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0079_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0083",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0083_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0084",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0084_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0089",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0089_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0091",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0091_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0097",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0097_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0099",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0099_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0109",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0109_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0113",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0113_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0121",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0121_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0122",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0122_2",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0131",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0131_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0137",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0137_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0138",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0138_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0140",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0140_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0144",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0144_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0150",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0150_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0151",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0151_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0152",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0152_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0158",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0158_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0162",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0162_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0175",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0175_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0176",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0176_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0184",
+    "givenBy": []
+   },
+   {
+    "knowledge": "AbyssTransmitter_0189",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0189_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0191",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0191_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0200",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0200_1",
+      "level": 1
+     }
+    ]
+   },
+   {
+    "knowledge": "AbyssTransmitter_0201",
+    "givenBy": [
+     {
+      "mission": "Challenge_Abyss_0201_1",
+      "level": 1
+     }
+    ]
+   }
+  ]
+ }
+}

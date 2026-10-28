@@ -1,0 +1,85 @@
+{
+ "missions": 6864,
+ "withParent": 4491,
+ "withChildren": 2291,
+ "withNextLinks": 4193,
+ "nextLinks": 6664,
+ "withStartCondition": 1244,
+ "startConditionEval": {
+  "unknown": 1447,
+  "startConditionsWithCompleteTerms": 446,
+  "true": 766,
+  "FALSE": 50
+ },
+ "startConditionViolationsSample": [
+  {
+   "mission": "Challenge_Abyss_0002_1",
+   "save": 0,
+   "condition": "CompleteSubMission(Challenge_Abyss_0002, 0)"
+  },
+  {
+   "mission": "Challenge_Abyss_0002_1",
+   "save": 1,
+   "condition": "CompleteSubMission(Challenge_Abyss_0002, 0)"
+  },
+  {
+   "mission": "Mission_WindCliffFort_Block_Boss_2",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_WindCliffFort_Block_Boss, 1)"
+  },
+  {
+   "mission": "Mission_Node_Crim_BurhumVillage_Normal_Start_1",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_Node_Crim_BurhumVillage_Normal_Start,0)"
+  },
+  {
+   "mission": "Mission_FortManub_Block_Start_3",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_FortManub_Block_Start, 2)"
+  },
+  {
+   "mission": "Mission_HelmaraVillage_SandCrawler_Block_ExplosionFactory_3",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_HelmaraVillage_SandCrawler_Block_ExplosionFactory,1) || CompleteSubMission(Mission_HelmaraVil"
+  },
+  {
+   "mission": "Mission_RedMountainFort_Block_GoldenArmor_Boss_2",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_RedMountainFort_Block_GoldenArmor_Boss, 1)"
+  },
+  {
+   "mission": "Mission_Marni_Mine_Fortress_Block_Start_2",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_Marni_Mine_Fortress_Block_Start,1)"
+  },
+  {
+   "mission": "Mission_Marni_Experiment_Fortress_Block_Start_2",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_Marni_Experiment_Fortress_Block_Start, 1)"
+  },
+  {
+   "mission": "Mission_MarniMechFactory_Block_Boss_2",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_MarniMechFactory_Block_Boss, 1)"
+  },
+  {
+   "mission": "Mission_Marni_Barrier_Fortress_Blockade_Start_2",
+   "save": 0,
+   "condition": "CompleteSubMission(Mission_Marni_Barrier_Fortress_Blockade_Start, 1)"
+  },
+  {
+   "mission": "Mission_Marni_Barrier_Fortress_Blockade_Start_2",
+   "save": 1,
+   "condition": "CompleteSubMission(Mission_Marni_Barrier_Fortress_Blockade_Start, 1)"
+  }
+ ],
+ "nextLinkOrderInSaves": {
+  "predAfter": 2803,
+  "predFirst": 6695,
+  "notBothTimed": 10494
+ },
+ "parentVsChildOrder": {
+  "parentAfterChild": 7255,
+  "parentBeforeChild": 8
+ }
+}

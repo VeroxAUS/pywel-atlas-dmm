@@ -1,0 +1,6858 @@
+{
+ "Challenge_Abyss": {
+  "x": -10436.9,
+  "y": 1893.9,
+  "z": -2325.2,
+  "scripts": 3,
+  "spreadX": 2842,
+  "spreadZ": 2442,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NatureCreature_Abyss_ancientWorm_1",
+   "NHM_Unique_Alustin_3474",
+   "NHW_WhiteCrow_Witch_6622"
+  ]
+ },
+ "Challenge_Standstone_Adventure": {
+  "x": -4339.1,
+  "y": 381.0,
+  "z": -4595.4,
+  "scripts": 3,
+  "spreadX": 5960,
+  "spreadZ": 375,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NGM_Wandering_Mercenary_OneHandSword_50817",
+   "NHM_Wandering_Mercenary_DualAxe_50821",
+   "NHM_Wandering_Mercenary_OneHandSword_50826",
+   "Riding_Horse_Lumiph_2010",
+   "Riding_Horse_Lumiph_2011",
+   "Riding_Horse_Lumiph_2000",
+   "NHM_Citizen_3027_Stick"
+  ]
+ },
+ "Challenge_LegendAnimal_II": {
+  "x": -4365.7,
+  "y": 402.6,
+  "z": -4387.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Animal_Machine_Eagle_1"
+  ]
+ },
+ "Contents_MiniGame_ArrowShot": {
+  "x": -10815.1,
+  "y": 648.3,
+  "z": -3731.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_GameHost_9",
+   "NHW_Noble_3607",
+   "NHM_Noble_3033",
+   "NHW_MiddleCitizen_3734",
+   "NHM_MiddleCitizen_3108",
+   "NHM_MiddleCitizen_3120",
+   "NHM_MiddleCitizen_3030"
+  ]
+ },
+ "Contents_MiniGame_PistolShot": {
+  "x": -10825.4,
+  "y": 689.8,
+  "z": -3632.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_GameHost_10",
+   "NHW_Noble_3607",
+   "NHM_Noble_3033",
+   "NHW_MiddleCitizen_3734",
+   "NHM_MiddleCitizen_3108",
+   "NHM_MiddleCitizen_3120",
+   "NHM_MiddleCitizen_3030"
+  ]
+ },
+ "Contents_MiniGame_Armwrest": {
+  "x": -11920.5,
+  "y": 684.9,
+  "z": -2135.9,
+  "scripts": 6,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_GameHost_1",
+   "NOM_Wandering_Mercenary_DualAxe_54613",
+   "NHM_Wandering_Mercenary_DualAxe_54620",
+   "NHM_Wandering_Mercenary_OneHandSword_54605",
+   "NHM_Wandering_Mercenary_OneHandSword_54615",
+   "NOM_Wandering_Mercenary_DualAxe_54627",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Contents_MiniGame_Handwrest": {
+  "x": -4389.0,
+  "y": 377.9,
+  "z": -4222.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_GameHost_2",
+   "NHM_Wandering_Mercenary_OneHandAxe_54604",
+   "NDM_Wandering_Mercenary_TwoHandAxe_50852",
+   "NHM_Wandering_Mercenary_BowDagger_58014",
+   "NHM_Child_Citizen_3143",
+   "NHM_Child_Citizen_3360",
+   "NHW_Child_Citizen_3705",
+   "NHM_Child_Citizen_3362"
+  ]
+ },
+ "Contents_MiniGame_Duel_Unarmed": {
+  "x": -10781.9,
+  "y": 557.2,
+  "z": -4271.6,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_GameHost_1",
+   "NHM_Wandering_Mercenary_DualAxe_50821",
+   "NHM_Wandering_Mercenary_OneHandSword_54615",
+   "NDM_Citizen_5438",
+   "NHM_Wandering_Mercenary_DualAxe_54620",
+   "NHM_Child_Citizen_3143",
+   "NHM_Child_Citizen_3360",
+   "NHW_Child_Citizen_3705"
+  ]
+ },
+ "Contents_MiniGame_Duel": {
+  "x": -6029.3,
+  "y": 573.8,
+  "z": -1042.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_GameHost_7",
+   "NHM_Wandering_Mercenary_DualAxe_50821",
+   "NHM_Wandering_Mercenary_OneHandSword_54615",
+   "NDM_Citizen_5438",
+   "NHM_Wandering_Mercenary_DualAxe_54620",
+   "NHM_Child_MiddleCitizen_11707",
+   "NHM_Child_MiddleCitizen_11708",
+   "NHW_Child_Citizen_12401"
+  ]
+ },
+ "Contents_MiniGame_Duel_Wrestling": {
+  "x": -12312.9,
+  "y": 731.0,
+  "z": -5203.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NTM_Kharonso_Citizen_108032",
+   "NHM_GameHost_3",
+   "NOM_Wandering_Mercenary_DualAxe_54613",
+   "NOM_Wandering_Mercenary_TwoHandWarHammer_54612",
+   "NDM_Citizen_5438",
+   "NOM_Wandering_Mercenary_DualAxe_54627",
+   "NGM_Citizen_4231",
+   "NOM_Citizen_4776"
+  ]
+ },
+ "Contents_MiniGame_Duel_Spear": {
+  "x": -10766.7,
+  "y": 658.2,
+  "z": -3652.2,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_GameHost_4",
+   "NHM_Hernand_Soldiers_OneHandDagger_53206",
+   "NHM_Hernand_Soldiers_OneHandDagger_53205",
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "NHM_Hernand_Soldiers_OneHandSword_53203",
+   "NHM_Hernand_Soldiers_OneHandSword_53201",
+   "NDM_Soldier_Sheriff_OneHandMusket_02",
+   "NHM_Hernand_Soldiers_OneHandSword_53220"
+  ]
+ },
+ "Contents_MiniGame_Duel_MainWeapon": {
+  "x": -6143.6,
+  "y": 630.4,
+  "z": -827.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_GameHost_7",
+   "NHM_Child_Citizen_11807",
+   "NHW_Child_Citizen_12406",
+   "NHM_Child_MiddleCitizen_11707",
+   "NHM_Child_MiddleCitizen_11708",
+   "NHM_Wandering_Mercenary_OneHandAxe_54634",
+   "NHM_Wandering_Mercenary_OneHandSword_54615",
+   "NDM_Lizard_Rider_1"
+  ]
+ },
+ "Contents_MiniGame_Race": {
+  "x": -7596.4,
+  "y": 544.2,
+  "z": -2680.3,
+  "scripts": 6,
+  "spreadX": 2835,
+  "spreadZ": 1826,
+  "npcs": [
+   "Animal_Stefero_Domestic_Saddle_32526",
+   "NHM_Noble_3927",
+   "NHM_GameHost_6",
+   "NHM_Wandering_Mercenary_OneHandDagger_58002",
+   "NDM_Citizen_5438",
+   "NHM_Child_Citizen_3143",
+   "NHM_Child_Citizen_3360",
+   "NHW_Child_Citizen_3705"
+  ]
+ },
+ "Contents_MiniGame_RockPaperSci": {
+  "x": -5349.4,
+  "y": 540.5,
+  "z": -1461.2,
+  "scripts": 14,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Daniel_Celeste_3017",
+   "NHW_Child_MiddleCitizen_3702"
+  ]
+ },
+ "Contents_MiniGame_Seotda": {
+  "x": -10663.3,
+  "y": 620.7,
+  "z": -3837.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Contents_MiniGame_Variant_Seotda": {
+  "x": -10969.8,
+  "y": 660.6,
+  "z": 1342.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Contents_MiniGame_Seotda_I": {
+  "x": -6063.4,
+  "y": 601.4,
+  "z": -958.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Contents_MiniGame_Variant_Seotda_I": {
+  "x": -9024.6,
+  "y": 614.5,
+  "z": -1108.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Contents_WeatherChange_Sunny": {
+  "x": -10665.4,
+  "y": 629.8,
+  "z": -5018.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Contents_WeatherChange_Precipitation": {
+  "x": -10665.4,
+  "y": 629.8,
+  "z": -5018.4,
+  "scripts": 5,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Contents_WeatherChange_WindSpeed": {
+  "x": -10665.4,
+  "y": 629.8,
+  "z": -5018.4,
+  "scripts": 6,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Contents_WeatherChange_WindDegree": {
+  "x": -10665.4,
+  "y": 629.8,
+  "z": -5018.4,
+  "scripts": 7,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Contents_WeatherChange_Cloud": {
+  "x": -10665.4,
+  "y": 629.8,
+  "z": -5018.4,
+  "scripts": 8,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Contents_SpawnMainRoad_ContentsAdvice": {
+  "x": -10731.1,
+  "y": 605.0,
+  "z": -3988.1,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_CrimeTutorial",
+   "NHM_Unique_FundTutorial"
+  ]
+ },
+ "Contents_Bounty_Hunter": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 36,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_BountyHunter_SwordShield_200010273",
+   "NHM_BountyHunter_SwordShield_200010275",
+   "NHM_BountyHunter_SwordShield_200010274"
+  ]
+ },
+ "Contents_Police": {
+  "x": -10614.5,
+  "y": 553.3,
+  "z": -4192.0,
+  "scripts": 118,
+  "spreadX": 8355,
+  "spreadZ": 7644,
+  "npcs": [
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53202",
+   "NHM_Hernand_Soldiers_TwoHandSword_53214",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53225",
+   "Animal_Davrella_Domestic_Saddle_31499",
+   "NHM_Hernand_Soldiers_SwordShield_53210",
+   "NHM_Hernand_Soldiers_OneHandSword_53203",
+   "NHM_Hernand_Soldiers_TwoHandSword_53213"
+  ]
+ },
+ "Contents_Police_BlockRoad": {
+  "x": -10616.4,
+  "y": 553.1,
+  "z": -4194.1,
+  "scripts": 18,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NDM_Bandit_Rider_TwoHandCannon_1",
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "NHM_Hernand_Soldiers_OneHandSword_53203",
+   "NHM_Hernand_Soldiers_TwoHandSword_53214",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53224",
+   "Animal_WildSpirit_BoarBaby_1",
+   "NHM_Hernand_Soldiers_OneHandSword_53212",
+   "NHM_Hernand_Soldiers_TwoHandSword_53213"
+  ]
+ },
+ "Contents_Treasure_Hunter": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 12,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_BountyHunter_SwordShield_200010279",
+   "NHM_BountyHunter_SwordShield_200010275",
+   "NHM_BountyHunter_SwordShield_200010274"
+  ]
+ },
+ "Contents_Reward": {
+  "x": 47.9,
+  "y": 241.5,
+  "z": 29.6,
+  "scripts": 46,
+  "spreadX": 0,
+  "spreadZ": 5,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_HumanDocumentary_Her": {
+  "x": -10349.2,
+  "y": 614.6,
+  "z": -4294.1,
+  "scripts": 2,
+  "spreadX": 659,
+  "spreadZ": 787,
+  "npcs": [
+   "NHM_MiddleCitizen_6413",
+   "Animal_Deer_Wild_33107",
+   "NHM_MiddleCitizen_3162",
+   "NHM_Citizen_Merchant_Leather_BackPack_3571"
+  ]
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_I": {
+  "x": -3881.7,
+  "y": 649.6,
+  "z": 3387.3,
+  "scripts": 3,
+  "spreadX": 5,
+  "spreadZ": 5,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHW_Citizen_12820",
+   "NHM_MiddleCitizen_12255",
+   "NHM_Citizen_12239"
+  ]
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_II": {
+  "x": -3889.5,
+  "y": 649.7,
+  "z": 3348.6,
+  "scripts": 4,
+  "spreadX": 4,
+  "spreadZ": 3,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_HighCitizen_11818",
+   "NHW_HighCitizen_12453",
+   "NHW_Child_MiddleCitizen_12839",
+   "NHM_Citizen_12239",
+   "NHW_Priest_Pilgrim_12402"
+  ]
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_III": {
+  "x": -3852.9,
+  "y": 662.8,
+  "z": 3349.0,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 1,
+  "npcs": [
+   "NHM_Citizen_12239",
+   "NHM_Priest_Pilgrim_11864",
+   "NHM_Priest_Pilgrim_11816",
+   "NHM_Priest_Pilgrim_11815",
+   "NHW_Priest_Pilgrim_12402",
+   "NHW_Citizen_12820"
+  ]
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_IV": {
+  "x": -3849.4,
+  "y": 661.6,
+  "z": 3330.9,
+  "scripts": 3,
+  "spreadX": 10,
+  "spreadZ": 5,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_12239",
+   "NHM_HighCitizen_11820",
+   "NHM_Citizen_12217",
+   "NHW_Citizen_12820",
+   "NHW_Child_MiddleCitizen_12839",
+   "NHM_Child_Citizen_11808"
+  ]
+ },
+ "Quest_HumanDocumentary_RandomSpawn_Bar_V": {
+  "x": -4106.7,
+  "y": 603.2,
+  "z": 3397.6,
+  "scripts": 3,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_12239",
+   "NHW_Citizen_12820",
+   "NHM_HighCitizen_11820",
+   "NHM_Citizen_12217",
+   "NHW_Child_MiddleCitizen_12839"
+  ]
+ },
+ "Quest_Node_Del_WindCliffFort_Boss_Block": {
+  "x": -6748.8,
+  "y": 548.4,
+  "z": -5393.4,
+  "scripts": 14,
+  "spreadX": 4009,
+  "spreadZ": 1438,
+  "npcs": [
+   "MiddleBoss_Balthazar_52302",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Animal_Wyvern_30508",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Graymane_BaseCamp_Pailune": {
+  "x": -10503.5,
+  "y": 610.6,
+  "z": -4371.7,
+  "scripts": 3,
+  "spreadX": 238,
+  "spreadZ": 476,
+  "npcs": [
+   "Riding_Wagon_Goods_TwoHorseFourWheel_2051",
+   "NHM_Unique_Alan_Serkis_3405",
+   "NHM_Citizen_Coachman_14503",
+   "Riding_Wagon_TentLuggaage_TwoHorseFourWheel_2038",
+   "NHM_Citizen_Coachman_14502",
+   "NHM_Citizen_Servant_3179",
+   "NHM_Citizen_Servant_3181",
+   "NHM_Unique_Yann_DualDagger_402"
+  ]
+ },
+ "Quest_Graymane_BaseCamp_Pailune_After": {
+  "x": -10512.9,
+  "y": 610.4,
+  "z": -4371.8,
+  "scripts": 40,
+  "spreadX": 5626,
+  "spreadZ": 4738,
+  "npcs": [
+   "Training_body_1",
+   "NHM_Unique_Alec_628",
+   "NHM_Unique_Ben_707",
+   "NHM_Unique_GreyFur_Gunnar",
+   "NHM_Greyfur_OneHandAxe_51304",
+   "NHM_Unique_Greyfur_SwordShield_2",
+   "NHM_Unique_GreyFur_Richard",
+   "NHM_Unique_GreyFur_Bram"
+  ]
+ },
+ "Quest_Node_Cal_CalphadeCastle_Normal": {
+  "x": -10735.2,
+  "y": 622.5,
+  "z": -3830.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Antoni_13559",
+   "NHM_Unique_Hernand_Soldiers_200010228",
+   "NHM_Unique_Hernand_Soldiers_200010227"
+  ]
+ },
+ "Quest_Node_Cal_HohenmarkRuins_Block": {
+  "x": -12382.7,
+  "y": 918.4,
+  "z": -2928.6,
+  "scripts": 8,
+  "spreadX": 12732,
+  "spreadZ": 4216,
+  "npcs": [
+   "Boss_Darkness_King_55514",
+   "Object_Gimmick_Base_70001",
+   "NHM_UnyieldingShields_OneHandShield_53256",
+   "NHM_UnyieldingShields_OneHandSword_53272",
+   "NHM_UnyieldingShields_OneHandSword_53280",
+   "NHM_UnyieldingShields_OneHandSword_53266",
+   "NHM_UnyieldingShields_OneHandSword_53282"
+  ]
+ },
+ "Quest_Node_Cal_CalphadeNorthDepot_CounterAttack_Normal": {
+  "x": -11373.0,
+  "y": 679.7,
+  "z": -1833.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_UnyieldingShields_MaceShield_53252",
+   "NHM_UnyieldingShields_OneHandBomb_53286",
+   "NHM_UnyieldingShields_OneHandSword_53287",
+   "NHM_UnyieldingShields_SwordShield_53253",
+   "NHM_UnyieldingShields_TwoHandSpear_53278",
+   "NHM_UnyieldingShields_OneHandBomb_53285",
+   "NHM_Drunk_BlackBears_OneHandSword_54009",
+   "NHM_Drunk_BlackBears_OneHandSword_54031"
+  ]
+ },
+ "Quest_Node_Cal_Node_Cal_CalphadeChurch_Normal": {
+  "x": -11911.4,
+  "y": 696.3,
+  "z": -2026.2,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Citizen_3635",
+   "NHM_Citizen_3466",
+   "NHM_MiddleCitizen_3026",
+   "NHW_Citizen_3731",
+   "NHM_MiddleCitizen_3530",
+   "NHM_Citizen_3055",
+   "NHM_MiddleCitizen_3161",
+   "NHM_MiddleCitizen_3170"
+  ]
+ },
+ "Quest_Node_Crim_DesolateStoneAltar_Ogre_Boss": {
+  "x": -4534.9,
+  "y": 660.1,
+  "z": 177.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Boss_Ogre_55515"
+  ]
+ },
+ "Quest_Node_Crim_EnlightenShrine_Goblin_Treasure_Trove_All": {
+  "x": -8009.4,
+  "y": 670.5,
+  "z": -656.6,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Node_Crim_BurhumVillage_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 7,
+  "spreadX": 3161,
+  "spreadZ": 3362,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_BurhumVillage_Normal": {
+  "x": -7454.4,
+  "y": 677.3,
+  "z": -824.5,
+  "scripts": 2,
+  "spreadX": 15,
+  "spreadZ": 24,
+  "npcs": [
+   "NHM_Unique_Durzan_200090008",
+   "NGM_Treasure_Keeper_1"
+  ]
+ },
+ "Quest_Node_Crim_DesertOasis_Bismuthqueen_Block": {
+  "x": -7998.5,
+  "y": 670.7,
+  "z": -628.5,
+  "scripts": 3,
+  "spreadX": 27,
+  "spreadZ": 61,
+  "npcs": [
+   "MiddleBoss_LandSpider_BismuthQueen_1"
+  ]
+ },
+ "Quest_Node_Crim_FortManub_Block": {
+  "x": -5516.9,
+  "y": 661.1,
+  "z": -1015.2,
+  "scripts": 14,
+  "spreadX": 5598,
+  "spreadZ": 3285,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "MiddleBoss_TheFaceless_DualDagger_52451",
+   "NHW_Unique_Quelotien_200020037"
+  ]
+ },
+ "Quest_Node_Crim_HelmaraVillage_SandCrawler_Block": {
+  "x": -5861.7,
+  "y": 652.5,
+  "z": -466.2,
+  "scripts": 6,
+  "spreadX": 4835,
+  "spreadZ": 3830,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_BatiharVillage_Block": {
+  "x": -5722.1,
+  "y": 670.1,
+  "z": -545.2,
+  "scripts": 4,
+  "spreadX": 5212,
+  "spreadZ": 3794,
+  "npcs": [
+   "MON_Desert_Tank_ii_60222",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_BatiharVillage_Normal": {
+  "x": -5285.8,
+  "y": 670.7,
+  "z": -511.0,
+  "scripts": 2,
+  "spreadX": 254,
+  "spreadZ": 53,
+  "npcs": [
+   "NHM_Citizen_11713"
+  ]
+ },
+ "Quest_Node_Crim_PowerStation_SubInner_Block": {
+  "x": -5626.5,
+  "y": 671.5,
+  "z": -391.1,
+  "scripts": 11,
+  "spreadX": 405,
+  "spreadZ": 412,
+  "npcs": [
+   "NOM_Desert_Orc_52323",
+   "NOM_Desert_Orc_OneHandShotgun_1",
+   "NOM_Desert_Orc_OneHandShotgun_2",
+   "NTM_Desert_Troll_TwoHandedWarHammer_1"
+  ]
+ },
+ "Quest_Node_Crim_HowlsandsCamp_OutLaw": {
+  "x": -5113.9,
+  "y": 699.4,
+  "z": 840.6,
+  "scripts": 7,
+  "spreadX": 1767,
+  "spreadZ": 1319,
+  "npcs": [
+   "Riding_Wolf_2083",
+   "NGM_Bandit_Rider_59011",
+   "NGM_Bandit_Rider_59012",
+   "Riding_Wolf_Boss",
+   "Riding_Wolf_1",
+   "MiddleBoss_SandfangGristle",
+   "NHM_Unique_Canyon",
+   "NHM_Citizen_Guide_BackPack_6476"
+  ]
+ },
+ "Quest_Node_Crim_IsvatuFortress_Block_Boss": {
+  "x": -6591.4,
+  "y": 623.0,
+  "z": -1137.9,
+  "scripts": 11,
+  "spreadX": 4028,
+  "spreadZ": 3112,
+  "npcs": [
+   "MiddleBoss_Samuel_OneHandMusket_54451",
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_MuiquunVillage_Block_OwlsoftheMist": {
+  "x": -8351.8,
+  "y": 554.0,
+  "z": -2834.5,
+  "scripts": 8,
+  "spreadX": 5361,
+  "spreadZ": 3196,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NOM_Tomaso_Soldiers_OneHandSword_53763",
+   "NHW_Citizen_12304",
+   "NHM_MiddleCitizen_11733",
+   "NHM_MiddleCitizen_11730"
+  ]
+ },
+ "Quest_Node_Crim_RedMountainFort_Block_GoldenArmor_Boss": {
+  "x": -5068.3,
+  "y": 616.9,
+  "z": -1110.5,
+  "scripts": 18,
+  "spreadX": 6375,
+  "spreadZ": 3466,
+  "npcs": [
+   "MiddleBoss_GoldenKnightMerrick_TwoHandHammer_55037",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Crim_StompsandFortRuins_Boss_Block": {
+  "x": -5163.6,
+  "y": 498.2,
+  "z": -1922.5,
+  "scripts": 2,
+  "spreadX": 20,
+  "spreadZ": 237,
+  "npcs": [
+   "Animal_Ride_Battle_Boar_1",
+   "NTM_Bandit_Hogrider_TwoHandAxe_50039",
+   "NTM_Bandit_Hogrider_TwoHandAxe_50098",
+   "NTM_Bandit_Hogrider_TwoHandWarHammer_50037",
+   "NTM_Bandit_Hogrider_TwoHandAxe_50038",
+   "NTM_Bandit_Hogrider_TwoHandAxe_50040",
+   "NTM_Bandit_Hogrider_TwoHandWarHammer_50093",
+   "NTM_Bandit_Hogrider_TwoHandAxe_50094"
+  ]
+ },
+ "Quest_Node_Crim_Tashkalp_Normal": {
+  "x": -5616.4,
+  "y": 502.8,
+  "z": -1966.7,
+  "scripts": 3,
+  "spreadX": 5119,
+  "spreadZ": 1864,
+  "npcs": [
+   "NHW_Citizen_12814",
+   "NHW_Citizen_12813",
+   "NHW_Citizen_12805",
+   "NHW_Citizen_12806",
+   "NHM_Citizen_11729",
+   "NHM_Citizen_11714",
+   "NHM_Citizen_11713",
+   "NHM_Unique_Antoni_13559"
+  ]
+ },
+ "Quest_Node_Crim_BoneArena_Block": {
+  "x": -6125.0,
+  "y": 624.3,
+  "z": -850.2,
+  "scripts": 6,
+  "spreadX": 4379,
+  "spreadZ": 3345,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Wandering_Mercenary_SwordShield_54619",
+   "NHM_GameHost_7",
+   "NOM_Tomaso_Soldiers_OneHandSword_53766",
+   "NOM_Tomaso_Soldiers_TwoHandSword_53786",
+   "NOM_Tomaso_Soldiers_OneHandSword_53763",
+   "NHM_Wandering_Mercenary_OneHandSword_54615",
+   "NHM_Greyfur_DualAxe_51305"
+  ]
+ },
+ "Quest_Node_Crim_HyenaDen_Block": {
+  "x": -6045.5,
+  "y": 575.8,
+  "z": -1085.1,
+  "scripts": 5,
+  "spreadX": 483,
+  "spreadZ": 299,
+  "npcs": [
+   "Animal_Hyena_Wild_30043",
+   "Animal_BossHyenaSkevald_32425",
+   "Animal_Gazelle_Wild_30035",
+   "NHW_Citizen_12304",
+   "NHW_Citizen_12303",
+   "NHM_MiddleCitizen_11730",
+   "NOM_Unique_Morcas_1",
+   "NHM_Citizen_12210"
+  ]
+ },
+ "Quest_Node_Crim_Urdavah_Normal": {
+  "x": -6539.0,
+  "y": 824.7,
+  "z": -46.7,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Priest_Pilgrim_11804",
+   "NHM_Priest_Pilgrim_11815",
+   "NHM_Priest_Pilgrim_11816",
+   "NHM_Priest_Pilgrim_11864",
+   "NHM_Priest_Pilgrim_11865",
+   "NHM_Priest_Pilgrim_11866",
+   "NHM_Priest_Pilgrim_11867",
+   "NHW_Priest_Pilgrim_12402"
+  ]
+ },
+ "Quest_Faction_Urdavah_Academic_Normal": {
+  "x": -6672.7,
+  "y": 957.9,
+  "z": -149.9,
+  "scripts": 17,
+  "spreadX": 271,
+  "spreadZ": 364,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Urdavah_Assistant_1",
+   "NHM_Urdavah_Assistant_2",
+   "NHM_Urdavah_Assistant_3",
+   "NHM_Urdavah_Assistant_4"
+  ]
+ },
+ "Quest_Faction_Urdavah_ResearchStop_Reserch_V": {
+  "x": -6618.4,
+  "y": 856.0,
+  "z": -108.8,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Urdavah_Assistant_2"
+  ]
+ },
+ "Quest_Faction_Urdavah_ResearchStop_Reserch_IV": {
+  "x": -6171.4,
+  "y": 697.3,
+  "z": 836.9,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Urdavah_Assistant_2"
+  ]
+ },
+ "Quest_Node_Crim_Varnia_Wanted": {
+  "x": -10735.2,
+  "y": 622.5,
+  "z": -3830.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Antoni_13559",
+   "NHM_Unique_Hernand_Soldiers_200010228",
+   "NHM_Unique_Hernand_Soldiers_200010227"
+  ]
+ },
+ "Quest_Node_Crim_Varnia_FinaleStory": {
+  "x": -10530.2,
+  "y": 551.5,
+  "z": -5668.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NGM_Citizen_12941"
+  ]
+ },
+ "Quest_Node_Crim_Varnia_Daily": {
+  "x": -5759.2,
+  "y": 669.4,
+  "z": 533.7,
+  "scripts": 8,
+  "spreadX": 2166,
+  "spreadZ": 2721,
+  "npcs": [
+   "NHM_Bandit_OneHandMace_52003",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NGM_Bandit_Rider_59012",
+   "Riding_Wolf_2083",
+   "NHM_Bandit_OneHandMace_52005",
+   "NHM_Bandit_OneHandMace_52007",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandMace_50006"
+  ]
+ },
+ "Quest_Node_Crim_Varnia_Operation": {
+  "x": -5924.2,
+  "y": 659.3,
+  "z": -520.0,
+  "scripts": 4,
+  "spreadX": 328,
+  "spreadZ": 547,
+  "npcs": [
+   "NHM_Unique_Emmett"
+  ]
+ },
+ "Quest_Node_Crim_Varnia_MerchantStory": {
+  "x": -5196.2,
+  "y": 654.5,
+  "z": 814.3,
+  "scripts": 11,
+  "spreadX": 2343,
+  "spreadZ": 5401,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_Insect_GrassHopper",
+   "Animal_Spider_Wild_1",
+   "NHW_Citizen_41",
+   "NHM_Unique_Desert_Trader",
+   "Riding_Wagon_WineBarrel_TwoHorseFourWheel_DesertTrader",
+   "NHM_Unique_Citizen_Basim",
+   "NHM_Unique_Criminal_Nadim"
+  ]
+ },
+ "Quest_Node_Crim_Varnia_CitizenStory": {
+  "x": -5254.1,
+  "y": 490.8,
+  "z": -1794.2,
+  "scripts": 5,
+  "spreadX": 664,
+  "spreadZ": 2211,
+  "npcs": [
+   "Animal_Insect_Jewel_Beetle",
+   "Animal_Middle_Catfish_Wild_1",
+   "Object_Gimmick_Base_70001",
+   "NHM_MiddleCitizen_11731",
+   "NHW_Citizen_12838",
+   "NHW_Citizen_RunawayGirl",
+   "NHM_Citizen_3051",
+   "NHM_Citizen_11715"
+  ]
+ },
+ "Quest_Node_Crim_HyenaDen_All": {
+  "x": -5869.3,
+  "y": 594.5,
+  "z": -954.6,
+  "scripts": 2,
+  "spreadX": 1,
+  "spreadZ": 5,
+  "npcs": [
+   "NHM_Unique_Tashkalp_Villager",
+   "NHW_Child_MiddleCitizen_12810",
+   "NHM_MiddleCitizen_11733"
+  ]
+ },
+ "Quest_Node_Crim_Saltroad_Camp_Block": {
+  "x": -8091.9,
+  "y": 627.4,
+  "z": -1665.2,
+  "scripts": 2,
+  "spreadX": 5055,
+  "spreadZ": 5057,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_MuiquunVillage_CarriageWorkshop_Normal": {
+  "x": -5451.9,
+  "y": 529.7,
+  "z": -1616.0,
+  "scripts": 3,
+  "spreadX": 1,
+  "spreadZ": 3,
+  "npcs": [
+   "NHM_Unique_Caldus",
+   "NHM_Citizen_11716",
+   "NHM_Citizen_11713"
+  ]
+ },
+ "Quest_Node_Crim_SaltroadTradePost_TruthontheSand_Normal": {
+  "x": -6636.1,
+  "y": 701.2,
+  "z": 231.8,
+  "scripts": 14,
+  "spreadX": 94,
+  "spreadZ": 164,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Citizen_TruthontheSand_0000",
+   "NHM_Unique_Citizen_TruthontheSand_0005",
+   "NHM_Unique_Citizen_TruthontheSand_0002",
+   "NHM_Unique_Citizen_TruthontheSand_0003",
+   "NHM_Unique_Citizen_TruthontheSand_0004",
+   "NHM_Unique_Citizen_TruthontheSand_0006",
+   "NHM_Unique_Citizen_TruthontheSand_0001"
+  ]
+ },
+ "Quest_Node_Crim_Tashkalp_FruitofGreed_Normal": {
+  "x": -5975.7,
+  "y": 577.4,
+  "z": -1023.2,
+  "scripts": 14,
+  "spreadX": 404,
+  "spreadZ": 336,
+  "npcs": [
+   "NOM_Unique_FruitofGreed_0000",
+   "NHM_Unique_FruitofGreed_0004",
+   "NHM_Unique_FruitofGreed_0001",
+   "NHM_Unique_FruitofGreed_0002",
+   "NHM_Unique_FruitofGreed_0003",
+   "NHM_Unique_FruitofGreed_0006",
+   "NHM_Unique_FruitofGreed_0005",
+   "NHM_Citizen_11713"
+  ]
+ },
+ "Quest_Node_Crim_ShadowdeepForest_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 7,
+  "spreadX": 5907,
+  "spreadZ": 2607,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_GiantsYardForwardCamp_Block": {
+  "x": -7669.6,
+  "y": 542.9,
+  "z": -3279.1,
+  "scripts": 6,
+  "spreadX": 6034,
+  "spreadZ": 1943,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_BursadaCastleRuins_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 7,
+  "spreadX": 6293,
+  "spreadZ": 1907,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_GiantsYardReasearch_WatchTower_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 7,
+  "spreadX": 5798,
+  "spreadZ": 1578,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_FlowingSandVillage_Block": {
+  "x": -4206.6,
+  "y": 680.8,
+  "z": -403.7,
+  "scripts": 3,
+  "spreadX": 6413,
+  "spreadZ": 3790,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_RockVillage_Block": {
+  "x": -5625.7,
+  "y": 510.0,
+  "z": -1920.0,
+  "scripts": 4,
+  "spreadX": 5008,
+  "spreadZ": 2278,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Crim_AsaharamCamp_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Del_DelesyiaCastle_All": {
+  "x": -7452.0,
+  "y": 486.9,
+  "z": -3877.2,
+  "scripts": 4,
+  "spreadX": 6566,
+  "spreadZ": 94,
+  "npcs": [
+   "NHM_Unique_Antoni_13559",
+   "NHM_Unique_Hernand_Soldiers_200010228",
+   "NHM_Unique_Hernand_Soldiers_200010227"
+  ]
+ },
+ "Quest_Node_Del_DelesyiaCastle_FinaleStory": {
+  "x": -4440.7,
+  "y": 387.7,
+  "z": -3943.0,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Del_DelesyiaCastle_Daily": {
+  "x": -5125.5,
+  "y": 397.7,
+  "z": -4783.5,
+  "scripts": 13,
+  "spreadX": 2747,
+  "spreadZ": 1840,
+  "npcs": [
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandDagger_50002",
+   "NHM_Bandit_OneHandSword_50008",
+   "NHW_Citizen_3669"
+  ]
+ },
+ "Quest_Node_Del_DelesyiaCastle_Operation": {
+  "x": -4917.9,
+  "y": 420.2,
+  "z": -3995.8,
+  "scripts": 12,
+  "spreadX": 1715,
+  "spreadZ": 1949,
+  "npcs": [
+   "NHM_Unique_Whitman",
+   "NHM_Unique_Franklin",
+   "NHM_Noble_3158",
+   "NHM_Unique_Harris",
+   "NGM_Unique_Grrimik"
+  ]
+ },
+ "Quest_Node_Del_DelesyiaCastle_MerchantStory": {
+  "x": -4799.0,
+  "y": 394.8,
+  "z": -4005.2,
+  "scripts": 6,
+  "spreadX": 4252,
+  "spreadZ": 2097,
+  "npcs": [
+   "Animal_Middle_BlackSeaBream_Wild_1",
+   "Object_Gimmick_Base_70001",
+   "NHM_RedWindTrading_1",
+   "NHM_MiddleCitizen_3118",
+   "Riding_Wagon_Relics_TwoHorseFourWheel_2055",
+   "Riding_Monorail_2025",
+   "NHW_Noble_3755",
+   "NHM_Noble_3159"
+  ]
+ },
+ "Quest_Node_Del_DelesyiaCastle_CitizenStory": {
+  "x": -4663.0,
+  "y": 383.5,
+  "z": -4215.4,
+  "scripts": 4,
+  "spreadX": 972,
+  "spreadZ": 640,
+  "npcs": [
+   "Animal_Normal_Mackerel_Wild_1",
+   "NHM_Unique_Citizen_3115",
+   "NHM_Unique_Jordan",
+   "Riding_Wagon_Tree_TwoHorseFourWheel_HawkstoneRuins",
+   "NHW_Citizen_3730",
+   "NHM_Citizen_3053"
+  ]
+ },
+ "Quest_Node_Del_RedfoxTradePost_Questioning_Normal": {
+  "x": -4859.1,
+  "y": 402.8,
+  "z": -3076.1,
+  "scripts": 15,
+  "spreadX": 285,
+  "spreadZ": 154,
+  "npcs": [
+   "NHM_Unique_Questioning_Bascal",
+   "NHM_Unique_Questioning_Tarvo",
+   "NHW_Unique_Questioning_Reneta",
+   "NHM_Unique_Questioning_Osvlad",
+   "NHM_Unique_Questioning_Dravan",
+   "NHW_Unique_Questioning_Sylyn",
+   "NHM_Unique_Questioning_Grano",
+   "NHM_Citizen_3168"
+  ]
+ },
+ "Quest_Node_Del_DewhavenCastle_Disappeared_Normal": {
+  "x": -6142.1,
+  "y": 465.0,
+  "z": -4658.0,
+  "scripts": 14,
+  "spreadX": 70,
+  "spreadZ": 68,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Citizen_200200026",
+   "NHM_Unique_Citizen_200200024",
+   "NHM_Unique_Citizen_200200025",
+   "NHW_Citizen_3712",
+   "NHM_Unique_Citizen_200200027",
+   "NHM_Unique_Citizen_200200029",
+   "NHM_Citizen_3050"
+  ]
+ },
+ "Quest_Node_Del_StonewardCastleRuins_Block": {
+  "x": -5203.3,
+  "y": 505.1,
+  "z": -5099.2,
+  "scripts": 4,
+  "spreadX": 5424,
+  "spreadZ": 907,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Del_BenusThiefCamp_Block": {
+  "x": -7132.2,
+  "y": 504.6,
+  "z": -4785.1,
+  "scripts": 2,
+  "spreadX": 6974,
+  "spreadZ": 1182,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Del_MarniMansion_HyperSpace": {
+  "x": -3986.9,
+  "y": 1813.9,
+  "z": -4533.7,
+  "scripts": 4,
+  "spreadX": 617,
+  "spreadZ": 8,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Boss_GearhornRENW_55510"
+  ]
+ },
+ "Quest_Node_Del_DelesyiaChurch_All": {
+  "x": -4365.8,
+  "y": 396.8,
+  "z": -3896.7,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Marni_Devotee_3082",
+   "NHW_Marni_Devotee_3088",
+   "NHM_Scholar_Devotee_4080",
+   "NHM_Marni_Devotee_3084",
+   "NHM_Scholar_Devotee_4077",
+   "NHM_Scholar_Devotee_4081",
+   "NHW_Marni_Devotee_3090",
+   "NHW_Scholar_Devotee_4075"
+  ]
+ },
+ "Quest_Faction_DelesyiaInstitute_Normal": {
+  "x": -4488.2,
+  "y": 387.3,
+  "z": -4303.6,
+  "scripts": 9,
+  "spreadX": 758,
+  "spreadZ": 571,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Delesyia_Assistant_1",
+   "NHM_Delesyia_Assistant_2",
+   "NHM_Delesyia_Assistant_3",
+   "NHM_Delesyia_Assistant_4"
+  ]
+ },
+ "Quest_Faction_DelesyiaInstitute_ResearchStop_Reserch_V": {
+  "x": -4564.4,
+  "y": 391.8,
+  "z": -4424.0,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Delesyia_Assistant_4"
+  ]
+ },
+ "Quest_Faction_DelesyiaInstitute_ResearchStop_Reserch_IV": {
+  "x": -4278.3,
+  "y": 354.1,
+  "z": -4043.8,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Delesyia_Assistant_4"
+  ]
+ },
+ "Quest_Faction_DelesyiaInstitute_Clue_Normal": {
+  "x": -4377.2,
+  "y": 382.6,
+  "z": -3972.2,
+  "scripts": 8,
+  "spreadX": 70,
+  "spreadZ": 46,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Delesyian_Soldiers_SwordShield_1",
+   "NHW_Scholar_Devotee_4079",
+   "NHM_Delesyian_Soldiers_OneHandSword_20010161",
+   "NHM_Delesyian_Soldiers_OneHandBow_1",
+   "NHM_Marni_Devotee_3084",
+   "NHM_Scholar_Devotee_4078",
+   "NHM_Unique_Bellore"
+  ]
+ },
+ "Quest_Faction_The_Delesyian_Alliance_All": {
+  "x": -6043.3,
+  "y": 814.5,
+  "z": -3251.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Riding_marni_Airship_2306",
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_3397",
+   "NHM_Citizen_3466",
+   "NOW_Citizen_13582",
+   "NOW_Citizen_13581",
+   "NOM_Citizen_13431"
+  ]
+ },
+ "Quest_Node_Del_Dewhaven_Research": {
+  "x": -5994.3,
+  "y": 455.2,
+  "z": -4723.0,
+  "scripts": 9,
+  "spreadX": 1217,
+  "spreadZ": 721,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Dewhaven_Assistant_1",
+   "NHM_Dewhaven_Assistant_2",
+   "NHM_Dewhaven_Assistant_3",
+   "NHM_Dewhaven_Assistant_5"
+  ]
+ },
+ "Quest_Faction_Dewhaven_ResearchStop_Reserch_V": {
+  "x": -5510.0,
+  "y": 517.3,
+  "z": -5099.5,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Dewhaven_Assistant_5"
+  ]
+ },
+ "Quest_Faction_Dewhaven_ResearchStop_Reserch_IV": {
+  "x": -5747.0,
+  "y": 532.8,
+  "z": -5051.3,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Dewhaven_Assistant_5"
+  ]
+ },
+ "Quest_Faction_Marni_Mine_Fortress_Airplane_Boss": {
+  "x": -3389.9,
+  "y": 928.3,
+  "z": -5807.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Riding_EscortPlane_2",
+   "Riding_IronwingRENX_1",
+   "NHM_Citizen_Scholar_3245"
+  ]
+ },
+ "Quest_Faction_Marni_Mine_Fortress_Block": {
+  "x": -10436.9,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 7,
+  "spreadX": 7179,
+  "spreadZ": 1635,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Object_Gimmick_Base_70001",
+   "MON_OOGTankMk1_900077"
+  ]
+ },
+ "Quest_Node_Del_MarniLab_Block": {
+  "x": -10436.9,
+  "y": 546.6,
+  "z": -4193.9,
+  "scripts": 9,
+  "spreadX": 7596,
+  "spreadZ": 359,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Object_Gimmick_Base_70001",
+   "MON_MachineTank_55056"
+  ]
+ },
+ "Quest_Node_Del_StarVillage_Normal": {
+  "x": -4736.9,
+  "y": 379.1,
+  "z": -4195.1,
+  "scripts": 2,
+  "spreadX": 8,
+  "spreadZ": 24,
+  "npcs": [
+   "NHW_Unique_Cordelia",
+   "NHM_Citizen_3116",
+   "NHM_Citizen_3119",
+   "NHM_Citizen_3127",
+   "NHM_Citizen_3169",
+   "NHM_Child_Citizen_3362",
+   "NHM_Child_Citizen_3360"
+  ]
+ },
+ "Quest_Node_Del_MarniOilRig_Block": {
+  "x": -6786.9,
+  "y": 466.5,
+  "z": -4176.2,
+  "scripts": 2,
+  "spreadX": 7665,
+  "spreadZ": 36,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Del_MarniOilRig_FixOilRig_Normal": {
+  "x": -2973.3,
+  "y": 374.7,
+  "z": -4106.8,
+  "scripts": 4,
+  "spreadX": 28,
+  "spreadZ": 41,
+  "npcs": []
+ },
+ "Quest_Node_Del_MarniMechFactory_Block": {
+  "x": -7458.3,
+  "y": 483.5,
+  "z": -4540.1,
+  "scripts": 8,
+  "spreadX": 6170,
+  "spreadZ": 719,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Object_Gimmick_Base_70001",
+   "MiddleBoss_MechanicusMk12_55031"
+  ]
+ },
+ "Quest_Node_Del_MarniPark_All": {
+  "x": -4568.3,
+  "y": 392.8,
+  "z": -4431.7,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Block": {
+  "x": -7105.1,
+  "y": 449.7,
+  "z": -5727.5,
+  "scripts": 2,
+  "spreadX": 38,
+  "spreadZ": 48,
+  "npcs": [
+   "NHM_Antumbra_TwoHandCannon_1",
+   "Object_Gimmick_Base_70001",
+   "Boss_Liberated_AcientGodAeserion",
+   "Boss_AcientGodAeserion"
+  ]
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Priscus": {
+  "x": -11916.2,
+  "y": 749.5,
+  "z": -1093.9,
+  "scripts": 4,
+  "spreadX": 1510,
+  "spreadZ": 3434,
+  "npcs": [
+   "Boss_AncientPriscus_60014",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Praevus": {
+  "x": -6447.6,
+  "y": 694.0,
+  "z": -700.2,
+  "scripts": 4,
+  "spreadX": 4048,
+  "spreadZ": 3571,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Boss_AncientPraevus_55516"
+  ]
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Primus": {
+  "x": -7173.5,
+  "y": 467.3,
+  "z": -5583.7,
+  "scripts": 6,
+  "spreadX": 3334,
+  "spreadZ": 1394,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Boss_AncientPrimus_60015"
+  ]
+ },
+ "Quest_Faction_LandSpider_Swamp_Boss": {
+  "x": -4725.5,
+  "y": 398.0,
+  "z": -2922.9,
+  "scripts": 6,
+  "spreadX": 130,
+  "spreadZ": 328,
+  "npcs": [
+   "Animal_Pigeon_Wild_30081",
+   "NHM_Unique_Diederik_636",
+   "Object_Gimmick_Base_70001",
+   "NHW_MiddleCitizen_3737",
+   "NHW_MiddleCitizen_3759",
+   "NHW_MiddleCitizen_3786",
+   "MiddleBoss_LandSpider_Queen_2"
+  ]
+ },
+ "Quest_Node_Del_Timberton_All": {
+  "x": -4574.8,
+  "y": 378.8,
+  "z": -4247.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Faction_Marni_Barrier_Fortress_Blockade": {
+  "x": -4666.9,
+  "y": 454.8,
+  "z": -5338.9,
+  "scripts": 6,
+  "spreadX": 5962,
+  "spreadZ": 1175,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "MON_OOGLaserTankMk3_900079",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_AzerianManor_All": {
+  "x": -8453.6,
+  "y": 539.1,
+  "z": -3301.9,
+  "scripts": 2,
+  "spreadX": 269,
+  "spreadZ": 76,
+  "npcs": []
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Block_Request": {
+  "x": -9008.7,
+  "y": 593.3,
+  "z": -5829.4,
+  "scripts": 15,
+  "spreadX": 1875,
+  "spreadZ": 2452,
+  "npcs": [
+   "MiddleBoss_KarzulDeathchime_TwoHandGiantAxe_54151",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Object_Gimmick_Base_70001",
+   "NHW_Citizen_3739"
+  ]
+ },
+ "Quest_Node_Dem_BrookfieldManor_Elemore_All": {
+  "x": -7701.2,
+  "y": 528.9,
+  "z": -2996.0,
+  "scripts": 4,
+  "spreadX": 1890,
+  "spreadZ": 1162,
+  "npcs": []
+ },
+ "Quest_Node_Dem_BrookfieldManor_Elemore_MoonReaper_Normal": {
+  "x": -8487.1,
+  "y": 532.2,
+  "z": -3381.0,
+  "scripts": 23,
+  "spreadX": 3944,
+  "spreadZ": 1264,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Demeniss_Soldiers_OneHandSword_53414",
+   "NHM_Demeniss_Soldiers_TwoHandSpear_53422",
+   "NHM_Demeniss_Soldiers_TwoHandSword_53427",
+   "NHM_Demeniss_Soldiers_OneHandMace_53416",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Faction_Demeniss_All": {
+  "x": -10784.9,
+  "y": 623.1,
+  "z": -5174.3,
+  "scripts": 10,
+  "spreadX": 3503,
+  "spreadZ": 1618,
+  "npcs": [
+   "NHM_Demeniss_Soldiers_OneHandSword_53412",
+   "NHM_Demeniss_Soldiers_OneHandSword_53413",
+   "NHM_Demeniss_Soldiers_TwoHandSpear_53447",
+   "NHM_Demeniss_Soldiers_OneHandMusket_53432",
+   "NHM_Demeniss_Soldiers_OneHandBow_53440",
+   "NHM_Demeniss_Soldiers_TwoHandSword_53401",
+   "NHM_Demeniss_Soldiers_TwoHandHammer_2",
+   "NHM_Demeniss_Soldiers_SwordTowerShield_53445"
+  ]
+ },
+ "Quest_Node_Dem_DemenissCastle_FinaleStory": {
+  "x": -10530.2,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 7,
+  "spreadX": 2301,
+  "spreadZ": 3419,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_Servant_3184",
+   "NHW_Righteous_Arrows_OneHandBow_52652",
+   "NHM_Righteous_Arrows_OneHandBow_52666",
+   "NHM_Righteous_Arrows_OneHandBow_52655",
+   "NHM_Righteous_Arrows_OneHandBow_52668",
+   "NHW_Righteous_Arrows_OneHandBow_52653",
+   "NHM_Dragon_Slayer_SwordShield_52603"
+  ]
+ },
+ "Quest_Node_Dem_DemenissCastle_Daily": {
+  "x": -8237.4,
+  "y": 507.0,
+  "z": -3289.1,
+  "scripts": 13,
+  "spreadX": 2930,
+  "spreadZ": 2888,
+  "npcs": [
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandSword_50008",
+   "NHM_Bandit_OneHandDagger_50002",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Dem_DemenissCastle_Operation": {
+  "x": -7569.2,
+  "y": 534.1,
+  "z": -3352.9,
+  "scripts": 10,
+  "spreadX": 1792,
+  "spreadZ": 1351,
+  "npcs": [
+   "NHM_Unique_Percival",
+   "NHM_Unique_Townsend",
+   "NHM_Unique_Harold",
+   "NHM_Unique_Leonic",
+   "NTM_Unique_Leopold"
+  ]
+ },
+ "Quest_Node_Dem_DemenissCastle_MerchantStory": {
+  "x": -8507.1,
+  "y": 533.1,
+  "z": -3391.6,
+  "scripts": 2,
+  "spreadX": 408,
+  "spreadZ": 47,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Dem_DemenissCastle_CitizenStory": {
+  "x": -8270.7,
+  "y": 524.6,
+  "z": -3014.7,
+  "scripts": 11,
+  "spreadX": 4110,
+  "spreadZ": 1809,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_Normal_Perch_Wild_1",
+   "Animal_Middle_Burbot_Wild_1",
+   "Animal_Fulica_Wild_1",
+   "Animal_Galapagos_Cormorant_Wild_1",
+   "MON_MachineTank_55031"
+  ]
+ },
+ "Quest_Node_Dem_AzerianManor_CarriageWorkshop": {
+  "x": -9220.6,
+  "y": 590.5,
+  "z": -3381.7,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Wagon_Village_Chief_1",
+   "NHM_Unique_Receiver_200010285",
+   "Animal_Pukret_Domestic_Saddle_32560"
+  ]
+ },
+ "Quest_Node_Dem_JijeongTemple_HiddenCave_Normal": {
+  "x": -9860.2,
+  "y": 560.8,
+  "z": -4588.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NLM_Unique_mushroom_200200023"
+  ]
+ },
+ "Quest_Faction_Demeniss_Wanted": {
+  "x": -10784.9,
+  "y": 623.1,
+  "z": -5174.3,
+  "scripts": 3,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Antoni_13559",
+   "NHM_Hernand_Soldiers_OneHandSword_53203",
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "Riding_Wagon_Prisoner_TwoHorseFourWheel_2031",
+   "Riding_Wagon_Luggage_HorseTwoWheel_2055"
+  ]
+ },
+ "Quest_Node_Dem_GrayRockShipyard_Block": {
+  "x": -9410.4,
+  "y": 648.3,
+  "z": -2112.6,
+  "scripts": 4,
+  "spreadX": 1224,
+  "spreadZ": 2095,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_GrayRockQuarry_Block": {
+  "x": -9395.7,
+  "y": 651.2,
+  "z": -2116.7,
+  "scripts": 4,
+  "spreadX": 1339,
+  "spreadZ": 2081,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Block": {
+  "x": -8706.4,
+  "y": 536.2,
+  "z": -4003.0,
+  "scripts": 4,
+  "spreadX": 1933,
+  "spreadZ": 194,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_NorthOutpost_Block": {
+  "x": -7603.5,
+  "y": 539.8,
+  "z": -2408.4,
+  "scripts": 4,
+  "spreadX": 3038,
+  "spreadZ": 1882,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_DemenissCathedral_All": {
+  "x": -7791.7,
+  "y": 559.4,
+  "z": -3603.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_MiddleCitizen_3108",
+   "NHM_Noble_3062",
+   "NHM_Noble_3037",
+   "NHW_MiddleCitizen_3833",
+   "NHM_Noble_3290",
+   "NHM_MiddleCitizen_3138",
+   "NHM_Noble_3036",
+   "NHM_Noble_3067"
+  ]
+ },
+ "Quest_Node_Dem_EastDemenissChurch_All": {
+  "x": -6846.6,
+  "y": 474.9,
+  "z": -3096.7,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Citizen_3542",
+   "NHM_Citizen_3126",
+   "NHM_Citizen_3296",
+   "NHM_Citizen_3585",
+   "NHW_Citizen_3823",
+   "NHM_Citizen_3586",
+   "NHM_Citizen_3590",
+   "NHM_Citizen_3551"
+  ]
+ },
+ "Quest_Node_Dem_WestDemenissChurch_All": {
+  "x": -8414.4,
+  "y": 527.0,
+  "z": -2774.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_MiddleCitizen_3108",
+   "NHM_Noble_3062",
+   "NHM_Noble_3037",
+   "NHW_MiddleCitizen_3735",
+   "NHM_Noble_3290",
+   "NHM_MiddleCitizen_3138",
+   "NHM_Noble_3036",
+   "NHM_Noble_3067"
+  ]
+ },
+ "Quest_Faction_Cannon_Forge_Normal": {
+  "x": -10637.5,
+  "y": 613.4,
+  "z": -3849.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NTM_Unique_Rhett_441"
+  ]
+ },
+ "Quest_Faction_Armor_Smithy_Normal": {
+  "x": -10637.5,
+  "y": 613.4,
+  "z": -3849.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NTM_Unique_Rhett_441"
+  ]
+ },
+ "Quest_Node_Dem_EyeOfIce_All": {
+  "x": -8487.3,
+  "y": 605.9,
+  "z": -985.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Node_Dem_EyeOfIce_Block": {
+  "x": -8580.2,
+  "y": 605.7,
+  "z": -1012.9,
+  "scripts": 15,
+  "spreadX": 492,
+  "spreadZ": 105,
+  "npcs": [
+   "Boss_Nivalis_TwoHandSword_53115",
+   "NHM_Citizen_6426",
+   "NHM_Citizen_6427",
+   "NHM_Citizen_6414"
+  ]
+ },
+ "Quest_Node_Dem_EyeOfIceAltar_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_FrostFort_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_Flame_Knights_Block": {
+  "x": -8998.0,
+  "y": 546.6,
+  "z": -2989.7,
+  "scripts": 7,
+  "spreadX": 10667,
+  "spreadZ": 4226,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_AzureianServant",
+   "MiddleBoss_Tristan_SwordShield_52601",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Neut_GoldenGoblinWineMaker_Block": {
+  "x": -5613.0,
+  "y": 541.4,
+  "z": -2672.4,
+  "scripts": 5,
+  "spreadX": 5019,
+  "spreadZ": 1618,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_GoldenGoblinBrewery_Normal": {
+  "x": -5570.1,
+  "y": 524.7,
+  "z": -2580.4,
+  "scripts": 7,
+  "spreadX": 30,
+  "spreadZ": 30,
+  "npcs": []
+ },
+ "Quest_Node_Dem_NightExpeditionCamp_Block": {
+  "x": -9341.6,
+  "y": 499.4,
+  "z": -4849.1,
+  "scripts": 2,
+  "spreadX": 2555,
+  "spreadZ": 1310,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Dem_SilvermoonHQ_All": {
+  "x": -6992.2,
+  "y": 354.3,
+  "z": -4017.2,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Node_Dem_SilvermoonHQ_Block": {
+  "x": -7026.3,
+  "y": 370.5,
+  "z": -3903.3,
+  "scripts": 12,
+  "spreadX": 3853,
+  "spreadZ": 362,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_3137",
+   "Riding_Wagon_Luggage_HorseTwoWheelSmall_2155",
+   "NHM_MiddleCitizen_3301",
+   "NTM_Unique_Brollam_1",
+   "NHM_Citizen_3055",
+   "NHM_MiddleCitizen_3122",
+   "NHM_Bandit_OneHandAxe_50001"
+  ]
+ },
+ "Quest_Node_Dem_HuntersCabin_Block": {
+  "x": -8694.2,
+  "y": 478.7,
+  "z": -4001.6,
+  "scripts": 2,
+  "spreadX": 3850,
+  "spreadZ": 385,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Faction_CaliburnClan_II_DemenissZoo_Boss": {
+  "x": -8100.9,
+  "y": 487.3,
+  "z": -3810.6,
+  "scripts": 6,
+  "spreadX": 2488,
+  "spreadZ": 471,
+  "npcs": [
+   "MiddleBoss_Scarlet_Excecutioner_OneHandBow_54287",
+   "NHM_Zoo_Prisoner_1",
+   "Object_Gimmick_Base_70001",
+   "NHM_Greyfur_Spy_2",
+   "NHW_Zoo_Prisoner_1"
+  ]
+ },
+ "Quest_Node_Dem_KingMountainDigSite_Block": {
+  "x": -9087.5,
+  "y": 629.8,
+  "z": -2238.6,
+  "scripts": 3,
+  "spreadX": 1351,
+  "spreadZ": 1955,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NatureCreature_ancientWorm_1"
+  ]
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_Normal": {
+  "x": -8275.1,
+  "y": 529.7,
+  "z": -3300.9,
+  "scripts": 4,
+  "spreadX": 2222,
+  "spreadZ": 950,
+  "npcs": [
+   "MON_CircusBalloon_Bomb_900072",
+   "Object_Gimmick_Base_70001",
+   "MON_CircusBalloon_Bomb_900073",
+   "NHM_Citizen_Servant_100017",
+   "MON_GarnierMk23_Boss_1"
+  ]
+ },
+ "Quest_Node_Dem_TarivVillage_GuardianTree_Normal": {
+  "x": -8176.0,
+  "y": 556.8,
+  "z": -1669.0,
+  "scripts": 3,
+  "spreadX": 791,
+  "spreadZ": 1525,
+  "npcs": [
+   "NHM_Citizen_3437",
+   "NHW_Unique_TarivSorcerer",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Dem_GateOfTruth_StoneGolem_Block": {
+  "x": -9025.7,
+  "y": 696.8,
+  "z": -1926.7,
+  "scripts": 8,
+  "spreadX": 1715,
+  "spreadZ": 2495,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "MON_Gimmick_Drylands_Golem_57216"
+  ]
+ },
+ "Quest_Node_Dem_WindmereManor_HorseRace_Normal": {
+  "x": -7619.8,
+  "y": 527.8,
+  "z": -2643.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Citizen_200200031",
+   "Animal_Stefero_Domestic_Saddle_Unique_32526"
+  ]
+ },
+ "Quest_Node_Dem_WindmereManor_Byron_FullPlateArmorTroll_Boss": {
+  "x": -8681.3,
+  "y": 540.5,
+  "z": -2514.0,
+  "scripts": 7,
+  "spreadX": 10667,
+  "spreadZ": 4222,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Servant_1100",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "MiddleBoss_DarkMazzul_TwoHandAxe_54167"
+  ]
+ },
+ "Quest_Node_Her_BluemontManor_Rupert_Normal": {
+  "x": -10593.4,
+  "y": 620.8,
+  "z": -3873.5,
+  "scripts": 14,
+  "spreadX": 459,
+  "spreadZ": 1154,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Contact_23",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Unique_Loppet_0002",
+   "Boss_Marni_Excavatron_OneHandFist_54834",
+   "NHM_Unique_BluemontManor_Servant"
+  ]
+ },
+ "Quest_Node_Her_BluemontWineHouse_PervinFort_Block": {
+  "x": -10662.4,
+  "y": 604.9,
+  "z": -4193.9,
+  "scripts": 14,
+  "spreadX": 1433,
+  "spreadZ": 2419,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Unique_Loppet_0002",
+   "MON_CrimsonNightmare_57213"
+  ]
+ },
+ "Quest_Node_Her_MuckrootRanch_Artifact": {
+  "x": -10807.3,
+  "y": 648.2,
+  "z": -3753.6,
+  "scripts": 3,
+  "spreadX": 253,
+  "spreadZ": 322,
+  "npcs": [
+   "NHM_Unique_Gerard"
+  ]
+ },
+ "Quest_Node_Her_RuinedChapel_Block": {
+  "x": -10041.0,
+  "y": 598.7,
+  "z": -5421.2,
+  "scripts": 11,
+  "spreadX": 741,
+  "spreadZ": 1652,
+  "npcs": [
+   "MiddleBoss_Sizlek_DualDagger_50801",
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_3027",
+   "NHM_Citizen_3028",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Her_RuinedChapel_Normal": {
+  "x": -9880.4,
+  "y": 583.2,
+  "z": -5835.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Citizen_3635",
+   "NHM_Citizen_3466",
+   "NHM_MiddleCitizen_3026",
+   "NHW_Citizen_3731",
+   "NHM_MiddleCitizen_3530",
+   "NHM_Citizen_3055",
+   "NHM_MiddleCitizen_3161",
+   "NHM_MiddleCitizen_3170"
+  ]
+ },
+ "Quest_Node_Her_FortAnvil_Block": {
+  "x": -10093.0,
+  "y": 553.1,
+  "z": -4029.0,
+  "scripts": 9,
+  "spreadX": 671,
+  "spreadZ": 244,
+  "npcs": [
+   "NHM_Hernand_Soldiers_OneHandSword_53201",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Hernand_Soldiers_TwoHandSword_53213",
+   "NHM_Hernand_Soldiers_OneHandMace_53208",
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "NHM_Hernand_Soldiers_SwordShield_53210"
+  ]
+ },
+ "Quest_Node_Her_HellwoodSlaveCamp_All": {
+  "x": -9758.9,
+  "y": 578.3,
+  "z": -2933.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Node_Her_HellwoodSlaveCamp_Block": {
+  "x": -10104.3,
+  "y": 553.1,
+  "z": -3833.3,
+  "scripts": 7,
+  "spreadX": 782,
+  "spreadZ": 1121,
+  "npcs": [
+   "NHM_Unique_Slave_5935",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Faction_Hellhounds_Block": {
+  "x": -11213.4,
+  "y": 790.4,
+  "z": -5501.1,
+  "scripts": 14,
+  "spreadX": 807,
+  "spreadZ": 1317,
+  "npcs": [
+   "MiddleBoss_Hemon_Beindel_TwoHandSword_54051",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Faction_Bleed_Ruffians_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 8,
+  "spreadX": 1125,
+  "spreadZ": 69,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "MiddleBoss_FortWarSpike_Noname_1"
+  ]
+ },
+ "Quest_Faction_GraceDominion_All": {
+  "x": -10532.3,
+  "y": 624.1,
+  "z": -5294.0,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Her_WindHillFactory_Block": {
+  "x": -10609.0,
+  "y": 617.8,
+  "z": -5163.2,
+  "scripts": 2,
+  "spreadX": 126,
+  "spreadZ": 8,
+  "npcs": [
+   "NHM_Unique_Grimtok_4950",
+   "NDM_Citizen_5435",
+   "Riding_Wagon_Unique_Ballon_I_TwoHorseFourWheel_2152"
+  ]
+ },
+ "Quest_Node_Her_WindHillFactory_FlyWagon": {
+  "x": -10532.2,
+  "y": 609.7,
+  "z": -5138.0,
+  "scripts": 2,
+  "spreadX": 24,
+  "spreadZ": 61,
+  "npcs": [
+   "NHM_Unique_Grimtok_4950",
+   "NDM_Citizen_5435",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Her_GlenbrightManor_Grace_Block": {
+  "x": -10548.9,
+  "y": 628.0,
+  "z": -5289.2,
+  "scripts": 4,
+  "spreadX": 224,
+  "spreadZ": 44,
+  "npcs": [
+   "NHM_Unique_GraceServant_3045",
+   "NHM_Guard_TwoHandSpear_500894",
+   "NHM_Guard_TwoHandSpear_500895",
+   "NHM_Citizen_Dyer_3016",
+   "NHM_Citizen_3133",
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Grace_Family_3043"
+  ]
+ },
+ "Quest_Node_Her_FlowerDustBeeFarm_Normal": {
+  "x": -10877.1,
+  "y": 607.5,
+  "z": -5171.1,
+  "scripts": 4,
+  "spreadX": 80,
+  "spreadZ": 54,
+  "npcs": [
+   "Animal_Bear_Wild_30048",
+   "NHM_Citizen_Beekeeper_Worker_100110"
+  ]
+ },
+ "Quest_Node_Her_GoldleafGuildhouse_Purge_Normal": {
+  "x": -10060.3,
+  "y": 560.8,
+  "z": -4572.8,
+  "scripts": 19,
+  "spreadX": 479,
+  "spreadZ": 487,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Grimzle",
+   "NGM_Unique_Shakatu_4276",
+   "NGM_Unique_Nurgle_200090056",
+   "NGM_Unique_Skrupp_200090054",
+   "NHM_Unique_Kartnum",
+   "NHM_Unique_Blique",
+   "NGM_Goblin_Market_Soldier_DualAxe_52347"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Pet": {
+  "x": -10500.7,
+  "y": 601.6,
+  "z": -4348.9,
+  "scripts": 3,
+  "spreadX": 200,
+  "spreadZ": 457,
+  "npcs": [
+   "NHW_Unique_Nairah_DualSword_412",
+   "Animal_UniqueNpc_Horse_2",
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Andrew_647",
+   "NHM_Unique_Marius_468",
+   "Animal_Dog_Hernand_Unique_1"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_WagonTheft": {
+  "x": -10196.4,
+  "y": 545.0,
+  "z": -4003.4,
+  "scripts": 3,
+  "spreadX": 2,
+  "spreadZ": 3,
+  "npcs": [
+   "NHM_Unique_Yann_DualDagger_402",
+   "Riding_Wagon_Unique_Circulation_TwoHorseFourWheel_2022",
+   "NHM_Unique_Dwayne_TwoHandSword_405",
+   "NHW_Unique_Nairah_DualSword_412",
+   "Animal_UniqueNpc_Horse_2"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Dyeing": {
+  "x": -10495.3,
+  "y": 609.0,
+  "z": -4365.5,
+  "scripts": 3,
+  "spreadX": 119,
+  "spreadZ": 59,
+  "npcs": [
+   "NHW_Unique_Nairah_DualSword_412",
+   "NHM_Unique_Andrew_647",
+   "NHM_Unique_Yann_DualDagger_402",
+   "Animal_UniqueNpc_Horse_2"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Seotda": {
+  "x": -10479.4,
+  "y": 585.5,
+  "z": -4282.9,
+  "scripts": 4,
+  "spreadX": 365,
+  "spreadZ": 533,
+  "npcs": [
+   "NHM_Unique_Yann_DualDagger_402",
+   "Animal_UniqueNpc_Horse_1",
+   "NHM_Unique_Andrew_647",
+   "NHM_Citizen_3553"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_EquipmentCraft": {
+  "x": -10498.0,
+  "y": 610.4,
+  "z": -4352.0,
+  "scripts": 3,
+  "spreadX": 109,
+  "spreadZ": 19,
+  "npcs": [
+   "NHM_Unique_Andrew_647",
+   "NHM_Unique_Dwayne_TwoHandSword_405",
+   "NHM_Child_Citizen_3130",
+   "NHM_Child_Citizen_3143",
+   "NHW_Child_Citizen_3720",
+   "Animal_UniqueNpc_Horse_3"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Wanted": {
+  "x": -10664.1,
+  "y": 556.1,
+  "z": -4127.7,
+  "scripts": 2,
+  "spreadX": 2,
+  "spreadZ": 2,
+  "npcs": [
+   "NHM_Unique_Yann_DualDagger_402",
+   "Animal_UniqueNpc_Horse_1",
+   "NHM_MiddleCitizen_3049",
+   "NHM_Citizen_3050",
+   "NHM_Citizen_3296"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Felling": {
+  "x": -10496.3,
+  "y": 610.6,
+  "z": -4358.6,
+  "scripts": 2,
+  "spreadX": 5,
+  "spreadZ": 7,
+  "npcs": [
+   "NHM_Unique_Yann_DualDagger_402",
+   "NHW_Unique_Nairah_DualSword_412",
+   "NHM_Unique_Andrew_647",
+   "Animal_UniqueNpc_Horse_1",
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Marius_468"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_HorseRace": {
+  "x": -9654.2,
+  "y": 664.6,
+  "z": -2502.3,
+  "scripts": 2,
+  "spreadX": 111,
+  "spreadZ": 65,
+  "npcs": [
+   "NHM_Unique_Dwayne_TwoHandSword_405",
+   "Animal_UniqueNpc_Horse_4",
+   "NHW_Unique_Nairah_DualSword_412",
+   "NHM_Greyfur_DualAxe_51305",
+   "Animal_Phuket_Domestic_Saddle_31502"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Trade": {
+  "x": -10181.7,
+  "y": 605.7,
+  "z": -4472.4,
+  "scripts": 5,
+  "spreadX": 1710,
+  "spreadZ": 1866,
+  "npcs": [
+   "NHM_Unique_Yann_DualDagger_402",
+   "NHM_MiddleCitizen_3025",
+   "NHM_Citizen_3050",
+   "Animal_Lumif_Domestic_32507",
+   "Animal_Lumif_Domestic_32506",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Cook": {
+  "x": -10493.3,
+  "y": 611.6,
+  "z": -4362.6,
+  "scripts": 3,
+  "spreadX": 174,
+  "spreadZ": 531,
+  "npcs": [
+   "NHW_Unique_Nairah_DualSword_412",
+   "NHM_Unique_Andrew_647",
+   "NHM_Unique_Dwayne_TwoHandSword_405",
+   "Animal_UniqueNpc_Horse_2"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Fishing": {
+  "x": -9481.5,
+  "y": 614.4,
+  "z": -1036.8,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Riding_Horse_Tiuta_Unique_2050_Oongka",
+   "Animal_Small_Beyaz_Fish_Wild_1"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_RoyalSupply": {
+  "x": -10506.1,
+  "y": 608.9,
+  "z": -4407.9,
+  "scripts": 2,
+  "spreadX": 10,
+  "spreadZ": 4,
+  "npcs": [
+   "NHM_Unique_Yann_DualDagger_402",
+   "NHM_Unique_Andrew_647",
+   "NHM_Unique_Dwayne_TwoHandSword_405"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Armwrestling": {
+  "x": -11792.9,
+  "y": 707.7,
+  "z": -2102.7,
+  "scripts": 2,
+  "spreadX": 260,
+  "spreadZ": 58,
+  "npcs": [
+   "Riding_Horse_Tiuta_Unique_2050_Oongka",
+   "NHM_UnyieldingShields_OneHandSword_53260",
+   "NHM_UnyieldingShields_OneHandSword_53257"
+  ]
+ },
+ "Quest_Faction_Graymane_BaseCamp": {
+  "x": -10509.6,
+  "y": 610.5,
+  "z": -4383.6,
+  "scripts": 52,
+  "spreadX": 5677,
+  "spreadZ": 4322,
+  "npcs": [
+   "NHM_Unique_Carl_704",
+   "NHM_Citizen_Guide_BackPack_1",
+   "NHM_Unique_Russo_622",
+   "NHM_Unique_Tranan_700",
+   "NHM_Unique_Ronnie_631",
+   "NHM_Unique_Child_Citizen_5929",
+   "NHM_Unique_Brice_701",
+   "NHM_Citizen_Dyer_3"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv2": {
+  "x": -10498.8,
+  "y": 610.5,
+  "z": -4355.2,
+  "scripts": 5,
+  "spreadX": 491,
+  "spreadZ": 3194,
+  "npcs": [
+   "NHM_Unique_Marius_468",
+   "NHM_Unique_Otto_667",
+   "NHM_Unique_Aldric_660",
+   "NHM_Unique_Yann_DualDagger_402",
+   "NHM_Unique_Silvan_641",
+   "NHM_Unique_Fritz_666",
+   "NHM_Unique_Tranan_700",
+   "NHM_Unique_Brice_701"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv3": {
+  "x": -10498.8,
+  "y": 610.5,
+  "z": -4355.2,
+  "scripts": 7,
+  "spreadX": 724,
+  "spreadZ": 1508,
+  "npcs": [
+   "NHM_Unique_Marius_468",
+   "NHM_Greyfur_OneHandAxe_51304",
+   "NHM_Unique_Balder_622",
+   "NHM_Unique_Ryan_DualDagger_409",
+   "NHM_Unique_Dwayne_TwoHandSword_405",
+   "Animal_UniqueNpc_Horse_4",
+   "NGM_Goblin_Market_4303",
+   "NHM_Unique_Martin_703"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv4": {
+  "x": -10498.8,
+  "y": 610.5,
+  "z": -4355.2,
+  "scripts": 7,
+  "spreadX": 1263,
+  "spreadZ": 1211,
+  "npcs": [
+   "NHM_Unique_Marius_468",
+   "NHM_Greyfur_OneHandAxe_51304",
+   "NHM_Unique_Xavier_664",
+   "NDM_Unique_Brennan_658",
+   "NHM_Unique_Morrow_424",
+   "NHM_Unique_Max_640",
+   "NHM_Unique_Gilbert_639",
+   "NHW_Unique_Nairah_DualSword_412"
+  ]
+ },
+ "Quest_Faction_Graymane_Scout": {
+  "x": -10924.2,
+  "y": 664.5,
+  "z": -3394.2,
+  "scripts": 11,
+  "spreadX": 2109,
+  "spreadZ": 2560,
+  "npcs": [
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandBow_50009",
+   "NHM_Bandit_OneHandSword_50053",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandSword_50008",
+   "NHM_Unique_Devan_638",
+   "NHM_Unique_Piers_643",
+   "NHW_Unique_Evelyn_634"
+  ]
+ },
+ "Quest_Node_Her_GreymaneCamp_FriendStory": {
+  "x": -10442.0,
+  "y": 598.1,
+  "z": -4286.4,
+  "scripts": 10,
+  "spreadX": 1526,
+  "spreadZ": 3620,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_Normal_Golden_mandarinFish_Wild_1",
+   "Animal_Middle_Pikefish_Wild_1",
+   "Animal_Insect_Jewel_Beetle",
+   "Animal_Goat_Wild_32214",
+   "Animal_Kid_Wild_32262"
+  ]
+ },
+ "Quest_Node_Her_GreystoneManor_Felix_Normal": {
+  "x": -10936.8,
+  "y": 568.4,
+  "z": -4570.2,
+  "scripts": 12,
+  "spreadX": 1330,
+  "spreadZ": 807,
+  "npcs": [
+   "NHM_Citizen_3117",
+   "NHM_Citizen_3397",
+   "NHM_Citizen_3101",
+   "NHW_Citizen_3745",
+   "NHW_Citizen_4017",
+   "NHM_Citizen_3056",
+   "NOM_Citizen_4782",
+   "NHM_Unique_FredericFelix_461"
+  ]
+ },
+ "Quest_Node_Her_SouthQuarry_Block_CubeWalker": {
+  "x": -9980.2,
+  "y": 539.1,
+  "z": -4419.9,
+  "scripts": 6,
+  "spreadX": 1107,
+  "spreadZ": 458,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "MON_Gimmick_CubeWalkerLithus_57218"
+  ]
+ },
+ "Quest_Node_Her_RodbelFishingDock_Block": {
+  "x": -10242.9,
+  "y": 541.7,
+  "z": -3973.6,
+  "scripts": 4,
+  "spreadX": 377,
+  "spreadZ": 225,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Her_HalsiusHospital_All": {
+  "x": -9166.2,
+  "y": 468.5,
+  "z": -4381.7,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Node_Her_HernandCastle_All": {
+  "x": -10671.1,
+  "y": 608.2,
+  "z": -3899.8,
+  "scripts": 26,
+  "spreadX": 419,
+  "spreadZ": 1354,
+  "npcs": [
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "NHM_Hernand_Soldiers_OneHandBow_53219",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53221",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53224",
+   "NHM_Hernand_Soldiers_TwoHandSword_53213",
+   "NHM_Hernand_Soldiers_SwordShield_53228",
+   "NHM_Hernand_Soldiers_OneHandMace_53208",
+   "NHM_Hernand_Soldiers_SwordShield_53210"
+  ]
+ },
+ "Quest_Node_Her_HowlingCave_Boss": {
+  "x": -10046.0,
+  "y": 664.3,
+  "z": -1935.5,
+  "scripts": 6,
+  "spreadX": 729,
+  "spreadZ": 2468,
+  "npcs": [
+   "Animal_Wolf_Wild_30018",
+   "Object_Gimmick_Base_70001",
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "NHM_Hernand_Soldiers_OneHandMace_53208",
+   "NHW_Unique_Cecilia_200020012",
+   "NHM_Hernand_Soldiers_OneHandSword_53211",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53207",
+   "NHM_Hernand_Soldiers_SwordShield_53209"
+  ]
+ },
+ "Quest_Node_Her_RootFort_Block": {
+  "x": -10500.4,
+  "y": 736.5,
+  "z": -2214.4,
+  "scripts": 10,
+  "spreadX": 10667,
+  "spreadZ": 4224,
+  "npcs": [
+   "MiddleBoss_Owen_Corvo_PlateArmor_TwoHandGiantSpear_55060",
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Her_HernandCastle_FinaleStory": {
+  "x": -10532.8,
+  "y": 552.3,
+  "z": -4931.2,
+  "scripts": 4,
+  "spreadX": 89,
+  "spreadZ": 2222,
+  "npcs": [
+   "NHW_Unique_Citizen_3647",
+   "NHM_Bleed_Bandits_OneHandBow_54107",
+   "Object_Gimmick_Base_70001",
+   "NHM_Bleed_Bandits_OneHandSword_54104",
+   "NHM_Bleed_Bandits_TwoHandSpear_54105",
+   "NHM_Bleed_Bandits_OneHandAxe_54138",
+   "NHM_Bleed_Bandits_OneHandSword_54126"
+  ]
+ },
+ "Quest_Node_Her_HernandCastle_Daily": {
+  "x": -10320.1,
+  "y": 605.0,
+  "z": -3917.8,
+  "scripts": 17,
+  "spreadX": 2022,
+  "spreadZ": 4248,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Citizen_3053",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bleed_Bandits_OneHandSword_54104",
+   "NHM_Bleed_Bandits_TwoHandSpear_54103",
+   "NHM_Bleed_Bandits_OneHandSword_54109"
+  ]
+ },
+ "Quest_Node_Her_HernandCastle_Operation": {
+  "x": -10090.8,
+  "y": 543.7,
+  "z": -4391.3,
+  "scripts": 12,
+  "spreadX": 1486,
+  "spreadZ": 2256,
+  "npcs": [
+   "NHW_Unique_Eleanor",
+   "NHM_Unique_Noble_3920",
+   "NHM_Noble_3064",
+   "NHM_Priest_3439",
+   "NHM_Priest_3004",
+   "NHM_Priest_3195",
+   "NHM_Priest_3440",
+   "NHW_Priest_Monk_102052"
+  ]
+ },
+ "Quest_Node_Her_HernandCastle_CucuIcemoorCastleRuins": {
+  "x": -11113.8,
+  "y": 710.1,
+  "z": -3888.7,
+  "scripts": 5,
+  "spreadX": 168,
+  "spreadZ": 342,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NDM_Technician_kukuIcemoorCastleRuins"
+  ]
+ },
+ "Quest_Node_Her_HernandCastle_Roberts_CollectionBox": {
+  "x": -10929.0,
+  "y": 623.7,
+  "z": -4007.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Noble_CollectionBox"
+  ]
+ },
+ "Quest_Node_Her_HernandCastle_MerchantStory": {
+  "x": -10586.2,
+  "y": 593.7,
+  "z": -3383.6,
+  "scripts": 3,
+  "spreadX": 434,
+  "spreadZ": 672,
+  "npcs": [
+   "Animal_Normal_Tench_Wild_1",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Her_HernandCastle_CitizenStory": {
+  "x": -10563.3,
+  "y": 647.0,
+  "z": -4011.3,
+  "scripts": 13,
+  "spreadX": 2923,
+  "spreadZ": 4821,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_TreeFrog_Wild_30193",
+   "Animal_Insect_Rhinoceros_Beetle",
+   "Animal_Wolf_Wild_30018",
+   "Animal_MilkCow_Domestic_30028",
+   "Animal_Bull_Domestic_30034",
+   "Animal_MilkCow_Domestic_32308",
+   "NHM_Unique_Freydis"
+  ]
+ },
+ "Quest_Node_Her_CalphadeCastle_CitizenStory": {
+  "x": -12095.0,
+  "y": 853.2,
+  "z": -5013.6,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Her_Friendly_Legendary": {
+  "x": -10805.9,
+  "y": 650.0,
+  "z": -3499.4,
+  "scripts": 5,
+  "spreadX": 3464,
+  "spreadZ": 2090,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_Lioness_Wild_30375",
+   "Animal_Deer_Wild_33107",
+   "NHM_Wandering_Mercenary_BowDagger_58016",
+   "NHM_Hunter_Sidekick",
+   "NHM_Legendary_Hunter",
+   "NHM_Wandering_Mercenary_DualAxe_50851",
+   "Animal_Unique_Black_Lion_39003"
+  ]
+ },
+ "Quest_Node_Her_GoldleafGuildhouse_InnocentSon_Normal": {
+  "x": -9995.8,
+  "y": 558.5,
+  "z": -4506.9,
+  "scripts": 3,
+  "spreadX": 1391,
+  "spreadZ": 438,
+  "npcs": [
+   "NGM_Goblin_Market_Soldier_DualAxe_52349",
+   "NHM_Citizen_3056",
+   "NHW_Citizen_4045"
+  ]
+ },
+ "Quest_Node_Cal_CalphadeCastle_Misappropriation_Normal": {
+  "x": -11792.6,
+  "y": 700.5,
+  "z": -1929.6,
+  "scripts": 15,
+  "spreadX": 583,
+  "spreadZ": 728,
+  "npcs": [
+   "NHM_Unique_Misappropriation_Overseer",
+   "NHM_Unique_Misappropriation_Blacksmith",
+   "NHM_Unique_UnyieldingShields_Misappropriation",
+   "NHW_Unique_Misappropriation_Nun",
+   "NHM_Unique_Misappropriation_Quartermaster",
+   "NHM_Unique_Misappropriation_Merchant",
+   "NHW_Unique_Misappropriation_Worker",
+   "NHM_Citizen_3552"
+  ]
+ },
+ "Quest_Node_Her_ScholastoneInstitute_WeightOfKnowledge_Normal": {
+  "x": -12020.8,
+  "y": 875.6,
+  "z": -4855.1,
+  "scripts": 14,
+  "spreadX": 154,
+  "spreadZ": 233,
+  "npcs": [
+   "NOM_Unique_Citizen_Scholar_0006",
+   "NTM_Unique_Citizen_Scholar_0000",
+   "NHM_Unique_Citizen_Scholar_0002",
+   "NTM_Unique_Citizen_Scholar_0003",
+   "NOM_Unique_Citizen_Scholar_0004",
+   "NDEM_Unique_MiddleCitizen_0005",
+   "NTM_Citizen_Scholar_4577",
+   "NHW_Unique_Citizen_Scholar_0001"
+  ]
+ },
+ "Quest_Node_Her_HernandCastle_Wanted": {
+  "x": -10744.7,
+  "y": 622.5,
+  "z": -3828.2,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Pedro_OneHandSword_53217"
+  ]
+ },
+ "Quest_Node_Her_WillkommPost_Block": {
+  "x": -10467.5,
+  "y": 614.2,
+  "z": -3268.4,
+  "scripts": 2,
+  "spreadX": 304,
+  "spreadZ": 1851,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Her_BellanorHuntingGrounds_Block": {
+  "x": -10348.2,
+  "y": 620.2,
+  "z": -3064.9,
+  "scripts": 2,
+  "spreadX": 542,
+  "spreadZ": 2258,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Her_RiverwardOutpost_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 6,
+  "spreadX": 2,
+  "spreadZ": 1353,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Her_HernandBeacon_Block": {
+  "x": -10275.6,
+  "y": 640.4,
+  "z": -3372.2,
+  "scripts": 17,
+  "spreadX": 1293,
+  "spreadZ": 4026,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bleed_Bandits_OneHandAxe_54138",
+   "Riding_Wagon_Bomb_CowFourWheel_2154",
+   "NHM_Judge_TwoHandSpear_56009"
+  ]
+ },
+ "Quest_Node_Cal_WolfFang_Mine_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 337,
+  "spreadZ": 2011,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Her_WisdomTower_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Her_AnvilHill_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 4,
+  "spreadX": 1095,
+  "spreadZ": 662,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Citizen_3055"
+  ]
+ },
+ "Quest_Node_Her_DrakefallCastle_Block": {
+  "x": -9914.9,
+  "y": 661.2,
+  "z": -1588.9,
+  "scripts": 16,
+  "spreadX": 816,
+  "spreadZ": 2782,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Boss_Gears_55002",
+   "NGM_Wolf_Pursuer_OneHandAxe_5",
+   "NOM_Corpse_4770",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Citizen_3054"
+  ]
+ },
+ "Quest_Node_Her_StoneTowerVillage_Block": {
+  "x": -10607.6,
+  "y": 633.1,
+  "z": -3645.0,
+  "scripts": 2,
+  "spreadX": 24,
+  "spreadZ": 1098,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Faction_Hernand_Church_All": {
+  "x": -10527.1,
+  "y": 598.7,
+  "z": -3887.6,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Citizen_3635",
+   "NHM_Citizen_3466",
+   "NHM_MiddleCitizen_3026",
+   "NHW_Citizen_3731",
+   "NHM_MiddleCitizen_3530",
+   "NHM_Citizen_3055",
+   "NHM_MiddleCitizen_3161",
+   "NHM_MiddleCitizen_3170"
+  ]
+ },
+ "Quest_Node_Her_KharonsoLake_Block": {
+  "x": -12359.7,
+  "y": 735.5,
+  "z": -5038.8,
+  "scripts": 6,
+  "spreadX": 1930,
+  "spreadZ": 888,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NTM_Kharonso_Citizen_108033",
+   "MON_RuneWalkerVordis_57218"
+  ]
+ },
+ "Quest_Node_Her_LioncrestManor_Alfonso_Normal": {
+  "x": -11319.3,
+  "y": 652.9,
+  "z": -4118.6,
+  "scripts": 11,
+  "spreadX": 1029,
+  "spreadZ": 811,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Alfonso_1",
+   "NHM_Citizen_Servant_3179",
+   "NHM_Citizen_Servant_100078",
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "NHM_Unique_GrahamDigman_200010286",
+   "Animal_Lumif_Domestic_Saddle_32511"
+  ]
+ },
+ "Quest_Node_Her_LioncrestManor_Alfonso_AbyssTrace_Normal": {
+  "x": -10948.4,
+  "y": 628.4,
+  "z": -4019.2,
+  "scripts": 3,
+  "spreadX": 382,
+  "spreadZ": 1175,
+  "npcs": [
+   "NHM_Unique_Alfonso_1",
+   "NHM_Hernand_Soldiers_OneHandSword_53203",
+   "NHM_Hernand_Soldiers_OneHandSword_53204"
+  ]
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_Clue_Normal": {
+  "x": -10783.6,
+  "y": 645.9,
+  "z": -3889.7,
+  "scripts": 12,
+  "spreadX": 2131,
+  "spreadZ": 805,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_GrahamDigman_200010286",
+   "NHM_Unique_Alan_Serkis_3405",
+   "NHM_Unique_William_Middler_621",
+   "NHM_Serkis_Servant",
+   "NHM_Unique_Alfonso_1",
+   "NHM_Citizen_Servant_100078",
+   "NHM_Hernand_Soldiers_OneHandSword_53201"
+  ]
+ },
+ "Quest_Node_Her_IcemoorCastleRuins_Block": {
+  "x": -11949.0,
+  "y": 985.1,
+  "z": -3248.2,
+  "scripts": 7,
+  "spreadX": 1529,
+  "spreadZ": 1015,
+  "npcs": [
+   "Animal_Crow_Wild_30029",
+   "Object_Gimmick_Base_70001",
+   "NHM_Hernand_Soldiers_OneHandSword_53220",
+   "Animal_Female_Wapiti_Wild_32177",
+   "NHM_Hernand_Soldiers_OneHandSword_53211",
+   "NHM_Hernand_Soldiers_TwoHandHalberd_53215",
+   "NHM_Wandering_Mercenary_OneHandSword_50826",
+   "NHM_Wandering_Mercenary_OneHandSword_58006"
+  ]
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_FortWarspike_Boss": {
+  "x": -10754.3,
+  "y": 630.3,
+  "z": -3977.5,
+  "scripts": 9,
+  "spreadX": 1308,
+  "spreadZ": 311,
+  "npcs": [
+   "MiddleBoss_Walter_Lanford_OneHandShotgun_54101",
+   "NHM_Unique_Alan_Serkis_3405",
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_Servant_3923",
+   "NHM_Serkis_Servant",
+   "NHM_Unique_Alfonso_1",
+   "NHM_Unique_Loppet_0002",
+   "NHM_Bleed_Bandits_OneHandSword_54104"
+  ]
+ },
+ "Quest_Node_Her_BloomwoodRanch_HorseRace_Normal": {
+  "x": -10248.6,
+  "y": 544.2,
+  "z": -4239.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Animal_Stefero_Domestic_Saddle_32526",
+   "NHM_Noble_3927"
+  ]
+ },
+ "Quest_Silver_Armor_Her_Beacon": {
+  "x": -10736.2,
+  "y": 624.5,
+  "z": -3884.0,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Barden_Middler_620"
+  ]
+ },
+ "Quest_Faction_PororinVillage_All": {
+  "x": -10021.7,
+  "y": 586.9,
+  "z": -5105.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Faction_PororinVillage_Bell_All": {
+  "x": -8822.8,
+  "y": 643.9,
+  "z": -2774.5,
+  "scripts": 8,
+  "spreadX": 8230,
+  "spreadZ": 8381,
+  "npcs": [
+   "NHM_Technician_9430"
+  ]
+ },
+ "Quest_Node_Her_PororinVillage_HiddenPororin_Normal": {
+  "x": -10036.5,
+  "y": 565.2,
+  "z": -5138.2,
+  "scripts": 4,
+  "spreadX": 208,
+  "spreadZ": 147,
+  "npcs": [
+   "NHW_Unique_Arken_Brother_499",
+   "NHM_Unique_Florin_hider_0001",
+   "NHM_Unique_Florin_hider_0002",
+   "NHM_Unique_Florin_hider_0003",
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Polan"
+  ]
+ },
+ "Quest_Node_Her_PororinVillage_Trembling_Woods_Ent_Normal": {
+  "x": -9820.6,
+  "y": 560.4,
+  "z": -5024.2,
+  "scripts": 7,
+  "spreadX": 1271,
+  "spreadZ": 129,
+  "npcs": [
+   "NHM_Citizen_9421",
+   "NHW_Citizen_9426",
+   "NHM_Technician_9430",
+   "NHM_Unique_Arken_497"
+  ]
+ },
+ "Quest_Faction_PororinVillage_Normal": {
+  "x": -10047.5,
+  "y": 568.3,
+  "z": -5159.4,
+  "scripts": 9,
+  "spreadX": 278,
+  "spreadZ": 488,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Pororin_Assistant"
+  ]
+ },
+ "Quest_Faction_PororinVillage_ResearchStop_Reserch_V": {
+  "x": -9924.9,
+  "y": 559.4,
+  "z": -5066.6,
+  "scripts": 4,
+  "spreadX": 259,
+  "spreadZ": 450,
+  "npcs": [
+   "NHM_Unique_Pororin_Assistant"
+  ]
+ },
+ "Quest_Faction_PororinVillage_ResearchStop_Reserch_VI": {
+  "x": -10074.0,
+  "y": 558.7,
+  "z": -5241.8,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Pororin_Assistant"
+  ]
+ },
+ "Quest_Faction_PororinVillage_Shaipresent_All": {
+  "x": -10350.4,
+  "y": 546.5,
+  "z": -4206.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_CatManager_200050004"
+  ]
+ },
+ "Quest_Faction_ScholarStoneInstitute_Academic_Normal": {
+  "x": -12033.1,
+  "y": 837.9,
+  "z": -5043.8,
+  "scripts": 9,
+  "spreadX": 181,
+  "spreadZ": 142,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NGM_Scholar_Assistant_4",
+   "NGM_Scholar_Assistant_1",
+   "NGM_Scholar_Assistant_2",
+   "NGM_Scholar_Assistant_3"
+  ]
+ },
+ "Quest_Faction_ScholarStoneInstitue_ResearchStop_Reserch_V": {
+  "x": -11504.3,
+  "y": 748.0,
+  "z": -3729.3,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NGM_Unique_Scholar_Assistant_1"
+  ]
+ },
+ "Quest_Faction_ScholarStoneInstitue_ResearchStop_Reserch_IV": {
+  "x": -11289.0,
+  "y": 830.8,
+  "z": -3391.7,
+  "scripts": 3,
+  "spreadX": 78,
+  "spreadZ": 506,
+  "npcs": [
+   "NGM_Unique_Scholar_Assistant_1",
+   "NHM_Citizen_Herbalist_100098",
+   "NHM_Citizen_Herbalist_BackPack_3209",
+   "Animal_Donkey_Domestic_Bagpack_32857"
+  ]
+ },
+ "Quest_Node_Her_ScholarStoneInstitute_All": {
+  "x": -11927.3,
+  "y": 833.9,
+  "z": -5032.7,
+  "scripts": 4,
+  "spreadX": 11975,
+  "spreadZ": 5060,
+  "npcs": [
+   "NTM_Unique_Brok_200110051",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Her_ScholarStoneInstitute_AnamorphicSword": {
+  "x": -7646.4,
+  "y": 604.1,
+  "z": -4864.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Her_SeniaVillage_Block": {
+  "x": -10619.4,
+  "y": 600.5,
+  "z": -4193.9,
+  "scripts": 5,
+  "spreadX": 577,
+  "spreadZ": 1386,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Priest_3442",
+   "NHW_Citizen_3609",
+   "NHM_Priest_Monk_100023",
+   "MiddleBoss_RegleGoblin_DualAxe"
+  ]
+ },
+ "Quest_Node_Her_SeniaVillage_Normal": {
+  "x": -9788.4,
+  "y": 595.9,
+  "z": -4131.1,
+  "scripts": 2,
+  "spreadX": 2586,
+  "spreadZ": 2166,
+  "npcs": [
+   "NHM_Priest_Monk_100021",
+   "NHM_Priest_Monk_100022",
+   "NHM_Priest_Monk_100023",
+   "NHW_Priest_Monk_102053",
+   "NHW_Priest_Monk_102052",
+   "NHW_Priest_Monk_102054",
+   "NHM_Stallholder_2"
+  ]
+ },
+ "Quest_Node_Her_SeniaVillage_HolyRelic_Normal": {
+  "x": -11047.8,
+  "y": 671.8,
+  "z": -5255.6,
+  "scripts": 2,
+  "spreadX": 62,
+  "spreadZ": 76,
+  "npcs": [
+   "NHM_Priest_3440",
+   "NHM_Priest_Monk_100023",
+   "NHM_Priest_3004",
+   "NHM_Unique_Uriel",
+   "NHM_Priest_100024",
+   "NHM_Priest_3195",
+   "NHM_Unique_Gabriel_200010138",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Her_Slum_Normal": {
+  "x": -10699.4,
+  "y": 632.7,
+  "z": -3753.9,
+  "scripts": 4,
+  "spreadX": 348,
+  "spreadZ": 277,
+  "npcs": [
+   "NHM_Unique_BeggarLeader",
+   "NHM_Beggar_3007",
+   "NHM_Beggar_3193",
+   "NHM_Hernand_Soldiers_OneHandSword_53203",
+   "Object_Gimmick_Base_70001",
+   "NHW_Unique_Selina"
+  ]
+ },
+ "Quest_Node_Her_Slum_NobleCure_Normal": {
+  "x": -10756.5,
+  "y": 608.2,
+  "z": -3787.5,
+  "scripts": 5,
+  "spreadX": 1008,
+  "spreadZ": 432,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Valmor",
+   "NHM_Citizen_Servant_3179",
+   "NHW_Noble_3957",
+   "NHW_Unique_Selina",
+   "NHM_Unique_BeggarLeader",
+   "NHM_Beggar_3193",
+   "NHM_Citizen_Servant_3184"
+  ]
+ },
+ "Quest_Node_Her_SpiderCastle_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 8,
+  "spreadX": 686,
+  "spreadZ": 1722,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Object_Gimmick_Base_70001",
+   "Boss_QueenSpider_55531"
+  ]
+ },
+ "Quest_Node_Her_SpiderCastle_DrugFactory_Normal": {
+  "x": -9964.0,
+  "y": 715.0,
+  "z": -2487.1,
+  "scripts": 9,
+  "spreadX": 29,
+  "spreadZ": 48,
+  "npcs": []
+ },
+ "Quest_Node_Her_VelluaVillage_All": {
+  "x": -10283.7,
+  "y": 359.5,
+  "z": -5987.0,
+  "scripts": 3,
+  "spreadX": 650,
+  "spreadZ": 399,
+  "npcs": [
+   "NHM_Pirate_OneHandSword_2",
+   "NHM_Pirate_TwoHandSpear_2",
+   "Object_Gimmick_Base_70001",
+   "NHM_Pirate_OneHandSword_1",
+   "NHM_Pirate_OneHandBow_1",
+   "Animal_Dog_Wild_31195",
+   "MiddleBoss_Pirate_OneHandDagger_1",
+   "Riding_Big_pirateship_1"
+  ]
+ },
+ "Quest_Node_Her_VelluaVillage_Block": {
+  "x": -10494.0,
+  "y": 366.0,
+  "z": -5981.4,
+  "scripts": 16,
+  "spreadX": 664,
+  "spreadZ": 1843,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "MiddleBoss_Crogg_OneHandDagger_50808",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Unique_Lukas_100171",
+   "NHM_Citizen_3126",
+   "NHM_Citizen_3031"
+  ]
+ },
+ "Quest_Node_Her_VelluaVillage_Normal": {
+  "x": -10544.1,
+  "y": 489.9,
+  "z": -4931.5,
+  "scripts": 2,
+  "spreadX": 197,
+  "spreadZ": 2123,
+  "npcs": [
+   "NHM_Citizen_3635",
+   "NHM_Citizen_3466",
+   "NHM_MiddleCitizen_3026",
+   "NHW_Citizen_3731",
+   "NHM_MiddleCitizen_3530",
+   "NHM_Citizen_3055",
+   "NHM_MiddleCitizen_3161",
+   "NHM_MiddleCitizen_3170"
+  ]
+ },
+ "Quest_Node_Her_VelluaVillage_Girl_Rescue_Normal": {
+  "x": -10362.6,
+  "y": 352.1,
+  "z": -6080.1,
+  "scripts": 5,
+  "spreadX": 381,
+  "spreadZ": 170,
+  "npcs": [
+   "NHW_Unique_Vera_9948",
+   "NHW_Unique_kidnapped_Girl_4102"
+  ]
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Block": {
+  "x": -11849.4,
+  "y": 697.6,
+  "z": -1222.7,
+  "scripts": 7,
+  "spreadX": 1640,
+  "spreadZ": 3359,
+  "npcs": [
+   "Boss_NorthernWarrior_55028",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Citizen_6419",
+   "NHM_Citizen_6417",
+   "NHM_UnyieldingShields_OneHandSword_53287",
+   "NHM_Unique_Pailoon_Vigilante_1"
+  ]
+ },
+ "Quest_Faction_Antumbra_Sanctum_Block": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 24,
+  "spreadX": 9230,
+  "spreadZ": 6214,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Kwe_SpireOfRuination_Boss": {
+  "x": -10513.2,
+  "y": 553.1,
+  "z": -4189.7,
+  "scripts": 17,
+  "spreadX": 11845,
+  "spreadZ": 6038,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "MiddleBoss_AntumbraStaff_TwoHandWarHammer_53114",
+   "MiddleBoss_AntumbraSword_TwoHandGiantSword_53113",
+   "MiddleBoss_AntumbraSpear_TwoHandGiantSpear_53112",
+   "NHM_Antumbra_Archbishop_53116"
+  ]
+ },
+ "Quest_Node_Kwe_SpireOfRingingTruth_All": {
+  "x": -11877.6,
+  "y": 903.5,
+  "z": -751.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Node_Kwe_HarpyNest_Boss_Block": {
+  "x": -10966.7,
+  "y": 1048.1,
+  "z": -476.2,
+  "scripts": 2,
+  "spreadX": 11,
+  "spreadZ": 31,
+  "npcs": [
+   "Boss_Karanda_60009"
+  ]
+ },
+ "Quest_Node_Kwe_LonelyJackal_BloodGolem_Boss": {
+  "x": -9740.4,
+  "y": 641.2,
+  "z": -373.5,
+  "scripts": 4,
+  "spreadX": 779,
+  "spreadZ": 4472,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "MON_BloodWalkerCrussis_57215",
+   "NHW_MiddleCitizen_6518",
+   "NHW_Citizen_7025",
+   "NHM_Citizen_6428",
+   "NHM_Pailoon_Vigilante_OneHandDagger_51116"
+  ]
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_All": {
+  "x": -11484.9,
+  "y": 720.5,
+  "z": -165.0,
+  "scripts": 8,
+  "spreadX": 93,
+  "spreadZ": 865,
+  "npcs": [
+   "Animal_Rabbit_Wild_30001",
+   "Animal_Baby_Deer_Wild_32256",
+   "Animal_Deer_Wild_30031",
+   "Animal_Female_Deer_Wild_30032",
+   "Animal_Owl_Wild_30060"
+  ]
+ },
+ "Quest_Node_Kwe_LongleafTreeForest_Boss": {
+  "x": -11536.4,
+  "y": 722.4,
+  "z": -340.7,
+  "scripts": 2,
+  "spreadX": 3,
+  "spreadZ": 13,
+  "npcs": [
+   "Riding_Deer_1",
+   "NHM_EntHunter_OneHandBow_5",
+   "NHM_EntHunter_OneHandBow_6",
+   "NHM_EntHunter_OneHandBow_7",
+   "NHM_EntHunter_OneHandBow_8",
+   "Boss_EntHunter_SwordTowerShield_52851",
+   "Riding_Deer_Boss"
+  ]
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_Block": {
+  "x": -11349.4,
+  "y": 785.5,
+  "z": 335.2,
+  "scripts": 3,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NDEM_Citizen_14603",
+   "NDEM_Citizen_14622",
+   "NDEM_Citizen_14615",
+   "NDEM_MiddleCitizen_14606",
+   "NDEM_Citizen_14604"
+  ]
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_Normal": {
+  "x": -11324.1,
+  "y": 743.3,
+  "z": 590.9,
+  "scripts": 2,
+  "spreadX": 115,
+  "spreadZ": 491,
+  "npcs": [
+   "NDEM_Citizen_14601",
+   "NDEM_MiddleCitizen_164013",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Kwe_RidgehunterLeatherMaker_Normal": {
+  "x": -11445.5,
+  "y": 721.2,
+  "z": -398.6,
+  "scripts": 6,
+  "spreadX": 1058,
+  "spreadZ": 4111,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "MON_MudWalkerLutemir_57214",
+   "NHM_Unique_LongleafTreeVillage_200010303"
+  ]
+ },
+ "Quest_Node_Kwe_LongbranchVillage_EntTreasure": {
+  "x": -11296.3,
+  "y": 700.7,
+  "z": 725.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "MON_GiantEnt_52955",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Node_Kwe_OdeckVillage_Boss_Block": {
+  "x": -10799.9,
+  "y": 661.8,
+  "z": 1256.3,
+  "scripts": 22,
+  "spreadX": 597,
+  "spreadZ": 5542,
+  "npcs": [
+   "MiddleBoss_Tarandus_TwoHandWarHammer_55059",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Drunk_BlackBears_OneHandSword_54009",
+   "Animal_Bull_Domestic_Bagpack_32342",
+   "NHM_Citizen_Guide_BackPack_3291",
+   "NHM_Unique_OdeckVillager_1"
+  ]
+ },
+ "Quest_Node_OdeckVillage_Normal": {
+  "x": -11182.5,
+  "y": 681.0,
+  "z": 1317.6,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Citizen_6494",
+   "NHM_Citizen_6495",
+   "NHM_Citizen_6497",
+   "NHW_Citizen_7074",
+   "NHW_Citizen_7075",
+   "NHW_Citizen_7076"
+  ]
+ },
+ "Quest_Node_Kwe_GeneralTomb_Block": {
+  "x": -11155.2,
+  "y": 681.0,
+  "z": 1017.4,
+  "scripts": 3,
+  "spreadX": 1346,
+  "spreadZ": 5539,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_OdeckVillager_2",
+   "Boss_Forgotten_General_55066"
+  ]
+ },
+ "Quest_Node_Kwe_Pailune_All": {
+  "x": -10735.2,
+  "y": 622.5,
+  "z": -3830.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Antoni_13559",
+   "NHM_Unique_Hernand_Soldiers_200010228",
+   "NHM_Unique_Hernand_Soldiers_200010227"
+  ]
+ },
+ "Quest_Node_Kwe_Pailune_RescuePailuneLeader_Normal": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -2155.4,
+  "scripts": 17,
+  "spreadX": 2816,
+  "spreadZ": 4303,
+  "npcs": [
+   "NHM_Prisoner_5",
+   "NHM_Prisoner_4",
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Prisoner_3",
+   "NHM_Prisoner_10",
+   "NHM_Bandit_OneHandSword_50004"
+  ]
+ },
+ "Quest_Node_Kwe_Pailune_RoketBag_Normal": {
+  "x": -9806.1,
+  "y": 633.6,
+  "z": -130.2,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_GrimnirAssist"
+  ]
+ },
+ "Quest_Node_Kwe_Pailune_FinaleStory": {
+  "x": -10498.8,
+  "y": 610.5,
+  "z": -4355.2,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Marius_468",
+   "NHM_Greyfur_OneHandAxe_51304"
+  ]
+ },
+ "Quest_Node_Kwe_Pailune_Daily": {
+  "x": -10303.1,
+  "y": 705.6,
+  "z": 423.6,
+  "scripts": 8,
+  "spreadX": 2651,
+  "spreadZ": 2359,
+  "npcs": [
+   "NHM_Brimstone_Drunk_BlackBears_OneHandSword_1",
+   "NHM_Brimstone_Drunk_BlackBears_OneHandAxe_1",
+   "NHM_Brimstone_Drunk_BlackBears_TwoHandAxe_1",
+   "NHM_Pailoon_Ludvig_DualDagger_58044",
+   "NHM_EntHunter_OneHandBow_5",
+   "NHM_EntHunter_OneHandBow_6",
+   "NHM_Citizen_6428",
+   "NHM_Citizen_6417"
+  ]
+ },
+ "Quest_Node_Kwe_Pailune_MerchantStory": {
+  "x": -9787.6,
+  "y": 652.9,
+  "z": 150.9,
+  "scripts": 6,
+  "spreadX": 2139,
+  "spreadZ": 1839,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_Insect_Butterfly",
+   "Animal_Middle_Pikefish_Wild_1",
+   "Animal_Insect_Centipede"
+  ]
+ },
+ "Quest_Node_Kwe_Pailune_CitizenStory": {
+  "x": -9968.3,
+  "y": 653.9,
+  "z": 230.4,
+  "scripts": 10,
+  "spreadX": 2946,
+  "spreadZ": 1910,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_Insect_Gnat",
+   "Animal_TreeFrog_Wild_30193",
+   "Animal_Deer_Wild_30031",
+   "Animal_Middle_Lenok_Wild_1",
+   "Animal_Middle_Pikefish_Wild_1",
+   "NHM_Unique_Armand",
+   "Animal_Unique_Domestic_Sheep_30044"
+  ]
+ },
+ "Quest_Node_Kwe_DoubleStepPass_Block": {
+  "x": -9823.7,
+  "y": 649.1,
+  "z": -1194.5,
+  "scripts": 4,
+  "spreadX": 833,
+  "spreadZ": 3027,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Kwe_RidgePath_Block": {
+  "x": -10151.3,
+  "y": 646.8,
+  "z": -1162.9,
+  "scripts": 4,
+  "spreadX": 469,
+  "spreadZ": 3032,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Kwe_Brokenford_Block": {
+  "x": -9600.7,
+  "y": 619.6,
+  "z": -479.8,
+  "scripts": 4,
+  "spreadX": 1022,
+  "spreadZ": 3717,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Kwe_RidgehunterLeatherMaker_Block": {
+  "x": -11486.3,
+  "y": 722.4,
+  "z": -381.8,
+  "scripts": 4,
+  "spreadX": 867,
+  "spreadZ": 3838,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Kwe_WildhuntCamp_Block": {
+  "x": -10576.4,
+  "y": 621.6,
+  "z": -1642.9,
+  "scripts": 2,
+  "spreadX": 86,
+  "spreadZ": 5102,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003"
+  ]
+ },
+ "Quest_Node_Kwe_SkoghornVillage_Normal": {
+  "x": -12148.0,
+  "y": 763.1,
+  "z": -146.2,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Skoghorn_Citizen_Deer_1",
+   "NHM_Skoghorn_Citizen_Deer_2",
+   "NHM_Skoghorn_Citizen_Reindeer_1",
+   "NHM_Skoghorn_Citizen_Reindeer_2",
+   "NHM_Skoghorn_Citizen_Bull_1",
+   "NHM_Skoghorn_Citizen_Bull_2"
+  ]
+ },
+ "Quest_Node_Kwe_QuietSnowShelter_Block": {
+  "x": -12166.4,
+  "y": 698.5,
+  "z": -447.1,
+  "scripts": 4,
+  "spreadX": 2247,
+  "spreadZ": 3869,
+  "npcs": [
+   "Object_Prop_Character_19999",
+   "NHM_Skoghorn_Citizen_Deer_2",
+   "NHW_Citizen_6529",
+   "Object_Gimmick_Base_70001",
+   "NHM_Skoghorn_Citizen_Deer_1",
+   "NHM_Skoghorn_Citizen_Reindeer_2",
+   "Boss_WhiteHorn_55506",
+   "NHM_Unique_Bandit_OneHandSword_Whitehorn"
+  ]
+ },
+ "Quest_Node_Kwe_SkallcoveVillage_Block": {
+  "x": -10108.7,
+  "y": 596.5,
+  "z": -1703.9,
+  "scripts": 4,
+  "spreadX": 1028,
+  "spreadZ": 4983,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "MiddleBoss_Pailoon_Skalcove_TwoHandSword_2"
+  ]
+ },
+ "Quest_Node_Kwe_WindsongMountain_MasterThunder_Boss_Block": {
+  "x": -9480.2,
+  "y": 642.6,
+  "z": 893.6,
+  "scripts": 5,
+  "spreadX": 1331,
+  "spreadZ": 5404,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Kwe_SkalcoveChief",
+   "Boss_Titan_TwoHandSpear_55509",
+   "NHM_Citizen_6494",
+   "NHM_Citizen_6417",
+   "NHM_Citizen_6420",
+   "Boss_Titan_TwoHandSpear_55508"
+  ]
+ },
+ "Quest_Node_Neut_GorthakIronMaker_Research": {
+  "x": -5910.4,
+  "y": 528.5,
+  "z": -4106.7,
+  "scripts": 8,
+  "spreadX": 758,
+  "spreadZ": 252,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NOM_OrcNeutralZone_Assistant_1",
+   "NOM_OrcNeutralZone_Assistant_2",
+   "NOM_OrcNeutralZone_Assistant_3",
+   "NOM_OrcNeutralZone_Assistant_4"
+  ]
+ },
+ "Quest_Faction_GorthakIron_ResearchStop_Reserch_V": {
+  "x": -5687.5,
+  "y": 543.6,
+  "z": -4049.4,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NOM_Unique_OrcNeutralZone_Assistant_3"
+  ]
+ },
+ "Quest_Faction_GorthakIron_ResearchStop_Reserch_IV": {
+  "x": -5877.1,
+  "y": 524.4,
+  "z": -3972.6,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NOM_Unique_OrcNeutralZone_Assistant_3"
+  ]
+ },
+ "Quest_Faction_GorthakIron_Normal_KuKuATAG": {
+  "x": -6472.6,
+  "y": 447.8,
+  "z": -4030.4,
+  "scripts": 5,
+  "spreadX": 308,
+  "spreadZ": 201,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NDM_Unique_Robot_Maker"
+  ]
+ },
+ "Quest_Node_Neut_MarnisOutpost_All": {
+  "x": -5663.3,
+  "y": 404.7,
+  "z": -2949.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_Faction_Marni_OutPost_Block": {
+  "x": -10528.2,
+  "y": 549.8,
+  "z": -4191.8,
+  "scripts": 6,
+  "spreadX": 5215,
+  "spreadZ": 824,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "Object_Gimmick_Base_70001",
+   "MiddleBoss_MarniKnightMk1_TwoHandSword_54804",
+   "MiddleBoss_Marni_MachineKnight_TwoHandSpear_1"
+  ]
+ },
+ "Quest_Node_Her_PervinFort_Reoccupation": {
+  "x": -11070.8,
+  "y": 602.4,
+  "z": -4611.5,
+  "scripts": 4,
+  "spreadX": 957,
+  "spreadZ": 1058,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_PervinFort_Invasion": {
+  "x": -11098.0,
+  "y": 602.4,
+  "z": -4722.9,
+  "scripts": 2,
+  "spreadX": 957,
+  "spreadZ": 1058,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_FortWarspike_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 1125,
+  "spreadZ": 68,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_FortWarspike_Invasion": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 1125,
+  "spreadZ": 68,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_FortAnvil_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 660,
+  "spreadZ": 165,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_FortAnvil_Invasion": {
+  "x": -10289.1,
+  "y": 585.5,
+  "z": -4111.2,
+  "scripts": 2,
+  "spreadX": 660,
+  "spreadZ": 165,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_KarinQuarry_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 230,
+  "spreadZ": 1147,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_KarinQuarry_Invasion": {
+  "x": -10504.5,
+  "y": 600.0,
+  "z": -3620.4,
+  "scripts": 2,
+  "spreadX": 230,
+  "spreadZ": 1147,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_SouthQuarry_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 1096,
+  "spreadZ": 454,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_SouthQuarry_Invasion": {
+  "x": -10071.5,
+  "y": 542.3,
+  "z": -4420.8,
+  "scripts": 2,
+  "spreadX": 1096,
+  "spreadZ": 454,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_FortHellwood_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 594,
+  "spreadZ": 1303,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_FortHellwood_Invasion": {
+  "x": -10916.3,
+  "y": 672.2,
+  "z": -4845.3,
+  "scripts": 2,
+  "spreadX": 594,
+  "spreadZ": 1303,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_RootFort_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 93,
+  "spreadZ": 2051,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_RootFort_Invasion": {
+  "x": -10573.0,
+  "y": 683.7,
+  "z": -3168.4,
+  "scripts": 2,
+  "spreadX": 93,
+  "spreadZ": 2051,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_DragonKillCastle_Reoccupation": {
+  "x": -10216.2,
+  "y": 617.5,
+  "z": -2822.7,
+  "scripts": 4,
+  "spreadX": 816,
+  "spreadZ": 2762,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_DragonKillCastle_Invasion": {
+  "x": -10216.2,
+  "y": 617.5,
+  "z": -2813.2,
+  "scripts": 2,
+  "spreadX": 806,
+  "spreadZ": 2762,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Kwe_FortAskelund_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 493,
+  "spreadZ": 4100,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Kwe_FortAskelund_Invasion": {
+  "x": -10865.7,
+  "y": 697.3,
+  "z": -2144.0,
+  "scripts": 2,
+  "spreadX": 493,
+  "spreadZ": 4100,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 1638,
+  "spreadZ": 3359,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006"
+  ]
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Invasion": {
+  "x": -11438.4,
+  "y": 640.2,
+  "z": -2514.3,
+  "scripts": 2,
+  "spreadX": 1638,
+  "spreadZ": 3359,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006"
+  ]
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 448,
+  "spreadZ": 3144,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Invasion": {
+  "x": -10843.4,
+  "y": 709.1,
+  "z": -2621.8,
+  "scripts": 2,
+  "spreadX": 448,
+  "spreadZ": 3144,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 1696,
+  "spreadZ": 1753,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Invasion": {
+  "x": -9771.2,
+  "y": 590.1,
+  "z": -5070.7,
+  "scripts": 2,
+  "spreadX": 1696,
+  "spreadZ": 1753,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Dem_Flame_Knights_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 1621,
+  "spreadZ": 1204,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Dem_Flame_Knights_Invasion": {
+  "x": -9808.7,
+  "y": 583.0,
+  "z": -3591.8,
+  "scripts": 2,
+  "spreadX": 1621,
+  "spreadZ": 1204,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 1933,
+  "spreadZ": 188,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Invasion": {
+  "x": -9652.8,
+  "y": 544.7,
+  "z": -4100.0,
+  "scripts": 2,
+  "spreadX": 1933,
+  "spreadZ": 188,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Dem_BurnhandQuarry_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 1938,
+  "spreadZ": 1682,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Dem_BurnhandQuarry_Invasion": {
+  "x": -9650.4,
+  "y": 531.5,
+  "z": -3352.7,
+  "scripts": 2,
+  "spreadX": 1938,
+  "spreadZ": 1682,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Del_MarniMechFactory_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 6140,
+  "spreadZ": 692,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Del_ValvegardWallFort_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 5949,
+  "spreadZ": 1149,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Del_MarniAirLab_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 7179,
+  "spreadZ": 1589,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Neut_MarnisOutpost_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 5203,
+  "spreadZ": 824,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Del_MarniLab_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 7560,
+  "spreadZ": 312,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Del_WindCliffFort_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 4009,
+  "spreadZ": 1362,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Del_WindCliffFort_Invasion": {
+  "x": -8614.9,
+  "y": 528.3,
+  "z": -4875.1,
+  "scripts": 2,
+  "spreadX": 4009,
+  "spreadZ": 1362,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Crim_RedMountainFort_Reoccupation": {
+  "x": -7811.7,
+  "y": 614.2,
+  "z": -2693.1,
+  "scripts": 4,
+  "spreadX": 5617,
+  "spreadZ": 3011,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Crim_RedMountainFort_Invasion": {
+  "x": -7811.0,
+  "y": 614.2,
+  "z": -2688.7,
+  "scripts": 2,
+  "spreadX": 5617,
+  "spreadZ": 3011,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Crim_FortManub_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 5088,
+  "spreadZ": 3273,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Crim_FortManub_Invasion": {
+  "x": -8075.2,
+  "y": 615.4,
+  "z": -2557.3,
+  "scripts": 2,
+  "spreadX": 5088,
+  "spreadZ": 3273,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Crim_IsvatuFortress_Reoccupation": {
+  "x": -10619.4,
+  "y": 553.1,
+  "z": -4193.9,
+  "scripts": 3,
+  "spreadX": 3983,
+  "spreadZ": 3112,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Crim_IsvatuFortress_Invasion": {
+  "x": -8628.0,
+  "y": 603.1,
+  "z": -2638.1,
+  "scripts": 2,
+  "spreadX": 3983,
+  "spreadZ": 3112,
+  "npcs": [
+   "NHM_Bandit_OneHandAxe_50001",
+   "NHM_Bandit_OneHandAxe_50002",
+   "NHM_Bandit_OneHandDagger_50003",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandDagger_50005",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHM_Bandit_OneHandSword_50008"
+  ]
+ },
+ "Quest_Node_Her_WitchHouse_Inactive_Narration_All": {
+  "x": -10326.4,
+  "y": 642.7,
+  "z": -5138.4,
+  "scripts": 17,
+  "spreadX": 5330,
+  "spreadZ": 6581,
+  "npcs": [
+   "Animal_Rabbit_Wild_30001",
+   "Animal_EclectusParrot_Domestic_32881",
+   "Animal_CitronCockatoo_Domestic_32886",
+   "Animal_Parrot_Domestic_30082",
+   "Animal_SpixsMacaw_Domestic_32884",
+   "Animal_RoseringedParakeet_Domestic_32885",
+   "Animal_Baby_PronghornDeer_Wild_32375"
+  ]
+ },
+ "Quest_Node_Her_WitchHouse_Witch_Normal": {
+  "x": -11293.1,
+  "y": 620.5,
+  "z": -4851.3,
+  "scripts": 6,
+  "spreadX": 3020,
+  "spreadZ": 2435,
+  "npcs": [
+   "NHW_Unique_Wisdom_Witch_Store",
+   "NHM_Bandit_DualAxe_50045",
+   "NHM_Bandit_OneHandSword_50004",
+   "NHM_Bandit_OneHandMace_50006",
+   "NHM_Bandit_OneHandMace_50007",
+   "NHW_Unique_Tanya_3001"
+  ]
+ },
+ "Quest_Node_Kwe_RedLake_Witch_Normal": {
+  "x": -10677.4,
+  "y": 807.9,
+  "z": -681.8,
+  "scripts": 5,
+  "spreadX": 1141,
+  "spreadZ": 3824,
+  "npcs": [
+   "NHW_Unique_Goodness_Witch_Store",
+   "NHW_Citizen_6527"
+  ]
+ },
+ "Quest_Node_Dem_HiddenCave_Witch_Normal": {
+  "x": -4084.9,
+  "y": 564.3,
+  "z": -5135.3,
+  "scripts": 5,
+  "spreadX": 5723,
+  "spreadZ": 4541,
+  "npcs": [
+   "NHW_Unique_Modesty_Witch_Store",
+   "NHM_Citizen_6425"
+  ]
+ },
+ "Quest_Node_Crimson_Desert_Witch_Normal": {
+  "x": -7114.2,
+  "y": 660.6,
+  "z": -1673.1,
+  "scripts": 5,
+  "spreadX": 4107,
+  "spreadZ": 4214,
+  "npcs": [
+   "NHW_Unique_power_Witch_Store",
+   "NHM_Child_Citizen_11810",
+   "Animal_GreatDane_Domestic_04"
+  ]
+ },
+ "Quest_Node_Wayward_Woods_Witch_Normal": {
+  "x": -11321.5,
+  "y": 779.7,
+  "z": -702.7,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_WhiteCrow_Witch_6622"
+  ]
+ },
+ "Quest_Node_Del_BraveNest_Armor": {
+  "x": -7803.8,
+  "y": 1965.9,
+  "z": -566.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Boss_Dragon_TriStar_Armor_Stage",
+   "Boss_Dragon_TriStar_Drone",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Intro": {
+  "x": -9854.0,
+  "y": 614.7,
+  "z": -2819.6,
+  "scripts": 26,
+  "spreadX": 169,
+  "spreadZ": 90,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Drunk_BlackBears_OneHandSword_54011",
+   "NHM_Drunk_BlackBears_OneHandSword_54009",
+   "NHM_Drunk_BlackBears_OneHandAxe_54006",
+   "NHM_Drunk_BlackBears_TwoHandAxe_54003",
+   "NHM_Drunk_BlackBears_DualAxe_54004",
+   "NHM_Drunk_BlackBears_TwoHandWarHammer_54007",
+   "NHM_Drunk_BlackBears_OneHandBow_54005"
+  ]
+ },
+ "Quest_IntroHernand": {
+  "x": -10484.9,
+  "y": 2014.0,
+  "z": -6110.8,
+  "scripts": 9,
+  "spreadX": 252,
+  "spreadZ": 2825,
+  "npcs": [
+   "Animal_Pigeon_Wild_30081",
+   "Object_Gimmick_Base_70001",
+   "Animal_Sparrow_Wild_30071",
+   "NHM_Greyfur_OneHandAxe_51304",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53207",
+   "NHM_Unique_Sebastian_CottageOwner",
+   "NHM_Unique_Yann_DualDagger_402",
+   "NHM_Unique_GreyFur_Bram"
+  ]
+ },
+ "Quest_MeetAlustain_Test": {
+  "x": -10662.9,
+  "y": 617.1,
+  "z": -3835.6,
+  "scripts": 9,
+  "spreadX": 130,
+  "spreadZ": 244,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_CatManager_200050004",
+   "Animal_Unique_Black_Cat_500485",
+   "NHM_Unique_Guard_3220",
+   "NHM_Wandering_Mercenary_OneHandSword_50826",
+   "NHM_Wandering_Mercenary_OneHandSword_54605",
+   "NHM_Wandering_Mercenary_OneHandAxe_50816",
+   "NHM_Wandering_Mercenary_OneHandMace_58004"
+  ]
+ },
+ "Quest_MeetAlustain_Alchemist_CrowWing": {
+  "x": -10581.5,
+  "y": 1794.6,
+  "z": -3802.3,
+  "scripts": 21,
+  "spreadX": 486,
+  "spreadZ": 741,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Hernand_Soldiers_OneHandSword_53203",
+   "Animal_WhiteCrow_Wild",
+   "NHM_Unique_Alustin_3474",
+   "NHW_WhiteCrow_Witch_6622",
+   "NHM_Citizen_3053",
+   "NHM_Hernand_Soldiers_OneHandSword_53204",
+   "NHM_Hernand_Soldiers_TwoHandSword_53214"
+  ]
+ },
+ "Quest_Splithorn_Boss_UnexpectedGift": {
+  "x": -10942.9,
+  "y": 662.4,
+  "z": -3821.5,
+  "scripts": 10,
+  "spreadX": 316,
+  "spreadZ": 279,
+  "npcs": [
+   "Animal_Unique_Black_Cat_500485",
+   "Object_Gimmick_Base_70001",
+   "NHM_Child_MiddleCitizen_3105",
+   "NHM_Child_Citizen_3143",
+   "NHM_CatManager_200050004",
+   "NLW_Unique_Bilwise_200200003",
+   "NHM_Hernand_Soldiers_OneHandSword_53211",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53207"
+  ]
+ },
+ "Quest_SplitHorn_Boss_ThiefCave": {
+  "x": -10417.0,
+  "y": 551.8,
+  "z": -4065.3,
+  "scripts": 34,
+  "spreadX": 723,
+  "spreadZ": 876,
+  "npcs": [
+   "Animal_Pigeon_Wild_30081",
+   "Animal_Goat_Domestic_30027",
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_3052",
+   "NHM_Citizen_3056",
+   "NHM_Citizen_3140",
+   "NHM_Citizen_Hunter_BackPack_3323",
+   "NHM_Citizen_3101"
+  ]
+ },
+ "Quest_SplitHorn_Boss": {
+  "x": -10268.7,
+  "y": 610.1,
+  "z": -4611.5,
+  "scripts": 12,
+  "spreadX": 441,
+  "spreadZ": 636,
+  "npcs": [
+   "NGM_Goblin_Market_4308",
+   "NGM_Goblin_Market_4307",
+   "Object_Gimmick_Base_70001",
+   "NGM_Unique_Shakatu_4279",
+   "NGM_Goblin_Market_4304",
+   "NGM_Goblin_Market_4311",
+   "NGM_Unique_Shakatu_4278",
+   "NHM_Goblin_Market_Soldier_SwordShield_3"
+  ]
+ },
+ "Quest_SplitHorn_Boss_BackGroundStage": {
+  "x": -10441.3,
+  "y": 582.4,
+  "z": -4038.3,
+  "scripts": 8,
+  "spreadX": 771,
+  "spreadZ": 599,
+  "npcs": [
+   "NHM_Unique_Buddhist_Shay_DeputyChief_Monk",
+   "NHM_Unique_Bremer_3564",
+   "NOM_Citizen_4801",
+   "NHM_MiddleCitizen_3161",
+   "NHM_Citizen_3128",
+   "NHW_Citizen_3715",
+   "NHM_Citizen_3186",
+   "NHM_Unique_Willian_3632"
+  ]
+ },
+ "Quest_GreyWolf_Camp": {
+  "x": -10498.8,
+  "y": 610.3,
+  "z": -4365.3,
+  "scripts": 19,
+  "spreadX": 1361,
+  "spreadZ": 613,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_Sparrow_Wild_30071",
+   "NHM_Citizen_Servant_100001",
+   "NTM_Citizen_4527",
+   "NHM_Unique_Marius_468",
+   "NHM_Citizen_Servant_3179",
+   "NHW_Citizen_Servant_ToolBroom_500736",
+   "NHM_Citizen_3645"
+  ]
+ },
+ "Quest_ReedDevil_Boss_Battle": {
+  "x": -10751.1,
+  "y": 627.6,
+  "z": -5446.8,
+  "scripts": 14,
+  "spreadX": 674,
+  "spreadZ": 1764,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_Crow_Wild_30029",
+   "Boss_ReedDevil_Clone_DualSword_Sequencer_55505",
+   "Animal_Lumif_Domestic_Saddle_31487",
+   "Boss_ReedDevil_DualSword_55504",
+   "Object_ReedDevilSummoner",
+   "NHM_Grace_Guard_TwoHandSpear_500897",
+   "NHM_Unique_Marius_468"
+  ]
+ },
+ "Quest_ReedDevil_Boss_ForGraymane": {
+  "x": -10498.8,
+  "y": 610.4,
+  "z": -4364.1,
+  "scripts": 7,
+  "spreadX": 634,
+  "spreadZ": 337,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Marius_468",
+   "NHW_Unique_Nairah_DualSword_412",
+   "NHM_Unique_Andrew_647",
+   "NHM_Unique_Dwayne_TwoHandSword_405",
+   "NHM_Unique_Yann_DualDagger_402",
+   "NHM_Greyfur_Spy_1",
+   "NHM_Greyfur_51311"
+  ]
+ },
+ "Quest_ReedDevil_Boss_BackGroundStage": {
+  "x": -11333.1,
+  "y": 746.3,
+  "z": -7015.9,
+  "scripts": 4,
+  "spreadX": 8,
+  "spreadZ": 14,
+  "npcs": [
+   "NHM_ReedDevilMask_Child_Citizen_1",
+   "NHM_ReedDevilMask_Child_Citizen_2",
+   "NHW_ReedDevilMask_Child_Citizen_1",
+   "NHW_ReedDevilMask_Child_Citizen_2",
+   "NHW_ReedDevilMask_Child_Citizen_3",
+   "NHM_Patient_3210"
+  ]
+ },
+ "Quest_KukuBird_Kuku": {
+  "x": -11157.0,
+  "y": 712.3,
+  "z": -3893.0,
+  "scripts": 17,
+  "spreadX": 855,
+  "spreadZ": 640,
+  "npcs": [
+   "Animal_WhiteWing_Flycatcher_Wild_30009",
+   "Animal_BlueJay_Wild_30079",
+   "Animal_Sparrow_Wild_30071",
+   "Object_Gimmick_Base_70001",
+   "NDM_Unique_Grimnir_200130004",
+   "NHM_Unique_Russo_622",
+   "Animal_Lumif_Domestic_Saddle_32511",
+   "NDM_Unique_Togram_200130008"
+  ]
+ },
+ "Quest_GraymaneDay": {
+  "x": -10803.6,
+  "y": 609.6,
+  "z": -4260.8,
+  "scripts": 5,
+  "spreadX": 316,
+  "spreadZ": 600,
+  "npcs": [
+   "NHM_Unique_Dwayne_TwoHandSword_405",
+   "Animal_UniqueNpc_Horse_4",
+   "NHM_Unique_Andrew_647",
+   "NHM_Unique_Yann_DualDagger_402",
+   "NHM_Goblin_Market_Soldier_IsUnique_I",
+   "NHM_Goblin_Market_Soldier_SwordShield_IsUnique_II",
+   "Object_Gimmick_Base_70001",
+   "NHM_Goblin_Market_Soldier_SwordShield_1"
+  ]
+ },
+ "Quest_TrollUniversity_Brain": {
+  "x": -12024.2,
+  "y": 875.7,
+  "z": -4722.9,
+  "scripts": 21,
+  "spreadX": 1729,
+  "spreadZ": 1737,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_Scholar_3249",
+   "NHM_Citizen_Scholar_3244",
+   "NGM_Citizen_Scholar_4312",
+   "NTM_Unique_Grundir_500",
+   "NTM_Kharonso_Citizen_Scholar_4582",
+   "NTM_Kharonso_Citizen_Scholar_4584",
+   "NHW_Citizen_Scholar_3778"
+  ]
+ },
+ "Quest_Imp_Banquet_Boss_Battle": {
+  "x": -10635.7,
+  "y": 634.0,
+  "z": -3756.1,
+  "scripts": 7,
+  "spreadX": 209,
+  "spreadZ": 640,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Noble_3066",
+   "NHM_Noble_3920",
+   "NHM_Noble_3039",
+   "NHM_Noble_3458",
+   "NHM_Noble_3927",
+   "NHM_Noble_3915",
+   "NHM_Noble_3033"
+  ]
+ },
+ "Quest_Crowman_Boss_Ribentain": {
+  "x": -10494.7,
+  "y": 637.5,
+  "z": -3696.5,
+  "scripts": 15,
+  "spreadX": 3155,
+  "spreadZ": 2485,
+  "npcs": [
+   "Animal_Crow_Wild_30029",
+   "Object_Gimmick_Base_70001",
+   "NHM_Priest_Monk_100022",
+   "NHM_Priest_Monk_100023",
+   "NHM_Priest_Monk_100021",
+   "NHW_Priest_Monk_102052",
+   "NHW_Priest_Monk_102053",
+   "NHW_Priest_Monk_102054"
+  ]
+ },
+ "Quest_Silver_Armor_Boss_Celester": {
+  "x": -11652.7,
+  "y": 735.7,
+  "z": -2645.1,
+  "scripts": 25,
+  "spreadX": 1520,
+  "spreadZ": 2702,
+  "npcs": [
+   "Animal_Crow_Wild_30029",
+   "NHM_UnyieldingShields_OneHandSword_53258",
+   "NHM_Drunk_BlackBears_OneHandBow_54013",
+   "NHM_UnyieldingShields_OneHandSword_53280",
+   "NHM_UnyieldingShields_OneHandMace_53288",
+   "NHM_UnyieldingShields_OneHandBow_53294",
+   "NHM_UnyieldingShields_OneHandShield_53256",
+   "NOM_Drunk_BlackBears_Bearrider_1"
+  ]
+ },
+ "Quest_Silver_Armor_Boss_SecuringBase": {
+  "x": -11799.8,
+  "y": 686.0,
+  "z": -2300.0,
+  "scripts": 15,
+  "spreadX": 484,
+  "spreadZ": 579,
+  "npcs": [
+   "NHM_Drunk_BlackBears_OneHandSword_54009",
+   "NHM_Drunk_BlackBears_TwoHandAxe_54003",
+   "NHM_Caliburn_Soldiers_TwoHandAxe_1",
+   "NHM_Drunk_BlackBears_OneHandSword_54011",
+   "NHM_Caliburn_Soldiers_SwordShield_4",
+   "NHM_Caliburn_Soldiers_SwordShield_2",
+   "NHM_Caliburn_Soldiers_TwoHandSpear_1",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Quest_Silver_Armor_Boss_RecaptureBase": {
+  "x": -12123.1,
+  "y": 753.2,
+  "z": -1645.0,
+  "scripts": 9,
+  "spreadX": 297,
+  "spreadZ": 198,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_UnyieldingShields_OneHandSword_53287",
+   "NHM_Drunk_BlackBears_OneHandBow_54016",
+   "NHM_Drunk_BlackBears_OneHandBow_54010",
+   "NHM_Drunk_BlackBears_TwoHandWarHammer_54007",
+   "NHM_UnyieldingShields_MaceShield_53252",
+   "NHM_UnyieldingShields_53268",
+   "NHW_Unique_Nairah_DualSword_412"
+  ]
+ },
+ "Quest_Silver_Armor_Boss_Battle": {
+  "x": -11652.9,
+  "y": 740.4,
+  "z": -2158.6,
+  "scripts": 11,
+  "spreadX": 36,
+  "spreadZ": 292,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Caliburn_Soldiers_TwoHandSword_3",
+   "NHM_Caliburn_Soldiers_TwoHandSpear_3",
+   "NHM_Caliburn_Soldiers_SwordShield_1",
+   "NHM_Caliburn_Soldiers_SwordShield_4",
+   "NHM_Caliburn_Soldiers_TwoHandSword_6",
+   "NHM_Caliburn_Soldiers_OneHandHammer_1",
+   "NHM_Caliburn_Soldiers_OneHandMusket_1"
+  ]
+ },
+ "Quest_Ludvig_Boss_DawnFog": {
+  "x": -9086.3,
+  "y": 614.1,
+  "z": -1091.3,
+  "scripts": 20,
+  "spreadX": 2722,
+  "spreadZ": 3765,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Pailoon_Ludvig_DualAxe_58041",
+   "NHM_Pailoon_Ludvig_DualAxe_58043",
+   "NHM_Unique_Yann_DualDagger_402",
+   "NHW_Unique_Nairah_DualSword_412",
+   "NHM_Unique_Dwayne_TwoHandSword_405",
+   "NHM_Greyfur_SwordShield_51303",
+   "NHM_Pailoon_Ludvig_DualDagger_51256"
+  ]
+ },
+ "Quest_Ludvig_Boss_Jackal": {
+  "x": -9810.0,
+  "y": 659.0,
+  "z": 30.5,
+  "scripts": 21,
+  "spreadX": 876,
+  "spreadZ": 1290,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Pailoon_Ludvig_DualDagger_51256",
+   "NHM_Pailoon_Ludvig_DualDagger_58042",
+   "NHM_Greyfur_OneHandAxe_51304",
+   "NHM_Pailoon_Ludvig_DualDagger_58044",
+   "NHM_Pailoon_Ludvig_OnehandSword_58045",
+   "NHM_Greyfur_DualAxe_51305",
+   "NHM_Pailoon_Ludvig_TwoHandSpear_2"
+  ]
+ },
+ "Quest_Mjordin_Boss_LavaMountain": {
+  "x": -10122.7,
+  "y": 740.9,
+  "z": 655.8,
+  "scripts": 26,
+  "spreadX": 712,
+  "spreadZ": 731,
+  "npcs": [
+   "NHM_Drunk_BlackBears_OneHandSword_54009",
+   "Object_Gimmick_Base_70001",
+   "NHM_Citizen_Militia_SwordShield_9",
+   "NHM_Drunk_BlackBears_OneHandAxe_54035",
+   "NHM_Drunk_BlackBears_OneHandSword_54030",
+   "NHM_Drunk_BlackBears_OneHandSword_54011",
+   "NHM_Citizen_Militia_SwordShield_2",
+   "NHM_Drunk_BlackBears_TwoHandAxe_54022"
+  ]
+ },
+ "Quest_Chase_TraitorDwayne": {
+  "x": -9703.3,
+  "y": 662.6,
+  "z": -850.2,
+  "scripts": 7,
+  "spreadX": 1134,
+  "spreadZ": 5258,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Greyfur_SwordShield_3",
+   "Animal_Crow_Wild_30029",
+   "NHM_Unique_Greyfur_OneHandBow_51306",
+   "NHM_Greyfur_OneHandAxe_51304",
+   "NHM_Greyfur_51311",
+   "NHM_Unique_Greyfur_OneHandBow_3",
+   "NHM_Greyfur_DualAxe_51305"
+  ]
+ },
+ "Quest_Ludvig_Boss_BackGroundStage": {
+  "x": -9652.9,
+  "y": 659.5,
+  "z": 211.3,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Quest_BloodCoronation_TolsteinGuide": {
+  "x": -8274.9,
+  "y": 487.2,
+  "z": -4785.8,
+  "scripts": 19,
+  "spreadX": 3652,
+  "spreadZ": 2811,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Animal_ReinDeer_Wild_33126",
+   "NHM_Caliburn_Soldiers_DualAxe_1",
+   "NHM_MiddleCitizen_3302",
+   "NHM_Caliburn_Soldiers_TwoHandSpear_3",
+   "NHM_Citizen_Farmer_ToolShovel_500577",
+   "NHM_Citizen_Miner_ToolPickaxe_500578",
+   "NHM_Citizen_Farmer_ToolRake_170909"
+  ]
+ },
+ "Quest_BloodCoronation_PlaceOutOfLight": {
+  "x": -8331.4,
+  "y": 538.4,
+  "z": -3408.0,
+  "scripts": 28,
+  "spreadX": 2742,
+  "spreadZ": 3624,
+  "npcs": [
+   "NHM_Caliburn_Soldiers_OneHandSword_6",
+   "Object_Gimmick_Base_70001",
+   "Animal_Pigeon_Wild_30081",
+   "NHM_Wells_Brigade_Rebel_OneHandMusket_1",
+   "NHM_Wells_Brigade_Rebel_OneHandSword_2",
+   "NHM_Wells_Brigade_Rebel_TwoHandSpear_3",
+   "NHM_Wells_Brigade_Rebel_TwoHandSword_1",
+   "NHM_Wells_Brigade_Rebel_TwoHandSpear_1"
+  ]
+ },
+ "Quest_BloodCoronation_WitchDukeAndDream": {
+  "x": -6601.2,
+  "y": 551.7,
+  "z": -2471.6,
+  "scripts": 11,
+  "spreadX": 3678,
+  "spreadZ": 3135,
+  "npcs": [
+   "NHM_Caliburn_Soldiers_OneHandSword_6",
+   "NHM_Caliburn_Soldiers_OneHandSword_7",
+   "NHM_Caliburn_Soldiers_TwoHandSpear_3",
+   "NHM_Azerian_Soldiers_OneHandSword_1",
+   "NHM_Caliburn_Soldiers_TwoHandFlag_1",
+   "Object_Gimmick_Base_70001",
+   "NHW_Unique_Nairah_DualSword_412",
+   "NHM_Unique_Yann_DualDagger_402"
+  ]
+ },
+ "Quest_BloodCoronation_Caliburn_BackGroundStage": {
+  "x": -8287.3,
+  "y": 533.9,
+  "z": -3329.1,
+  "scripts": 6,
+  "spreadX": 257,
+  "spreadZ": 231,
+  "npcs": [
+   "NHM_Azerian_Soldiers_OneHandSword_1",
+   "NHM_Caliburn_Soldiers_OneHandSword_3",
+   "NHM_Caliburn_Soldiers_SwordShield_2",
+   "NHM_Caliburn_Soldiers_TwoHandSword_2"
+  ]
+ },
+ "Quest_Goblin_Master_Doo_Trial": {
+  "x": -7049.3,
+  "y": 545.2,
+  "z": -1893.9,
+  "scripts": 5,
+  "spreadX": 1796,
+  "spreadZ": 4687,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHW_Unique_Maegu_3452",
+   "NHW_Unique_Woosa_3453",
+   "Aircastle",
+   "NHM_Unique_Polan"
+  ]
+ },
+ "Quest_Goblin_Master_Doo_Trial_Blackstar": {
+  "x": -6527.1,
+  "y": 945.5,
+  "z": -6.0,
+  "scripts": 2,
+  "spreadX": 106,
+  "spreadZ": 178,
+  "npcs": [
+   "NOM_Dragon_BountHunter_OneHandSword_200070078",
+   "NHM_Dragon_BountyHunter_SwordShield_200010279",
+   "NOM_Dragon_BountHunter_OneHandSword_200070074",
+   "Boss_Dragon_60003"
+  ]
+ },
+ "Quest_Goblin_Master_Doo_Trial_OldKliff": {
+  "x": -7781.3,
+  "y": 1962.7,
+  "z": -647.9,
+  "scripts": 2,
+  "spreadX": 74,
+  "spreadZ": 238,
+  "npcs": [
+   "Boss_Old_Kliff_SwordShield_55111"
+  ]
+ },
+ "Quest_Goblin_Master_Doo_Trial_JijeongTemple": {
+  "x": -7477.4,
+  "y": 447.1,
+  "z": -4644.1,
+  "scripts": 13,
+  "spreadX": 3149,
+  "spreadZ": 1033,
+  "npcs": [
+   "Animal_Spoonbill_Wild_30085",
+   "Animal_Pigeon_Wild_30081",
+   "Boss_Trukan_55061",
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Buddhist_Shay_DeputyChief_Monk",
+   "NOM_Bandit_OneHandSword_52026",
+   "NOM_Bandit_TwoHandAxe_52028",
+   "NHM_Unique_Buddhist_Shay_Chief_Monk"
+  ]
+ },
+ "Quest_Goblin_Master_Doo_Trial_Hexe": {
+  "x": -8036.8,
+  "y": 553.5,
+  "z": -1534.0,
+  "scripts": 15,
+  "spreadX": 1034,
+  "spreadZ": 756,
+  "npcs": [
+   "Animal_Crow_Wild_30029",
+   "Boss_Hexe_Marie_51312",
+   "Mon_Hexe_Soldier_MaceShield_51313",
+   "Object_Gimmick_Base_70001",
+   "Boss_CrowCaller_DualDagger_53183_1",
+   "Object_Moving_Picture_15686",
+   "NHW_WhiteCrow_Witch_6622",
+   "Animal_WhiteCrow_Wild_1"
+  ]
+ },
+ "Quest_Goblin_Master_Doo_Meet": {
+  "x": -7207.7,
+  "y": 1818.6,
+  "z": -1053.1,
+  "scripts": 3,
+  "spreadX": 688,
+  "spreadZ": 345,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "MiddleBoss_Regglin_Master",
+   "NHM_Unique_Buddhist_Shay_Chief_Monk",
+   "NHW_WhiteCrow_Witch_6622",
+   "NHM_Unique_Alustin_3474",
+   "NHM_Unique_Pailunese_Kliff",
+   "NHM_Unique_Ziane_TwoHandSword_411"
+  ]
+ },
+ "Quest_Goblin_Master_Doo_Blood_Throne": {
+  "x": -7962.6,
+  "y": 536.6,
+  "z": -3469.4,
+  "scripts": 15,
+  "spreadX": 378,
+  "spreadZ": 342,
+  "npcs": [
+   "NHM_Caliburn_Soldiers_OneHandSword_6",
+   "Object_Gimmick_Base_70001",
+   "NHM_Caliburn_Soldiers_SpearTowerShield_2",
+   "NHM_Caliburn_Soldiers_SwordShield_2",
+   "NHM_Azerian_Soldiers_TwoHandSpear_1",
+   "NHM_Wells_Brigade_TwoHandSpear_54474",
+   "NHM_Azerian_Soldiers_SwordShield_1",
+   "NOM_GreenOrc_OneHandMusket_54715"
+  ]
+ },
+ "Quest_Goblin_Master_BackGroundStage": {
+  "x": -7611.5,
+  "y": 569.0,
+  "z": -1554.2,
+  "scripts": 5,
+  "spreadX": 873,
+  "spreadZ": 716,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHW_WhiteCrow_Witch_6622",
+   "Animal_WhiteCrow_Wild"
+  ]
+ },
+ "Quest_MarniDragon_Boss_IronWorks": {
+  "x": -6492.3,
+  "y": 448.6,
+  "z": -3666.3,
+  "scripts": 15,
+  "spreadX": 1984,
+  "spreadZ": 677,
+  "npcs": [
+   "Marni_MachineDragonfly_2",
+   "Object_Gimmick_Base_70001",
+   "Animal_Lumif_Domestic_Saddle_32511",
+   "NOM_GreenOrc_OneHandMusket_54716",
+   "Marni_MachineAnt",
+   "NOM_GreenOrc_OneHandMusket_54715",
+   "Marni_MachineMosquito",
+   "NHM_Greyfur_TwoHandAxe_51301"
+  ]
+ },
+ "Quest_MarniDragon_Boss_CounterAttack": {
+  "x": -6138.7,
+  "y": 453.8,
+  "z": -4036.4,
+  "scripts": 16,
+  "spreadX": 871,
+  "spreadZ": 637,
+  "npcs": [
+   "Marni_MachineDragonfly_2",
+   "Marni_MachineMosquito",
+   "NOM_GreenOrc_OneHandMusket_54716",
+   "NOM_GreenOrc_OneHandMusket_54715",
+   "NOM_Orc_Soldiers_TwoHandCannon_54679",
+   "Object_NetralArea_Electric_Drone_1",
+   "NOM_Unique_Valgash",
+   "NOM_GreenOrc_OneHandSword_1"
+  ]
+ },
+ "Quest_MarniDragon_Boss_MachineCity": {
+  "x": -4388.9,
+  "y": 440.5,
+  "z": -4573.4,
+  "scripts": 24,
+  "spreadX": 4736,
+  "spreadZ": 3926,
+  "npcs": [
+   "NHM_Prisoner_5",
+   "NHM_Prisoner_4",
+   "NHM_Delesyian_Soldiers_TwoHandSpear_3",
+   "NHM_Prisoner_3",
+   "Animal_Lumif_Domestic_Saddle_32511",
+   "NHM_Prisoner_8",
+   "NHM_Prisoner_6",
+   "NHM_Prisoner_10"
+  ]
+ },
+ "Quest_MarniDragon_Boss_GoldenStar": {
+  "x": -6590.6,
+  "y": 666.0,
+  "z": -2368.9,
+  "scripts": 8,
+  "spreadX": 3674,
+  "spreadZ": 5205,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "Marni_Experiment_MachineKnight",
+   "Marni_Experiment_MachineKnight_TwoHandSpear",
+   "NHM_Unique_Andrew_647",
+   "NHM_Unique_Shane_OneHandBow_1",
+   "NHW_Unique_Nairah_DualSword_412",
+   "Object_GoldStarDragon_Part_Tail",
+   "Object_GoldStarDragon_Part_Foot"
+  ]
+ },
+ "Quest_MarniDragon_Boss_BackGroundStage": {
+  "x": -4387.6,
+  "y": 397.2,
+  "z": -3857.6,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Delesyian_Soldiers_DualAxe_1",
+   "NHM_Delesyian_Soldiers_OneHandMace_1"
+  ]
+ },
+ "Quest_Caliburn_Boss_MusketSiege": {
+  "x": -6783.9,
+  "y": 586.8,
+  "z": -1981.6,
+  "scripts": 16,
+  "spreadX": 5312,
+  "spreadZ": 726,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Hernand_Soldiers_OneHandMace_53208",
+   "NHM_Caliburn_Soldiers_OneHandSword_6",
+   "NHM_Antumbra_Wizard_53124",
+   "NHM_UnyieldingShields_OneHandSword_53257",
+   "NHM_Caliburn_Soldiers_TwoHandSword_2",
+   "NHM_Caliburn_Soldiers_TwoHandSpear_3",
+   "NHM_Wells_Brigade_OneHandBow_53472"
+  ]
+ },
+ "Quest_Caliburn_Boss_MyurdinUmbra": {
+  "x": -6771.1,
+  "y": 2100.0,
+  "z": -2207.6,
+  "scripts": 9,
+  "spreadX": 1964,
+  "spreadZ": 3574,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Quest_Kliff",
+   "NHM_Pailoon_Ludvig_OnehandSword_58045",
+   "Possesion_Myurdin_OneHandSword_1",
+   "Boss_Caliburn_Awakening",
+   "Boss_Caliburn_Awakening_Clone_Sequencer_1",
+   "Boss_Caliburn_Awakening_Clone_Sequencer_2",
+   "Seraphim"
+  ]
+ },
+ "Quest_Caliburn_Boss_BackGroundStage": {
+  "x": -6642.7,
+  "y": 599.8,
+  "z": -1689.7,
+  "scripts": 10,
+  "spreadX": 273,
+  "spreadZ": 588,
+  "npcs": [
+   "Marni_Mother_AirShip_Small_I"
+  ]
+ },
+ "Quest_Epilogue_Ending": {
+  "x": -8322.6,
+  "y": 617.9,
+  "z": -2217.7,
+  "scripts": 7,
+  "spreadX": 7866,
+  "spreadZ": 7511,
+  "npcs": [
+   "Animal_Pigeon_Wild_30081",
+   "Object_Gimmick_Base_70001",
+   "NHM_MiddleCitizen_6413",
+   "NHM_Hernand_Soldiers_OneHandBow_53223",
+   "NHM_UnyieldingShields_OneHandSword_53281",
+   "NHM_Citizen_3055",
+   "NHM_Unique_Gerald_662_1",
+   "NHW_Unique_Nairah_DualSword_412"
+  ]
+ },
+ "Gate_Entrance": {
+  "x": -9447.6,
+  "y": 575.2,
+  "z": -3800.1,
+  "scripts": 16,
+  "spreadX": 6279,
+  "spreadZ": 807,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53202",
+   "NHM_Delesyian_Soldiers_SwordShield_1",
+   "NHM_Hernand_Soldiers_TwoHandSpear_53221",
+   "NHM_Demeniss_Soldiers_OneHandSword_53412",
+   "NHM_Hernand_Soldiers_SwordShield_53210",
+   "NHM_Hernand_Soldiers_SwordShield_53228",
+   "NHM_Hernand_Soldiers_SwordShield_53209"
+  ]
+ },
+ "Shop_Hernand": {
+  "x": -10443.3,
+  "y": 612.3,
+  "z": -3837.6,
+  "scripts": 21,
+  "spreadX": 5973,
+  "spreadZ": 4593,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Fishing",
+   "NHM_Citizen_3585",
+   "NHM_Unique_Aldun_3412",
+   "NOW_Merchant_Butcher_3410",
+   "NHW_Unique_Dahlia_4009",
+   "NDEM_Unique_Delkin_451",
+   "NDM_Unique_Bran_5463"
+  ]
+ },
+ "Shop_VelluaVillage": {
+  "x": -10381.5,
+  "y": 563.7,
+  "z": -4155.3,
+  "scripts": 2,
+  "spreadX": 591,
+  "spreadZ": 502,
+  "npcs": [
+   "NHM_Unique_Fishing",
+   "NOW_Merchant_Butcher_3410"
+  ]
+ },
+ "Shop_EquinsherSaddlery": {
+  "x": -10687.0,
+  "y": 635.7,
+  "z": -3634.6,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NDW_Unique_Retonic_467"
+  ]
+ },
+ "Shop_StoneTowerVillage": {
+  "x": -9644.1,
+  "y": 662.9,
+  "z": -2601.2,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Nita_102087"
+  ]
+ },
+ "Shop_Kharonso": {
+  "x": -10650.8,
+  "y": 615.2,
+  "z": -3843.5,
+  "scripts": 2,
+  "spreadX": 27,
+  "spreadZ": 12,
+  "npcs": [
+   "NOW_Unique_Grana_100190",
+   "NTM_Unique_Rhett_441"
+  ]
+ },
+ "Shop_Pororin": {
+  "x": -9949.0,
+  "y": 561.8,
+  "z": -5111.6,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NPDM_Unique_Dverick",
+   "NPDM_Citizen_9428"
+  ]
+ },
+ "Shop_Pororin_Pet": {
+  "x": -10648.1,
+  "y": 607.9,
+  "z": -3904.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_Unique_Cat_Pet_Store",
+   "NHM_Technician_9430",
+   "NHW_Citizen_9426"
+  ]
+ },
+ "Shop_Calphade": {
+  "x": -10654.6,
+  "y": 614.1,
+  "z": -3798.8,
+  "scripts": 11,
+  "spreadX": 4729,
+  "spreadZ": 3027,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NDEM_Unique_Delkin_451",
+   "NHM_Unique_Aldun_3412",
+   "NHW_Unique_Dahlia_4009",
+   "NDM_Unique_Bran_5463",
+   "NTM_Unique_Rhett_441",
+   "NDW_Unique_Retonic_467",
+   "NHM_Unique_Merton_3409"
+  ]
+ },
+ "Shop_Demeniss": {
+  "x": -10488.1,
+  "y": 612.3,
+  "z": -3849.4,
+  "scripts": 19,
+  "spreadX": 4729,
+  "spreadZ": 4593,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Fishing",
+   "NDEM_Unique_Delkin_451",
+   "NHM_Citizen_3585",
+   "NHM_Unique_Aldun_3412",
+   "NOW_Merchant_Butcher_3410",
+   "NHW_Unique_Dahlia_4009",
+   "NDM_Unique_Bran_5463"
+  ]
+ },
+ "Shop_Demeniss_Pet": {
+  "x": -10648.1,
+  "y": 607.9,
+  "z": -3904.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Dog_Pet_Store",
+   "NHM_Technician_9430",
+   "NHW_Citizen_9426"
+  ]
+ },
+ "Shop_Tariv": {
+  "x": -8308.0,
+  "y": 614.3,
+  "z": -2351.1,
+  "scripts": 2,
+  "spreadX": 4659,
+  "spreadZ": 2997,
+  "npcs": [
+   "NTM_Unique_Rhett_441",
+   "NHW_Unique_Tina_4011",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Shop_FrameVillage": {
+  "x": -8358.2,
+  "y": 531.1,
+  "z": -3349.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_painting_merchant_1"
+  ]
+ },
+ "Shop_HiddenGroveRanch": {
+  "x": -4734.7,
+  "y": 377.9,
+  "z": -4222.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Vincent_1"
+  ]
+ },
+ "Shop_TombstoneWorkshop": {
+  "x": -9644.1,
+  "y": 662.9,
+  "z": -2601.2,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Nita_102087"
+  ]
+ },
+ "Shop_GreenfieldFarm": {
+  "x": -8570.9,
+  "y": 530.4,
+  "z": -2914.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Theoric",
+   "NHM_Citizen_Dyer_3002"
+  ]
+ },
+ "Shop_SunsetDyehouse": {
+  "x": -8570.9,
+  "y": 530.4,
+  "z": -2914.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Theoric",
+   "NHM_Citizen_Dyer_3002"
+  ]
+ },
+ "Shop_RustleleafFarm": {
+  "x": -8570.9,
+  "y": 530.4,
+  "z": -2914.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Theoric",
+   "NHM_Citizen_Dyer_3002"
+  ]
+ },
+ "Shop_DemenissZoo": {
+  "x": -5978.5,
+  "y": 615.2,
+  "z": -852.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_Unique_Tina_4011",
+   "Object_Gimmick_Base_70001"
+  ]
+ },
+ "Shop_Delesyian": {
+  "x": -10562.8,
+  "y": 612.3,
+  "z": -3859.8,
+  "scripts": 20,
+  "spreadX": 6279,
+  "spreadZ": 4593,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Fishing",
+   "NDEM_Unique_Delkin_451",
+   "NTM_Unique_Rhett_441",
+   "NHM_Unique_Aldun_3412",
+   "NOW_Merchant_Butcher_3410",
+   "NHW_Unique_Dahlia_4009",
+   "NHW_Unique_Jasper"
+  ]
+ },
+ "Shop_Timberton": {
+  "x": -4734.7,
+  "y": 377.9,
+  "z": -4222.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Vincent_1"
+  ]
+ },
+ "Shop_Pailune": {
+  "x": -10488.1,
+  "y": 612.3,
+  "z": -3849.4,
+  "scripts": 17,
+  "spreadX": 4729,
+  "spreadZ": 4593,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Fishing",
+   "NHM_Unique_Aldun_3412",
+   "NOW_Merchant_Butcher_3410",
+   "NHW_Unique_Dahlia_4009",
+   "NDEM_Unique_Delkin_451",
+   "NDM_Unique_Bran_5463",
+   "NDW_Unique_Retonic_467"
+  ]
+ },
+ "Shop_Beighen": {
+  "x": -10195.7,
+  "y": 613.2,
+  "z": -3874.8,
+  "scripts": 4,
+  "spreadX": 5920,
+  "spreadZ": 4410,
+  "npcs": [
+   "NHM_Unique_Aldun_3412",
+   "NDEM_Unique_Delkin_451",
+   "NHM_Unique_Turnuli_200010254",
+   "NHM_Vincent_1"
+  ]
+ },
+ "Shop_Skoghorn": {
+  "x": -10640.0,
+  "y": 613.8,
+  "z": -3859.8,
+  "scripts": 2,
+  "spreadX": 5,
+  "spreadZ": 21,
+  "npcs": [
+   "NHM_Unique_Aldun_3412",
+   "NTM_Unique_Rhett_441"
+  ]
+ },
+ "Shop_Odeck": {
+  "x": -10637.5,
+  "y": 613.4,
+  "z": -3849.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NTM_Unique_Rhett_441"
+  ]
+ },
+ "Shop_Tashkalp": {
+  "x": -10637.5,
+  "y": 614.1,
+  "z": -3837.6,
+  "scripts": 13,
+  "spreadX": 4729,
+  "spreadZ": 4587,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Roger_3409",
+   "NHM_Citizen_3540",
+   "NHM_Unique_Aldun_3412",
+   "NHW_Unique_Dahlia_4009",
+   "NDEM_Unique_Delkin_451",
+   "NTM_Unique_Rhett_441",
+   "NHM_Unique_Turnuli_200010254"
+  ]
+ },
+ "Shop_Varnia": {
+  "x": -10637.5,
+  "y": 614.1,
+  "z": -3837.6,
+  "scripts": 11,
+  "spreadX": 4729,
+  "spreadZ": 4593,
+  "npcs": [
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Aldun_3412",
+   "NHW_Unique_Dahlia_4009",
+   "NDEM_Unique_Delkin_451",
+   "NTM_Unique_Rhett_441",
+   "NHM_Unique_Turnuli_200010254",
+   "NDW_Unique_Retonic_467",
+   "NHM_Unique_Merton_3409"
+  ]
+ },
+ "Shop_Muiquun": {
+  "x": -9211.4,
+  "y": 590.5,
+  "z": -3355.6,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Berna_Jorulluwadi_13557",
+   "NGM_Citizen_4235",
+   "NGM_Citizen_4236",
+   "NGM_Citizen_4240",
+   "NGM_Citizen_4208"
+  ]
+ },
+ "Shop_Trade_FortManub": {
+  "x": -9644.1,
+  "y": 662.9,
+  "z": -2601.2,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Nita_102087"
+  ]
+ },
+ "Shop_Trade_IsvatuFortress": {
+  "x": -10677.2,
+  "y": 611.5,
+  "z": -3904.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NOW_Merchant_Butcher_3410"
+  ]
+ },
+ "Shop_Trade_RedMountainFort": {
+  "x": -10637.5,
+  "y": 613.4,
+  "z": -3849.4,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NTM_Unique_Rhett_441"
+  ]
+ },
+ "Shop_Wanderer": {
+  "x": -9593.8,
+  "y": 639.8,
+  "z": -2601.2,
+  "scripts": 64,
+  "spreadX": 1957,
+  "spreadZ": 4981,
+  "npcs": [
+   "NHM_Unique_Magnus_102084",
+   "Animal_Ayut_Domestic_Bagpack_32806",
+   "NHM_Stallholder_2",
+   "NHM_Stallholder_1",
+   "NHM_Unique_Patrigio_3631",
+   "NHM_Citizen_9422"
+  ]
+ },
+ "Shop_Smuggler": {
+  "x": -10646.9,
+  "y": 607.9,
+  "z": -3900.4,
+  "scripts": 22,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NGM_Unique_Eigrin_537"
+  ]
+ },
+ "Shop_Church_Hernand": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Church_ReventineMonastery": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Church_Kharonso": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Church_Calphade": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Church_Demeniss": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Church_DemenissEast": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Church_DemenissWest": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Church_Delecyian": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Church_Pailune": {
+  "x": -12355.7,
+  "y": 775.5,
+  "z": -4831.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Alfred_3438"
+  ]
+ },
+ "Shop_Witch_Hernand": {
+  "x": -11482.3,
+  "y": 643.1,
+  "z": -4599.9,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_Unique_Wisdom_Witch_Store"
+  ]
+ },
+ "Shop_Witch_Demeniss": {
+  "x": -7373.3,
+  "y": 433.7,
+  "z": -4637.2,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_Unique_Modesty_Witch_Store"
+  ]
+ },
+ "Shop_Witch_Pailune": {
+  "x": -10887.0,
+  "y": 902.1,
+  "z": 426.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_Unique_Goodness_Witch_Store"
+  ]
+ },
+ "Shop_Witch_Urdavah": {
+  "x": -7109.5,
+  "y": 814.5,
+  "z": -9.5,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_Unique_power_Witch_Store"
+  ]
+ },
+ "Shop_Witch_Hernand_Isolation": {
+  "x": -11482.3,
+  "y": 643.1,
+  "z": -4599.9,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_Unique_power_Witch_1"
+  ]
+ },
+ "Shop_Contribution_Hernand": {
+  "x": -11302.8,
+  "y": 758.8,
+  "z": -4286.1,
+  "scripts": 2,
+  "spreadX": 1414,
+  "spreadZ": 986,
+  "npcs": [
+   "NHM_Unique_Contribution_0001",
+   "NTM_Unique_Citizen_Contribution"
+  ]
+ },
+ "Shop_Contribution_Demeniss": {
+  "x": -10595.8,
+  "y": 635.5,
+  "z": -3793.1,
+  "scripts": 3,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Contribution_0001"
+  ]
+ },
+ "Shop_Contribution_Delecyian": {
+  "x": -10595.8,
+  "y": 635.5,
+  "z": -3793.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Contribution_0001"
+  ]
+ },
+ "Shop_Contribution_Pailoon": {
+  "x": -10595.8,
+  "y": 635.5,
+  "z": -3793.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Contribution_0001"
+  ]
+ },
+ "Shop_Contribution_Tashkalp": {
+  "x": -10595.8,
+  "y": 635.5,
+  "z": -3793.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Contribution_0001"
+  ]
+ },
+ "Shop_Contribution_Varnia": {
+  "x": -10595.8,
+  "y": 635.5,
+  "z": -3793.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Contribution_0001"
+  ]
+ },
+ "Shop_RoyalSupply_Hernand": {
+  "x": -10674.1,
+  "y": 633.7,
+  "z": -3733.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Noble_3033",
+   "NHM_MiddleCitizen_3029",
+   "NHM_Hernand_Soldiers_OneHandDagger_53206",
+   "NHM_Hernand_Soldiers_OneHandSword_53220"
+  ]
+ },
+ "Shop_RoyalSupply_Delesyia": {
+  "x": -10674.1,
+  "y": 633.7,
+  "z": -3733.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Noble_3033",
+   "NHM_MiddleCitizen_3029",
+   "NHM_Hernand_Soldiers_OneHandDagger_53206",
+   "NHM_Hernand_Soldiers_OneHandSword_53220"
+  ]
+ },
+ "Shop_RoyalSupply_Demeniss": {
+  "x": -10674.1,
+  "y": 633.7,
+  "z": -3733.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Noble_3033",
+   "NHM_MiddleCitizen_3029",
+   "NHM_Hernand_Soldiers_OneHandDagger_53206",
+   "NHM_Hernand_Soldiers_OneHandSword_53220"
+  ]
+ },
+ "Shop_RoyalSupply_Varnia": {
+  "x": -10674.1,
+  "y": 633.7,
+  "z": -3733.1,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Noble_3033",
+   "NHM_MiddleCitizen_3029",
+   "NHM_Hernand_Soldiers_OneHandDagger_53206",
+   "NHM_Hernand_Soldiers_OneHandSword_53220"
+  ]
+ },
+ "Shop_Research_ScholarStone": {
+  "x": -11940.1,
+  "y": 835.8,
+  "z": -5113.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NTM_Unique_Provost_1"
+  ]
+ },
+ "Shop_Research_Pororin": {
+  "x": -10028.1,
+  "y": 560.5,
+  "z": -5266.7,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHW_Unique_Shay_Research"
+  ]
+ },
+ "Shop_Research_Urdavah": {
+  "x": -11940.1,
+  "y": 835.8,
+  "z": -5113.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Provost_1"
+  ]
+ },
+ "Shop_Research_OrcNeutralZone": {
+  "x": -11940.1,
+  "y": 835.8,
+  "z": -5113.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Provost_1"
+  ]
+ },
+ "Shop_Research_DelesyiaInstitute": {
+  "x": -11940.1,
+  "y": 835.8,
+  "z": -5113.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Provost_1"
+  ]
+ },
+ "Shop_Research_Dewhaven": {
+  "x": -11940.1,
+  "y": 835.8,
+  "z": -5113.8,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Provost_1"
+  ]
+ },
+ "Shop_Trade_GoldleafGuildhouse": {
+  "x": -10330.0,
+  "y": 544.7,
+  "z": -4237.5,
+  "scripts": 22,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NGM_Unique_Grux_200090023",
+   "NGM_Unique_Ugmum_200090023"
+  ]
+ },
+ "Shop_Trade_RedWindTradingAssociation": {
+  "x": -4455.8,
+  "y": 648.9,
+  "z": 2344.2,
+  "scripts": 3,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Esperd_528"
+  ]
+ },
+ "Shop_Trade_SilvermoonTroll": {
+  "x": -10649.0,
+  "y": 607.9,
+  "z": -3902.8,
+  "scripts": 2,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NTM_Unique_Trollmag_3418"
+  ]
+ },
+ "Shop_Trade_Demenissian_Trader": {
+  "x": -4455.8,
+  "y": 648.9,
+  "z": 2344.2,
+  "scripts": 3,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Esperd_528"
+  ]
+ },
+ "Shop_Faction_Hernand": {
+  "x": -10637.5,
+  "y": 613.4,
+  "z": -3837.6,
+  "scripts": 38,
+  "spreadX": 3211,
+  "spreadZ": 1299,
+  "npcs": [
+   "NHM_Stallholder_2",
+   "NTM_Unique_Rhett_441",
+   "NHM_Unique_Aldun_3412",
+   "NHM_Unique_Nita_102087",
+   "NDM_Unique_Bran_5463",
+   "NHW_Unique_Dahlia_4009",
+   "NGM_Unique_Eigrin_537",
+   "NDM_Unique_Grimnir_200130004"
+  ]
+ },
+ "Shop_Faction_Demeniss": {
+  "x": -8495.5,
+  "y": 525.0,
+  "z": -3153.4,
+  "scripts": 46,
+  "spreadX": 4676,
+  "spreadZ": 3553,
+  "npcs": [
+   "NHM_Stallholder_2",
+   "NDEM_Unique_Delkin_451",
+   "NTM_Unique_Rhett_441",
+   "NHW_Unique_Tina_4011",
+   "Object_Gimmick_Base_70001",
+   "NHM_Unique_Aldun_3412",
+   "NHM_Unique_Fishing"
+  ]
+ },
+ "Shop_Faction_Delesyian": {
+  "x": -10330.0,
+  "y": 544.7,
+  "z": -3849.4,
+  "scripts": 14,
+  "spreadX": 2705,
+  "spreadZ": 1189,
+  "npcs": [
+   "NHM_Stallholder_2",
+   "NHM_Unique_Aldun_3412",
+   "NGM_Unique_Grux_200090023",
+   "NTM_Unique_Rhett_441",
+   "NDEM_Unique_Delkin_451"
+  ]
+ },
+ "Shop_Faction_Pailune": {
+  "x": -10364.1,
+  "y": 568.3,
+  "z": -3853.9,
+  "scripts": 16,
+  "spreadX": 2728,
+  "spreadZ": 1358,
+  "npcs": [
+   "NHM_Stallholder_2",
+   "NOW_Merchant_Butcher_3410",
+   "NDEM_Unique_Delkin_451",
+   "NHM_Unique_Fishing",
+   "NHM_Unique_Aldun_3412",
+   "NHW_Unique_Dahlia_4009"
+  ]
+ },
+ "Shop_Faction_CrimsonDesert": {
+  "x": -10140.8,
+  "y": 607.9,
+  "z": -3874.9,
+  "scripts": 12,
+  "spreadX": 5912,
+  "spreadZ": 1622,
+  "npcs": [
+   "NGM_Unique_Eigrin_537",
+   "NHM_Unique_Nita_102087",
+   "NTM_Unique_Rhett_441",
+   "NHM_Vincent_1",
+   "NHM_Stallholder_2"
+  ]
+ },
+ "Shop_Street_Trader_GoldleafGuildhouse": {
+  "x": -10330.0,
+  "y": 544.7,
+  "z": -4237.5,
+  "scripts": 66,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NGM_Unique_Ugmum_200090023"
+  ]
+ },
+ "Shop_Street_Trader_Silvermoon": {
+  "x": -10649.0,
+  "y": 607.9,
+  "z": -3902.8,
+  "scripts": 64,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NTM_Unique_Trollmag_3418"
+  ]
+ },
+ "Shop_Street_Trader_Redwind": {
+  "x": -4455.8,
+  "y": 648.9,
+  "z": 2344.2,
+  "scripts": 66,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "NHM_Unique_Esperd_528"
+  ]
+ },
+ "Shop_Street_Trader": {
+  "x": -4455.8,
+  "y": 648.9,
+  "z": 2344.2,
+  "scripts": 70,
+  "spreadX": 5347,
+  "spreadZ": 2268,
+  "npcs": [
+   "NHM_Unique_Esperd_528",
+   "NHM_Street_Trader_53"
+  ]
+ },
+ "Schedule_Dem_Npc": {
+  "x": -6665.4,
+  "y": 424.5,
+  "z": -3466.8,
+  "scripts": 2,
+  "spreadX": 615,
+  "spreadZ": 243,
+  "npcs": [
+   "Riding_Boat_2306"
+  ]
+ },
+ "Schedule_Puzzle": {
+  "x": -4536.3,
+  "y": 400.4,
+  "z": -3215.5,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": [
+   "Object_Piranha_15672"
+  ]
+ },
+ "Contents_Spawn": {
+  "x": -7801.1,
+  "y": 643.3,
+  "z": 18.9,
+  "scripts": 1,
+  "spreadX": 0,
+  "spreadZ": 0,
+  "npcs": []
+ },
+ "Contents_GetOut_Region": {
+  "x": -4797.5,
+  "y": 649.0,
+  "z": 94.2,
+  "scripts": 4,
+  "spreadX": 7952,
+  "spreadZ": 3887,
+  "npcs": [
+   "Animal_BlueWhale_Wild_35018",
+   "Animal_CrowSwarm"
+  ]
+ }
+}

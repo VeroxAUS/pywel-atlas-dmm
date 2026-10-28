@@ -1,0 +1,618 @@
+{
+ "pet": [
+  {
+   "mission": "Mission_Minigame_II_CushionBall_II",
+   "reward": "Item(Item_gimmick_in_dpf_carpet_0006, 1)"
+  },
+  {
+   "mission": "Mission_Minigame_II_CushionBall_IV",
+   "reward": "Item(Item_gimmick_in_dpf_carpet_0006_index01, 1)"
+  },
+  {
+   "mission": "Mission_Minigame_II_CushionBall_V",
+   "reward": "Item(Item_gimmick_in_dpf_carpet_0007, 1)"
+  },
+  {
+   "mission": "Mission_Pet_Challenge_Start",
+   "reward": "Item(Pet_Slot_Expansion_Start, 1)"
+  },
+  {
+   "mission": "Mission_Pet_Challenge_I",
+   "reward": "Item(Pet_Slot_Expansion_1, 1)"
+  },
+  {
+   "mission": "Mission_Pet_Challenge_II",
+   "reward": "Item(Pet_Slot_Expansion_1_2, 1)"
+  },
+  {
+   "mission": "Mission_Pet_Challenge_III",
+   "reward": "Item(Pet_Slot_Expansion_1_3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_IX",
+   "reward": "Item(Pet_Slot_Expansion_3, 1)"
+  },
+  {
+   "mission": "Mission_Legendanimal_Phoenix_0",
+   "reward": "Item(Pet_Phoenix_Feather, 1)"
+  },
+  {
+   "mission": "Mission_Legendanimal_Phoenix_0",
+   "reward": "Item(Pet_Slot_Expansion_2_1, 1)"
+  },
+  {
+   "mission": "Mission_Legendanimal_Macaw_Parrot_0",
+   "reward": "Item(Pet_Slot_Expansion_2_2, 1)"
+  },
+  {
+   "mission": "Mission_Legendanimal_Machine_Eagle_2",
+   "reward": "Item(Pet_Slot_Expansion_2_3, 1)"
+  }
+ ],
+ "skill": [
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_OneHandSword_V",
+   "reward": "Item(Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_LeatherArmor_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Bow_IV",
+   "reward": "Item(Item_Skill_AbyssGear_SkillPointExp_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Bow_V",
+   "reward": "Item(Item_Skill_AbyssGear_BlockAmmoConsume_Special, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Cannon_I",
+   "reward": "Item(Item_Skill_AbyssGear_Machine_AdditionalDamage_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Cannon_IV",
+   "reward": "Item(Item_Skill_AbyssGear_Machine_AdditionalDamage_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Cannon_V",
+   "reward": "Item(Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_PlateArmor_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Rapier_III",
+   "reward": "Item(Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_FabricArmor_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Gun_I",
+   "reward": "Item(Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_FabricArmor_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Gun_IV",
+   "reward": "Item(Item_Skill_AbyssGear_SkillPointExp_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_SpecialWeapon_II",
+   "reward": "Item(Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_FabricArmor_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_SpecialWeapon_III",
+   "reward": "Item(Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_PlateArmor_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_SpecialWeapon_V",
+   "reward": "Item(Item_Skill_AbyssGear_Immune_Bismuth, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_SpecialWeapon_VI",
+   "reward": "Item(Item_Skill_AbyssGear_Boss_AdditionalDamage_Special, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_SpecialWeapon_VIII",
+   "reward": "Item(Item_Skill_AbyssGear_Machine_AdditionalDamage_Special, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_SpecialWeapon_X",
+   "reward": "Item(Item_Skill_AbyssGear_AddKillSkillLevel_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Vehicle_I",
+   "reward": "Item(Item_Skill_AbyssGear_Equip_AddPetFriendly_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Vehicle_III",
+   "reward": "Item(Item_Skill_AbyssGear_SkillPointExp_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Vehicle_VIII",
+   "reward": "Item(Item_Skill_AbyssGear_Attack_SPRecover_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Vehicle_X",
+   "reward": "Item(Item_Skill_AbyssGear_Equip_AddPetFriendly_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Battle_VII",
+   "reward": "Item(Item_Skill_AbyssGear_Attack_MPRecover_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Skirmish_II",
+   "reward": "Item(Item_Skill_AbyssGear_SkillPointExp_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Skirmish_VIII",
+   "reward": "Item(Item_Skill_AbyssGear_AdditionalThief_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Operation_I",
+   "reward": "Item(Item_Skill_AbyssGear_Machine_AdditionalDamage_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Operation_V",
+   "reward": "Item(Item_Skill_AbyssGear_CommonHumanoid_AdditionalDamage_Special, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Operation_VIII",
+   "reward": "Item(Item_Skill_AbyssGear_Boss_AdditionalDamage_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Operation_IX",
+   "reward": "Item(Item_Skill_AbyssGear_EquipDropRate_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Mastery_Operation_X",
+   "reward": "Item(Item_Skill_AbyssGear_AddKillSkillLevel_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_II",
+   "reward": "Item(Item_Skill_AbyssGear_CommonAnimal_AdditionalDamage_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_IV",
+   "reward": "Item(Item_Skill_AbyssGear_AddMoneyDropRate_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_V",
+   "reward": "Item(Item_Skill_AbyssGear_Creature_AdditionalDamage_Special, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_VI",
+   "reward": "Item(Item_Skill_AbyssGear_CollectDrop_Animal_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_VII",
+   "reward": "Item(Item_Skill_AbyssGear_CommonAnimal_AdditionalDamage_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_VIII",
+   "reward": "Item(Item_Skill_AbyssGear_AddCriticalRateByMaterialKey_LeatherArmor_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_IX",
+   "reward": "Item(Item_Skill_AbyssGear_CommonAnimal_AdditionalDamage_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_X",
+   "reward": "Item(Item_Skill_AbyssGear_CommonAnimal_AdditionalDamage_Special, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Hunting_XI",
+   "reward": "Item(Item_Skill_AbyssGear_CollectDrop_Animal_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_I",
+   "reward": "Item(Item_Skill_AbyssGear_CollectDrop_Plant_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_II",
+   "reward": "Item(Item_Skill_AbyssGear_CollectDrop_Ore_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_III",
+   "reward": "Item(Item_Skill_AbyssGear_FoodSkillLevelUp_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_IV",
+   "reward": "Item(Item_Skill_AbyssGear_CollectDrop_Log_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_V",
+   "reward": "Item(Item_Skill_AbyssGear_CollectDrop_Log_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_VII",
+   "reward": "Item(Item_Skill_AbyssGear_FoodSkillLevelUp_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_IX",
+   "reward": "Item(Item_Skill_AbyssGear_Equip_AddPetFriendly_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_X",
+   "reward": "Item(Item_Skill_AbyssGear_CollectDrop_Plant_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_XI",
+   "reward": "Item(Item_Skill_AbyssGear_AddMoneyDropRate_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Living_XII",
+   "reward": "Item(Item_Skill_AbyssGear_AbyssGrass_Immune, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Trust_I",
+   "reward": "Item(Item_Skill_AbyssGear_AddFrendly_LV3, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Trust_II",
+   "reward": "Item(Item_Skill_AbyssGear_AddFrendly_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Trust_III",
+   "reward": "Item(Item_Skill_AbyssGear_Attack_HPRecover_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Trust_IV",
+   "reward": "Item(Item_Skill_AbyssGear_ContributionExp_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Trust_V",
+   "reward": "Item(Item_Skill_AbyssGear_ReduceCraftMaterial_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Crime_IV",
+   "reward": "Item(Item_Skill_AbyssGear_ContributionExp_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Crime_V",
+   "reward": "Item(Item_Skill_AbyssGear_EquipDropRate_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Crime_VII",
+   "reward": "Item(Item_Skill_AbyssGear_AdditionalThief_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Crime_IX",
+   "reward": "Item(Item_Skill_AbyssGear_AdditionalThief_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Crime_X",
+   "reward": "Item(Item_Skill_AbyssGear_CommonHumanoid_AdditionalDamage_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_ChallengeAndChange_II",
+   "reward": "Item(Item_Skill_AbyssGear_CollectDrop_Plant_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_ChallengeAndChange_IV",
+   "reward": "Item(Item_Skill_AbyssGear_ReduceCraftMaterial_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_ChallengeAndChange_VI",
+   "reward": "Item(Item_Skill_AbyssGear_ContributionExp_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_ChallengeAndChange_VII",
+   "reward": "Item(Item_Skill_AbyssGear_AddMoneyDropRate_LV2, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_ChallengeAndChange_VIII",
+   "reward": "Item(Item_Skill_AbyssGear_AddMoneyDropRate_LV1, 1)"
+  },
+  {
+   "mission": "Mission_HohenmarkRuins_Block_Boss_Battle_0",
+   "reward": "Item(Item_Skill_AbyssGear_FrostSpike_LV1, 1)"
+  },
+  {
+   "mission": "Mission_DesolateStoneAltar_Ogre_Boss_Start_0",
+   "reward": "Item(Item_Skill_AbyssGear_Ogre, 1)"
+  },
+  {
+   "mission": "Mission_HyenaDen_Block_Boss_1",
+   "reward": "Item(Item_Skill_AbyssGear_Skevald, 1)"
+  },
+  {
+   "mission": "Mission_SnakeTemple_Boss_Block_Priscus_0",
+   "reward": "Item(Boss_Reward_SuperSkill, 1)"
+  },
+  {
+   "mission": "Mission_SnakeTemple_Boss_Block_Priscus_0",
+   "reward": "Item(Item_Skill_AbyssGear_Priscus, 1)"
+  },
+  {
+   "mission": "Mission_SnakeTemple_Boss_Block_Praevus_0",
+   "reward": "Item(Item_Skill_AbyssGear_Praevus, 1)"
+  },
+  {
+   "mission": "Mission_SnakeTemple_Boss_Block_Ancient_People_0",
+   "reward": "Item(Item_Skill_AbyssGear_Primus, 1)"
+  },
+  {
+   "mission": "Mission_CaliburnClan_II_DemenissZoo_Boss_Start_1",
+   "reward": "Item(Item_Skill_AbyssGear_ArrowRain_LV1, 1)"
+  },
+  {
+   "mission": "Mission_HowlingCave_Boss_Battle_1",
+   "reward": "Item(Item_Skill_AbyssGear_Leebur, 1)"
+  },
+  {
+   "mission": "Mission_SpiderCastle_Block_SpiderQueen_0",
+   "reward": "Item(Item_Skill_AbyssGear_QueenSpider, 1)"
+  },
+  {
+   "mission": "Mission_HarpyNest_Boss_Block_0",
+   "reward": "Item(Item_Skill_AbyssGear_Karanda, 1)"
+  },
+  {
+   "mission": "Mission_HarpyNest_Boss_Block_0",
+   "reward": "Item(Item_Skill_AbyssGear_BlockAmmoConsume_LV2, 1)"
+  },
+  {
+   "mission": "Mission_QuietSnowShelter_Block_Battle_0",
+   "reward": "Item(Item_Skill_AbyssGear_FrostBreath_LV1, 1)"
+  },
+  {
+   "mission": "Mission_Intro_MainBattle_4",
+   "reward": "Knowledge(Knowledge_MainMenuView_Main_Skill, 1)"
+  },
+  {
+   "mission": "Mission_Imp_Banquet_Boss_Battle_0",
+   "reward": "Item(Item_Skill_AbyssGear_ImpBoss, 1)"
+  },
+  {
+   "mission": "Mission_Goblin_Master_Meet_4",
+   "reward": "Item(Item_Skill_AbyssGear_EnlightenmentWave_LV1, 1)"
+  }
+ ],
+ "horse": [
+  {
+   "mission": "Challenge_SealedArtifact_Vehicle_II",
+   "reward": "Item(Item_Skill_AbyssGear_Equip_AddHorseExp_LV1, 1)"
+  },
+  {
+   "mission": "Challenge_SealedArtifact_Vehicle_VII",
+   "reward": "Item(Item_Skill_AbyssGear_Equip_AddHorseExp_LV2, 1)"
+  },
+  {
+   "mission": "Mission_Legendanimal_Whitehorse_0",
+   "reward": "Knowledge(Knowledge_White_Horse, 2)"
+  },
+  {
+   "mission": "Mission_Legendanimal_Blackhorse_0",
+   "reward": "Knowledge(Knowledge_Black_Horse, 2)"
+  },
+  {
+   "mission": "Mission_Legendanimal_Redhorse_0",
+   "reward": "Knowledge(Knowledge_RedHare_Horse, 2)"
+  },
+  {
+   "mission": "Mission_DemenissCastle_Daily_Fallen_Haystack_0",
+   "reward": "Item(HorseFeed_Hay, 15)"
+  },
+  {
+   "mission": "Mission_CarriageFence_Seizure_II_1",
+   "reward": "Item(HorseFeed_Hp_Potion, 10)"
+  },
+  {
+   "mission": "Mission_WindmereManor_HorseRace_Normal_Start_0",
+   "reward": "Item(Old_HorseArmor_Saddle, 1)"
+  }
+ ],
+ "dragon": [
+  {
+   "mission": "Mission_Invasion_Node_Her_DragonKillCastle",
+   "reward": "DropSet_Reblockade_Trade_DragonKillCastle"
+  },
+  {
+   "mission": "Challenge_Anamorphic_Black_Dragon_0",
+   "reward": "Knowledge(Knowledge_AncientRuinAnamorphic_Black_Dragon, 1)"
+  },
+  {
+   "mission": "Challenge_Anamorphic_Black_Dragon_0",
+   "reward": "Knowledge(Knowledge_Anamorphic_Black_Dragon, 2)"
+  },
+  {
+   "mission": "Mission_WindCliffFort_Block_Boss_0",
+   "reward": "Item(DragonSlayerLeader_OneHandCannon, 1)"
+  },
+  {
+   "mission": "Mission_SnakeTemple_Boss_Block_Aeserion_3",
+   "reward": "Item(Legendary_Dragon_OneHandSword, 1)"
+  },
+  {
+   "mission": "Mission_Marni_Barrier_Fortress_Blockade_Start_0",
+   "reward": "Item(Legendary_MarniDragon_OneHandCannon, 1)"
+  },
+  {
+   "mission": "Mission_Flame_Knights_Block_Ask_4",
+   "reward": "Knowledge(Knowledge_TristanDragonbane, 1)"
+  },
+  {
+   "mission": "Mission_Flame_Knights_Block_Ask_4",
+   "reward": "Knowledge(Knowledge_Visione_Chip_BossRematch_TristanDragonbane, 1)"
+  },
+  {
+   "mission": "Mission_HernandCastle_RhinocerosBeetle_2",
+   "reward": "Item(Item_dragonfly, 1)"
+  },
+  {
+   "mission": "Mission_BraveNest_Armor_2",
+   "reward": "Item(Dragon_Armor_01, 1)"
+  },
+  {
+   "mission": "Goblin_Master_Doo_Urdavah_Blackstar_0",
+   "reward": "Knowledge(Knowledge_Unique_Varnia_Dragon, 1)"
+  },
+  {
+   "mission": "Mission_MarniDragon_Boss_MarniMeet_0",
+   "reward": "Item(Quest_Paper_MarniDragon_Boss_Rescue, 1)"
+  },
+  {
+   "mission": "Mission_MarniDragon_Boss_MarniMeet_0",
+   "reward": "Knowledge(Knowledge_Paper_MarniDragon_Boss_Rescue, 1)"
+  },
+  {
+   "mission": "Mission_MarniDragon_Boss_GoldenStar_Start_0",
+   "reward": "Item(Boss_Reward_DragonParts, 1)"
+  },
+  {
+   "mission": "Mission_MarniDragon_Boss_GoldenStar_Start_1",
+   "reward": "Knowledge(Knowledge_Recipe_KuKu_Dragon_Armor, 1)"
+  },
+  {
+   "mission": "Mission_MarniDragon_Boss_GoldenStar_BlowingWind_0",
+   "reward": "Knowledge(Knowledge_CallDragon, 1)"
+  },
+  {
+   "mission": "Mission_MarniDragon_Boss_GoldenStar_BlowingWind_0",
+   "reward": "Mercenary(Riding_Dragon_1)"
+  }
+ ],
+ "mount": [
+  {
+   "mission": "Mission_Invasion_Node_Crim_RedMountainFort",
+   "reward": "DropSet_Reblockade_Trade_RedMountainFort"
+  },
+  {
+   "mission": "Mission_HelmaraVillage_TransferStationConstruction_Start_0",
+   "reward": "Knowledge(Knowledge_Node_Crim_Crimson_Mountains_Station, 2)"
+  },
+  {
+   "mission": "Mission_HowlingCave_Boss_Wolf_Wife_0",
+   "reward": "Item(Letter_Wolfmolar_Mountain_WifeLetter, 1)"
+  },
+  {
+   "mission": "Mission_WindsongMountain_Block_Start_0",
+   "reward": "Knowledge(Knowledge_Node_Kwe_WindsongMountain, 2)"
+  }
+ ],
+ "abyssgate": [
+  {
+   "mission": "Challenge_Discover_FrozenTower_1",
+   "reward": "Knowledge(AbyssGate_0176, 2)"
+  },
+  {
+   "mission": "Challenge_Discover_JumpTower_1",
+   "reward": "Knowledge(AbyssGate_0140, 2)"
+  },
+  {
+   "mission": "Challenge_Discover_WisdomTower_1",
+   "reward": "Knowledge(AbyssGate_0150, 2)"
+  },
+  {
+   "mission": "Challenge_Discover_ClockTower_1",
+   "reward": "Knowledge(AbyssGate_0137, 2)"
+  },
+  {
+   "mission": "Mission_HowlsandsCamp_Boss_1",
+   "reward": "Knowledge(AbyssGate_0036, 1)"
+  },
+  {
+   "mission": "Mission_SnakeTemple_Boss_Block_Priscus_0",
+   "reward": "Knowledge(AbyssGate_0016, 2)"
+  },
+  {
+   "mission": "Mission_EyeOfIce_Block_Start_1",
+   "reward": "Knowledge(AbyssGate_0176, 1)"
+  },
+  {
+   "mission": "Mission_MeetAlustain_Alchemist_Chamber_2",
+   "reward": "Knowledge(AbyssGate_0002, 2)"
+  },
+  {
+   "mission": "Mission_MeetAlustain_Alustain_Witch_1",
+   "reward": "Knowledge(AbyssGate_0002_AbyssIsland, 1)"
+  },
+  {
+   "mission": "Mission_SpireOfTheStars_LinkBand_1",
+   "reward": "Knowledge(AbyssGate_0023, 2)"
+  },
+  {
+   "mission": "Goblin_Master_Doo_OldKliff_1",
+   "reward": "Knowledge(AbyssGate_0079, 2)"
+  },
+  {
+   "mission": "Mission_JiJeongTemple_Normal_ChiefMonk_0",
+   "reward": "Knowledge(AbyssGate_0083, 2)"
+  },
+  {
+   "mission": "Mission_HexeMarie_Boss_Battle_0",
+   "reward": "Knowledge(AbyssGate_0176, 1)"
+  },
+  {
+   "mission": "Mission_Goblin_Master_Doo_0",
+   "reward": "Knowledge(AbyssGate_0151, 2)"
+  },
+  {
+   "mission": "Mission_Caliburn_Boss_FinalAbyss_Roof_0",
+   "reward": "Knowledge(AbyssGate_0205, 2)"
+  },
+  {
+   "mission": "Mission_Caliburn_Boss_AwakenCaliburn_Battle_1",
+   "reward": "Knowledge(AbyssGate_0205_AbyssIsland, 2)"
+  },
+  {
+   "mission": "Mission_Epilogue_Ending_ComeBackHome_0",
+   "reward": "Knowledge(AbyssGate_End0007, 1)"
+  }
+ ],
+ "tool": [
+  {
+   "mission": "Mission_SaltroadTradePost_TruthontheSand_Normal_Complete_1",
+   "reward": "Item(gimmick_tool_kinetic_boat_0001, 1)"
+  },
+  {
+   "mission": "Mission_Tashkalp_FruitofGreed_Normal_Complete_1",
+   "reward": "Item(gimmick_tool_kinetic_barbell_0002, 1)"
+  },
+  {
+   "mission": "Mission_RedfoxTradePost_Questioning_Normal_Complete_1",
+   "reward": "Item(gimmick_tool_kinetic_circle_0001, 1)"
+  },
+  {
+   "mission": "Mission_DelesyiaInstitute_Clue_Complete_0",
+   "reward": "Item(Collection_Prop_Tool_0007, 1)"
+  },
+  {
+   "mission": "Mission_GoldleafGuildhouse_Purge_Normal_Complete_1",
+   "reward": "Item(gimmick_tool_kinetic_barbell_0001, 1)"
+  },
+  {
+   "mission": "Mission_CalphadeCastle_Misappropriation_Normal_Complete_1",
+   "reward": "Item(gimmick_tool_kinetic_dolphin_0002, 1)"
+  },
+  {
+   "mission": "Mission_ScholastoneInstitute_WeightOfKnowledge_Normal_Complete_1",
+   "reward": "Item(gimmick_tool_kinetic_dolphin_0001, 1)"
+  }
+ ],
+ "ship": [
+  {
+   "mission": "Mission_Node_Dem_GrayRockShipyard_Block_Start_0",
+   "reward": "Knowledge(Knowledge_Node_Dem_GrayRockShipyard, 2)"
+  },
+  {
+   "mission": "Mission_MarniDragon_Boss_MonsterWave_2",
+   "reward": "Knowledge(Knowledge_Marni_AirShip_II, 1)"
+  }
+ ],
+ "unlock": [
+  {
+   "mission": "Mission_Intro_Abyss_Tutorial_0",
+   "reward": "gameplayvariablechange(Interaction_Unlock,True)"
+  }
+ ],
+ "key_": [
+  {
+   "mission": "Mission_MeetAlustain_Alustain_Wisdom_0",
+   "reward": "Item(Alchemist_Key_Proto, 1)"
+  }
+ ],
+ "teleport": [
+  {
+   "mission": "Mission_SplitHorn_Boss_Battle_0",
+   "reward": "Knowledge(Knowledge_Paper_AbyssTeleport, 1)"
+  }
+ ],
+ "wyvern": [
+  {
+   "mission": "Mission_Caliburn_Boss_MyurdinUmbra_Battle_0",
+   "reward": "Knowledge(Knowledge_Dimension_Wyvern, 1)"
+  }
+ ]
+}

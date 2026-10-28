@@ -1,0 +1,188 @@
+diff --git a/data/unique-gear-links.json b/data/unique-gear-links.json
+index 384c449..6ad04c4 100644
+--- a/data/unique-gear-links.json
++++ b/data/unique-gear-links.json
+@@ -1 +1 @@
+-{"note":"Unique gear layer: 30 reward-scene items (done when QuestSaveData._stageStateData has stageKey with _state 5) and 13 one-spot ground items (done when FieldSaveData._fieldGimmickSaveDataList has a record with reason 2, never-reset, and _levelOriginSceneObjectUuid matching uuid's three words). Positions are game world x,y,z; y>1500 is the Abyss.","items":[{"name":"Golden Sword","item":"Golden_OneHandSword","itemKey":1001524,"source":"reward","world":"Abyss","x":-11136.14,"y":1810.75,"z":-6124.22,"stage":"Reward_Item_Golden_OneHandSword","stageKey":1013256},{"name":"Constellation Helm","item":"Anamorphic_PlateArmor_Helm","itemKey":1000102,"source":"reward","world":"Pywel","x":-11930.9,"y":834.26,"z":-5031.4,"stage":"Reward_Item_Helm_Anamorphic_PlateArmor_Helm","stageKey":1004554},{"name":"Plate Helm of the Shadows","item":"DarknessKing_PlateArmor_Helm","itemKey":1000380,"source":"reward","world":"Pywel","x":-12736.42,"y":1034.5,"z":-2912.79,"stage":"Reward_Item_Helm_DarknessKing_PlateArmor_Helm","stageKey":1001072},{"name":"Brimstone Gas Mask","item":"Gas_Mask_Helm_I","itemKey":1000073,"source":"reward","world":"Pywel","x":-8505.75,"y":548.72,"z":-2399.74,"stage":"Reward_Item_Helm_Gas_Mask_Helm_I","stageKey":1004536},{"name":"Circuit Hijacking Helm","item":"Hacking_PlateArmor_Helm","itemKey":1000202,"source":"reward","world":"Pywel","x":-11701.93,"y":802.61,"z":-3848.49,"stage":"Reward_Item_Helm_Hacking_PlateArmor_Helm","stageKey":1004289},{"name":"Helm of Ignition","item":"Heat_PlateArmor_Helm","itemKey":1000236,"source":"reward","world":"Pywel","x":-10989.57,"y":801.4,"z":-3541.91,"stage":"Reward_Item_Helm_Heat_PlateArmor_Helm","stageKey":1004067},{"name":"Helm of Knowledge","item":"Knowledge_PlateArmor_Helm","itemKey":1000037,"source":"reward","world":"Pywel","x":-12033.74,"y":892.29,"z":-4807.51,"stage":"Reward_Item_Helm_Knowledge_PlateArmor_Helm","stageKey":1001068},{"name":"Marni Laser Helm","item":"Marni_Laser_Helm","itemKey":1001400,"source":"reward","world":"Pywel","x":-4043.17,"y":492.29,"z":-5829.0,"stage":"Reward_Item_Helm_Marni_Laser_Helm","stageKey":1005305},{"name":"Health Detection Device","item":"Scouter_HP_PlateArmor_Helm","itemKey":1001236,"source":"reward","world":"Pywel","x":-2996.1,"y":460.45,"z":-4474.77,"stage":"Reward_Item_Helm_Scouter_HP_PlateArmor_Helm","stageKey":1005301},{"name":"Witters Plate Helm","item":"Witters_PlateArmor_Helm","itemKey":2101011,"source":"reward","world":"Pywel","x":-10387.79,"y":350.47,"z":-6458.28,"stage":"Reward_Item_Helm_Witters_PlateArmor_Helm","stageKey":1001359},{"name":"Drake Shield","item":"AbyssReward_Drake_Metal_OneHandShield","itemKey":290021,"source":"reward","world":"Pywel","x":-8958.73,"y":622.11,"z":-2976.73,"stage":"Reward_Item_Shield_AbyssReward_Drake_Metal_OneHandShield","stageKey":1005297},{"name":"Shotgun Shield","item":"Gun_OneHandShield","itemKey":1001305,"source":"reward","world":"Pywel","x":-5785.89,"y":634.28,"z":-470.38,"stage":"Reward_Item_Shield_Gun_OneHandShield","stageKey":1005319},{"name":"Runewalker Shield","item":"LakeGolem_OnehandShield","itemKey":1000201,"source":"reward","world":"Pywel","x":-12268.86,"y":733.13,"z":-5241.1,"stage":"Reward_Item_Shield_LakeGolem_OnehandShield","stageKey":1004288},{"name":"Shield of Ringing","item":"Sound_OneHandShield","itemKey":1000125,"source":"reward","world":"Pywel","x":-8192.04,"y":527.47,"z":-3223.13,"stage":"Reward_Item_Shield_Sound_OneHandShield","stageKey":1005300},{"name":"Gale Shield","item":"Wind_Power_OneHandShield","itemKey":1001192,"source":"reward","world":"Pywel","x":-5766.83,"y":675.05,"z":-712.41,"stage":"Reward_Item_Shield_Wind_Power_OneHandShield","stageKey":1005334},{"name":"Bismuth Spear","item":"Bismuth_TwoHandSpear","itemKey":1001251,"source":"reward","world":"Pywel","x":-8020.28,"y":670.47,"z":-641.43,"stage":"Reward_Item_Spear_Bismuth_TwoHandSpear","stageKey":1005320},{"name":"Thorn of Dark Pursuit","item":"DarkLeader_TwoHandGiantSpear","itemKey":310028,"source":"reward","world":"Pywel","x":-7203.85,"y":411.34,"z":-4250.56,"stage":"Reward_Item_Spear_DarkLeader_TwoHandGiantSpear","stageKey":1005296},{"name":"Disruptor Spear","item":"EMP_TwoHandSpear","itemKey":1001212,"source":"reward","world":"Pywel","x":-6279.52,"y":489.95,"z":-3887.49,"stage":"Reward_Item_Spear_EMP_TwoHandSpear","stageKey":1005316},{"name":"Flame Spear","item":"Fire_staff_spear_TwoHandSpear","itemKey":1000451,"source":"reward","world":"Pywel","x":-10673.66,"y":985.71,"z":50.2,"stage":"Reward_Item_Spear_Fire_staff_spear_TwoHandSpear","stageKey":1004567},{"name":"Diverging Moon","item":"Legendary_Moonhead_01_TwoHandGiantSpear","itemKey":15706,"source":"reward","world":"Pywel","x":-8580.05,"y":532.09,"z":-3622.36,"stage":"Reward_Item_Spear_Legendary_Moonhead_01_TwoHandGiantSpear","stageKey":1003841},{"name":"Circling Moon","item":"Legendary_Moonhead_02_TwoHandGiantSpear","itemKey":15707,"source":"reward","world":"Pywel","x":-6687.46,"y":473.42,"z":-3052.48,"stage":"Reward_Item_Spear_Legendary_Moonhead_02_TwoHandGiantSpear","stageKey":1000491},{"name":"Grasping Moon","item":"Legendary_Moonhead_TwoHandGiantSpear","itemKey":15702,"source":"reward","world":"Pywel","x":-8476.3,"y":525.79,"z":-2947.73,"stage":"Reward_Item_Spear_Legendary_Moonhead_TwoHandGiantSpear","stageKey":1005293},{"name":"Frostfang","item":"Legendary_OwenCraber_TwoHandGiantSpear","itemKey":15703,"source":"reward","world":"Pywel","x":-10512.42,"y":814.25,"z":-2135.79,"stage":"Reward_Item_Spear_Legendary_OwenCraber_TwoHandGiantSpear","stageKey":1004593},{"name":"Lightning Spear","item":"Lightning_TwoHandSpear","itemKey":1001163,"source":"reward","world":"Pywel","x":-9496.45,"y":642.94,"z":952.77,"stage":"Reward_Item_Spear_Lightning_TwoHandSpear","stageKey":1004558},{"name":"Soul Spear","item":"Soul_TwoHandSpear","itemKey":1001188,"source":"reward","world":"Pywel","x":-12649.41,"y":1006.59,"z":-3367.33,"stage":"Reward_Item_Spear_Soul_TwoHandSpear","stageKey":1004585},{"name":"Propeller Spear","item":"Wind_TwoHandSpear","itemKey":1001193,"source":"reward","world":"Pywel","x":-3410.48,"y":431.04,"z":-5820.24,"stage":"Reward_Item_Spear_Wind_TwoHandSpear","stageKey":1005310},{"name":"Acria Sword","item":"Archria_OneHandSword","itemKey":200919,"source":"reward","world":"Pywel","x":-9418.09,"y":642.79,"z":-1361.82,"stage":"Reward_Item_Sword_Archria_OneHandSword","stageKey":1012807},{"name":"Knightlord's Sword","item":"Knight_King_OneHandSword","itemKey":200052,"source":"reward","world":"Pywel","x":-8623.66,"y":540.54,"z":-2119.9,"stage":"Reward_Item_Sword_Knight_King_OneHandSword","stageKey":1003426},{"name":"Fated Shadow","item":"Old_Kliff_OneHandSword","itemKey":1000578,"source":"reward","world":"Abyss","x":-7777.23,"y":1974.71,"z":-479.61,"stage":"Reward_Item_Sword_Old_Kliff_OneHandSword","stageKey":1004570},{"name":"Spada Sword","item":"Spada_OneHandSword","itemKey":200917,"source":"reward","world":"Pywel","x":-8990.59,"y":612.79,"z":-2988.26,"stage":"Reward_Item_Sword_Spada_OneHandSword","stageKey":1004590},{"name":"Arben Greatsword","item":"Arven_Giant_TwoHandGiantBastard","itemKey":1002104,"source":"ground","world":"Pywel","x":-6321.72,"y":386.27,"z":-3533.76,"level":"04_aka_dem_cave_0065.palevel","uuid":[435595741,4279243046,1126394848]},{"name":"Lubricant Sprayer","item":"Oil_Sprayer_BackPack","itemKey":1003751,"source":"quest","world":"Pywel","x":-5585.81,"y":522.32,"z":-2570.79,"level":"factory_chocolate_0001_phase00_00.palevel","uuid":[236054139,1450447245,2241251132]},{"name":"Myurdin's Ring","item":"LaveMyurdin_Ring","itemKey":1005406,"source":"quest","world":"Pywel","x":-10683.7,"y":995.91,"z":132.84,"level":"mjordin_boss_lavamountain_phase00_00.palevel","uuid":[1125284047,1450447582,912704316]},{"name":"Fertilizer Sprayer","item":"Fertilizer_Sprayer_BackPack","itemKey":1003750,"source":"quest","world":"Pywel","x":-9975.07,"y":709.43,"z":-2460.54,"level":"quest_node_her_spidercastle_all.palevel","uuid":[2412099701,1450447271,1450142268]},{"name":"Mask of the Devil of the Reed Field","item":"ReedDevil_Mask","itemKey":1000234,"source":"quest","world":"Pywel","x":-11351.74,"y":748.39,"z":-7015.59,"level":"reeddevil_boss_village_mask_item.palevel","uuid":[2022288997,4279242482,164962784]},{"name":"Dewhaven Shotgun","item":"Alida_OneHandShotgun","itemKey":370002,"source":"ground","world":"Pywel","x":-5196.53,"y":357.32,"z":-5408.07,"level":"sector_-21_-22_sub_1_3.palevel","uuid":[53885500,4279243046,1126394848]},{"name":"Shadow of the Past Pistol","item":"Alida_Restraint_OneHandPistol","itemKey":270011,"source":"ground","world":"Pywel","x":-5509.14,"y":671.03,"z":-890.49,"level":"sector_-22_-4_sub_2_9.palevel","uuid":[833343663,4279243046,1126394848]},{"name":"Serdin Greatsword","item":"Serdin_Giant_TwoHandGiantBastard","itemKey":1002102,"source":"ground","world":"Pywel","x":-6163.77,"y":427.6,"z":-3234.55,"level":"sector_-25_-13_sub_3_29.palevel","uuid":[426592877,4279243046,1126394848]},{"name":"Verak Greatsword","item":"Verak_Giant_TwoHandGiantBastard","itemKey":1002106,"source":"ground","world":"Pywel","x":-6531.22,"y":445.04,"z":-3467.7,"level":"sector_-26_-14_indoor_1_0.palevel","uuid":[454986251,4279243046,1126394848]},{"name":"Double-Headed Axe of Greed","item":"Legendary_CaptainGoblin_OneHandAxe","itemKey":12600,"source":"ground","world":"Pywel","x":-8820.19,"y":351.5,"z":-6350.34,"level":"sector_-35_-25_sub_1_1.palevel","uuid":[2872452177,1591218771,1150148307]},{"name":"Kadel Mace","item":"Kadel_OneHandMace","itemKey":220002,"source":"ground","world":"Pywel","x":-11112.23,"y":669.69,"z":1302.32,"level":"sector_-44_5_sub_2_4.palevel","uuid":[541695841,4279243084,1617652448]},{"name":"Bleed Shotgun","item":"Walter_OneHandShotgun","itemKey":370006,"source":"ground","world":"Pywel","x":-11748.17,"y":709.55,"z":-4119.01,"level":"sector_-46_-17_sub_3_41.palevel","uuid":[575696201,4279243046,1126394848]},{"name":"Hyde Crossbow","item":"Hyde_OneHandCrossBow","itemKey":320001,"source":"ground","world":"Pywel","x":-12152.71,"y":785.81,"z":-5258.08,"level":"sector_-48_-21_sub_2_3.palevel","uuid":[2251985241,352324874,489074269]}]}
++{"note":"Unique gear layer: 30 reward-scene items (done when QuestSaveData._stageStateData has stageKey with _state 5) and 14 ground items lying loose (13 one-spot items plus the second Acria Sword) (done when FieldSaveData._fieldGimmickSaveDataList has a record with reason 2, never-reset, and _levelOriginSceneObjectUuid matching uuid's three words). Positions are game world x,y,z; y>1500 is the Abyss.","items":[{"name":"Golden Sword","item":"Golden_OneHandSword","itemKey":1001524,"source":"reward","world":"Abyss","x":-11136.14,"y":1810.75,"z":-6124.22,"stage":"Reward_Item_Golden_OneHandSword","stageKey":1013256},{"name":"Constellation Helm","item":"Anamorphic_PlateArmor_Helm","itemKey":1000102,"source":"reward","world":"Pywel","x":-11930.9,"y":834.26,"z":-5031.4,"stage":"Reward_Item_Helm_Anamorphic_PlateArmor_Helm","stageKey":1004554},{"name":"Plate Helm of the Shadows","item":"DarknessKing_PlateArmor_Helm","itemKey":1000380,"source":"reward","world":"Pywel","x":-12736.42,"y":1034.5,"z":-2912.79,"stage":"Reward_Item_Helm_DarknessKing_PlateArmor_Helm","stageKey":1001072},{"name":"Brimstone Gas Mask","item":"Gas_Mask_Helm_I","itemKey":1000073,"source":"reward","world":"Pywel","x":-8505.75,"y":548.72,"z":-2399.74,"stage":"Reward_Item_Helm_Gas_Mask_Helm_I","stageKey":1004536},{"name":"Circuit Hijacking Helm","item":"Hacking_PlateArmor_Helm","itemKey":1000202,"source":"reward","world":"Pywel","x":-11701.93,"y":802.61,"z":-3848.49,"stage":"Reward_Item_Helm_Hacking_PlateArmor_Helm","stageKey":1004289},{"name":"Helm of Ignition","item":"Heat_PlateArmor_Helm","itemKey":1000236,"source":"reward","world":"Pywel","x":-10989.57,"y":801.4,"z":-3541.91,"stage":"Reward_Item_Helm_Heat_PlateArmor_Helm","stageKey":1004067,"note":"Another Helm of Ignition is inside a treasure chest in Delesyia."},{"name":"Helm of Knowledge","item":"Knowledge_PlateArmor_Helm","itemKey":1000037,"source":"reward","world":"Pywel","x":-12033.74,"y":892.29,"z":-4807.51,"stage":"Reward_Item_Helm_Knowledge_PlateArmor_Helm","stageKey":1001068},{"name":"Marni Laser Helm","item":"Marni_Laser_Helm","itemKey":1001400,"source":"reward","world":"Pywel","x":-4043.17,"y":492.29,"z":-5829.0,"stage":"Reward_Item_Helm_Marni_Laser_Helm","stageKey":1005305},{"name":"Health Detection Device","item":"Scouter_HP_PlateArmor_Helm","itemKey":1001236,"source":"reward","world":"Pywel","x":-2996.1,"y":460.45,"z":-4474.77,"stage":"Reward_Item_Helm_Scouter_HP_PlateArmor_Helm","stageKey":1005301},{"name":"Witters Plate Helm","item":"Witters_PlateArmor_Helm","itemKey":2101011,"source":"reward","world":"Pywel","x":-10387.79,"y":350.47,"z":-6458.28,"stage":"Reward_Item_Helm_Witters_PlateArmor_Helm","stageKey":1001359},{"name":"Drake Shield","item":"AbyssReward_Drake_Metal_OneHandShield","itemKey":290021,"source":"reward","world":"Pywel","x":-8958.73,"y":622.11,"z":-2976.73,"stage":"Reward_Item_Shield_AbyssReward_Drake_Metal_OneHandShield","stageKey":1005297},{"name":"Shotgun Shield","item":"Gun_OneHandShield","itemKey":1001305,"source":"reward","world":"Pywel","x":-5785.89,"y":634.28,"z":-470.38,"stage":"Reward_Item_Shield_Gun_OneHandShield","stageKey":1005319},{"name":"Runewalker Shield","item":"LakeGolem_OnehandShield","itemKey":1000201,"source":"reward","world":"Pywel","x":-12268.86,"y":733.13,"z":-5241.1,"stage":"Reward_Item_Shield_LakeGolem_OnehandShield","stageKey":1004288},{"name":"Shield of Ringing","item":"Sound_OneHandShield","itemKey":1000125,"source":"reward","world":"Pywel","x":-8192.04,"y":527.47,"z":-3223.13,"stage":"Reward_Item_Shield_Sound_OneHandShield","stageKey":1005300},{"name":"Gale Shield","item":"Wind_Power_OneHandShield","itemKey":1001192,"source":"reward","world":"Pywel","x":-5766.83,"y":675.05,"z":-712.41,"stage":"Reward_Item_Shield_Wind_Power_OneHandShield","stageKey":1005334},{"name":"Bismuth Spear","item":"Bismuth_TwoHandSpear","itemKey":1001251,"source":"reward","world":"Pywel","x":-8020.28,"y":670.47,"z":-641.43,"stage":"Reward_Item_Spear_Bismuth_TwoHandSpear","stageKey":1005320},{"name":"Thorn of Dark Pursuit","item":"DarkLeader_TwoHandGiantSpear","itemKey":310028,"source":"reward","world":"Pywel","x":-7203.85,"y":411.34,"z":-4250.56,"stage":"Reward_Item_Spear_DarkLeader_TwoHandGiantSpear","stageKey":1005296},{"name":"Disruptor Spear","item":"EMP_TwoHandSpear","itemKey":1001212,"source":"reward","world":"Pywel","x":-6279.52,"y":489.95,"z":-3887.49,"stage":"Reward_Item_Spear_EMP_TwoHandSpear","stageKey":1005316},{"name":"Flame Spear","item":"Fire_staff_spear_TwoHandSpear","itemKey":1000451,"source":"reward","world":"Pywel","x":-10673.66,"y":985.71,"z":50.2,"stage":"Reward_Item_Spear_Fire_staff_spear_TwoHandSpear","stageKey":1004567},{"name":"Diverging Moon","item":"Legendary_Moonhead_01_TwoHandGiantSpear","itemKey":15706,"source":"reward","world":"Pywel","x":-8580.05,"y":532.09,"z":-3622.36,"stage":"Reward_Item_Spear_Legendary_Moonhead_01_TwoHandGiantSpear","stageKey":1003841},{"name":"Circling Moon","item":"Legendary_Moonhead_02_TwoHandGiantSpear","itemKey":15707,"source":"reward","world":"Pywel","x":-6687.46,"y":473.42,"z":-3052.48,"stage":"Reward_Item_Spear_Legendary_Moonhead_02_TwoHandGiantSpear","stageKey":1000491},{"name":"Grasping Moon","item":"Legendary_Moonhead_TwoHandGiantSpear","itemKey":15702,"source":"reward","world":"Pywel","x":-8476.3,"y":525.79,"z":-2947.73,"stage":"Reward_Item_Spear_Legendary_Moonhead_TwoHandGiantSpear","stageKey":1005293},{"name":"Frostfang","item":"Legendary_OwenCraber_TwoHandGiantSpear","itemKey":15703,"source":"reward","world":"Pywel","x":-10512.42,"y":814.25,"z":-2135.79,"stage":"Reward_Item_Spear_Legendary_OwenCraber_TwoHandGiantSpear","stageKey":1004593},{"name":"Lightning Spear","item":"Lightning_TwoHandSpear","itemKey":1001163,"source":"reward","world":"Pywel","x":-9496.45,"y":642.94,"z":952.77,"stage":"Reward_Item_Spear_Lightning_TwoHandSpear","stageKey":1004558},{"name":"Soul Spear","item":"Soul_TwoHandSpear","itemKey":1001188,"source":"reward","world":"Pywel","x":-12649.41,"y":1006.59,"z":-3367.33,"stage":"Reward_Item_Spear_Soul_TwoHandSpear","stageKey":1004585},{"name":"Propeller Spear","item":"Wind_TwoHandSpear","itemKey":1001193,"source":"reward","world":"Pywel","x":-3410.48,"y":431.04,"z":-5820.24,"stage":"Reward_Item_Spear_Wind_TwoHandSpear","stageKey":1005310},{"name":"Acria Sword","item":"Archria_OneHandSword","itemKey":200919,"source":"reward","world":"Pywel","x":-9418.09,"y":642.79,"z":-1361.82,"stage":"Reward_Item_Sword_Archria_OneHandSword","stageKey":1012807,"note":"A second Acria Sword lies in the Crimson Desert Ancestors' Ruins."},{"name":"Knightlord's Sword","item":"Knight_King_OneHandSword","itemKey":200052,"source":"reward","world":"Pywel","x":-8623.66,"y":540.54,"z":-2119.9,"stage":"Reward_Item_Sword_Knight_King_OneHandSword","stageKey":1003426},{"name":"Fated Shadow","item":"Old_Kliff_OneHandSword","itemKey":1000578,"source":"reward","world":"Abyss","x":-7777.23,"y":1974.71,"z":-479.61,"stage":"Reward_Item_Sword_Old_Kliff_OneHandSword","stageKey":1004570},{"name":"Spada Sword","item":"Spada_OneHandSword","itemKey":200917,"source":"reward","world":"Pywel","x":-8990.59,"y":612.79,"z":-2988.26,"stage":"Reward_Item_Sword_Spada_OneHandSword","stageKey":1004590},{"name":"Arben Greatsword","item":"Arven_Giant_TwoHandGiantBastard","itemKey":1002104,"source":"ground","world":"Pywel","x":-6321.72,"y":386.27,"z":-3533.76,"level":"04_aka_dem_cave_0065.palevel","uuid":[435595741,4279243046,1126394848]},{"name":"Lubricant Sprayer","item":"Oil_Sprayer_BackPack","itemKey":1003751,"source":"quest","world":"Pywel","x":-5585.81,"y":522.32,"z":-2570.79,"level":"factory_chocolate_0001_phase00_00.palevel","uuid":[236054139,1450447245,2241251132]},{"name":"Myurdin's Ring","item":"LaveMyurdin_Ring","itemKey":1005406,"source":"quest","world":"Pywel","x":-10683.7,"y":995.91,"z":132.84,"level":"mjordin_boss_lavamountain_phase00_00.palevel","uuid":[1125284047,1450447582,912704316]},{"name":"Fertilizer Sprayer","item":"Fertilizer_Sprayer_BackPack","itemKey":1003750,"source":"quest","world":"Pywel","x":-9975.07,"y":709.43,"z":-2460.54,"level":"quest_node_her_spidercastle_all.palevel","uuid":[2412099701,1450447271,1450142268]},{"name":"Mask of the Devil of the Reed Field","item":"ReedDevil_Mask","itemKey":1000234,"source":"quest","world":"Pywel","x":-11351.74,"y":748.39,"z":-7015.59,"level":"reeddevil_boss_village_mask_item.palevel","uuid":[2022288997,4279242482,164962784]},{"name":"Dewhaven Shotgun","item":"Alida_OneHandShotgun","itemKey":370002,"source":"ground","world":"Pywel","x":-5196.53,"y":357.32,"z":-5408.07,"level":"sector_-21_-22_sub_1_3.palevel","uuid":[53885500,4279243046,1126394848]},{"name":"Shadow of the Past Pistol","item":"Alida_Restraint_OneHandPistol","itemKey":270011,"source":"ground","world":"Pywel","x":-5509.14,"y":671.03,"z":-890.49,"level":"sector_-22_-4_sub_2_9.palevel","uuid":[833343663,4279243046,1126394848]},{"name":"Serdin Greatsword","item":"Serdin_Giant_TwoHandGiantBastard","itemKey":1002102,"source":"ground","world":"Pywel","x":-6163.77,"y":427.6,"z":-3234.55,"level":"sector_-25_-13_sub_3_29.palevel","uuid":[426592877,4279243046,1126394848]},{"name":"Verak Greatsword","item":"Verak_Giant_TwoHandGiantBastard","itemKey":1002106,"source":"ground","world":"Pywel","x":-6531.22,"y":445.04,"z":-3467.7,"level":"sector_-26_-14_indoor_1_0.palevel","uuid":[454986251,4279243046,1126394848]},{"name":"Double-Headed Axe of Greed","item":"Legendary_CaptainGoblin_OneHandAxe","itemKey":12600,"source":"ground","world":"Pywel","x":-8820.19,"y":351.5,"z":-6350.34,"level":"sector_-35_-25_sub_1_1.palevel","uuid":[2872452177,1591218771,1150148307]},{"name":"Kadel Mace","item":"Kadel_OneHandMace","itemKey":220002,"source":"ground","world":"Pywel","x":-11112.23,"y":669.69,"z":1302.32,"level":"sector_-44_5_sub_2_4.palevel","uuid":[541695841,4279243084,1617652448]},{"name":"Bleed Shotgun","item":"Walter_OneHandShotgun","itemKey":370006,"source":"ground","world":"Pywel","x":-11748.17,"y":709.55,"z":-4119.01,"level":"sector_-46_-17_sub_3_41.palevel","uuid":[575696201,4279243046,1126394848]},{"name":"Hyde Crossbow","item":"Hyde_OneHandCrossBow","itemKey":320001,"source":"ground","world":"Pywel","x":-12152.71,"y":785.81,"z":-5258.08,"level":"sector_-48_-21_sub_2_3.palevel","uuid":[2251985241,352324874,489074269]},{"name":"Acria Sword","item":"Archria_OneHandSword","itemKey":200919,"source":"ground","world":"Pywel","x":-4432.17,"y":660.55,"z":-258.81,"level":"03_cd_dungeon_21_dungeon.palevel","uuid":[1403720911,1591218565,1150148307],"note":"A second Acria Sword is on display in a hidden cellar behind a false bookshelf."}],"rule":"Treasure Chest vs Unique Gear (Thomas, 2026-10-25): anything you open a chest or strongbox to get is a Treasure Chest (data/treasure-chest-links.json), even when it holds one-of-a-kind gear; gear you pick up directly (reward display, lying on the ground, quest pickup) is Unique Gear. note: optional muted last line on the item's knowledge card."}
+diff --git a/research/analysis/chest-item-stats.json b/research/analysis/chest-item-stats.json
+index 4283a32..6b5ed5e 100644
+--- a/research/analysis/chest-item-stats.json
++++ b/research/analysis/chest-item-stats.json
+@@ -12,7 +12,7 @@
+    "no stats": 24
+   },
+   "unique": {
+-   "stats": 30,
++   "stats": 31,
+    "stats (some left out)": 9,
+    "no lines (some left out)": 2,
+    "no stats": 2
+@@ -6167,6 +6167,30 @@
+     }
+    ],
+    "status": "stats"
++  },
++  {
++   "chest": "Acria Sword",
++   "item": "Acria Sword",
++   "itemName": "Archria_OneHandSword",
++   "lines": [
++    "Attack 10",
++    "Critical Rate Lv 1"
++   ],
++   "parts": [
++    {
++     "kind": "stat",
++     "label": "Attack",
++     "value": "10",
++     "status": "ddd"
++    },
++    {
++     "kind": "stat",
++     "label": "Critical Rate",
++     "value": "Lv 1",
++     "status": "criticalrate"
++    }
++   ],
++   "status": "stats"
+   }
+  ]
+ }
+diff --git a/research/analysis/unique-gear-cards.json b/research/analysis/unique-gear-cards.json
+index d9156c1..e4e14cf 100644
+--- a/research/analysis/unique-gear-cards.json
++++ b/research/analysis/unique-gear-cards.json
+@@ -1,12 +1,12 @@
+ {
+  "summary": {
+-  "items": 43,
+-  "cards": 43,
+-  "withType": 41,
+-  "withDescription": 43,
+-  "withIcon": 43,
++  "items": 44,
++  "cards": 44,
++  "withType": 42,
++  "withDescription": 44,
++  "withIcon": 44,
+   "statuses": {
+-   "card": 43
++   "card": 44
+   }
+  },
+  "items": [
+@@ -439,6 +439,16 @@
+    "description": "A crossbow built for durability and reliability. Exceptionally durable and unlikely to malfunction, it delivers steady performance even in harsh battlefield conditions. Its versatility makes it a fine choice as a main weapon in a wide range of combat situations.",
+    "iconName": "ItemIcon_Prefab_CD_PHM_05_CrossBow_0001",
+    "status": "card"
++  },
++  {
++   "name": "Acria Sword",
++   "itemKey": 200919,
++   "itemName": "Archria_OneHandSword",
++   "english": "Acria Sword",
++   "itemType": "Sword",
++   "description": "A mysterious curved sword imbued with a radiant golden glow. Much like the history of the Crimson Desert, shrouded in mystery to outsiders, this weapon is equally enigmatic. Its ornate patterns and bizarre embellishments suggest the blade was forged for ritualistic purposes.",
++   "iconName": "ItemIcon_Prefab_CD_PHM_01_Sword_0076_R",
++   "status": "card"
+   }
+  ]
+ }
+diff --git a/src/marker-bell/prepare_tooltip_texts.py b/src/marker-bell/prepare_tooltip_texts.py
+index 677729a..807526a 100644
+--- a/src/marker-bell/prepare_tooltip_texts.py
++++ b/src/marker-bell/prepare_tooltip_texts.py
+@@ -25,7 +25,10 @@ What it does:
+     effect lines), 2 two columns like the inventory tooltip's stat rows,
+     3 the same with the inventory's stat icons (Thomas's choice). v0.112 adds
+     the unique gear card tables (kUniqueGear*, see unique_gear_lines) and
+-    the Defense Efficiency icon (STAT_ICON_OVERRIDES). The header stays plain ASCII: every
++    the Defense Efficiency icon (STAT_ICON_OVERRIDES). 0.29.1 adds an
++    optional muted last line to a card: a unique gear item's "note" in
++    data/unique-gear-links.json, and CHEST_NOTES for chests (both say where
++    a second copy of the item is). The header stays plain ASCII: every
+     non-ASCII byte is written as an \\xNN escape. The script stops with an
+     error if the rows do not match the chest list, a label or title is longer
+     than 100 bytes, or a card paragraph is longer than 3000 bytes.
+@@ -51,6 +54,12 @@ MAX_DESCRIPTION_BYTES = 3000
+ # worldmapview #KnowledgeInfoDiscriptionText).
+ STAT_LINE_CSS = "font-text-caption-minor-white"
+ NOTE_LINE_CSS = "font-text-caption-minor-beige"
++# 0.29.1: a muted last line for chests whose item also exists elsewhere, by
++# chest name in data/treasure-chest-links.json. Unique gear keeps its notes
++# in data/unique-gear-links.json ("note").
++CHEST_NOTES = {
++    "Delesyia chest 17": "Another Helm of Ignition is on display in a large tent.",
++}
+ # v0.109: the inventory tooltip's buff yellow and its muted gray
+ # (cdcommon_font.css, 15 px like the card text).
+ EFFECT_LINE_CSS = "font-text-caption-minor-yellow"
+@@ -137,6 +146,9 @@ def main():
+         if record["name"] != link["name"] or record["uuid"] != link["uuid"]:
+             raise ValueError(f"Contents row {record['name']!r} does not match chest {link['name']!r}")
+ 
++    unknown = set(CHEST_NOTES) - {link["name"] for link in links}
++    if unknown:
++        raise ValueError(f"CHEST_NOTES names chests that are not in the list: {sorted(unknown)}")
+     stats = item_stats(root, "surface", [record["name"] for record in contents])
+ 
+     # Tables in chest order; None becomes nullptr.
+@@ -158,8 +170,10 @@ def main():
+         # Knowledge card description markup (v0.98): type, then (v0.106) the
+         # stat lines, then the item's own lines; one table per style (v0.109).
+         body = description_lines(description)
++        # 0.29.1: the muted "second copy" line, if any (CHEST_NOTES).
++        note = CHEST_NOTES.get(record["name"])
+         for index, style in enumerate(CARD_STYLES):
+-            styled[style].append(style_markup(index, item_type, stat_parts, body, None)
++            styled[style].append(style_markup(index, item_type, stat_parts, body, note)
+                                  if name and (item_type or body) else None)
+ 
+     lines = [
+@@ -251,7 +265,7 @@ def abyss_chest_lines(root):
+     stats = item_stats(root, "abyss", [card["name"] for card in cards])
+     labels, titles, first, second, icons = [], [], [], [], []
+     styled = {style: [] for style in CARD_STYLES}
+-    for card, stat_parts in zip(cards, stats):
++    for link, card, stat_parts in zip(links, cards, stats):
+         name = card.get("english") if card.get("status") == "card" else None
+         parts = description_lines(card.get("description"))
+         also = [f"Also contains: {card['alsoContains']}"] if card.get("alsoContains") else []
+@@ -340,16 +354,18 @@ def unique_gear_lines(root):
+     fills = {row["icon"]: row["fill"] for row in sizes["uniqueItems"] if "fill" in row}
+     titles, first, second, icons, steps = [], [], [], [], []
+     styled = {style: [] for style in CARD_STYLES}
+-    for card, stat_parts in zip(cards, stats):
++    for link, card, stat_parts in zip(links, cards, stats):
+         name = card.get("english") if card.get("status") == "card" else None
+         item_type = card.get("itemType") if name else None
+         body = description_lines(card.get("description")) if name else []
++        # 0.29.1: the item's "note" (where a second copy is), as a muted last line.
++        note = link.get("note")
+         titles.append(name)
+         paragraph1, paragraph2 = card_paragraphs(item_type, card.get("description")) if name else (None, None)
+         first.append(paragraph1)
+         second.append(paragraph2)
+         for index, style in enumerate(CARD_STYLES):
+-            styled[style].append(style_markup(index, item_type, stat_parts, body, None)
++            styled[style].append(style_markup(index, item_type, stat_parts, body, note)
+                                  if name and (item_type or body) else None)
+         icon = card.get("iconName") if name else None
+         icons.append(icon)
+diff --git a/src/marker-bell/prepare_unique_gear_links.py b/src/marker-bell/prepare_unique_gear_links.py
+index 5f5b545..7a7a761 100644
+--- a/src/marker-bell/prepare_unique_gear_links.py
++++ b/src/marker-bell/prepare_unique_gear_links.py
+@@ -27,8 +27,9 @@ def main():
+     directory = Path(__file__).resolve().parent
+     mapping = json.loads((directory.parents[1] / "data" / "unique-gear-links.json").read_text(encoding="utf-8"))
+     items = mapping["items"]
+-    if len(items) != 43:
+-        raise ValueError("Expected 43 unique gear items")
++    # 0.29.1: 44 items, the second Acria Sword (lying in the Ancestors' Ruins) added.
++    if len(items) != 44:
++        raise ValueError("Expected 44 unique gear items")
+     lines = [
+         "// Generated from data/unique-gear-links.json by prepare_unique_gear_links.py - do not edit by hand.",
+         "// Collected (see NativeSaveReader.cpp): a reward item when the save's stage list holds stageKey at",

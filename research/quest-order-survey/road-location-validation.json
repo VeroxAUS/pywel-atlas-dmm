@@ -1,0 +1,22 @@
+{
+ "roadFilesRead": 1686,
+ "roadFilesDecoded": 1180,
+ "stagesWithScript": 7525,
+ "missionsWithRoadPosition": 468,
+ "missions": 6864,
+ "questsWithRoadPosition": 141,
+ "quests": 1098,
+ "byGroup": {
+  "mainChapterQuestsWithPosition": 31,
+  "Quest_NodeWithPosition": 73,
+  "Quest_FactionWithPosition": 7,
+  "Challenge_missionsWithPosition": 2,
+  "Mission_missionsWithPosition": 457
+ },
+ "nodeQuestDistanceCheck": {
+  "pairs": 63,
+  "median": 449,
+  "within500": 33,
+  "within2000": 50
+ }
+}

@@ -1,0 +1,325 @@
+diff -ru src/pywel-atlas/RouteCanvas.cpp src/pywel-atlas/RouteCanvas.cpp
+--- src/pywel-atlas/RouteCanvas.cpp	2026-10-25 00:38:34.231727600 +1100
++++ src/pywel-atlas/RouteCanvas.cpp	2026-10-25 00:39:56.582105400 +1100
+@@ -291,6 +291,8 @@
+     volatile LONG paths;
+     volatile LONG layerSkips;
+     volatile LONG budgetSkips; // v0.131.
++    volatile LONG drawMicroseconds; // 0.29.0 (development builds): the last update's drawing time.
++    volatile LONG drawMicrosecondsMax; // The longest since the worker last logged it.
+     volatile LONG layerBytes;
+     volatile LONG playerAbyss;
+     volatile LONG found; // 0 = not found, 1 = query, 2 = child walk.
+@@ -826,6 +828,34 @@
+     }
+ }
+ 
++// 0.29.0 (development builds): measures one DrawLegs call for the log.
++struct DrawTimer {
++    Counters& counters;
++#ifdef PYWEL_ATLAS_DEV
++    LARGE_INTEGER start = {};
++    explicit DrawTimer(Counters& owner) : counters(owner) {
++        QueryPerformanceCounter(&start);
++    }
++    ~DrawTimer() {
++        LARGE_INTEGER now = {};
++        LARGE_INTEGER frequency = {};
++        QueryPerformanceCounter(&now);
++        QueryPerformanceFrequency(&frequency);
++        LONG micro = frequency.QuadPart > 0 ?
++            static_cast<LONG>(1000000.0 * static_cast<double>(now.QuadPart - start.QuadPart) / frequency.QuadPart) : 0;
++        InterlockedExchange(&counters.drawMicroseconds, micro);
++        LONG seen = counters.drawMicrosecondsMax;
++        while (micro > seen && InterlockedCompareExchange(&counters.drawMicrosecondsMax, micro, seen) != seen) {
++            seen = counters.drawMicrosecondsMax;
++        }
++    }
++#else
++    explicit DrawTimer(Counters& owner) : counters(owner) {}
++#endif
++    DrawTimer(const DrawTimer&) = delete;
++    DrawTimer& operator=(const DrawTimer&) = delete;
++};
++
+ // Counts an update our canvas handled (drawn or deliberately empty), so the
+ // overlay stays off.
+ void Handled(Counters& counters) {
+@@ -845,6 +875,8 @@
+     stats.paths = counters.paths;
+     stats.layerSkips = counters.layerSkips;
+     stats.budgetSkips = counters.budgetSkips;
++    stats.drawMs = counters.drawMicroseconds / 1000.0f;
++    stats.drawMsMax = counters.drawMicrosecondsMax / 1000.0f;
+     stats.layerBytes = static_cast<unsigned>(counters.layerBytes);
+     stats.playerAbyss = counters.playerAbyss != 0;
+     stats.found = kFound[counters.found >= 0 && counters.found <= 2 ? counters.found : 0];
+@@ -937,6 +969,7 @@
+ 
+     // World points (X, -Z) in metres; one UI pixel = a98 / U metres.
+     float heightScale = view.root.height / 1080.0f;
++    DrawTimer timer(worldCounters);
+     DrawLegs(canvas, state, [](const RoutePoint& point, float& x, float& y) {
+         x = point.x;
+         y = -point.z;
+@@ -1005,6 +1038,7 @@
+     float unit = 1.0f / (sx * view.uiScale);
+     // Sizes follow the screen height, like the world map's (1080 lines = 1x).
+     float heightScale = view.root.valid && view.root.height > 0.0f ? view.root.height / 1080.0f : 1.0f;
++    DrawTimer timer(minimapCounters);
+     DrawLegs(canvas, state, [&](const RoutePoint& point, float& x, float& y) {
+         x = halfWidth + (point.x - px) * unitsPerMetre / sx;
+         y = halfHeight + (pz - point.z) * unitsPerMetre / sy;
+@@ -1014,6 +1048,12 @@
+ }
+ 
+ // See RouteCanvas.h.
++void PywelRouteCanvasRestartDrawMax() {
++    InterlockedExchange(&worldCounters.drawMicrosecondsMax, 0);
++    InterlockedExchange(&minimapCounters.drawMicrosecondsMax, 0);
++}
++
++// See RouteCanvas.h.
+ bool PywelRouteWorldLayerMatches() {
+     return InterlockedCompareExchange(&worldLayerMatches, 0, 0) != 0;
+ }
+diff -ru src/pywel-atlas/RouteCanvas.h src/pywel-atlas/RouteCanvas.h
+--- src/pywel-atlas/RouteCanvas.h	2026-10-25 00:38:34.254431800 +1100
++++ src/pywel-atlas/RouteCanvas.h	2026-10-25 00:39:56.582105400 +1100
+@@ -48,6 +48,8 @@
+         long paths; // v0.124: continuous paths added (slot 0x398; legs and rings).
+         long layerSkips; // v0.124 world map: updates skipped because the map shows the other layer.
+         long budgetSkips; // v0.131: legs or rings left out to stay within the geometry budget.
++        float drawMs; // 0.29.0, development builds: the last update's drawing time (ms; 0 otherwise).
++        float drawMsMax; // The longest since the last log line (reset by the worker's log).
+         unsigned layerBytes; // v0.124 world map: the "layer showing" bytes 0..3 (controller +0x468).
+         bool playerAbyss; // v0.124: the player is on the Abyss layer (minimap snapshot).
+         const char* found; // v0.124: how our canvas was found ("query", "child walk" or "not found").
+@@ -59,6 +61,9 @@
+     float outline[4];
+ };
+ void PywelGetRouteCanvasStats(RouteCanvasStats& stats);
++// 0.29.0: restarts the "longest draw time" of both maps (the worker, after
++// logging them).
++void PywelRouteCanvasRestartDrawMax();
+ 
+ // v0.124: the latest canvas search report of each map (0 = world map, 1 =
+ // minimap), and a serial that grows with every new report. A report may
+diff -ru src/pywel-atlas/RoutePlanner.cpp src/pywel-atlas/RoutePlanner.cpp
+--- src/pywel-atlas/RoutePlanner.cpp	2026-10-25 00:38:34.247313600 +1100
++++ src/pywel-atlas/RoutePlanner.cpp	2026-10-25 00:39:56.580604100 +1100
+@@ -35,11 +35,11 @@
+     if (!points || !order || count == 0 || keep == 0) {
+         return 0;
+     }
+-    keep = std::min(keep, kRouteMaxStops);
++    keep = std::min(keep, kPlanLookahead);
+ 
+     // Step 1: the `keep` nearest candidates. The list holds at most a few
+     // thousand spots, so a plain sort of their distances is fast enough.
+-    Candidate nearest[kRouteMaxStops];
++    Candidate nearest[kPlanLookahead];
+     unsigned kept = 0;
+     for (unsigned index = 0; index < count; ++index) {
+         float dx = points[index].x - start.x;
+@@ -63,9 +63,9 @@
+ 
+     // Step 2: nearest neighbour from the player. path[0] is the player;
+     // path[1..kept] are the stops (as indices into `points`).
+-    RoutePoint path[kRouteMaxStops + 1];
+-    unsigned pathIndex[kRouteMaxStops + 1];
+-    bool used[kRouteMaxStops] = {};
++    RoutePoint path[kPlanLookahead + 1];
++    unsigned pathIndex[kPlanLookahead + 1];
++    bool used[kPlanLookahead] = {};
+     path[0] = start;
+     for (unsigned step = 1; step <= kept; ++step) {
+         unsigned best = kept;
+@@ -119,7 +119,7 @@
+ 
+ // See RoutePlanner.h.
+ float OrderByCosts(unsigned count, const float* costs, unsigned* order) {
+-    count = std::min(count, kRouteMaxStops);
++    count = std::min(count, kPlanLookahead);
+     if (!costs || !order || count == 0) {
+         return 0.0f;
+     }
+@@ -128,8 +128,8 @@
+     auto cost = [&](unsigned a, unsigned b) { return 0.5f * (costs[a * places + b] + costs[b * places + a]); };
+ 
+     // Nearest neighbour from the start (place 0).
+-    unsigned path[kRouteMaxStops + 1];
+-    bool used[kRouteMaxStops + 1] = {};
++    unsigned path[kPlanLookahead + 1];
++    bool used[kPlanLookahead + 1] = {};
+     path[0] = 0;
+     used[0] = true;
+     for (unsigned step = 1; step <= count; ++step) {
+diff -ru src/pywel-atlas/RoutePlanner.h src/pywel-atlas/RoutePlanner.h
+--- src/pywel-atlas/RoutePlanner.h	2026-10-25 00:38:34.234724500 +1100
++++ src/pywel-atlas/RoutePlanner.h	2026-10-25 00:39:56.580604100 +1100
+@@ -29,16 +29,20 @@
+ 
+ // The most stops a route may hold (the panel's slider goes up to this).
+ constexpr unsigned kRouteMaxStops = 10; // v0.133 (was 50).
++// 0.29.0: how many of the nearest stops the planner orders. Only the first
++// kRouteMaxStops (the panel's Stops) are shown; the rest give the order a
++// longer view, so a stop is not left behind for a long walk back later.
++constexpr unsigned kPlanLookahead = 30;
+ 
+ // Plans a route from `start` through up to `keep` of the `count` points.
+ // Writes the chosen points' indices (into `points`) to `order` in visiting
+ // order and the path's total length (from `start`) to `length`. Returns how
+-// many stops were written (at most kRouteMaxStops). `order` must hold
+-// kRouteMaxStops entries.
++// many stops were written (at most kPlanLookahead). `order` must hold
++// kPlanLookahead entries.
+ unsigned PlanRoute(const RoutePoint& start, const RoutePoint* points, unsigned count, unsigned keep,
+     unsigned* order, float& length);
+ 
+-// v0.111: orders `count` stops (at most kRouteMaxStops) by given travel
++// v0.111: orders `count` stops (at most kPlanLookahead) by given travel
+ // costs instead of straight distances: `costs[i * (count + 1) + j]` is the
+ // cost from place i to place j, where place 0 is the start and place s + 1
+ // is stop s. Same open path method (nearest neighbour, then 2-opt; the two
+diff -ru src/pywel-atlas/RouteSystem.cpp src/pywel-atlas/RouteSystem.cpp
+--- src/pywel-atlas/RouteSystem.cpp	2026-10-25 00:38:34.256928700 +1100
++++ src/pywel-atlas/RouteSystem.cpp	2026-10-25 00:39:56.587602300 +1100
+@@ -645,6 +645,11 @@
+     sprintf_s(line, "canvas budget: legs or rings left out, world map %ld, minimap %ld", world.budgetSkips,
+         canvas.minimap.budgetSkips);
+     Log(line);
++    // 0.29.0: our drawing time per map update (last, and longest since the last line).
++    sprintf_s(line, "route draw: world map %.2f ms (max %.2f), minimap %.2f ms (max %.2f)", world.drawMs,
++        world.drawMsMax, canvas.minimap.drawMs, canvas.minimap.drawMsMax);
++    Log(line);
++    PywelRouteCanvasRestartDrawMax();
+     if (plan.count == 0) {
+         return;
+     }
+@@ -823,10 +828,32 @@
+     Log(line);
+ }
+ 
+-// Orders `count` stops by road cost from `start` (one road search per place),
+-// writing their new order to `order`. Logs how long it took.
++// 0.29.0: how many places (the start, then the nearest stops) get road costs
++// in the tour order's cost table; the rest use straight distances. All of
++// them, until one table took longer than kMatrixSlowMs; then the start and
++// the first 10 stops, until a table is quick again (under kMatrixQuickMs).
++constexpr double kMatrixSlowMs = 150.0;
++constexpr double kMatrixQuickMs = 50.0;
++constexpr unsigned kFallbackRoadPlaces = 11;
++unsigned roadPlaces = kPlanLookahead + 1;
++
++// Milliseconds since `start` (a QueryPerformanceCounter reading).
++double MillisecondsSince(const LARGE_INTEGER& start) {
++    LARGE_INTEGER now = {};
++    LARGE_INTEGER frequency = {};
++    QueryPerformanceCounter(&now);
++    QueryPerformanceFrequency(&frequency);
++    return frequency.QuadPart > 0 ? 1000.0 * static_cast<double>(now.QuadPart - start.QuadPart) / frequency.QuadPart
++                                  : 0.0;
++}
++
++// Orders `count` stops by road cost from `start` (one road search per place
++// that gets road costs, see roadPlaces), writing their new order to `order`.
++// Logs how long it took.
+ void OrderByRoad(const RoutePoint& start, const RoutePoint* stops, unsigned count, unsigned* order) {
+     ULONGLONG began = GetTickCount64();
++    LARGE_INTEGER matrixStart = {};
++    QueryPerformanceCounter(&matrixStart);
+     unsigned places = count + 1;
+     std::vector<RoutePoint> place(places);
+     place[0] = start;
+@@ -834,18 +861,41 @@
+         place[stop + 1] = stops[stop];
+     }
+     std::vector<float> costs(static_cast<size_t>(places) * places, 0.0f);
++    unsigned roadRows = places < roadPlaces ? places : roadPlaces;
+     for (unsigned from = 0; from < places; ++from) {
+-        RouteLegCosts(place[from], place.data() + 1, count, costs.data() + from * places + 1);
++        if (from < roadRows) {
++            RouteLegCosts(place[from], place.data() + 1, count, costs.data() + from * places + 1);
++            continue;
++        }
++        for (unsigned stop = 0; stop < count; ++stop) {
++            costs[from * places + stop + 1] = Distance(place[from].x, place[from].z, stops[stop].x, stops[stop].z);
++        }
++    }
++    double matrixMs = MillisecondsSince(matrixStart);
++    // 0.29.0: a slow table switches the far rows to straight distances.
++    if (matrixMs > kMatrixSlowMs) {
++        roadPlaces = kFallbackRoadPlaces;
++    } else if (matrixMs < kMatrixQuickMs && roadRows == places) {
++        roadPlaces = kPlanLookahead + 1;
+     }
+     // The way back to the start is never walked; use the way out for both.
+     for (unsigned stop = 1; stop < places; ++stop) {
+         costs[stop * places] = costs[stop];
+     }
++    LARGE_INTEGER orderStart = {};
++    QueryPerformanceCounter(&orderStart);
+     float total = OrderByCosts(count, costs.data(), order);
++    [[maybe_unused]] double orderMs = MillisecondsSince(orderStart);
+     char line[160];
+     sprintf_s(line, "tour order by road cost: %u stops, total cost %.0f, %llu ms", count, total,
+         GetTickCount64() - began);
+     Log(line);
++#ifdef PYWEL_ATLAS_DEV
++    // 0.29.0 timing (development builds).
++    sprintf_s(line, "plan timing: cost table %.1f ms (%u of %u places on roads), 2-opt %.1f ms", matrixMs, roadRows,
++        places, orderMs);
++    Log(line);
++#endif
+ }
+ 
+ // Copies the legs into shownLines, with leg 0 starting at `player`'s nearest
+@@ -1062,21 +1112,26 @@
+             if (reason) {
+                 // The nearest stops (straight distance), then (v0.111) their
+                 // order by road cost, then one road-following leg per stop.
+-                unsigned order[kRouteMaxStops] = {};
++                // 0.29.0: the order is planned over up to kPlanLookahead
++                // stops; only the first choice.stops are kept and drawn.
++                LARGE_INTEGER planStart = {};
++                QueryPerformanceCounter(&planStart);
++                unsigned order[kPlanLookahead] = {};
+                 float length = 0.0f;
+-                unsigned stops = PlanRoute(start, candidatePoints, count, choice.stops, order, length);
+-                RoutePoint chosenPoints[kRouteMaxStops];
+-                for (unsigned stop = 0; stop < stops; ++stop) {
++                unsigned considered = PlanRoute(start, candidatePoints, count, kPlanLookahead, order, length);
++                RoutePoint chosenPoints[kPlanLookahead];
++                for (unsigned stop = 0; stop < considered; ++stop) {
+                     chosenPoints[stop] = candidatePoints[order[stop]];
+                 }
+-                unsigned roadOrder[kRouteMaxStops] = {};
++                unsigned roadOrder[kPlanLookahead] = {};
+                 if (planningAbyss) {
+-                    for (unsigned stop = 0; stop < stops; ++stop) {
++                    for (unsigned stop = 0; stop < considered; ++stop) {
+                         roadOrder[stop] = stop;
+                     }
+                 } else {
+-                    OrderByRoad(start, chosenPoints, stops, roadOrder);
++                    OrderByRoad(start, chosenPoints, considered, roadOrder);
+                 }
++                unsigned stops = considered < choice.stops ? considered : choice.stops;
+                 plan.serial = ++planSerial;
+                 plan.count = stops;
+                 plan.status = count == 0 ? "No stops left on this map layer" : nullptr;
+@@ -1094,6 +1149,13 @@
+                 plannedHash = hash;
+                 planned = true;
+                 LogPlan(plan, reason, player.playerX, player.playerZ, player.abyssLayer, count);
++#ifdef PYWEL_ATLAS_DEV
++                // 0.29.0 timing (development builds): the whole plan, legs included.
++                char timing[160];
++                sprintf_s(timing, "plan timing: %.1f ms in all, %u stops considered, %u drawn",
++                    MillisecondsSince(planStart), considered, stops);
++                Log(timing);
++#endif
+             }
+             // Follow the player along the current leg; far off it, plan that
+             // leg again from where the player is.

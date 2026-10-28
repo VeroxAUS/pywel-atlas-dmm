@@ -1,0 +1,17 @@
+{
+ "schedulePathFiles": 3631,
+ "scriptsWithSchedulePath": 2087,
+ "pathVsPaseqAnchor": {
+  "pairs": 0,
+  "median": null,
+  "within500": 0
+ },
+ "playerQuestsWithPosition": 415,
+ "playerQuests": 694,
+ "mainChapterQuestsWithPosition": 40,
+ "questsWithPosition": 511,
+ "missionsWithPosition": 1998,
+ "missions": 6864,
+ "plainMissionsWithPosition": 1899,
+ "challengeMissionsWithPosition": 12
+}

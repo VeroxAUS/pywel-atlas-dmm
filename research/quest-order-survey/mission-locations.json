@@ -1,0 +1,578 @@
+{
+ "Challenge_Abyss_0055_3": {
+  "x": -10619.0,
+  "y": 1898.0,
+  "z": -1755.0,
+  "stages": 1,
+  "region": "Abyssone",
+  "nearestNode": "Node_Abyssone_0055",
+  "nodeDistance": 30
+ },
+ "Mission_WindCliffFort_Block_Boss_1": {
+  "x": -6624.6,
+  "y": 507.8,
+  "z": -5620.1,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_WindCliffFort_RestArea_0001_RestArea_0001",
+  "nodeDistance": 62
+ },
+ "Mission_HohenmarkRuins_Block_Boss_Battle_1": {
+  "x": -12687.3,
+  "y": 1029.8,
+  "z": -2877.2,
+  "stages": 1,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_HohenmarkRuins",
+  "nodeDistance": 38
+ },
+ "Mission_HohenmarkRuins_Boss_Reward_0": {
+  "x": -12736.4,
+  "y": 1034.5,
+  "z": -2912.8,
+  "stages": 1,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_HohenmarkRuins",
+  "nodeDistance": 74
+ },
+ "Mission_FortManub_Block_Start_2": {
+  "x": -5520.8,
+  "y": 665.5,
+  "z": -924.6,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_FortManub",
+  "nodeDistance": 33
+ },
+ "Mission_IsvatuFortress_Block_Boss_1": {
+  "x": -6633.2,
+  "y": 653.1,
+  "z": -1090.5,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_IsvatuFortress",
+  "nodeDistance": 6
+ },
+ "Mission_RedMountainFort_Block_GoldenArmor_Boss_1": {
+  "x": -5034.5,
+  "y": 681.1,
+  "z": -1210.0,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RedMountainFort",
+  "nodeDistance": 61
+ },
+ "Mission_BoneArena_Block_Boss_1": {
+  "x": -6129.3,
+  "y": 624.7,
+  "z": -845.5,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Tashkalp",
+  "nodeDistance": 94
+ },
+ "Mission_Marni_Mine_Fortress_Block_Start_1": {
+  "x": -3443.4,
+  "y": 417.0,
+  "z": -5799.7,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniAirLab",
+  "nodeDistance": 17
+ },
+ "Mission_Marni_Experiment_Fortress_Block_Start_1": {
+  "x": -3019.4,
+  "y": 460.7,
+  "z": -4494.2,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniLab",
+  "nodeDistance": 79
+ },
+ "Mission_MarniMechFactory_Block_Boss_1": {
+  "x": -4447.9,
+  "y": 420.9,
+  "z": -4916.5,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniMechFactory",
+  "nodeDistance": 19
+ },
+ "Mission_SnakeTemple_Boss_Block_Priscus_1": {
+  "x": -11884.0,
+  "y": 864.8,
+  "z": -756.0,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SkyRest",
+  "nodeDistance": 20
+ },
+ "Mission_SnakeTemple_Boss_Block_Praevus_1": {
+  "x": -6507.0,
+  "y": 680.0,
+  "z": -781.4,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_FallenAbyss",
+  "nodeDistance": 13
+ },
+ "Mission_SnakeTemple_Boss_Block_Ancient_People_1": {
+  "x": -7089.2,
+  "y": 484.9,
+  "z": -5298.8,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_ArrowBigRock",
+  "nodeDistance": 5
+ },
+ "Mission_Marni_Barrier_Fortress_Blockade_Start_1": {
+  "x": -4661.6,
+  "y": 440.6,
+  "z": -5353.5,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_ValvegardWallFort",
+  "nodeDistance": 11
+ },
+ "Mission_BloodsteelCamp_Block_Request_Karzul_Battle_2": {
+  "x": -8933.5,
+  "y": 628.1,
+  "z": -5945.3,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BloodsteelCamp",
+  "nodeDistance": 13
+ },
+ "Mission_EastCourt_Block_Start_1": {
+  "x": -6679.4,
+  "y": 473.7,
+  "z": -3069.5,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_EastCourt",
+  "nodeDistance": 3
+ },
+ "Mission_WestCourt_Block_Start_1": {
+  "x": -8483.2,
+  "y": 526.0,
+  "z": -2928.6,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_WestCourt",
+  "nodeDistance": 3
+ },
+ "Mission_SouthCourt_Block_Start_1": {
+  "x": -8563.5,
+  "y": 532.4,
+  "z": -3626.8,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_SouthCourt",
+  "nodeDistance": 9
+ },
+ "Mission_Flame_Knights_Block_Ask_5": {
+  "x": -9011.0,
+  "y": 609.2,
+  "z": -2970.4,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_Flame_Knights",
+  "nodeDistance": 5
+ },
+ "Mission_SilvermoonHQ_Block_DemenissMP_2": {
+  "x": -6904.4,
+  "y": 355.1,
+  "z": -3898.4,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_Shipwreck_0001",
+  "nodeDistance": 94
+ },
+ "Mission_CaliburnClan_II_DemenissZoo_Boss_Start_2": {
+  "x": -8102.0,
+  "y": 487.6,
+  "z": -3769.7,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_DemenissZoo",
+  "nodeDistance": 62
+ },
+ "Mission_KingMountainDigSite_Block_Boss_1": {
+  "x": -9085.4,
+  "y": 630.1,
+  "z": -2237.5,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_KingMountainDigSite",
+  "nodeDistance": 66
+ },
+ "Mission_TheLaughingMarionette_Normal_Boss_1": {
+  "x": -8214.6,
+  "y": 529.6,
+  "z": -3233.3,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_TheLaughingMarionette",
+  "nodeDistance": 17
+ },
+ "Mission_GateOfTruth_StoneGolem_Block_Light_3": {
+  "x": -9019.3,
+  "y": 749.0,
+  "z": -1937.1,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_TruthGate",
+  "nodeDistance": 21
+ },
+ "Mission_WindmereManor_Byron_FullPlateArmorTroll_Boss_Battle_1": {
+  "x": -8679.1,
+  "y": 509.9,
+  "z": -2512.6,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BurnhandQuarry_RestArea_0001",
+  "nodeDistance": 33
+ },
+ "Mission_WindmereManor_Byron_FullPlateArmorTroll_Boss_Reward_0": {
+  "x": -8623.7,
+  "y": 540.5,
+  "z": -2119.9,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_Moonlake",
+  "nodeDistance": 4
+ },
+ "Mission_Node_Her_PervinFort_Block_Boss_1": {
+  "x": -11574.8,
+  "y": 651.6,
+  "z": -5251.4,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_PervinFort",
+  "nodeDistance": 9
+ },
+ "Mission_Her_RuinedChapel_Block_Complete_1": {
+  "x": -9879.8,
+  "y": 583.4,
+  "z": -5840.1,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_RuinedChapel",
+  "nodeDistance": 5
+ },
+ "Mission_FortHellwood_HamondBindel_Start_1": {
+  "x": -11217.6,
+  "y": 791.6,
+  "z": -5476.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_FortHellwood",
+  "nodeDistance": 31
+ },
+ "Mission_SouthQuarry_Block_CubeWalker_Start_1": {
+  "x": -9513.6,
+  "y": 531.6,
+  "z": -4641.7,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_SouthQuarry",
+  "nodeDistance": 57
+ },
+ "Mission_Node_Her_RootFort_Surround_1": {
+  "x": -10522.1,
+  "y": 814.2,
+  "z": -2142.7,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_DivineTree",
+  "nodeDistance": 4
+ },
+ "Mission_Node_Her_RootFort_Reward_0": {
+  "x": -10512.4,
+  "y": 814.3,
+  "z": -2135.8,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_DivineTree",
+  "nodeDistance": 8
+ },
+ "Mission_HernandCastle_CucuIcemoorCastleRuins_Ing_3": {
+  "x": -11160.7,
+  "y": 726.6,
+  "z": -3880.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_KilndenKukuWorkshop",
+  "nodeDistance": 14
+ },
+ "Mission_KharonsoLake_Block_BossBattle_2": {
+  "x": -12368.2,
+  "y": 736.2,
+  "z": -5025.5,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_KharonsoLake",
+  "nodeDistance": 7
+ },
+ "Mission_IcemoorCastleRuins_Block_DeerKing_Boss_1": {
+  "x": -11963.8,
+  "y": 998.5,
+  "z": -3175.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_IcemoorCastleRuins",
+  "nodeDistance": 13
+ },
+ "Mission_OakenshieldManor_Serkis_FortWarspike_Boss_1": {
+  "x": -11741.7,
+  "y": 709.3,
+  "z": -4127.9,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_bladecave",
+  "nodeDistance": 67
+ },
+ "Mission_BloomwoodRanch_HorseRace_Normal_Start_0": {
+  "x": -10248.6,
+  "y": 544.2,
+  "z": -4239.3,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_EquinsherSaddlery",
+  "nodeDistance": 74
+ },
+ "Mission_PororinVillage_Trembling_Woods_Normal_Sacred_0": {
+  "x": -9820.6,
+  "y": 560.3,
+  "z": -5024.2,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_Region_Cave_0068",
+  "nodeDistance": 51
+ },
+ "Mission_PororinVillage_Trembling_Woods_Normal_Sacred_1": {
+  "x": -9820.6,
+  "y": 560.3,
+  "z": -5024.2,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_Region_Cave_0068",
+  "nodeDistance": 51
+ },
+ "Mission_PororinVillage_Trembling_Woods_Normal_Sacred_2": {
+  "x": -9820.6,
+  "y": 560.3,
+  "z": -5024.2,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_Region_Cave_0068",
+  "nodeDistance": 51
+ },
+ "Mission_ScholarStoneInstitute_All_Stele_1": {
+  "x": -11930.9,
+  "y": 834.3,
+  "z": -5031.4,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_ScholastoneArchive",
+  "nodeDistance": 135
+ },
+ "Mission_SpiderCastle_Block_SpiderQueen_1": {
+  "x": -9937.0,
+  "y": 724.4,
+  "z": -2474.9,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_SpiderCastle",
+  "nodeDistance": 44
+ },
+ "Mission_VelluaVillage_Block_Boss_2": {
+  "x": -10472.9,
+  "y": 365.2,
+  "z": -5979.3,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_VelluaChurch",
+  "nodeDistance": 27
+ },
+ "Mission_Her_SanctumOfSolace_Boss_Battle_1": {
+  "x": -10504.9,
+  "y": 845.7,
+  "z": -630.4,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_SanctumOfSolace",
+  "nodeDistance": 17
+ },
+ "Mission_Her_SanctumOfAbsolution_Boss_Battle_1": {
+  "x": -11797.7,
+  "y": 1006.2,
+  "z": -5890.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_SanctumOfAbsolution",
+  "nodeDistance": 10
+ },
+ "Mission_Dem_SanctumOfRevelation_Boss_Battle_1": {
+  "x": -7159.0,
+  "y": 413.0,
+  "z": -4255.0,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_SanctumOfRevelation",
+  "nodeDistance": 11
+ },
+ "Mission_Dem_SanctumOfRevelation_Boss_Reward_0": {
+  "x": -7203.9,
+  "y": 411.3,
+  "z": -4250.6,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_SanctumOfRevelation",
+  "nodeDistance": 34
+ },
+ "Mission_Kwe_SpireOfRuination_Boss_Start_3": {
+  "x": -11671.9,
+  "y": 766.9,
+  "z": 90.9,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_DestructionTower",
+  "nodeDistance": 35
+ },
+ "Mission_LonelyJackal_BloodGolem_Boss_Start_3": {
+  "x": -9655.9,
+  "y": 644.9,
+  "z": -842.1,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_Region_Cave_0077",
+  "nodeDistance": 10
+ },
+ "Mission_RidgehunterLeatherMaker_Normal_Start_3": {
+  "x": -11417.1,
+  "y": 727.7,
+  "z": -80.5,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SwampOfDespair",
+  "nodeDistance": 16
+ },
+ "Mission_OdeckVillage_Tarandus_Battle_2": {
+  "x": -11032.8,
+  "y": 660.7,
+  "z": 1255.3,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_OdeckVillage",
+  "nodeDistance": 4
+ },
+ "Mission_GeneralTomb_Block_GuardianTomb_2": {
+  "x": -11778.7,
+  "y": 789.6,
+  "z": 1015.9,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_GeneralTomb",
+  "nodeDistance": 3
+ },
+ "Mission_RoketBag_Normal_Start_2": {
+  "x": -11160.7,
+  "y": 726.6,
+  "z": -3880.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_KilndenKukuWorkshop",
+  "nodeDistance": 14
+ },
+ "Mission_Pailune_FriendArmWrestling_1": {
+  "x": -9726.5,
+  "y": 634.6,
+  "z": 149.7,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_Pailune_RestArea_0001",
+  "nodeDistance": 84
+ },
+ "Mission_QuietSnowShelter_Block_Battle_1": {
+  "x": -12783.6,
+  "y": 940.7,
+  "z": -285.7,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_QuietSnowShelter",
+  "nodeDistance": 25
+ },
+ "Mission_WindsongMountain_Block_Boss_1": {
+  "x": -9210.4,
+  "y": 787.8,
+  "z": 1191.0,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_WindsongMountain",
+  "nodeDistance": 7
+ },
+ "Mission_GorthakIron_Normal_KuKuATAG_Material_3": {
+  "x": -11160.7,
+  "y": 726.6,
+  "z": -3880.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_KilndenKukuWorkshop",
+  "nodeDistance": 14
+ },
+ "Mission_Marni_OutPost_Block_Start_1": {
+  "x": -5402.5,
+  "y": 393.1,
+  "z": -3389.1,
+  "stages": 1,
+  "region": "Neut",
+  "nearestNode": "Node_Neut_MarnisOutpost",
+  "nodeDistance": 17
+ },
+ "Mission_BraveNest_Armor_0": {
+  "x": -11160.7,
+  "y": 726.6,
+  "z": -3880.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_KilndenKukuWorkshop",
+  "nodeDistance": 14
+ },
+ "Mission_TrollUniversity_Brain_Octabus_NuclearTest_1": {
+  "x": -11961.9,
+  "y": 875.9,
+  "z": -4889.8,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_ScholastoneInstitute",
+  "nodeDistance": 63
+ },
+ "Mission_IronStronghold_Block_ReturnToSister_3": {
+  "x": -8109.0,
+  "y": 551.0,
+  "z": -4605.0,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_IronStronghold",
+  "nodeDistance": 11
+ },
+ "Mission_ThornRoseFort_Block_Boss_1": {
+  "x": -8330.3,
+  "y": 585.6,
+  "z": -5861.6,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ThornRoseFort",
+  "nodeDistance": 3
+ },
+ "Mission_JiJeongTemple_Normal_ChiefMonk_1": {
+  "x": -7286.4,
+  "y": 416.9,
+  "z": -4496.4,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BambooForest",
+  "nodeDistance": 53
+ }
+}

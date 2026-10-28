@@ -1,0 +1,3179 @@
+{
+ "ReBlockading_Node_Her_PervinFort_Reconstruction": {
+  "x": -11598.8,
+  "y": 651.7,
+  "z": -5252.5,
+  "stages": 7,
+  "region": "Her",
+  "nearestNode": "Node_Her_PervinFort",
+  "nodeDistance": 20
+ },
+ "ReBlockading_Node_Her_FortWarspike_Reconstruction": {
+  "x": -11704.8,
+  "y": 701.0,
+  "z": -4154.3,
+  "stages": 7,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestArea_0042",
+  "nodeDistance": 38
+ },
+ "ReBlockading_Node_Her_FortAnvil_Reconstruction": {
+  "x": -9979.3,
+  "y": 613.4,
+  "z": -4034.4,
+  "stages": 5,
+  "region": "Her",
+  "nearestNode": "Node_Her_FortAnvil",
+  "nodeDistance": 35
+ },
+ "ReBlockading_Node_Her_KarinQuarry_Reconstruction": {
+  "x": -10270.5,
+  "y": 627.2,
+  "z": -3051.5,
+  "stages": 14,
+  "region": "Her",
+  "nearestNode": "Node_Her_KarinQuarry_RestArea_0001",
+  "nodeDistance": 82
+ },
+ "ReBlockading_Node_Her_SouthQuarry_Reconstruction": {
+  "x": -9523.0,
+  "y": 546.4,
+  "z": -4664.5,
+  "stages": 39,
+  "region": "Her",
+  "nearestNode": "Node_Her_SouthQuarry",
+  "nodeDistance": 50
+ },
+ "ReBlockading_Node_Her_FortHellwood_Reconstruction": {
+  "x": -11203.4,
+  "y": 791.5,
+  "z": -5490.5,
+  "stages": 9,
+  "region": "Her",
+  "nearestNode": "Node_Her_FortHellwood",
+  "nodeDistance": 15
+ },
+ "ReBlockading_Node_Her_RootFort_Reconstruction": {
+  "x": -10490.9,
+  "y": 766.5,
+  "z": -2273.9,
+  "stages": 12,
+  "region": "Her",
+  "nearestNode": "Node_Her_RootFort",
+  "nodeDistance": 17
+ },
+ "ReBlockading_Node_Kwe_FortAskelund_Reconstruction": {
+  "x": -11115.2,
+  "y": 843.6,
+  "z": -80.8,
+  "stages": 29,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_FortAskelund",
+  "nodeDistance": 6
+ },
+ "ReBlockading_Node_Kwe_VatnhollFortress_Reconstruction": {
+  "x": -12252.1,
+  "y": 727.9,
+  "z": -833.1,
+  "stages": 7,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_VatnhollFortress",
+  "nodeDistance": 9
+ },
+ "ReBlockading_Node_Kwe_SteinnfellFortress_Reconstruction": {
+  "x": -11069.1,
+  "y": 858.1,
+  "z": -1088.3,
+  "stages": 7,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SteinnfellFortress",
+  "nodeDistance": 48
+ },
+ "ReBlockading_Node_Del_MarniMechFactory_Reconstruction": {
+  "x": -4462.6,
+  "y": 420.7,
+  "z": -4898.2,
+  "stages": 15,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniMechFactory",
+  "nodeDistance": 11
+ },
+ "ReBlockading_Node_Del_ValvegardWallFort_Reconstruction": {
+  "x": -4666.7,
+  "y": 440.7,
+  "z": -5340.8,
+  "stages": 9,
+  "region": "Del",
+  "nearestNode": "Node_Del_ValvegardWallFort",
+  "nodeDistance": 25
+ },
+ "ReBlockading_Node_Del_MarniAirLab_Reconstruction": {
+  "x": -3454.5,
+  "y": 416.0,
+  "z": -5808.6,
+  "stages": 8,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniAirLab",
+  "nodeDistance": 11
+ },
+ "ReBlockading_Node_Neut_MarnisOutpost_Reconstruction": {
+  "x": -5396.6,
+  "y": 394.1,
+  "z": -3370.4,
+  "stages": 6,
+  "region": "Neut",
+  "nearestNode": "Node_Neut_MarnisOutpost",
+  "nodeDistance": 8
+ },
+ "ReBlockading_Node_Del_MarniLab_Reconstruction": {
+  "x": -3056.2,
+  "y": 460.8,
+  "z": -4545.0,
+  "stages": 12,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniLab",
+  "nodeDistance": 36
+ },
+ "ReBlockading_Node_Dem_BloodsteelCamp_Reconstruction": {
+  "x": -8894.2,
+  "y": 628.3,
+  "z": -5932.3,
+  "stages": 28,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BloodsteelCamp_RestArea_0001",
+  "nodeDistance": 19
+ },
+ "ReBlockading_Node_Dem_Flame_Knights_Reconstruction": {
+  "x": -9007.1,
+  "y": 611.2,
+  "z": -2978.6,
+  "stages": 6,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_Flame_Knights",
+  "nodeDistance": 13
+ },
+ "ReBlockading_Node_Dem_ScorchrockCastle_Reconstruction": {
+  "x": -8706.5,
+  "y": 537.2,
+  "z": -4002.4,
+  "stages": 6,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ScorchrockCastle",
+  "nodeDistance": 12
+ },
+ "ReBlockading_Node_Crim_RedMountainFort_Reconstruction": {
+  "x": -5016.8,
+  "y": 680.2,
+  "z": -1206.9,
+  "stages": 3,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RedMountainFort",
+  "nodeDistance": 46
+ },
+ "ReBlockading_Node_Crim_FortManub_Reconstruction": {
+  "x": -5520.7,
+  "y": 675.2,
+  "z": -912.0,
+  "stages": 8,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_FortManub",
+  "nodeDistance": 28
+ },
+ "ReBlockading_Node_Crim_IsvatuFortress_Reconstruction": {
+  "x": -6620.6,
+  "y": 653.2,
+  "z": -1106.9,
+  "stages": 5,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_IsvatuFortress",
+  "nodeDistance": 15
+ },
+ "LevelSequencerSpawn_AllSchedule_m04_03": {
+  "x": -3802.6,
+  "y": 681.8,
+  "z": 3391.0,
+  "stages": 98,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Varnia",
+  "nodeDistance": 61
+ },
+ "LevelSequencerSpawn_AllSchedule_m04_m01": {
+  "x": -3825.4,
+  "y": 658.1,
+  "z": -577.7,
+  "stages": 3,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BanditCamp_VII",
+  "nodeDistance": 40
+ },
+ "LevelSequencerSpawn_AllSchedule_m04_m06": {
+  "x": -4001.5,
+  "y": 409.7,
+  "z": -5934.2,
+  "stages": 3,
+  "region": "Del",
+  "nearestNode": "Node_Del_Ruins_0010",
+  "nodeDistance": 136
+ },
+ "LevelSequencerSpawn_AllSchedule_m05_01": {
+  "x": -4917.2,
+  "y": 683.8,
+  "z": 1567.3,
+  "stages": 5,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RestArea_0027",
+  "nodeDistance": 59
+ },
+ "LevelSequencerSpawn_AllSchedule_m05_02": {
+  "x": -4466.5,
+  "y": 647.0,
+  "z": 2203.4,
+  "stages": 3,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Ruins_0016",
+  "nodeDistance": 37
+ },
+ "LevelSequencerSpawn_AllSchedule_m05_m01": {
+  "x": -4629.7,
+  "y": 606.3,
+  "z": -856.5,
+  "stages": 3,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RestArea_0072",
+  "nodeDistance": 131
+ },
+ "LevelSequencerSpawn_AllSchedule_m05_m02": {
+  "x": -4983.0,
+  "y": 579.9,
+  "z": -1452.6,
+  "stages": 12,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_DuskwayCamp",
+  "nodeDistance": 11
+ },
+ "LevelSequencerSpawn_AllSchedule_m05_m03": {
+  "x": -4990.7,
+  "y": 409.2,
+  "z": -2814.4,
+  "stages": 2,
+  "region": "Del",
+  "nearestNode": "Node_Del_WaterOfferingCave",
+  "nodeDistance": 153
+ },
+ "LevelSequencerSpawn_AllSchedule_m05_m04": {
+  "x": -4454.3,
+  "y": 380.7,
+  "z": -3934.0,
+  "stages": 320,
+  "region": "Del",
+  "nearestNode": "Node_Del_DelesyianInstitute",
+  "nodeDistance": 57
+ },
+ "LevelSequencerSpawn_AllSchedule_m05_m05": {
+  "x": -4809.6,
+  "y": 382.7,
+  "z": -4235.0,
+  "stages": 239,
+  "region": "Del",
+  "nearestNode": "Node_Del_Timberton",
+  "nodeDistance": 89
+ },
+ "LevelSequencerSpawn_AllSchedule_m05_m06": {
+  "x": -4707.4,
+  "y": 431.6,
+  "z": -5481.5,
+  "stages": 13,
+  "region": "Del",
+  "nearestNode": "Node_Del_Shipwreck_0010",
+  "nodeDistance": 116
+ },
+ "LevelSequencerSpawn_AllSchedule_m06_00": {
+  "x": -5784.3,
+  "y": 701.7,
+  "z": 846.0,
+  "stages": 4,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_SaltroadCamp",
+  "nodeDistance": 212
+ },
+ "LevelSequencerSpawn_AllSchedule_m06_m01": {
+  "x": -6021.1,
+  "y": 595.7,
+  "z": -940.4,
+  "stages": 161,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Tashkalp",
+  "nodeDistance": 71
+ },
+ "LevelSequencerSpawn_AllSchedule_m06_m02": {
+  "x": -5835.4,
+  "y": 552.2,
+  "z": -1273.1,
+  "stages": 33,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RightEyeWatchtower",
+  "nodeDistance": 120
+ },
+ "LevelSequencerSpawn_AllSchedule_m06_m03": {
+  "x": -5444.8,
+  "y": 477.5,
+  "z": -2344.6,
+  "stages": 4,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_OreVein_0001",
+  "nodeDistance": 116
+ },
+ "LevelSequencerSpawn_AllSchedule_m06_m04": {
+  "x": -5261.5,
+  "y": 394.6,
+  "z": -4055.5,
+  "stages": 4,
+  "region": "Del",
+  "nearestNode": "Node_Del_RestArea_0062",
+  "nodeDistance": 32
+ },
+ "LevelSequencerSpawn_AllSchedule_m06_m05": {
+  "x": -5545.4,
+  "y": 485.3,
+  "z": -4896.7,
+  "stages": 53,
+  "region": "Del",
+  "nearestNode": "Node_Del_SerpentScaleCave",
+  "nodeDistance": 31
+ },
+ "LevelSequencerSpawn_AllSchedule_m06_m06": {
+  "x": -5643.1,
+  "y": 458.1,
+  "z": -5278.5,
+  "stages": 5,
+  "region": "Del",
+  "nearestNode": "Node_Del_RestArea_0063",
+  "nodeDistance": 171
+ },
+ "LevelSequencerSpawn_AllSchedule_m07_00": {
+  "x": -6639.3,
+  "y": 700.5,
+  "z": 228.3,
+  "stages": 14,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_SaltroadTradePost",
+  "nodeDistance": 39
+ },
+ "LevelSequencerSpawn_AllSchedule_m07_m01": {
+  "x": -6168.2,
+  "y": 657.8,
+  "z": -733.2,
+  "stages": 9,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_TashkalpCrossroadsStation",
+  "nodeDistance": 72
+ },
+ "LevelSequencerSpawn_AllSchedule_m07_m02": {
+  "x": -6415.6,
+  "y": 565.8,
+  "z": -1206.3,
+  "stages": 6,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BanditCamp_XIII",
+  "nodeDistance": 135
+ },
+ "LevelSequencerSpawn_AllSchedule_m07_m03": {
+  "x": -6801.9,
+  "y": 534.6,
+  "z": -2625.2,
+  "stages": 28,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_HayroofFarm",
+  "nodeDistance": 116
+ },
+ "LevelSequencerSpawn_AllSchedule_m07_m04": {
+  "x": -6851.5,
+  "y": 437.7,
+  "z": -3609.9,
+  "stages": 42,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_OakBarrelWineMaker",
+  "nodeDistance": 55
+ },
+ "LevelSequencerSpawn_AllSchedule_m07_m05": {
+  "x": -6431.0,
+  "y": 443.9,
+  "z": -4706.9,
+  "stages": 6,
+  "region": "Del",
+  "nearestNode": "Node_Del_SilentCave",
+  "nodeDistance": 178
+ },
+ "LevelSequencerSpawn_AllSchedule_m08_m03": {
+  "x": -7760.2,
+  "y": 522.1,
+  "z": -2755.1,
+  "stages": 208,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_HiddenGroveRanch",
+  "nodeDistance": 157
+ },
+ "LevelSequencerSpawn_AllSchedule_m08_m04": {
+  "x": -7902.6,
+  "y": 532.6,
+  "z": -3371.6,
+  "stages": 233,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BrookfieldManor_Elemore",
+  "nodeDistance": 93
+ },
+ "LevelSequencerSpawn_AllSchedule_m09_m01": {
+  "x": -9077.8,
+  "y": 611.5,
+  "z": -972.7,
+  "stages": 26,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_BeighenVillage",
+  "nodeDistance": 84
+ },
+ "LevelSequencerSpawn_AllSchedule_m09_m02": {
+  "x": -8987.6,
+  "y": 614.1,
+  "z": -1115.4,
+  "stages": 27,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_BeighenVillage",
+  "nodeDistance": 85
+ },
+ "LevelSequencerSpawn_AllSchedule_m09_m03": {
+  "x": -8401.0,
+  "y": 522.2,
+  "z": -2940.5,
+  "stages": 142,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_WestCourt",
+  "nodeDistance": 81
+ },
+ "LevelSequencerSpawn_AllSchedule_m09_m04": {
+  "x": -8375.5,
+  "y": 485.8,
+  "z": -3670.2,
+  "stages": 95,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_SouthWagonFactory",
+  "nodeDistance": 126
+ },
+ "LevelSequencerSpawn_AllSchedule_m09_m05": {
+  "x": -8932.1,
+  "y": 499.1,
+  "z": -4750.8,
+  "stages": 14,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_GoldleafBlackMarket",
+  "nodeDistance": 117
+ },
+ "LevelSequencerSpawn_AllSchedule_m09_m06": {
+  "x": -9201.5,
+  "y": 537.7,
+  "z": -5227.2,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_GreenFieldThiefCamp",
+  "nodeDistance": 121
+ },
+ "LevelSequencerSpawn_AllSchedule_m10_00": {
+  "x": -9797.5,
+  "y": 655.1,
+  "z": 210.8,
+  "stages": 153,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_DreamTree",
+  "nodeDistance": 20
+ },
+ "LevelSequencerSpawn_AllSchedule_m10_01": {
+  "x": -9813.7,
+  "y": 651.8,
+  "z": 1075.0,
+  "stages": 2,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_DennRiverPath",
+  "nodeDistance": 82
+ },
+ "LevelSequencerSpawn_AllSchedule_m10_m01": {
+  "x": -9762.7,
+  "y": 633.7,
+  "z": -143.3,
+  "stages": 83,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_Region_Cave_0038",
+  "nodeDistance": 223
+ },
+ "LevelSequencerSpawn_AllSchedule_m10_m02": {
+  "x": -9938.2,
+  "y": 640.7,
+  "z": -1255.0,
+  "stages": 7,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_RestArea_0023",
+  "nodeDistance": 61
+ },
+ "LevelSequencerSpawn_AllSchedule_m10_m03": {
+  "x": -9667.5,
+  "y": 663.2,
+  "z": -2511.8,
+  "stages": 42,
+  "region": "Her",
+  "nearestNode": "Node_Her_SaddlewindRanch",
+  "nodeDistance": 65
+ },
+ "LevelSequencerSpawn_AllSchedule_m10_m04": {
+  "x": -9771.1,
+  "y": 554.5,
+  "z": -3404.6,
+  "stages": 15,
+  "region": "Her",
+  "nearestNode": "Node_Her_East_GoldleafBlackMarket",
+  "nodeDistance": 141
+ },
+ "LevelSequencerSpawn_AllSchedule_m10_m05": {
+  "x": -9767.3,
+  "y": 554.1,
+  "z": -4545.5,
+  "stages": 18,
+  "region": "Her",
+  "nearestNode": "Node_Her_CoalvaleWorkshop",
+  "nodeDistance": 106
+ },
+ "LevelSequencerSpawn_AllSchedule_m10_m06": {
+  "x": -9262.8,
+  "y": 550.4,
+  "z": -5390.1,
+  "stages": 6,
+  "region": "Her",
+  "nearestNode": "Node_Her_GreenFieldThiefCamp",
+  "nodeDistance": 93
+ },
+ "LevelSequencerSpawn_AllSchedule_m11_00": {
+  "x": -10548.5,
+  "y": 685.2,
+  "z": 999.7,
+  "stages": 3,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_WildhuntCamp",
+  "nodeDistance": 90
+ },
+ "LevelSequencerSpawn_AllSchedule_m11_01": {
+  "x": -10984.3,
+  "y": 660.8,
+  "z": 1307.6,
+  "stages": 56,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_OdeckVillage",
+  "nodeDistance": 72
+ },
+ "LevelSequencerSpawn_AllSchedule_m11_m02": {
+  "x": -11100.0,
+  "y": 679.3,
+  "z": -1833.9,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_TrovakCamp",
+  "nodeDistance": 71
+ },
+ "LevelSequencerSpawn_AllSchedule_m11_m03": {
+  "x": -10283.3,
+  "y": 665.3,
+  "z": -2735.5,
+  "stages": 7,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestArea_0014",
+  "nodeDistance": 82
+ },
+ "LevelSequencerSpawn_AllSchedule_m11_m04": {
+  "x": -10585.6,
+  "y": 609.9,
+  "z": -3861.6,
+  "stages": 97,
+  "region": "Her",
+  "nearestNode": "Node_Her_GreystoneManor_Felix",
+  "nodeDistance": 52
+ },
+ "LevelSequencerSpawn_AllSchedule_m11_m05": {
+  "x": -10669.2,
+  "y": 577.8,
+  "z": -4181.9,
+  "stages": 67,
+  "region": "Her",
+  "nearestNode": "Node_Her_BluemontWineHouse",
+  "nodeDistance": 27
+ },
+ "LevelSequencerSpawn_AllSchedule_m11_m06": {
+  "x": -10521.7,
+  "y": 372.7,
+  "z": -5901.8,
+  "stages": 143,
+  "region": "Her",
+  "nearestNode": "Node_Her_VelluaChurch",
+  "nodeDistance": 117
+ },
+ "LevelSequencerSpawn_AllSchedule_m12_m01": {
+  "x": -12086.1,
+  "y": 705.1,
+  "z": -349.0,
+  "stages": 8,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SkoghornVillage",
+  "nodeDistance": 38
+ },
+ "LevelSequencerSpawn_AllSchedule_m12_m02": {
+  "x": -11776.0,
+  "y": 700.4,
+  "z": -1776.1,
+  "stages": 79,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_CalphadeFarm",
+  "nodeDistance": 157
+ },
+ "LevelSequencerSpawn_AllSchedule_m12_m03": {
+  "x": -11605.1,
+  "y": 673.3,
+  "z": -2427.5,
+  "stages": 110,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_CalphadeRefinery",
+  "nodeDistance": 43
+ },
+ "LevelSequencerSpawn_AllSchedule_m12_m04": {
+  "x": -11465.2,
+  "y": 800.5,
+  "z": -3519.5,
+  "stages": 7,
+  "region": "Her",
+  "nearestNode": "Node_Her_Cal_GoldleafBlackMarket",
+  "nodeDistance": 10
+ },
+ "LevelSequencerSpawn_AllSchedule_m12_m05": {
+  "x": -11305.5,
+  "y": 628.5,
+  "z": -4493.8,
+  "stages": 3,
+  "region": "Her",
+  "nearestNode": "Node_Her_PhonielRanch",
+  "nodeDistance": 61
+ },
+ "LevelSequencerSpawn_Faction_m03_m04": {
+  "x": -2982.1,
+  "y": 398.0,
+  "z": -4085.1,
+  "stages": 2,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniOilRig",
+  "nodeDistance": 38
+ },
+ "LevelSequencerSpawn_Faction_m03_m05": {
+  "x": -2975.6,
+  "y": 381.5,
+  "z": -4155.7,
+  "stages": 89,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniOilRig",
+  "nodeDistance": 34
+ },
+ "LevelSequencerSpawn_Faction_m04_m01": {
+  "x": -3832.1,
+  "y": 651.1,
+  "z": -615.6,
+  "stages": 11,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BanditCamp_VII",
+  "nodeDistance": 2
+ },
+ "LevelSequencerSpawn_Faction_m04_m02": {
+  "x": -4071.1,
+  "y": 665.3,
+  "z": -1135.0,
+  "stages": 11,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Ruins_0022",
+  "nodeDistance": 8
+ },
+ "LevelSequencerSpawn_Faction_m04_m05": {
+  "x": -3543.4,
+  "y": 386.2,
+  "z": -4751.4,
+  "stages": 226,
+  "region": "Del",
+  "nearestNode": "Node_Del_Shipwreck_0006",
+  "nodeDistance": 84
+ },
+ "LevelSequencerSpawn_Faction_m04_m06": {
+  "x": -3627.8,
+  "y": 430.8,
+  "z": -5704.3,
+  "stages": 341,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniWorkshopEastGate",
+  "nodeDistance": 124
+ },
+ "LevelSequencerSpawn_Faction_m05_01": {
+  "x": -4677.3,
+  "y": 675.7,
+  "z": 1877.4,
+  "stages": 29,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Ruins_0017",
+  "nodeDistance": 138
+ },
+ "LevelSequencerSpawn_Faction_m05_02": {
+  "x": -4376.8,
+  "y": 657.6,
+  "z": 2175.4,
+  "stages": 40,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Ruins_0018",
+  "nodeDistance": 14
+ },
+ "LevelSequencerSpawn_Faction_m05_m01": {
+  "x": -4626.9,
+  "y": 653.3,
+  "z": -651.1,
+  "stages": 78,
+  "region": "Del",
+  "nearestNode": "Node_Del_Sandshift_Basin_Station",
+  "nodeDistance": 116
+ },
+ "LevelSequencerSpawn_Faction_m05_m02": {
+  "x": -4724.4,
+  "y": 590.5,
+  "z": -1354.4,
+  "stages": 248,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_TashkalpBeacon",
+  "nodeDistance": 193
+ },
+ "LevelSequencerSpawn_Faction_m05_m03": {
+  "x": -4658.4,
+  "y": 478.2,
+  "z": -2341.9,
+  "stages": 183,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_GiantsYardForwardCamp",
+  "nodeDistance": 85
+ },
+ "LevelSequencerSpawn_Faction_m05_m04": {
+  "x": -4635.3,
+  "y": 353.0,
+  "z": -3562.5,
+  "stages": 37,
+  "region": "Del",
+  "nearestNode": "Node_Del_Shipwreck_0001",
+  "nodeDistance": 20
+ },
+ "LevelSequencerSpawn_Faction_m05_m05": {
+  "x": -4415.1,
+  "y": 405.3,
+  "z": -4772.3,
+  "stages": 181,
+  "region": "Del",
+  "nearestNode": "Node_Del_NorthOutpost",
+  "nodeDistance": 52
+ },
+ "LevelSequencerSpawn_Faction_m05_m06": {
+  "x": -4286.7,
+  "y": 454.4,
+  "z": -5324.4,
+  "stages": 83,
+  "region": "Del",
+  "nearestNode": "Node_Del_Region_Cave_0012",
+  "nodeDistance": 51
+ },
+ "LevelSequencerSpawn_Faction_m06_00": {
+  "x": -5735.9,
+  "y": 690.0,
+  "z": 492.7,
+  "stages": 36,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_AsaharamCamp",
+  "nodeDistance": 75
+ },
+ "LevelSequencerSpawn_Faction_m06_01": {
+  "x": -5310.7,
+  "y": 704.7,
+  "z": 1124.6,
+  "stages": 13,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Ruins_0015",
+  "nodeDistance": 3
+ },
+ "LevelSequencerSpawn_Faction_m06_m01": {
+  "x": -5587.6,
+  "y": 661.2,
+  "z": -883.5,
+  "stages": 100,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RestArea_0036",
+  "nodeDistance": 38
+ },
+ "LevelSequencerSpawn_Faction_m06_m02": {
+  "x": -5428.1,
+  "y": 562.5,
+  "z": -1581.5,
+  "stages": 95,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_CarriageWorkshop_00",
+  "nodeDistance": 56
+ },
+ "LevelSequencerSpawn_Faction_m06_m03": {
+  "x": -5585.3,
+  "y": 493.9,
+  "z": -2893.4,
+  "stages": 142,
+  "region": "Neut",
+  "nearestNode": "Node_Neut_WineTradePost",
+  "nodeDistance": 151
+ },
+ "LevelSequencerSpawn_Faction_m06_m04": {
+  "x": -5491.6,
+  "y": 403.0,
+  "z": -3340.0,
+  "stages": 109,
+  "region": "Del",
+  "nearestNode": "Node_Del_RestArea_0025",
+  "nodeDistance": 49
+ },
+ "LevelSequencerSpawn_Faction_m06_m05": {
+  "x": -5211.3,
+  "y": 506.7,
+  "z": -5086.9,
+  "stages": 24,
+  "region": "Del",
+  "nearestNode": "Node_Del_StonewardCastleRuins",
+  "nodeDistance": 24
+ },
+ "LevelSequencerSpawn_Faction_m06_m06": {
+  "x": -6099.0,
+  "y": 506.5,
+  "z": -5285.6,
+  "stages": 10,
+  "region": "Del",
+  "nearestNode": "Node_Del_AbandonedCabin_IV",
+  "nodeDistance": 6
+ },
+ "LevelSequencerSpawn_Faction_m07_00": {
+  "x": -6439.7,
+  "y": 720.0,
+  "z": 376.8,
+  "stages": 18,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BanditCamp_XI",
+  "nodeDistance": 15
+ },
+ "LevelSequencerSpawn_Faction_m07_m01": {
+  "x": -6330.9,
+  "y": 675.6,
+  "z": -575.1,
+  "stages": 77,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BanditCamp_X",
+  "nodeDistance": 78
+ },
+ "LevelSequencerSpawn_Faction_m07_m02": {
+  "x": -6560.9,
+  "y": 562.5,
+  "z": -1995.1,
+  "stages": 85,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_FortMusket",
+  "nodeDistance": 135
+ },
+ "LevelSequencerSpawn_Faction_m07_m03": {
+  "x": -6909.7,
+  "y": 487.1,
+  "z": -2924.8,
+  "stages": 105,
+  "region": "Del",
+  "nearestNode": "Node_Del_ThinkCore",
+  "nodeDistance": 64
+ },
+ "LevelSequencerSpawn_Faction_m07_m04": {
+  "x": -6750.8,
+  "y": 452.6,
+  "z": -3264.4,
+  "stages": 171,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BulwarkWeaponFactory",
+  "nodeDistance": 56
+ },
+ "LevelSequencerSpawn_Faction_m07_m05": {
+  "x": -7022.6,
+  "y": 351.5,
+  "z": -4819.5,
+  "stages": 40,
+  "region": "Del",
+  "nearestNode": "Node_Del_Shipwreck_0014",
+  "nodeDistance": 53
+ },
+ "LevelSequencerSpawn_Faction_m07_m06": {
+  "x": -6602.7,
+  "y": 507.9,
+  "z": -5499.8,
+  "stages": 174,
+  "region": "Del",
+  "nearestNode": "Node_Del_ForgottenWyvernNest",
+  "nodeDistance": 56
+ },
+ "LevelSequencerSpawn_Faction_m08_00": {
+  "x": -8080.9,
+  "y": 691.3,
+  "z": 526.3,
+  "stages": 22,
+  "region": "DesertFragment",
+  "nearestNode": "Node_DesertFragment",
+  "nodeDistance": 289
+ },
+ "LevelSequencerSpawn_Faction_m08_m01": {
+  "x": -7445.6,
+  "y": 667.4,
+  "z": -826.0,
+  "stages": 141,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Region_Cave_0078",
+  "nodeDistance": 23
+ },
+ "LevelSequencerSpawn_Faction_m08_m02": {
+  "x": -7607.7,
+  "y": 666.8,
+  "z": -1622.6,
+  "stages": 48,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_SulfurLake_WatchTower",
+  "nodeDistance": 35
+ },
+ "LevelSequencerSpawn_Faction_m08_m03": {
+  "x": -7611.1,
+  "y": 524.7,
+  "z": -2741.4,
+  "stages": 256,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_StronghoofHorseGearMaker",
+  "nodeDistance": 70
+ },
+ "LevelSequencerSpawn_Faction_m08_m04": {
+  "x": -7961.4,
+  "y": 526.8,
+  "z": -3330.2,
+  "stages": 519,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BrookfieldManor_Elemore",
+  "nodeDistance": 158
+ },
+ "LevelSequencerSpawn_Faction_m08_m05": {
+  "x": -8055.9,
+  "y": 437.6,
+  "z": -4618.3,
+  "stages": 64,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_IronStronghold_RestArea_0002",
+  "nodeDistance": 18
+ },
+ "LevelSequencerSpawn_Faction_m08_m06": {
+  "x": -8025.7,
+  "y": 428.3,
+  "z": -5487.2,
+  "stages": 87,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_NightExpeditionCamp",
+  "nodeDistance": 45
+ },
+ "LevelSequencerSpawn_Faction_m09_m01": {
+  "x": -9098.8,
+  "y": 614.7,
+  "z": -894.5,
+  "stages": 49,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_BeighenVillage",
+  "nodeDistance": 164
+ },
+ "LevelSequencerSpawn_Faction_m09_m02": {
+  "x": -8620.0,
+  "y": 594.9,
+  "z": -1888.3,
+  "stages": 9,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_CrescentCamp",
+  "nodeDistance": 7
+ },
+ "LevelSequencerSpawn_Faction_m09_m03": {
+  "x": -8718.1,
+  "y": 549.2,
+  "z": -2785.0,
+  "stages": 314,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_GoldenTradePost",
+  "nodeDistance": 86
+ },
+ "LevelSequencerSpawn_Faction_m09_m04": {
+  "x": -8706.8,
+  "y": 533.8,
+  "z": -3940.6,
+  "stages": 104,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ScorchrockCastle",
+  "nodeDistance": 68
+ },
+ "LevelSequencerSpawn_Faction_m09_m05": {
+  "x": -8378.1,
+  "y": 476.5,
+  "z": -4653.5,
+  "stages": 43,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_IronwoodPottery",
+  "nodeDistance": 73
+ },
+ "LevelSequencerSpawn_Faction_m09_m06": {
+  "x": -8985.4,
+  "y": 601.6,
+  "z": -5832.5,
+  "stages": 232,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BloodsteelCamp",
+  "nodeDistance": 130
+ },
+ "LevelSequencerSpawn_Faction_m09_m07": {
+  "x": -8716.2,
+  "y": 377.0,
+  "z": -6325.5,
+  "stages": 26,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_AbandonedCabin_V",
+  "nodeDistance": 6
+ },
+ "LevelSequencerSpawn_Faction_m10_00": {
+  "x": -9791.1,
+  "y": 648.2,
+  "z": 219.0,
+  "stages": 147,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_DreamTree",
+  "nodeDistance": 10
+ },
+ "LevelSequencerSpawn_Faction_m10_01": {
+  "x": -9713.3,
+  "y": 657.9,
+  "z": 1030.7,
+  "stages": 7,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_WhisperingCabin",
+  "nodeDistance": 4
+ },
+ "LevelSequencerSpawn_Faction_m10_m01": {
+  "x": -9747.1,
+  "y": 633.9,
+  "z": -474.3,
+  "stages": 173,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_ForestRing",
+  "nodeDistance": 14
+ },
+ "LevelSequencerSpawn_Faction_m10_m02": {
+  "x": -9833.5,
+  "y": 682.5,
+  "z": -1441.2,
+  "stages": 210,
+  "region": "Her",
+  "nearestNode": "Node_Her_DragonKillCastle",
+  "nodeDistance": 91
+ },
+ "LevelSequencerSpawn_Faction_m10_m03": {
+  "x": -9592.7,
+  "y": 666.2,
+  "z": -2238.1,
+  "stages": 177,
+  "region": "Her",
+  "nearestNode": "Node_Her_Saddlecap",
+  "nodeDistance": 17
+ },
+ "LevelSequencerSpawn_Faction_m10_m04": {
+  "x": -9904.6,
+  "y": 613.1,
+  "z": -3897.1,
+  "stages": 118,
+  "region": "Her",
+  "nearestNode": "Node_Her_FortAnvil",
+  "nodeDistance": 136
+ },
+ "LevelSequencerSpawn_Faction_m10_m05": {
+  "x": -9566.7,
+  "y": 566.5,
+  "z": -4758.5,
+  "stages": 71,
+  "region": "Her",
+  "nearestNode": "Node_Her_SouthQuarry",
+  "nodeDistance": 111
+ },
+ "LevelSequencerSpawn_Faction_m10_m06": {
+  "x": -9784.4,
+  "y": 609.5,
+  "z": -5549.4,
+  "stages": 118,
+  "region": "Her",
+  "nearestNode": "Node_Her_DeepForest",
+  "nodeDistance": 47
+ },
+ "LevelSequencerSpawn_Faction_m10_m07": {
+  "x": -9402.4,
+  "y": 475.4,
+  "z": -6286.9,
+  "stages": 11,
+  "region": "Her",
+  "nearestNode": "Node_Her_AbandonedCabin_I",
+  "nodeDistance": 5
+ },
+ "LevelSequencerSpawn_Faction_m11_00": {
+  "x": -11134.2,
+  "y": 703.7,
+  "z": 840.1,
+  "stages": 77,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_WhiteGreattreeHaven",
+  "nodeDistance": 109
+ },
+ "LevelSequencerSpawn_Faction_m11_01": {
+  "x": -10597.0,
+  "y": 682.6,
+  "z": 1033.6,
+  "stages": 2,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_PitfallCamp",
+  "nodeDistance": 86
+ },
+ "LevelSequencerSpawn_Faction_m11_m01": {
+  "x": -11085.1,
+  "y": 844.3,
+  "z": -130.4,
+  "stages": 66,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_FortAskelund",
+  "nodeDistance": 55
+ },
+ "LevelSequencerSpawn_Faction_m11_m02": {
+  "x": -11066.2,
+  "y": 853.0,
+  "z": -1236.6,
+  "stages": 154,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SteinnfellFortress_Gate",
+  "nodeDistance": 95
+ },
+ "LevelSequencerSpawn_Faction_m11_m03": {
+  "x": -10501.2,
+  "y": 734.2,
+  "z": -2338.0,
+  "stages": 175,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestArea_0024",
+  "nodeDistance": 46
+ },
+ "LevelSequencerSpawn_Faction_m11_m04": {
+  "x": -10402.5,
+  "y": 646.8,
+  "z": -3510.9,
+  "stages": 16,
+  "region": "Her",
+  "nearestNode": "Node_Her_RoccaHillBanditCamp",
+  "nodeDistance": 87
+ },
+ "LevelSequencerSpawn_Faction_m11_m05": {
+  "x": -11038.4,
+  "y": 630.0,
+  "z": -4838.2,
+  "stages": 29,
+  "region": "Her",
+  "nearestNode": "Node_Her_SunrisePlainBanditCamp",
+  "nodeDistance": 186
+ },
+ "LevelSequencerSpawn_Faction_m11_m06": {
+  "x": -11035.9,
+  "y": 694.2,
+  "z": -5479.3,
+  "stages": 62,
+  "region": "Her",
+  "nearestNode": "Node_Her_HellwoodInnerGate",
+  "nodeDistance": 16
+ },
+ "LevelSequencerSpawn_Faction_m11_m07": {
+  "x": -10867.3,
+  "y": 603.0,
+  "z": -6483.4,
+  "stages": 24,
+  "region": "Her",
+  "nearestNode": "Node_Her_AbandonedCabin_III",
+  "nodeDistance": 12
+ },
+ "LevelSequencerSpawn_Faction_m12_00": {
+  "x": -11493.5,
+  "y": 762.8,
+  "z": 551.2,
+  "stages": 79,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_MossvaleCabin",
+  "nodeDistance": 87
+ },
+ "LevelSequencerSpawn_Faction_m12_m01": {
+  "x": -12129.1,
+  "y": 722.2,
+  "z": -819.2,
+  "stages": 126,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_RestArea_0007",
+  "nodeDistance": 80
+ },
+ "LevelSequencerSpawn_Faction_m12_m02": {
+  "x": -11834.9,
+  "y": 703.7,
+  "z": -1544.3,
+  "stages": 55,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_CalphadeNorthGate",
+  "nodeDistance": 174
+ },
+ "LevelSequencerSpawn_Faction_m12_m03": {
+  "x": -12525.0,
+  "y": 932.8,
+  "z": -2487.7,
+  "stages": 37,
+  "region": "Her",
+  "nearestNode": "Node_Her_SnowMountain_WatchTower",
+  "nodeDistance": 8
+ },
+ "LevelSequencerSpawn_Faction_m12_m04": {
+  "x": -11611.5,
+  "y": 712.3,
+  "z": -3933.2,
+  "stages": 81,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestArea_0015",
+  "nodeDistance": 90
+ },
+ "LevelSequencerSpawn_Faction_m12_m05": {
+  "x": -11508.0,
+  "y": 639.8,
+  "z": -4751.4,
+  "stages": 132,
+  "region": "Her",
+  "nearestNode": "Node_Her_TwinCloverCabin",
+  "nodeDistance": 153
+ },
+ "LevelSequencerSpawn_Faction_m12_m06": {
+  "x": -11578.8,
+  "y": 646.3,
+  "z": -5236.8,
+  "stages": 125,
+  "region": "Her",
+  "nearestNode": "Node_Her_PervinFort",
+  "nodeDistance": 22
+ },
+ "LevelSequencerSpawn_Faction_m13_m01": {
+  "x": -12563.8,
+  "y": 888.9,
+  "z": -116.4,
+  "stages": 2,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_QuietSnowShelter",
+  "nodeDistance": 255
+ },
+ "LevelSequencerSpawn_Faction_m13_m04": {
+  "x": -12697.5,
+  "y": 982.4,
+  "z": -4654.9,
+  "stages": 55,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestingPlaceofDeathCave",
+  "nodeDistance": 217
+ },
+ "LevelSequencerSpawn_WildAnimal_m03_m05": {
+  "x": -2913.5,
+  "y": 375.0,
+  "z": -4604.1,
+  "stages": 130,
+  "region": "Del",
+  "nearestNode": "Node_Del_Shipwreck_0008",
+  "nodeDistance": 102
+ },
+ "LevelSequencerSpawn_WildAnimal_m03_m06": {
+  "x": -3051.0,
+  "y": 360.0,
+  "z": -5451.6,
+  "stages": 28,
+  "region": "Del",
+  "nearestNode": "Node_Del_Temple_0014",
+  "nodeDistance": 212
+ },
+ "LevelSequencerSpawn_WildAnimal_m04_00": {
+  "x": -4006.9,
+  "y": 683.2,
+  "z": 344.8,
+  "stages": 79,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RestArea_0074",
+  "nodeDistance": 318
+ },
+ "LevelSequencerSpawn_WildAnimal_m04_01": {
+  "x": -3737.2,
+  "y": 630.3,
+  "z": 1607.1,
+  "stages": 39,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RestArea_0076",
+  "nodeDistance": 626
+ },
+ "LevelSequencerSpawn_WildAnimal_m04_02": {
+  "x": -3901.8,
+  "y": 629.0,
+  "z": 2628.6,
+  "stages": 168,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_VarniaGate",
+  "nodeDistance": 182
+ },
+ "LevelSequencerSpawn_WildAnimal_m04_03": {
+  "x": -3826.1,
+  "y": 648.5,
+  "z": 3455.9,
+  "stages": 196,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Varnia",
+  "nodeDistance": 98
+ },
+ "LevelSequencerSpawn_WildAnimal_m04_m01": {
+  "x": -3794.2,
+  "y": 653.6,
+  "z": -666.7,
+  "stages": 396,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BanditCamp_VII",
+  "nodeDistance": 62
+ },
+ "LevelSequencerSpawn_WildAnimal_m04_m02": {
+  "x": -3695.7,
+  "y": 571.0,
+  "z": -1221.1,
+  "stages": 43,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_SkinCollectorHideout",
+  "nodeDistance": 29
+ },
+ "LevelSequencerSpawn_WildAnimal_m04_m05": {
+  "x": -3501.5,
+  "y": 367.2,
+  "z": -4817.1,
+  "stages": 293,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniLabGate",
+  "nodeDistance": 46
+ },
+ "LevelSequencerSpawn_WildAnimal_m04_m06": {
+  "x": -3570.1,
+  "y": 400.3,
+  "z": -5670.9,
+  "stages": 448,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniWorkshopEastGate",
+  "nodeDistance": 179
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_00": {
+  "x": -4597.7,
+  "y": 673.7,
+  "z": 489.0,
+  "stages": 185,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Ringrock_Hollow",
+  "nodeDistance": 206
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_01": {
+  "x": -4771.7,
+  "y": 683.2,
+  "z": 1510.5,
+  "stages": 182,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Merchant_Oasis",
+  "nodeDistance": 60
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_02": {
+  "x": -4512.4,
+  "y": 651.4,
+  "z": 2626.8,
+  "stages": 489,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_VarniaSaltroadCamp",
+  "nodeDistance": 302
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_03": {
+  "x": -4392.0,
+  "y": 645.4,
+  "z": 3201.7,
+  "stages": 126,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Sandtopia",
+  "nodeDistance": 220
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_m01": {
+  "x": -4587.1,
+  "y": 658.1,
+  "z": -605.6,
+  "stages": 453,
+  "region": "Del",
+  "nearestNode": "Node_Del_Sandshift_Basin_Station",
+  "nodeDistance": 131
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_m02": {
+  "x": -4415.5,
+  "y": 532.0,
+  "z": -1787.5,
+  "stages": 274,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_JungleScoutCamp",
+  "nodeDistance": 140
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_m03": {
+  "x": -4506.6,
+  "y": 422.1,
+  "z": -2673.5,
+  "stages": 288,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Emerald_Cliff_WatchTower",
+  "nodeDistance": 75
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_m04": {
+  "x": -4621.4,
+  "y": 359.8,
+  "z": -3590.7,
+  "stages": 420,
+  "region": "Del",
+  "nearestNode": "Node_Del_Shipwreck_0001",
+  "nodeDistance": 24
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_m05": {
+  "x": -4571.9,
+  "y": 388.8,
+  "z": -4598.4,
+  "stages": 248,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniMuseum",
+  "nodeDistance": 40
+ },
+ "LevelSequencerSpawn_WildAnimal_m05_m06": {
+  "x": -4597.7,
+  "y": 370.7,
+  "z": -5463.9,
+  "stages": 197,
+  "region": "Del",
+  "nearestNode": "Node_Del_ValvegardWallFort",
+  "nodeDistance": 116
+ },
+ "LevelSequencerSpawn_WildAnimal_m06_00": {
+  "x": -5648.2,
+  "y": 684.7,
+  "z": 554.7,
+  "stages": 431,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_AsaharamCamp",
+  "nodeDistance": 97
+ },
+ "LevelSequencerSpawn_WildAnimal_m06_01": {
+  "x": -5357.7,
+  "y": 683.9,
+  "z": 1158.7,
+  "stages": 66,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Ruins_0015",
+  "nodeDistance": 59
+ },
+ "LevelSequencerSpawn_WildAnimal_m06_m01": {
+  "x": -5590.9,
+  "y": 673.3,
+  "z": -536.6,
+  "stages": 645,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BatiharVillage",
+  "nodeDistance": 177
+ },
+ "LevelSequencerSpawn_WildAnimal_m06_m02": {
+  "x": -5741.1,
+  "y": 524.9,
+  "z": -1573.2,
+  "stages": 283,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Ruins_0020",
+  "nodeDistance": 234
+ },
+ "LevelSequencerSpawn_WildAnimal_m06_m03": {
+  "x": -5817.1,
+  "y": 506.6,
+  "z": -2555.6,
+  "stages": 252,
+  "region": "Del",
+  "nearestNode": "Node_Del_AbyssMirrorCave",
+  "nodeDistance": 103
+ },
+ "LevelSequencerSpawn_WildAnimal_m06_m04": {
+  "x": -5891.4,
+  "y": 393.5,
+  "z": -3351.2,
+  "stages": 226,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_DemenissArmory",
+  "nodeDistance": 306
+ },
+ "LevelSequencerSpawn_WildAnimal_m06_m05": {
+  "x": -5418.6,
+  "y": 437.3,
+  "z": -4624.4,
+  "stages": 204,
+  "region": "Del",
+  "nearestNode": "Node_Del_GuardiansCave",
+  "nodeDistance": 135
+ },
+ "LevelSequencerSpawn_WildAnimal_m06_m06": {
+  "x": -5628.3,
+  "y": 361.3,
+  "z": -5457.1,
+  "stages": 170,
+  "region": "Del",
+  "nearestNode": "Node_Del_RestArea_0063",
+  "nodeDistance": 138
+ },
+ "LevelSequencerSpawn_WildAnimal_m07_00": {
+  "x": -6516.1,
+  "y": 700.7,
+  "z": 412.6,
+  "stages": 188,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BanditCamp_XI",
+  "nodeDistance": 74
+ },
+ "LevelSequencerSpawn_WildAnimal_m07_m01": {
+  "x": -6611.7,
+  "y": 673.3,
+  "z": -640.8,
+  "stages": 321,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RestArea_0082",
+  "nodeDistance": 99
+ },
+ "LevelSequencerSpawn_WildAnimal_m07_m02": {
+  "x": -6471.1,
+  "y": 564.4,
+  "z": -1390.3,
+  "stages": 211,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_BanditCamp_XIII",
+  "nodeDistance": 82
+ },
+ "LevelSequencerSpawn_WildAnimal_m07_m03": {
+  "x": -6671.3,
+  "y": 532.7,
+  "z": -2346.5,
+  "stages": 347,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Musket2Outpost",
+  "nodeDistance": 147
+ },
+ "LevelSequencerSpawn_WildAnimal_m07_m04": {
+  "x": -6597.7,
+  "y": 401.0,
+  "z": -3551.2,
+  "stages": 448,
+  "region": "Neut",
+  "nearestNode": "Node_Neut_DelpheonNorthCamp",
+  "nodeDistance": 14
+ },
+ "LevelSequencerSpawn_WildAnimal_m07_m05": {
+  "x": -6731.1,
+  "y": 395.4,
+  "z": -4560.0,
+  "stages": 547,
+  "region": "Del",
+  "nearestNode": "Node_Del_AncientRuins_0011",
+  "nodeDistance": 120
+ },
+ "LevelSequencerSpawn_WildAnimal_m07_m06": {
+  "x": -6779.2,
+  "y": 398.1,
+  "z": -5627.5,
+  "stages": 475,
+  "region": "Del",
+  "nearestNode": "Node_Del_DesolateWyvernNest",
+  "nodeDistance": 56
+ },
+ "LevelSequencerSpawn_WildAnimal_m08_00": {
+  "x": -7456.6,
+  "y": 702.1,
+  "z": 226.9,
+  "stages": 111,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_ArimajahrCamp",
+  "nodeDistance": 376
+ },
+ "LevelSequencerSpawn_WildAnimal_m08_m01": {
+  "x": -7835.9,
+  "y": 687.5,
+  "z": -477.8,
+  "stages": 469,
+  "region": "Del",
+  "nearestNode": "Node_Del_BraveNest",
+  "nodeDistance": 25
+ },
+ "LevelSequencerSpawn_WildAnimal_m08_m02": {
+  "x": -7724.5,
+  "y": 620.4,
+  "z": -1550.3,
+  "stages": 613,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_HexeSanctuary",
+  "nodeDistance": 90
+ },
+ "LevelSequencerSpawn_WildAnimal_m08_m03": {
+  "x": -7733.5,
+  "y": 534.9,
+  "z": -2545.7,
+  "stages": 364,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_DemenissHorseMarket",
+  "nodeDistance": 133
+ },
+ "LevelSequencerSpawn_WildAnimal_m08_m04": {
+  "x": -7375.0,
+  "y": 428.7,
+  "z": -3779.2,
+  "stages": 248,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_SmugglersDock",
+  "nodeDistance": 144
+ },
+ "LevelSequencerSpawn_WildAnimal_m08_m05": {
+  "x": -7487.9,
+  "y": 421.0,
+  "z": -4711.5,
+  "stages": 1416,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_HiddenCave",
+  "nodeDistance": 107
+ },
+ "LevelSequencerSpawn_WildAnimal_m08_m06": {
+  "x": -7783.8,
+  "y": 378.8,
+  "z": -5452.7,
+  "stages": 436,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_SouthernDivineTree",
+  "nodeDistance": 132
+ },
+ "LevelSequencerSpawn_WildAnimal_m08_m07": {
+  "x": -8042.1,
+  "y": 354.3,
+  "z": -6155.3,
+  "stages": 2,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_Shipwreck_0007",
+  "nodeDistance": 285
+ },
+ "LevelSequencerSpawn_WildAnimal_m09_00": {
+  "x": -8994.7,
+  "y": 736.3,
+  "z": 296.8,
+  "stages": 316,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_Region_Cave_0048",
+  "nodeDistance": 134
+ },
+ "LevelSequencerSpawn_WildAnimal_m09_m01": {
+  "x": -8827.6,
+  "y": 685.5,
+  "z": -539.7,
+  "stages": 702,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_Region_Cave_0047",
+  "nodeDistance": 249
+ },
+ "LevelSequencerSpawn_WildAnimal_m09_m02": {
+  "x": -8667.9,
+  "y": 641.4,
+  "z": -1608.8,
+  "stages": 487,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_RestArea_0087",
+  "nodeDistance": 96
+ },
+ "LevelSequencerSpawn_WildAnimal_m09_m03": {
+  "x": -8613.5,
+  "y": 545.3,
+  "z": -2372.4,
+  "stages": 282,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BurnhandQuarry",
+  "nodeDistance": 150
+ },
+ "LevelSequencerSpawn_WildAnimal_m09_m04": {
+  "x": -8774.3,
+  "y": 522.8,
+  "z": -3914.8,
+  "stages": 248,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ScorchrockCastle",
+  "nodeDistance": 109
+ },
+ "LevelSequencerSpawn_WildAnimal_m09_m05": {
+  "x": -8671.1,
+  "y": 468.0,
+  "z": -4494.6,
+  "stages": 669,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BanditCamp_I",
+  "nodeDistance": 193
+ },
+ "LevelSequencerSpawn_WildAnimal_m09_m06": {
+  "x": -8590.9,
+  "y": 511.1,
+  "z": -5523.4,
+  "stages": 395,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ThornRoseSuppliesStorageNorth",
+  "nodeDistance": 105
+ },
+ "LevelSequencerSpawn_WildAnimal_m09_m07": {
+  "x": -8758.6,
+  "y": 380.7,
+  "z": -6289.6,
+  "stages": 300,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_AbandonedCabin_V",
+  "nodeDistance": 55
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_00": {
+  "x": -9643.6,
+  "y": 675.8,
+  "z": 503.4,
+  "stages": 465,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_ValgrindTomb",
+  "nodeDistance": 74
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_01": {
+  "x": -9635.4,
+  "y": 676.6,
+  "z": 1221.6,
+  "stages": 339,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_BranchshadowHideout",
+  "nodeDistance": 118
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_m01": {
+  "x": -9736.0,
+  "y": 657.7,
+  "z": -572.3,
+  "stages": 611,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_ForestRing",
+  "nodeDistance": 96
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_m02": {
+  "x": -9621.9,
+  "y": 674.4,
+  "z": -1532.0,
+  "stages": 638,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestArea_0003",
+  "nodeDistance": 149
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_m03": {
+  "x": -9790.3,
+  "y": 657.4,
+  "z": -2585.1,
+  "stages": 637,
+  "region": "Her",
+  "nearestNode": "Node_Her_WindcrestOutpost",
+  "nodeDistance": 62
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_m04": {
+  "x": -9780.7,
+  "y": 574.6,
+  "z": -3644.0,
+  "stages": 614,
+  "region": "Hernand",
+  "nearestNode": "Node_Hernand_Bandit_I",
+  "nodeDistance": 83
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_m05": {
+  "x": -9746.2,
+  "y": 559.3,
+  "z": -4484.0,
+  "stages": 587,
+  "region": "Her",
+  "nearestNode": "Node_Her_CoalvaleWorkshop",
+  "nodeDistance": 167
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_m06": {
+  "x": -9711.6,
+  "y": 578.6,
+  "z": -5704.4,
+  "stages": 898,
+  "region": "Her",
+  "nearestNode": "Node_Her_AncientRuins_0008",
+  "nodeDistance": 125
+ },
+ "LevelSequencerSpawn_WildAnimal_m10_m07": {
+  "x": -9512.3,
+  "y": 435.6,
+  "z": -6269.8,
+  "stages": 201,
+  "region": "Her",
+  "nearestNode": "Node_Her_AbandonedCabin_I",
+  "nodeDistance": 116
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_00": {
+  "x": -10779.7,
+  "y": 764.4,
+  "z": 660.8,
+  "stages": 472,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_BolsteinnRuins",
+  "nodeDistance": 185
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_01": {
+  "x": -10777.7,
+  "y": 672.8,
+  "z": 1195.5,
+  "stages": 276,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_OdeckWaterGate",
+  "nodeDistance": 65
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_m01": {
+  "x": -10760.3,
+  "y": 865.4,
+  "z": -647.3,
+  "stages": 291,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_FrostStay",
+  "nodeDistance": 169
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_m02": {
+  "x": -10841.8,
+  "y": 749.2,
+  "z": -1615.4,
+  "stages": 604,
+  "region": "Her",
+  "nearestNode": "Node_Her_WhitegreenRidge",
+  "nodeDistance": 234
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_m03": {
+  "x": -10756.1,
+  "y": 683.9,
+  "z": -2610.5,
+  "stages": 606,
+  "region": "Her",
+  "nearestNode": "Node_Her_SanctumOfDeliverance",
+  "nodeDistance": 106
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_m04": {
+  "x": -10746.5,
+  "y": 663.8,
+  "z": -3542.1,
+  "stages": 684,
+  "region": "Her",
+  "nearestNode": "Node_Her_Region_Cave_0079",
+  "nodeDistance": 99
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_m05": {
+  "x": -10798.0,
+  "y": 593.8,
+  "z": -4607.5,
+  "stages": 720,
+  "region": "Her",
+  "nearestNode": "Node_Her_SunrisePlainBanditCamp_I",
+  "nodeDistance": 261
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_m06": {
+  "x": -10640.3,
+  "y": 559.2,
+  "z": -5718.3,
+  "stages": 568,
+  "region": "Her",
+  "nearestNode": "Node_Her_ForentinHut",
+  "nodeDistance": 174
+ },
+ "LevelSequencerSpawn_WildAnimal_m11_m07": {
+  "x": -10835.0,
+  "y": 565.1,
+  "z": -6583.6,
+  "stages": 270,
+  "region": "Her",
+  "nearestNode": "Node_Her_AbandonedCabin_III",
+  "nodeDistance": 100
+ },
+ "LevelSequencerSpawn_WildAnimal_m12_00": {
+  "x": -11571.1,
+  "y": 792.2,
+  "z": 468.6,
+  "stages": 156,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_WhistleLeafFort",
+  "nodeDistance": 167
+ },
+ "LevelSequencerSpawn_WildAnimal_m12_m01": {
+  "x": -11818.8,
+  "y": 747.5,
+  "z": -440.8,
+  "stages": 375,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_Region_Cave_0046",
+  "nodeDistance": 250
+ },
+ "LevelSequencerSpawn_WildAnimal_m12_m02": {
+  "x": -11939.2,
+  "y": 725.9,
+  "z": -1556.3,
+  "stages": 449,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_CalphadeTrainingField",
+  "nodeDistance": 101
+ },
+ "LevelSequencerSpawn_WildAnimal_m12_m03": {
+  "x": -11818.6,
+  "y": 761.4,
+  "z": -2692.9,
+  "stages": 681,
+  "region": "Her",
+  "nearestNode": "Node_Her_WhiteMountainOutpost",
+  "nodeDistance": 113
+ },
+ "LevelSequencerSpawn_WildAnimal_m12_m04": {
+  "x": -11654.8,
+  "y": 820.4,
+  "z": -3667.9,
+  "stages": 602,
+  "region": "Her",
+  "nearestNode": "Node_Her_StarlightStormCave",
+  "nodeDistance": 70
+ },
+ "LevelSequencerSpawn_WildAnimal_m12_m05": {
+  "x": -11733.9,
+  "y": 726.1,
+  "z": -4678.3,
+  "stages": 771,
+  "region": "Her",
+  "nearestNode": "Node_Her_WitchHouse",
+  "nodeDistance": 273
+ },
+ "LevelSequencerSpawn_WildAnimal_m12_m06": {
+  "x": -11815.4,
+  "y": 780.9,
+  "z": -5501.9,
+  "stages": 555,
+  "region": "Her",
+  "nearestNode": "Node_Her_BrokenGate",
+  "nodeDistance": 157
+ },
+ "LevelSequencerSpawn_WildAnimal_m12_m07": {
+  "x": -11396.4,
+  "y": 771.9,
+  "z": -6788.5,
+  "stages": 109,
+  "region": "Her",
+  "nearestNode": "Node_Her_SunsetVillage",
+  "nodeDistance": 233
+ },
+ "LevelSequencerSpawn_WildAnimal_m13_m01": {
+  "x": -12559.4,
+  "y": 848.0,
+  "z": -434.6,
+  "stages": 280,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_QuietSnowShelter",
+  "nodeDistance": 252
+ },
+ "LevelSequencerSpawn_WildAnimal_m13_m02": {
+  "x": -12578.8,
+  "y": 862.6,
+  "z": -1445.1,
+  "stages": 160,
+  "region": "Her",
+  "nearestNode": "Node_Her_AncientRuins_0010",
+  "nodeDistance": 291
+ },
+ "LevelSequencerSpawn_WildAnimal_m13_m03": {
+  "x": -12724.5,
+  "y": 1035.2,
+  "z": -2698.0,
+  "stages": 321,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_HohenmarkRuins",
+  "nodeDistance": 218
+ },
+ "LevelSequencerSpawn_WildAnimal_m13_m04": {
+  "x": -12550.1,
+  "y": 1026.4,
+  "z": -3493.5,
+  "stages": 65,
+  "region": "Her",
+  "nearestNode": "Node_Her_SanctumOfBenediction",
+  "nodeDistance": 140
+ },
+ "LevelSequencerSpawn_WildAnimal_m13_m05": {
+  "x": -12681.5,
+  "y": 1003.3,
+  "z": -4555.7,
+  "stages": 119,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestingPlaceofDeathCave",
+  "nodeDistance": 290
+ },
+ "LevelSequencerSpawn_WildAnimal_m13_m06": {
+  "x": -12499.6,
+  "y": 899.0,
+  "z": -5587.9,
+  "stages": 77,
+  "region": "Her",
+  "nearestNode": "Node_Her_Region_Cave_0076",
+  "nodeDistance": 164
+ },
+ "LevelSequencerSpawn_Deleted": {
+  "x": -6679.8,
+  "y": 370.0,
+  "z": -5355.3,
+  "stages": 40,
+  "region": "Del",
+  "nearestNode": "Node_Del_AbandonedWyvernNest",
+  "nodeDistance": 46
+ },
+ "Challenge_Abyss": {
+  "x": -10619.0,
+  "y": 1898.0,
+  "z": -1755.0,
+  "stages": 1,
+  "region": "Abyssone",
+  "nearestNode": "Node_Abyssone_0055",
+  "nodeDistance": 30
+ },
+ "Contents_MiniGame_Armwrest": {
+  "x": -10661.9,
+  "y": 634.6,
+  "z": -2135.9,
+  "stages": 3,
+  "region": "Her",
+  "nearestNode": "Node_Her_DivineTree",
+  "nodeDistance": 143
+ },
+ "Contents_MiniGame_Handwrest": {
+  "x": -4389.0,
+  "y": 377.9,
+  "z": -4222.1,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_FinholdNetmakers",
+  "nodeDistance": 43
+ },
+ "Contents_MiniGame_Duel_Unarmed": {
+  "x": -10781.9,
+  "y": 557.2,
+  "z": -4271.6,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_GoldenFistsArena",
+  "nodeDistance": 23
+ },
+ "Contents_MiniGame_Duel": {
+  "x": -6029.3,
+  "y": 573.8,
+  "z": -1042.8,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_RedRockFarm",
+  "nodeDistance": 81
+ },
+ "Contents_MiniGame_Duel_Wrestling": {
+  "x": -12312.9,
+  "y": 731.0,
+  "z": -5203.8,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_SecretGarden",
+  "nodeDistance": 121
+ },
+ "Contents_MiniGame_Duel_Spear": {
+  "x": -10766.7,
+  "y": 658.2,
+  "z": -3652.2,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_LioncrestManor_Alfonso",
+  "nodeDistance": 110
+ },
+ "Contents_MiniGame_Duel_MainWeapon": {
+  "x": -6143.6,
+  "y": 630.4,
+  "z": -827.4,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_TashkalpCrossroadsStation",
+  "nodeDistance": 109
+ },
+ "Contents_MiniGame_RockPaperSci": {
+  "x": -6000.0,
+  "y": 593.1,
+  "z": -3286.0,
+  "stages": 7,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_DemenissArmory",
+  "nodeDistance": 180
+ },
+ "Contents_Police": {
+  "x": -11018.1,
+  "y": 687.9,
+  "z": -1404.7,
+  "stages": 8,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SteinnfellBarracks",
+  "nodeDistance": 46
+ },
+ "Contents_Reward": {
+  "x": -8505.8,
+  "y": 642.8,
+  "z": -3367.3,
+  "stages": 23,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_LacusFarm",
+  "nodeDistance": 84
+ },
+ "Quest_HumanDocumentary_Her": {
+  "x": -10678.8,
+  "y": 611.5,
+  "z": -3900.6,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_BluemontManor_Rupert",
+  "nodeDistance": 17
+ },
+ "Quest_Node_Del_WindCliffFort_Boss_Block": {
+  "x": -6624.6,
+  "y": 507.8,
+  "z": -5620.1,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_WindCliffFort_RestArea_0001_RestArea_0001",
+  "nodeDistance": 62
+ },
+ "Quest_Graymane_BaseCamp_Pailune_After": {
+  "x": -9888.2,
+  "y": 657.5,
+  "z": 195.4,
+  "stages": 3,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_PailuneCampsite",
+  "nodeDistance": 43
+ },
+ "Quest_Node_Cal_HohenmarkRuins_Block": {
+  "x": -12687.3,
+  "y": 1029.8,
+  "z": -2912.8,
+  "stages": 3,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_HohenmarkRuins",
+  "nodeDistance": 25
+ },
+ "Quest_Node_Crim_FortManub_Block": {
+  "x": -5520.8,
+  "y": 665.5,
+  "z": -924.6,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_FortManub",
+  "nodeDistance": 33
+ },
+ "Quest_Node_Crim_IsvatuFortress_Block_Boss": {
+  "x": -6650.9,
+  "y": 651.8,
+  "z": -1090.5,
+  "stages": 3,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_IsvatuFortress",
+  "nodeDistance": 21
+ },
+ "Quest_Node_Crim_RedMountainFort_Block_GoldenArmor_Boss": {
+  "x": -4702.0,
+  "y": 664.4,
+  "z": -1162.9,
+  "stages": 3,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Region_Cave_0020",
+  "nodeDistance": 18
+ },
+ "Quest_Node_Crim_BoneArena_Block": {
+  "x": -6129.3,
+  "y": 624.7,
+  "z": -845.5,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Tashkalp",
+  "nodeDistance": 94
+ },
+ "Quest_Faction_Marni_Mine_Fortress_Block": {
+  "x": -3443.4,
+  "y": 417.0,
+  "z": -5799.7,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniAirLab",
+  "nodeDistance": 17
+ },
+ "Quest_Node_Del_MarniLab_Block": {
+  "x": -3019.4,
+  "y": 460.7,
+  "z": -4494.2,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniLab",
+  "nodeDistance": 79
+ },
+ "Quest_Node_Del_MarniMechFactory_Block": {
+  "x": -4447.9,
+  "y": 420.9,
+  "z": -4916.5,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_MarniMechFactory",
+  "nodeDistance": 19
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Priscus": {
+  "x": -11871.6,
+  "y": 880.7,
+  "z": -759.4,
+  "stages": 2,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SpireOfRingingTruth",
+  "nodeDistance": 14
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Praevus": {
+  "x": -6589.8,
+  "y": 672.9,
+  "z": -759.4,
+  "stages": 2,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_FallenAbyss",
+  "nodeDistance": 96
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Primus": {
+  "x": -7041.5,
+  "y": 418.2,
+  "z": -5299.5,
+  "stages": 4,
+  "region": "Del",
+  "nearestNode": "Node_Del_ArrowBigRock",
+  "nodeDistance": 47
+ },
+ "Quest_Faction_Marni_Barrier_Fortress_Blockade": {
+  "x": -4661.6,
+  "y": 440.6,
+  "z": -5353.5,
+  "stages": 1,
+  "region": "Del",
+  "nearestNode": "Node_Del_ValvegardWallFort",
+  "nodeDistance": 11
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Block_Request": {
+  "x": -8933.5,
+  "y": 572.3,
+  "z": -5945.3,
+  "stages": 3,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BloodsteelCamp",
+  "nodeDistance": 13
+ },
+ "Quest_Node_Dem_BrookfieldManor_Elemore_MoonReaper_Normal": {
+  "x": -8483.2,
+  "y": 526.0,
+  "z": -3069.5,
+  "stages": 3,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_GreenfieldFarm",
+  "nodeDistance": 37
+ },
+ "Quest_Faction_Demeniss_All": {
+  "x": -8088.0,
+  "y": 512.0,
+  "z": -3260.0,
+  "stages": 45,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_TheLaughingMarionette",
+  "nodeDistance": 131
+ },
+ "Quest_Node_Dem_EyeOfIce_Block": {
+  "x": -8425.4,
+  "y": 641.7,
+  "z": -1031.3,
+  "stages": 5,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_FrozenTower",
+  "nodeDistance": 81
+ },
+ "Quest_Node_Dem_Flame_Knights_Block": {
+  "x": -8990.6,
+  "y": 612.8,
+  "z": -2976.7,
+  "stages": 3,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_Flame_Knights",
+  "nodeDistance": 22
+ },
+ "Quest_Node_Dem_SilvermoonHQ_Block": {
+  "x": -6904.4,
+  "y": 355.1,
+  "z": -3898.4,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_Shipwreck_0001",
+  "nodeDistance": 94
+ },
+ "Quest_Faction_CaliburnClan_II_DemenissZoo_Boss": {
+  "x": -8075.2,
+  "y": 457.2,
+  "z": -3860.7,
+  "stages": 2,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_DemenissZoo",
+  "nodeDistance": 156
+ },
+ "Quest_Node_Dem_KingMountainDigSite_Block": {
+  "x": -9085.4,
+  "y": 630.1,
+  "z": -2237.5,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_KingMountainDigSite",
+  "nodeDistance": 66
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_Normal": {
+  "x": -8214.6,
+  "y": 529.6,
+  "z": -3233.3,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_TheLaughingMarionette",
+  "nodeDistance": 17
+ },
+ "Quest_Node_Dem_GateOfTruth_StoneGolem_Block": {
+  "x": -9019.3,
+  "y": 749.0,
+  "z": -1937.1,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_TruthGate",
+  "nodeDistance": 21
+ },
+ "Quest_Node_Dem_WindmereManor_Byron_FullPlateArmorTroll_Boss": {
+  "x": -8651.4,
+  "y": 525.2,
+  "z": -2316.3,
+  "stages": 2,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BurnhandQuarry",
+  "nodeDistance": 182
+ },
+ "Quest_Node_Her_BluemontWineHouse_PervinFort_Block": {
+  "x": -11574.8,
+  "y": 651.6,
+  "z": -5251.4,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_PervinFort",
+  "nodeDistance": 9
+ },
+ "Quest_Node_Her_RuinedChapel_Block": {
+  "x": -9879.8,
+  "y": 609.5,
+  "z": -5578.2,
+  "stages": 3,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestArea_0035",
+  "nodeDistance": 96
+ },
+ "Quest_Faction_Hellhounds_Block": {
+  "x": -11217.6,
+  "y": 791.6,
+  "z": -5476.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_FortHellwood",
+  "nodeDistance": 31
+ },
+ "Quest_Node_Her_SouthQuarry_Block_CubeWalker": {
+  "x": -9513.6,
+  "y": 531.6,
+  "z": -4641.7,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_SouthQuarry",
+  "nodeDistance": 57
+ },
+ "Quest_Node_Her_HernandCastle_All": {
+  "x": -10678.0,
+  "y": 580.0,
+  "z": -4010.0,
+  "stages": 35,
+  "region": "Her",
+  "nearestNode": "Node_Her_TheScrapfold",
+  "nodeDistance": 91
+ },
+ "Quest_Node_Her_RootFort_Block": {
+  "x": -10517.3,
+  "y": 814.2,
+  "z": -2139.2,
+  "stages": 2,
+  "region": "Her",
+  "nearestNode": "Node_Her_DivineTree",
+  "nodeDistance": 2
+ },
+ "Quest_Node_Her_DrakefallCastle_Block": {
+  "x": -9809.8,
+  "y": 681.8,
+  "z": -1412.7,
+  "stages": 2,
+  "region": "Her",
+  "nearestNode": "Node_Her_DragonKillCastle",
+  "nodeDistance": 103
+ },
+ "Quest_Node_Her_KharonsoLake_Block": {
+  "x": -12368.2,
+  "y": 736.2,
+  "z": -5025.5,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_KharonsoLake",
+  "nodeDistance": 7
+ },
+ "Quest_Node_Her_IcemoorCastleRuins_Block": {
+  "x": -11963.8,
+  "y": 998.5,
+  "z": -3175.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_IcemoorCastleRuins",
+  "nodeDistance": 13
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_FortWarspike_Boss": {
+  "x": -11671.4,
+  "y": 692.1,
+  "z": -4154.1,
+  "stages": 2,
+  "region": "Her",
+  "nearestNode": "Node_Her_FortWarspike",
+  "nodeDistance": 10
+ },
+ "Quest_Node_Her_BloomwoodRanch_HorseRace_Normal": {
+  "x": -10248.6,
+  "y": 544.2,
+  "z": -4239.3,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_EquinsherSaddlery",
+  "nodeDistance": 74
+ },
+ "Quest_Node_Her_PororinVillage_Trembling_Woods_Ent_Normal": {
+  "x": -9820.6,
+  "y": 560.3,
+  "z": -5024.2,
+  "stages": 3,
+  "region": "Her",
+  "nearestNode": "Node_Her_Region_Cave_0068",
+  "nodeDistance": 51
+ },
+ "Quest_Node_Her_ScholarStoneInstitute_All": {
+  "x": -11930.9,
+  "y": 834.3,
+  "z": -5031.4,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_ScholastoneArchive",
+  "nodeDistance": 135
+ },
+ "Quest_Node_Her_SpiderCastle_Block": {
+  "x": -9937.0,
+  "y": 724.4,
+  "z": -2474.9,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_SpiderCastle",
+  "nodeDistance": 44
+ },
+ "Quest_Node_Her_VelluaVillage_Block": {
+  "x": -10366.0,
+  "y": 365.2,
+  "z": -5904.6,
+  "stages": 3,
+  "region": "Her",
+  "nearestNode": "Node_Her_VelluaVillage_RestArea_0001",
+  "nodeDistance": 73
+ },
+ "Quest_Node_Kwe_SpireOfRuination_Boss": {
+  "x": -10504.9,
+  "y": 766.9,
+  "z": -4250.6,
+  "stages": 5,
+  "region": "Her",
+  "nearestNode": "Node_Her_SpringtideWatermill",
+  "nodeDistance": 73
+ },
+ "Quest_Node_Kwe_LonelyJackal_BloodGolem_Boss": {
+  "x": -9655.9,
+  "y": 644.9,
+  "z": -842.1,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_Region_Cave_0077",
+  "nodeDistance": 10
+ },
+ "Quest_Node_Kwe_RidgehunterLeatherMaker_Normal": {
+  "x": -11417.1,
+  "y": 727.7,
+  "z": -80.5,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SwampOfDespair",
+  "nodeDistance": 16
+ },
+ "Quest_Node_Kwe_OdeckVillage_Boss_Block": {
+  "x": -11032.8,
+  "y": 693.8,
+  "z": 1043.3,
+  "stages": 3,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_VerheimRuins",
+  "nodeDistance": 144
+ },
+ "Quest_Node_Kwe_GeneralTomb_Block": {
+  "x": -11778.7,
+  "y": 789.6,
+  "z": 1015.9,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_GeneralTomb",
+  "nodeDistance": 3
+ },
+ "Quest_Node_Kwe_QuietSnowShelter_Block": {
+  "x": -12783.6,
+  "y": 940.7,
+  "z": -285.7,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_QuietSnowShelter",
+  "nodeDistance": 25
+ },
+ "Quest_Node_Kwe_WindsongMountain_MasterThunder_Boss_Block": {
+  "x": -9210.4,
+  "y": 787.8,
+  "z": 1191.0,
+  "stages": 1,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_WindsongMountain",
+  "nodeDistance": 7
+ },
+ "Quest_Faction_Marni_OutPost_Block": {
+  "x": -5402.5,
+  "y": 393.1,
+  "z": -3389.1,
+  "stages": 1,
+  "region": "Neut",
+  "nearestNode": "Node_Neut_MarnisOutpost",
+  "nodeDistance": 17
+ },
+ "Quest_Node_Her_WitchHouse_Inactive_Narration_All": {
+  "x": -9388.7,
+  "y": 596.7,
+  "z": -4225.7,
+  "stages": 15,
+  "region": "Her",
+  "nearestNode": "Node_Her_HalsiusHospital",
+  "nodeDistance": 89
+ },
+ "Quest_ReedDevil_Boss_Battle": {
+  "x": -10996.7,
+  "y": 667.2,
+  "z": -5691.1,
+  "stages": 6,
+  "region": "Her",
+  "nearestNode": "Node_Her_FortHellwood_Cliff_WatchTower",
+  "nodeDistance": 155
+ },
+ "Quest_TrollUniversity_Brain": {
+  "x": -11961.9,
+  "y": 875.9,
+  "z": -4889.8,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_ScholastoneInstitute",
+  "nodeDistance": 63
+ },
+ "Quest_Silver_Armor_Boss_Celester": {
+  "x": -12085.3,
+  "y": 731.4,
+  "z": -1859.1,
+  "stages": 2,
+  "region": "Her",
+  "nearestNode": "Node_Her_WetFogCabin",
+  "nodeDistance": 92
+ },
+ "Quest_Ludvig_Boss_Jackal": {
+  "x": -9779.1,
+  "y": 647.3,
+  "z": 186.8,
+  "stages": 2,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_DreamTree",
+  "nodeDistance": 42
+ },
+ "Quest_BloodCoronation_TolsteinGuide": {
+  "x": -8295.0,
+  "y": 479.2,
+  "z": -4670.7,
+  "stages": 4,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_IronwoodPottery",
+  "nodeDistance": 85
+ },
+ "Quest_BloodCoronation_PlaceOutOfLight": {
+  "x": -8330.3,
+  "y": 585.6,
+  "z": -5861.6,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ThornRoseFort",
+  "nodeDistance": 3
+ },
+ "Quest_BloodCoronation_Caliburn_BackGroundStage": {
+  "x": -8332.0,
+  "y": 533.9,
+  "z": -3266.9,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_AzerianManor",
+  "nodeDistance": 24
+ },
+ "Quest_Goblin_Master_Doo_Trial": {
+  "x": -6113.5,
+  "y": 856.7,
+  "z": -3307.9,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_DemenissArmory",
+  "nodeDistance": 106
+ },
+ "Quest_Goblin_Master_Doo_Trial_JijeongTemple": {
+  "x": -7286.4,
+  "y": 416.9,
+  "z": -4496.4,
+  "stages": 1,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BambooForest",
+  "nodeDistance": 53
+ },
+ "Quest_Goblin_Master_Doo_Trial_Hexe": {
+  "x": -7912.9,
+  "y": 565.7,
+  "z": -1568.1,
+  "stages": 3,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ForgottenTomb",
+  "nodeDistance": 30
+ },
+ "Quest_MarniDragon_Boss_CounterAttack": {
+  "x": -5773.1,
+  "y": 483.8,
+  "z": -3818.0,
+  "stages": 4,
+  "region": "Del",
+  "nearestNode": "Node_Del_Region_Cave_0082",
+  "nodeDistance": 195
+ },
+ "Quest_MarniDragon_Boss_MachineCity": {
+  "x": -6590.6,
+  "y": 752.2,
+  "z": -1893.9,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_FortMusket",
+  "nodeDistance": 48
+ },
+ "Quest_Caliburn_Boss_MusketSiege": {
+  "x": -6844.4,
+  "y": 542.1,
+  "z": -2197.2,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_Wall_Supply",
+  "nodeDistance": 33
+ },
+ "cd_seq_05_content_doc_m05_m04_animal_01": {
+  "x": -4929.6,
+  "y": 372.1,
+  "z": -3960.1,
+  "stages": 4,
+  "region": "Del",
+  "nearestNode": "Node_Del_DelesyiaDyehouse",
+  "nodeDistance": 214
+ },
+ "cd_seq_05_content_doc_m06_m02_bird_01": {
+  "x": -5640.2,
+  "y": 576.3,
+  "z": -1239.2,
+  "stages": 127,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_HyenaDen",
+  "nodeDistance": 68
+ },
+ "cd_seq_05_content_doc_m06_m03_animal_01": {
+  "x": -5684.9,
+  "y": 393.1,
+  "z": -3048.2,
+  "stages": 6,
+  "region": "Neut",
+  "nearestNode": "Node_Neut_SolonVillageRuins",
+  "nodeDistance": 208
+ },
+ "cd_seq_05_content_doc_m06_m04_animal_01": {
+  "x": -5905.8,
+  "y": 393.3,
+  "z": -3493.4,
+  "stages": 48,
+  "region": "Del",
+  "nearestNode": "Node_Del_Region_Cave_0082",
+  "nodeDistance": 200
+ },
+ "cd_seq_05_content_doc_m06_m05_animal_01": {
+  "x": -5286.7,
+  "y": 391.6,
+  "z": -4685.0,
+  "stages": 20,
+  "region": "Del",
+  "nearestNode": "Node_Del_Eastern_Hills_Station",
+  "nodeDistance": 103
+ },
+ "cd_seq_05_content_doc_m07_m04_animal_01": {
+  "x": -6278.8,
+  "y": 393.1,
+  "z": -3258.5,
+  "stages": 45,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BrokenHouse",
+  "nodeDistance": 9
+ },
+ "cd_seq_05_content_doc_m07_m05_animal_01": {
+  "x": -6546.5,
+  "y": 415.6,
+  "z": -4753.7,
+  "stages": 22,
+  "region": "Del",
+  "nearestNode": "Node_Del_DewhavenLoggingCamp",
+  "nodeDistance": 172
+ },
+ "cd_seq_05_content_doc_m09_m01_bird_01": {
+  "x": -9161.4,
+  "y": 607.6,
+  "z": -942.6,
+  "stages": 6,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_BeighenVillage",
+  "nodeDistance": 162
+ },
+ "cd_seq_05_content_doc_m09_m05_animal_01": {
+  "x": -8790.7,
+  "y": 451.3,
+  "z": -4338.9,
+  "stages": 36,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ShadowWolfCave",
+  "nodeDistance": 160
+ },
+ "cd_seq_05_content_doc_m09_m05_bird_01": {
+  "x": -9071.6,
+  "y": 571.6,
+  "z": -5018.7,
+  "stages": 37,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_WindpulleyHeights",
+  "nodeDistance": 14
+ },
+ "cd_seq_05_content_doc_m09_m06_animal_01": {
+  "x": -8985.8,
+  "y": 494.3,
+  "z": -5488.3,
+  "stages": 31,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_ThornRoseGuardPost",
+  "nodeDistance": 242
+ },
+ "cd_seq_05_content_doc_m09_m06_bird_01": {
+  "x": -8949.1,
+  "y": 582.2,
+  "z": -5728.8,
+  "stages": 64,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BloodsteelNorthGate",
+  "nodeDistance": 198
+ },
+ "cd_seq_05_content_doc_m09_m07_bird_01": {
+  "x": -8792.6,
+  "y": 537.4,
+  "z": -6175.3,
+  "stages": 10,
+  "region": "Dem",
+  "nearestNode": "Node_Dem_BloodsteelSouthGate",
+  "nodeDistance": 146
+ },
+ "cd_seq_05_content_doc_m10_m01_animal_01": {
+  "x": -9757.2,
+  "y": 643.0,
+  "z": -773.9,
+  "stages": 14,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_BanditCamp_I",
+  "nodeDistance": 61
+ },
+ "cd_seq_05_content_doc_m10_m01_animal_02": {
+  "x": -10710.1,
+  "y": 719.1,
+  "z": -340.9,
+  "stages": 117,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_FrostCamp",
+  "nodeDistance": 125
+ },
+ "cd_seq_05_content_doc_m10_m01_bird_01": {
+  "x": -9406.1,
+  "y": 613.1,
+  "z": -947.0,
+  "stages": 13,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_BeighenCandlery",
+  "nodeDistance": 105
+ },
+ "cd_seq_05_content_doc_m10_m01_bird_02": {
+  "x": -11061.9,
+  "y": 794.2,
+  "z": -180.7,
+  "stages": 25,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_FortAskelund",
+  "nodeDistance": 110
+ },
+ "cd_seq_05_content_doc_m10_m02_animal_01": {
+  "x": -9694.2,
+  "y": 635.2,
+  "z": -1100.2,
+  "stages": 9,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestArea_0119",
+  "nodeDistance": 34
+ },
+ "cd_seq_05_content_doc_m10_m02_bird_01": {
+  "x": -9527.5,
+  "y": 615.6,
+  "z": -1162.5,
+  "stages": 10,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestArea_0004",
+  "nodeDistance": 30
+ },
+ "cd_seq_05_content_doc_m10_m03_bird_01": {
+  "x": -9669.1,
+  "y": 666.2,
+  "z": -2589.6,
+  "stages": 6,
+  "region": "Her",
+  "nearestNode": "Node_Her_ArboriaCraftshop",
+  "nodeDistance": 9
+ },
+ "cd_seq_05_content_doc_m10_m04_bird_01": {
+  "x": -9958.5,
+  "y": 608.1,
+  "z": -3832.3,
+  "stages": 6,
+  "region": "Her",
+  "nearestNode": "Node_Her_FortAnvil",
+  "nodeDistance": 195
+ },
+ "cd_seq_05_content_doc_m10_m06_animal_01": {
+  "x": -9487.0,
+  "y": 543.0,
+  "z": -5382.2,
+  "stages": 28,
+  "region": "Her",
+  "nearestNode": "Node_Her_GreenHillThiefCamp",
+  "nodeDistance": 145
+ },
+ "cd_seq_05_content_doc_m10_m06_bird_01": {
+  "x": -9795.7,
+  "y": 573.4,
+  "z": -5743.8,
+  "stages": 49,
+  "region": "Her",
+  "nearestNode": "Node_Her_RuinedChapel_RestArea_0001",
+  "nodeDistance": 62
+ },
+ "cd_seq_05_content_doc_m11_00_animal_01": {
+  "x": -11050.6,
+  "y": 808.5,
+  "z": 334.7,
+  "stages": 120,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_DarkTemple",
+  "nodeDistance": 87
+ },
+ "cd_seq_05_content_doc_m11_00_animal_02": {
+  "x": -11181.5,
+  "y": 698.1,
+  "z": 866.4,
+  "stages": 2,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_WhiteGreattreeHaven",
+  "nodeDistance": 80
+ },
+ "cd_seq_05_content_doc_m11_00_bird_01": {
+  "x": -11099.5,
+  "y": 678.2,
+  "z": 993.7,
+  "stages": 2,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_VerheimRuins",
+  "nodeDistance": 78
+ },
+ "cd_seq_05_content_doc_m11_01_animal_01": {
+  "x": -10897.7,
+  "y": 665.4,
+  "z": 1111.0,
+  "stages": 34,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_OdeckWaterGate",
+  "nodeDistance": 121
+ },
+ "cd_seq_05_content_doc_m11_01_animal_02": {
+  "x": -10455.1,
+  "y": 652.4,
+  "z": 1116.3,
+  "stages": 21,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_RestArea_0011",
+  "nodeDistance": 188
+ },
+ "cd_seq_05_content_doc_m11_01_bird_01": {
+  "x": -10890.9,
+  "y": 663.2,
+  "z": 1242.4,
+  "stages": 11,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_OdeckWaterGate",
+  "nodeDistance": 58
+ },
+ "cd_seq_05_content_doc_m11_m02_animal_01": {
+  "x": -11005.7,
+  "y": 675.8,
+  "z": -1914.2,
+  "stages": 14,
+  "region": "Her",
+  "nearestNode": "Node_Her_Riverward_IronhammerStation",
+  "nodeDistance": 48
+ },
+ "cd_seq_05_content_doc_m11_m02_bird_01": {
+  "x": -10984.8,
+  "y": 676.3,
+  "z": -1910.7,
+  "stages": 18,
+  "region": "Her",
+  "nearestNode": "Node_Her_Riverward_IronhammerStation",
+  "nodeDistance": 60
+ },
+ "cd_seq_05_content_doc_m11_m03_animal_01": {
+  "x": -10684.4,
+  "y": 669.6,
+  "z": -2361.3,
+  "stages": 71,
+  "region": "Her",
+  "nearestNode": "Node_Her_Riverward_SpearsendStation",
+  "nodeDistance": 58
+ },
+ "cd_seq_05_content_doc_m11_m03_bird_01": {
+  "x": -10656.2,
+  "y": 669.2,
+  "z": -2433.1,
+  "stages": 51,
+  "region": "Her",
+  "nearestNode": "Node_Her_Riverward_SpearsendStation",
+  "nodeDistance": 42
+ },
+ "cd_seq_05_content_doc_m11_m06_animal_01": {
+  "x": -10808.8,
+  "y": 605.3,
+  "z": -5341.7,
+  "stages": 16,
+  "region": "Her",
+  "nearestNode": "Node_Her_TotesmithLeatherMaker",
+  "nodeDistance": 111
+ },
+ "cd_seq_05_content_doc_m11_m06_bird_01": {
+  "x": -11008.7,
+  "y": 630.5,
+  "z": -5355.6,
+  "stages": 39,
+  "region": "Her",
+  "nearestNode": "Node_Her_HellwoodOuterGate",
+  "nodeDistance": 80
+ },
+ "cd_seq_05_content_doc_m12_00_animal_01": {
+  "x": -11541.4,
+  "y": 773.8,
+  "z": 223.2,
+  "stages": 166,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_DestructionTower",
+  "nodeDistance": 151
+ },
+ "cd_seq_05_content_doc_m12_00_animal_02": {
+  "x": -11473.2,
+  "y": 753.1,
+  "z": 438.5,
+  "stages": 1,
+  "region": "Crim",
+  "nearestNode": "Node_Crim_MossvaleCabin",
+  "nodeDistance": 152
+ },
+ "cd_seq_05_content_doc_m12_m01_animal_01": {
+  "x": -11536.8,
+  "y": 728.6,
+  "z": -552.5,
+  "stages": 179,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_Region_Cave_0046",
+  "nodeDistance": 67
+ },
+ "cd_seq_05_content_doc_m12_m02_animal_01": {
+  "x": -11596.6,
+  "y": 701.2,
+  "z": -1089.4,
+  "stages": 82,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_SwampFishingDock",
+  "nodeDistance": 151
+ },
+ "cd_seq_05_content_doc_m12_m02_fish_01": {
+  "x": -10312.0,
+  "y": 679.5,
+  "z": 67.0,
+  "stages": 74,
+  "region": "Kwe",
+  "nearestNode": "Node_Kwe_IceBladeCave",
+  "nodeDistance": 159
+ },
+ "cd_seq_05_content_doc_m12_m03_bird_01": {
+  "x": -11794.9,
+  "y": 763.0,
+  "z": -2650.8,
+  "stages": 7,
+  "region": "Cal",
+  "nearestNode": "Node_Cal_SouthWatch_Post",
+  "nodeDistance": 130
+ },
+ "cd_seq_05_content_doc_m12_m04_animal_01": {
+  "x": -11472.0,
+  "y": 751.9,
+  "z": -3717.9,
+  "stages": 80,
+  "region": "Her",
+  "nearestNode": "Node_Her_AncientRuins_0002",
+  "nodeDistance": 121
+ },
+ "cd_seq_05_content_doc_m12_m04_bird_01": {
+  "x": -11623.3,
+  "y": 817.5,
+  "z": -3579.3,
+  "stages": 28,
+  "region": "Her",
+  "nearestNode": "Node_Her_StarlightStormCave",
+  "nodeDistance": 132
+ },
+ "cd_seq_05_content_doc_m12_m05_animal_01": {
+  "x": -11599.3,
+  "y": 672.4,
+  "z": -4715.8,
+  "stages": 117,
+  "region": "Her",
+  "nearestNode": "Node_Her_WitchHouse",
+  "nodeDistance": 175
+ },
+ "cd_seq_05_content_doc_m12_m05_bird_01": {
+  "x": -11828.2,
+  "y": 831.9,
+  "z": -4701.8,
+  "stages": 44,
+  "region": "Her",
+  "nearestNode": "Node_Her_SpireOfTheStars",
+  "nodeDistance": 215
+ },
+ "cd_seq_05_content_doc_m12_m06_animal_01": {
+  "x": -12124.7,
+  "y": 756.9,
+  "z": -5384.7,
+  "stages": 344,
+  "region": "Her",
+  "nearestNode": "Node_Her_Ruins_0005",
+  "nodeDistance": 55
+ },
+ "cd_seq_05_content_doc_m13_m03_bird_01": {
+  "x": -12584.2,
+  "y": 1040.0,
+  "z": -2617.1,
+  "stages": 2,
+  "region": "Her",
+  "nearestNode": "Node_Her_SnowMountain_WatchTower",
+  "nodeDistance": 136
+ },
+ "cd_seq_05_content_doc_m13_m04_bird_01": {
+  "x": -12453.4,
+  "y": 1017.8,
+  "z": -3751.5,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_SanctumOfBenediction",
+  "nodeDistance": 200
+ },
+ "cd_seq_05_content_doc_m13_m05_animal_01": {
+  "x": -12319.7,
+  "y": 762.4,
+  "z": -4919.0,
+  "stages": 81,
+  "region": "Her",
+  "nearestNode": "Node_Her_KharonsoLake",
+  "nodeDistance": 122
+ },
+ "cd_seq_05_content_doc_m13_m05_bird_01": {
+  "x": -12700.8,
+  "y": 1036.6,
+  "z": -4745.2,
+  "stages": 4,
+  "region": "Her",
+  "nearestNode": "Node_Her_RestingPlaceofDeathCave",
+  "nodeDistance": 165
+ },
+ "Gate_Entrance": {
+  "x": -9411.1,
+  "y": 572.0,
+  "z": -4191.6,
+  "stages": 5,
+  "region": "Her",
+  "nearestNode": "Node_Her_HalsiusHospital",
+  "nodeDistance": 53
+ },
+ "Shop_Faction_Hernand": {
+  "x": -11160.7,
+  "y": 726.6,
+  "z": -3880.0,
+  "stages": 1,
+  "region": "Her",
+  "nearestNode": "Node_Her_KilndenKukuWorkshop",
+  "nodeDistance": 14
+ }
+}

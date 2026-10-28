@@ -1,0 +1,3734 @@
+{
+ "Quest_Node_Her_HernandCastle_All": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_FinaleStory": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_Daily": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_Operation": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_CucuIcemoorCastleRuins": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_Roberts_CollectionBox": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_MerchantStory": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_CitizenStory": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_Normal": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandCastle_Wanted": {
+  "node": "Node_Her_HernandCastle",
+  "x": -10556.7939453125,
+  "y": 673.1533813476562,
+  "z": -3815.739990234375
+ },
+ "Quest_Node_Her_HernandNorthGate_Normal": {
+  "node": "Node_Her_HernandNorthGate",
+  "x": -9867.0,
+  "y": 662.0,
+  "z": -1926.0
+ },
+ "Quest_Node_Her_HowlingCave_Boss": {
+  "node": "Node_Her_HowlingCave",
+  "x": -10437.0,
+  "y": 763.0,
+  "z": -1693.0
+ },
+ "Quest_Node_Her_BellanorHuntingGrounds_Block": {
+  "node": "Node_Her_BellanorHuntingGrounds",
+  "x": -10064.0,
+  "y": 686.0,
+  "z": -1939.0
+ },
+ "Quest_Node_Her_BellanorBeacon_Normal": {
+  "node": "Node_Her_BellanorBeacon",
+  "x": -9671.0,
+  "y": 707.0,
+  "z": -1911.0
+ },
+ "Quest_Node_Her_DeepForestBeacon_Normal": {
+  "node": "Node_Her_DeepForest",
+  "x": -9755.0,
+  "y": 615.0,
+  "z": -5513.0
+ },
+ "Quest_Node_Her_RootFort_Block": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Quest_Node_Her_RootFort_Normal": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Quest_Node_Her_RootFort_Reoccupation": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Quest_Node_Her_RootFort_Invasion": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Quest_Node_Her_RootFort_Reconstruction": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Quest_Node_Her_SpiderCastle_Block": {
+  "node": "Node_Her_SpiderCastle",
+  "x": -9979.0,
+  "y": 716.0,
+  "z": -2463.0
+ },
+ "Quest_Node_Her_SpiderCastle_DrugFactory_Normal": {
+  "node": "Node_Her_SpiderCastle",
+  "x": -9979.0,
+  "y": 716.0,
+  "z": -2463.0
+ },
+ "Quest_Node_Her_ArboriaVillage_Normal": {
+  "node": "Node_Her_ArboriaVillage",
+  "x": -10123.0,
+  "y": 715.0,
+  "z": -2508.0
+ },
+ "Quest_Node_Her_FortHellwood_Reoccupation": {
+  "node": "Node_Her_FortHellwood",
+  "x": -11208.0,
+  "y": 792.0,
+  "z": -5505.0
+ },
+ "Quest_Node_Her_FortHellwood_Invasion": {
+  "node": "Node_Her_FortHellwood",
+  "x": -11208.0,
+  "y": 792.0,
+  "z": -5505.0
+ },
+ "Quest_Node_Her_FortHellwood_Reconstruction": {
+  "node": "Node_Her_FortHellwood",
+  "x": -11208.0,
+  "y": 792.0,
+  "z": -5505.0
+ },
+ "Quest_Node_Her_RiverwardOutpost_Block": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Quest_Node_Her_RiverwardOutpost_Normal": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Quest_Node_Her_DragonKillCastle_Reoccupation": {
+  "node": "Node_Her_DragonKillCastle",
+  "x": -9771.0,
+  "y": 684.0,
+  "z": -1508.0
+ },
+ "Quest_Node_Her_DragonKillCastle_Invasion": {
+  "node": "Node_Her_DragonKillCastle",
+  "x": -9771.0,
+  "y": 684.0,
+  "z": -1508.0
+ },
+ "Quest_Node_Her_DragonKillCastle_Reconstruction": {
+  "node": "Node_Her_DragonKillCastle",
+  "x": -9771.0,
+  "y": 684.0,
+  "z": -1508.0
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_All": {
+  "node": "Node_Her_OakenshieldManor_Serkis",
+  "x": -10740.0,
+  "y": 626.0,
+  "z": -3882.0
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_Clue_Normal": {
+  "node": "Node_Her_OakenshieldManor_Serkis",
+  "x": -10740.0,
+  "y": 626.0,
+  "z": -3882.0
+ },
+ "Quest_Node_Her_OakenshieldManor_Serkis_FortWarspike_Boss": {
+  "node": "Node_Her_OakenshieldManor_Serkis",
+  "x": -10740.0,
+  "y": 626.0,
+  "z": -3882.0
+ },
+ "Quest_Node_Her_FortAnvil_Block": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Quest_Node_Her_FortAnvil_Normal": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Quest_Node_Her_FortAnvil_Reoccupation": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Quest_Node_Her_FortAnvil_Invasion": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Quest_Node_Her_FortAnvil_Reconstruction": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Quest_Node_Her_HellwoodSlaveCamp_All": {
+  "node": "Node_Her_HellwoodSlaveCamp",
+  "x": -9868.0,
+  "y": 624.0,
+  "z": -3075.0
+ },
+ "Quest_Node_Her_HellwoodSlaveCamp_Block": {
+  "node": "Node_Her_HellwoodSlaveCamp",
+  "x": -9868.0,
+  "y": 624.0,
+  "z": -3075.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Pet": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_WagonTheft": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Dyeing": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Seotda": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_EquipmentCraft": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Wanted": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Felling": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_HorseRace": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Trade": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Cook": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Fishing": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_RoyalSupply": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Contents_Armwrestling": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv2": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv3": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_ScoutFromMariusLv4": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_Donation": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_GreymaneCamp_FriendStory": {
+  "node": "Node_Her_GreymaneCamp",
+  "x": -10498.0,
+  "y": 609.0,
+  "z": -4413.0
+ },
+ "Quest_Node_Her_WillkommPost_Normal": {
+  "node": "Node_Her_WillkommPost",
+  "x": -10308.0,
+  "y": 683.0,
+  "z": -2342.0
+ },
+ "Quest_Node_Her_WillkommPost_Block": {
+  "node": "Node_Her_WillkommPost",
+  "x": -10308.0,
+  "y": 683.0,
+  "z": -2342.0
+ },
+ "Quest_Node_Her_BluemontManor_Rupert_Normal": {
+  "node": "Node_Her_BluemontManor_Rupert",
+  "x": -10691.0,
+  "y": 619.0,
+  "z": -3889.0
+ },
+ "Quest_Node_Her_BluemontWineHouse_PervinFort_Block": {
+  "node": "Node_Her_BluemontWineHouse",
+  "x": -10689.0,
+  "y": 558.0,
+  "z": -4200.0
+ },
+ "Quest_Node_Her_KarinQuarry_Normal": {
+  "node": "Node_Her_KarinQuarry",
+  "x": -10289.0,
+  "y": 637.0,
+  "z": -3180.0
+ },
+ "Quest_Node_Her_KarinQuarry_Reoccupation": {
+  "node": "Node_Her_KarinQuarry",
+  "x": -10289.0,
+  "y": 637.0,
+  "z": -3180.0
+ },
+ "Quest_Node_Her_KarinQuarry_Invasion": {
+  "node": "Node_Her_KarinQuarry",
+  "x": -10289.0,
+  "y": 637.0,
+  "z": -3180.0
+ },
+ "Quest_Node_Her_KarinQuarry_Reconstruction": {
+  "node": "Node_Her_KarinQuarry",
+  "x": -10289.0,
+  "y": 637.0,
+  "z": -3180.0
+ },
+ "Quest_Node_Her_BloomwoodRanch_HorseRace_Normal": {
+  "node": "Node_Her_BloomwoodRanch",
+  "x": -10160.0,
+  "y": 551.0,
+  "z": -4249.0
+ },
+ "Quest_Node_Her_MuckrootRanch_Artifact": {
+  "node": "Node_Her_MuckrootRanch",
+  "x": -10548.0,
+  "y": 568.0,
+  "z": -4034.0
+ },
+ "Quest_Node_Her_PervinFort_Reoccupation": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Quest_Node_Her_PervinFort_Invasion": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Quest_Node_Her_PervinFort_Reconstruction": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Quest_Node_Her_LioncrestManor_Alfonso_All": {
+  "node": "Node_Her_LioncrestManor_Alfonso",
+  "x": -10821.0,
+  "y": 650.0,
+  "z": -3748.0
+ },
+ "Quest_Node_Her_LioncrestManor_Alfonso_Normal": {
+  "node": "Node_Her_LioncrestManor_Alfonso",
+  "x": -10821.0,
+  "y": 650.0,
+  "z": -3748.0
+ },
+ "Quest_Node_Her_LioncrestManor_Alfonso_AbyssTrace_Normal": {
+  "node": "Node_Her_LioncrestManor_Alfonso",
+  "x": -10821.0,
+  "y": 650.0,
+  "z": -3748.0
+ },
+ "Quest_Node_Her_FortWarspike_Reoccupation": {
+  "node": "Node_Her_FortWarspike",
+  "x": -11668.0,
+  "y": 697.0,
+  "z": -4163.0
+ },
+ "Quest_Node_Her_FortWarspike_Invasion": {
+  "node": "Node_Her_FortWarspike",
+  "x": -11668.0,
+  "y": 697.0,
+  "z": -4163.0
+ },
+ "Quest_Node_Her_FortWarspike_Reconstruction": {
+  "node": "Node_Her_FortWarspike",
+  "x": -11668.0,
+  "y": 697.0,
+  "z": -4163.0
+ },
+ "Quest_Node_Her_GreystoneManor_Felix_Normal": {
+  "node": "Node_Her_GreystoneManor_Felix",
+  "x": -10534.0,
+  "y": 607.0,
+  "z": -3870.0
+ },
+ "Quest_Node_Her_RodbelFishingDock_Block": {
+  "node": "Node_Her_RodbelFishingDock",
+  "x": -10231.0,
+  "y": 540.0,
+  "z": -3987.0
+ },
+ "Quest_Node_Her_InksworthPrinter_Normal": {
+  "node": "Node_Her_InksworthPrinter",
+  "x": -11160.0,
+  "y": 572.0,
+  "z": -4573.0
+ },
+ "Quest_Node_Her_SouthQuarry_Block_CubeWalker": {
+  "node": "Node_Her_SouthQuarry",
+  "x": -9570.0,
+  "y": 590.0,
+  "z": -4648.0
+ },
+ "Quest_Node_Her_SouthQuarry_Normal": {
+  "node": "Node_Her_SouthQuarry",
+  "x": -9570.0,
+  "y": 590.0,
+  "z": -4648.0
+ },
+ "Quest_Node_Her_SouthQuarry_Reoccupation": {
+  "node": "Node_Her_SouthQuarry",
+  "x": -9570.0,
+  "y": 590.0,
+  "z": -4648.0
+ },
+ "Quest_Node_Her_SouthQuarry_Invasion": {
+  "node": "Node_Her_SouthQuarry",
+  "x": -9570.0,
+  "y": 590.0,
+  "z": -4648.0
+ },
+ "Quest_Node_Her_SouthQuarry_Reconstruction": {
+  "node": "Node_Her_SouthQuarry",
+  "x": -9570.0,
+  "y": 590.0,
+  "z": -4648.0
+ },
+ "Quest_Node_Her_GoldleafGuildhouse_Purge_Normal": {
+  "node": "Node_Her_GoldleafGuildhouse",
+  "x": -10009.0,
+  "y": 617.0,
+  "z": -4709.0
+ },
+ "Quest_Node_Her_GoldleafGuildhouse_InnocentSon_Normal": {
+  "node": "Node_Her_GoldleafGuildhouse",
+  "x": -10009.0,
+  "y": 617.0,
+  "z": -4709.0
+ },
+ "Quest_Node_Her_ScholastoneInstitute_WeightOfKnowledge_Normal": {
+  "node": "Node_Her_ScholastoneInstitute",
+  "x": -12018.0,
+  "y": 879.0,
+  "z": -4861.0
+ },
+ "Quest_Node_Her_VelluaVillage_All": {
+  "node": "Node_Her_VelluaVillage",
+  "x": -10405.0,
+  "y": 359.0,
+  "z": -6037.0
+ },
+ "Quest_Node_Her_VelluaVillage_Block": {
+  "node": "Node_Her_VelluaVillage",
+  "x": -10405.0,
+  "y": 359.0,
+  "z": -6037.0
+ },
+ "Quest_Node_Her_VelluaVillage_Normal": {
+  "node": "Node_Her_VelluaVillage",
+  "x": -10405.0,
+  "y": 359.0,
+  "z": -6037.0
+ },
+ "Quest_Node_Her_VelluaVillage_Girl_Rescue_Normal": {
+  "node": "Node_Her_VelluaVillage",
+  "x": -10405.0,
+  "y": 359.0,
+  "z": -6037.0
+ },
+ "Quest_Node_Her_PororinVillage_HiddenPororin_Normal": {
+  "node": "Node_Her_PororinVillage",
+  "x": -9925.0,
+  "y": 564.0,
+  "z": -5188.0
+ },
+ "Quest_Node_Her_PororinVillage_Trembling_Woods_Ent_Normal": {
+  "node": "Node_Her_PororinVillage",
+  "x": -9925.0,
+  "y": 564.0,
+  "z": -5188.0
+ },
+ "Quest_Node_Her_KharonsoLake_Block": {
+  "node": "Node_Her_KharonsoLake",
+  "x": -12366.0,
+  "y": 738.0,
+  "z": -5032.0
+ },
+ "Quest_Node_Her_GlenbrightManor_Grace_Block": {
+  "node": "Node_Her_GlenbrightManor_Grace",
+  "x": -10544.8681640625,
+  "y": 640.7440795898438,
+  "z": -5296.76416015625
+ },
+ "Quest_Node_Her_FlowerDustBeeFarm_Normal": {
+  "node": "Node_Her_FlowerDustBeeFarm",
+  "x": -10905.0,
+  "y": 602.0,
+  "z": -5135.0
+ },
+ "Quest_Node_Her_WindHillFactory_Block": {
+  "node": "Node_Her_WindHillFactory",
+  "x": -10558.0,
+  "y": 612.0,
+  "z": -5164.0
+ },
+ "Quest_Node_Her_WindHillFactory_FlyWagon": {
+  "node": "Node_Her_WindHillFactory",
+  "x": -10558.0,
+  "y": 612.0,
+  "z": -5164.0
+ },
+ "Quest_Node_Her_HalsiusHospital_All": {
+  "node": "Node_Her_HalsiusHospital",
+  "x": -9406.4521484375,
+  "y": 580.6961059570312,
+  "z": -4138.65625
+ },
+ "Quest_Node_Her_Slum_All": {
+  "node": "Node_Her_Slum",
+  "x": -10944.0,
+  "y": 598.0,
+  "z": -4117.0
+ },
+ "Quest_Node_Her_Slum_Normal": {
+  "node": "Node_Her_Slum",
+  "x": -10944.0,
+  "y": 598.0,
+  "z": -4117.0
+ },
+ "Quest_Node_Her_Slum_NobleCure_Normal": {
+  "node": "Node_Her_Slum",
+  "x": -10944.0,
+  "y": 598.0,
+  "z": -4117.0
+ },
+ "Quest_Node_Cal_CalphadeCastle_Normal": {
+  "node": "Node_Cal_CalphadeCastle",
+  "x": -11642.837890625,
+  "y": 780.1983032226562,
+  "z": -2215.364501953125
+ },
+ "Quest_Node_Cal_CalphadeCastle_Misappropriation_Normal": {
+  "node": "Node_Cal_CalphadeCastle",
+  "x": -11642.837890625,
+  "y": 780.1983032226562,
+  "z": -2215.364501953125
+ },
+ "Quest_Node_Cal_CalphadeNorthDepot_CounterAttack_Normal": {
+  "node": "Node_Cal_CalphadeNorthDepot",
+  "x": -11467.0,
+  "y": 682.0,
+  "z": -1721.0
+ },
+ "Quest_Node_Cal_WolfFang_Mine_Block": {
+  "node": "Node_Cal_WolfFang_Mine",
+  "x": -10962.0,
+  "y": 705.0,
+  "z": -2191.0
+ },
+ "Quest_Node_Cal_WolfFang_Watch_Normal": {
+  "node": "Node_Cal_WolfFang_Watch",
+  "x": -11107.0,
+  "y": 813.0,
+  "z": -2238.0
+ },
+ "Quest_Node_Crimson_Desert_Witch_Normal": {
+  "node": "Node_Crimson_Desert_Witch",
+  "x": -7114.0,
+  "y": 813.0,
+  "z": -21.0
+ },
+ "Quest_Node_Her_WitchHouse_Inactive_Narration_All": {
+  "node": "Node_Her_WitchHouse",
+  "x": -11475.0,
+  "y": 646.0,
+  "z": -4592.0
+ },
+ "Quest_Node_Her_WitchHouse_Witch_Normal": {
+  "node": "Node_Her_WitchHouse",
+  "x": -11475.0,
+  "y": 646.0,
+  "z": -4592.0
+ },
+ "Quest_Node_Kwe_RedLake_Witch_Normal": {
+  "node": "Node_Kwe_RedLake",
+  "x": -10896.0,
+  "y": 904.0,
+  "z": 418.0
+ },
+ "Quest_Node_Wayward_Woods_Witch_Normal": {
+  "node": "Node_Wayward_Woods_Witch",
+  "x": -11339.0,
+  "y": 781.0,
+  "z": -705.0
+ },
+ "Quest_Node_Her_RuinedChapel_Block": {
+  "node": "Node_Her_RuinedChapel",
+  "x": -9880.0,
+  "y": 585.0,
+  "z": -5835.0
+ },
+ "Quest_Node_Her_RuinedChapel_Normal": {
+  "node": "Node_Her_RuinedChapel",
+  "x": -9880.0,
+  "y": 585.0,
+  "z": -5835.0
+ },
+ "Quest_Node_Her_SeniaVillage_Block": {
+  "node": "Node_Her_SeniaVillage",
+  "x": -11076.0,
+  "y": 671.0,
+  "z": -5232.0
+ },
+ "Quest_Node_Her_SeniaVillage_Normal": {
+  "node": "Node_Her_SeniaVillage",
+  "x": -11076.0,
+  "y": 671.0,
+  "z": -5232.0
+ },
+ "Quest_Node_Her_SeniaVillage_HolyRelic_Normal": {
+  "node": "Node_Her_SeniaVillage",
+  "x": -11076.0,
+  "y": 671.0,
+  "z": -5232.0
+ },
+ "Quest_Node_Dem_DemenissCastle_FinaleStory": {
+  "node": "Node_Dem_DemenissCastle",
+  "x": -8062.001953125,
+  "y": 586.156982421875,
+  "z": -3539.0
+ },
+ "Quest_Node_Dem_DemenissCastle_Daily": {
+  "node": "Node_Dem_DemenissCastle",
+  "x": -8062.001953125,
+  "y": 586.156982421875,
+  "z": -3539.0
+ },
+ "Quest_Node_Dem_DemenissCastle_Operation": {
+  "node": "Node_Dem_DemenissCastle",
+  "x": -8062.001953125,
+  "y": 586.156982421875,
+  "z": -3539.0
+ },
+ "Quest_Node_Dem_DemenissCastle_MerchantStory": {
+  "node": "Node_Dem_DemenissCastle",
+  "x": -8062.001953125,
+  "y": 586.156982421875,
+  "z": -3539.0
+ },
+ "Quest_Node_Dem_DemenissCastle_CitizenStory": {
+  "node": "Node_Dem_DemenissCastle",
+  "x": -8062.001953125,
+  "y": 586.156982421875,
+  "z": -3539.0
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Block": {
+  "node": "Node_Dem_ScorchrockCastle",
+  "x": -8717.0,
+  "y": 538.0,
+  "z": -4008.0
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Normal": {
+  "node": "Node_Dem_ScorchrockCastle",
+  "x": -8717.0,
+  "y": 538.0,
+  "z": -4008.0
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Reoccupation": {
+  "node": "Node_Dem_ScorchrockCastle",
+  "x": -8717.0,
+  "y": 538.0,
+  "z": -4008.0
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Invasion": {
+  "node": "Node_Dem_ScorchrockCastle",
+  "x": -8717.0,
+  "y": 538.0,
+  "z": -4008.0
+ },
+ "Quest_Node_Dem_ScorchrockCastle_Reconstruction": {
+  "node": "Node_Dem_ScorchrockCastle",
+  "x": -8717.0,
+  "y": 538.0,
+  "z": -4008.0
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_All": {
+  "node": "Node_Dem_TheLaughingMarionette",
+  "x": -8212.0,
+  "y": 530.0,
+  "z": -3217.0
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_Circus_Normal": {
+  "node": "Node_Dem_TheLaughingMarionette",
+  "x": -8212.0,
+  "y": 530.0,
+  "z": -3217.0
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_Normal": {
+  "node": "Node_Dem_TheLaughingMarionette",
+  "x": -8212.0,
+  "y": 530.0,
+  "z": -3217.0
+ },
+ "Quest_Node_Dem_TheLaughingMarionette_Circus_After": {
+  "node": "Node_Dem_TheLaughingMarionette",
+  "x": -8212.0,
+  "y": 530.0,
+  "z": -3217.0
+ },
+ "Quest_Node_Dem_DemenissArmory_Block": {
+  "node": "Node_Dem_DemenissArmory",
+  "x": -6165.0,
+  "y": 427.0,
+  "z": -3215.0
+ },
+ "Quest_Node_Dem_DemenissArmory_Normal": {
+  "node": "Node_Dem_DemenissArmory",
+  "x": -6165.0,
+  "y": 427.0,
+  "z": -3215.0
+ },
+ "Quest_Node_Dem_WestCourt_Block": {
+  "node": "Node_Dem_WestCourt",
+  "x": -8481.0,
+  "y": 525.0,
+  "z": -2930.0
+ },
+ "Quest_Node_Dem_WestCourt_Normal": {
+  "node": "Node_Dem_WestCourt",
+  "x": -8481.0,
+  "y": 525.0,
+  "z": -2930.0
+ },
+ "Quest_Node_Dem_SouthCourt_Block": {
+  "node": "Node_Dem_SouthCourt",
+  "x": -8572.0,
+  "y": 563.0,
+  "z": -3630.0
+ },
+ "Quest_Node_Dem_SouthCourt_Normal": {
+  "node": "Node_Dem_SouthCourt",
+  "x": -8572.0,
+  "y": 563.0,
+  "z": -3630.0
+ },
+ "Quest_Node_Dem_EastCourt_Block": {
+  "node": "Node_Dem_EastCourt",
+  "x": -6678.0,
+  "y": 473.0,
+  "z": -3067.0
+ },
+ "Quest_Node_Dem_EastCourt_Normal": {
+  "node": "Node_Dem_EastCourt",
+  "x": -6678.0,
+  "y": 473.0,
+  "z": -3067.0
+ },
+ "Quest_Node_Dem_AzerianManor_All": {
+  "node": "Node_Dem_AzerianManor",
+  "x": -8313.0,
+  "y": 534.0,
+  "z": -3281.0
+ },
+ "Quest_Node_Dem_AzerianManor_CarriageWorkshop": {
+  "node": "Node_Dem_AzerianManor",
+  "x": -8313.0,
+  "y": 534.0,
+  "z": -3281.0
+ },
+ "Quest_Node_Dem_Flame_Knights_Block": {
+  "node": "Node_Dem_Flame_Knights",
+  "x": -9010.0,
+  "y": 608.0,
+  "z": -2966.0
+ },
+ "Quest_Node_Dem_Flame_Knights_Normal": {
+  "node": "Node_Dem_Flame_Knights",
+  "x": -9010.0,
+  "y": 608.0,
+  "z": -2966.0
+ },
+ "Quest_Node_Dem_Flame_Knights_Reoccupation": {
+  "node": "Node_Dem_Flame_Knights",
+  "x": -9010.0,
+  "y": 608.0,
+  "z": -2966.0
+ },
+ "Quest_Node_Dem_Flame_Knights_Invasion": {
+  "node": "Node_Dem_Flame_Knights",
+  "x": -9010.0,
+  "y": 608.0,
+  "z": -2966.0
+ },
+ "Quest_Node_Dem_Flame_Knights_Reconstruction": {
+  "node": "Node_Dem_Flame_Knights",
+  "x": -9010.0,
+  "y": 608.0,
+  "z": -2966.0
+ },
+ "Quest_Node_Dem_KingMountainDigSite_Block": {
+  "node": "Node_Dem_KingMountainDigSite",
+  "x": -9025.0,
+  "y": 647.0,
+  "z": -2210.0
+ },
+ "Quest_Node_Dem_BrookfieldManor_Elemore_All": {
+  "node": "Node_Dem_BrookfieldManor_Elemore",
+  "x": -7810.0,
+  "y": 538.0,
+  "z": -3375.0
+ },
+ "Quest_Node_Dem_BrookfieldManor_Elemore_MoonReaper_Normal": {
+  "node": "Node_Dem_BrookfieldManor_Elemore",
+  "x": -7810.0,
+  "y": 538.0,
+  "z": -3375.0
+ },
+ "Quest_Node_Dem_WindmereManor_Byron_All": {
+  "node": "Node_Dem_WindmereManor_Byron",
+  "x": -8321.0,
+  "y": 559.0,
+  "z": -2273.0
+ },
+ "Quest_Node_Dem_WindmereManor_Byron_FullPlateArmorTroll_Boss": {
+  "node": "Node_Dem_WindmereManor_Byron",
+  "x": -8321.0,
+  "y": 559.0,
+  "z": -2273.0
+ },
+ "Quest_Node_Dem_BurnhandQuarry_Reoccupation": {
+  "node": "Node_Dem_BurnhandQuarry",
+  "x": -8707.0,
+  "y": 513.0,
+  "z": -2490.0
+ },
+ "Quest_Node_Dem_BurnhandQuarry_Invasion": {
+  "node": "Node_Dem_BurnhandQuarry",
+  "x": -8707.0,
+  "y": 513.0,
+  "z": -2490.0
+ },
+ "Quest_Node_Dem_BurnhandQuarry_Reconstruction": {
+  "node": "Node_Dem_BurnhandQuarry",
+  "x": -8707.0,
+  "y": 513.0,
+  "z": -2490.0
+ },
+ "Quest_Node_Dem_NorthOutpost_Block": {
+  "node": "Node_Dem_NorthOutpost",
+  "x": -7635.0,
+  "y": 542.0,
+  "z": -2319.0
+ },
+ "Quest_Node_Dem_NorthOutpost_Normal": {
+  "node": "Node_Dem_NorthOutpost",
+  "x": -7635.0,
+  "y": 542.0,
+  "z": -2319.0
+ },
+ "Quest_Node_Dem_ThornRoseFort_BeforeWar": {
+  "node": "Node_Dem_ThornRoseFort",
+  "x": -8333.0,
+  "y": 585.0,
+  "z": -5862.0
+ },
+ "Quest_Node_Dem_ThornRoseFort_Normal": {
+  "node": "Node_Dem_ThornRoseFort",
+  "x": -8333.0,
+  "y": 585.0,
+  "z": -5862.0
+ },
+ "Quest_Node_Dem_NightExpeditionCamp_Block": {
+  "node": "Node_Dem_NightExpeditionCamp",
+  "x": -8069.0,
+  "y": 450.0,
+  "z": -5498.0
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Block_Request": {
+  "node": "Node_Dem_BloodsteelCamp",
+  "x": -8921.0,
+  "y": 627.0,
+  "z": -5946.0
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Normal": {
+  "node": "Node_Dem_BloodsteelCamp",
+  "x": -8921.0,
+  "y": 627.0,
+  "z": -5946.0
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Reoccupation": {
+  "node": "Node_Dem_BloodsteelCamp",
+  "x": -8921.0,
+  "y": 627.0,
+  "z": -5946.0
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Invasion": {
+  "node": "Node_Dem_BloodsteelCamp",
+  "x": -8921.0,
+  "y": 627.0,
+  "z": -5946.0
+ },
+ "Quest_Node_Dem_BloodsteelCamp_Reconstruction": {
+  "node": "Node_Dem_BloodsteelCamp",
+  "x": -8921.0,
+  "y": 627.0,
+  "z": -5946.0
+ },
+ "Quest_Node_Dem_TarivVillage_All": {
+  "node": "Node_Dem_TarivVillage",
+  "x": -8208.0,
+  "y": 556.0,
+  "z": -1655.0
+ },
+ "Quest_Node_Dem_TarivVillage_GuardianTree_Normal": {
+  "node": "Node_Dem_TarivVillage",
+  "x": -8208.0,
+  "y": 556.0,
+  "z": -1655.0
+ },
+ "Quest_Node_Dem_SilvermoonHQ_All": {
+  "node": "Node_Dem_SilvermoonHQ",
+  "x": -7016.0,
+  "y": 373.0,
+  "z": -3902.0
+ },
+ "Quest_Node_Dem_SilvermoonHQ_Block": {
+  "node": "Node_Dem_SilvermoonHQ",
+  "x": -7016.0,
+  "y": 373.0,
+  "z": -3902.0
+ },
+ "Quest_Node_Dem_HuntersCabin_Block": {
+  "node": "Node_Dem_HuntersCabin",
+  "x": -6766.0,
+  "y": 406.0,
+  "z": -3832.0
+ },
+ "Quest_Node_Dem_DemenissCathedral_All": {
+  "node": "Node_Dem_DemenissCathedral",
+  "x": -7824.0,
+  "y": 559.0,
+  "z": -3601.0
+ },
+ "Quest_Node_Dem_EastDemenissChurch_All": {
+  "node": "Node_Dem_EastDemenissChurch",
+  "x": -6840.0,
+  "y": 474.0,
+  "z": -3097.0
+ },
+ "Quest_Node_Dem_WestDemenissChurch_All": {
+  "node": "Node_Dem_WestDemenissChurch",
+  "x": -8413.0,
+  "y": 526.0,
+  "z": -2774.0
+ },
+ "Quest_Node_Del_DelesyiaChurch_All": {
+  "node": "Node_Del_DelesyiaChurch",
+  "x": -4363.0,
+  "y": 396.0,
+  "z": -3891.0
+ },
+ "Quest_Node_Dem_JijeongTemple_HiddenCave_Normal": {
+  "node": "Node_Dem_JijeongTemple",
+  "x": -7412.0,
+  "y": 443.0,
+  "z": -4603.0
+ },
+ "Quest_Node_Dem_HiddenCave_Witch_Normal": {
+  "node": "Node_Dem_HiddenCave",
+  "x": -7392.0,
+  "y": 432.0,
+  "z": -4663.0
+ },
+ "Quest_Node_Dem_GrayRockShipyard_Block": {
+  "node": "Node_Dem_GrayRockShipyard",
+  "x": -9420.0,
+  "y": 652.0,
+  "z": -2116.0
+ },
+ "Quest_Node_Dem_GrayRockQuarry_Block": {
+  "node": "Node_Dem_GrayRockQuarry",
+  "x": -9279.0,
+  "y": 668.0,
+  "z": -2120.0
+ },
+ "Quest_Node_Del_DelesyiaCastle_All": {
+  "node": "Node_Del_DelesyiaCastle",
+  "x": -4402.572265625,
+  "y": 435.11590576171875,
+  "z": -3807.908203125
+ },
+ "Quest_Node_Del_DelesyiaCastle_Block": {
+  "node": "Node_Del_DelesyiaCastle",
+  "x": -4402.572265625,
+  "y": 435.11590576171875,
+  "z": -3807.908203125
+ },
+ "Quest_Node_Del_DelesyiaCastle_Wanted": {
+  "node": "Node_Del_DelesyiaCastle",
+  "x": -4402.572265625,
+  "y": 435.11590576171875,
+  "z": -3807.908203125
+ },
+ "Quest_Node_Del_DelesyiaCastle_FinaleStory": {
+  "node": "Node_Del_DelesyiaCastle",
+  "x": -4402.572265625,
+  "y": 435.11590576171875,
+  "z": -3807.908203125
+ },
+ "Quest_Node_Del_DelesyiaCastle_Daily": {
+  "node": "Node_Del_DelesyiaCastle",
+  "x": -4402.572265625,
+  "y": 435.11590576171875,
+  "z": -3807.908203125
+ },
+ "Quest_Node_Del_DelesyiaCastle_Operation": {
+  "node": "Node_Del_DelesyiaCastle",
+  "x": -4402.572265625,
+  "y": 435.11590576171875,
+  "z": -3807.908203125
+ },
+ "Quest_Node_Del_DelesyiaCastle_MerchantStory": {
+  "node": "Node_Del_DelesyiaCastle",
+  "x": -4402.572265625,
+  "y": 435.11590576171875,
+  "z": -3807.908203125
+ },
+ "Quest_Node_Del_DelesyiaCastle_CitizenStory": {
+  "node": "Node_Del_DelesyiaCastle",
+  "x": -4402.572265625,
+  "y": 435.11590576171875,
+  "z": -3807.908203125
+ },
+ "Quest_Node_Del_MarniWorkshop_Block": {
+  "node": "Node_Del_MarniWorkshop",
+  "x": -4054.0,
+  "y": 494.0,
+  "z": -5808.0
+ },
+ "Quest_Node_Del_MarniWorkshop_Normal": {
+  "node": "Node_Del_MarniWorkshop",
+  "x": -4054.0,
+  "y": 494.0,
+  "z": -5808.0
+ },
+ "Quest_Node_Del_MarniWorkshopEastGate_Block": {
+  "node": "Node_Del_MarniWorkshopEastGate",
+  "x": -3665.0,
+  "y": 424.0,
+  "z": -5823.0
+ },
+ "Quest_Node_Del_MarniWorkshopEastGate_Normal": {
+  "node": "Node_Del_MarniWorkshopEastGate",
+  "x": -3665.0,
+  "y": 424.0,
+  "z": -5823.0
+ },
+ "Quest_Node_Del_MarniWorkshopNorthEastGate_Block": {
+  "node": "Node_Del_MarniWorkshopNorthEastGate",
+  "x": -3768.0,
+  "y": 483.0,
+  "z": -5638.0
+ },
+ "Quest_Node_Del_MarniWorkshopNorthEastGate_Normal": {
+  "node": "Node_Del_MarniWorkshopNorthEastGate",
+  "x": -3768.0,
+  "y": 483.0,
+  "z": -5638.0
+ },
+ "Quest_Node_Del_SaltMine_Normal": {
+  "node": "Node_Del_SaltMine",
+  "x": -4256.0,
+  "y": 456.0,
+  "z": -5413.0
+ },
+ "Quest_Node_Del_MarniCliffSecretBase_Normal": {
+  "node": "Node_Del_MarniCliffSecretBase",
+  "x": -4335.0,
+  "y": 351.0,
+  "z": -5584.0
+ },
+ "Quest_Node_Del_MarniAirCastle_MarniPatrol": {
+  "node": "Node_Del_MarniAirCastle",
+  "x": 0.0,
+  "y": 0.0,
+  "z": 0.0
+ },
+ "Quest_Node_Del_MarniPark_All": {
+  "node": "Node_Del_MarniPark",
+  "x": -4567.0,
+  "y": 393.0,
+  "z": -4416.0
+ },
+ "Quest_Node_Del_StarVillage_Normal": {
+  "node": "Node_Del_StarVillage",
+  "x": -5109.0,
+  "y": 386.0,
+  "z": -4311.0
+ },
+ "Quest_Node_Del_Timberton_All": {
+  "node": "Node_Del_Timberton",
+  "x": -4721.0,
+  "y": 377.0,
+  "z": -4223.0
+ },
+ "Quest_Node_Neut_GorthakIronMaker_Research": {
+  "node": "Node_Neut_GorthakIronMaker",
+  "x": -5977.0,
+  "y": 517.0,
+  "z": -4153.0
+ },
+ "Quest_Node_Del_DewhavenCastle_Disappeared_Normal": {
+  "node": "Node_Del_DewhavenCastle",
+  "x": -5751.0,
+  "y": 536.0,
+  "z": -5086.0
+ },
+ "Quest_Node_Del_DewhavenLoggingCamp_Normal": {
+  "node": "Node_Del_DewhavenLoggingCamp",
+  "x": -6563.0,
+  "y": 411.0,
+  "z": -4582.0
+ },
+ "Quest_Node_Del_StonewardCastleRuins_Block": {
+  "node": "Node_Del_StonewardCastleRuins",
+  "x": -5188.0,
+  "y": 504.0,
+  "z": -5094.0
+ },
+ "Quest_Node_Del_StonewardCastleRuins_Normal": {
+  "node": "Node_Del_StonewardCastleRuins",
+  "x": -5188.0,
+  "y": 504.0,
+  "z": -5094.0
+ },
+ "Quest_Node_Del_WindCliffFort_Boss_Block": {
+  "node": "Node_Del_WindCliffFort",
+  "x": -6557.0,
+  "y": 512.0,
+  "z": -5615.0
+ },
+ "Quest_Node_Del_WindCliffFort_Reoccupation": {
+  "node": "Node_Del_WindCliffFort",
+  "x": -6557.0,
+  "y": 512.0,
+  "z": -5615.0
+ },
+ "Quest_Node_Del_WindCliffFort_Invasion": {
+  "node": "Node_Del_WindCliffFort",
+  "x": -6557.0,
+  "y": 512.0,
+  "z": -5615.0
+ },
+ "Quest_Node_Del_WindCliffFort_Reconstruction": {
+  "node": "Node_Del_WindCliffFort",
+  "x": -6557.0,
+  "y": 512.0,
+  "z": -5615.0
+ },
+ "Quest_Node_Del_RedfoxTradePost_Questioning_Normal": {
+  "node": "Node_Del_RedfoxTradePost",
+  "x": -4677.0,
+  "y": 415.0,
+  "z": -3185.0
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Block": {
+  "node": "Node_Del_SnakeTemple",
+  "x": -7083.0,
+  "y": 442.0,
+  "z": -5751.0
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Priscus": {
+  "node": "Node_Del_SnakeTemple",
+  "x": -7083.0,
+  "y": 442.0,
+  "z": -5751.0
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Praevus": {
+  "node": "Node_Del_SnakeTemple",
+  "x": -7083.0,
+  "y": 442.0,
+  "z": -5751.0
+ },
+ "Quest_Node_Del_SnakeTemple_Boss_Primus": {
+  "node": "Node_Del_SnakeTemple",
+  "x": -7083.0,
+  "y": 442.0,
+  "z": -5751.0
+ },
+ "Quest_Node_Del_MarniOilRig_Block": {
+  "node": "Node_Del_MarniOilRig",
+  "x": -2975.0,
+  "y": 379.0,
+  "z": -4122.0
+ },
+ "Quest_Node_Del_MarniOilRig_FixOilRig_Normal": {
+  "node": "Node_Del_MarniOilRig",
+  "x": -2975.0,
+  "y": 379.0,
+  "z": -4122.0
+ },
+ "Quest_Node_Del_MarniOilRig_Normal": {
+  "node": "Node_Del_MarniOilRig",
+  "x": -2975.0,
+  "y": 379.0,
+  "z": -4122.0
+ },
+ "Quest_Node_Neut_GoldenGoblinWineMaker_Block": {
+  "node": "Node_Neut_GoldenGoblinWineMaker",
+  "x": -5621.0,
+  "y": 539.0,
+  "z": -2622.0
+ },
+ "Quest_Node_Crim_Crimson_Mountains_Station_Normal": {
+  "node": "Node_Crim_Crimson_Mountains_Station",
+  "x": -5935.0,
+  "y": 686.0,
+  "z": -515.0
+ },
+ "Quest_Node_Del_LoggingCampTransferStation_Normal": {
+  "node": "Node_Del_LoggingCampTransferStation",
+  "x": -5920.0,
+  "y": 464.0,
+  "z": -4620.0
+ },
+ "Quest_Node_Del_Drywind_Valley_Station_Normal": {
+  "node": "Node_Del_Drywind_Valley_Station",
+  "x": -5256.0,
+  "y": 445.0,
+  "z": -2668.0
+ },
+ "Quest_Node_Del_MarniLab_Block": {
+  "node": "Node_Del_MarniLab",
+  "x": -3089.0,
+  "y": 457.0,
+  "z": -4531.0
+ },
+ "Quest_Node_Del_MarniLab_Normal": {
+  "node": "Node_Del_MarniLab",
+  "x": -3089.0,
+  "y": 457.0,
+  "z": -4531.0
+ },
+ "Quest_Node_Del_MarniLab_Reoccupation": {
+  "node": "Node_Del_MarniLab",
+  "x": -3089.0,
+  "y": 457.0,
+  "z": -4531.0
+ },
+ "Quest_Node_Del_MarniLab_Reconstruction": {
+  "node": "Node_Del_MarniLab",
+  "x": -3089.0,
+  "y": 457.0,
+  "z": -4531.0
+ },
+ "Quest_Node_Del_MarniMechFactory_Block": {
+  "node": "Node_Del_MarniMechFactory",
+  "x": -4452.0,
+  "y": 422.0,
+  "z": -4898.0
+ },
+ "Quest_Node_Del_MarniMechFactory_Normal": {
+  "node": "Node_Del_MarniMechFactory",
+  "x": -4452.0,
+  "y": 422.0,
+  "z": -4898.0
+ },
+ "Quest_Node_Del_MarniMechFactory_Reoccupation": {
+  "node": "Node_Del_MarniMechFactory",
+  "x": -4452.0,
+  "y": 422.0,
+  "z": -4898.0
+ },
+ "Quest_Node_Del_MarniMechFactory_Reconstruction": {
+  "node": "Node_Del_MarniMechFactory",
+  "x": -4452.0,
+  "y": 422.0,
+  "z": -4898.0
+ },
+ "Quest_Node_Del_WestOutpost_Normal": {
+  "node": "Node_Del_WestOutpost",
+  "x": -4668.0,
+  "y": 417.0,
+  "z": -4828.0
+ },
+ "Quest_Node_Del_NorthOutpost_Normal": {
+  "node": "Node_Del_NorthOutpost",
+  "x": -4455.0,
+  "y": 411.0,
+  "z": -4805.0
+ },
+ "Quest_Node_Del_EastOutpost_Normal": {
+  "node": "Node_Del_EastOutpost",
+  "x": -4324.0,
+  "y": 418.0,
+  "z": -4810.0
+ },
+ "Quest_Node_Del_Watchtower_I_Normal": {
+  "node": "Node_Del_Watchtower_I",
+  "x": -4236.0,
+  "y": 391.0,
+  "z": -4593.0
+ },
+ "Quest_Node_Del_Watchtower_II_Normal": {
+  "node": "Node_Del_Watchtower_II",
+  "x": -5385.0,
+  "y": 470.0,
+  "z": -2916.0
+ },
+ "Quest_Node_Del_MarniAirLab_Normal": {
+  "node": "Node_Del_MarniAirLab",
+  "x": -3446.0,
+  "y": 418.0,
+  "z": -5816.0
+ },
+ "Quest_Node_Del_MarniAirLab_Reoccupation": {
+  "node": "Node_Del_MarniAirLab",
+  "x": -3446.0,
+  "y": 418.0,
+  "z": -5816.0
+ },
+ "Quest_Node_Del_MarniAirLab_Reconstruction": {
+  "node": "Node_Del_MarniAirLab",
+  "x": -3446.0,
+  "y": 418.0,
+  "z": -5816.0
+ },
+ "Quest_Node_Del_ValvegardWallFort_Normal": {
+  "node": "Node_Del_ValvegardWallFort",
+  "x": -4654.0,
+  "y": 440.0,
+  "z": -5362.0
+ },
+ "Quest_Node_Del_ValvegardWallFort_Reoccupation": {
+  "node": "Node_Del_ValvegardWallFort",
+  "x": -4654.0,
+  "y": 440.0,
+  "z": -5362.0
+ },
+ "Quest_Node_Del_ValvegardWallFort_Reconstruction": {
+  "node": "Node_Del_ValvegardWallFort",
+  "x": -4654.0,
+  "y": 440.0,
+  "z": -5362.0
+ },
+ "Quest_Node_Neut_MarnisOutpost_All": {
+  "node": "Node_Neut_MarnisOutpost",
+  "x": -5404.0,
+  "y": 392.0,
+  "z": -3372.0
+ },
+ "Quest_Node_Neut_MarnisOutpost_Normal": {
+  "node": "Node_Neut_MarnisOutpost",
+  "x": -5404.0,
+  "y": 392.0,
+  "z": -3372.0
+ },
+ "Quest_Node_Neut_MarnisOutpost_Reoccupation": {
+  "node": "Node_Neut_MarnisOutpost",
+  "x": -5404.0,
+  "y": 392.0,
+  "z": -3372.0
+ },
+ "Quest_Node_Neut_MarnisOutpost_Reconstruction": {
+  "node": "Node_Neut_MarnisOutpost",
+  "x": -5404.0,
+  "y": 392.0,
+  "z": -3372.0
+ },
+ "Quest_Node_Del_BenusThiefCamp_Block": {
+  "node": "Node_Del_BenusThiefCamp",
+  "x": -3674.0,
+  "y": 464.0,
+  "z": -5372.0
+ },
+ "Quest_Node_Kwe_Pailune_All": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_Normal": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_GreyWolfCamp_Normal": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_RescuePailuneLeader_Normal": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_RoketBag_Normal": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_Wanted": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_FinaleStory": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_Daily": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_MerchantStory": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_Pailune_CitizenStory": {
+  "node": "Node_Kwe_Pailune",
+  "x": -9640.6787109375,
+  "y": 665.9567260742188,
+  "z": 213.7281951904297
+ },
+ "Quest_Node_Kwe_FortAskelund_Normal": {
+  "node": "Node_Kwe_FortAskelund",
+  "x": -11109.0,
+  "y": 847.0,
+  "z": -81.0
+ },
+ "Quest_Node_Kwe_FortAskelund_Reoccupation": {
+  "node": "Node_Kwe_FortAskelund",
+  "x": -11109.0,
+  "y": 847.0,
+  "z": -81.0
+ },
+ "Quest_Node_Kwe_FortAskelund_Invasion": {
+  "node": "Node_Kwe_FortAskelund",
+  "x": -11109.0,
+  "y": 847.0,
+  "z": -81.0
+ },
+ "Quest_Node_Kwe_FortAskelund_Reconstruction": {
+  "node": "Node_Kwe_FortAskelund",
+  "x": -11109.0,
+  "y": 847.0,
+  "z": -81.0
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Block": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Normal": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Reoccupation": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Invasion": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Quest_Node_Kwe_VatnhollFortress_Reconstruction": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Normal": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Reoccupation": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Invasion": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Quest_Node_Kwe_SteinnfellFortress_Reconstruction": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Quest_Node_Kwe_DoubleStepPass_Block": {
+  "node": "Node_Kwe_DoubleStepPass",
+  "x": -9770.0,
+  "y": 641.0,
+  "z": -1183.0
+ },
+ "Quest_Node_Kwe_DoubleStepPass_Normal": {
+  "node": "Node_Kwe_DoubleStepPass",
+  "x": -9770.0,
+  "y": 641.0,
+  "z": -1183.0
+ },
+ "Quest_Node_Kwe_RidgePath_Block": {
+  "node": "Node_Kwe_RidgePath",
+  "x": -10154.0,
+  "y": 648.0,
+  "z": -1158.0
+ },
+ "Quest_Node_Kwe_RidgePath_Normal": {
+  "node": "Node_Kwe_RidgePath",
+  "x": -10154.0,
+  "y": 648.0,
+  "z": -1158.0
+ },
+ "Quest_Node_Kwe_WildhuntCamp_Normal": {
+  "node": "Node_Kwe_WildhuntCamp",
+  "x": -10536.0,
+  "y": 690.0,
+  "z": 911.0
+ },
+ "Quest_Node_Kwe_WildhuntCamp_Block": {
+  "node": "Node_Kwe_WildhuntCamp",
+  "x": -10536.0,
+  "y": 690.0,
+  "z": 911.0
+ },
+ "Quest_Node_Kwe_Brokenford_Block": {
+  "node": "Node_Kwe_Brokenford",
+  "x": -9604.0,
+  "y": 622.0,
+  "z": -477.0
+ },
+ "Quest_Node_Kwe_BeighenVillage_Normal": {
+  "node": "Node_Kwe_BeighenVillage",
+  "x": -9038.0,
+  "y": 613.0,
+  "z": -1047.0
+ },
+ "Quest_Node_Kwe_BeighenVillage_Pailune_Block": {
+  "node": "Node_Kwe_BeighenVillage",
+  "x": -9038.0,
+  "y": 613.0,
+  "z": -1047.0
+ },
+ "Quest_Node_Kwe_BeighenCandlery_Normal": {
+  "node": "Node_Kwe_BeighenCandlery",
+  "x": -9379.0,
+  "y": 616.0,
+  "z": -846.0
+ },
+ "Quest_Node_Kwe_BeighenCandlery_Pailune_Block": {
+  "node": "Node_Kwe_BeighenCandlery",
+  "x": -9379.0,
+  "y": 616.0,
+  "z": -846.0
+ },
+ "Quest_Node_Kwe_BeighenBasketMaker_Normal": {
+  "node": "Node_Kwe_BeighenBasketMaker",
+  "x": -9447.0,
+  "y": 619.0,
+  "z": -1091.0
+ },
+ "Quest_Node_Dem_EyeOfIceAltar_Block": {
+  "node": "Node_Dem_EyeOfIceAltar",
+  "x": -8380.0,
+  "y": 653.0,
+  "z": -838.0
+ },
+ "Quest_Node_Dem_FrostFort_Block": {
+  "node": "Node_Dem_FrostFort",
+  "x": -8626.0,
+  "y": 643.0,
+  "z": -1169.0
+ },
+ "Quest_Node_Kwe_SkoghornVillage_All": {
+  "node": "Node_Kwe_SkoghornVillage",
+  "x": -12112.0,
+  "y": 700.0,
+  "z": -377.0
+ },
+ "Quest_Node_Kwe_SkoghornVillage_Normal": {
+  "node": "Node_Kwe_SkoghornVillage",
+  "x": -12112.0,
+  "y": 700.0,
+  "z": -377.0
+ },
+ "Quest_Node_Kwe_QuietSnowShelter_Nivalisthe_Block": {
+  "node": "Node_Kwe_QuietSnowShelter",
+  "x": -12759.0,
+  "y": 940.0,
+  "z": -280.0
+ },
+ "Quest_Node_Kwe_QuietSnowShelter_Block": {
+  "node": "Node_Kwe_QuietSnowShelter",
+  "x": -12759.0,
+  "y": 940.0,
+  "z": -280.0
+ },
+ "Quest_Node_Kwe_QuietSnowShelter_Normal": {
+  "node": "Node_Kwe_QuietSnowShelter",
+  "x": -12759.0,
+  "y": 940.0,
+  "z": -280.0
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_All": {
+  "node": "Node_Kwe_LongleafTreeVillage",
+  "x": -11174.0,
+  "y": 778.0,
+  "z": 624.0
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_Block": {
+  "node": "Node_Kwe_LongleafTreeVillage",
+  "x": -11174.0,
+  "y": 778.0,
+  "z": 624.0
+ },
+ "Quest_Node_Kwe_LongleafTreeVillage_Normal": {
+  "node": "Node_Kwe_LongleafTreeVillage",
+  "x": -11174.0,
+  "y": 778.0,
+  "z": 624.0
+ },
+ "Quest_Node_Kwe_LongbranchVillage_EntTreasure": {
+  "node": "Node_Kwe_LongbranchVillage",
+  "x": -11285.0,
+  "y": 725.0,
+  "z": 816.0
+ },
+ "Quest_Node_Kwe_RidgehunterLeatherMaker_Normal": {
+  "node": "Node_Kwe_RidgehunterLeatherMaker",
+  "x": -11488.0,
+  "y": 722.0,
+  "z": -406.0
+ },
+ "Quest_Node_Kwe_RidgehunterLeatherMaker_Block": {
+  "node": "Node_Kwe_RidgehunterLeatherMaker",
+  "x": -11488.0,
+  "y": 722.0,
+  "z": -406.0
+ },
+ "Quest_Node_Kwe_SvinholtRanch_Normal": {
+  "node": "Node_Kwe_SvinholtRanch",
+  "x": -10106.0,
+  "y": 749.0,
+  "z": 813.0
+ },
+ "Quest_Node_Kwe_HorpbothHarpoonery_Normal": {
+  "node": "Node_Kwe_HorpbothHarpoonery",
+  "x": -9993.0,
+  "y": 655.0,
+  "z": 1147.0
+ },
+ "Quest_Node_Kwe_SkallcoveVillage_Normal": {
+  "node": "Node_Kwe_SkallcoveVillage",
+  "x": -9594.0,
+  "y": 641.0,
+  "z": 797.0
+ },
+ "Quest_Node_Kwe_SkallcoveVillage_Block": {
+  "node": "Node_Kwe_SkallcoveVillage",
+  "x": -9594.0,
+  "y": 641.0,
+  "z": 797.0
+ },
+ "Quest_Node_Kwe_TotemfeltVillage_Normal": {
+  "node": "Node_Kwe_TotemfeltVillage",
+  "x": -9758.0,
+  "y": 670.0,
+  "z": 535.0
+ },
+ "Quest_Node_Kwe_WindsongMountain_All": {
+  "node": "Node_Kwe_WindsongMountain",
+  "x": -9214.0,
+  "y": 789.0,
+  "z": 1197.0
+ },
+ "Quest_Node_Kwe_WindsongMountain_MasterThunder_Boss_Block": {
+  "node": "Node_Kwe_WindsongMountain",
+  "x": -9214.0,
+  "y": 789.0,
+  "z": 1197.0
+ },
+ "Quest_Node_Kwe_OdeckVillage_Boss_Block": {
+  "node": "Node_Kwe_OdeckVillage",
+  "x": -11036.0,
+  "y": 662.0,
+  "z": 1257.0
+ },
+ "Quest_Node_Kwe_GeneralTomb_Block": {
+  "node": "Node_Kwe_GeneralTomb",
+  "x": -11782.0,
+  "y": 791.0,
+  "z": 1016.0
+ },
+ "Quest_Node_Kwe_AshclawKeep_Block": {
+  "node": "Node_Kwe_AshclawKeep",
+  "x": -10755.0,
+  "y": 989.0,
+  "z": 103.0
+ },
+ "Quest_Node_Kwe_AshclawKeep_Normal": {
+  "node": "Node_Kwe_AshclawKeep",
+  "x": -10755.0,
+  "y": 989.0,
+  "z": 103.0
+ },
+ "Quest_Node_Kwe_HarpyNest_All": {
+  "node": "Node_Kwe_HarpyNest",
+  "x": -10958.0,
+  "y": 1043.0,
+  "z": -461.0
+ },
+ "Quest_Node_Kwe_HarpyNest_Boss_Block": {
+  "node": "Node_Kwe_HarpyNest",
+  "x": -10958.0,
+  "y": 1043.0,
+  "z": -461.0
+ },
+ "Quest_Node_Crim_Tashkalp_All": {
+  "node": "Node_Crim_Tashkalp",
+  "x": -6039.37158203125,
+  "y": 640.7376708984375,
+  "z": -871.6146850585938
+ },
+ "Quest_Node_Crim_Tashkalp_Normal": {
+  "node": "Node_Crim_Tashkalp",
+  "x": -6039.37158203125,
+  "y": 640.7376708984375,
+  "z": -871.6146850585938
+ },
+ "Quest_Node_Crim_Tashkalp_Wanted": {
+  "node": "Node_Crim_Tashkalp",
+  "x": -6039.37158203125,
+  "y": 640.7376708984375,
+  "z": -871.6146850585938
+ },
+ "Quest_Node_Crim_Tashkalp_FruitofGreed_Normal": {
+  "node": "Node_Crim_Tashkalp",
+  "x": -6039.37158203125,
+  "y": 640.7376708984375,
+  "z": -871.6146850585938
+ },
+ "Quest_Node_Crim_Varnia_Wanted": {
+  "node": "Node_Crim_Varnia",
+  "x": -3743.072021484375,
+  "y": 718.54638671875,
+  "z": 3404.29052734375
+ },
+ "Quest_Node_Crim_Varnia_FinaleStory": {
+  "node": "Node_Crim_Varnia",
+  "x": -3743.072021484375,
+  "y": 718.54638671875,
+  "z": 3404.29052734375
+ },
+ "Quest_Node_Crim_Varnia_Daily": {
+  "node": "Node_Crim_Varnia",
+  "x": -3743.072021484375,
+  "y": 718.54638671875,
+  "z": 3404.29052734375
+ },
+ "Quest_Node_Crim_Varnia_Operation": {
+  "node": "Node_Crim_Varnia",
+  "x": -3743.072021484375,
+  "y": 718.54638671875,
+  "z": 3404.29052734375
+ },
+ "Quest_Node_Crim_Varnia_MerchantStory": {
+  "node": "Node_Crim_Varnia",
+  "x": -3743.072021484375,
+  "y": 718.54638671875,
+  "z": 3404.29052734375
+ },
+ "Quest_Node_Crim_Varnia_CitizenStory": {
+  "node": "Node_Crim_Varnia",
+  "x": -3743.072021484375,
+  "y": 718.54638671875,
+  "z": 3404.29052734375
+ },
+ "Quest_Node_Crim_Urdavah_Normal": {
+  "node": "Node_Crim_Urdavah",
+  "x": -6590.2255859375,
+  "y": 780.6182250976562,
+  "z": -188.1566925048828
+ },
+ "Quest_Node_Crim_RockVillage_Block": {
+  "node": "Node_Crim_RockVillage",
+  "x": -5640.0,
+  "y": 504.0,
+  "z": -1935.0
+ },
+ "Quest_Node_Crim_EnlightenShrine_Goblin_Treasure_Trove_All": {
+  "node": "Node_Crim_EnlightenShrine",
+  "x": -7105.0,
+  "y": 555.0,
+  "z": -1322.0
+ },
+ "Quest_Node_Crim_BurhumVillage_Block": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Quest_Node_Crim_BurhumVillage_Normal": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Quest_Node_Crim_DesertOasis_Bismuthqueen_Block": {
+  "node": "Node_Crim_DesertOasis",
+  "x": -8013.0,
+  "y": 675.0,
+  "z": -621.0
+ },
+ "Quest_Node_Crim_SaltroadTradePost_TruthontheSand_Normal": {
+  "node": "Node_Crim_SaltroadTradePost",
+  "x": -6677.0,
+  "y": 703.0,
+  "z": 237.0
+ },
+ "Quest_Node_Crim_HowlsandsCamp_OutLaw": {
+  "node": "Node_Crim_HowlsandsCamp",
+  "x": -5014.0,
+  "y": 695.0,
+  "z": 885.0
+ },
+ "Quest_Node_Crim_HowlsandsCamp_Normal": {
+  "node": "Node_Crim_HowlsandsCamp",
+  "x": -5014.0,
+  "y": 695.0,
+  "z": 885.0
+ },
+ "Quest_Node_Crim_MuiquunVillage_Block_OwlsoftheMist": {
+  "node": "Node_Crim_MuiquunVillage",
+  "x": -5241.0,
+  "y": 582.0,
+  "z": -1516.0
+ },
+ "Quest_Node_Crim_MuiquunVillage_Normal_BountyHunting": {
+  "node": "Node_Crim_MuiquunVillage",
+  "x": -5241.0,
+  "y": 582.0,
+  "z": -1516.0
+ },
+ "Quest_Node_Crim_MuiquunVillage_CarriageWorkshop_Normal": {
+  "node": "Node_Crim_MuiquunVillage",
+  "x": -5241.0,
+  "y": 582.0,
+  "z": -1516.0
+ },
+ "Quest_Node_Crim_HelmaraVillage_SandCrawler_Block": {
+  "node": "Node_Crim_HelmaraVillage",
+  "x": -5779.0,
+  "y": 635.0,
+  "z": -407.0
+ },
+ "Quest_Node_Crim_BatiharVillage_Block": {
+  "node": "Node_Crim_BatiharVillage",
+  "x": -5414.0,
+  "y": 669.0,
+  "z": -550.0
+ },
+ "Quest_Node_Crim_BatiharVillage_Normal": {
+  "node": "Node_Crim_BatiharVillage",
+  "x": -5414.0,
+  "y": 669.0,
+  "z": -550.0
+ },
+ "Quest_Node_Crim_StompsandFortRuins_Boss_Block": {
+  "node": "Node_Crim_StompsandFortRuins",
+  "x": -5129.0,
+  "y": 517.0,
+  "z": -1716.0
+ },
+ "Quest_Node_Crim_RedMountainFort_Block_GoldenArmor_Boss": {
+  "node": "Node_Crim_RedMountainFort",
+  "x": -4978.0,
+  "y": 664.0,
+  "z": -1232.0
+ },
+ "Quest_Node_Crim_RedMountainFort_Reoccupation": {
+  "node": "Node_Crim_RedMountainFort",
+  "x": -4978.0,
+  "y": 664.0,
+  "z": -1232.0
+ },
+ "Quest_Node_Crim_RedMountainFort_Invasion": {
+  "node": "Node_Crim_RedMountainFort",
+  "x": -4978.0,
+  "y": 664.0,
+  "z": -1232.0
+ },
+ "Quest_Node_Crim_RedMountainFort_Reconstruction": {
+  "node": "Node_Crim_RedMountainFort",
+  "x": -4978.0,
+  "y": 664.0,
+  "z": -1232.0
+ },
+ "Quest_Node_Crim_FortManub_Block": {
+  "node": "Node_Crim_FortManub",
+  "x": -5494.0,
+  "y": 669.0,
+  "z": -905.0
+ },
+ "Quest_Node_Crim_FortManub_Reoccupation": {
+  "node": "Node_Crim_FortManub",
+  "x": -5494.0,
+  "y": 669.0,
+  "z": -905.0
+ },
+ "Quest_Node_Crim_FortManub_Invasion": {
+  "node": "Node_Crim_FortManub",
+  "x": -5494.0,
+  "y": 669.0,
+  "z": -905.0
+ },
+ "Quest_Node_Crim_FortManub_Reconstruction": {
+  "node": "Node_Crim_FortManub",
+  "x": -5494.0,
+  "y": 669.0,
+  "z": -905.0
+ },
+ "Quest_Node_Crim_DesolateStoneAltar_Ogre_Boss": {
+  "node": "Node_Crim_DesolateStoneAltar",
+  "x": -4535.0,
+  "y": 661.0,
+  "z": 177.0
+ },
+ "Quest_Node_Crim_IsvatuFortress_Block_Boss": {
+  "node": "Node_Crim_IsvatuFortress",
+  "x": -6630.0,
+  "y": 653.0,
+  "z": -1095.0
+ },
+ "Quest_Node_Crim_IsvatuFortress_Reoccupation": {
+  "node": "Node_Crim_IsvatuFortress",
+  "x": -6630.0,
+  "y": 653.0,
+  "z": -1095.0
+ },
+ "Quest_Node_Crim_IsvatuFortress_Invasion": {
+  "node": "Node_Crim_IsvatuFortress",
+  "x": -6630.0,
+  "y": 653.0,
+  "z": -1095.0
+ },
+ "Quest_Node_Crim_IsvatuFortress_Reconstruction": {
+  "node": "Node_Crim_IsvatuFortress",
+  "x": -6630.0,
+  "y": 653.0,
+  "z": -1095.0
+ },
+ "Quest_Node_Crim_HyenaDen_Block": {
+  "node": "Node_Crim_HyenaDen",
+  "x": -5651.0,
+  "y": 568.0,
+  "z": -1172.0
+ },
+ "Quest_Node_Crim_HyenaDen_All": {
+  "node": "Node_Crim_HyenaDen",
+  "x": -5651.0,
+  "y": 568.0,
+  "z": -1172.0
+ },
+ "Quest_Node_Crim_FlowingSandVillage_Block": {
+  "node": "Node_Crim_FlowingSandVillage",
+  "x": -4209.0,
+  "y": 681.0,
+  "z": -401.0
+ },
+ "Quest_Node_Crim_ShadowdeepForest_Block": {
+  "node": "Node_Crim_ShadowdeepForest",
+  "x": -4715.0,
+  "y": 560.0,
+  "z": -1588.0
+ },
+ "Quest_Node_Crim_GiantsYardForwardCamp_Block": {
+  "node": "Node_Crim_GiantsYardForwardCamp",
+  "x": -4742.0,
+  "y": 519.0,
+  "z": -2326.0
+ },
+ "Quest_Node_Crim_BursadaCastleRuins_Block": {
+  "node": "Node_Crim_BursadaCastleRuins",
+  "x": -4398.0,
+  "y": 482.0,
+  "z": -2301.0
+ },
+ "Quest_Node_Crim_GiantsYardReasearch_WatchTower_Block": {
+  "node": "Node_Crim_GiantsYardReasearch_WatchTower",
+  "x": -4822.0,
+  "y": 457.0,
+  "z": -2622.0
+ },
+ "Quest_Node_Cal_HohenmarkRuins_Block": {
+  "node": "Node_Cal_HohenmarkRuins",
+  "x": -12663.0,
+  "y": 1030.0,
+  "z": -2907.0
+ },
+ "Quest_Node_Her_IcemoorCastleRuins_Block": {
+  "node": "Node_Her_IcemoorCastleRuins",
+  "x": -11961.0,
+  "y": 998.0,
+  "z": -3188.0
+ },
+ "Quest_Node_Her_StoneTowerVillage_Block": {
+  "node": "Node_Her_StoneTowerVillage",
+  "x": -10591.0,
+  "y": 714.0,
+  "z": -3093.0
+ },
+ "Quest_Node_Kwe_StellenManor_Normal": {
+  "node": "Node_Kwe_StellenManor",
+  "x": -9427.0,
+  "y": 648.0,
+  "z": -1373.0
+ },
+ "Quest_Node_Her_SnowMountain_WatchTower_Normal": {
+  "node": "Node_Her_SnowMountain_WatchTower",
+  "x": -12532.0,
+  "y": 956.0,
+  "z": -2491.0
+ },
+ "Quest_Node_Hernand_Bandit_I_Reoccupation": {
+  "node": "Node_Hernand_Bandit_I",
+  "x": -9707.0,
+  "y": 616.0,
+  "z": -3605.0
+ },
+ "Quest_Node_Her_DrakefallBanditCamp_Reoccupation": {
+  "node": "Node_Her_DrakefallBanditCamp",
+  "x": -9807.0,
+  "y": 696.0,
+  "z": -1634.0
+ },
+ "Quest_Node_Her_ArboriaBanditCamp_Reoccupation": {
+  "node": "Node_Her_ArboriaBanditCamp",
+  "x": -9816.0,
+  "y": 675.0,
+  "z": -2206.0
+ },
+ "Quest_Node_Her_MountainAreaBanditCamp_Reoccupation": {
+  "node": "Node_Her_MountainAreaBanditCamp",
+  "x": -11818.0,
+  "y": 807.0,
+  "z": -3763.0
+ },
+ "Quest_Node_Her_ShadowforestBanditCamp_Reoccupation": {
+  "node": "Node_Her_ShadowforestBanditCamp",
+  "x": -11311.0,
+  "y": 698.0,
+  "z": -3720.0
+ },
+ "Quest_Node_Her_RoccaHillBanditCamp_Reoccupation": {
+  "node": "Node_Her_RoccaHillBanditCamp",
+  "x": -10334.0,
+  "y": 604.0,
+  "z": -3564.0
+ },
+ "Quest_Node_Her_RoccaHillBanditCamp_I_Reoccupation": {
+  "node": "Node_Her_RoccaHillBanditCamp_I",
+  "x": -9998.0,
+  "y": 617.0,
+  "z": -3244.0
+ },
+ "Quest_Node_Her_SunrisePlainBanditCamp_I_Reoccupation": {
+  "node": "Node_Her_SunrisePlainBanditCamp",
+  "x": -11043.0,
+  "y": 611.0,
+  "z": -5024.0
+ },
+ "Quest_Node_Her_FoggyWindBanditCamp_Reoccupation": {
+  "node": "Node_Her_FoggyWindBanditCamp",
+  "x": -11277.0,
+  "y": 619.0,
+  "z": -4927.0
+ },
+ "Quest_Node_Her_RiverTerraceBanditCamp_Reoccupation": {
+  "node": "Node_Her_RiverTerraceBanditCamp",
+  "x": -9600.0,
+  "y": 567.0,
+  "z": -4304.0
+ },
+ "Quest_Node_Her_RiverTerraceBanditCamp_I_Reoccupation": {
+  "node": "Node_Her_RiverTerraceBanditCamp_I",
+  "x": -9367.0,
+  "y": 590.0,
+  "z": -3765.0
+ },
+ "Quest_Node_Her_AnvilHillBanditCamp_Reoccupation": {
+  "node": "Node_Her_AnvilHillBanditCamp",
+  "x": -9454.0,
+  "y": 625.0,
+  "z": -3489.0
+ },
+ "Quest_Node_Her_HowlingHillCamp_Reoccupation": {
+  "node": "Node_Her_HowlingHillCamp",
+  "x": -11279.0,
+  "y": 818.0,
+  "z": -3083.0
+ },
+ "Quest_Node_Her_GreenFieldHillyAreaCamp_Reoccupation": {
+  "node": "Node_Her_GreenFieldHillyAreaCamp",
+  "x": -9582.0,
+  "y": 552.0,
+  "z": -5038.0
+ },
+ "Quest_Node_Her_GreenFieldThiefCamp_Reoccupation": {
+  "node": "Node_Her_GreenFieldThiefCamp",
+  "x": -9296.0,
+  "y": 566.0,
+  "z": -5303.0
+ },
+ "Quest_Node_Her_GreenHillThiefCamp_Reoccupation": {
+  "node": "Node_Her_GreenHillThiefCamp",
+  "x": -9351.0,
+  "y": 584.0,
+  "z": -5331.0
+ },
+ "Quest_Node_Her_SteelMountainsCamp_Reoccupation": {
+  "node": "Node_Her_SteelMountainsCamp",
+  "x": -9475.0,
+  "y": 676.0,
+  "z": -5785.0
+ },
+ "Quest_Node_Her_SouthernDeepForestCamp_Reoccupation": {
+  "node": "Node_Her_SouthernDeepForestCamp",
+  "x": -11176.0,
+  "y": 656.0,
+  "z": -4146.0
+ },
+ "Quest_Node_Her_SunrisePlainBanditCamp_Reoccupation": {
+  "node": "Node_Her_SunrisePlainBanditCamp",
+  "x": -11043.0,
+  "y": 611.0,
+  "z": -5024.0
+ },
+ "Quest_Node_Her_WhiteMountainBanditCamp_Reoccupation": {
+  "node": "Node_Her_WhiteMountainBanditCamp",
+  "x": -12697.0,
+  "y": 1176.0,
+  "z": -3459.0
+ },
+ "Quest_Node_Her_EastGoblinCamp_Reoccupation": {
+  "node": "Node_Her_EastGoblinCamp",
+  "x": -9788.0,
+  "y": 631.0,
+  "z": -5826.0
+ },
+ "Quest_Node_Dem_BanditCamp_I_Reoccupation": {
+  "node": "Node_Dem_BanditCamp_I",
+  "x": -8774.0,
+  "y": 503.0,
+  "z": -4658.0
+ },
+ "Quest_Node_Dem_BanditCamp_II_Reoccupation": {
+  "node": "Node_Dem_BanditCamp_II",
+  "x": -8371.0,
+  "y": 465.0,
+  "z": -4513.0
+ },
+ "Quest_Node_Dem_BanditCamp_III_Reoccupation": {
+  "node": "Node_Dem_BanditCamp_III",
+  "x": -8093.0,
+  "y": 430.0,
+  "z": -4168.0
+ },
+ "Quest_Node_Dem_BanditCamp_IV_Reoccupation": {
+  "node": "Node_Dem_BanditCamp_IV",
+  "x": -8968.0,
+  "y": 513.0,
+  "z": -4865.0
+ },
+ "Quest_Node_Dem_SouthendCamp_Reoccupation": {
+  "node": "Node_Dem_SouthendCamp",
+  "x": -7566.0,
+  "y": 411.0,
+  "z": -5481.0
+ },
+ "Quest_Node_Dem_CrescentCamp_Reoccupation": {
+  "node": "Node_Dem_CrescentCamp",
+  "x": -8617.0,
+  "y": 595.0,
+  "z": -1895.0
+ },
+ "Quest_Node_Del_BanditCamp_I_Reoccupation": {
+  "node": "Node_Del_BanditCamp_I",
+  "x": -3323.0,
+  "y": 401.0,
+  "z": -5182.0
+ },
+ "Quest_Node_Del_BanditCamp_II_Reoccupation": {
+  "node": "Node_Del_BanditCamp_II",
+  "x": -4734.0,
+  "y": 399.0,
+  "z": -4777.0
+ },
+ "Quest_Node_Del_BanditCamp_III_Reoccupation": {
+  "node": "Node_Del_BanditCamp_III",
+  "x": -6302.0,
+  "y": 472.0,
+  "z": -4860.0
+ },
+ "Quest_Node_Kwe_BanditCamp_I_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_I",
+  "x": -9766.0,
+  "y": 679.0,
+  "z": -834.0
+ },
+ "Quest_Node_Kwe_BanditCamp_II_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_II",
+  "x": -9960.0,
+  "y": 695.0,
+  "z": -524.0
+ },
+ "Quest_Node_Kwe_BanditCamp_III_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_III",
+  "x": -9650.0,
+  "y": 639.0,
+  "z": -1014.0
+ },
+ "Quest_Node_Kwe_BanditCamp_IV_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_IV",
+  "x": -10265.0,
+  "y": 669.0,
+  "z": -1008.0
+ },
+ "Quest_Node_Kwe_BanditCamp_IX_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_IX",
+  "x": -11502.0,
+  "y": 717.0,
+  "z": -858.0
+ },
+ "Quest_Node_Kwe_BanditCamp_V_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_V",
+  "x": -9816.0,
+  "y": 707.0,
+  "z": 683.0
+ },
+ "Quest_Node_Kwe_BanditCamp_VI_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_VI",
+  "x": -9493.0,
+  "y": 645.0,
+  "z": 959.0
+ },
+ "Quest_Node_Kwe_BanditCamp_VII_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_VII",
+  "x": -12006.0,
+  "y": 740.0,
+  "z": -86.0
+ },
+ "Quest_Node_Kwe_BanditCamp_VIII_Reoccupation": {
+  "node": "Node_Kwe_BanditCamp_VIII",
+  "x": -11902.0,
+  "y": 707.0,
+  "z": -1195.0
+ },
+ "Quest_Node_Kwe_PitfallCamp_Reoccupation": {
+  "node": "Node_Kwe_PitfallCamp",
+  "x": -10632.0,
+  "y": 687.0,
+  "z": 955.0
+ },
+ "Quest_Node_Crim_BanditCamp_I_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_I",
+  "x": -6336.0,
+  "y": 682.0,
+  "z": -680.0
+ },
+ "Quest_Node_Crim_BanditCamp_II_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_II",
+  "x": -6545.0,
+  "y": 600.0,
+  "z": -1145.0
+ },
+ "Quest_Node_Crim_BanditCamp_III_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_III",
+  "x": -5720.0,
+  "y": 677.0,
+  "z": -760.0
+ },
+ "Quest_Node_Crim_BanditCamp_IV_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_IV",
+  "x": -5037.0,
+  "y": 691.0,
+  "z": 1366.0
+ },
+ "Quest_Node_Crim_BanditCamp_IX_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_IX",
+  "x": -5248.0,
+  "y": 566.0,
+  "z": -1310.0
+ },
+ "Quest_Node_Crim_BanditCamp_VI_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_VI",
+  "x": -4766.0,
+  "y": 655.0,
+  "z": -651.0
+ },
+ "Quest_Node_Crim_BanditCamp_VII_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_VII",
+  "x": -3831.0,
+  "y": 654.0,
+  "z": -617.0
+ },
+ "Quest_Node_Crim_BanditCamp_VIII_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_VIII",
+  "x": -4759.0,
+  "y": 567.0,
+  "z": -1554.0
+ },
+ "Quest_Node_Crim_BanditCamp_X_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_X",
+  "x": -6253.0,
+  "y": 705.0,
+  "z": -572.0
+ },
+ "Quest_Node_Crim_BanditCamp_XI_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_XI",
+  "x": -6445.0,
+  "y": 723.0,
+  "z": 391.0
+ },
+ "Quest_Node_Crim_BanditCamp_XIV_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_XIV",
+  "x": -4603.0,
+  "y": 524.0,
+  "z": -1997.0
+ },
+ "Quest_Node_Crim_BanditCamp_XII_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_XII",
+  "x": -6200.0,
+  "y": 515.0,
+  "z": -2017.0
+ },
+ "Quest_Node_Crim_BanditCamp_XIII_Reoccupation": {
+  "node": "Node_Crim_BanditCamp_XIII",
+  "x": -6406.0,
+  "y": 555.0,
+  "z": -1341.0
+ },
+ "Quest_Node_Crim_ArimajahrCamp_Reoccupation": {
+  "node": "Node_Crim_ArimajahrCamp",
+  "x": -7267.0,
+  "y": 672.0,
+  "z": -98.0
+ },
+ "Quest_Node_Crim_KhafijahrCamp_Reoccupation": {
+  "node": "Node_Crim_KhafijahrCamp",
+  "x": -7186.0,
+  "y": 668.0,
+  "z": -369.0
+ },
+ "Quest_Node_Crim_GhadirjahrCamp_Reoccupation": {
+  "node": "Node_Crim_GhadirjahrCamp",
+  "x": -6902.0,
+  "y": 669.0,
+  "z": -454.0
+ },
+ "Quest_Node_Crim_QudimjahrCamp_Reoccupation": {
+  "node": "Node_Crim_QudimjahrCamp",
+  "x": -6674.0,
+  "y": 669.0,
+  "z": -512.0
+ },
+ "Quest_Node_Crim_YalwijahrCamp_Reoccupation": {
+  "node": "Node_Crim_YalwijahrCamp",
+  "x": -6503.0,
+  "y": 673.0,
+  "z": -519.0
+ },
+ "Quest_Node_Crim_ShiqarjahrCamp_Reoccupation": {
+  "node": "Node_Crim_ShiqarjahrCamp",
+  "x": -6278.0,
+  "y": 675.0,
+  "z": -434.0
+ },
+ "Quest_Node_Crim_SakhajahrCamp_Reoccupation": {
+  "node": "Node_Crim_SakhajahrCamp",
+  "x": -6061.0,
+  "y": 661.0,
+  "z": -370.0
+ },
+ "Quest_Node_Crim_BaisunjahrCamp_Reoccupation": {
+  "node": "Node_Crim_BaisunjahrCamp",
+  "x": -6075.0,
+  "y": 656.0,
+  "z": -145.0
+ },
+ "Quest_Node_Crim_MustawijahrCamp_Reoccupation": {
+  "node": "Node_Crim_MustawijahrCamp",
+  "x": -6181.0,
+  "y": 694.0,
+  "z": 19.0
+ },
+ "Quest_Node_Crim_AsaharamCamp_Block": {
+  "node": "Node_Crim_AsaharamCamp",
+  "x": -5744.0,
+  "y": 691.0,
+  "z": 567.0
+ },
+ "Quest_Node_Crim_AsaharamCamp_Reoccupation": {
+  "node": "Node_Crim_AsaharamCamp",
+  "x": -5744.0,
+  "y": 691.0,
+  "z": 567.0
+ },
+ "Quest_Node_Crim_KuhteramCamp_Reoccupation": {
+  "node": "Node_Crim_KuhteramCamp",
+  "x": -5983.0,
+  "y": 659.0,
+  "z": 490.0
+ },
+ "Quest_Node_Crim_HariyahramCamp_Reoccupation": {
+  "node": "Node_Crim_HariyahramCamp",
+  "x": -5373.0,
+  "y": 699.0,
+  "z": 796.0
+ },
+ "Quest_Node_Crim_KharatiramCamp_Reoccupation": {
+  "node": "Node_Crim_KharatiramCamp",
+  "x": -5601.0,
+  "y": 689.0,
+  "z": 359.0
+ },
+ "Quest_Node_Crim_MakharamCamp_Reoccupation": {
+  "node": "Node_Crim_MakharamCamp",
+  "x": -6035.0,
+  "y": 677.0,
+  "z": 276.0
+ },
+ "Quest_Node_Crim_Ruins_0012_Reoccupation": {
+  "node": "Node_Crim_Ruins_0012",
+  "x": -8308.0,
+  "y": 675.0,
+  "z": -609.0
+ },
+ "Quest_Node_Crim_Ruins_0014_Reoccupation": {
+  "node": "Node_Crim_Ruins_0014",
+  "x": -6195.0,
+  "y": 708.0,
+  "z": -446.0
+ },
+ "Quest_Node_Crim_Ruins_0015_Reoccupation": {
+  "node": "Node_Crim_Ruins_0015",
+  "x": -5312.0,
+  "y": 706.0,
+  "z": 1122.0
+ },
+ "Quest_Node_Crim_Ruins_0016_Reoccupation": {
+  "node": "Node_Crim_Ruins_0016",
+  "x": -4499.0,
+  "y": 660.0,
+  "z": 2221.0
+ },
+ "Quest_Node_Crim_Ruins_0017_Reoccupation": {
+  "node": "Node_Crim_Ruins_0017",
+  "x": -4677.0,
+  "y": 676.0,
+  "z": 2015.0
+ },
+ "Quest_Node_Crim_Ruins_0018_Reoccupation": {
+  "node": "Node_Crim_Ruins_0018",
+  "x": -4371.0,
+  "y": 673.0,
+  "z": 2188.0
+ },
+ "Quest_Node_Crim_Ruins_0022_Reoccupation": {
+  "node": "Node_Crim_Ruins_0022",
+  "x": -4074.0,
+  "y": 666.0,
+  "z": -1128.0
+ },
+ "Quest_Node_Crim_Ruins_0023_Reoccupation": {
+  "node": "Node_Crim_Ruins_0023",
+  "x": -7588.0,
+  "y": 651.0,
+  "z": -970.0
+ },
+ "Quest_Node_Crim_Ruins_0020_Reoccupation": {
+  "node": "Node_Crim_Ruins_0020",
+  "x": -5580.0,
+  "y": 552.0,
+  "z": -1404.0
+ },
+ "Quest_Node_Crim_Ruins_0021_Reoccupation": {
+  "node": "Node_Crim_Ruins_0021",
+  "x": -5594.0,
+  "y": 603.0,
+  "z": -1091.0
+ },
+ "Quest_Node_Crim_Ruins_0024_Reoccupation": {
+  "node": "Node_Crim_Ruins_0024",
+  "x": -4467.0,
+  "y": 571.0,
+  "z": -1564.0
+ },
+ "Quest_Node_Crim_Ruins_0025_Reoccupation": {
+  "node": "Node_Crim_Ruins_0025",
+  "x": -4603.0,
+  "y": 558.0,
+  "z": -1582.0
+ },
+ "Quest_Node_Crim_Ruins_0026_Reoccupation": {
+  "node": "Node_Crim_Ruins_0026",
+  "x": -4829.0,
+  "y": 532.0,
+  "z": -1954.0
+ },
+ "Quest_Node_Crim_Ruins_0027_Reoccupation": {
+  "node": "Node_Crim_Ruins_0027",
+  "x": -4302.0,
+  "y": 496.0,
+  "z": -2126.0
+ },
+ "Quest_Node_Crim_SeabreezeRuin_Reoccupation": {
+  "node": "Node_Crim_SeabreezeRuin",
+  "x": -4354.0,
+  "y": 404.0,
+  "z": -3144.0
+ },
+ "Quest_Node_Crim_SandslumberRuins_Reoccupation": {
+  "node": "Node_Crim_SandslumberRuins",
+  "x": -4150.0,
+  "y": 618.0,
+  "z": 2134.0
+ },
+ "Quest_Node_Crim_StonecrackRuins_Reoccupation": {
+  "node": "Node_Crim_StonecrackRuins",
+  "x": -4447.0,
+  "y": 682.0,
+  "z": -293.0
+ },
+ "Quest_Node_Del_BraveNest_Armor": {
+  "node": "Node_Del_BraveNest",
+  "x": -7826.7021484375,
+  "y": 1976.028076171875,
+  "z": -500.5086975097656
+ },
+ "Quest_Node_Kwe_SpireOfRingingTruth_All": {
+  "node": "Node_Kwe_SpireOfRingingTruth",
+  "x": -11858.0,
+  "y": 900.0,
+  "z": -762.0
+ },
+ "Mission_Node_Her_BellanorHuntingGrounds_Block": {
+  "node": "Node_Her_BellanorHuntingGrounds",
+  "x": -10064.0,
+  "y": 686.0,
+  "z": -1939.0
+ },
+ "Mission_Node_Her_BellanorHuntingGrounds_Block_0": {
+  "node": "Node_Her_BellanorHuntingGrounds",
+  "x": -10064.0,
+  "y": 686.0,
+  "z": -1939.0
+ },
+ "Mission_Node_Her_BellanorHuntingGrounds_Block_1": {
+  "node": "Node_Her_BellanorHuntingGrounds",
+  "x": -10064.0,
+  "y": 686.0,
+  "z": -1939.0
+ },
+ "Mission_Node_Her_BellanorBeacon_Surround": {
+  "node": "Node_Her_BellanorBeacon",
+  "x": -9671.0,
+  "y": 707.0,
+  "z": -1911.0
+ },
+ "Mission_Node_Her_BellanorBeacon_Surround_0": {
+  "node": "Node_Her_BellanorBeacon",
+  "x": -9671.0,
+  "y": 707.0,
+  "z": -1911.0
+ },
+ "Mission_Node_Her_BellanorBeacon_Surround_1": {
+  "node": "Node_Her_BellanorBeacon",
+  "x": -9671.0,
+  "y": 707.0,
+  "z": -1911.0
+ },
+ "Mission_Node_Her_HellwoodBeacon_Surround": {
+  "node": "Node_Her_HellwoodBeacon",
+  "x": -9987.0,
+  "y": 654.0,
+  "z": -3065.0
+ },
+ "Mission_Node_Her_HellwoodBeacon_Surround_0": {
+  "node": "Node_Her_HellwoodBeacon",
+  "x": -9987.0,
+  "y": 654.0,
+  "z": -3065.0
+ },
+ "Mission_Node_Her_HellwoodBeacon_Surround_1": {
+  "node": "Node_Her_HellwoodBeacon",
+  "x": -9987.0,
+  "y": 654.0,
+  "z": -3065.0
+ },
+ "Mission_Node_Her_DeepForestBeacon_Surround": {
+  "node": "Node_Her_DeepForestBeacon",
+  "x": -9337.0,
+  "y": 683.0,
+  "z": -5954.0
+ },
+ "Mission_Node_Her_DeepForestBeacon_Surround_0": {
+  "node": "Node_Her_DeepForestBeacon",
+  "x": -9337.0,
+  "y": 683.0,
+  "z": -5954.0
+ },
+ "Mission_Node_Her_DeepForestBeacon_Surround_1": {
+  "node": "Node_Her_DeepForestBeacon",
+  "x": -9337.0,
+  "y": 683.0,
+  "z": -5954.0
+ },
+ "Mission_Node_Her_DeepForestBeacon_Surround_2": {
+  "node": "Node_Her_DeepForestBeacon",
+  "x": -9337.0,
+  "y": 683.0,
+  "z": -5954.0
+ },
+ "Mission_Node_Her_EmbernestBeacon_Surround": {
+  "node": "Node_Her_EmbernestBeacon",
+  "x": -10284.0,
+  "y": 641.0,
+  "z": -3381.0
+ },
+ "Mission_Node_Her_EmbernestBeacon_Surround_0": {
+  "node": "Node_Her_EmbernestBeacon",
+  "x": -10284.0,
+  "y": 641.0,
+  "z": -3381.0
+ },
+ "Mission_Node_Her_EmbernestBeacon_Surround_1": {
+  "node": "Node_Her_EmbernestBeacon",
+  "x": -10284.0,
+  "y": 641.0,
+  "z": -3381.0
+ },
+ "Mission_Node_Her_RootFort_Surround": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Mission_Node_Her_RootFort_Reward": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Mission_Node_Her_RootFort_Surround_0": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Mission_Node_Her_RootFort_Surround_1": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Mission_Node_Her_RootFort_Surround_2": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Mission_Node_Her_RootFort_Surround_3": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Mission_Node_Her_RootFort_Reward_0": {
+  "node": "Node_Her_RootFort",
+  "x": -10501.0,
+  "y": 768.0,
+  "z": -2287.0
+ },
+ "Mission_Node_Her_RiverwardOutpost_Surround": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Mission_Node_Her_RiverwardOutpost_Block_SubNode": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Mission_Node_Her_RiverwardOutpost_Surround_0": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Mission_Node_Her_RiverwardOutpost_Surround_1": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Mission_Node_Her_RiverwardOutpost_Block_SubNode_0": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Mission_Node_Her_RiverwardOutpost_Block_SubNode_1": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Mission_Node_Her_RiverwardOutpost_Block_SubNode_2": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Mission_Node_Her_RiverwardOutpost_Block_SubNode_3": {
+  "node": "Node_Her_RiverwardOutpost",
+  "x": -10630.0,
+  "y": 639.0,
+  "z": -2834.0
+ },
+ "Mission_Node_Her_FortAnvil_Surround": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Mission_Node_Her_FortAnvil_Surround_0": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Mission_Node_Her_FortAnvil_Surround_1": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Mission_Node_Her_FortAnvil_Surround_2": {
+  "node": "Node_Her_FortAnvil",
+  "x": -9945.0,
+  "y": 615.0,
+  "z": -4027.0
+ },
+ "Mission_Node_Her_WillkommPost_Surround": {
+  "node": "Node_Her_WillkommPost",
+  "x": -10308.0,
+  "y": 683.0,
+  "z": -2342.0
+ },
+ "Mission_Node_Her_WillkommPost_Surround_0": {
+  "node": "Node_Her_WillkommPost",
+  "x": -10308.0,
+  "y": 683.0,
+  "z": -2342.0
+ },
+ "Mission_Node_Her_WillkommPost_Surround_1": {
+  "node": "Node_Her_WillkommPost",
+  "x": -10308.0,
+  "y": 683.0,
+  "z": -2342.0
+ },
+ "Mission_Node_Her_PervinFort_Block_Boss": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_SubNode": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_Boss_0": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_Boss_1": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_Boss_2": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_Boss_3": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_SubNode_0": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_SubNode_1": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_SubNode_2": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_PervinFort_Block_SubNode_3": {
+  "node": "Node_Her_PervinFort",
+  "x": -11580.0,
+  "y": 656.0,
+  "z": -5259.0
+ },
+ "Mission_Node_Her_RodbelFishingDock_Surround": {
+  "node": "Node_Her_RodbelFishingDock",
+  "x": -10231.0,
+  "y": 540.0,
+  "z": -3987.0
+ },
+ "Mission_Node_Her_RodbelFishingDock_Surround_0": {
+  "node": "Node_Her_RodbelFishingDock",
+  "x": -10231.0,
+  "y": 540.0,
+  "z": -3987.0
+ },
+ "Mission_Node_Her_RodbelFishingDock_Surround_1": {
+  "node": "Node_Her_RodbelFishingDock",
+  "x": -10231.0,
+  "y": 540.0,
+  "z": -3987.0
+ },
+ "Mission_Node_Cal_WolfFang_Mine_Surround": {
+  "node": "Node_Cal_WolfFang_Mine",
+  "x": -10962.0,
+  "y": 705.0,
+  "z": -2191.0
+ },
+ "Mission_Node_Cal_WolfFang_Mine_SubNode": {
+  "node": "Node_Cal_WolfFang_Mine",
+  "x": -10962.0,
+  "y": 705.0,
+  "z": -2191.0
+ },
+ "Mission_Node_Cal_WolfFang_Mine_Surround_0": {
+  "node": "Node_Cal_WolfFang_Mine",
+  "x": -10962.0,
+  "y": 705.0,
+  "z": -2191.0
+ },
+ "Mission_Node_Cal_WolfFang_Mine_Surround_1": {
+  "node": "Node_Cal_WolfFang_Mine",
+  "x": -10962.0,
+  "y": 705.0,
+  "z": -2191.0
+ },
+ "Mission_Node_Cal_WolfFang_Mine_SubNode_0": {
+  "node": "Node_Cal_WolfFang_Mine",
+  "x": -10962.0,
+  "y": 705.0,
+  "z": -2191.0
+ },
+ "Mission_Node_Dem_NightExpeditionCamp_Block": {
+  "node": "Node_Dem_NightExpeditionCamp",
+  "x": -8069.0,
+  "y": 450.0,
+  "z": -5498.0
+ },
+ "Mission_Node_Dem_NightExpeditionCamp_Block_0": {
+  "node": "Node_Dem_NightExpeditionCamp",
+  "x": -8069.0,
+  "y": 450.0,
+  "z": -5498.0
+ },
+ "Mission_Node_Dem_NightExpeditionCamp_Block_1": {
+  "node": "Node_Dem_NightExpeditionCamp",
+  "x": -8069.0,
+  "y": 450.0,
+  "z": -5498.0
+ },
+ "Mission_Node_Dem_GrayRockShipyard_Block_Start": {
+  "node": "Node_Dem_GrayRockShipyard",
+  "x": -9420.0,
+  "y": 652.0,
+  "z": -2116.0
+ },
+ "Mission_Node_Dem_GrayRockShipyard_Block_Start_0": {
+  "node": "Node_Dem_GrayRockShipyard",
+  "x": -9420.0,
+  "y": 652.0,
+  "z": -2116.0
+ },
+ "Mission_Node_Dem_GrayRockShipyard_Block_Start_1": {
+  "node": "Node_Dem_GrayRockShipyard",
+  "x": -9420.0,
+  "y": 652.0,
+  "z": -2116.0
+ },
+ "Mission_Node_Dem_GrayRockQuarry_Block_Start": {
+  "node": "Node_Dem_GrayRockQuarry",
+  "x": -9279.0,
+  "y": 668.0,
+  "z": -2120.0
+ },
+ "Mission_Node_Dem_GrayRockQuarry_Block_Start_0": {
+  "node": "Node_Dem_GrayRockQuarry",
+  "x": -9279.0,
+  "y": 668.0,
+  "z": -2120.0
+ },
+ "Mission_Node_Dem_GrayRockQuarry_Block_Start_1": {
+  "node": "Node_Dem_GrayRockQuarry",
+  "x": -9279.0,
+  "y": 668.0,
+  "z": -2120.0
+ },
+ "Mission_Node_Del_StonewardCastleRuins_Surround": {
+  "node": "Node_Del_StonewardCastleRuins",
+  "x": -5188.0,
+  "y": 504.0,
+  "z": -5094.0
+ },
+ "Mission_Node_Del_StonewardCastleRuins_Surround_0": {
+  "node": "Node_Del_StonewardCastleRuins",
+  "x": -5188.0,
+  "y": 504.0,
+  "z": -5094.0
+ },
+ "Mission_Node_Del_StonewardCastleRuins_Surround_1": {
+  "node": "Node_Del_StonewardCastleRuins",
+  "x": -5188.0,
+  "y": 504.0,
+  "z": -5094.0
+ },
+ "Mission_Node_Neut_GoldenGoblinWineMaker_Block": {
+  "node": "Node_Neut_GoldenGoblinWineMaker",
+  "x": -5621.0,
+  "y": 539.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Neut_GoldenGoblinWineMaker_Block_SubNode": {
+  "node": "Node_Neut_GoldenGoblinWineMaker",
+  "x": -5621.0,
+  "y": 539.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Neut_GoldenGoblinWineMaker_Block_0": {
+  "node": "Node_Neut_GoldenGoblinWineMaker",
+  "x": -5621.0,
+  "y": 539.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Neut_GoldenGoblinWineMaker_Block_1": {
+  "node": "Node_Neut_GoldenGoblinWineMaker",
+  "x": -5621.0,
+  "y": 539.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Neut_GoldenGoblinWineMaker_Block_SubNode_0": {
+  "node": "Node_Neut_GoldenGoblinWineMaker",
+  "x": -5621.0,
+  "y": 539.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Del_BenusThiefCamp_Surround": {
+  "node": "Node_Del_BenusThiefCamp",
+  "x": -3674.0,
+  "y": 464.0,
+  "z": -5372.0
+ },
+ "Mission_Node_Del_BenusThiefCamp_Surround_0": {
+  "node": "Node_Del_BenusThiefCamp",
+  "x": -3674.0,
+  "y": 464.0,
+  "z": -5372.0
+ },
+ "Mission_Node_Del_BenusThiefCamp_Surround_1": {
+  "node": "Node_Del_BenusThiefCamp",
+  "x": -3674.0,
+  "y": 464.0,
+  "z": -5372.0
+ },
+ "Mission_Node_Kwe_VatnhollFortress_Surround": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Mission_Node_Kwe_VatnhollFortress_SubNode": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Mission_Node_Kwe_VatnhollFortress_Surround_0": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Mission_Node_Kwe_VatnhollFortress_Surround_1": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Mission_Node_Kwe_VatnhollFortress_Surround_2": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Mission_Node_Kwe_VatnhollFortress_Surround_3": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Mission_Node_Kwe_VatnhollFortress_SubNode_0": {
+  "node": "Node_Kwe_VatnhollFortress",
+  "x": -12258.0,
+  "y": 730.0,
+  "z": -840.0
+ },
+ "Mission_Node_Kwe_SteinnfellFortress_Surround": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Mission_Node_Kwe_SteinnfellFortress_SubNode": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Mission_Node_Kwe_SteinnfellFortress_Surround_0": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Mission_Node_Kwe_SteinnfellFortress_Surround_1": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Mission_Node_Kwe_SteinnfellFortress_Surround_2": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Mission_Node_Kwe_SteinnfellFortress_SubNode_0": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Mission_Node_Kwe_SteinnfellFortress_SubNode_1": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Mission_Node_Kwe_SteinnfellFortress_SubNode_2": {
+  "node": "Node_Kwe_SteinnfellFortress",
+  "x": -11096.0,
+  "y": 857.0,
+  "z": -1128.0
+ },
+ "Mission_Node_Kwe_WildhuntCamp": {
+  "node": "Node_Kwe_WildhuntCamp",
+  "x": -10536.0,
+  "y": 690.0,
+  "z": 911.0
+ },
+ "Mission_Node_Kwe_WildhuntCamp_0": {
+  "node": "Node_Kwe_WildhuntCamp",
+  "x": -10536.0,
+  "y": 690.0,
+  "z": 911.0
+ },
+ "Mission_Node_Kwe_WildhuntCamp_1": {
+  "node": "Node_Kwe_WildhuntCamp",
+  "x": -10536.0,
+  "y": 690.0,
+  "z": 911.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Block_Start": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Block_SubNode": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Normal_Start": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Normal_End": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Block_Start_0": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Block_Start_1": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Block_SubNode_0": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Block_SubNode_1": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Block_SubNode_2": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Normal_Start_0": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Normal_Start_1": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Normal_Start_2": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_BurhumVillage_Normal_End_0": {
+  "node": "Node_Crim_BurhumVillage",
+  "x": -7480.0,
+  "y": 644.0,
+  "z": -859.0
+ },
+ "Mission_Node_Crim_ShadowdeepForest_Block_Start": {
+  "node": "Node_Crim_ShadowdeepForest",
+  "x": -4715.0,
+  "y": 560.0,
+  "z": -1588.0
+ },
+ "Mission_Node_Crim_ShadowdeepForest_Block_SubNode": {
+  "node": "Node_Crim_ShadowdeepForest",
+  "x": -4715.0,
+  "y": 560.0,
+  "z": -1588.0
+ },
+ "Mission_Node_Crim_ShadowdeepForest_Block_Start_0": {
+  "node": "Node_Crim_ShadowdeepForest",
+  "x": -4715.0,
+  "y": 560.0,
+  "z": -1588.0
+ },
+ "Mission_Node_Crim_ShadowdeepForest_Block_Start_1": {
+  "node": "Node_Crim_ShadowdeepForest",
+  "x": -4715.0,
+  "y": 560.0,
+  "z": -1588.0
+ },
+ "Mission_Node_Crim_ShadowdeepForest_Block_SubNode_0": {
+  "node": "Node_Crim_ShadowdeepForest",
+  "x": -4715.0,
+  "y": 560.0,
+  "z": -1588.0
+ },
+ "Mission_Node_Crim_ShadowdeepForest_Block_SubNode_1": {
+  "node": "Node_Crim_ShadowdeepForest",
+  "x": -4715.0,
+  "y": 560.0,
+  "z": -1588.0
+ },
+ "Mission_Node_Crim_ShadowdeepForest_Block_SubNode_2": {
+  "node": "Node_Crim_ShadowdeepForest",
+  "x": -4715.0,
+  "y": 560.0,
+  "z": -1588.0
+ },
+ "Mission_Node_Crim_GiantsYardForwardCamp_Block_Start": {
+  "node": "Node_Crim_GiantsYardForwardCamp",
+  "x": -4742.0,
+  "y": 519.0,
+  "z": -2326.0
+ },
+ "Mission_Node_Crim_GiantsYardForwardCamp_Block_SubNode": {
+  "node": "Node_Crim_GiantsYardForwardCamp",
+  "x": -4742.0,
+  "y": 519.0,
+  "z": -2326.0
+ },
+ "Mission_Node_Crim_GiantsYardForwardCamp_Block_Start_0": {
+  "node": "Node_Crim_GiantsYardForwardCamp",
+  "x": -4742.0,
+  "y": 519.0,
+  "z": -2326.0
+ },
+ "Mission_Node_Crim_GiantsYardForwardCamp_Block_Start_1": {
+  "node": "Node_Crim_GiantsYardForwardCamp",
+  "x": -4742.0,
+  "y": 519.0,
+  "z": -2326.0
+ },
+ "Mission_Node_Crim_GiantsYardForwardCamp_Block_SubNode_0": {
+  "node": "Node_Crim_GiantsYardForwardCamp",
+  "x": -4742.0,
+  "y": 519.0,
+  "z": -2326.0
+ },
+ "Mission_Node_Crim_GiantsYardForwardCamp_Block_SubNode_1": {
+  "node": "Node_Crim_GiantsYardForwardCamp",
+  "x": -4742.0,
+  "y": 519.0,
+  "z": -2326.0
+ },
+ "Mission_Node_Crim_GiantsYardReasearch_WatchTower_Block_Start": {
+  "node": "Node_Crim_GiantsYardReasearch_WatchTower",
+  "x": -4822.0,
+  "y": 457.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Crim_GiantsYardReasearch_WatchTower_Block_SubNode": {
+  "node": "Node_Crim_GiantsYardReasearch_WatchTower",
+  "x": -4822.0,
+  "y": 457.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Crim_GiantsYardReasearch_WatchTower_Block_Start_0": {
+  "node": "Node_Crim_GiantsYardReasearch_WatchTower",
+  "x": -4822.0,
+  "y": 457.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Crim_GiantsYardReasearch_WatchTower_Block_Start_1": {
+  "node": "Node_Crim_GiantsYardReasearch_WatchTower",
+  "x": -4822.0,
+  "y": 457.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Crim_GiantsYardReasearch_WatchTower_Block_SubNode_0": {
+  "node": "Node_Crim_GiantsYardReasearch_WatchTower",
+  "x": -4822.0,
+  "y": 457.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Crim_GiantsYardReasearch_WatchTower_Block_SubNode_1": {
+  "node": "Node_Crim_GiantsYardReasearch_WatchTower",
+  "x": -4822.0,
+  "y": 457.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Crim_GiantsYardReasearch_WatchTower_Block_SubNode_2": {
+  "node": "Node_Crim_GiantsYardReasearch_WatchTower",
+  "x": -4822.0,
+  "y": 457.0,
+  "z": -2622.0
+ },
+ "Mission_Node_Her_Saddlecap_Cowherd_Normal_Start": {
+  "node": "Node_Her_Saddlecap",
+  "x": -9586.0,
+  "y": 692.0,
+  "z": -2223.0
+ },
+ "Mission_Node_Her_Saddlecap_Cowherd_Normal_Start_0": {
+  "node": "Node_Her_Saddlecap",
+  "x": -9586.0,
+  "y": 692.0,
+  "z": -2223.0
+ },
+ "Mission_Node_Her_StoneTowerVillage_Block": {
+  "node": "Node_Her_StoneTowerVillage",
+  "x": -10591.0,
+  "y": 714.0,
+  "z": -3093.0
+ },
+ "Mission_Node_Her_StoneTowerVillage_Block_0": {
+  "node": "Node_Her_StoneTowerVillage",
+  "x": -10591.0,
+  "y": 714.0,
+  "z": -3093.0
+ },
+ "Mission_Node_Her_StoneTowerVillage_Block_1": {
+  "node": "Node_Her_StoneTowerVillage",
+  "x": -10591.0,
+  "y": 714.0,
+  "z": -3093.0
+ },
+ "Mission_Node_Dem_SouthendCamp_Block_Start": {
+  "node": "Node_Dem_SouthendCamp",
+  "x": -7566.0,
+  "y": 411.0,
+  "z": -5481.0
+ },
+ "Mission_Node_Dem_SouthendCamp_Block_Start_0": {
+  "node": "Node_Dem_SouthendCamp",
+  "x": -7566.0,
+  "y": 411.0,
+  "z": -5481.0
+ },
+ "Mission_Node_Dem_CrescentCamp_Block_Start": {
+  "node": "Node_Dem_CrescentCamp",
+  "x": -8617.0,
+  "y": 595.0,
+  "z": -1895.0
+ },
+ "Mission_Node_Dem_CrescentCamp_Block_Start_0": {
+  "node": "Node_Dem_CrescentCamp",
+  "x": -8617.0,
+  "y": 595.0,
+  "z": -1895.0
+ },
+ "Mission_Node_Kwe_PitfallCamp": {
+  "node": "Node_Kwe_PitfallCamp",
+  "x": -10632.0,
+  "y": 687.0,
+  "z": 955.0
+ },
+ "Mission_Node_Kwe_PitfallCamp_0": {
+  "node": "Node_Kwe_PitfallCamp",
+  "x": -10632.0,
+  "y": 687.0,
+  "z": 955.0
+ },
+ "Mission_Node_Her_SilentLodgeCabin_Block_Start": {
+  "node": "Node_Her_SilentLodgeCabin",
+  "x": -10515.0,
+  "y": 610.0,
+  "z": -4610.0
+ },
+ "Mission_Node_Her_SilentLodgeCabin_Block_Start_0": {
+  "node": "Node_Her_SilentLodgeCabin",
+  "x": -10515.0,
+  "y": 610.0,
+  "z": -4610.0
+ },
+ "Mission_Node_Her_CliffHideout_Block_Start": {
+  "node": "Node_Her_CliffHideout",
+  "x": -9534.0,
+  "y": 631.0,
+  "z": -1681.0
+ },
+ "Mission_Node_Her_CliffHideout_Block_Start_0": {
+  "node": "Node_Her_CliffHideout",
+  "x": -9534.0,
+  "y": 631.0,
+  "z": -1681.0
+ },
+ "Mission_Node_Her_SanctumOfPenitence_Block": {
+  "node": "Node_Her_SanctumOfPenitence",
+  "x": -9397.0,
+  "y": 598.0,
+  "z": -5000.0
+ },
+ "Mission_Node_Her_SanctumOfPenitence_Block_0": {
+  "node": "Node_Her_SanctumOfPenitence",
+  "x": -9397.0,
+  "y": 598.0,
+  "z": -5000.0
+ },
+ "Mission_Node_Her_SanctumOfPenitence_Block_1": {
+  "node": "Node_Her_SanctumOfPenitence",
+  "x": -9397.0,
+  "y": 598.0,
+  "z": -5000.0
+ },
+ "Mission_Node_Her_SanctumOfTemperance_Block": {
+  "node": "Node_Her_SanctumOfTemperance",
+  "x": -9971.0,
+  "y": 596.0,
+  "z": -4877.0
+ },
+ "Mission_Node_Her_SanctumOfTemperance_Block_0": {
+  "node": "Node_Her_SanctumOfTemperance",
+  "x": -9971.0,
+  "y": 596.0,
+  "z": -4877.0
+ },
+ "Mission_Node_Her_SanctumOfTemperance_Block_1": {
+  "node": "Node_Her_SanctumOfTemperance",
+  "x": -9971.0,
+  "y": 596.0,
+  "z": -4877.0
+ },
+ "Mission_Node_Her_SanctumOfAtonement_Block": {
+  "node": "Node_Her_SanctumOfAtonement",
+  "x": -11466.0,
+  "y": 811.0,
+  "z": -3219.0
+ },
+ "Mission_Node_Her_SanctumOfAtonement_Block_0": {
+  "node": "Node_Her_SanctumOfAtonement",
+  "x": -11466.0,
+  "y": 811.0,
+  "z": -3219.0
+ },
+ "Mission_Node_Her_SanctumOfAtonement_Block_1": {
+  "node": "Node_Her_SanctumOfAtonement",
+  "x": -11466.0,
+  "y": 811.0,
+  "z": -3219.0
+ },
+ "Mission_Node_Her_SanctumOfDeliverance_Block": {
+  "node": "Node_Her_SanctumOfDeliverance",
+  "x": -10667.0,
+  "y": 744.0,
+  "z": -2554.0
+ },
+ "Mission_Node_Her_SanctumOfDeliverance_Block_0": {
+  "node": "Node_Her_SanctumOfDeliverance",
+  "x": -10667.0,
+  "y": 744.0,
+  "z": -2554.0
+ },
+ "Mission_Node_Her_SanctumOfDeliverance_Block_1": {
+  "node": "Node_Her_SanctumOfDeliverance",
+  "x": -10667.0,
+  "y": 744.0,
+  "z": -2554.0
+ },
+ "Mission_Node_Her_SanctumOfBenediction_Block": {
+  "node": "Node_Her_SanctumOfBenediction",
+  "x": -12424.0,
+  "y": 1054.0,
+  "z": -3554.0
+ },
+ "Mission_Node_Her_SanctumOfBenediction_Block_0": {
+  "node": "Node_Her_SanctumOfBenediction",
+  "x": -12424.0,
+  "y": 1054.0,
+  "z": -3554.0
+ },
+ "Mission_Node_Her_SanctumOfBenediction_Block_1": {
+  "node": "Node_Her_SanctumOfBenediction",
+  "x": -12424.0,
+  "y": 1054.0,
+  "z": -3554.0
+ },
+ "Mission_Node_Her_SanctumOfExpiation_Block": {
+  "node": "Node_Her_SanctumOfExpiation",
+  "x": -9198.0,
+  "y": 764.0,
+  "z": -1662.0
+ },
+ "Mission_Node_Her_SanctumOfExpiation_Block_0": {
+  "node": "Node_Her_SanctumOfExpiation",
+  "x": -9198.0,
+  "y": 764.0,
+  "z": -1662.0
+ },
+ "Mission_Node_Her_SanctumOfExpiation_Block_1": {
+  "node": "Node_Her_SanctumOfExpiation",
+  "x": -9198.0,
+  "y": 764.0,
+  "z": -1662.0
+ },
+ "Mission_Node_Dem_SanctumOfRenunciation_Block": {
+  "node": "Node_Dem_SanctumOfRenunciation",
+  "x": -5146.0,
+  "y": 521.0,
+  "z": -2305.0
+ },
+ "Mission_Node_Dem_SanctumOfRenunciation_Block_0": {
+  "node": "Node_Dem_SanctumOfRenunciation",
+  "x": -5146.0,
+  "y": 521.0,
+  "z": -2305.0
+ },
+ "Mission_Node_Dem_SanctumOfRenunciation_Block_1": {
+  "node": "Node_Dem_SanctumOfRenunciation",
+  "x": -5146.0,
+  "y": 521.0,
+  "z": -2305.0
+ },
+ "Mission_Node_Del_Temple_0014_Block": {
+  "node": "Node_Del_Temple_0014",
+  "x": -3193.0,
+  "y": 469.0,
+  "z": -5609.0
+ },
+ "Mission_Node_Del_Temple_0014_Block_0": {
+  "node": "Node_Del_Temple_0014",
+  "x": -3193.0,
+  "y": 469.0,
+  "z": -5609.0
+ },
+ "Mission_Node_Del_Temple_0014_Block_1": {
+  "node": "Node_Del_Temple_0014",
+  "x": -3193.0,
+  "y": 469.0,
+  "z": -5609.0
+ },
+ "Mission_Node_Del_Temple_0015_Block": {
+  "node": "Node_Del_Temple_0015",
+  "x": -3429.0,
+  "y": 400.0,
+  "z": -4493.0
+ },
+ "Mission_Node_Del_Temple_0015_Block_0": {
+  "node": "Node_Del_Temple_0015",
+  "x": -3429.0,
+  "y": 400.0,
+  "z": -4493.0
+ },
+ "Mission_Node_Del_Temple_0015_Block_1": {
+  "node": "Node_Del_Temple_0015",
+  "x": -3429.0,
+  "y": 400.0,
+  "z": -4493.0
+ },
+ "Mission_Node_Del_SanctumOfVeneration_Block": {
+  "node": "Node_Del_SanctumOfVeneration",
+  "x": -4045.0,
+  "y": 545.0,
+  "z": -5101.0
+ },
+ "Mission_Node_Del_SanctumOfVeneration_Block_0": {
+  "node": "Node_Del_SanctumOfVeneration",
+  "x": -4045.0,
+  "y": 545.0,
+  "z": -5101.0
+ },
+ "Mission_Node_Del_SanctumOfVeneration_Block_1": {
+  "node": "Node_Del_SanctumOfVeneration",
+  "x": -4045.0,
+  "y": 545.0,
+  "z": -5101.0
+ },
+ "Mission_Node_Del_SanctumOfDevotion_Block": {
+  "node": "Node_Del_SanctumOfDevotion",
+  "x": -6478.0,
+  "y": 566.0,
+  "z": -5130.0
+ },
+ "Mission_Node_Del_SanctumOfDevotion_Block_0": {
+  "node": "Node_Del_SanctumOfDevotion",
+  "x": -6478.0,
+  "y": 566.0,
+  "z": -5130.0
+ },
+ "Mission_Node_Del_SanctumOfDevotion_Block_1": {
+  "node": "Node_Del_SanctumOfDevotion",
+  "x": -6478.0,
+  "y": 566.0,
+  "z": -5130.0
+ },
+ "Mission_Node_Kwe_SanctumOfExaltation_Block": {
+  "node": "Node_Kwe_SanctumOfExaltation",
+  "x": -10333.0,
+  "y": 794.0,
+  "z": 583.0
+ },
+ "Mission_Node_Kwe_SanctumOfExaltation_Block_0": {
+  "node": "Node_Kwe_SanctumOfExaltation",
+  "x": -10333.0,
+  "y": 794.0,
+  "z": 583.0
+ },
+ "Mission_Node_Kwe_SanctumOfExaltation_Block_1": {
+  "node": "Node_Kwe_SanctumOfExaltation",
+  "x": -10333.0,
+  "y": 794.0,
+  "z": 583.0
+ }
+}

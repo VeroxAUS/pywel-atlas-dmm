@@ -1,0 +1,171 @@
+{
+  "chest-test/slot100.save": {
+    "missionRecords": 3021,
+    "missionStates": {
+      "5": 47,
+      "2": 2793,
+      "1": 123,
+      "null": 58
+    },
+    "missionFieldsSeen": [
+      "__pycr_type__",
+      "_branchedTime",
+      "_completedTime",
+      "_delayedFromMissionKey",
+      "_delayedTime",
+      "_key",
+      "_newAlarm",
+      "_overlapTargetList",
+      "_state",
+      "_uiPosition",
+      "_uiState",
+      "_usedTagList"
+    ],
+    "questRecords": 654,
+    "questStates": {
+      "5": 21,
+      "2": 605,
+      "1": 13,
+      "3": 15
+    },
+    "questFieldsSeen": [
+      "__pycr_type__",
+      "_branchedTime",
+      "_completedTime",
+      "_delayedFromQuestKey",
+      "_questKey",
+      "_state"
+    ],
+    "questGaugeStates": {
+      "2": 273
+    },
+    "stageStates": {
+      "5": 48,
+      "4": 51,
+      "2": 45602,
+      "1": 137,
+      "3": 30
+    },
+    "lastCompletedMission": "Challenge_AbyssRuins_Her_0008",
+    "lastCompletedMainQuest": "Quest_MeetAlustain_Test",
+    "missionRowsAbsentFromSave": 3843,
+    "questRowsAbsentFromSave": 444
+  },
+  "chest-test/slot104.save": {
+    "missionRecords": 3023,
+    "missionStates": {
+      "5": 48,
+      "2": 2794,
+      "1": 123,
+      "null": 58
+    },
+    "missionFieldsSeen": [
+      "__pycr_type__",
+      "_branchedTime",
+      "_completedTime",
+      "_delayedFromMissionKey",
+      "_delayedTime",
+      "_key",
+      "_newAlarm",
+      "_overlapTargetList",
+      "_state",
+      "_uiPosition",
+      "_uiState",
+      "_usedTagList"
+    ],
+    "questRecords": 654,
+    "questStates": {
+      "5": 21,
+      "2": 605,
+      "1": 13,
+      "3": 15
+    },
+    "questFieldsSeen": [
+      "__pycr_type__",
+      "_branchedTime",
+      "_completedTime",
+      "_delayedFromQuestKey",
+      "_questKey",
+      "_state"
+    ],
+    "questGaugeStates": {
+      "2": 273
+    },
+    "stageStates": {
+      "5": 49,
+      "4": 51,
+      "2": 45604,
+      "1": 137,
+      "3": 30
+    },
+    "lastCompletedMission": "Mission_MeetAlustain_Alchemist_Chamber_0",
+    "lastCompletedMainQuest": "Quest_MeetAlustain_Alchemist_CrowWing",
+    "missionRowsAbsentFromSave": 3841,
+    "questRowsAbsentFromSave": 444
+  },
+  "full-save/save.save": {
+    "missionRecords": 6753,
+    "missionStates": {
+      "5": 5806,
+      "2": 889,
+      "3": 1,
+      "4": 57
+    },
+    "missionFieldsSeen": [
+      "__pycr_type__",
+      "_branchedTime",
+      "_completeCount",
+      "_completedTime",
+      "_delayedTime",
+      "_key",
+      "_newAlarm",
+      "_overlapTargetList",
+      "_state",
+      "_uiPosition",
+      "_uiState",
+      "_usedTagList"
+    ],
+    "questRecords": 990,
+    "questStates": {
+      "5": 319,
+      "2": 635,
+      "3": 26,
+      "4": 10
+    },
+    "questFieldsSeen": [
+      "__pycr_type__",
+      "_branchedTime",
+      "_completedTime",
+      "_delayedFromQuestKey",
+      "_questKey",
+      "_state"
+    ],
+    "questGaugeStates": {
+      "5": 345,
+      "4": 37,
+      "2": 97
+    },
+    "stageStates": {
+      "4": 3274,
+      "5": 1803,
+      "2": 44132,
+      "3": 114,
+      "1": 3
+    },
+    "lastCompletedMission": "Mission_Caliburn_Boss_Ending_Varnia",
+    "lastCompletedMainQuest": "Quest_Epilogue_Ending",
+    "missionRowsAbsentFromSave": 111,
+    "questRowsAbsentFromSave": 108
+  },
+  "missionStateTransitions chest-test/slot100.save -> full-save/save.save": {
+    "1->5": 123,
+    "2->2": 683,
+    "2->3": 1,
+    "2->4": 1,
+    "2->5": 2108,
+    "5->5": 47,
+    "None->2": 206,
+    "None->4": 56,
+    "None->5": 3528
+  }
+}

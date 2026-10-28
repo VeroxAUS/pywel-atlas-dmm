@@ -1,0 +1,83 @@
+{
+  "missionsWithTextId": 6001,
+  "missionRowsWithoutTextIdNotDecoded": 863,
+  "missionsWithUnlockCondition": 3979,
+  "missionsWithObjectiveCondition": 3511,
+  "missionsNeedingAnotherMissionOrQuest": 853,
+  "needTargetKinds": {
+    "mission": 932,
+    "quest": 45,
+    "unknown": 47
+  },
+  "negatedNeeds": 13,
+  "missionsInChains": 853,
+  "maxChainDepth": 1,
+  "missionsOnACycle": 0,
+  "depthHistogram": {
+    "1": 853
+  },
+  "missionsOwnedByAQuestByName": 245,
+  "questsWithQuestLevelPrerequisite": 0,
+  "unlockFunctionMix": [
+    [
+      "!CheckKnowledge",
+      628
+    ],
+    [
+      "CheckFriendlyLevel",
+      439
+    ],
+    [
+      "CompleteSubMission",
+      401
+    ],
+    [
+      "MissionKey",
+      376
+    ],
+    [
+      "CompleteMission",
+      363
+    ],
+    [
+      "KnowledgeKey",
+      281
+    ],
+    [
+      "GetLevelGimmickLeftDropRollCou",
+      250
+    ],
+    [
+      "LevelName",
+      151
+    ],
+    [
+      "CheckKnowledge",
+      111
+    ],
+    [
+      "!CheckHaveItem",
+      78
+    ],
+    [
+      "QuestKey",
+      70
+    ],
+    [
+      "IsRestoreLevelGimmickItemPicke",
+      67
+    ],
+    [
+      "ItemKey",
+      59
+    ],
+    [
+      "CompleteStage",
+      52
+    ],
+    [
+      "QuestGaugePercent",
+      39
+    ]
+  ]
+}

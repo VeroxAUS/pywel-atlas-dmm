@@ -1,0 +1,74 @@
+{
+ "abyss-chest": {
+  "total": 74,
+  "sceneWithin500": 74,
+  "withOwnMission": 0,
+  "withLevelGate": 74
+ },
+ "abyss-cresset": {
+  "total": 101,
+  "sceneWithin500": 97,
+  "withOwnMission": 101,
+  "withLevelGate": 0
+ },
+ "abyss-island-nexus": {
+  "total": 53,
+  "sceneWithin500": 52,
+  "withOwnMission": 0,
+  "withLevelGate": 0
+ },
+ "abyss-nexus": {
+  "total": 213,
+  "sceneWithin500": 211,
+  "withOwnMission": 0,
+  "withLevelGate": 0
+ },
+ "bell-save": {
+  "total": 8,
+  "sceneWithin500": 8,
+  "withOwnMission": 0,
+  "withLevelGate": 0
+ },
+ "constellation": {
+  "total": 13,
+  "sceneWithin500": 12,
+  "withOwnMission": 13,
+  "withLevelGate": 0
+ },
+ "greymane-shrine": {
+  "total": 12,
+  "sceneWithin500": 12,
+  "withOwnMission": 0,
+  "withLevelGate": 0
+ },
+ "legendary-animal": {
+  "total": 24,
+  "sceneWithin500": 23,
+  "withOwnMission": 24,
+  "withLevelGate": 0
+ },
+ "memory-fragment": {
+  "total": 254,
+  "sceneWithin500": 252,
+  "withOwnMission": 0,
+  "withLevelGate": 0
+ },
+ "sealed-artifact": {
+  "total": 141,
+  "sceneWithin500": 141,
+  "withOwnMission": 141,
+  "withLevelGate": 0
+ },
+ "treasure-chest": {
+  "total": 190,
+  "sceneWithin500": 188,
+  "withOwnMission": 0,
+  "withLevelGate": 0
+ },
+ "treasure-map": {
+  "total": 12,
+  "sceneWithin500": 12,
+  "withOwnMission": 0,
+  "withLevelGate": 0
+ }
+}
