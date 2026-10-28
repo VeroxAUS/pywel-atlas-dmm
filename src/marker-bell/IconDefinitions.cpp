@@ -245,8 +245,9 @@ void SnapshotCachedDefinitions() {
             Log(lookLine);
         }
         // v0.105: also the cresset icons, to learn their template ids.
+        // 0.29.0: and the item icons, for the Memory Fragment icon's (222).
         if (!strstr(name, "Gimmick") && !strstr(name, "Treasure") &&
-            !strstr(name, "Pin_Marker") && !strstr(name, "StandStone")) {
+            !strstr(name, "Pin_Marker") && !strstr(name, "StandStone") && !strstr(name, "Item")) {
             continue;
         }
         ++relevant;

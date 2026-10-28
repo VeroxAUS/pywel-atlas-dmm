@@ -58,6 +58,38 @@ void* PywelFindMarkerIcon(void* controller, bool world, unsigned category, unsig
 // Asks the marker part to save filters.ini soon (route settings changed).
 void PywelRequestFiltersSave();
 
+// --- 0.29.0: Legendary Animal patrol paths, from the map-marker part --------
+
+// One line of an animal's patrol network: `count` world points (X, Z in
+// metres) at `points`. Points at constant data (always valid).
+struct PywelAnimalLine {
+    const float (*points)[2];
+    unsigned count;
+};
+// Most lines one animal's network has (prepare_legendary_animal_links.py).
+constexpr unsigned kPywelAnimalMaxLines = 128;
+// An animal's whole patrol network.
+struct PywelAnimalPath {
+    const char* name; // Display name (constant data).
+    unsigned lineCount;
+    unsigned pointCount; // All lines together.
+    PywelAnimalLine lines[kPywelAnimalMaxLines];
+};
+// Which animals to draw right now: the one whose marker the world map's
+// cursor rests on (only while the world map is updating) and the tracked
+// one. -1 = none. trackedName is null when none is tracked.
+struct PywelAnimalPathState {
+    int hovered;
+    int tracked;
+    const char* trackedName;
+};
+// Fills `state`; false if the marker part has not started. Any thread.
+bool PywelGetAnimalPathState(PywelAnimalPathState& state);
+// Copies animal `animal`'s patrol network (false if it has none). Any thread.
+bool PywelGetAnimalPath(int animal, PywelAnimalPath& path);
+// The panel's Stop tracking button.
+void PywelStopTrackingAnimal();
+
 // --- Settings: shown in the panel, saved in filters.ini --------------------
 
 // The user's route choices.

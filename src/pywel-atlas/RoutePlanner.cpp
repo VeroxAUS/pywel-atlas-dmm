@@ -35,11 +35,11 @@ unsigned PlanRoute(const RoutePoint& start, const RoutePoint* points, unsigned c
     if (!points || !order || count == 0 || keep == 0) {
         return 0;
     }
-    keep = std::min(keep, kRouteMaxStops);
+    keep = std::min(keep, kPlanLookahead);
 
     // Step 1: the `keep` nearest candidates. The list holds at most a few
     // thousand spots, so a plain sort of their distances is fast enough.
-    Candidate nearest[kRouteMaxStops];
+    Candidate nearest[kPlanLookahead];
     unsigned kept = 0;
     for (unsigned index = 0; index < count; ++index) {
         float dx = points[index].x - start.x;
@@ -63,9 +63,9 @@ unsigned PlanRoute(const RoutePoint& start, const RoutePoint* points, unsigned c
 
     // Step 2: nearest neighbour from the player. path[0] is the player;
     // path[1..kept] are the stops (as indices into `points`).
-    RoutePoint path[kRouteMaxStops + 1];
-    unsigned pathIndex[kRouteMaxStops + 1];
-    bool used[kRouteMaxStops] = {};
+    RoutePoint path[kPlanLookahead + 1];
+    unsigned pathIndex[kPlanLookahead + 1];
+    bool used[kPlanLookahead] = {};
     path[0] = start;
     for (unsigned step = 1; step <= kept; ++step) {
         unsigned best = kept;
@@ -119,7 +119,7 @@ unsigned PlanRoute(const RoutePoint& start, const RoutePoint* points, unsigned c
 
 // See RoutePlanner.h.
 float OrderByCosts(unsigned count, const float* costs, unsigned* order) {
-    count = std::min(count, kRouteMaxStops);
+    count = std::min(count, kPlanLookahead);
     if (!costs || !order || count == 0) {
         return 0.0f;
     }
@@ -128,8 +128,8 @@ float OrderByCosts(unsigned count, const float* costs, unsigned* order) {
     auto cost = [&](unsigned a, unsigned b) { return 0.5f * (costs[a * places + b] + costs[b * places + a]); };
 
     // Nearest neighbour from the start (place 0).
-    unsigned path[kRouteMaxStops + 1];
-    bool used[kRouteMaxStops + 1] = {};
+    unsigned path[kPlanLookahead + 1];
+    bool used[kPlanLookahead + 1] = {};
     path[0] = 0;
     used[0] = true;
     for (unsigned step = 1; step <= count; ++step) {

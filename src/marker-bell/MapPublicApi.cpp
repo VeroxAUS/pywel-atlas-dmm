@@ -279,6 +279,47 @@ void* PywelFindMarkerIcon(void* controller, bool world, unsigned category, unsig
 void PywelRequestFiltersSave() {
     InterlockedExchange(&filtersDirty, 1);
 }
+
+// 0.29.0 (src/pywel-atlas/RouteSystem.h): the Legendary Animals to draw. The
+// hovered one counts only while the world map updates (its last update less
+// than 300 ms ago), so a closed map draws no hover path.
+bool PywelGetAnimalPathState(PywelAnimalPathState& state) {
+    constexpr ULONGLONG kHoverMaxAgeMs = 300;
+    ULONGLONG tick = static_cast<ULONGLONG>(InterlockedCompareExchange64(&hoveredAnimalTick, 0, 0));
+    LONG hovered = InterlockedCompareExchange(&hoveredAnimal, 0, 0);
+    LONG tracked = InterlockedCompareExchange(&trackedAnimal, 0, 0);
+    bool fresh = tick != 0 && GetTickCount64() - tick < kHoverMaxAgeMs;
+    constexpr LONG count = static_cast<LONG>(_countof(kLegendaryAnimalLinks));
+    state.hovered = fresh && hovered >= 0 && hovered < count ? hovered : -1;
+    state.tracked = tracked >= 0 && tracked < count ? tracked : -1;
+    state.trackedName = state.tracked >= 0 ? kLegendaryAnimalLinks[state.tracked].name : nullptr;
+    return imageBase != 0;
+}
+
+// 0.29.0: animal `animal`'s patrol network, straight from the generated table.
+bool PywelGetAnimalPath(int animal, PywelAnimalPath& path) {
+    if (animal < 0 || animal >= static_cast<int>(_countof(kLegendaryAnimalLinks))) {
+        return false;
+    }
+    const LegendaryAnimalLink& link = kLegendaryAnimalLinks[animal];
+    path.name = link.name;
+    path.lineCount = link.lineCount < kPywelAnimalMaxLines ? link.lineCount : kPywelAnimalMaxLines;
+    path.pointCount = 0;
+    for (unsigned line = 0; line < path.lineCount; ++line) {
+        const LegendaryAnimalLine& item = kLegendaryAnimalLines[link.firstLine + line];
+        path.lines[line] = {kLegendaryAnimalPoints + item.first, item.count};
+        path.pointCount += item.count;
+    }
+    return path.lineCount > 0;
+}
+
+// 0.29.0: the panel's Stop tracking button.
+void PywelStopTrackingAnimal() {
+    LONG before = InterlockedExchange(&trackedAnimal, -1);
+    if (before >= 0 && before < static_cast<LONG>(_countof(kLegendaryAnimalLinks))) {
+        PywelReleaseNote("animals", "Stopped tracking %s (panel)", kLegendaryAnimalLinks[before].name);
+    }
+}
 #else
 // Windows calls this when the mod DLL is loaded. It does as little as possible
 // here (Windows restricts what is safe inside DllMain) and starts the worker

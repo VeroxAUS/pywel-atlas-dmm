@@ -556,6 +556,8 @@ HANDLE logFile = INVALID_HANDLE_VALUE;
 // the v0.124 start-up line is 2240 characters, so sprintf_s stopped the game
 // at launch (Windows crash record: 0xc0000409 in PywelAtlasTest.asi).
 void Log(const char* line) {
+    // 0.29.1: with Detailed log on, also in pywel-atlas.log (ReleaseLog.h).
+    PywelReleaseDetail("route", line);
     if (logFile == INVALID_HANDLE_VALUE) {
         return;
     }
@@ -645,6 +647,11 @@ void LogWorldView(const char* why, const PywelRoutePlan& plan) {
     sprintf_s(line, "canvas budget: legs or rings left out, world map %ld, minimap %ld", world.budgetSkips,
         canvas.minimap.budgetSkips);
     Log(line);
+    // 0.29.0: our drawing time per map update (last, and longest since the last line).
+    sprintf_s(line, "route draw: world map %.2f ms (max %.2f), minimap %.2f ms (max %.2f)", world.drawMs,
+        world.drawMsMax, canvas.minimap.drawMs, canvas.minimap.drawMsMax);
+    Log(line);
+    PywelRouteCanvasRestartDrawMax();
     if (plan.count == 0) {
         return;
     }
@@ -823,10 +830,32 @@ void PlanLeg(unsigned leg, const RoutePoint& from, const PywelRoutePlanStop& sto
     Log(line);
 }
 
-// Orders `count` stops by road cost from `start` (one road search per place),
-// writing their new order to `order`. Logs how long it took.
+// 0.29.0: how many places (the start, then the nearest stops) get road costs
+// in the tour order's cost table; the rest use straight distances. All of
+// them, until one table took longer than kMatrixSlowMs; then the start and
+// the first 10 stops, until a table is quick again (under kMatrixQuickMs).
+constexpr double kMatrixSlowMs = 150.0;
+constexpr double kMatrixQuickMs = 50.0;
+constexpr unsigned kFallbackRoadPlaces = 11;
+unsigned roadPlaces = kPlanLookahead + 1;
+
+// Milliseconds since `start` (a QueryPerformanceCounter reading).
+double MillisecondsSince(const LARGE_INTEGER& start) {
+    LARGE_INTEGER now = {};
+    LARGE_INTEGER frequency = {};
+    QueryPerformanceCounter(&now);
+    QueryPerformanceFrequency(&frequency);
+    return frequency.QuadPart > 0 ? 1000.0 * static_cast<double>(now.QuadPart - start.QuadPart) / frequency.QuadPart
+                                  : 0.0;
+}
+
+// Orders `count` stops by road cost from `start` (one road search per place
+// that gets road costs, see roadPlaces), writing their new order to `order`.
+// Logs how long it took.
 void OrderByRoad(const RoutePoint& start, const RoutePoint* stops, unsigned count, unsigned* order) {
     ULONGLONG began = GetTickCount64();
+    LARGE_INTEGER matrixStart = {};
+    QueryPerformanceCounter(&matrixStart);
     unsigned places = count + 1;
     std::vector<RoutePoint> place(places);
     place[0] = start;
@@ -834,18 +863,41 @@ void OrderByRoad(const RoutePoint& start, const RoutePoint* stops, unsigned coun
         place[stop + 1] = stops[stop];
     }
     std::vector<float> costs(static_cast<size_t>(places) * places, 0.0f);
+    unsigned roadRows = places < roadPlaces ? places : roadPlaces;
     for (unsigned from = 0; from < places; ++from) {
-        RouteLegCosts(place[from], place.data() + 1, count, costs.data() + from * places + 1);
+        if (from < roadRows) {
+            RouteLegCosts(place[from], place.data() + 1, count, costs.data() + from * places + 1);
+            continue;
+        }
+        for (unsigned stop = 0; stop < count; ++stop) {
+            costs[from * places + stop + 1] = Distance(place[from].x, place[from].z, stops[stop].x, stops[stop].z);
+        }
+    }
+    double matrixMs = MillisecondsSince(matrixStart);
+    // 0.29.0: a slow table switches the far rows to straight distances.
+    if (matrixMs > kMatrixSlowMs) {
+        roadPlaces = kFallbackRoadPlaces;
+    } else if (matrixMs < kMatrixQuickMs && roadRows == places) {
+        roadPlaces = kPlanLookahead + 1;
     }
     // The way back to the start is never walked; use the way out for both.
     for (unsigned stop = 1; stop < places; ++stop) {
         costs[stop * places] = costs[stop];
     }
+    LARGE_INTEGER orderStart = {};
+    QueryPerformanceCounter(&orderStart);
     float total = OrderByCosts(count, costs.data(), order);
+    [[maybe_unused]] double orderMs = MillisecondsSince(orderStart);
     char line[160];
     sprintf_s(line, "tour order by road cost: %u stops, total cost %.0f, %llu ms", count, total,
         GetTickCount64() - began);
     Log(line);
+#ifdef PYWEL_ATLAS_DEV
+    // 0.29.0 timing (development builds).
+    sprintf_s(line, "plan timing: cost table %.1f ms (%u of %u places on roads), 2-opt %.1f ms", matrixMs, roadRows,
+        places, orderMs);
+    Log(line);
+#endif
 }
 
 // Copies the legs into shownLines, with leg 0 starting at `player`'s nearest
@@ -929,7 +981,7 @@ DWORD WINAPI PywelRouteRun(void*) {
     PywelReleaseLog("Route started.");
 #ifdef PYWEL_ATLAS_DEV
     // The version and change list (development builds only, v0.129).
-    Log("Pywel Atlas combined 0.28.0 route (v0.133: at most 10 stops; legs end straight at the rings (clamped curve ends, points inside a ring dropped); Painted look removed; thinner minimap line; v0.131: fix for huge filled shapes on the world map: rings drawn with the direct line call (33 points), no extra smoothing (slot 0x398 is a B-spline of its own), and a geometry budget per update, nearest legs and rings first; v0.130: stop ring is a soft glow plus a 1 px hairline; every leg starts and ends at its stops' rings (each leg's first point was stored twice); canvas query uses the element's +0xd8; Painted on the game's dotted preset as a material test, with a canvas dump; v0.129: no route change (release build without debug tools: F8 and this log only in development builds); v0.127: route.log lines of any length (the v0.124 start-up line was longer than the old 2200-byte buffer and stopped the game at launch); v0.124: canvas search by the game's selector query and by a "
+    Log("Pywel Atlas combined 0.29.1 route (v0.133: at most 10 stops; legs end straight at the rings (clamped curve ends, points inside a ring dropped); Painted look removed; thinner minimap line; v0.131: fix for huge filled shapes on the world map: rings drawn with the direct line call (33 points), no extra smoothing (slot 0x398 is a B-spline of its own), and a geometry budget per update, nearest legs and rings first; v0.130: stop ring is a soft glow plus a 1 px hairline; every leg starts and ends at its stops' rings (each leg's first point was stored twice); canvas query uses the element's +0xd8; Painted on the game's dotted preset as a material test, with a canvas dump; v0.129: no route change (release build without debug tools: F8 and this log only in development builds); v0.127: route.log lines of any length (the v0.124 start-up line was longer than the old 2200-byte buffer and stopped the game at launch); v0.124: canvas search by the game's selector query and by a "
         "read-only element walk, both logged with a control search for the game's own canvas; world map Look "
         "Painted (our canvas with the game's map line material, preset-pywel-route) or Plain; each leg one "
         "continuous path (slot 0x398); a crimson ring with a soft glow under each stop's icon instead of the dot, "
@@ -1010,12 +1062,19 @@ DWORD WINAPI PywelRouteRun(void*) {
         }
         previousSkipKey = skipKey;
         const char* reason = nullptr;
+        PywelAnimalPathState animals = {};
         if (!choice.shown) {
             plan.count = 0;
             plan.status = "Route is off";
         } else if (!playerKnown) {
             plan.count = 0;
             plan.status = "Waiting for the player position";
+        } else if (PywelGetAnimalPathState(animals) && animals.tracked >= 0) {
+            // 0.29.0: tracking a Legendary Animal pauses the route; it is
+            // planned afresh once tracking ends.
+            plan.count = 0;
+            plan.status = "Paused while a Legendary Animal is tracked";
+            planned = false;
         } else {
             // Reached or skipped: the current stop leaves the route.
             if (plan.count > 0) {
@@ -1062,21 +1121,26 @@ DWORD WINAPI PywelRouteRun(void*) {
             if (reason) {
                 // The nearest stops (straight distance), then (v0.111) their
                 // order by road cost, then one road-following leg per stop.
-                unsigned order[kRouteMaxStops] = {};
+                // 0.29.0: the order is planned over up to kPlanLookahead
+                // stops; only the first choice.stops are kept and drawn.
+                LARGE_INTEGER planStart = {};
+                QueryPerformanceCounter(&planStart);
+                unsigned order[kPlanLookahead] = {};
                 float length = 0.0f;
-                unsigned stops = PlanRoute(start, candidatePoints, count, choice.stops, order, length);
-                RoutePoint chosenPoints[kRouteMaxStops];
-                for (unsigned stop = 0; stop < stops; ++stop) {
+                unsigned considered = PlanRoute(start, candidatePoints, count, kPlanLookahead, order, length);
+                RoutePoint chosenPoints[kPlanLookahead];
+                for (unsigned stop = 0; stop < considered; ++stop) {
                     chosenPoints[stop] = candidatePoints[order[stop]];
                 }
-                unsigned roadOrder[kRouteMaxStops] = {};
+                unsigned roadOrder[kPlanLookahead] = {};
                 if (planningAbyss) {
-                    for (unsigned stop = 0; stop < stops; ++stop) {
+                    for (unsigned stop = 0; stop < considered; ++stop) {
                         roadOrder[stop] = stop;
                     }
                 } else {
-                    OrderByRoad(start, chosenPoints, stops, roadOrder);
+                    OrderByRoad(start, chosenPoints, considered, roadOrder);
                 }
+                unsigned stops = considered < choice.stops ? considered : choice.stops;
                 plan.serial = ++planSerial;
                 plan.count = stops;
                 plan.status = count == 0 ? "No stops left on this map layer" : nullptr;
@@ -1094,6 +1158,13 @@ DWORD WINAPI PywelRouteRun(void*) {
                 plannedHash = hash;
                 planned = true;
                 LogPlan(plan, reason, player.playerX, player.playerZ, player.abyssLayer, count);
+#ifdef PYWEL_ATLAS_DEV
+                // 0.29.0 timing (development builds): the whole plan, legs included.
+                char timing[160];
+                sprintf_s(timing, "plan timing: %.1f ms in all, %u stops considered, %u drawn",
+                    MillisecondsSince(planStart), considered, stops);
+                Log(timing);
+#endif
             }
             // Follow the player along the current leg; far off it, plan that
             // leg again from where the player is.

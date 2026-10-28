@@ -57,6 +57,8 @@ in `keybinds.ini`. Pywel Atlas uses keyboard and mouse only.
 - **Completion:** how many of each type you have collected, per region, and
   the always-on completion widget.
 - **Hotkeys:** change the keys above.
+- **Support:** the mod and game versions, **Create bug report**, and
+  **Open log folder**.
 
 Your choices are saved automatically in `filters.ini`.
 
@@ -65,9 +67,15 @@ Your choices are saved automatically in `filters.ini`.
 All in `%LOCALAPPDATA%\PywelAtlas`:
 
 - `filters.ini` and `keybinds.ini`: your panel choices and keys.
-- `pywel-atlas.log`: a short log of the current session (version, start-up
-  and errors only). If something does not work, please include this file in
-  your bug report.
+- `pywel-atlas.log`: a short log of the current session (versions,
+  start-up, save reads, marker counts and errors).
+  `pywel-atlas.previous.log` is the session before, kept so the log of a
+  session that crashed survives a restart.
+- `PywelAtlas-bug-report-<date>-<time>.txt`: made by **Create bug report**
+  on the panel's Support tab. It holds the logs and settings, never a save
+  file. If something does not work, please attach it to your bug report.
+- `pywel-atlas-crash-<date>-<time>.dmp`: written only if Pywel Atlas itself
+  crashes the game. Please attach it too. The newest 3 are kept.
 
 ## Licenses
 

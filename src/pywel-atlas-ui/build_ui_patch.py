@@ -165,6 +165,26 @@ What it does:
     right after #WorldmapCanvas; the v0.86-v0.90 world canvas text of a
     mounted install is taken out as ours.
 
+    0.11.0 (with mod 0.29.0): Treasure Map piece markers use the game's
+    other unused test icon, MapIcon_TestGimmick10 (type 408), drawn as the
+    game's own treasure map item picture
+    (ui/texture/icon/itemicon_itemgroup_etc_treasuremap.dds, read from the
+    install at build time, Thomas's pick 2026-10-25). The item picture is
+    grey, so it is tinted parchment brown here and scaled to the 52 px of
+    the game's map icon pictures, then written like the star picture:
+    ui/texture/cd_icon_map_pywel_treasuremap.dds (name 29 characters, path
+    44, within the game's longest), one texture list line after the
+    TestGimmick10 line, and the two TestGimmick10 picture rules point to it.
+
+    0.11.0 (with mod 0.29.0): Legendary Animal markers use a third unused
+    test icon, MapIcon_TestGimmick9 (type 407), drawn the same way from the
+    game's Animals knowledge category picture (a lion head,
+    ui/texture/image/knowledgeimage/cd_knowledgeinfo_categoryicon_animal.dds), tinted pale gold to
+    match the patrol path line the mod draws for them:
+    ui/texture/cd_icon_map_pywel_animal.dds (name 24 characters, path 39),
+    one texture list line after the TestGimmick9 line, and the two
+    TestGimmick9 picture rules point to it.
+
     The game files are taken from the install at build time, so the mod
     always matches the installed game version, and only the user's own copy
     is written. The script stops without writing anything if the files do not
@@ -179,6 +199,8 @@ Reads (v0.84): src/marker-bell/MapMarkerShared.h (kCategories layout names, for 
         in NativeMapCategoryProbe.cpp until the v0.122 split)
 Reads (v0.86): ui/xml/gamemain/play/worldmapview.html, minimaphudview2.html, minimaphudview2.css (pack 0012)
 Reads (v0.88): ui/xml/texture/*.xml and the map icon texture sheets they name (pack 0012)
+Reads (0.11.0): ui/texture/icon/itemicon_itemgroup_etc_treasuremap.dds (pack 0012, the Treasure Map picture)
+Reads (0.11.0): ui/texture/image/knowledgeimage/cd_knowledgeinfo_categoryicon_animal.dds (pack 0012, the Legendary Animal picture)
 Writes: dist/pywel-atlas-shrine-icons/mod.json, dist/pywel-atlas-shrine-icons/ui/... and
         dist/PywelAtlasShrineIcons.zip (all overwritten)
 Run:    research/vendor/.venv/Scripts/python.exe -B src/pywel-atlas-ui/build_ui_patch.py
@@ -187,6 +209,7 @@ Run:    research/vendor/.venv/Scripts/python.exe -B src/pywel-atlas-ui/build_ui_
 """
 import hashlib
 import json
+import math
 import re
 import shutil
 import struct
@@ -207,7 +230,7 @@ OUTPUT = ROOT / "dist" / "pywel-atlas-shrine-icons"
 TEMPLATE_FILE = "ui/xml/gamemain/template/worldmapicon.thtml"
 STYLE_FILE = "ui/xml/gamemain/template/worldmapicon.css"
 VIEW_FILE = "ui/xml/gamemain/play/worldmapview.css"
-VERSION = "0.10.0"
+VERSION = "0.11.1"
 # v0.86: our own route line canvases (see the module comment).
 WORLD_PAGE_FILE = "ui/xml/gamemain/play/worldmapview.html"
 MINIMAP_PAGE_FILE = "ui/xml/gamemain/play/minimaphudview2.html"
@@ -272,6 +295,55 @@ TEST_TEXTURE_LINE = (b'<Texture Name="cd_Icon_map_testgimmick11" Filename="UI/te
 STAR_TEXTURE_LINE = (b'<Texture Name="cd_icon_map_pywel_star_cluster"'
                      b' Filename="UI/texture/cd_icon_map_pywel_star_cluster.dds"'
                      b' Type="Image" GetRect="0,0,52,52"/>\r\n')
+# 0.11.0: the Treasure Map picture on the other unused test icon
+# (TestGimmick10), made from the game's treasure map item picture (see the
+# module comment). Same shapes as the star's rules and texture line above.
+TREASURE_SOURCE_FILE = "ui/texture/icon/itemicon_itemgroup_etc_treasuremap.dds"
+TREASURE_SOURCE_SIZE = 256  # px, DXT5, one mip level (checked when read).
+TREASURE_TEXTURE_FILE = "ui/texture/cd_icon_map_pywel_treasuremap.dds"
+TREASURE_NAME = "cd_icon_map_pywel_treasuremap"
+# Parchment ramp: the grey picture's dark lines become TREASURE_DARK and its
+# paper TREASURE_LIGHT (grey 64 and below = dark, 242 and above = light).
+TREASURE_DARK = (58, 38, 20)
+TREASURE_LIGHT = (238, 214, 162)
+GAME_TEST10_TEXTURE = b"textureid(cd_Icon_map_testgimmick10)"
+TREASURE_TEXTURE = b"textureid(cd_icon_map_pywel_treasuremap)"
+WORLD_TEST10_RULE = (b".worldmap-icon-testgimmick10 { position: absolute; width: 32px; height: 32px;"
+                     b" transform:translate(-50%, -50%); background-image: textureid(cd_Icon_map_testgimmick10);"
+                     b" background-color: #f2efe7; background-blend-mode: multiply; }")
+MINIMAP_TEST10_RULE = (b".minimap-icon-testgimmick10 { background-image: textureid(cd_Icon_map_testgimmick10);"
+                       b" background-color: #f2efe7; background-blend-mode: multiply; }")
+TEST10_TEXTURE_LINE = (b'<Texture Name="cd_Icon_map_testgimmick10" Filename="UI/texture/cd_icon_map_00.dds"'
+                       b' Type="Image" GetRect="861,875,52,52"/>\r\n')
+TREASURE_TEXTURE_LINE = (b'<Texture Name="cd_icon_map_pywel_treasuremap"'
+                         b' Filename="UI/texture/cd_icon_map_pywel_treasuremap.dds"'
+                         b' Type="Image" GetRect="0,0,52,52"/>\r\n')
+# 0.11.0: the Legendary Animal picture on a third unused test icon
+# (TestGimmick9), made from the game's Animals knowledge category picture the same
+# way, on a pale gold ramp (the colour of the mod's patrol path line).
+ANIMAL_SOURCE_FILE = "ui/texture/image/knowledgeimage/cd_knowledgeinfo_categoryicon_animal.dds"
+ANIMAL_TEXTURE_FILE = "ui/texture/cd_icon_map_pywel_animal.dds"
+ANIMAL_NAME = "cd_icon_map_pywel_animal"
+ANIMAL_DARK = (60, 38, 12)
+ANIMAL_LIGHT = (244, 216, 140)
+# 0.29.1: the lion alone faded into the pale map (test 19), so it gets a
+# solid dark disc behind it (centre x, centre y, radius in source pixels,
+# just inside its outer ring) and a brighter ramp (grey 40 to 200).
+ANIMAL_DISC = (129.5, 129.5, 104.0)
+ANIMAL_DISC_COLOUR = (38, 24, 8)
+ANIMAL_GREYS = (40, 200)
+GAME_TEST9_TEXTURE = b"textureid(cd_Icon_map_testgimmick9)"
+ANIMAL_TEXTURE = b"textureid(cd_icon_map_pywel_animal)"
+WORLD_TEST9_RULE = (b".worldmap-icon-testgimmick9 { position: absolute; width: 32px; height: 32px;"
+                    b" transform:translate(-50%, -50%); background-image: textureid(cd_Icon_map_testgimmick9);"
+                    b" background-color: #f2efe7; background-blend-mode: multiply; }")
+MINIMAP_TEST9_RULE = (b".minimap-icon-testgimmick9 { background-image: textureid(cd_Icon_map_testgimmick9);"
+                      b" background-color: #f2efe7; background-blend-mode: multiply; }")
+TEST9_TEXTURE_LINE = (b'<Texture Name="cd_Icon_map_testgimmick9" Filename="UI/texture/cd_icon_map_00.dds"'
+                      b' Type="Image" GetRect="894,551,52,52"/>\r\n')
+ANIMAL_TEXTURE_LINE = (b'<Texture Name="cd_icon_map_pywel_animal"'
+                       b' Filename="UI/texture/cd_icon_map_pywel_animal.dds"'
+                       b' Type="Image" GetRect="0,0,52,52"/>\r\n')
 
 # v0.84/v0.85: even marker sizes (see the module comment).
 # The target is the Sealed Abyss Artifact's look (Thomas's pick). World map
@@ -309,6 +381,24 @@ MARKER_SIZES = {
     # Constellation star: 32 px box, star 46 of 52 px.
     "MapIcon_TestGimmick11": {"world": [("worldmap-icon-testgimmick11", 32, 27)],
                               "minimap": [("minimap-icon-testgimmick11", 27, 25)]},
+    # 0.11.0: Treasure Map pieces: 32 px box, map 51 of 52 px wide but only
+    # 42 tall, so a little larger than the share alone gives.
+    "MapIcon_TestGimmick10": {"world": [("worldmap-icon-testgimmick10", 32, 26)],
+                              "minimap": [("minimap-icon-testgimmick10", 27, 24)]},
+    # 0.11.0: Legendary Animals: the lion disc fills 43 of 52 px; 0.29.1
+    # (test 19, hard to see): drawn at 34 px (disc about 28 px), larger
+    # than the other pins; minimap at the full 27 px box.
+    "MapIcon_TestGimmick9": {"world": [("worldmap-icon-testgimmick9", 32, 34)],
+                             "minimap": [("minimap-icon-testgimmick9", 27, 27)]},
+    # 0.29.0: Memory Fragments: the game's own fragment icon (25 px box),
+    # given the Bell's sizes until its picture is measured.
+    "MapIcon_Item_Visione_Memory_Chip": {"world": [("worldmap-icon-item-visione-memory-chip", 25, 36)],
+                                         "minimap": [("minimap-icon-item-visione-memory-chip", 27, 26)]},
+    # Sanctum Cores and Kuku Pot items: the game's own Kuku battery icon (32 px
+    # box on the world map), drawn at the Artifact's 30 px until its picture
+    # is measured; minimap at its 27 px box.
+    "MapIcon_Gimmick_KuKu_Battery": {"world": [("worldmap-icon-gimmick-kuku-battery", 32, 30)],
+                                     "minimap": [("minimap-icon-gimmick-kuku-battery", 27, 27)]},
 }
 # v0.122: the map code split moved kCategories into MapMarkerShared.h.
 CATEGORY_SOURCE = ROOT / "src" / "marker-bell" / "MapMarkerShared.h"
@@ -558,6 +648,53 @@ def star_texture(sample_icon):
     return bytes(header) + bytes(blocks)
 
 
+def item_picture_rows(source, dark_colour, light_colour, what, greys=(64, 242), disc=None, disc_colour=None):
+    """Return the 52 x 52 RGBA rows of a map picture made from a game item picture (0.11.0).
+
+    `source` is a game item group picture (256 x 256, DXT5, one mip level).
+    Each pixel's grey level picks a colour on the ramp from `dark_colour`
+    (grey `greys[0]` and below) to `light_colour` (`greys[1]` and above),
+    alpha kept, then the picture is scaled to STAR_SIZE. With `disc`
+    (centre x, centre y, radius) the picture lies on a solid `disc_colour`
+    disc (0.29.1). `what` names it in the error.
+    """
+    if source is None or source[:4] != b"DDS " or source[84:88] != b"DXT5" or \
+            struct.unpack_from("<II", source, 12) != (TREASURE_SOURCE_SIZE, TREASURE_SOURCE_SIZE) or \
+            len(source) != 128 + TREASURE_SOURCE_SIZE * TREASURE_SOURCE_SIZE:
+        raise SystemExit(f"The game's {what} item picture looks different; nothing written.")
+    rows = height_arrows.decode_dxt5_rect(source, 0, 0, TREASURE_SOURCE_SIZE, TREASURE_SOURCE_SIZE)
+    tinted = []
+    for row in rows:
+        line = []
+        for red, green, blue, alpha in row:
+            grey = (red * 299 + green * 587 + blue * 114) / 1000
+            share = min(1.0, max(0.0, (grey - greys[0]) / (greys[1] - greys[0])))
+            colour = tuple(dark + (light - dark) * share for dark, light in zip(dark_colour, light_colour))
+            if disc is not None:
+                # Edge pixels of the disc get partial cover, so its rim is smooth.
+                cover = min(1.0, max(0.0, disc[2] - math.hypot(len(line) - disc[0], len(tinted) - disc[1])))
+                over = alpha / 255
+                under = cover * (1 - over)
+                total = over + under
+                if total > 0:
+                    colour = tuple((c * over + b * under) / total for c, b in zip(colour, disc_colour))
+                alpha = round(total * 255)
+            line.append(tuple(round(c) for c in colour) + (alpha,))
+        tinted.append(line)
+    return height_arrows.resample(tinted, STAR_SIZE)
+
+
+def treasure_map_rows(source):
+    """Return the 52 x 52 RGBA rows of the Treasure Map picture (0.11.0, parchment ramp)."""
+    return item_picture_rows(source, TREASURE_DARK, TREASURE_LIGHT, "treasure map")
+
+
+def animal_rows(source):
+    """Return the 52 x 52 RGBA rows of the Legendary Animal picture (0.11.0, pale gold ramp)."""
+    return item_picture_rows(source, ANIMAL_DARK, ANIMAL_LIGHT, "animal", ANIMAL_GREYS, ANIMAL_DISC,
+                             ANIMAL_DISC_COLOUR)
+
+
 def add_route_canvas(text, name, anchor, addition, earlier=()):
     """v0.86: puts `addition` right after `anchor` (both exactly once as
     studied). Our own addition (the install holds it while this mod is
@@ -599,6 +736,8 @@ def main():
     minimap_style = context.get_file(MINIMAP_STYLE_FILE)
     texture_list = context.get_file(TEXTURE_LIST_FILE)
     sample_icon = context.get_file(SAMPLE_ICON_FILE)
+    treasure_rows = treasure_map_rows(context.get_file(TREASURE_SOURCE_FILE))
+    animal_picture_rows = animal_rows(context.get_file(ANIMAL_SOURCE_FILE))
     world_page = context.get_file(WORLD_PAGE_FILE)
     minimap_page = context.get_file(MINIMAP_PAGE_FILE)
     minimap_page_style = context.get_file(MINIMAP_PAGE_STYLE_FILE)
@@ -663,6 +802,38 @@ def main():
             raise SystemExit("The minimap icon file has a pywel star picture that is not ours; nothing written.")
         minimap_style = minimap_style.replace(STAR_TEXTURE, GAME_TEST_TEXTURE, 1)
         print("Found this mod's own star picture name in the minimap icon file; rebuilt without it.")
+    # 0.11.0: the same for the Treasure Map picture.
+    if b"pywel_treasuremap" in texture_list:
+        if texture_list.count(TREASURE_TEXTURE_LINE) != 1 or texture_list.count(b"pywel_treasuremap") != 2:
+            raise SystemExit("The map icon texture list has a pywel treasure map picture that is not ours; "
+                             "nothing written.")
+        texture_list = texture_list.replace(TREASURE_TEXTURE_LINE, b"", 1)
+        print("Found this mod's own treasure map texture line in the install (mounted by DMM); rebuilt without it.")
+    for name, text in ((STYLE_FILE, style), (MINIMAP_STYLE_FILE, minimap_style)):
+        if b"pywel_treasuremap" in text and (text.count(TREASURE_TEXTURE) != 1 or
+                                             text.count(b"pywel_treasuremap") != 1):
+            raise SystemExit(f"{name} has a pywel treasure map picture that is not ours; nothing written.")
+    if b"pywel_treasuremap" in style:
+        style = style.replace(TREASURE_TEXTURE, GAME_TEST10_TEXTURE, 1)
+        print("Found this mod's own treasure map picture name in the world-map icon file; rebuilt without it.")
+    if b"pywel_treasuremap" in minimap_style:
+        minimap_style = minimap_style.replace(TREASURE_TEXTURE, GAME_TEST10_TEXTURE, 1)
+        print("Found this mod's own treasure map picture name in the minimap icon file; rebuilt without it.")
+    # 0.11.0: and for the Legendary Animal picture.
+    if b"pywel_animal" in texture_list:
+        if texture_list.count(ANIMAL_TEXTURE_LINE) != 1 or texture_list.count(b"pywel_animal") != 2:
+            raise SystemExit("The map icon texture list has a pywel animal picture that is not ours; nothing written.")
+        texture_list = texture_list.replace(ANIMAL_TEXTURE_LINE, b"", 1)
+        print("Found this mod's own animal texture line in the install (mounted by DMM); rebuilt without it.")
+    for name, text in ((STYLE_FILE, style), (MINIMAP_STYLE_FILE, minimap_style)):
+        if b"pywel_animal" in text and (text.count(ANIMAL_TEXTURE) != 1 or text.count(b"pywel_animal") != 1):
+            raise SystemExit(f"{name} has a pywel animal picture that is not ours; nothing written.")
+    if b"pywel_animal" in style:
+        style = style.replace(ANIMAL_TEXTURE, GAME_TEST9_TEXTURE, 1)
+        print("Found this mod's own animal picture name in the world-map icon file; rebuilt without it.")
+    if b"pywel_animal" in minimap_style:
+        minimap_style = minimap_style.replace(ANIMAL_TEXTURE, GAME_TEST9_TEXTURE, 1)
+        print("Found this mod's own animal picture name in the minimap icon file; rebuilt without it.")
     # v0.84: same for the marker size blocks.
     style = take_out_marker_sizes(style, STYLE_FILE)
     minimap_style = take_out_marker_sizes(minimap_style, MINIMAP_STYLE_FILE)
@@ -679,7 +850,15 @@ def main():
     # Each anchor must be there exactly once, as studied.
     for name, text, anchor, key in ((STYLE_FILE, style, WORLD_TEST_RULE, GAME_TEST_TEXTURE),
                                     (MINIMAP_STYLE_FILE, minimap_style, MINIMAP_TEST_RULE, GAME_TEST_TEXTURE),
-                                    (TEXTURE_LIST_FILE, texture_list, TEST_TEXTURE_LINE, b'"cd_Icon_map_testgimmick11"')):
+                                    (TEXTURE_LIST_FILE, texture_list, TEST_TEXTURE_LINE, b'"cd_Icon_map_testgimmick11"'),
+                                    (STYLE_FILE, style, WORLD_TEST10_RULE, GAME_TEST10_TEXTURE),
+                                    (MINIMAP_STYLE_FILE, minimap_style, MINIMAP_TEST10_RULE, GAME_TEST10_TEXTURE),
+                                    (TEXTURE_LIST_FILE, texture_list, TEST10_TEXTURE_LINE,
+                                     b'"cd_Icon_map_testgimmick10"'),
+                                    (STYLE_FILE, style, WORLD_TEST9_RULE, GAME_TEST9_TEXTURE),
+                                    (MINIMAP_STYLE_FILE, minimap_style, MINIMAP_TEST9_RULE, GAME_TEST9_TEXTURE),
+                                    (TEXTURE_LIST_FILE, texture_list, TEST9_TEXTURE_LINE,
+                                     b'"cd_Icon_map_testgimmick9"')):
         if text.count(anchor) != 1 or text.count(key) != 1:
             raise SystemExit(f"{name} does not have the test icon text as studied; nothing written.")
 
@@ -691,6 +870,16 @@ def main():
     patched_style = patched_style.replace(WORLD_TEST_RULE, WORLD_TEST_RULE.replace(GAME_TEST_TEXTURE, STAR_TEXTURE), 1)
     patched_minimap_style = minimap_style.replace(
         MINIMAP_TEST_RULE, MINIMAP_TEST_RULE.replace(GAME_TEST_TEXTURE, STAR_TEXTURE), 1)
+    # 0.11.0: the other test icon's picture becomes our Treasure Map texture.
+    patched_style = patched_style.replace(
+        WORLD_TEST10_RULE, WORLD_TEST10_RULE.replace(GAME_TEST10_TEXTURE, TREASURE_TEXTURE), 1)
+    patched_minimap_style = patched_minimap_style.replace(
+        MINIMAP_TEST10_RULE, MINIMAP_TEST10_RULE.replace(GAME_TEST10_TEXTURE, TREASURE_TEXTURE), 1)
+    # 0.11.0: and the third one's the Legendary Animal texture.
+    patched_style = patched_style.replace(
+        WORLD_TEST9_RULE, WORLD_TEST9_RULE.replace(GAME_TEST9_TEXTURE, ANIMAL_TEXTURE), 1)
+    patched_minimap_style = patched_minimap_style.replace(
+        MINIMAP_TEST9_RULE, MINIMAP_TEST9_RULE.replace(GAME_TEST9_TEXTURE, ANIMAL_TEXTURE), 1)
     # v0.88: the height arrow copies of every marker picture (from the rules
     # as patched so far: the shrine layout and the star picture are ours).
     width, height, star_pixels = read_png_rgba(STAR_PICTURE)
@@ -698,8 +887,11 @@ def main():
                  for y in range(height)]
     arrow_rules, arrow_lines, arrow_files = height_arrows.build(
         context, MARKER_SIZES, {"world": patched_style, "minimap": patched_minimap_style}, sample_icon,
-        {"cd_icon_map_pywel_star_cluster": star_rows}, encode_dxt5_block)
+        {"cd_icon_map_pywel_star_cluster": star_rows, TREASURE_NAME: treasure_rows, ANIMAL_NAME: animal_picture_rows},
+        encode_dxt5_block)
     patched_texture_list = texture_list.replace(TEST_TEXTURE_LINE, TEST_TEXTURE_LINE + STAR_TEXTURE_LINE + arrow_lines, 1)
+    patched_texture_list = patched_texture_list.replace(TEST10_TEXTURE_LINE, TEST10_TEXTURE_LINE + TREASURE_TEXTURE_LINE, 1)
+    patched_texture_list = patched_texture_list.replace(TEST9_TEXTURE_LINE, TEST9_TEXTURE_LINE + ANIMAL_TEXTURE_LINE, 1)
     # v0.84: the marker size blocks go last, so they come after every rule they change.
     patched_style += marker_size_rules("world")
     patched_minimap_style += marker_size_rules("minimap")
@@ -707,6 +899,8 @@ def main():
     patched_style += arrow_rules["world"]
     patched_minimap_style += arrow_rules["minimap"]
     star_dds = star_texture(sample_icon)
+    treasure_dds = height_arrows.dds_file(sample_icon, treasure_rows, encode_dxt5_block)
+    animal_dds = height_arrows.dds_file(sample_icon, animal_picture_rows, encode_dxt5_block)
     # v0.86: our route line canvases.
     patched_world_page = add_route_canvas(world_page, WORLD_PAGE_FILE, WORLD_CANVAS_ANCHOR, WORLD_ROUTE_CANVAS,
                                           (WORLD_ROUTE_CANVAS_V090, WORLD_ROUTE_CANVAS_V087,
@@ -720,7 +914,8 @@ def main():
         shutil.rmtree(OUTPUT)
     for name, data in ((TEMPLATE_FILE, patched_template), (STYLE_FILE, patched_style), (VIEW_FILE, patched_view),
                        (MINIMAP_STYLE_FILE, patched_minimap_style), (TEXTURE_LIST_FILE, patched_texture_list),
-                       (STAR_TEXTURE_FILE, star_dds), (WORLD_PAGE_FILE, patched_world_page),
+                       (STAR_TEXTURE_FILE, star_dds), (TREASURE_TEXTURE_FILE, treasure_dds), (ANIMAL_TEXTURE_FILE, animal_dds),
+                       (WORLD_PAGE_FILE, patched_world_page),
                        (MINIMAP_PAGE_FILE, patched_minimap_page),
                        (MINIMAP_PAGE_STYLE_FILE, patched_minimap_page_style)) + tuple(arrow_files.items()):
         target = OUTPUT / name
@@ -737,14 +932,16 @@ def main():
                            "own Greymane Shrine icon, so Pywel Atlas shrine pins can appear on the world map, "
                            "picture size classes and stat effect icons for Pywel Atlas chest knowledge "
                            "cards, and the Pywel Atlas star picture for Constellation pins (the game's unused "
-                           "test icon), and even sizes for Pywel Atlas markers (class pywel-marker; "
+                           "test icon), and the game's treasure map item picture, tinted, for Pywel Atlas "
+                           "Treasure Map pins (the other unused test icon), and the game's Animals knowledge "
+                           "category picture, tinted, for Pywel Atlas Legendary Animal pins (a third test icon), and even sizes for Pywel Atlas markers (class pywel-marker; "
                            "the game's own icons keep theirs), and two line canvases for the Pywel Atlas "
                            "route line (world map and minimap), and up / down height arrow "
                            "pictures for Pywel Atlas markers (classes pywel-above / pywel-below). Changes only "
                            "ui/xml/gamemain/template/worldmapicon.thtml, worldmapicon.css, minimapicon.css, "
                            "ui/xml/gamemain/play/worldmapview.css, worldmapview.html, minimaphudview2.html, "
                            "minimaphudview2.css and ui/xml/texture/cd_icon_map_00.xml, and adds "
-                           "ui/texture/cd_icon_map_pywel_star_cluster.dds and the "
+                           "ui/texture/cd_icon_map_pywel_star_cluster.dds, ui/texture/cd_icon_map_pywel_treasuremap.dds and the "
                            f"{len(arrow_files)} ui/texture/cd_icon_map_pywel_h*.dds height arrow pictures. Built from the installed game files "
                            "(source SHA-256 "
                            f"{hashlib.sha256(template).hexdigest()[:16]} / "

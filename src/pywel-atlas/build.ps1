@@ -100,6 +100,22 @@ if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Abyss Cresset list' }
 # v0.114: the Constellation list (constellation markers and the save reader's quest pass).
 & $python -B (Join-Path $markerBell 'prepare_constellation_links.py')
 if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Constellation list' }
+# 0.29.0: the Hidden Treasure Map piece list (its markers and the save reader's knowledge pass).
+& $python -B (Join-Path $markerBell 'prepare_treasure_map_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Treasure Map list' }
+# 0.29.0: the Legendary Animal list (its markers, patrol paths and the save reader's quest pass).
+& $python -B (Join-Path $markerBell 'prepare_legendary_animal_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Legendary Animal list' }
+# 0.29.0: the Memory Fragment list (its markers and the save reader's knowledge pass).
+& $python -B (Join-Path $markerBell 'prepare_memory_fragment_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Memory Fragment list' }
+# The Sanctum Core and Kuku Pot item lists (markers, quest pass and artifact pass).
+& $python -B (Join-Path $markerBell 'prepare_sanctum_core_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Sanctum Core list' }
+& $python -B (Join-Path $markerBell 'prepare_kuku_pot_item_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Kuku Pot item list' }
+& $python -B (Join-Path $markerBell 'prepare_egg_links.py')
+if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Egg list' }
 # v0.108: the unique gear list (unique gear markers and the save reader's quest and field passes).
 & $python -B (Join-Path $markerBell 'prepare_unique_gear_links.py')
 if ($LASTEXITCODE -ne 0) { throw 'Could not embed the unique gear list' }
@@ -201,7 +217,14 @@ try {
         $applicationSources += (Join-Path $sourceDirectory 'TestTeleporter.cpp')
         $defines += '/DPYWEL_ATLAS_TELEPORT'
     }
-    & cl.exe /nologo /O2 /MT /std:c++17 /EHsc /W4 /LD @defines @imguiDefines "/I$imguiDirectory" @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj @imguiObjects /link "/OUT:$outputPath" /IMPLIB:PywelAtlas.lib shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib dxgi.lib d3dcompiler.lib
+    # 0.29.0: /Zi and /DEBUG make a PDB (symbols) so a crash record's
+    # offsets and a crash dump point at the exact source line. /OPT:REF and
+    # /OPT:ICF keep the .asi as optimized as before, and /PDBALTPATH puts
+    # only the PDB's file name in the .asi (not this PC's folders). The PDB
+    # stays in the build folder, outside dist/, so it is never zipped;
+    # keep each release's copy next to its zip in archive/releases/.
+    $pdbPath = Join-Path $buildDirectory ([IO.Path]::ChangeExtension($asiName, '.pdb'))
+    & cl.exe /nologo /O2 /MT /Zi /std:c++17 /EHsc /W4 /LD @defines @imguiDefines "/I$imguiDirectory" @applicationSources buffer.obj hook.obj trampoline.obj hde64.obj @imguiObjects /link "/OUT:$outputPath" /IMPLIB:PywelAtlas.lib /DEBUG "/PDB:$pdbPath" '/PDBALTPATH:%_PDB%' /OPT:REF /OPT:ICF /INCREMENTAL:NO shell32.lib user32.lib gdi32.lib runtimeobject.lib bcrypt.lib dxgi.lib d3dcompiler.lib version.lib
     if ($LASTEXITCODE -ne 0) { throw "Could not build $asiName" }
 
     # --- Step 5: copy licenses and README next to the .asi -------------------
@@ -215,6 +238,7 @@ try {
         if ($LASTEXITCODE -ne 0) { throw "Debug text found in $asiName; release build stopped" }
     }
     Write-Output "Built $outputPath"
+    Write-Output "Symbols (keep with the release zip, never ship): $pdbPath"
 } finally {
     Pop-Location
 }

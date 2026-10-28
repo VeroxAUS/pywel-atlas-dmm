@@ -48,6 +48,8 @@ struct RouteCanvasStats {
         long paths; // v0.124: continuous paths added (slot 0x398; legs and rings).
         long layerSkips; // v0.124 world map: updates skipped because the map shows the other layer.
         long budgetSkips; // v0.131: legs or rings left out to stay within the geometry budget.
+        float drawMs; // 0.29.0, development builds: the last update's drawing time (ms; 0 otherwise).
+        float drawMsMax; // The longest since the last log line (reset by the worker's log).
         unsigned layerBytes; // v0.124 world map: the "layer showing" bytes 0..3 (controller +0x468).
         bool playerAbyss; // v0.124: the player is on the Abyss layer (minimap snapshot).
         const char* found; // v0.124: how our canvas was found ("query", "child walk" or "not found").
@@ -59,6 +61,9 @@ struct RouteCanvasStats {
     float outline[4];
 };
 void PywelGetRouteCanvasStats(RouteCanvasStats& stats);
+// 0.29.0: restarts the "longest draw time" of both maps (the worker, after
+// logging them).
+void PywelRouteCanvasRestartDrawMax();
 
 // v0.124: the latest canvas search report of each map (0 = world map, 1 =
 // minimap), and a serial that grows with every new report. A report may

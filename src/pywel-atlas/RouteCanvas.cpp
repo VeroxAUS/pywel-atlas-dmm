@@ -78,6 +78,17 @@
 //   then the next leg and ring, and so on. Every count is checked against
 //   its buffer; a leg that does not fit is skipped, never drawn wrong.
 
+// LEGENDARY ANIMAL PATHS (0.29.0)
+//   The same canvases also draw a Legendary Animal's patrol network (from
+//   the marker part, PywelGetAnimalPathState / PywelGetAnimalPath): on the
+//   world map while the cursor rests on the animal's marker, and on both
+//   maps while the animal is tracked (the route is paused then, see
+//   RouteSystem.cpp). These are thin pale-gold lines on a dark outline,
+//   drawn with the line call 0x3d14990 (no curve, so their cost is their
+//   point count), under the route's own lines and before them in the
+//   geometry budget. They are drawn whatever the route settings say, on the
+//   surface layer only (every animal lives there).
+//
 // THE MAP LAYER (v0.124)
 //   The world map shows either the surface or the Abyss. The world map
 //   controller's +0x468 points at one "layer showing" byte per layer class
@@ -253,6 +264,12 @@ constexpr float kMinimapLineScale = 0.62f;
 // v0.131: most points the canvas line calls may make in one update (about
 // v0.127's amount, which drew correctly).
 constexpr unsigned kGeometryBudget = 12000;
+// 0.29.0: Legendary Animal patrol paths (see LEGENDARY ANIMAL PATHS): a
+// pale gold line on a dark brown outline, in UI pixels at 1080 lines.
+constexpr unsigned kAnimalLine = 0xf2d68a;
+constexpr unsigned kAnimalOutline = 0x3b2a12;
+constexpr float kAnimalWidth = 2.0f;
+constexpr float kAnimalOutlineExtra = 1.0f; // Outline width = line width + 2 x this.
 
 uintptr_t imageBase = 0;
 AddPath addPath = nullptr;
@@ -275,6 +292,7 @@ struct Canvases {
 struct CanvasState {
     Canvases canvases;
     RouteLines lines; // Copy of the route (large, so not on the stack).
+    PywelAnimalPath animal; // 0.29.0: one Legendary Animal's patrol network.
     float points[2 * (kLinePointRoom + 2 * kClampCopies)]; // One leg's points (v0.133: with the end copies).
 };
 CanvasState worldState = {};
@@ -291,6 +309,8 @@ struct Counters {
     volatile LONG paths;
     volatile LONG layerSkips;
     volatile LONG budgetSkips; // v0.131.
+    volatile LONG drawMicroseconds; // 0.29.0 (development builds): the last update's drawing time.
+    volatile LONG drawMicrosecondsMax; // The longest since the worker last logged it.
     volatile LONG layerBytes;
     volatile LONG playerAbyss;
     volatile LONG found; // 0 = not found, 1 = query, 2 = child walk.
@@ -735,7 +755,7 @@ void AddRing(void* canvas, float x, float y, float radius, const CanvasColour& c
 // `lineScale` (v0.133) the line widths against the world map's.
 template <typename Place>
 void DrawLegs(void* canvas, CanvasState& state, Place place, float unit, float heightScale, float ringRadius,
-    float lineScale, Counters& counters) {
+    float lineScale, unsigned budget, Counters& counters) {
     const RouteLines& route = state.lines;
     CanvasColour crimson = ColourOf(kCrimson, 1.0f);
     CanvasColour crimsonLater = ColourOf(kCrimsonLater, 1.0f);
@@ -775,7 +795,6 @@ void DrawLegs(void* canvas, CanvasState& state, Place place, float unit, float h
     bool legFits[kRouteLineMaxLegs] = {};
     bool ringFits[kRouteLineMaxLegs] = {};
     unsigned legs = route.legCount < kRouteLineMaxLegs ? route.legCount : kRouteLineMaxLegs;
-    unsigned budget = kGeometryBudget;
     const unsigned ringCost = (kGlowRings + 1) * (kRingPoints + 1);
     for (unsigned leg = 0; leg < legs; ++leg) {
         unsigned count = placeLeg(leg);
@@ -826,6 +845,71 @@ void DrawLegs(void* canvas, CanvasState& state, Place place, float unit, float h
     }
 }
 
+// 0.29.0: draws Legendary Animal `animal`'s patrol network (outline, then
+// line) with `place` turning a world point into canvas coordinates, within
+// `budget` points. Returns the points used (0 if nothing was drawn).
+template <typename Place>
+unsigned DrawAnimalPath(void* canvas, CanvasState& state, int animal, Place place, float unit, float heightScale,
+    float lineScale, unsigned budget, Counters& counters) {
+    PywelAnimalPath& path = state.animal;
+    if (!PywelGetAnimalPath(animal, path)) {
+        return 0;
+    }
+    if (2 * path.pointCount > budget) {
+        InterlockedIncrement(&counters.budgetSkips);
+        return 0;
+    }
+    float width = kAnimalWidth * heightScale * unit * lineScale;
+    float outlineWidth = width + 2.0f * kAnimalOutlineExtra * heightScale * unit * lineScale;
+    CanvasColour line = ColourOf(kAnimalLine, 1.0f);
+    CanvasColour outline = ColourOf(kAnimalOutline, 1.0f);
+    for (unsigned pass = 0; pass < 2; ++pass) {
+        for (unsigned item = 0; item < path.lineCount; ++item) {
+            const PywelAnimalLine& points = path.lines[item];
+            if (points.count < 2 || points.count > kLinePointRoom) {
+                continue;
+            }
+            for (unsigned point = 0; point < points.count; ++point) {
+                place(RoutePoint{points.points[point][0], points.points[point][1]}, state.points[2 * point],
+                    state.points[2 * point + 1]);
+            }
+            CanvasPoints list = {state.points, points.count, points.count};
+            addPolyline(canvas, &list, pass == 0 ? outline.channel : line.channel, pass == 0 ? outlineWidth : width,
+                pass == 0 ? outlineWidth : width, 0.0f, 0, 0);
+            InterlockedIncrement(&counters.paths);
+        }
+    }
+    return 2 * path.pointCount;
+}
+
+// 0.29.0 (development builds): measures one DrawLegs call for the log.
+struct DrawTimer {
+    Counters& counters;
+#ifdef PYWEL_ATLAS_DEV
+    LARGE_INTEGER start = {};
+    explicit DrawTimer(Counters& owner) : counters(owner) {
+        QueryPerformanceCounter(&start);
+    }
+    ~DrawTimer() {
+        LARGE_INTEGER now = {};
+        LARGE_INTEGER frequency = {};
+        QueryPerformanceCounter(&now);
+        QueryPerformanceFrequency(&frequency);
+        LONG micro = frequency.QuadPart > 0 ?
+            static_cast<LONG>(1000000.0 * static_cast<double>(now.QuadPart - start.QuadPart) / frequency.QuadPart) : 0;
+        InterlockedExchange(&counters.drawMicroseconds, micro);
+        LONG seen = counters.drawMicrosecondsMax;
+        while (micro > seen && InterlockedCompareExchange(&counters.drawMicrosecondsMax, micro, seen) != seen) {
+            seen = counters.drawMicrosecondsMax;
+        }
+    }
+#else
+    explicit DrawTimer(Counters& owner) : counters(owner) {}
+#endif
+    DrawTimer(const DrawTimer&) = delete;
+    DrawTimer& operator=(const DrawTimer&) = delete;
+};
+
 // Counts an update our canvas handled (drawn or deliberately empty), so the
 // overlay stays off.
 void Handled(Counters& counters) {
@@ -845,6 +929,8 @@ void CopyCounters(const Counters& counters, RouteCanvasStats::Map& stats) {
     stats.paths = counters.paths;
     stats.layerSkips = counters.layerSkips;
     stats.budgetSkips = counters.budgetSkips;
+    stats.drawMs = counters.drawMicroseconds / 1000.0f;
+    stats.drawMsMax = counters.drawMicrosecondsMax / 1000.0f;
     stats.layerBytes = static_cast<unsigned>(counters.layerBytes);
     stats.playerAbyss = counters.playerAbyss != 0;
     stats.found = kFound[counters.found >= 0 && counters.found <= 2 ? counters.found : 0];
@@ -893,13 +979,18 @@ void PywelRouteDrawWorldCanvas(void* controller) {
     PywelRouteSettings settings = PywelGetRouteSettings();
     void* canvas = state.canvases.ours[0];
     BYTE perspective = 1;
-    bool wanted = settings.shown && settings.worldLine && settings.canvasLine && layerMatches &&
-        Read(reinterpret_cast<const void*>(imageBase + kPerspectiveFlagRva), &perspective, sizeof(perspective)) &&
-        perspective == 0;
+    bool flat = Read(reinterpret_cast<const void*>(imageBase + kPerspectiveFlagRva), &perspective,
+        sizeof(perspective)) && perspective == 0;
+    bool wanted = settings.shown && settings.worldLine && settings.canvasLine && layerMatches && flat;
     if (!layerMatches) {
         InterlockedIncrement(&worldCounters.layerSkips);
     }
-    if (!wanted || !PywelGetRouteLines(state.lines) || state.lines.legCount == 0) {
+    bool routeWanted = wanted && PywelGetRouteLines(state.lines) && state.lines.legCount > 0;
+    // 0.29.0: a hovered or tracked Legendary Animal's path (surface only).
+    PywelAnimalPathState animals = {};
+    bool animalsWanted = flat && !abyssShown && PywelGetAnimalPathState(animals) &&
+        (animals.hovered >= 0 || animals.tracked >= 0);
+    if (!routeWanted && !animalsWanted) {
         ClearIfUsed(canvas, worldCounters);
         InterlockedExchange(&worldCounters.drawnOn, 0);
         return;
@@ -937,10 +1028,26 @@ void PywelRouteDrawWorldCanvas(void* controller) {
 
     // World points (X, -Z) in metres; one UI pixel = a98 / U metres.
     float heightScale = view.root.height / 1080.0f;
-    DrawLegs(canvas, state, [](const RoutePoint& point, float& x, float& y) {
+    DrawTimer timer(worldCounters);
+    auto place = [](const RoutePoint& point, float& x, float& y) {
         x = point.x;
         y = -point.z;
-    }, metresPerUnit / scale, heightScale, kWorldRingRadius, 1.0f, worldCounters);
+    };
+    float unit = metresPerUnit / scale;
+    unsigned budget = kGeometryBudget;
+    if (animalsWanted) {
+        if (animals.tracked >= 0) {
+            budget -= DrawAnimalPath(canvas, state, animals.tracked, place, unit, heightScale, 1.0f, budget,
+                worldCounters);
+        }
+        if (animals.hovered >= 0 && animals.hovered != animals.tracked) {
+            budget -= DrawAnimalPath(canvas, state, animals.hovered, place, unit, heightScale, 1.0f, budget,
+                worldCounters);
+        }
+    }
+    if (routeWanted) {
+        DrawLegs(canvas, state, place, unit, heightScale, kWorldRingRadius, 1.0f, budget, worldCounters);
+    }
     InterlockedIncrement(&worldCounters.drawn);
     InterlockedExchange(&worldCounters.drawnOn, 2);
 }
@@ -961,8 +1068,12 @@ void PywelRouteDrawMinimapCanvas(void* controller) {
     Handled(minimapCounters);
     void* canvas = state.canvases.ours[0];
     PywelRouteSettings settings = PywelGetRouteSettings();
-    if (!settings.shown || !settings.minimapLine || !settings.canvasLine || !PywelGetRouteLines(state.lines) ||
-        state.lines.legCount == 0) {
+    bool routeWanted = settings.shown && settings.minimapLine && settings.canvasLine &&
+        PywelGetRouteLines(state.lines) && state.lines.legCount > 0;
+    // 0.29.0: a tracked Legendary Animal's path (surface only).
+    PywelAnimalPathState animals = {};
+    bool animalWanted = PywelGetAnimalPathState(animals) && animals.tracked >= 0 && !PlayerInAbyss();
+    if (!routeWanted && !animalWanted) {
         ClearIfUsed(canvas, minimapCounters);
         return;
     }
@@ -1005,12 +1116,28 @@ void PywelRouteDrawMinimapCanvas(void* controller) {
     float unit = 1.0f / (sx * view.uiScale);
     // Sizes follow the screen height, like the world map's (1080 lines = 1x).
     float heightScale = view.root.valid && view.root.height > 0.0f ? view.root.height / 1080.0f : 1.0f;
-    DrawLegs(canvas, state, [&](const RoutePoint& point, float& x, float& y) {
+    DrawTimer timer(minimapCounters);
+    auto place = [&](const RoutePoint& point, float& x, float& y) {
         x = halfWidth + (point.x - px) * unitsPerMetre / sx;
         y = halfHeight + (pz - point.z) * unitsPerMetre / sy;
-    }, unit, heightScale, kMinimapRingRadius, kMinimapLineScale, minimapCounters);
+    };
+    unsigned budget = kGeometryBudget;
+    if (animalWanted) {
+        budget -= DrawAnimalPath(canvas, state, animals.tracked, place, unit, heightScale, kMinimapLineScale, budget,
+            minimapCounters);
+    }
+    if (routeWanted) {
+        DrawLegs(canvas, state, place, unit, heightScale, kMinimapRingRadius, kMinimapLineScale, budget,
+            minimapCounters);
+    }
     InterlockedIncrement(&minimapCounters.drawn);
     InterlockedExchange(&minimapCounters.drawnOn, 2);
+}
+
+// See RouteCanvas.h.
+void PywelRouteCanvasRestartDrawMax() {
+    InterlockedExchange(&worldCounters.drawMicrosecondsMax, 0);
+    InterlockedExchange(&minimapCounters.drawMicrosecondsMax, 0);
 }
 
 // See RouteCanvas.h.

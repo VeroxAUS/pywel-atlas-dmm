@@ -36,6 +36,9 @@ constexpr bool kTooltipTextsOn = true;
 // enabled and never changed afterwards, so any thread may read them.
 constexpr size_t kTooltipTextSize = 160;
 char tooltipTexts[kCategoryCount][kMaxCategoryMarkers][kTooltipTextSize] = {};
+// 0.29.0: a Legendary Animal's text while it is tracked (its last line says
+// a click stops tracking). Built with the others, never changed afterwards.
+char trackedAnimalTexts[_countof(kLegendaryAnimalLinks)][kTooltipTextSize] = {};
 
 // The game's "tooltip text of a UI element" function. It returns the
 // element's tooltip attribute (a NUL-terminated byte string) or null.
@@ -184,8 +187,21 @@ void DescribeTooltipText(const char* text, char (&out)[64]) {
 // line in the v0.86 test build (user-confirmed), so every build uses it.
 constexpr const char* kTooltipLineBreak = "<br>";
 
+// 0.29.0: the Treasure Map piece (1-12) whose solution is chest `index` of
+// kChestLinks, or 0 if none.
+unsigned TreasureMapPieceForChest(unsigned index) {
+    for (const auto& link : kTreasureMapLinks) {
+        if (link.solutionChest == index) {
+            return link.piece;
+        }
+    }
+    return 0;
+}
+
 // Worker, before the hook is enabled: writes every marker's tooltip text.
 // A chest's contents go on a second line, after kTooltipLineBreak.
+// Longest texts (contents at most 100 bytes, tooltip-texts.h): a solution
+// chest's 154 bytes, a Treasure Map piece's 142; both fit kTooltipTextSize.
 void BuildTooltipTexts() {
     for (unsigned category = 0; category < kCategoryCount; ++category) {
         for (unsigned index = 0; index < kCategories[category].count; ++index) {
@@ -197,6 +213,47 @@ void BuildTooltipTexts() {
                 } else {
                     strcpy_s(text, kTooltipTextSize, "Treasure Chest");
                 }
+                // 0.29.0: the chest a Treasure Map piece leads to says so.
+                if (unsigned piece = TreasureMapPieceForChest(index)) {
+                    size_t used = strlen(text);
+                    sprintf_s(text + used, kTooltipTextSize - used, "%sTreasure map solution (piece %u)",
+                        kTooltipLineBreak, piece);
+                }
+            } else if (category == kTreasureMapCategory) {
+                // 0.29.0: the piece's name, then what its solution chest holds.
+                const char* contents = kChestContents[kTreasureMapLinks[index].solutionChest];
+                sprintf_s(text, kTooltipTextSize, "%s%sLeads to: %s", MarkerName(category, index), kTooltipLineBreak,
+                    contents ? contents : "a treasure chest");
+            } else if (category == kLegendaryAnimalCategory) {
+                // 0.29.0: the animal's name, how far it roams and what a
+                // click does (Black Lion has no patrol path: it comes with
+                // the House Celeste quest).
+                const LegendaryAnimalLink& animal = kLegendaryAnimalLinks[index];
+                if (animal.lineCount == 0) {
+                    sprintf_s(text, kTooltipTextSize, "%s%sLegendary Animal, met during a quest", animal.name,
+                        kTooltipLineBreak);
+                } else {
+                    sprintf_s(text, kTooltipTextSize, "%s%sLegendary Animal, roams about %u m%sClick to track it",
+                        animal.name, kTooltipLineBreak, animal.roam, kTooltipLineBreak);
+                    sprintf_s(trackedAnimalTexts[index], kTooltipTextSize,
+                        "%s%sLegendary Animal, roams about %u m%sTracked: click to stop", animal.name,
+                        kTooltipLineBreak, animal.roam, kTooltipLineBreak);
+                }
+            } else if (category == kMemoryFragmentCategory) {
+                // 0.29.0: the fragment's name, then what kind of marker it is.
+                sprintf_s(text, kTooltipTextSize, "%s%sMemory Fragment", MarkerName(category, index),
+                    kTooltipLineBreak);
+            } else if (category == kSanctumCoreCategory) {
+                // The core's name, then what it is and where it comes from.
+                sprintf_s(text, kTooltipTextSize, "%s%sSanctum Core, from the secret puzzle after cleansing the Sanctum",
+                    MarkerName(category, index), kTooltipLineBreak);
+            } else if (category == kKukuPotItemCategory) {
+                // The item's name, then its kind.
+                sprintf_s(text, kTooltipTextSize, "%s%sKuku Pot item", MarkerName(category, index),
+                    kTooltipLineBreak);
+            } else if (category == kEggCategory) {
+                // The egg's kind; it can be carried to a nest to hatch.
+                sprintf_s(text, kTooltipTextSize, "%s%sMount egg", MarkerName(category, index), kTooltipLineBreak);
             } else if (category == kAbyssChestCategory) {
                 // v0.102: the Abyss chest's item on a second line, like the surface chests.
                 const char* contents = kAbyssChestContents[index];
@@ -273,6 +330,11 @@ const char* ProvideTooltipText(void* element) {
         }
         if (UseOurTooltipText(element, group, category, index)) {
             text = tooltipTexts[category][index];
+            // 0.29.0: the tracked Legendary Animal says a click stops it.
+            if (category == kLegendaryAnimalCategory && trackedAnimalTexts[index][0] &&
+                static_cast<LONG>(index) == InterlockedCompareExchange(&trackedAnimal, 0, 0)) {
+                text = trackedAnimalTexts[index];
+            }
             returnedOurs = true;
         }
     }
@@ -345,6 +407,109 @@ void ObserveTooltipFocus(void* controller) {
         static_cast<unsigned>(type), ours ? kCategories[category].label : "no",
         ours ? MarkerName(category, index) : "-", TooltipMapZoom(), static_cast<unsigned long long>(blocker));
     QueueObservation(line);
+}
+
+// --- 0.29.0: Legendary Animal hover and click ------------------------------
+//
+// The world map controller keeps the icon under the cursor at +0x5c0 (the
+// same field ObserveTooltipFocus reads). When that is one of our Legendary
+// Animal markers, the route canvas draws the animal's patrol path
+// (RouteCanvas.cpp, through PywelGetAnimalPathState). A left click on such a
+// marker (button pressed on it and released with the cursor moved less than
+// kAnimalClickSlop pixels, so dragging the map is not a click; game window
+// in front) tracks the animal: its path stays on the world map and
+// the minimap and the route pauses. A click on the tracked animal, or Stop
+// tracking on the panel's Route tab, ends it; so does finishing the animal
+// (MarkerState.cpp). The game itself has no click action for this test icon.
+//
+// 0.29.1 (test 21/22: clicks only counted now and then, and again only after
+// the map was closed and opened): the game seems to drop its focus on the
+// icon once the button goes down, and not to take it again until the cursor
+// leaves the icon. A click no longer needs the focus at release. The press counts
+// for the animal the focus was last on while the cursor is still within
+// kAnimalReach pixels of where it was then and the focus has not moved to
+// something else (closing the map forgets it).
+volatile LONG hoveredAnimal = -1;
+volatile LONG trackedAnimal = -1;
+volatile LONG64 hoveredAnimalTick = 0;
+constexpr LONG kAnimalClickSlop = 6;
+constexpr LONG kAnimalReach = 14;
+// More than this between two world-map updates (ms) means the map was closed.
+constexpr ULONGLONG kAnimalMapGapMs = 500;
+
+// Map thread, after each world-map update (from ServiceMarkers).
+void ObserveAnimalFocus(void* controller) {
+    static bool buttonWasDown = false; // Map thread only.
+    static LONG pressedOn = -1; // The animal the press was on.
+    static POINT pressedAt = {}; // Where the cursor was then (screen pixels).
+    static LONG lastAnimal = -1; // The animal the focus was last on (-1: none, or it moved on).
+    static POINT lastAt = {}; // Where the cursor was then.
+    static ULONGLONG lastUpdate = 0;
+    ULONGLONG now = GetTickCount64();
+    if (now - lastUpdate > kAnimalMapGapMs) {
+        // The map was closed (or this is the first update): start afresh.
+        buttonWasDown = false;
+        pressedOn = -1;
+        lastAnimal = -1;
+    }
+    lastUpdate = now;
+
+    void* focused = nullptr;
+    unsigned category = 0;
+    unsigned index = 0;
+    LONG hovered = -1;
+    bool focusRead = Read(static_cast<const BYTE*>(controller) + 0x5c0, &focused, sizeof(focused));
+    if (focusRead && FindMarkerIcon(focused, category, index) && category == kLegendaryAnimalCategory) {
+        hovered = static_cast<LONG>(index);
+    }
+    InterlockedExchange(&hoveredAnimal, hovered);
+    InterlockedExchange64(&hoveredAnimalTick, static_cast<LONG64>(now));
+
+    POINT cursor = {};
+    bool cursorKnown = GetCursorPos(&cursor) != 0;
+    // The animal under the cursor: the focus, else the one it was last on
+    // (as of the previous update, in case this one already moved it) while
+    // the cursor is still near.
+    LONG reachX = cursor.x - lastAt.x;
+    LONG reachY = cursor.y - lastAt.y;
+    LONG under = hovered >= 0 ? hovered :
+        lastAnimal >= 0 && cursorKnown && reachX * reachX + reachY * reachY <= kAnimalReach * kAnimalReach ?
+        lastAnimal : -1;
+    if (hovered >= 0 && cursorKnown) {
+        lastAnimal = hovered;
+        lastAt = cursor;
+    } else if (focusRead && focused != nullptr) {
+        lastAnimal = -1; // The focus is on something else now.
+    }
+
+    DWORD foreground = 0;
+    GetWindowThreadProcessId(GetForegroundWindow(), &foreground);
+    bool down = foreground == GetCurrentProcessId() && (GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0;
+    if (down && !buttonWasDown) {
+        pressedOn = cursorKnown ? under : -1;
+        pressedAt = cursor;
+    } else if (!down && buttonWasDown) {
+        // A click: pressed on an animal with a path, released with the
+        // cursor still where it was pressed.
+        LONG movedX = cursor.x - pressedAt.x;
+        LONG movedY = cursor.y - pressedAt.y;
+        bool still = cursorKnown && movedX * movedX + movedY * movedY <= kAnimalClickSlop * kAnimalClickSlop;
+        if (still && pressedOn >= 0 && kLegendaryAnimalLinks[pressedOn].lineCount > 0) {
+            LONG before = InterlockedCompareExchange(&trackedAnimal, 0, 0);
+            LONG after = before == pressedOn ? -1 : pressedOn;
+            InterlockedExchange(&trackedAnimal, after);
+            if (after >= 0) {
+                PywelReleaseNote("animals", "Tracking %s (route paused)", kLegendaryAnimalLinks[after].name);
+            } else {
+                PywelReleaseNote("animals", "Stopped tracking %s (map click)", kLegendaryAnimalLinks[before].name);
+            }
+        } else if (pressedOn >= 0) {
+            PywelReleaseEvent("animals", "Click on %s not counted (cursor moved %ld, %ld px)",
+                kLegendaryAnimalLinks[pressedOn].name, static_cast<long>(movedX), static_cast<long>(movedY));
+        }
+        pressedOn = -1;
+    }
+    buttonWasDown = down;
 }
 
 // Worker (F8): the call counts per caller group.

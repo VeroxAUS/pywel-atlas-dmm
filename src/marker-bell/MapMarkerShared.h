@@ -47,6 +47,20 @@
 #include "unique-gear-links.h"
 // v0.114: the Constellation list (names, game positions, challenge missions).
 #include "constellation-links.h"
+// 0.29.0: the Hidden Treasure Map piece list (names, game positions,
+// knowledge keys, solution chests).
+#include "treasure-map-links.h"
+// 0.29.0: the Legendary Animal list (names, marker positions, challenge
+// missions, patrol network lines).
+#include "legendary-animal-links.h"
+// 0.29.0: the Memory Fragment list (names, game positions, knowledge keys).
+#include "memory-fragment-links.h"
+// The Sanctum Core list (names, game positions, Witch mission keys) and the
+// Kuku Pot item list (placed Abyss Cells / Power Cores / Aeserion Scales).
+#include "sanctum-core-links.h"
+#include "kuku-pot-item-links.h"
+// The Egg list (placed Kuku Bird and Wyvern eggs).
+#include "egg-links.h"
 #include "region-map.h" // v0.110: completion tracker.
 // v0.64: per-category choices shared with the in-game filter panel.
 #include "../pywel-atlas/MarkerFilter.h"
@@ -61,6 +75,10 @@
 #else
 // The standalone probe build has no player log.
 inline void PywelReleaseLog(const char*, ...) {}
+inline void PywelReleaseEvent(const char*, const char*, ...) {}
+inline void PywelReleaseNote(const char*, const char*, ...) {}
+inline void PywelReleaseDetail(const char*, const char*) {}
+inline void PywelReleaseLogRepeat(const char*, const char*, ...) {}
 #endif
 #ifdef PYWEL_ATLAS_TELEPORT
 // Test build only (src/pywel-atlas/TestTeleporter.cpp): runs on the minimap thread.
@@ -229,6 +247,33 @@ void RecordMapViewPosition(const void* playerXyz, float heading);
 //       unused test icon (type 409 "MapIcon_TestGimmick11"), drawn as the
 //       Pywel Atlas star picture by the UI add-on v0.82; hidden once their
 //       challenge mission is completed.
+//  10 = Hidden Treasure Map pieces (0.29.0; treasure-map-links.h), the
+//       game's other unused test icon (type 408 "MapIcon_TestGimmick10"),
+//       drawn as the game's treasure map item picture by the UI add-on
+//       0.11.0; hidden once the piece is picked up (its knowledge entry).
+//  11 = Legendary Animals (0.29.0; legendary-animal-links.h), the game's
+//       unused test icon type 407 "MapIcon_TestGimmick9", drawn as the
+//       game's animal item picture by the UI add-on 0.11.0; hidden once
+//       their challenge mission is completed. Each marker sits in the
+//       middle of the animal's patrol network, which the route canvases
+//       draw while the cursor rests on the marker or the animal is tracked.
+//  12 = Memory Fragments (0.29.0; memory-fragment-links.h), the game's own
+//       fragment icon (type 222 "MapIcon_Item_Visione_Memory_Chip"); hidden
+//       once the fragment's knowledge entry is in the save.
+//  13 = Sanctum Cores (sanctum-core-links.h), the game's own Kuku battery
+//       icon (type 376 "MapIcon_Gimmick_KuKu_Battery"). A marker sits at
+//       the secret puzzle that gives the core (MapGenie's position; the
+//       height is approximate); hidden once the Sanctum's Witch mission is
+//       completed. Mortification, Faith and Oblation have no such mission in
+//       the game's tables, so their markers are never hidden.
+//  14 = Kuku Pot items (kuku-pot-item-links.h): Abyss Cell No. 1, Power
+//       Cores and Aeserion Scales that are placed in the world, with the
+//       Kuku battery icon too; hidden once their field-object record says
+//       they were taken.
+//  15 = Eggs (egg-links.h): the 5 Kuku Bird and 5 Wyvern eggs placed in the
+//       world, with the Kuku battery icon too (the game's own egg icon, type
+//       394, has a minimap layout but no world-map layout); hidden once their
+//       field-object record says they were taken (the Kuku Pot item rule).
 // Marker i of a category uses private key keyBase + i (high bytes spell
 // "PYAT", like the proof chest) and sits exactly at that spot's game position.
 // Each native icon type's definition must still match exactly what was
@@ -256,7 +301,13 @@ constexpr unsigned kIslandNexusCategory = 6;
 constexpr unsigned kCressetCategory = 7;
 constexpr unsigned kUniqueGearCategory = 8;
 constexpr unsigned kConstellationCategory = 9;
-constexpr unsigned kCategoryCount = 10;
+constexpr unsigned kTreasureMapCategory = 10;
+constexpr unsigned kLegendaryAnimalCategory = 11;
+constexpr unsigned kMemoryFragmentCategory = 12;
+constexpr unsigned kSanctumCoreCategory = 13;
+constexpr unsigned kKukuPotItemCategory = 14;
+constexpr unsigned kEggCategory = 15;
+constexpr unsigned kCategoryCount = 16;
 // v0.58: up to 256 markers per category, held as 8 words of 32 bits
 // ("masks"; bit i of word i / 32 = marker i).
 constexpr unsigned kMaxCategoryMarkers = 256;
@@ -334,13 +385,81 @@ constexpr MarkerCategory kCategories[kCategoryCount] = {
     // star picture on both maps. Keys 0x...0A00 + i.
     {"Constellation", 409, 29133, "MapIcon_TestGimmick11", 0x5059415400000A00ULL,
         _countof(kConstellationLinks), true, 0xffffffff},
+    // 0.29.0: type 408, the game's other unused test icon (template 29132
+    // "MapIcon_TestGimmick10", group 0xffffffff, from the v0.103 F8
+    // catalogue; same layouts as 409). The UI add-on 0.11.0 gives it the
+    // game's treasure map item picture. Keys 0x...0B00 + i.
+    {"Treasure Map", 408, 29132, "MapIcon_TestGimmick10", 0x5059415400000B00ULL,
+        _countof(kTreasureMapLinks), true, 0xffffffff},
+    // 0.29.0: type 407, a third unused test icon (template 29131
+    // "MapIcon_TestGimmick9", group 0xffffffff, from the v0.103 F8
+    // catalogue; same layouts as 408 and 409). The UI add-on 0.11.0 gives
+    // it the game's animal item picture. Keys 0x...0C00 + i.
+    {"Legendary Animal", 407, 29131, "MapIcon_TestGimmick9", 0x5059415400000C00ULL,
+        _countof(kLegendaryAnimalLinks), true, 0xffffffff},
+    // 0.29.0: type 222, the game's own Memory Fragment icon (template
+    // "MapIcon_Item_Visione_Memory_Chip", group 0xffffffff). Its template id
+    // is not traced yet, so 0 here means: accept the id the loaded
+    // definition has, as long as the template name and group match exactly,
+    // as the Abyss Cresset entry does (see IconDefinitionReady). Keys
+    // 0x...0D00 + i.
+    {"Memory Fragment", 222, 0, "MapIcon_Item_Visione_Memory_Chip", 0x5059415400000D00ULL,
+        _countof(kMemoryFragmentLinks), true, 0xffffffff},
+    // The game's own Kuku battery icon (type 376, template 29100
+    // "MapIcon_Gimmick_KuKu_Battery", group 0xffffffff, from the v0.103 F8
+    // catalogue). Keys 0x...0E00 + i for Sanctum Cores, 0x...0F00 + i for
+    // Kuku Pot items.
+    {"Sanctum Core", 376, 29100, "MapIcon_Gimmick_KuKu_Battery", 0x5059415400000E00ULL,
+        _countof(kSanctumCoreLinks), true, 0xffffffff},
+    {"Kuku Pot Item", 376, 29100, "MapIcon_Gimmick_KuKu_Battery", 0x5059415400000F00ULL,
+        _countof(kKukuPotItemLinks), true, 0xffffffff},
+    // Eggs: the same Kuku battery icon (see the category list). Keys 0x...1000 + i.
+    {"Egg", 376, 29100, "MapIcon_Gimmick_KuKu_Battery", 0x5059415400001000ULL,
+        _countof(kEggLinks), true, 0xffffffff},
 };
 static_assert(_countof(kBellLinks) <= kMaxCategoryMarkers && _countof(kShrineLinks) <= kMaxCategoryMarkers &&
     _countof(kChestLinks) <= kMaxCategoryMarkers && _countof(kAbyssChestLinks) <= kMaxCategoryMarkers &&
     _countof(kNexusLinks) <= kMaxCategoryMarkers && _countof(kArtifactLinks) <= kMaxCategoryMarkers &&
     _countof(kIslandNexusLinks) <= kMaxCategoryMarkers && _countof(kCressetLinks) <= kMaxCategoryMarkers &&
-    _countof(kUniqueGearLinks) <= kMaxCategoryMarkers && _countof(kConstellationLinks) <= kMaxCategoryMarkers,
+    _countof(kUniqueGearLinks) <= kMaxCategoryMarkers && _countof(kConstellationLinks) <= kMaxCategoryMarkers &&
+    _countof(kTreasureMapLinks) <= kMaxCategoryMarkers && _countof(kLegendaryAnimalLinks) <= kMaxCategoryMarkers &&
+    _countof(kMemoryFragmentLinks) <= kMaxCategoryMarkers && _countof(kSanctumCoreLinks) <= kMaxCategoryMarkers &&
+    _countof(kKukuPotItemLinks) <= kMaxCategoryMarkers && _countof(kEggLinks) <= kMaxCategoryMarkers,
     "Marker masks hold at most 256 markers per category");
+// 0.29.0: every Legendary Animal's lines are in the line table, and each
+// animal's points fit the route canvases' drawing buffer.
+constexpr bool LegendaryAnimalLinesFit() {
+    for (const auto& link : kLegendaryAnimalLinks) {
+        if (link.firstLine > _countof(kLegendaryAnimalLines) || link.lineCount > kPywelAnimalMaxLines ||
+            link.lineCount > _countof(kLegendaryAnimalLines) - link.firstLine) {
+            return false;
+        }
+        unsigned points = 0;
+        for (unsigned line = link.firstLine; line < link.firstLine + link.lineCount; ++line) {
+            const LegendaryAnimalLine& item = kLegendaryAnimalLines[line];
+            if (item.count < 2 || item.first > _countof(kLegendaryAnimalPoints) ||
+                item.count > _countof(kLegendaryAnimalPoints) - item.first) {
+                return false;
+            }
+            points += item.count;
+        }
+        if (points > kLegendaryAnimalMaxPoints) {
+            return false;
+        }
+    }
+    return true;
+}
+static_assert(LegendaryAnimalLinesFit(), "legendary-animal-links.h has a line outside its tables or too many points");
+// 0.29.0: every Treasure Map piece's solution chest is a row of kChestLinks.
+constexpr bool TreasureMapChestsFit() {
+    for (const auto& link : kTreasureMapLinks) {
+        if (link.solutionChest >= _countof(kChestLinks)) {
+            return false;
+        }
+    }
+    return true;
+}
+static_assert(TreasureMapChestsFit(), "treasure-map-links.h names a chest row kChestLinks does not have");
 
 // A fixed-size set of marker bits, one per marker of a category.
 struct MarkerMask {
@@ -489,6 +608,10 @@ struct CategoryState {
     MarkerMask minimapFailed; // v0.73: last minimap failed mask logged.
     unsigned worldHiddenCount; // v0.83: last hidden counts logged (world map, minimap).
     unsigned minimapHiddenCount;
+    // 0.29.0: the counts last written to the player log.
+    bool loggedKnown;
+    unsigned loggedDone;
+    unsigned loggedLocked;
 };
 
 // The worker's view of all markers.
@@ -507,7 +630,8 @@ struct MarkerState {
 static_assert(kPywelMarkerCategories == kCategoryCount, "The panel lists every marker category");
 // Names shown in the panel, in category order.
 constexpr const char* kPanelNames[kCategoryCount] = {"Bells", "Greymane Shrines", "Treasure chests", "Abyss chests",
-    "Abyss Nexus", "Sealed Abyss Artifacts", "Abyss-island Nexus", "Abyss Cressets", "Unique gear", "Constellations"};
+    "Abyss Nexus", "Sealed Abyss Artifacts", "Abyss-island Nexus", "Abyss Cressets", "Unique gear", "Constellations",
+    "Treasure Maps", "Legendary Animals", "Memory Fragments", "Sanctum Cores", "Kuku Pot items", "Eggs"};
 #endif
 
 // ===========================================================================
@@ -880,6 +1004,12 @@ void LogTooltipCounts();
 void InstallCardHooks(BYTE* base);
 void LogCardCounts();
 bool KnowledgeCardOpen();
+// 0.29.0 (MapTooltips.h): the Legendary Animal marker the world map's cursor
+// rests on and the one being tracked (marker numbers; -1 = none), and when
+// the world map last updated the first (GetTickCount64).
+extern volatile LONG hoveredAnimal;
+extern volatile LONG trackedAnimal;
+extern volatile LONG64 hoveredAnimalTick;
 #endif
 
 } // namespace pywel_map

@@ -269,6 +269,13 @@ constexpr bool kCardBuffIconsOn = true;
 constexpr size_t kMaxCardMarkupBytes = 3000;
 static_assert(kCardStatStyle < kCardStatStyleCount, "kCardStatStyle must be 0..3");
 
+// 0.29.1 (test 17): a chest a Treasure Map piece leads to opens the item
+// card, which covers the small label, so its "Treasure map solution" line
+// was never seen. Its card markup gets a yellow line at the end as well,
+// built once by BuildSolutionCardMarkups (worker, before the hooks are on);
+// an empty entry (markup too long) leaves the card as it was.
+char solutionCardMarkups[_countof(kTreasureMapLinks)][kMaxCardMarkupBytes + 1] = {};
+
 // The description markup for one of our cards in the chosen layout, and
 // which layout it is (style 1 when the chosen one is missing or too long).
 const char* CardMarkupFor(const CardCategory& card, unsigned index, unsigned& style, size_t& length) {
@@ -281,7 +288,38 @@ const char* CardMarkupFor(const CardCategory& card, unsigned index, unsigned& st
         text = card.styles[style][index];
         length = text ? strnlen(text, kMaxCardMarkupBytes + 1) : 0;
     }
+    if (card.category == kChestCategory) {
+        for (unsigned piece = 0; piece < _countof(kTreasureMapLinks); ++piece) {
+            if (kTreasureMapLinks[piece].solutionChest == index && solutionCardMarkups[piece][0]) {
+                text = solutionCardMarkups[piece];
+                length = strnlen(text, kMaxCardMarkupBytes + 1);
+                break;
+            }
+        }
+    }
     return text;
+}
+
+// Worker, before the card hooks are on: the solution chests' card markups.
+void BuildSolutionCardMarkups() {
+    const CardCategory* card = FindCardCategory(kChestCategory);
+    if (!card) {
+        return;
+    }
+    for (unsigned piece = 0; piece < _countof(kTreasureMapLinks); ++piece) {
+        const TreasureMapLink& link = kTreasureMapLinks[piece];
+        unsigned style = 0;
+        size_t length = 0;
+        const char* base = CardMarkupFor(*card, link.solutionChest, style, length);
+        char* markup = solutionCardMarkups[piece];
+        // _TRUNCATE: a markup that would not fit returns -1 instead of stopping the game.
+        int written = _snprintf_s(markup, kMaxCardMarkupBytes + 1, _TRUNCATE,
+            "%s<div css=\"font-text-caption-minor-yellow\">Treasure Map Piece %u leads here</div>",
+            base ? base : "", link.piece);
+        if (written < 0) {
+            markup[0] = 0;
+        }
+    }
 }
 
 // v0.100/v0.101: our chest card shows the item's inventory icon instead of
@@ -928,6 +966,7 @@ void HexBytes(const BYTE* address, size_t count, char (&out)[80]) {
 // cards use the per-paragraph swap with the middle-dot texts. The picture hook
 // (v0.100) is optional too: without it the card keeps the game's picture.
 void InstallCardHooks(BYTE* base) {
+    BuildSolutionCardMarkups();
     void* detours[kCardHookCount] = {
         reinterpret_cast<void*>(&ObserveFillGimmickCard), reinterpret_cast<void*>(&ObserveSetCardKey),
         reinterpret_cast<void*>(&ObserveCardLayout), reinterpret_cast<void*>(&ObserveSetElementText),

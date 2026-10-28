@@ -104,6 +104,22 @@ if ($Mode -eq 'Categories') {
     # v0.114: the Constellation list read by NativeSaveReader.cpp.
     & $python -B (Join-Path $sourceDirectory 'prepare_constellation_links.py')
     if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Constellation list' }
+    # 0.29.0: the Hidden Treasure Map piece list (its markers and the save reader's knowledge pass).
+    & $python -B (Join-Path $sourceDirectory 'prepare_treasure_map_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Treasure Map list' }
+    # 0.29.0: the Legendary Animal list (its markers, patrol paths and the save reader's quest pass).
+    & $python -B (Join-Path $sourceDirectory 'prepare_legendary_animal_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Legendary Animal list' }
+    # 0.29.0: the Memory Fragment list (its markers and the save reader's knowledge pass).
+    & $python -B (Join-Path $sourceDirectory 'prepare_memory_fragment_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Memory Fragment list' }
+    # The Sanctum Core and Kuku Pot item lists (markers, quest pass and artifact pass).
+    & $python -B (Join-Path $sourceDirectory 'prepare_sanctum_core_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Sanctum Core list' }
+    & $python -B (Join-Path $sourceDirectory 'prepare_kuku_pot_item_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Kuku Pot item list' }
+    & $python -B (Join-Path $sourceDirectory 'prepare_egg_links.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Could not embed the Egg list' }
     # v0.108: the unique gear list read by NativeSaveReader.cpp.
     & $python -B (Join-Path $sourceDirectory 'prepare_unique_gear_links.py')
     if ($LASTEXITCODE -ne 0) { throw 'Could not embed the unique gear list' }

@@ -849,6 +849,8 @@ void ServiceMarkers(void* controller) {
     ServiceMarkersOn(controller, worldSide);
     // v0.84 tooltips, phase 0: log focus changes (read-only).
     ObserveTooltipFocus(controller);
+    // 0.29.0: Legendary Animal hover and click (MapTooltips.h).
+    ObserveAnimalFocus(controller);
     // v0.89: knowledge card observation (MapKnowledgeCard.h; read-only here).
     ObserveMapCard(controller);
 #ifdef PYWEL_ATLAS_DEV

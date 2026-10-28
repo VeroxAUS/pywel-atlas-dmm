@@ -12,7 +12,7 @@
 namespace pywel_map {
 
 #ifdef PYWEL_ATLAS_COMBINED
-volatile LONG categoryShown[kCategoryCount] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}; // The user's choice (1 = show).
+volatile LONG categoryShown[kCategoryCount] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}; // The user's choice (1 = show).
 volatile LONG markersEnabled = 1; // Copy of MarkerState::enabled for the panel.
 volatile LONG filtersDirty = 0; // A choice or the panel geometry changed; save soon.
 SRWLOCK statusLock = SRWLOCK_INIT; // Guards categoryStatus and panelGeometry.
@@ -194,6 +194,62 @@ MarkerMask DoneMask(unsigned category, const LoadedSaveBell& loaded, bool saveVa
             done.words[word] = static_cast<LONG>(loaded.bell.constellationDoneMask[word]);
             unknown.words[word] = static_cast<LONG>(loaded.bell.constellationUnknownMask[word]);
         }
+    } else if (category == kLegendaryAnimalCategory) {
+        // 0.29.0: Legendary Animals: the cressets' rule (quest pass, mission
+        // completed = done, no record = unknown and no marker).
+        static_assert(_countof(loaded.bell.legendaryAnimalDoneMask) == kMaskWords, "Legendary Animal mask size must match");
+        valid = saveValid && loaded.bell.questsValid;
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.legendaryAnimalDoneMask[word]);
+            unknown.words[word] = static_cast<LONG>(loaded.bell.legendaryAnimalUnknownMask[word]);
+        }
+    } else if (category == kTreasureMapCategory) {
+        // 0.29.0: Treasure Map pieces: done = the piece's knowledge entry
+        // exists (shrine pass); that pass failing makes them all unknown.
+        static_assert(_countof(loaded.bell.treasureMapCollectedMask) == kMaskWords, "Treasure map mask size must match");
+        valid = saveValid && loaded.bell.shrinesValid;
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.treasureMapCollectedMask[word]);
+        }
+    } else if (category == kMemoryFragmentCategory) {
+        // 0.29.0: Memory Fragments: the Treasure Map rule (knowledge entry
+        // exists = done; the shrine pass failing makes them all unknown).
+        static_assert(_countof(loaded.bell.memoryFragmentCollectedMask) == kMaskWords,
+            "Memory Fragment mask size must match");
+        valid = saveValid && loaded.bell.shrinesValid;
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.memoryFragmentCollectedMask[word]);
+        }
+    } else if (category == kSanctumCoreCategory) {
+        // Sanctum Cores: the cressets' rule on the Witch missions (quest
+        // pass: state 5 = done, no record = unknown and no marker); the
+        // three Sanctums with no mission are neither (never hidden).
+        static_assert(_countof(loaded.bell.sanctumCoreDoneMask) == kMaskWords, "Sanctum Core mask size must match");
+        valid = saveValid && loaded.bell.questsValid;
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.sanctumCoreDoneMask[word]);
+            unknown.words[word] = static_cast<LONG>(loaded.bell.sanctumCoreUnknownMask[word]);
+        }
+    } else if (category == kKukuPotItemCategory) {
+        // Kuku Pot items: the Sealed Abyss Artifacts' rule (field pass on the
+        // artifact parse): a record with the object's UUID, gimmick key,
+        // reason 1 or 2, never refilling, own UUID removed = taken; any other
+        // record = unknown; none = not taken. That pass failing makes the
+        // whole category unknown.
+        static_assert(_countof(loaded.bell.kukuPotItemTakenMask) == kMaskWords, "Kuku Pot item mask size must match");
+        valid = saveValid && loaded.bell.artifactsValid;
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.kukuPotItemTakenMask[word]);
+            unknown.words[word] = static_cast<LONG>(loaded.bell.kukuPotItemUnknownMask[word]);
+        }
+    } else if (category == kEggCategory) {
+        // Eggs: the Kuku Pot items' rule (field pass on the artifact parse).
+        static_assert(_countof(loaded.bell.eggTakenMask) == kMaskWords, "Egg mask size must match");
+        valid = saveValid && loaded.bell.artifactsValid;
+        for (unsigned word = 0; word < kMaskWords; ++word) {
+            done.words[word] = static_cast<LONG>(loaded.bell.eggTakenMask[word]);
+            unknown.words[word] = static_cast<LONG>(loaded.bell.eggUnknownMask[word]);
+        }
     } else if (category == kUniqueGearCategory) {
         // v0.108: unique gear: reward items from the quest pass (stage
         // completed), ground and quest items from the field pass (picked
@@ -259,7 +315,7 @@ void LogQuestLocks(unsigned category, const LoadedSaveBell& loaded, const Marker
     const MarkerMask& mismatch) {
     static MarkerMask lastLocked[kCategoryCount] = {};
     static MarkerMask lastMismatch[kCategoryCount] = {};
-    static int lastValid[kCategoryCount] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+    static int lastValid[kCategoryCount] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
     if (category != kAbyssChestCategory) {
         return;
     }
@@ -308,6 +364,8 @@ void UpdateMarkers(MarkerState& state) {
                 chosen ? "; they follow the detected save"
                        : (hideByChoice ? "; all are being hidden (kept, game hide reason 23)" : "; all are being removed"));
             Log(line);
+            // 0.29.1: always in the log too (test 13).
+            PywelReleaseNote("markers", "%s turned %s in the panel", kind.label, chosen ? "on" : "off");
             state.shownLogged[category] = chosen;
         }
         bool valid = false;
@@ -391,9 +449,10 @@ void UpdateMarkers(MarkerState& state) {
                 // v0.90: artifacts report their own pass, (v0.105) cressets
                 // the quest pass, the others the chest field pass; (v0.108)
                 // unique gear the quest pass if it failed, else the field pass;
-                // (v0.114) constellations the quest pass.
-                bool artifacts = category == kArtifactCategory;
+                // (v0.114) constellations and (0.29.0) Legendary Animals the quest pass.
+                bool artifacts = category == kArtifactCategory || category == kKukuPotItemCategory || category == kEggCategory;
                 bool cressets = category == kCressetCategory || category == kConstellationCategory ||
+                    category == kLegendaryAnimalCategory || category == kSanctumCoreCategory ||
                     (category == kUniqueGearCategory && !loaded.bell.questsValid);
                 bool passValid = artifacts ? loaded.bell.artifactsValid
                     : cressets ? loaded.bell.questsValid : loaded.bell.chestFieldValid;
@@ -412,12 +471,20 @@ void UpdateMarkers(MarkerState& state) {
         } else if (!valid && saveValid && (changedRead || !current.unknownLogged)) {
             // The save read was accepted but this category's pass failed.
             // v0.90: each pass has its own error text (artifacts their own).
-            const char* passError = category == kArtifactCategory ? loaded.bell.artifactError
-                : category == kCressetCategory || category == kConstellationCategory ? loaded.bell.questError
-                                                                                     : loaded.bell.shrineError;
+            // Shrines and (0.29.0) Treasure Map pieces and Memory Fragments
+            // share the shrine pass's text.
+            const char* passError = category == kArtifactCategory || category == kKukuPotItemCategory ||
+                    category == kEggCategory
+                ? loaded.bell.artifactError
+                : category == kCressetCategory || category == kConstellationCategory ||
+                    category == kLegendaryAnimalCategory || category == kSanctumCoreCategory ? loaded.bell.questError
+                                                         : loaded.bell.shrineError;
             sprintf_s(line, "Detected save serial=%u readSlot=%u: %s result unknown (%s); keeping current markers, creating none.",
                 loaded.serial, loaded.readSlot, kind.label, passError[0] ? passError : "no reason given");
             Log(line);
+            // 0.29.0: also in the player log (once per save read, as above).
+            PywelReleaseLog("Map markers: %s: save result unknown (%s); no new markers until it is read.",
+                kind.label, passError[0] ? passError : "no reason given");
             current.unknownLogged = true;
             current.serial = loaded.serial;
             current.readSlot = loaded.readSlot;
@@ -428,6 +495,7 @@ void UpdateMarkers(MarkerState& state) {
         current.wanted = wanted;
         MarkerMask present = LoadMask(markerPresent[category]);
         // v0.64: refresh the copy the filter panel shows.
+        const char* trackingEnded = nullptr; // 0.29.0: logged after the lock.
         AcquireSRWLockExclusive(&statusLock);
         // v0.78: the world map keeps refusing this category's icon and never
         // accepted one (the Greymane Shrine icon without the Shrine Icons
@@ -439,6 +507,8 @@ void UpdateMarkers(MarkerState& state) {
             sprintf_s(line, "%s markers: the game refused the first %ld on the world map and accepted none, so the Pywel Atlas Shrine Icons file mod is probably not installed; no more world-map tries this session (minimap markers continue).",
                 kind.label, InterlockedCompareExchange(&worldRefusals[category], 0, 0));
             Log(line);
+            PywelReleaseLog("Map markers: %s: the world map refused them; the Pywel Atlas Shrine Icons add-on is "
+                "probably not installed (minimap markers still work).", kind.label);
         }
         PywelMarkerCategoryStatus& status = categoryStatus[category];
         status.needsAddon = needsAddon;
@@ -449,11 +519,37 @@ void UpdateMarkers(MarkerState& state) {
             categoryDoneMask[category] = hiddenMask; // v0.110: completion tracker.
             categoryLockedMask[category] = locked;
             categoryDoneKnown[category] = true;
+            // 0.29.0: a tracked Legendary Animal that is now done (or no
+            // longer shown) stops being tracked.
+            LONG tracked = InterlockedCompareExchange(&trackedAnimal, 0, 0);
+            if (category == kLegendaryAnimalCategory && tracked >= 0 && hiddenMask.Test(static_cast<unsigned>(tracked)) &&
+                InterlockedCompareExchange(&trackedAnimal, -1, tracked) == tracked) {
+                trackingEnded = MarkerName(category, static_cast<unsigned>(tracked));
+            }
         }
         // v0.83: markers kept but hidden do not count as on the map.
         unsigned worldHiddenNow = LoadMask(worldHidden[category]).Count();
         status.onMap = present.Count() - (worldHiddenNow < present.Count() ? worldHiddenNow : present.Count());
+        PywelMarkerCategoryStatus logged = status;
         ReleaseSRWLockExclusive(&statusLock);
+        if (trackingEnded) {
+            PywelReleaseLog("Legendary Animal tracking ended: %s is done.", trackingEnded);
+        }
+        // 0.29.0: the player log gets each category's counts when they
+        // change (a save read, a pickup), not the markers coming and going.
+        if (logged.saveKnown != current.loggedKnown || logged.done != current.loggedDone ||
+            logged.locked != current.loggedLocked) {
+            current.loggedKnown = logged.saveKnown;
+            current.loggedDone = logged.done;
+            current.loggedLocked = logged.locked;
+            if (logged.saveKnown) {
+                char lockedText[40] = "";
+                if (logged.locked) {
+                    sprintf_s(lockedText, ", %u more after a quest", logged.locked);
+                }
+                PywelReleaseLog("Map markers: %s: %u of %u done%s", kind.label, logged.done, logged.total, lockedText);
+            }
+        }
         unsigned minimapHiddenNow = LoadMask(minimapHidden[category]).Count();
         if (worldHiddenNow != current.worldHiddenCount || minimapHiddenNow != current.minimapHiddenCount) {
             sprintf_s(line, "%s markers hidden by choice now: %u on the world map, %u on the minimap", kind.label,
@@ -488,6 +584,11 @@ void UpdateMarkers(MarkerState& state) {
                 kind.label, failed.Count(), names, InterlockedCompareExchange(&markerFailures, 0, 0));
             Log(line);
             current.failed = failed;
+            if (failed.Count()) {
+                // 0.29.0: player log, at most 5 lines and then one a minute.
+                PywelReleaseLogRepeat("marker-failed", "Map markers: %s: %u could not be created (retried every 5 s; "
+                    "%ld failures so far)", kind.label, failed.Count(), InterlockedCompareExchange(&markerFailures, 0, 0));
+            }
         }
         if (kMinimapMarkers) {
             // v0.73: the same markers on the minimap.

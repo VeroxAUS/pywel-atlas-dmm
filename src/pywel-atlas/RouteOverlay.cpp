@@ -41,6 +41,7 @@
 #include <cstring>
 
 #include "MarkerFilter.h"
+#include "ReleaseLog.h"
 #include "RouteCanvas.h"
 #include "RouteLines.h"
 #include "RouteOverlay.h"
@@ -336,6 +337,11 @@ void PywelRouteBuildPanelSection() {
                           "Overlay: drawn on top of the game.");
     if (memcmp(&changed, &choice, sizeof(choice)) != 0) {
         PywelSetRouteSettings(changed);
+        // 0.29.0: the player log notes the route going on or off.
+        if (changed.shown != choice.shown) {
+            // 0.29.1: an event as well, so bug reports list it with the panel's other changes.
+            PywelReleaseNote("route", "Route turned %s (%u stops)", changed.shown ? "on" : "off", changed.stops);
+        }
     }
 
     PywelRoutePlan plan = {};
@@ -358,5 +364,18 @@ void PywelRouteBuildPanelSection() {
         }
     } else {
         ImGui::TextDisabled("%s", choice.shown && plan.status ? plan.status : "Route is off");
+    }
+
+    // 0.29.0: a tracked Legendary Animal (clicked on the world map) pauses
+    // the route; this button, or another click on its marker, ends it.
+    PywelAnimalPathState animals = {};
+    if (PywelGetAnimalPathState(animals) && animals.tracked >= 0 && animals.trackedName) {
+        if (ImGui::Button("Stop tracking")) {
+            PywelStopTrackingAnimal();
+        }
+        ImGui::SameLine();
+        ImGui::TextDisabled("Tracking %s", animals.trackedName);
+    } else {
+        ImGui::TextDisabled("Click a Legendary Animal on the world map to track it.");
     }
 }

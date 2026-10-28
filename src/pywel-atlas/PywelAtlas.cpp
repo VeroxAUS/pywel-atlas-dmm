@@ -80,11 +80,19 @@ namespace {
 // links its own copy of the C runtime (/MT), so this affects only the mod.
 void IgnoreInvalidParameter(const wchar_t*, const wchar_t*, const wchar_t*, unsigned int, uintptr_t) {}
 
+// The mod's version, stamped in the log header and the panel's Support tab.
+constexpr const char* kModVersion = "0.29.1";
+
 // Starts one part's worker thread; the handle is not needed afterwards.
-void StartPart(LPTHREAD_START_ROUTINE run, void* address) {
-    HANDLE worker = CreateThread(nullptr, 0, run, address, 0, nullptr);
+// 0.29.0: the thread is named for the crash record ("map markers").
+void StartPart(LPTHREAD_START_ROUTINE run, void* address, const char* part) {
+    DWORD id = 0;
+    HANDLE worker = CreateThread(nullptr, 0, run, address, 0, &id);
     if (worker) {
+        PywelReleaseNameThread(id, part);
         CloseHandle(worker);
+    } else {
+        PywelReleaseLog("Could not start the %s thread (Windows error %lu).", part, GetLastError());
     }
 }
 
@@ -93,24 +101,22 @@ void StartPart(LPTHREAD_START_ROUTINE run, void* address) {
 // MinHook cannot start, neither part is started (no hooks are installed).
 DWORD WINAPI Start(void* address) {
     _set_invalid_parameter_handler(IgnoreInvalidParameter);
-#ifdef PYWEL_ATLAS_DEV
-    PywelReleaseLog("Pywel Atlas 0.28.0 (development build) starting");
-#else
-    PywelReleaseLog("Pywel Atlas 0.28.0 starting");
-#endif
+    // 0.29.0: the log header (versions, other mods) and the crash record.
+    PywelReleaseLogStart(address, kModVersion);
+    PywelReleaseNameThread(GetCurrentThreadId(), "start-up");
     if (MH_Initialize() != MH_OK) {
         PywelReleaseLog("Could not start the hook library (MinHook); Pywel Atlas is off this session.");
         return 0;
     }
-    StartPart(PywelSaveDetectionRun, address);
-    StartPart(PywelMapMarkerRun, address);
+    StartPart(PywelSaveDetectionRun, address, "save detection");
+    StartPart(PywelMapMarkerRun, address, "map markers");
 #ifdef PYWEL_ATLAS_DEV
-    StartPart(PywelTeleportObserveRun, address);
+    StartPart(PywelTeleportObserveRun, address, "teleport observation");
 #endif
-    StartPart(PywelFilterPanelRun, address);
-    StartPart(PywelRouteRun, address);
+    StartPart(PywelFilterPanelRun, address, "panel start-up");
+    StartPart(PywelRouteRun, address, "route");
 #ifdef PYWEL_ATLAS_TELEPORT
-    StartPart(PywelTeleporterRun, address);
+    StartPart(PywelTeleporterRun, address, "test teleporter");
 #endif
     return 0;
 }
@@ -122,7 +128,7 @@ DWORD WINAPI Start(void* address) {
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID) {
     if (reason == DLL_PROCESS_ATTACH) {
         DisableThreadLibraryCalls(instance);
-        StartPart(Start, instance);
+        StartPart(Start, instance, "start-up");
     }
     return TRUE;
 }

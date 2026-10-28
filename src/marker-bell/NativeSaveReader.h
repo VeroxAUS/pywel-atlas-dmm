@@ -135,6 +135,51 @@ struct NativeSaveSummary {
     unsigned constellationsUnknown; // How many are in constellationUnknownMask.
     unsigned constellationDoneMask[8];
     unsigned constellationUnknownMask[8];
+    // 0.29.0: Hidden Treasure Map pieces (treasure-map-links.h), from the
+    // shrine (knowledge) pass: collected = the piece's knowledge entry exists
+    // at any level; no entry = not collected yet. shrinesValid false (that
+    // pass failed) = every piece unknown.
+    unsigned treasureMapCoverage; // How many known pieces this build checks for.
+    unsigned treasureMapsCollected; // How many the save marks as collected.
+    unsigned treasureMapCollectedMask[8];
+    // 0.29.0: Legendary Animals (legendary-animal-links.h), same quest pass
+    // and same rule as the cressets: done = the challenge mission's record at
+    // state 5; no record = unknown; questsValid false = every one unknown.
+    unsigned legendaryAnimalCoverage; // How many known animals this build checks for.
+    unsigned legendaryAnimalsDone; // How many the save explicitly marks as done.
+    unsigned legendaryAnimalsUnknown; // How many are in legendaryAnimalUnknownMask.
+    unsigned legendaryAnimalDoneMask[8];
+    unsigned legendaryAnimalUnknownMask[8];
+    // 0.29.0: Memory Fragments (memory-fragment-links.h), same knowledge
+    // pass and same rule as the Treasure Map pieces: collected = the
+    // fragment's knowledge entry exists at any level; shrinesValid false =
+    // every fragment unknown.
+    unsigned memoryFragmentCoverage; // How many known fragments this build checks for.
+    unsigned memoryFragmentsCollected; // How many the save marks as collected.
+    unsigned memoryFragmentCollectedMask[8];
+    // Sanctum Cores (sanctum-core-links.h), same quest pass as the cressets:
+    // done = the Sanctum's Witch mission record at state 5; no record =
+    // unknown; questsValid false = every one unknown. A Sanctum with no
+    // mission in the game's tables (missionKey 0) is neither done nor unknown.
+    unsigned sanctumCoreCoverage; // How many known cores this build checks for.
+    unsigned sanctumCoresDone; // How many the save explicitly marks as done.
+    unsigned sanctumCoresUnknown; // How many are in sanctumCoreUnknownMask.
+    unsigned sanctumCoreDoneMask[8];
+    unsigned sanctumCoreUnknownMask[8];
+    // Kuku Pot items (kuku-pot-item-links.h), from the artifact (field-object)
+    // pass: taken = a record of the exact studied shape; any other record =
+    // unknown; none = not taken. artifactsValid false = every item unknown.
+    unsigned kukuPotItemCoverage; // How many known items this build checks for.
+    unsigned kukuPotItemsTaken; // How many the save marks as taken.
+    unsigned kukuPotItemsUnknown; // How many are in kukuPotItemUnknownMask.
+    unsigned kukuPotItemTakenMask[8];
+    unsigned kukuPotItemUnknownMask[8];
+    // Eggs (egg-links.h): the Kuku Pot items' rule on the same artifact pass.
+    unsigned eggCoverage; // How many known eggs this build checks for.
+    unsigned eggsTaken; // How many the save marks as taken.
+    unsigned eggsUnknown; // How many are in eggUnknownMask.
+    unsigned eggTakenMask[8];
+    unsigned eggUnknownMask[8];
 };
 
 // Returns the display name for a chest index ("Hernand chest 8"), or "" if out of range.

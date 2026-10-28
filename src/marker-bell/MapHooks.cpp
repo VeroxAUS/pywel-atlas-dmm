@@ -767,7 +767,9 @@ void CreateIndependentChest(void* controller, void* parent, const void* presenta
 // ===========================================================================
 
 // Append one line to native-map-categories.log (worker thread only).
+// 0.29.1: with Detailed log on, also to pywel-atlas.log (ReleaseLog.h).
 void Log(const char* line) {
+    PywelReleaseDetail("map", line);
     if (logFile == INVALID_HANDLE_VALUE) {
         return;
     }

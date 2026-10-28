@@ -100,6 +100,8 @@
 #else
 // The standalone probe build has no player log.
 inline void PywelReleaseLog(const char*, ...) {}
+inline void PywelReleaseEvent(const char*, const char*, ...) {}
+inline void PywelReleaseDetail(const char*, const char*) {}
 #endif
 
 namespace {
@@ -952,6 +954,8 @@ BYTE ObserveStorageSlot6(void* storage, void* request, uintptr_t opaque3, uintpt
 
 // Writes one line to the log file and flushes it straight to disk.
 void Log(const char* text) {
+    // 0.29.1: with Detailed log on, also in pywel-atlas.log (ReleaseLog.h).
+    PywelReleaseDetail("save", text);
     DWORD written = 0;
     if (logFile != INVALID_HANDLE_VALUE) {
         WriteFile(logFile, text, static_cast<DWORD>(strlen(text)), &written, nullptr);
@@ -1655,6 +1659,30 @@ void UpdateBellReads(Summary& summary, bool pollFile) {
         local.wYear, local.wMonth, local.wDay, local.wHour, local.wMinute, local.wSecond,
         result.error[0] ? result.error : "none", selection.active ? selection.serial : 0u);
     Log(line);
+    // 0.29.0: the player log gets the outcome when it changes (not every
+    // autosave), with each pass's result; every read is a recent event.
+    PywelReleaseEvent("save", "read slot %u (%s): %s%s%s", result.slot, result.trigger, outcome,
+        result.error[0] ? ", " : "", result.error);
+    static unsigned loggedSlot = 0;
+    static char loggedOutcome[16] = {};
+    if (sameSlot && (result.slot != loggedSlot || strcmp(outcome, loggedOutcome) != 0)) {
+        loggedSlot = result.slot;
+        strcpy_s(loggedOutcome, outcome);
+        if (result.succeeded) {
+            const NativeSaveSummary& read = result.summary;
+            PywelReleaseLog("Save read: slot %u; shrine pass %s, field pass %s, artifact pass %s, "
+                "quest pass %s%s%s%s%s%s%s%s%s", result.slot,
+                read.shrinesValid ? "ok" : "failed", read.chestFieldValid ? "ok" : "failed",
+                read.artifactsValid ? "ok" : "failed", read.questsValid ? "ok" : "failed",
+                read.shrineError[0] ? " (shrines: " : "", read.shrineError, read.shrineError[0] ? ")" : "",
+                read.chestFieldError[0] ? " (field: " : "", read.chestFieldError,
+                read.chestFieldError[0] ? ")" : "", read.questError[0] ? " (quests: " : "", read.questError,
+                read.questError[0] ? ")" : "");
+        } else {
+            PywelReleaseLog("Save read failed: slot %u (%s); retried when the file changes.", result.slot,
+                result.error[0] ? result.error : "no reason given");
+        }
+    }
     // v0.56: the shrine pass from the same read (independent of the Bell
     // result; valid=0 means unknown, never "not found").
     if (result.succeeded) {

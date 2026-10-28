@@ -35,6 +35,8 @@ DEBUG_TEXTS = [
     "route.log",
     # Panel cursor diagnostics.
     "cursor frames=",
+    # 0.29.0: the build kind in the log header (ReleaseLog.cpp).
+    "(development build)",
 ]
 
 

@@ -29,16 +29,20 @@ struct RoutePoint {
 
 // The most stops a route may hold (the panel's slider goes up to this).
 constexpr unsigned kRouteMaxStops = 10; // v0.133 (was 50).
+// 0.29.0: how many of the nearest stops the planner orders. Only the first
+// kRouteMaxStops (the panel's Stops) are shown; the rest give the order a
+// longer view, so a stop is not left behind for a long walk back later.
+constexpr unsigned kPlanLookahead = 30;
 
 // Plans a route from `start` through up to `keep` of the `count` points.
 // Writes the chosen points' indices (into `points`) to `order` in visiting
 // order and the path's total length (from `start`) to `length`. Returns how
-// many stops were written (at most kRouteMaxStops). `order` must hold
-// kRouteMaxStops entries.
+// many stops were written (at most kPlanLookahead). `order` must hold
+// kPlanLookahead entries.
 unsigned PlanRoute(const RoutePoint& start, const RoutePoint* points, unsigned count, unsigned keep,
     unsigned* order, float& length);
 
-// v0.111: orders `count` stops (at most kRouteMaxStops) by given travel
+// v0.111: orders `count` stops (at most kPlanLookahead) by given travel
 // costs instead of straight distances: `costs[i * (count + 1) + j]` is the
 // cost from place i to place j, where place 0 is the start and place s + 1
 // is stop s. Same open path method (nearest neighbour, then 2-opt; the two

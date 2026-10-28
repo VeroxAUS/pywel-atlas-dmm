@@ -67,6 +67,12 @@
 #include "cresset-links.h"
 #include "unique-gear-links.h"
 #include "constellation-links.h"
+#include "treasure-map-links.h"
+#include "legendary-animal-links.h"
+#include "memory-fragment-links.h"
+#include "sanctum-core-links.h"
+#include "kuku-pot-item-links.h"
+#include "egg-links.h"
 
 namespace {
 // ===========================================================================
@@ -424,7 +430,8 @@ struct ArtifactState {
     bool unexpected = false; // A record unlike that shape (makes it unknown).
 };
 // What the save says about one known Abyss Cresset (v0.105, quest pass);
-// (v0.114) also used for the Constellations, which follow the same rule.
+// (v0.114) also used for the Constellations and (0.29.0) the Legendary
+// Animals, which follow the same rule.
 struct CressetState {
     bool recorded = false; // Its challenge mission has a record.
     bool done = false; // That record has state 5 (completed).
@@ -441,7 +448,7 @@ struct ShrineState {
 // complete parse, so a failure in one never changes the other's result.
 enum class Pass {
     Bells, // DiscoveredLevelGimmickSceneObjectSaveData._discoveredLevelGimmickSceneObjectSaveDataList
-    Knowledge, // KnowledgeSaveData._list (Greymane Shrines)
+    Knowledge, // KnowledgeSaveData._list (Greymane Shrines; 0.29.0: Treasure Map pieces)
     Field, // FieldSaveData._fieldGimmickSaveDataList (strongboxes, v0.68)
     Artifacts, // The same list, read again for Sealed Abyss Artifacts (v0.88)
     Quests, // QuestSaveData._missionStateList and _questStateList (chest gates, v0.101), _stageStateData (v0.108)
@@ -478,6 +485,12 @@ class Reflection {
     std::array<bool, kChestGateCount + 1> gatesOpen = {}; // v0.101, quest pass (+1: never zero-sized).
     std::array<CressetState, _countof(kCressetLinks)> cressets = {}; // v0.105, quest pass.
     std::array<CressetState, _countof(kConstellationLinks)> constellations = {}; // v0.114, quest pass.
+    std::array<CressetState, _countof(kLegendaryAnimalLinks)> legendaryAnimals = {}; // 0.29.0, quest pass.
+    std::array<bool, _countof(kTreasureMapLinks)> treasureMaps = {}; // 0.29.0, knowledge pass: collected.
+    std::array<bool, _countof(kMemoryFragmentLinks)> memoryFragments = {}; // 0.29.0, knowledge pass: collected.
+    std::array<CressetState, _countof(kSanctumCoreLinks)> sanctumCores = {}; // Quest pass: Witch mission.
+    std::array<ArtifactState, _countof(kKukuPotItemLinks)> kukuPotItems = {}; // Artifact pass: taken.
+    std::array<ArtifactState, _countof(kEggLinks)> eggs = {}; // Artifact pass: taken.
     // v0.108: unique gear collected: reward rows from the quest pass's stage
     // list, ground and quest rows from the field pass.
     std::array<bool, _countof(kUniqueGearLinks)> uniqueGear = {};
@@ -530,6 +543,25 @@ class Reflection {
         }
     }
 
+    // Artifact pass: note one field-object record for a Kuku Pot item. "Taken"
+    // is the exact shape seen in the user's saves for Abyss Cells, Power
+    // Cores (reason 2) and Aeserion Scales (reason 1): the item's own gimmick,
+    // never refills, and its own UUID in the list of objects removed from the
+    // world. Anything else makes the item unknown (hidden), never "not taken".
+    static void NoteKukuPotItemState(ArtifactState& state, const Record& record, uint32_t gimmickKey) {
+        ++state.records;
+        bool removed = std::find(record.disabled.begin(), record.disabled.end(), record.origin)
+            != record.disabled.end();
+        bool studied = record.gimmickKnown && record.gimmickKey == gimmickKey &&
+            record.reasonKnown && (record.reason == 1 || record.reason == kGearReasonPickedUp) &&
+            record.resetKnown && record.reset == kBoxResetNever && removed;
+        if (studied) {
+            state.pickedUp = true;
+        } else {
+            state.unexpected = true;
+        }
+    }
+
     // True for property kinds that are stored as arrays (lists of values).
     bool Array(uint16_t kind) { return kind == 3 || kind == 6 || kind == 7 || kind == 9 || kind == 10; }
 
@@ -574,6 +606,24 @@ class Reflection {
                             constellations[index].done || record.progressState == kProgressCompleted;
                     }
                 }
+                // A Sanctum Core's Sanctum is cleansed when its Witch mission
+                // is completed (missionKey 0 = no mission: nothing to match).
+                for (unsigned index = 0; index < sanctumCores.size(); ++index) {
+                    if (kSanctumCoreLinks[index].missionKey != 0 &&
+                        kSanctumCoreLinks[index].missionKey == record.progressKey) {
+                        sanctumCores[index].recorded = true;
+                        sanctumCores[index].done =
+                            sanctumCores[index].done || record.progressState == kProgressCompleted;
+                    }
+                }
+                // 0.29.0: so is a Legendary Animal's.
+                for (unsigned index = 0; index < legendaryAnimals.size(); ++index) {
+                    if (kLegendaryAnimalLinks[index].missionKey == record.progressKey) {
+                        legendaryAnimals[index].recorded = true;
+                        legendaryAnimals[index].done =
+                            legendaryAnimals[index].done || record.progressState == kProgressCompleted;
+                    }
+                }
             }
             // v0.101: a gate is open when its mission (or quest) record says completed.
             if (!record.progressKeyKnown || record.progressState != kProgressCompleted) {
@@ -594,6 +644,18 @@ class Reflection {
             for (unsigned index = 0; index < _countof(kArtifactLinks); ++index) {
                 if (memcmp(kArtifactLinks[index].uuid, record.origin.data(), sizeof(kArtifactLinks[index].uuid)) == 0) {
                     NoteArtifactState(artifacts[index], record);
+                }
+            }
+            for (unsigned index = 0; index < _countof(kKukuPotItemLinks); ++index) {
+                const auto& link = kKukuPotItemLinks[index];
+                if (memcmp(link.uuid, record.origin.data(), sizeof(link.uuid)) == 0) {
+                    NoteKukuPotItemState(kukuPotItems[index], record, link.gimmickKey);
+                }
+            }
+            for (unsigned index = 0; index < _countof(kEggLinks); ++index) {
+                const auto& link = kEggLinks[index];
+                if (memcmp(link.uuid, record.origin.data(), sizeof(link.uuid)) == 0) {
+                    NoteKukuPotItemState(eggs[index], record, link.gimmickKey);
                 }
             }
             return;
@@ -645,6 +707,21 @@ class Reflection {
                 if (kShrineLinks[index].knowledgeKey == record.knowledgeKey) {
                     shrines[index].seen = true;
                     shrines[index].found |= record.level >= 2;
+                }
+            }
+            // 0.29.0: a Treasure Map piece is collected once its knowledge
+            // entry exists, at any level (the full save has every piece, the
+            // chest copies of pieces 6 and 8 included; research 2026-10-25).
+            for (unsigned index = 0; index < _countof(kTreasureMapLinks); ++index) {
+                if (kTreasureMapLinks[index].knowledgeKey == record.knowledgeKey) {
+                    treasureMaps[index] = true;
+                }
+            }
+            // 0.29.0: a Memory Fragment is collected once its knowledge entry
+            // exists, at any level (missing = not collected).
+            for (unsigned index = 0; index < _countof(kMemoryFragmentLinks); ++index) {
+                if (kMemoryFragmentLinks[index].knowledgeKey == record.knowledgeKey) {
+                    memoryFragments[index] = true;
                 }
             }
             return;
@@ -1003,6 +1080,13 @@ public:
         return shrines;
     }
 
+    // The Treasure Map results of the last knowledge pass (0.29.0; call
+    // after ReadShrines).
+    const auto& TreasureMaps() const { return treasureMaps; }
+    // The Memory Fragment results of the last knowledge pass (0.29.0; call
+    // after ReadShrines).
+    const auto& MemoryFragments() const { return memoryFragments; }
+
     // Parse the decoded save and return what the field-object list says
     // about each field-rule chest (v0.68; other chest rows stay empty).
     auto ReadFieldChests() {
@@ -1017,6 +1101,17 @@ public:
         pass = Pass::Artifacts;
         Parse("FieldSaveData");
         return artifacts;
+    }
+
+    // The Kuku Pot item results of the last artifact pass (call after
+    // ReadArtifacts).
+    const auto& KukuPotItems() const {
+        return kukuPotItems;
+    }
+
+    // The Egg results of the last artifact pass (call after ReadArtifacts).
+    const auto& Eggs() const {
+        return eggs;
     }
 
     // Parse the decoded save and return, per chest gate, whether its mission
@@ -1037,6 +1132,17 @@ public:
     // ReadQuests).
     const auto& Constellations() const {
         return constellations;
+    }
+
+    // The Sanctum Core results of the last quest pass (call after ReadQuests).
+    const auto& SanctumCores() const {
+        return sanctumCores;
+    }
+
+    // The Legendary Animal results of the last quest pass (0.29.0; call
+    // after ReadQuests).
+    const auto& LegendaryAnimals() const {
+        return legendaryAnimals;
     }
 
     // v0.108: unique gear collected: reward rows after ReadQuests, ground
@@ -1347,19 +1453,40 @@ void FillAbyssChests(const States& chests, NativeSaveSummary& summary) {
     }
 }
 
-// Second, independent pass (v0.56): read the Greymane Shrines from the same
-// decoded bytes into `summary`. A failure here leaves shrinesValid false
-// (unknown) with the reason in shrineError; it never throws, so the Bell
-// result already in `summary` is kept as it is.
+// Second, independent pass (v0.56): read the Greymane Shrines (0.29.0: and
+// the Treasure Map pieces) from the same decoded bytes into `summary`. A
+// failure here leaves shrinesValid false (unknown) with the reason in
+// shrineError; it never throws, so the Bell result already in `summary` is
+// kept as it is.
 void FillShrines(const Bytes& plain, NativeSaveSummary& summary) {
     static_assert(_countof(kShrineLinks) <= 32, "Shrine masks hold at most 32 shrines");
+    static_assert(_countof(kTreasureMapLinks) <= 32 * _countof(summary.treasureMapCollectedMask),
+        "The treasure map mask holds at most 256 pieces");
+    summary.treasureMapCoverage = static_cast<unsigned>(_countof(kTreasureMapLinks));
+    static_assert(_countof(kMemoryFragmentLinks) <= 32 * _countof(summary.memoryFragmentCollectedMask),
+        "The Memory Fragment mask holds at most 256 fragments");
+    summary.memoryFragmentCoverage = static_cast<unsigned>(_countof(kMemoryFragmentLinks));
     try {
-        auto shrines = Reflection(plain).ReadShrines();
+        Reflection reflection(plain);
+        auto shrines = reflection.ReadShrines();
         summary.shrineCoverage = static_cast<unsigned>(shrines.size());
         for (unsigned index = 0; index < shrines.size(); ++index) {
             summary.shrinesFound += shrines[index].found ? 1 : 0;
             summary.shrineFoundMask |= shrines[index].found ? 1u << index : 0u;
             summary.shrineSeenMask |= shrines[index].seen ? 1u << index : 0u;
+        }
+        // 0.29.0: Treasure Map pieces: collected = knowledge entry present;
+        // none = not collected yet (the pass read the whole list).
+        const auto& maps = reflection.TreasureMaps();
+        for (unsigned index = 0; index < maps.size(); ++index) {
+            summary.treasureMapsCollected += maps[index] ? 1 : 0;
+            summary.treasureMapCollectedMask[index / 32] |= maps[index] ? 1u << (index % 32) : 0u;
+        }
+        // 0.29.0: Memory Fragments, the same rule as the Treasure Map pieces.
+        const auto& fragments = reflection.MemoryFragments();
+        for (unsigned index = 0; index < fragments.size(); ++index) {
+            summary.memoryFragmentsCollected += fragments[index] ? 1 : 0;
+            summary.memoryFragmentCollectedMask[index / 32] |= fragments[index] ? 1u << (index % 32) : 0u;
         }
         summary.shrinesValid = true;
     } catch (const std::exception& exception) {
@@ -1367,6 +1494,14 @@ void FillShrines(const Bytes& plain, NativeSaveSummary& summary) {
         summary.shrinesFound = 0;
         summary.shrineFoundMask = 0;
         summary.shrineSeenMask = 0;
+        summary.treasureMapsCollected = 0;
+        for (unsigned word = 0; word < _countof(summary.treasureMapCollectedMask); ++word) {
+            summary.treasureMapCollectedMask[word] = 0;
+        }
+        summary.memoryFragmentsCollected = 0;
+        for (unsigned word = 0; word < _countof(summary.memoryFragmentCollectedMask); ++word) {
+            summary.memoryFragmentCollectedMask[word] = 0;
+        }
         strncpy_s(summary.shrineError, exception.what(), _TRUNCATE);
     }
 }
@@ -1379,8 +1514,14 @@ void FillArtifacts(const Bytes& plain, NativeSaveSummary& summary) {
     static_assert(_countof(kArtifactLinks) <= 32 * _countof(summary.artifactPickedUpMask),
         "Artifact masks hold at most 256 artifacts");
     summary.artifactCoverage = static_cast<unsigned>(_countof(kArtifactLinks));
+    static_assert(_countof(kKukuPotItemLinks) <= 32 * _countof(summary.kukuPotItemTakenMask),
+        "The Kuku Pot item masks hold at most 256 items");
+    summary.kukuPotItemCoverage = static_cast<unsigned>(_countof(kKukuPotItemLinks));
+    static_assert(_countof(kEggLinks) <= 32 * _countof(summary.eggTakenMask), "The Egg masks hold at most 256 eggs");
+    summary.eggCoverage = static_cast<unsigned>(_countof(kEggLinks));
     try {
-        auto artifacts = Reflection(plain).ReadArtifacts();
+        Reflection reflection(plain);
+        auto artifacts = reflection.ReadArtifacts();
         for (unsigned index = 0; index < artifacts.size(); ++index) {
             unsigned bit = 1u << (index % 32);
             bool unknown = artifacts[index].unexpected;
@@ -1390,6 +1531,28 @@ void FillArtifacts(const Bytes& plain, NativeSaveSummary& summary) {
             summary.artifactPickedUpMask[index / 32] |= pickedUp ? bit : 0u;
             summary.artifactUnknownMask[index / 32] |= unknown ? bit : 0u;
         }
+        // Kuku Pot items: same parse, same rule shape.
+        const auto& kukuPotItems = reflection.KukuPotItems();
+        for (unsigned index = 0; index < kukuPotItems.size(); ++index) {
+            unsigned bit = 1u << (index % 32);
+            bool unknown = kukuPotItems[index].unexpected;
+            bool taken = !unknown && kukuPotItems[index].pickedUp;
+            summary.kukuPotItemsTaken += taken ? 1 : 0;
+            summary.kukuPotItemsUnknown += unknown ? 1 : 0;
+            summary.kukuPotItemTakenMask[index / 32] |= taken ? bit : 0u;
+            summary.kukuPotItemUnknownMask[index / 32] |= unknown ? bit : 0u;
+        }
+        // Eggs: the same rule again.
+        const auto& eggs = reflection.Eggs();
+        for (unsigned index = 0; index < eggs.size(); ++index) {
+            unsigned bit = 1u << (index % 32);
+            bool unknown = eggs[index].unexpected;
+            bool taken = !unknown && eggs[index].pickedUp;
+            summary.eggsTaken += taken ? 1 : 0;
+            summary.eggsUnknown += unknown ? 1 : 0;
+            summary.eggTakenMask[index / 32] |= taken ? bit : 0u;
+            summary.eggUnknownMask[index / 32] |= unknown ? bit : 0u;
+        }
         summary.artifactsValid = true;
     } catch (const std::exception& exception) {
         summary.artifactsValid = false;
@@ -1398,6 +1561,18 @@ void FillArtifacts(const Bytes& plain, NativeSaveSummary& summary) {
         for (unsigned word = 0; word < _countof(summary.artifactPickedUpMask); ++word) {
             summary.artifactPickedUpMask[word] = 0;
             summary.artifactUnknownMask[word] = 0xFFFFFFFFu;
+        }
+        summary.eggsTaken = 0;
+        summary.eggsUnknown = summary.eggCoverage;
+        for (unsigned word = 0; word < _countof(summary.eggTakenMask); ++word) {
+            summary.eggTakenMask[word] = 0;
+            summary.eggUnknownMask[word] = 0xFFFFFFFFu;
+        }
+        summary.kukuPotItemsTaken = 0;
+        summary.kukuPotItemsUnknown = summary.kukuPotItemCoverage;
+        for (unsigned word = 0; word < _countof(summary.kukuPotItemTakenMask); ++word) {
+            summary.kukuPotItemTakenMask[word] = 0;
+            summary.kukuPotItemUnknownMask[word] = 0xFFFFFFFFu;
         }
         strncpy_s(summary.artifactError, exception.what(), _TRUNCATE);
     }
@@ -1415,6 +1590,12 @@ void FillQuests(const Bytes& plain, NativeSaveSummary& summary) {
     static_assert(_countof(kConstellationLinks) <= 32 * _countof(summary.constellationDoneMask),
         "The constellation masks hold at most 256 constellations");
     summary.constellationCoverage = static_cast<unsigned>(_countof(kConstellationLinks));
+    static_assert(_countof(kLegendaryAnimalLinks) <= 32 * _countof(summary.legendaryAnimalDoneMask),
+        "The Legendary Animal masks hold at most 256 animals");
+    summary.legendaryAnimalCoverage = static_cast<unsigned>(_countof(kLegendaryAnimalLinks));
+    static_assert(_countof(kSanctumCoreLinks) <= 32 * _countof(summary.sanctumCoreDoneMask),
+        "The Sanctum Core masks hold at most 256 cores");
+    summary.sanctumCoreCoverage = static_cast<unsigned>(_countof(kSanctumCoreLinks));
     try {
         Reflection reflection(plain);
         auto gates = reflection.ReadQuests();
@@ -1452,6 +1633,30 @@ void FillQuests(const Bytes& plain, NativeSaveSummary& summary) {
             summary.constellationDoneMask[index / 32] |= done ? bit : 0u;
             summary.constellationUnknownMask[index / 32] |= unknown ? bit : 0u;
         }
+        // 0.29.0: Legendary Animals: the same rule as the cressets.
+        const auto& animals = reflection.LegendaryAnimals();
+        for (unsigned index = 0; index < animals.size(); ++index) {
+            unsigned bit = 1u << (index % 32);
+            bool unknown = !animals[index].recorded;
+            bool done = !unknown && animals[index].done;
+            summary.legendaryAnimalsDone += done ? 1 : 0;
+            summary.legendaryAnimalsUnknown += unknown ? 1 : 0;
+            summary.legendaryAnimalDoneMask[index / 32] |= done ? bit : 0u;
+            summary.legendaryAnimalUnknownMask[index / 32] |= unknown ? bit : 0u;
+        }
+        // Sanctum Cores: the cressets' rule on the Witch missions; a Sanctum
+        // with no mission (missionKey 0) is neither done nor unknown.
+        const auto& cores = reflection.SanctumCores();
+        for (unsigned index = 0; index < cores.size(); ++index) {
+            unsigned bit = 1u << (index % 32);
+            bool ruled = kSanctumCoreLinks[index].missionKey != 0;
+            bool unknown = ruled && !cores[index].recorded;
+            bool done = ruled && !unknown && cores[index].done;
+            summary.sanctumCoresDone += done ? 1 : 0;
+            summary.sanctumCoresUnknown += unknown ? 1 : 0;
+            summary.sanctumCoreDoneMask[index / 32] |= done ? bit : 0u;
+            summary.sanctumCoreUnknownMask[index / 32] |= unknown ? bit : 0u;
+        }
         // v0.108: reward unique gear: collected = its stage completed; no
         // stage list in the save = unknown.
         bool stagesKnown = reflection.StageListVisited();
@@ -1477,6 +1682,18 @@ void FillQuests(const Bytes& plain, NativeSaveSummary& summary) {
         for (unsigned word = 0; word < _countof(summary.constellationDoneMask); ++word) {
             summary.constellationDoneMask[word] = 0;
             summary.constellationUnknownMask[word] = 0xFFFFFFFFu;
+        }
+        summary.sanctumCoresDone = 0;
+        summary.sanctumCoresUnknown = summary.sanctumCoreCoverage;
+        for (unsigned word = 0; word < _countof(summary.sanctumCoreDoneMask); ++word) {
+            summary.sanctumCoreDoneMask[word] = 0;
+            summary.sanctumCoreUnknownMask[word] = 0xFFFFFFFFu;
+        }
+        summary.legendaryAnimalsDone = 0;
+        summary.legendaryAnimalsUnknown = summary.legendaryAnimalCoverage;
+        for (unsigned word = 0; word < _countof(summary.legendaryAnimalDoneMask); ++word) {
+            summary.legendaryAnimalDoneMask[word] = 0;
+            summary.legendaryAnimalUnknownMask[word] = 0xFFFFFFFFu;
         }
         // v0.108: reward unique gear unknown too (ground rows keep their field result).
         for (unsigned index = 0; index < _countof(kUniqueGearLinks); ++index) {

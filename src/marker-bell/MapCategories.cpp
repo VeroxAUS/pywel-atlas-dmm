@@ -73,6 +73,24 @@ const char* MarkerName(unsigned category, unsigned index) {
     if (category == kConstellationCategory) {
         return kConstellationLinks[index].name;
     }
+    if (category == kTreasureMapCategory) {
+        return kTreasureMapLinks[index].name;
+    }
+    if (category == kLegendaryAnimalCategory) {
+        return kLegendaryAnimalLinks[index].name;
+    }
+    if (category == kMemoryFragmentCategory) {
+        return kMemoryFragmentLinks[index].name;
+    }
+    if (category == kSanctumCoreCategory) {
+        return kSanctumCoreLinks[index].name;
+    }
+    if (category == kKukuPotItemCategory) {
+        return kKukuPotItemLinks[index].name;
+    }
+    if (category == kEggCategory) {
+        return kEggLinks[index].name;
+    }
     return category == kShrineCategory ? kShrineLinks[index].name : kChestLinks[index].name;
 }
 
@@ -101,6 +119,24 @@ const float* MarkerPosition(unsigned category, unsigned index) {
     }
     if (category == kConstellationCategory) {
         return kConstellationLinks[index].position;
+    }
+    if (category == kTreasureMapCategory) {
+        return kTreasureMapLinks[index].position;
+    }
+    if (category == kLegendaryAnimalCategory) {
+        return kLegendaryAnimalLinks[index].position;
+    }
+    if (category == kMemoryFragmentCategory) {
+        return kMemoryFragmentLinks[index].position;
+    }
+    if (category == kSanctumCoreCategory) {
+        return kSanctumCoreLinks[index].position;
+    }
+    if (category == kKukuPotItemCategory) {
+        return kKukuPotItemLinks[index].position;
+    }
+    if (category == kEggCategory) {
+        return kEggLinks[index].position;
     }
     return category == kShrineCategory ? kShrineLinks[index].position : kChestLinks[index].position;
 }

@@ -621,6 +621,8 @@ void CreateImGuiOnce() {
 
 // Builds all drawing resources for `swapchain` (created with `queue`).
 // Returns false (and frees what was made) if anything fails.
+void LogGraphics(); // 0.29.0, below: the graphics line for the player log.
+
 bool CreateRenderer(void* swapchain, const KnownSwapchain& entry) {
     IDXGISwapChain3* swapchain3 = nullptr;
     if (FAILED(static_cast<IUnknown*>(swapchain)->QueryInterface(__uuidof(IDXGISwapChain3),
@@ -704,7 +706,40 @@ bool CreateRenderer(void* swapchain, const KnownSwapchain& entry) {
         reinterpret_cast<unsigned long long>(swapchain), renderer.width, renderer.height,
         static_cast<int>(renderer.format), renderer.bufferCount, static_cast<int>(renderer.colorSpace),
         reinterpret_cast<unsigned long long>(renderer.queue));
+    LogGraphics();
     return true;
+}
+
+// 0.29.0: the graphics card and screen for the player log, once per
+// change of size or format (not every swapchain rebuild).
+void LogGraphics() {
+    static UINT loggedWidth = 0;
+    static UINT loggedHeight = 0;
+    static DXGI_FORMAT loggedFormat = DXGI_FORMAT_UNKNOWN;
+    if (renderer.width == loggedWidth && renderer.height == loggedHeight && renderer.format == loggedFormat) {
+        return;
+    }
+    loggedWidth = renderer.width;
+    loggedHeight = renderer.height;
+    loggedFormat = renderer.format;
+    char adapterName[128] = "unknown graphics card";
+    IDXGIFactory4* factory = nullptr;
+    if (renderer.device && SUCCEEDED(CreateDXGIFactory1(__uuidof(IDXGIFactory4), reinterpret_cast<void**>(&factory)))) {
+        IDXGIAdapter1* adapter = nullptr;
+        DXGI_ADAPTER_DESC1 description = {};
+        if (SUCCEEDED(factory->EnumAdapterByLuid(renderer.device->GetAdapterLuid(), __uuidof(IDXGIAdapter1),
+                reinterpret_cast<void**>(&adapter))) && SUCCEEDED(adapter->GetDesc1(&description))) {
+            sprintf_s(adapterName, "%ls (%llu MB video memory)", description.Description,
+                static_cast<unsigned long long>(description.DedicatedVideoMemory / (1024 * 1024)));
+        }
+        if (adapter) {
+            adapter->Release();
+        }
+        factory->Release();
+    }
+    PywelReleaseLog("Graphics: %s; game screen %ux%u, format %d, colour space %d, %u buffers", adapterName,
+        renderer.width, renderer.height, static_cast<int>(renderer.format), static_cast<int>(renderer.colorSpace),
+        renderer.bufferCount);
 }
 
 // Takes references to the back buffers and makes a render-target view for each.
@@ -1853,6 +1888,35 @@ void BuildFiltersTab() {
     }
 }
 
+// 0.29.0: the Support tab: versions, the bug report and the log folder.
+void BuildSupportTab() {
+    ImGui::Text("Pywel Atlas %s", PywelReleaseVersion());
+    ImGui::TextDisabled("Game: %s", PywelReleaseGameVersion());
+    ImGui::Spacing();
+    ImGui::TextWrapped("Something wrong? Create a bug report and attach the file it makes to your report on "
+                       "Nexus. It holds Pywel Atlas's logs and settings, never your saves.");
+    if (ImGui::Button("Create bug report")) {
+        PywelReleaseCreateBugReport();
+        Note("bug report requested");
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Open log folder")) {
+        PywelReleaseOpenLogFolder();
+    }
+    char status[160];
+    PywelReleaseBugReportStatus(status, sizeof(status));
+    if (status[0]) {
+        ImGui::TextDisabled("%s", status);
+    }
+    ImGui::Spacing();
+    bool detailed = PywelReleaseDetailed();
+    if (ImGui::Checkbox("Detailed log", &detailed)) {
+        PywelSetReleaseDetailed(detailed);
+    }
+    ImGui::SetItemTooltip("Writes much more to pywel-atlas.log, for tracking down a hard bug. "
+                          "Turns itself off when the game restarts.");
+}
+
 // v0.123: the panel's tabs, left to right. Each row is the tab's name and
 // the function that draws its contents. To add a tab, write its function
 // and add one row here; nothing else needs to change.
@@ -1865,6 +1929,7 @@ const PanelTab kPanelTabs[] = {
     {"Route", PywelRouteBuildPanelSection},    // v0.104, RouteOverlay.cpp.
     {"Completion", BuildCompletionSection},    // v0.110.
     {"Hotkeys", BuildKeysSection},             // v0.119.
+    {"Support", BuildSupportTab},              // 0.29.0.
 };
 
 // The panel's contents (v0.64 behaviour, v0.65 layout; v0.123: tabs).
@@ -2489,7 +2554,9 @@ HRESULT STDMETHODCALLTYPE ObserveCreateSwapChainForHwnd(IDXGIFactory2* factory, 
 // ---------------------------------------------------------------------------
 
 // Append one line to filter-panel.log (worker thread only).
+// 0.29.1: with Detailed log on, also to pywel-atlas.log (ReleaseLog.h).
 void Log(const char* line) {
+    PywelReleaseDetail("panel", line);
     if (logFile == INVALID_HANDLE_VALUE) {
         return;
     }
@@ -2673,7 +2740,7 @@ DWORD WINAPI Run(void* address) {
 #endif
 #ifdef PYWEL_ATLAS_DEV
     // The version and change list (development builds only, v0.129).
-    Log("Pywel Atlas combined 0.28.0 filter panel (v0.133: Route tab: the Look choice removed, at most 10 stops; v0.131: no panel change (route fix only); v0.130: no panel change (route only); v0.129: no panel change (release build without debug tools: cursor diagnostics and this log only in development builds); v0.127: panel log notes cut short instead of stopping the game when too long; v0.126: no panel change (height arrows); v0.125: tabs, slider and list highlights in the panel's bronze and gold; choosing another tab cancels a key wait; v0.124: Route tab: Look Painted / Plain for the world map line; v0.123: panel split into tabs (Filters, Route, Completion, Hotkeys), one table row per tab; v0.122: no panel change (map code split into files); v0.121: no panel change (route line on its own canvases); v0.120: no panel change (map markers share one zoom size curve); v0.119: Keys section, every mod key rebindable, saved in keybinds.ini; v0.118: no panel change (route line fixes only); v0.117: no panel change (map markers load all at once); v0.116: completion widget default place centred above the minimap's date and area lines; v0.115: route Line style covers both maps, Crimson Route look; v0.114: Constellations row; v0.113: completion widget details grow upward when low on screen, default place above a low minimap, kept on screen; v0.111: Route section Line style (game canvas / overlay), road-following route lines; v0.110: completion tracker: Completion section and always-on region widget, Shift+F9 switches its details; v0.108: Unique gear row; v0.107: route stop dots, world-map route hidden while a knowledge card is open; Abyss Cressets row; Route section and route line overlay, drawn while a map is visible even with the panel closed; quest-locked count on the Abyss chest row; Abyss-island Nexus row; Sealed Abyss Artifacts row; Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui " IMGUI_VERSION);
+    Log("Pywel Atlas combined 0.29.1 filter panel (v0.133: Route tab: the Look choice removed, at most 10 stops; v0.131: no panel change (route fix only); v0.130: no panel change (route only); v0.129: no panel change (release build without debug tools: cursor diagnostics and this log only in development builds); v0.127: panel log notes cut short instead of stopping the game when too long; v0.126: no panel change (height arrows); v0.125: tabs, slider and list highlights in the panel's bronze and gold; choosing another tab cancels a key wait; v0.124: Route tab: Look Painted / Plain for the world map line; v0.123: panel split into tabs (Filters, Route, Completion, Hotkeys), one table row per tab; v0.122: no panel change (map code split into files); v0.121: no panel change (route line on its own canvases); v0.120: no panel change (map markers share one zoom size curve); v0.119: Keys section, every mod key rebindable, saved in keybinds.ini; v0.118: no panel change (route line fixes only); v0.117: no panel change (map markers load all at once); v0.116: completion widget default place centred above the minimap's date and area lines; v0.115: route Line style covers both maps, Crimson Route look; v0.114: Constellations row; v0.113: completion widget details grow upward when low on screen, default place above a low minimap, kept on screen; v0.111: Route section Line style (game canvas / overlay), road-following route lines; v0.110: completion tracker: Completion section and always-on region widget, Shift+F9 switches its details; v0.108: Unique gear row; v0.107: route stop dots, world-map route hidden while a knowledge card is open; Abyss Cressets row; Route section and route line overlay, drawn while a map is visible even with the panel closed; quest-locked count on the Abyss chest row; Abyss-island Nexus row; Sealed Abyss Artifacts row; Abyss Nexus row; shrine add-on notice; Abyss chests row; panel cursor only while the game hides its own, settled over 250 ms; cursor log line each second while open, and on change while closed; switches marker categories, saved in filters.ini; game-matching look, X button, width-only resize scales everything) - F9 opens/closes, Esc closes; hooks only Windows' dxgi.dll; Dear ImGui " IMGUI_VERSION);
 #endif
     // (MinHook was initialized once by PywelAtlas.cpp before this part started.)
     if (!InstallFactoryHooks()) {
